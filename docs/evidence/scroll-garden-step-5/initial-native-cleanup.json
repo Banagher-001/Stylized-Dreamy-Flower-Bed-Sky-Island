@@ -1,0 +1,6 @@
+{
+  "pageAssertionsPassed": true,
+  "harnessExit": 1,
+  "cleanupError": "OSError: [Errno 39] Directory not empty during TemporaryDirectory cleanup after Chromium termination.",
+  "resolution": "Close the owned browser through CDP before waiting and cleaning up its private profile, with bounded cleanup retries."
+}

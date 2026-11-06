@@ -1,0 +1,321 @@
+{
+  "step": 6,
+  "status": "design-sample exhibition and mechanisms implemented; stopped at user review gate; real works remain pending",
+  "recordedAtUtc": "2026-11-05T09:17:39.633785+00:00",
+  "entryQuery": "?tour=prototype",
+  "userReview": "awaiting visual review",
+  "materialStatus": "material-status.json",
+  "scope": {
+    "secondPillar": [
+      "B1 main concept poster",
+      "B2 same-source concept slices, not production boards",
+      "B3 landscape/portrait diptych",
+      "B4 chapter closing"
+    ],
+    "truePersonalFilmIntegrated": false,
+    "playerMechanismVerifiedWithIsolatedFixture": true,
+    "realFilmFramesResponsibilitiesAndIndex": "pending owner material"
+  },
+  "build": {
+    "command": "npm run build",
+    "strictTypecheck": "passed",
+    "productionBuild": "passed",
+    "distFiles": 16,
+    "runtimeSourcesOlderThanBuild": true,
+    "distSha256": {
+      "dist/assets/courtyard-keyframe-00-Dnvt_afN.png": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46",
+      "dist/assets/courtyard-keyframe-03-BpIvPl5V.png": "b6356c57d768eea3a06483e460d025e4066e79dbff8a46896eb55b9ad110617a",
+      "dist/assets/courtyard-motion-7fR7fsF8.mp4": "70d6128b6385c8f0da201112ce4fb1c99f25dccce98b6f705c094321a56a0b8c",
+      "dist/assets/courtyard-o3Fn-aDY.png": "802e0b8aff55e59042d6ab45085d00a0a4ae758aad56174f07a94f5ccae4fe5a",
+      "dist/assets/createAnimationController-DHdOecke.js": "d4ac8aebff95bfc1cd88d5dbfd0a8c3d2179c9211cde85306e23a03a0921aaf5",
+      "dist/assets/index-B5-UwPAe.css": "b3a0cb62aac1eafb4fee5694c90793f40cb1244003b437dd7baa48f916376162",
+      "dist/assets/index-CYqFdlgd.js": "e4d740d0332523b6d5288726f36c46faa221cbad6bdfdc7631fe3f3bdbfcb391",
+      "dist/assets/liquid-form-Yl5oqdSL.webp": "4affe046c4973f091c79e1a67c923fd3a8b7ab8490596331cfd36e9b766285cc",
+      "dist/assets/signal-garden-CbiDrnMk.webp": "1ccb2af6cf90ab0169cf96fa6a69404af74ac5d5424be0f4283e6ce907a5620e",
+      "dist/assets/startPortfolio-O-Emq59a.js": "e8964ca72cdd25089a40fc4437e293eb9386d125c3df74c7249076ddbd84162a",
+      "dist/assets/startTourPrototype-DPrIsacv.js": "6340579ee88d8c9efc795df11d074f98348ce766a46225bbceaab2983cec87d8",
+      "dist/assets/startTourPrototype-DYQUvAQJ.css": "dcc9fe8310dccbfffa0465eb1e5625f14eb5cc832af47cb061fd8e2636d63a9d",
+      "dist/assets/three-core-fF3eFWvM.js": "83334c66a6d7ff393f0b3dd10b69504bbe233341dd3e056ea36c2e7ae6d65b4f",
+      "dist/assets/three-renderer-S3hHllWn.js": "a77749c4e70a38af65467088dc5d355d32513d99942cf10b15a711dd938d1403",
+      "dist/favicon.svg": "d9d37a32183e292ee556ff3918235bdec02cdf7f0405d51972b96471e62d33a8",
+      "dist/index.html": "aa48066cde21517400b03db2ebf71ba6e5c6d15b5632621926c70a64686ba81a"
+    }
+  },
+  "fileProtection": {
+    "baseline": "protected-baseline-sha256.json",
+    "baselineExistingFiles": 860,
+    "protectedExistingNonDistFiles": 835,
+    "allProtectedFilesByteIdentical": true,
+    "allowedExistingChanges": [
+      "README.md",
+      "docs/scroll-garden/README.md",
+      "docs/scroll-garden/step-6-standard.md",
+      "src/tour/createPillarAppearance.ts",
+      "src/tour/createPillarMagic.ts",
+      "src/tour/magicStyle.ts",
+      "src/tour/route.ts",
+      "src/tour/startTourPrototype.ts",
+      "tests/scroll-garden/README.md"
+    ],
+    "changedExisting": [
+      "README.md",
+      "dist/index.html",
+      "docs/scroll-garden/README.md",
+      "docs/scroll-garden/step-6-standard.md",
+      "src/tour/createPillarAppearance.ts",
+      "src/tour/createPillarMagic.ts",
+      "src/tour/startTourPrototype.ts",
+      "src/tour/route.ts",
+      "src/tour/magicStyle.ts",
+      "tests/scroll-garden/README.md"
+    ],
+    "removedExisting": [
+      "dist/assets/startTourPrototype-D0dmso7z.js",
+      "dist/assets/three-core-Da-Qjtyq.js",
+      "dist/assets/three-renderer-D9YOmJJ0.js",
+      "dist/assets/startTourPrototype-C4IVh_uo.css",
+      "dist/assets/index-B-vAtnFv.js",
+      "dist/assets/createAnimationController-DJKzvZVm.js",
+      "dist/assets/startPortfolio-lSTo7Wtz.js"
+    ],
+    "newRuntimeFiles": [
+      "src/tour/filmReading.ts",
+      "src/tour/filmContent.ts",
+      "src/tour/createMediaViewer.ts",
+      "src/tour/createFilmReader.ts",
+      "src/tour/film.css"
+    ],
+    "runtimeSha256": {
+      "src/tour/createPillarAppearance.ts": "5926d1ae964318cc65042e612fc20cfde37a5fb9523c93f1550358632f379940",
+      "src/tour/createPillarMagic.ts": "6b53135d76089f18cb8cec7d4cc64e6b86135fee0255cafb7a4857296951c809",
+      "src/tour/startTourPrototype.ts": "0a559b865d3c7156e66abaf301e69630e7fef0c6dca7c72a757844e188b37be4",
+      "src/tour/route.ts": "b6fd3568dbc2b57264813ea099d49cfbe8010bc95dbdb91e847bc86736efd3b8",
+      "src/tour/magicStyle.ts": "3a96a28946356394d40dabdcb3aed0671e3e3f3be9971e604702b79d7183f73d",
+      "src/tour/filmReading.ts": "ef4c3d70c0411a24ab1e48408db96d72d591b474ea8dcee7b7fdea2c3087abf1",
+      "src/tour/filmContent.ts": "2998fc7a9d3aa71121da172917ac4ba3dbd0274e8476e32732b37e1d68bdec32",
+      "src/tour/createMediaViewer.ts": "0f9782cb8339a264a31a4366f7034e3c82590da508e660574a9a7a22004bce6c",
+      "src/tour/createFilmReader.ts": "46069e93ad6121c43ad4c51ec82537ef4d4cf043a788298c93bab0969dfd5e8a",
+      "src/tour/film.css": "3a244a08815c78fb3176ce17d3d3aa328e97e454ac26b6b572e19a30d194ea7f"
+    },
+    "firstPillarContentCoordinatesReaderAndStylesUnchanged": true,
+    "originalSceneMediaDependenciesPriorEvidenceAndReleaseArchivesUnchanged": true,
+    "defaultReference": {
+      "pixel": {
+        "pixelsExact": true,
+        "size": [
+          680,
+          680
+        ]
+      },
+      "native": {
+        "pixelsExact": true,
+        "size": [
+          680,
+          680
+        ]
+      }
+    },
+    "firstPillarVisualComparison": {
+      "desktopAndNativeExactImages": 9,
+      "portraitImagesNotPixelExact": 3,
+      "portraitMaximumChannelDifference": 1,
+      "cameraAndPresentationExact": true,
+      "rawEvidence": "first-pillar-pixel-protection.json"
+    }
+  },
+  "verification": {
+    "totalGroups": 118,
+    "secondPillarGroups": 51,
+    "firstPillarRegressionGroups": 52,
+    "isolatedPlayerGroups": 15,
+    "allPassed": true,
+    "normalSceneUnexpectedDiagnostics": 0,
+    "engines": {
+      "chromium": {
+        "version": "155.0.8059.79",
+        "secondPillarGroups": 17,
+        "aboutGroups": 18,
+        "playerGroups": 5,
+        "knownSecondPillarDiagnostics": 0,
+        "knownAboutDiagnostics": 0
+      },
+      "firefox": {
+        "version": "153.0",
+        "secondPillarGroups": 17,
+        "aboutGroups": 17,
+        "playerGroups": 5,
+        "knownSecondPillarDiagnostics": 5,
+        "knownAboutDiagnostics": 5
+      },
+      "webkit": {
+        "version": "26.5",
+        "secondPillarGroups": 17,
+        "aboutGroups": 17,
+        "playerGroups": 5,
+        "knownSecondPillarDiagnostics": 0,
+        "knownAboutDiagnostics": 0
+      }
+    },
+    "minimumExhibitionTextContrastRatio": 7.83653162980629,
+    "environment": "Linux software graphics; simulated phone; GTK WebKit is not Apple Safari; no hardware FPS acceptance"
+  },
+  "geometry": {
+    "routeSamples": 3003,
+    "filmViewRays": 12,
+    "filmPlateauSamples": 60,
+    "monotonicDescentSamples": 1001,
+    "shaftBindings": 14,
+    "safeFilmAnchors": 4,
+    "originalBuffersTransformsAndInstancesUnchanged": true,
+    "priorKeyPosesRetained": true,
+    "timelineH": 12.3,
+    "stages": 16,
+    "b4ToT23Continuous": true,
+    "ownedCleanupPass": true,
+    "evidence": "geometry-isolation.json"
+  },
+  "recovery": {
+    "actualDocumentHiddenObserved": true,
+    "pausedSceneTimeAndPixelsExact": true,
+    "descendingContextH": 6.3,
+    "descendingContextStateAndPixelsExact": true,
+    "imageDialogRetainsOpenStateAcrossTabHide": true,
+    "videoPausesOnRealHideAndRemainsPausedOnReturn": true,
+    "realFilmIntegrated": false,
+    "evidence": "native-recovery.json",
+    "calibration": "calibration-notes.json"
+  },
+  "fallback": {
+    "fontFallbackLayouts": 12,
+    "noWebGLPass": true,
+    "disabledGraphControls": 15,
+    "imageFailureHintUnclipped": true,
+    "imageRetryAndProgressRecoveryPass": true
+  },
+  "resources": {
+    "priorSteady": {
+      "geometries": 54,
+      "textures": 4,
+      "programs": 10
+    },
+    "currentSteady": {
+      "geometries": 56,
+      "textures": 5,
+      "programs": 10
+    },
+    "increment": {
+      "geometries": 2,
+      "textures": 1,
+      "programs": 0
+    },
+    "fullyWarmedProgramCaches": {
+      "decorationUnavailable": [
+        9,
+        16,
+        16
+      ],
+      "normal": [
+        10,
+        18,
+        18
+      ]
+    },
+    "tourAndImageCycles": 10,
+    "documentNodesStable": 196,
+    "activeVideosAfterClose": 0,
+    "settledPauseStopsDrawing": true,
+    "browserMediaMemoryNotInRendererInfo": true
+  },
+  "performance": {
+    "method": "same browser, viewport and 30 native wheel stops; no screenshots during measurement",
+    "matchedRuns": {
+      "before": {
+        "samples": 30,
+        "p95Ms": 216.39999999850988,
+        "maxMs": 226.60000000149012,
+        "evidence": "latency-before.json"
+      },
+      "after": {
+        "samples": 30,
+        "p95Ms": 231.60000000149012,
+        "maxMs": 246,
+        "evidence": "latency-after.json"
+      }
+    },
+    "p95RelativeChangePercent": 7.0240295762869165,
+    "withinRelativeBudget": true,
+    "beforeAndAfterSourceHashesMatch": true,
+    "allMatchedRawSamplesRetained": true,
+    "integrationAggregates": {
+      "chromium": {
+        "samples": 159,
+        "p95Ms": 235.69999999925494,
+        "maxMs": 584.3999999985099,
+        "hardwareFPSProof": false
+      },
+      "firefox": {
+        "samples": 119,
+        "p95Ms": 162,
+        "maxMs": 174,
+        "hardwareFPSProof": false
+      },
+      "webkit": {
+        "samples": 119,
+        "p95Ms": 191,
+        "maxMs": 223,
+        "hardwareFPSProof": false
+      }
+    },
+    "earlierIntegrationAggregates": "calibration-integration-latency.json",
+    "retainedObservedIntegrationPeakMs": 584.4,
+    "limitations": "Matched p95 remains above approximate 200ms target. Cloud integration peak 584.4ms retained separately; no guarantee each stop under 200ms or physical input/display latency and hardware FPS."
+  },
+  "recording": {
+    "nativeWheelStops": 14,
+    "bothDirections": true,
+    "actualImageOpenClose": true,
+    "fixedEnvironmentTime": 2,
+    "convertedVideo": {
+      "file": "film-reading-demo.mp4",
+      "sha256": "38cfb4f49334c41f884b81aeebf4b8ac78e05816c94b9cc7ddad581dfbb492a2",
+      "durationSeconds": 53.0,
+      "sizeBytes": 5452435,
+      "codec": "h264",
+      "width": 1280,
+      "height": 800,
+      "encodingFrameRate": "25/1",
+      "hardwareFPSProof": false,
+      "timing": "original actual browser recording timing; encoding rate is not display FPS",
+      "webmSha256": "0d244d69b621cc3b6540ac80d39fb7bc89f1aaeb7e7052ec2a5e5cc5d331fdc8"
+    },
+    "notHardwareFPSProof": true
+  },
+  "remainingLimits": [
+    "Real personal film, corresponding production frames/responsibilities and real catalog remain pending.",
+    "Portrait first-pillar DOM layer differs by at most 1/255 per channel despite equal camera/presentation; raw comparisons retained.",
+    "Short landscape, complete static mobile chapters and 200% text enlargement remain later adaptation.",
+    "Real phone, touchpad/APZ, Apple Safari and physical GPU performance require device review.",
+    "Firefox retains known depth/context/scroll-linked diagnostics; intentional missing-media errors are separate."
+  ],
+  "delivery": {
+    "savedInWorkspace": true,
+    "published": false,
+    "deployed": false,
+    "gitCommitted": false,
+    "gitPushed": false,
+    "seventhStepStarted": false,
+    "pendingSteps": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "documentation": {
+    "filesChecked": 7,
+    "localLinksChecked": 120,
+    "brokenLinks": []
+  }
+}

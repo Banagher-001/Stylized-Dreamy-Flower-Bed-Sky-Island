@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1180" viewBox="0 0 1240 1180" role="img" aria-labelledby="title desc">
+<title id="title">sakan 三柱滚动庭院：第一步路线与阅读站点设计</title>
+<desc id="desc">上方左侧为水潭和三柱的俯视阅读顺序，右侧为总计12.3个视口高度的滚动预算；下方为三根柱子3、4、3个阅读高度。所有位置仅为设计分镜，并非已实现镜头。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#58664F" stroke-width="1.2"/></marker></defs>
+<style>text{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#2E4336}.small{font-size:12px;fill:#58664F}.label{font-size:14px}.title{font-size:19px;font-weight:500}.light{fill:#F4F3DD}.mono{font-family:monospace}</style>
+<rect width="1240" height="1180" fill="#F7F7EF"/>
+<text x="32" y="44" class="title">sakan / 三柱滚动叙事庭院</text>
+<text x="32" y="75" class="small">STEP 01 · 设计分镜示意 · 未接入网页</text>
+<text x="1208" y="44" class="small" text-anchor="end">16 个滚动段 / 10 个阅读位置</text>
+<text x="1208" y="75" class="small" text-anchor="end">配色为设计示意，光效与镜头需后续样板验证</text>
+<rect x="30" y="105" width="660" height="510" rx="4" fill="#F0F2E7" stroke="#DDE2D1"/>
+<rect x="710" y="105" width="500" height="510" rx="4" fill="#F7F7EF" stroke="#DDE2D1"/>
+<text x="50" y="137" class="title">01 俯视阅读路线</text>
+<text x="50" y="160" class="small">对象中心沿用当前场景坐标；箭头仅表达章节顺序</text>
+<polygon points="444.00,320.00 410.61,400.61 330.00,434.00 249.39,400.61 216.00,320.00 249.39,239.39 330.00,206.00 410.61,239.39" fill="#B8D7E5" stroke="#DFD8B7" stroke-width="10"/>
+<circle cx="330" cy="320" r="20" fill="#E7F4F3" stroke="#7FA3BF" stroke-width="2"/>
+<text x="330" y="366" class="label" text-anchor="middle">中央水潭</text>
+<text x="330" y="388" class="small" text-anchor="middle">开场 / 回访 / 收束</text>
+<path d="M318 279 Q280 238 231 212" fill="none" stroke="#58664F" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<path d="M240 187 C325 128 463 173 503 256" fill="none" stroke="#58664F" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<path d="M529 293 C577 376 544 464 467 522" fill="none" stroke="#58664F" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<path d="M441 522 Q359 464 333 411" fill="none" stroke="#58664F" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<rect x="208.22" y="179.3" width="32" height="32" rx="2" fill="#30494C" stroke="#E4DCB7"/>
+<text x="224.22" y="200.3" class="label light" text-anchor="middle">01</text>
+<text x="185" y="227" class="label" text-anchor="end">01 关于我</text>
+<text x="185" y="248" class="small" text-anchor="end">3 个阅读位置</text>
+<rect x="498.47" y="261" width="32" height="32" rx="2" fill="#30494C" stroke="#E4DCB7"/>
+<text x="514.47" y="282" class="label light" text-anchor="middle">02</text>
+<text x="546.47" y="270" class="label">02 AI 影像</text>
+<text x="546.47" y="291" class="small">4 个阅读位置</text>
+<rect x="436.12" y="522.87" width="32" height="32" rx="2" fill="#30494C" stroke="#E4DCB7"/>
+<text x="452.12" y="543.87" class="label light" text-anchor="middle">03</text>
+<text x="482.12" y="538.87" class="label">03 交互实验</text>
+<text x="482.12" y="559.87" class="small">3 个阅读位置</text>
+<text x="50" y="591" class="small">摄像机真实坐标、遮挡与碰撞在第 2 步校准。</text>
+<text x="732" y="137" class="title">02 滚动节奏 / 12.3H</text>
+<text x="732" y="160" class="small">H = 一个稳定可视高度；预算是原型初值</text>
+<text x="732" y="214" class="small">开场全景</text>
+<rect x="875" y="197" width="36.11111111111111" height="22" rx="2" fill="#B8D7E5"/>
+<text x="1186" y="214" class="small" text-anchor="end">0.5H</text>
+<text x="732" y="254" class="small">靠近第一柱</text>
+<rect x="875" y="237" width="57.77777777777778" height="22" rx="2" fill="#DDE2D1"/>
+<text x="1186" y="254" class="small" text-anchor="end">0.8H</text>
+<text x="732" y="294" class="small">关于我 / 3 段</text>
+<rect x="875" y="277" width="173.33333333333334" height="22" rx="2" fill="#C8DF8A"/>
+<text x="1186" y="294" class="small" text-anchor="end">2.4H</text>
+<text x="732" y="334" class="small">转向第二柱</text>
+<rect x="875" y="317" width="50.55555555555556" height="22" rx="2" fill="#DDE2D1"/>
+<text x="1186" y="334" class="small" text-anchor="end">0.7H</text>
+<text x="732" y="374" class="small">AI 影像 / 4 段</text>
+<rect x="875" y="357" width="260.0" height="22" rx="2" fill="#DBAAE9"/>
+<text x="1186" y="374" class="small" text-anchor="end">3.6H</text>
+<text x="732" y="414" class="small">转向第三柱</text>
+<rect x="875" y="397" width="50.55555555555556" height="22" rx="2" fill="#DDE2D1"/>
+<text x="1186" y="414" class="small" text-anchor="end">0.7H</text>
+<text x="732" y="454" class="small">交互实验 / 3 段</text>
+<rect x="875" y="437" width="173.33333333333334" height="22" rx="2" fill="#9DB7A3"/>
+<text x="1186" y="454" class="small" text-anchor="end">2.4H</text>
+<text x="732" y="494" class="small">回到水潭</text>
+<rect x="875" y="477" width="50.55555555555556" height="22" rx="2" fill="#B8D7E5"/>
+<text x="1186" y="494" class="small" text-anchor="end">0.7H</text>
+<text x="732" y="534" class="small">全景收束</text>
+<rect x="875" y="517" width="36.11111111111111" height="22" rx="2" fill="#DDE2D1"/>
+<text x="1186" y="534" class="small" text-anchor="end">0.5H</text>
+<text x="732" y="591" class="small">阅读占 8.4H；开场、转场与收束占 3.9H。</text>
+<rect x="30" y="635" width="1180" height="490" rx="4" fill="#F7F7EF" stroke="#DDE2D1"/>
+<text x="50" y="670" class="title">03 柱身阅读站点</text>
+<text x="50" y="696" class="small">标注数字为柱轴线世界 Y；不是相机高度，也不是最终贴面文字坐标。柱高 3.47，柱身有效区间 0.18～3.23。</text>
+<text x="90" y="739" class="title">01 / 关于我</text>
+<rect x="111" y="759.3399999999999" width="80" height="18.72" rx="2" fill="#E4DCB7" stroke="#C7CDBA"/>
+<rect x="120" y="778.06" width="62" height="237.89999999999998" rx="0" fill="#30494C"/>
+<rect x="105" y="1015.96" width="92" height="14.04" rx="2" fill="#D6D8C3" stroke="#C7CDBA"/>
+<line x1="120" y1="1015.96" x2="182" y2="1015.96" stroke="#587070" stroke-width="1"/>
+<line x1="120" y1="952" x2="182" y2="952" stroke="#587070" stroke-width="1"/>
+<line x1="120" y1="889.6" x2="182" y2="889.6" stroke="#587070" stroke-width="1"/>
+<line x1="120" y1="835.0" x2="182" y2="835.0" stroke="#587070" stroke-width="1"/>
+<line x1="120" y1="778.06" x2="182" y2="778.06" stroke="#587070" stroke-width="1"/>
+<circle cx="151" cy="815.50" r="6" fill="#C8DF8A" stroke="#F4F3DD"/>
+<line x1="159" y1="815.5" x2="207" y2="815.5" stroke="#8B9F7B" stroke-width="1"/>
+<text x="215" y="813.5" class="label">A1 / 我是 sakan</text>
+<text x="215" y="833.5" class="small">Y 2.75 · 0.8H</text>
+<circle cx="151" cy="889.60" r="6" fill="#C8DF8A" stroke="#F4F3DD"/>
+<line x1="159" y1="889.6" x2="207" y2="889.6" stroke="#8B9F7B" stroke-width="1"/>
+<text x="215" y="887.6" class="label">A2 / 现在与此前</text>
+<text x="215" y="907.6" class="small">Y 1.8 · 0.8H</text>
+<circle cx="151" cy="963.70" r="6" fill="#C8DF8A" stroke="#F4F3DD"/>
+<line x1="159" y1="963.7" x2="207" y2="963.7" stroke="#8B9F7B" stroke-width="1"/>
+<text x="215" y="961.7" class="label">A3 / 我的创作方式</text>
+<text x="215" y="981.7" class="small">Y 0.85 · 0.8H</text>
+<text x="110" y="1063" class="small">3 个阅读位置 / 2.4H</text>
+<text x="485" y="739" class="title">02 / AI 影像</text>
+<rect x="506" y="759.3399999999999" width="80" height="18.72" rx="2" fill="#E4DCB7" stroke="#C7CDBA"/>
+<rect x="515" y="778.06" width="62" height="237.89999999999998" rx="0" fill="#30494C"/>
+<rect x="500" y="1015.96" width="92" height="14.04" rx="2" fill="#D6D8C3" stroke="#C7CDBA"/>
+<line x1="515" y1="1015.96" x2="577" y2="1015.96" stroke="#587070" stroke-width="1"/>
+<line x1="515" y1="952" x2="577" y2="952" stroke="#587070" stroke-width="1"/>
+<line x1="515" y1="889.6" x2="577" y2="889.6" stroke="#587070" stroke-width="1"/>
+<line x1="515" y1="835.0" x2="577" y2="835.0" stroke="#587070" stroke-width="1"/>
+<line x1="515" y1="778.06" x2="577" y2="778.06" stroke="#587070" stroke-width="1"/>
+<circle cx="546" cy="811.60" r="6" fill="#C8DF8A" stroke="#F4F3DD"/>
+<line x1="554" y1="811.6" x2="602" y2="811.6" stroke="#8B9F7B" stroke-width="1"/>
+<text x="610" y="809.6" class="label">B1 / 代表动画</text>
+<text x="610" y="829.6" class="small">Y 2.8 · 1H</text>
+<circle cx="546" cy="862.30" r="6" fill="#C8DF8A" stroke="#F4F3DD"/>
+<line x1="554" y1="862.3" x2="602" y2="862.3" stroke="#8B9F7B" stroke-width="1"/>
+<text x="610" y="860.3" class="label">B2 / 分镜与我的职责</text>
+<text x="610" y="880.3" class="small">Y 2.15 · 1H</text>
+<circle cx="546" cy="913.00" r="6" fill="#C8DF8A" stroke="#F4F3DD"/>
+<line x1="554" y1="913.0" x2="602" y2="913.0" stroke="#8B9F7B" stroke-width="1"/>
+<text x="610" y="911.0" class="label">B3 / AI 视觉探索</text>
+<text x="610" y="931.0" class="small">Y 1.5 · 0.8H</text>
+<circle cx="546" cy="963.70" r="6" fill="#C8DF8A" stroke="#F4F3DD"/>
+<line x1="554" y1="963.7" x2="602" y2="963.7" stroke="#8B9F7B" stroke-width="1"/>
+<text x="610" y="961.7" class="label">B4 / 更多作品</text>
+<text x="610" y="981.7" class="small">Y 0.85 · 0.8H</text>
+<text x="505" y="1063" class="small">4 个阅读位置 / 3.6H</text>
+<text x="880" y="739" class="title">03 / 交互实验</text>
+<rect x="901" y="759.3399999999999" width="80" height="18.72" rx="2" fill="#E4DCB7" stroke="#C7CDBA"/>
+<rect x="910" y="778.06" width="62" height="237.89999999999998" rx="0" fill="#30494C"/>
+<rect x="895" y="1015.96" width="92" height="14.04" rx="2" fill="#D6D8C3" stroke="#C7CDBA"/>
+<line x1="910" y1="1015.96" x2="972" y2="1015.96" stroke="#587070" stroke-width="1"/>
+<line x1="910" y1="952" x2="972" y2="952" stroke="#587070" stroke-width="1"/>
+<line x1="910" y1="889.6" x2="972" y2="889.6" stroke="#587070" stroke-width="1"/>
+<line x1="910" y1="835.0" x2="972" y2="835.0" stroke="#587070" stroke-width="1"/>
+<line x1="910" y1="778.06" x2="972" y2="778.06" stroke="#587070" stroke-width="1"/>
+<circle cx="941" cy="815.50" r="6" fill="#C8DF8A" stroke="#F4F3DD"/>
+<line x1="949" y1="815.5" x2="997" y2="815.5" stroke="#8B9F7B" stroke-width="1"/>
+<text x="1005" y="813.5" class="label">C1 / 从想法到交互</text>
+<text x="1005" y="833.5" class="small">Y 2.75 · 0.8H</text>
+<circle cx="941" cy="889.60" r="6" fill="#C8DF8A" stroke="#F4F3DD"/>
+<line x1="949" y1="889.6" x2="997" y2="889.6" stroke="#8B9F7B" stroke-width="1"/>
+<text x="1005" y="887.6" class="label">C2 / 庭院项目案例</text>
+<text x="1005" y="907.6" class="small">Y 1.8 · 1H</text>
+<circle cx="941" cy="963.70" r="6" fill="#C8DF8A" stroke="#F4F3DD"/>
+<line x1="949" y1="963.7" x2="997" y2="963.7" stroke="#8B9F7B" stroke-width="1"/>
+<text x="1005" y="961.7" class="label">C3 / 继续交流</text>
+<text x="1005" y="981.7" class="small">Y 0.85 · 0.6H</text>
+<text x="900" y="1063" class="small">3 个阅读位置 / 2.4H</text>
+<text x="50" y="1100" class="small">阅读状态：接近 0–15% → 唤醒 15–30% → 稳定阅读 30–80% → 消散 80–100%。导航落点为首段 55%。</text>
+<text x="32" y="1154" class="small">本步交付：脚本、分镜、站点、素材状态与交互规则。应用源码、现有媒体、构建与归档保持现状。</text>
+</svg>

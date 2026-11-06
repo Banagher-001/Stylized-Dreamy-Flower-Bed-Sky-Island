@@ -1,0 +1,102 @@
+{
+  "engine": "native headed Chromium, Linux Xvfb/SwiftShader; direct CDP",
+  "method": "real Target.activateTarget; no document.hidden overrides or synthetic visibility events",
+  "checks": [
+    {
+      "check": "C2 real hidden/return keeps exact paused time, story, layout and pixels",
+      "passed": true,
+      "evidence": {
+        "actualDocumentHiddenObserved": true,
+        "sameState": {
+          "position": "[5.1859771,6,13.953203]",
+          "target": "[3.9859771,1.8,4.953203]",
+          "height": "3.6000000",
+          "h": "10.0500000",
+          "station": "C2",
+          "phase": "read",
+          "presentation": "{\"frame\":1,\"title\":1,\"body\":1,\"offset\":0}",
+          "magic": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+          "time": "2.000000",
+          "project": "closed",
+          "text": "03 / 交互实验\n庭院习作\n\n庭院习作\n\n交互网页场景\n\n一座可以停留、切换和探索的庭院。\n\n现场体验\n↗\n项目档案\n＋"
+        },
+        "pixelsExact": true
+      }
+    },
+    {
+      "check": "context restore during C descent retains exact story and pixels",
+      "passed": true,
+      "evidence": {
+        "h": 9.42,
+        "state": {
+          "position": "[5.1859771,6.8434068,13.953203]",
+          "target": "[3.9859771,2.6434068,4.953203]",
+          "height": "3.6000000",
+          "h": "9.4200000",
+          "station": "C1",
+          "phase": "leave",
+          "presentation": "{\"frame\":0.9645061728395061,\"title\":0.9645061728395061,\"body\":0.27520751953124967,\"offset\":-5.798339843750003}",
+          "magic": "{\"trace\":1,\"glyph\":1,\"title\":0.9645061728395061,\"body\":0.27520751953124967,\"veil\":0.9645061728395061,\"dust\":0.9645061728395061,\"burst\":1,\"disperse\":0.5,\"titleY\":-0.21296296296296324,\"bodyY\":-5.798339843750003,\"dustCapacity\":24,\"dustVisible\":24,\"time\":2,\"lod\":1}",
+          "time": "2.000000",
+          "project": "closed",
+          "text": "03 / 交互实验\n创作\n\n从想法到交互\n\n我也使用 Vibe Coding，把视觉构想做成网页与交互体验。\n\n想法\n画面\n交互"
+        },
+        "pixelsExact": true
+      }
+    },
+    {
+      "check": "live actual tab hide freezes environment, return resumes latest play choice",
+      "passed": true,
+      "evidence": {
+        "actualDocumentHiddenObserved": true,
+        "timeWhileHidden": "2.099968",
+        "readingHFrozen": "10.0500000",
+        "dialogAndLiveTabRetained": true
+      }
+    },
+    {
+      "check": "live context restore keeps tab, camera and pixels while close remains available",
+      "passed": true,
+      "evidence": {
+        "pixelsExact": true,
+        "tab": "live",
+        "sceneControlsDisabledDuringLoss": true,
+        "closeEnabled": true
+      }
+    },
+    {
+      "check": "archive actual video hides paused and remains paused on return",
+      "passed": true,
+      "evidence": {
+        "actualDocumentHiddenObserved": true,
+        "videoPausedAt": 0.169366,
+        "staysPausedOnReturn": true,
+        "backgroundTimeFrozen": "2.266668",
+        "usesRealProjectClip": true
+      }
+    },
+    {
+      "check": "archive context restore preserves tab/video pause and close releases decoder",
+      "passed": true,
+      "evidence": {
+        "archiveTabPreserved": true,
+        "videoRemainsPaused": true,
+        "decoderReleased": true,
+        "returnedH": 10.05
+      }
+    },
+    {
+      "check": "close during active context loss returns to original station without deadlock",
+      "passed": true,
+      "evidence": {
+        "closedWhileLost": true,
+        "restoredH": 10.05,
+        "dialogClosedAfterRestore": true
+      }
+    }
+  ],
+  "unhandledExceptions": [],
+  "intentionalContextLossConsoleDiagnostics": [],
+  "hardwareFPSProof": false,
+  "passed": true
+}

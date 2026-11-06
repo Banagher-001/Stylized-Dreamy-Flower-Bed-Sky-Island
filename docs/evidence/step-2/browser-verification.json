@@ -1,0 +1,385 @@
+{
+  "environment": {
+    "browser": "155.0.8059.79",
+    "platform": "Linux",
+    "rendering": "Chromium headless / ANGLE SwiftShader; not hardware or Safari validation"
+  },
+  "checks": [
+    {
+      "check": "development rendered scene and updated accessible description",
+      "outcome": "passed",
+      "evidence": {
+        "width": 680,
+        "height": 680,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "native",
+        "dpr": 1,
+        "imageRendering": "auto",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "six named object groups, eight paving slabs and valid geometry",
+      "outcome": "passed",
+      "evidence": {
+        "objects": {
+          "fountain": {
+            "anchor": {
+              "u": 0.5102228418423423,
+              "v": 0.5259419908631323
+            },
+            "bounds": {
+              "minU": 0.2688719028696652,
+              "maxU": 0.7515737808150194,
+              "minV": 0.30895125976891885,
+              "maxV": 0.7202224785040674
+            },
+            "meshCount": 6
+          },
+          "columnUpperLeft": {
+            "anchor": {
+              "u": 0.37013796222149564,
+              "v": 0.2796264563634794
+            },
+            "bounds": {
+              "minU": 0.3129006966979646,
+              "maxU": 0.4273752277450267,
+              "minV": 0.05193599577173319,
+              "maxV": 0.32668656718314515
+            },
+            "meshCount": 3
+          },
+          "columnRight": {
+            "anchor": {
+              "u": 0.8996492232740689,
+              "v": 0.5401071699395437
+            },
+            "bounds": {
+              "minU": 0.8424119577505379,
+              "maxU": 0.9568864887976001,
+              "minV": 0.3124167093477974,
+              "maxV": 0.5871672807592093
+            },
+            "meshCount": 3
+          },
+          "columnLower": {
+            "anchor": {
+              "u": 0.6302081235700421,
+              "v": 0.929767459117131
+            },
+            "bounds": {
+              "minU": 0.572970858046511,
+              "maxU": 0.6874453890935731,
+              "minV": 0.7020769985253849,
+              "maxV": 0.9768275699367968
+            },
+            "meshCount": 3
+          },
+          "wallLeft": {
+            "anchor": {
+              "u": 0.08403150055573372,
+              "v": 0.595953549172717
+            },
+            "bounds": {
+              "minU": -0.0851088025672313,
+              "maxU": 0.2537904948667374,
+              "minV": 0.44120412772453016,
+              "maxV": 0.7297758975553077
+            },
+            "meshCount": 4
+          },
+          "pathRight": {
+            "anchor": {
+              "u": 0.9210000544135443,
+              "v": 0.721061439411883
+            },
+            "bounds": {
+              "minU": 0.7858269308341355,
+              "maxU": 1.056173177992953,
+              "minV": 0.6494209931332905,
+              "maxV": 0.7879763738537803
+            },
+            "meshCount": 8
+          }
+        },
+        "meshCount": 28,
+        "uniqueGeometries": 5,
+        "uniqueMaterials": 4,
+        "capVisibility": "fountain-pedestal-cap",
+        "waterSamples": [
+          "fountain-water",
+          "fountain-water",
+          "fountain-water",
+          "fountain-water",
+          "fountain-water",
+          "fountain-water",
+          "fountain-water",
+          "fountain-water"
+        ],
+        "invalidMeshes": [],
+        "hasOldValidationBlock": false,
+        "waterHeight": 0.32,
+        "rimTopHeight": 0.5800000000000001,
+        "camera": {
+          "position": [
+            4.5,
+            23,
+            16
+          ],
+          "isOrthographic": true
+        }
+      }
+    },
+    {
+      "check": "reference-based anchors, 45–50 percent fountain width, main silhouettes in frame",
+      "outcome": "passed",
+      "evidence": {
+        "fountainWidth": 0.48270187794535413,
+        "anchors": {
+          "fountain": {
+            "u": 0.5102228418423423,
+            "v": 0.5259419908631323
+          },
+          "columnUpperLeft": {
+            "u": 0.37013796222149564,
+            "v": 0.2796264563634794
+          },
+          "columnRight": {
+            "u": 0.8996492232740689,
+            "v": 0.5401071699395437
+          },
+          "columnLower": {
+            "u": 0.6302081235700421,
+            "v": 0.929767459117131
+          }
+        }
+      }
+    },
+    {
+      "check": "central pedestal and eight inner water points visible through real rim opening",
+      "outcome": "passed",
+      "evidence": {
+        "pedestal": "fountain-pedestal-cap",
+        "waterPoints": [
+          "fountain-water",
+          "fountain-water",
+          "fountain-water",
+          "fountain-water",
+          "fountain-water",
+          "fountain-water",
+          "fountain-water",
+          "fountain-water"
+        ],
+        "waterHeight": 0.32,
+        "rimTop": 0.5800000000000001
+      }
+    },
+    {
+      "check": "native/pixel switch, URL restore and keyboard operation",
+      "outcome": "passed",
+      "evidence": {
+        "native": {
+          "width": 680,
+          "height": 680,
+          "displayWidth": 680,
+          "displayHeight": 680,
+          "mode": "native",
+          "dpr": 1,
+          "imageRendering": "auto",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "pixelBackingSize": [
+          340,
+          340
+        ]
+      }
+    },
+    {
+      "check": "six consecutive responsive viewports preserve square single canvas",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "viewport": [
+            1280,
+            900
+          ],
+          "metrics": {
+            "width": 640,
+            "height": 640,
+            "displayWidth": 640,
+            "displayHeight": 640,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            768,
+            1024
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "metrics": {
+            "width": 358,
+            "height": 358,
+            "displayWidth": 358,
+            "displayHeight": 358,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "metrics": {
+            "width": 288,
+            "height": 288,
+            "displayWidth": 288,
+            "displayHeight": 288,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            844,
+            390
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            1440,
+            1000
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        }
+      ]
+    },
+    {
+      "check": "layout hot update changes image without reload, restores image, single canvas",
+      "outcome": "passed",
+      "evidence": {
+        "modifiedFountainX": 0.42,
+        "restoredFountainX": 0.12,
+        "restored": true
+      }
+    },
+    {
+      "check": "mobile DPR2, touch-operated pixel mode and unchanged scene projection",
+      "outcome": "passed",
+      "evidence": {
+        "native": {
+          "width": 716,
+          "height": 716,
+          "displayWidth": 358,
+          "displayHeight": 358,
+          "mode": "native",
+          "dpr": 2,
+          "imageRendering": "auto",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "pixel": {
+          "width": 179,
+          "height": 179,
+          "displayWidth": 358,
+          "displayHeight": 358,
+          "mode": "pixel",
+          "dpr": 2,
+          "imageRendering": "pixelated",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "sameProjectionAsDesktop": true
+      }
+    },
+    {
+      "check": "production resources, matching rendered output and working pixel mode",
+      "outcome": "passed",
+      "evidence": {
+        "width": 340,
+        "height": 340,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "pixel",
+        "dpr": 1,
+        "imageRendering": "pixelated",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "dependencies, lockfile, palette and page styles preserved",
+      "outcome": "passed",
+      "evidence": {
+        "files": [
+          "package.json",
+          "package-lock.json",
+          "src/config/palette.ts",
+          "src/styles.css"
+        ]
+      }
+    },
+    {
+      "check": "application console and resource requests",
+      "outcome": "passed",
+      "evidence": {
+        "exceptions": 0,
+        "errors": 0,
+        "warnings": 0,
+        "failedHttpResponses": 0
+      }
+    }
+  ],
+  "issues": []
+}

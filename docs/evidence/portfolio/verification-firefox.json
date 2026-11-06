@@ -1,0 +1,133 @@
+{
+  "engine": "firefox",
+  "version": "153.0",
+  "environment": "Linux cloud software rendering; not physical device acceptance",
+  "checks": [
+    {
+      "check": "visible live cover, confirmed biography, labeled concepts and deferred video",
+      "passed": true,
+      "evidence": {
+        "overflow": false,
+        "canvasCount": 1,
+        "time": "2.000000",
+        "visibility": "visible",
+        "draws": 262
+      }
+    },
+    {
+      "check": "mode switching preserves the deterministic cover",
+      "passed": true,
+      "evidence": {
+        "scenePixelsExact": true
+      }
+    },
+    {
+      "check": "working project categories and accessible count",
+      "passed": true,
+      "evidence": {
+        "visual": 2,
+        "interactive": 1,
+        "all": 3
+      }
+    },
+    {
+      "check": "all project dossiers open by keyboard, trap focus and return it on Escape",
+      "passed": true,
+      "evidence": {
+        "projects": 3
+      }
+    },
+    {
+      "check": "film, frames and closed-dialog media behavior",
+      "passed": true,
+      "evidence": {
+        "durationSeconds": null,
+        "h264Support": "probably",
+        "playbackTested": false
+      }
+    },
+    {
+      "check": "scrolling actually stops GPU draws and time, resumes without fast-forward, preserves manual pause",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "overflow": false,
+          "canvasCount": 1,
+          "time": "2.759820",
+          "visibility": "offscreen",
+          "draws": 1894
+        },
+        "after": {
+          "overflow": false,
+          "canvasCount": 1,
+          "time": "2.759820",
+          "visibility": "offscreen",
+          "draws": 1894
+        },
+        "resumed": {
+          "overflow": false,
+          "canvasCount": 1,
+          "time": "2.793340",
+          "visibility": "visible",
+          "draws": 2098
+        }
+      }
+    },
+    {
+      "check": "responsive layout, real anchors, 44px controls and mobile modal",
+      "passed": true,
+      "evidence": {
+        "viewportDPRCombinations": [
+          [
+            390,
+            844,
+            2
+          ],
+          [
+            1440,
+            1000,
+            1
+          ]
+        ],
+        "phoneSimulated": true
+      }
+    },
+    {
+      "check": "paused cover context restoration retains the actual presented picture",
+      "passed": true,
+      "evidence": {
+        "contextLossAvailable": true
+      }
+    },
+    {
+      "check": "diagnostics retain known Firefox notices and reject all unexpected issues",
+      "passed": true,
+      "evidence": {
+        "knownFirefoxDiagnostics": 5,
+        "unexpectedIssues": []
+      }
+    }
+  ],
+  "issues": [
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL context was lost.\" {file: \"debugger eval code line 311 > eval\" line: 1}]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    }
+  ]
+}

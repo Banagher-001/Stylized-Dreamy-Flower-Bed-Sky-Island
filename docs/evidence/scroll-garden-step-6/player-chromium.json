@@ -1,0 +1,68 @@
+{
+  "engine": "chromium",
+  "version": "155.0.8059.79",
+  "mechanismOnly": true,
+  "realFilmIntegrated": false,
+  "fixture": "12-second silent courtyard scene, not an AI animation project",
+  "checks": [
+    {
+      "check": "actual native playback decodes changing frames from the labelled local test clip",
+      "passed": true,
+      "evidence": {
+        "time": 0.210305,
+        "width": 680,
+        "height": 680,
+        "duration": 12,
+        "frames": 4,
+        "loop": false,
+        "inline": true
+      }
+    },
+    {
+      "check": "close releases the decoder source, removes video and restores focus",
+      "passed": true,
+      "evidence": {
+        "paused": true,
+        "sourceRemoved": true,
+        "videoRemoved": true,
+        "focusRestored": true
+      }
+    },
+    {
+      "check": "queued close and rapid reopen keep a single decoder and switching releases old media",
+      "passed": true,
+      "evidence": {
+        "balancedCallbacks": true,
+        "singleVideo": true,
+        "imageSwitchPass": true
+      }
+    },
+    {
+      "check": "failed video exposes retry and close, and retry loads without unexpected playback",
+      "passed": true,
+      "evidence": {
+        "errorReadable": true,
+        "retryLoaded": true,
+        "retryPaused": true
+      }
+    },
+    {
+      "check": "ten playback cycles retain closed DOM size with balanced lifecycle callbacks",
+      "passed": true,
+      "evidence": {
+        "cycles": 10,
+        "closedNodes": 32,
+        "activeVideos": 0,
+        "unhandledExceptions": []
+      }
+    }
+  ],
+  "unhandledExceptions": [],
+  "expectedMissingMediaDiagnostics": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "passed": true
+}

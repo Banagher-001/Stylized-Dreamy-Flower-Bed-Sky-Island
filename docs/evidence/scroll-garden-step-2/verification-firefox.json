@@ -1,0 +1,269 @@
+{
+  "engine": "firefox",
+  "version": "153.0",
+  "environment": "Linux cloud software renderer; not real phone or hardware FPS acceptance",
+  "checks": [
+    {
+      "check": "isolated production prototype has one visible scene and native document scroll",
+      "passed": true,
+      "evidence": {
+        "canvasCount": 1,
+        "scene": {
+          "renderState": "ready",
+          "stage": "S00",
+          "chapter": "overview",
+          "displayH": "0.0000000",
+          "targetH": "0.0000000",
+          "cameraState": "settled",
+          "cameraPosition": "[4.5,23,16]",
+          "cameraTarget": "[0,0.45,0]",
+          "viewHeight": "11.3000000",
+          "aspect": "1.8250951",
+          "motionState": "paused",
+          "visibility": "visible",
+          "sceneTime": "2.000000",
+          "rendererStats": "{\"geometries\":52,\"textures\":3,\"programs\":9,\"calls\":68,\"triangles\":9053,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":789,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":210,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+        }
+      }
+    },
+    {
+      "check": "real browser wheel and Home/End control the same progress",
+      "passed": true,
+      "evidence": {
+        "requestedWheelDelta": 900,
+        "actualWheelProgressH": 0.7133333,
+        "wheelReversed": true,
+        "homeH": "0.0000000",
+        "mapping": "actual document scroll, not raw wheel delta"
+      }
+    },
+    {
+      "check": "all five key views work with environment paused",
+      "passed": true,
+      "evidence": [
+        {
+          "key": "about",
+          "h": 1.74,
+          "position": [
+            -0.097967,
+            6.95,
+            5.9610623
+          ],
+          "target": [
+            -1.297967,
+            2.75,
+            -3.0389377
+          ],
+          "viewHeight": 3.6
+        },
+        {
+          "key": "films",
+          "h": 4.95,
+          "position": [
+            7.1223952,
+            7,
+            7.7983473
+          ],
+          "target": [
+            5.9223952,
+            2.8,
+            -1.2016527
+          ],
+          "viewHeight": 3.8
+        },
+        {
+          "key": "experiments",
+          "h": 9.14,
+          "position": [
+            5.202033,
+            6.95,
+            13.9510623
+          ],
+          "target": [
+            4.002033,
+            2.75,
+            4.9510623
+          ],
+          "viewHeight": 3.6
+        },
+        {
+          "key": "water",
+          "h": 11.5,
+          "position": [
+            2.32,
+            11.15,
+            7.5
+          ],
+          "target": [
+            0.12,
+            0.65,
+            0
+          ],
+          "viewHeight": 6.2
+        },
+        {
+          "key": "overview",
+          "h": 0.0,
+          "position": [
+            4.5,
+            23,
+            16
+          ],
+          "target": [
+            0,
+            0.45,
+            0
+          ],
+          "viewHeight": 11.3
+        }
+      ]
+    },
+    {
+      "check": "fast jumps and reverse travel restore identical settled camera parameters",
+      "passed": true,
+      "evidence": {
+        "midpointsH": [
+          0.9,
+          3.92,
+          8.32,
+          11.3
+        ],
+        "exact": true
+      }
+    },
+    {
+      "check": "near-view mode switching changes actual picture without resetting zoom",
+      "passed": true,
+      "evidence": {
+        "returnedPixelsExact": true
+      }
+    },
+    {
+      "check": "resize preserves chapter progress and current view height, controls do not cover the canvas",
+      "passed": true,
+      "evidence": {
+        "beforeH": 1.74,
+        "afterH": 1.74
+      }
+    },
+    {
+      "check": "real context restore keeps the paused camera pose and visible image",
+      "passed": true,
+      "evidence": {
+        "restoredPixelsExact": true
+      }
+    },
+    {
+      "check": "repeated tours retain GPU resource counts and settled pause stops drawing",
+      "passed": true,
+      "evidence": {
+        "cycles": 2,
+        "locationsPerCycle": 5,
+        "before": {
+          "geometries": 52,
+          "textures": 3,
+          "programs": 9,
+          "calls": 68,
+          "triangles": 9053,
+          "mode": "pixel",
+          "outputWidth": 1440,
+          "outputHeight": 789,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 210,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 3
+          }
+        },
+        "after": {
+          "geometries": 52,
+          "textures": 3,
+          "programs": 9,
+          "calls": 68,
+          "triangles": 9053,
+          "mode": "pixel",
+          "outputWidth": 1440,
+          "outputHeight": 789,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 210,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 3
+          }
+        },
+        "pausedDrawCount": 19238
+      }
+    },
+    {
+      "check": "environment playback and scroll camera remain independent",
+      "passed": true,
+      "evidence": {
+        "timeAdvancesWhileTouring": true
+      }
+    },
+    {
+      "check": "basic mobile touch navigation and reduced-motion camera work",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "simulatedPhone": true,
+        "nativeTouchDragTested": false
+      }
+    },
+    {
+      "check": "settle latency recorded from browser-observed frame state",
+      "passed": true,
+      "evidence": {
+        "samples": 36,
+        "maxMs": 158,
+        "p95Ms": 155,
+        "targetMs": 200,
+        "environment": "software rendering; observer includes frame work, not physical input-to-display timing"
+      }
+    },
+    {
+      "check": "all diagnostics retained with no unidentified errors or warnings",
+      "passed": true,
+      "evidence": {
+        "knownFirefoxDiagnostics": 4,
+        "unexpected": []
+      }
+    }
+  ],
+  "issues": [
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL context was lost.\" {file: \"debugger eval code line 311 > eval\" line: 1}]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    }
+  ],
+  "passed": true
+}

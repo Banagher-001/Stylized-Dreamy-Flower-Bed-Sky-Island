@@ -1,0 +1,112 @@
+{
+  "engine": "webkit",
+  "version": "26.5",
+  "environment": "Linux cloud software rendering; not physical device acceptance",
+  "checks": [
+    {
+      "check": "visible live cover, confirmed biography, labeled concepts and deferred video",
+      "passed": true,
+      "evidence": {
+        "overflow": false,
+        "canvasCount": 1,
+        "time": "2.000000",
+        "visibility": "visible",
+        "draws": 262
+      }
+    },
+    {
+      "check": "mode switching preserves the deterministic cover",
+      "passed": true,
+      "evidence": {
+        "scenePixelsExact": true
+      }
+    },
+    {
+      "check": "working project categories and accessible count",
+      "passed": true,
+      "evidence": {
+        "visual": 2,
+        "interactive": 1,
+        "all": 3
+      }
+    },
+    {
+      "check": "all project dossiers open by keyboard, trap focus and return it on Escape",
+      "passed": true,
+      "evidence": {
+        "projects": 3
+      }
+    },
+    {
+      "check": "film, frames and closed-dialog media behavior",
+      "passed": true,
+      "evidence": {
+        "durationSeconds": null,
+        "h264Support": "probably",
+        "playbackTested": false
+      }
+    },
+    {
+      "check": "scrolling actually stops GPU draws and time, resumes without fast-forward, preserves manual pause",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "overflow": false,
+          "canvasCount": 1,
+          "time": "3.048000",
+          "visibility": "offscreen",
+          "draws": 4002
+        },
+        "after": {
+          "overflow": false,
+          "canvasCount": 1,
+          "time": "3.048000",
+          "visibility": "offscreen",
+          "draws": 4002
+        },
+        "resumed": {
+          "overflow": false,
+          "canvasCount": 1,
+          "time": "3.336000",
+          "visibility": "visible",
+          "draws": 5022
+        }
+      }
+    },
+    {
+      "check": "responsive layout, real anchors, 44px controls and mobile modal",
+      "passed": true,
+      "evidence": {
+        "viewportDPRCombinations": [
+          [
+            390,
+            844,
+            2
+          ],
+          [
+            1440,
+            1000,
+            1
+          ]
+        ],
+        "phoneSimulated": true
+      }
+    },
+    {
+      "check": "paused cover context restoration retains the actual presented picture",
+      "passed": true,
+      "evidence": {
+        "contextLossAvailable": true
+      }
+    },
+    {
+      "check": "diagnostics retain known Firefox notices and reject all unexpected issues",
+      "passed": true,
+      "evidence": {
+        "knownFirefoxDiagnostics": 0,
+        "unexpectedIssues": []
+      }
+    }
+  ],
+  "issues": []
+}

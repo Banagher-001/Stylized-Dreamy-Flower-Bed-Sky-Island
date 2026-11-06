@@ -1,0 +1,6 @@
+webkit: visitor opening names the author and hides engineering controls with one canvas
+Traceback (most recent call last):
+  File "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/scroll-garden/step10_browser.py", line 46, in <module>
+    for entry in reversed(alpha):go(page,entry['h']);frames(page);assert abs(float(page.locator('.tour-heading').get_attribute('data-opacity'))-entry['heading']['opacity'])<1e-6
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

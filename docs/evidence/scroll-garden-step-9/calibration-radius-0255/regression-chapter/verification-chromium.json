@@ -1,0 +1,2198 @@
+{
+  "engine": "chromium",
+  "version": "155.0.8059.79",
+  "checks": [
+    {
+      "check": "one actual scene, three C stations, late real-cover loading and no automatic video",
+      "passed": true,
+      "evidence": {
+        "coldRequests": [
+          "http://127.0.0.1:4173/?tour=prototype&waterTime=2",
+          "http://127.0.0.1:4173/assets/index-BXKl9wmP.js",
+          "http://127.0.0.1:4173/assets/index-B5-UwPAe.css",
+          "http://127.0.0.1:4173/assets/startTourPrototype-D36A8r8W.js",
+          "http://127.0.0.1:4173/assets/three-core-BKN-L1uq.js",
+          "http://127.0.0.1:4173/assets/createAnimationController-DrBQntoy.js",
+          "http://127.0.0.1:4173/assets/three-renderer-Dl1vNdEY.js",
+          "http://127.0.0.1:4173/assets/startTourPrototype-Dz0GkXZp.css",
+          "http://127.0.0.1:4173/favicon.svg"
+        ],
+        "approachRequests": [
+          "http://127.0.0.1:4173/?tour=prototype&waterTime=2",
+          "http://127.0.0.1:4173/assets/index-BXKl9wmP.js",
+          "http://127.0.0.1:4173/assets/index-B5-UwPAe.css",
+          "http://127.0.0.1:4173/assets/startTourPrototype-D36A8r8W.js",
+          "http://127.0.0.1:4173/assets/three-core-BKN-L1uq.js",
+          "http://127.0.0.1:4173/assets/createAnimationController-DrBQntoy.js",
+          "http://127.0.0.1:4173/assets/three-renderer-Dl1vNdEY.js",
+          "http://127.0.0.1:4173/assets/startTourPrototype-Dz0GkXZp.css",
+          "http://127.0.0.1:4173/favicon.svg",
+          "http://127.0.0.1:4173/assets/signal-garden-CbiDrnMk.webp",
+          "http://127.0.0.1:4173/assets/liquid-form-Yl5oqdSL.webp",
+          "http://127.0.0.1:4173/assets/courtyard-orb-cover-DY1Dqirf.webp",
+          "http://127.0.0.1:4173/favicon.svg",
+          "http://127.0.0.1:4173/favicon.svg",
+          "http://127.0.0.1:4173/assets/courtyard-keyframe-00-Dnvt_afN.png",
+          "http://127.0.0.1:4173/assets/courtyard-keyframe-03-BpIvPl5V.png",
+          "http://127.0.0.1:4173/assets/courtyard-motion-7fR7fsF8.mp4"
+        ],
+        "resources": {
+          "anchors": [
+            {
+              "station": "C1",
+              "stone": "columnLower-block-3",
+              "local": [
+                0.04000001430511474,
+                0.024980001449584954,
+                0.39799998569488526
+              ],
+              "faceBounds": [
+                [
+                  -0.36000001430511475,
+                  -0.34498000144958496,
+                  -0.38999998569488525
+                ],
+                [
+                  0.36000001430511475,
+                  0.34498000144958496,
+                  0.38999998569488525
+                ]
+              ],
+              "size": 0.54,
+              "offset": 0.008
+            },
+            {
+              "station": "C2",
+              "stone": "columnLower-block-2",
+              "local": [
+                0.04000001430511474,
+                -0.05801000475883483,
+                0.39799998569488526
+              ],
+              "faceBounds": [
+                [
+                  -0.36000001430511475,
+                  -0.37801000475883484,
+                  -0.38999998569488525
+                ],
+                [
+                  0.36000001430511475,
+                  0.37801000475883484,
+                  0.38999998569488525
+                ]
+              ],
+              "size": 0.54,
+              "offset": 0.008
+            },
+            {
+              "station": "C3",
+              "stone": "columnLower-block-1",
+              "local": [
+                0.03999999809265109,
+                -0.032319985628128045,
+                0.39799998569488526
+              ],
+              "faceBounds": [
+                [
+                  -0.36000001430511475,
+                  -0.35231998562812805,
+                  -0.38999998569488525
+                ],
+                [
+                  0.36000001430511475,
+                  0.35231998562812805,
+                  0.38999998569488525
+                ]
+              ],
+              "size": 0.54,
+              "offset": 0.008
+            }
+          ],
+          "pool": 24,
+          "geometries": 2,
+          "textures": 1,
+          "programFamilies": 1,
+          "bindings": [
+            {
+              "object": "columnLower-block-0",
+              "material": "reading-pillar-stone"
+            },
+            {
+              "object": "columnLower-joint-0",
+              "material": "reading-pillar-joint"
+            },
+            {
+              "object": "columnLower-block-1",
+              "material": "reading-pillar-stone"
+            },
+            {
+              "object": "columnLower-joint-1",
+              "material": "reading-pillar-joint"
+            },
+            {
+              "object": "columnLower-block-2",
+              "material": "reading-pillar-stone"
+            },
+            {
+              "object": "columnLower-joint-2",
+              "material": "reading-pillar-joint"
+            },
+            {
+              "object": "columnLower-block-3",
+              "material": "reading-pillar-stone"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": "three accurate full-reading layouts and measured text/background contrast",
+      "passed": true,
+      "evidence": [
+        {
+          "station": "C1",
+          "scene": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.255,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.06,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "overlayState": "closed",
+            "stage": "C1",
+            "chapter": "experiments",
+            "displayH": "9.1400000",
+            "targetH": "9.1400000",
+            "cameraState": "settled",
+            "cameraPosition": "[5.1967769,6.95,13.9517631]",
+            "cameraTarget": "[3.9967769,2.75,4.9517631]",
+            "viewHeight": "3.6000000",
+            "aspect": "1.8158890",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "C1",
+            "experimentPhase": "read",
+            "experimentPresentation": "{\"frame\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":56,\"textures\":5,\"programs\":12,\"calls\":47,\"triangles\":7363,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":793,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":211,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+          },
+          "layout": {
+            "data": {
+              "progress": "0.5500000",
+              "visible": "true",
+              "station": "C1",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "486.7470",
+              "anchorY": "391.3638",
+              "anchorClear": "true",
+              "layout": "side",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 609,
+              "y": 272,
+              "width": 500,
+              "height": 237.875,
+              "top": 272,
+              "right": 1109,
+              "bottom": 509.875,
+              "left": 609
+            },
+            "nav": {
+              "x": 1308,
+              "y": 405,
+              "width": 108,
+              "height": 240,
+              "top": 405,
+              "right": 1416,
+              "bottom": 645,
+              "left": 1308
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n创作\n\n从想法到交互\n\n我也使用 Vibe Coding，把视觉构想做成网页与交互体验。\n\n想法\n画面\n交互",
+            "textBoxes": [
+              {
+                "text": "从想法到交互",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "我也使用 Vibe Coding，把视觉构想做成网页与交互体验。",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "想法画面交互",
+                "font": 18,
+                "inside": true
+              }
+            ],
+            "buttons": []
+          },
+          "contrast": {
+            "station": "C1",
+            "minimumRatios": {
+              "title": 11.219541925656038,
+              "body": 7.83653162980629
+            },
+            "textParts": [
+              {
+                "label": "",
+                "minimumRatio": 11.219541925656038,
+                "samples": 702
+              },
+              {
+                "label": "",
+                "minimumRatio": 11.20044168122291,
+                "samples": 1386
+              },
+              {
+                "label": "experiment-process",
+                "minimumRatio": 7.83653162980629,
+                "samples": 108
+              },
+              {
+                "label": "experiment-process",
+                "minimumRatio": 7.83653162980629,
+                "samples": 108
+              },
+              {
+                "label": "experiment-process",
+                "minimumRatio": 7.83653162980629,
+                "samples": 108
+              }
+            ],
+            "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+          }
+        },
+        {
+          "station": "C2",
+          "scene": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.255,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.06,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "overlayState": "closed",
+            "stage": "C2",
+            "chapter": "experiments",
+            "displayH": "10.0500000",
+            "targetH": "10.0500000",
+            "cameraState": "settled",
+            "cameraPosition": "[5.1967769,6,13.9517631]",
+            "cameraTarget": "[3.9967769,1.8,4.9517631]",
+            "viewHeight": "3.6000000",
+            "aspect": "1.8158890",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "C2",
+            "experimentPhase": "read",
+            "experimentPresentation": "{\"frame\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":56,\"textures\":5,\"programs\":12,\"calls\":44,\"triangles\":7219,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":793,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":211,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+          },
+          "layout": {
+            "data": {
+              "progress": "0.5500000",
+              "visible": "true",
+              "station": "C2",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "485.0002",
+              "anchorY": "370.0701",
+              "anchorClear": "true",
+              "layout": "side",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 607,
+              "y": 143,
+              "width": 500,
+              "height": 453.28125,
+              "top": 143,
+              "right": 1107,
+              "bottom": 596.28125,
+              "left": 607
+            },
+            "nav": {
+              "x": 1308,
+              "y": 405,
+              "width": 108,
+              "height": 240,
+              "top": 405,
+              "right": 1416,
+              "bottom": 645,
+              "left": 1308
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n庭院习作\n\n庭院习作\n\n交互网页场景\n\n一座可以停留、切换和探索的庭院。\n\n现场体验\n↗\n项目档案\n＋",
+            "textBoxes": [
+              {
+                "text": "庭院习作",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "交互网页场景",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "一座可以停留、切换和探索的庭院。",
+                "font": 18,
+                "inside": true
+              }
+            ],
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 631,
+                  "y": 528.28125,
+                  "width": 128.03125,
+                  "height": 44,
+                  "top": 528.28125,
+                  "right": 759.03125,
+                  "bottom": 572.28125,
+                  "left": 631
+                }
+              },
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 771.03125,
+                  "y": 528.28125,
+                  "width": 128.03125,
+                  "height": 44,
+                  "top": 528.28125,
+                  "right": 899.0625,
+                  "bottom": 572.28125,
+                  "left": 771.03125
+                }
+              }
+            ]
+          },
+          "contrast": {
+            "station": "C2",
+            "minimumRatios": {
+              "title": 11.219541925656038,
+              "body": 7.83653162980629
+            },
+            "textParts": [
+              {
+                "label": "",
+                "minimumRatio": 11.219541925656038,
+                "samples": 468
+              },
+              {
+                "label": "experiment-kind",
+                "minimumRatio": 7.83653162980629,
+                "samples": 324
+              },
+              {
+                "label": "",
+                "minimumRatio": 11.20044168122291,
+                "samples": 864
+              }
+            ],
+            "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+          }
+        },
+        {
+          "station": "C3",
+          "scene": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.255,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.06,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "overlayState": "closed",
+            "stage": "C3",
+            "chapter": "experiments",
+            "displayH": "10.8300000",
+            "targetH": "10.8300000",
+            "cameraState": "settled",
+            "cameraPosition": "[5.1967769,5.05,13.9517631]",
+            "cameraTarget": "[3.9967769,0.85,4.9517631]",
+            "viewHeight": "3.6000000",
+            "aspect": "1.8158890",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "C3",
+            "experimentPhase": "read",
+            "experimentPresentation": "{\"frame\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":56,\"textures\":5,\"programs\":12,\"calls\":38,\"triangles\":6695,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":793,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":211,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+          },
+          "layout": {
+            "data": {
+              "progress": "0.5500000",
+              "visible": "true",
+              "station": "C3",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "489.3671",
+              "anchorY": "328.8582",
+              "anchorClear": "true",
+              "layout": "side",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 612,
+              "y": 227,
+              "width": 500,
+              "height": 203.28125,
+              "top": 227,
+              "right": 1112,
+              "bottom": 430.28125,
+              "left": 612
+            },
+            "nav": {
+              "x": 1308,
+              "y": 405,
+              "width": 108,
+              "height": 240,
+              "top": 405,
+              "right": 1416,
+              "bottom": 645,
+              "left": 1308
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n继续\n\n让想象，动起来。\n\n从一幅画面，到一个可以进入的世界。\n\n↓ 继续向下，回到水潭。",
+            "textBoxes": [
+              {
+                "text": "让想象，动起来。",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "从一幅画面，到一个可以进入的世界。",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "↓ 继续向下，回到水潭。",
+                "font": 18,
+                "inside": true
+              }
+            ],
+            "buttons": []
+          },
+          "contrast": {
+            "station": "C3",
+            "minimumRatios": {
+              "title": 11.219541925656038,
+              "body": 8.947205388899084
+            },
+            "textParts": [
+              {
+                "label": "",
+                "minimumRatio": 11.219541925656038,
+                "samples": 936
+              },
+              {
+                "label": "",
+                "minimumRatio": 11.20044168122291,
+                "samples": 918
+              },
+              {
+                "label": "experiment-cue",
+                "minimumRatio": 8.947205388899084,
+                "samples": 54
+              },
+              {
+                "label": "experiment-cue",
+                "minimumRatio": 8.947205388899084,
+                "samples": 540
+              }
+            ],
+            "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+          }
+        }
+      ]
+    },
+    {
+      "check": "all three full-reading windows keep exact camera, text and paused pixels",
+      "passed": true,
+      "evidence": [
+        {
+          "start": 8.7,
+          "pixelsExact": true
+        },
+        {
+          "start": 9.5,
+          "pixelsExact": true
+        },
+        {
+          "start": 10.5,
+          "pixelsExact": true
+        }
+      ]
+    },
+    {
+      "check": "eighteen ordered scroll-only reveal/leave states and safe entry buttons",
+      "passed": true,
+      "evidence": [
+        {
+          "station": "C1",
+          "requestedU": 0.1,
+          "actualH": "8.7800000",
+          "state": {
+            "frame": 0,
+            "title": 0,
+            "body": 0,
+            "offset": 8
+          },
+          "magic": {
+            "trace": 0.7901234567901455,
+            "glyph": 0.7901234567901455,
+            "title": 0,
+            "body": 0,
+            "veil": 0,
+            "dust": 0.03549382716050455,
+            "burst": 0.07937323358442658,
+            "disperse": 0,
+            "titleY": 6,
+            "bodyY": 8,
+            "dustCapacity": 24,
+            "dustVisible": 10,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C1",
+          "requestedU": 0.18,
+          "actualH": "8.8444444",
+          "state": {
+            "frame": 0.3822259495336181,
+            "title": 0.3822259495336181,
+            "body": 0,
+            "offset": 8
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 0.3822259495336181,
+            "body": 0,
+            "veil": 0.3822259495336181,
+            "dust": 0.9671259892232933,
+            "burst": 0.9819210792799763,
+            "disperse": 0,
+            "titleY": 3.706644302798291,
+            "bodyY": 8,
+            "dustCapacity": 24,
+            "dustVisible": 24,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C1",
+          "requestedU": 0.25,
+          "actualH": "8.9000000",
+          "state": {
+            "frame": 1,
+            "title": 1,
+            "body": 0.5000000000000209,
+            "offset": 3.999999999999833
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 1,
+            "body": 0.5000000000000209,
+            "veil": 1,
+            "dust": 1,
+            "burst": 0.4288425808633422,
+            "disperse": 0,
+            "titleY": 0,
+            "bodyY": 3.999999999999833,
+            "dustCapacity": 24,
+            "dustVisible": 15,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C1",
+          "requestedU": 0.55,
+          "actualH": "9.1400000",
+          "state": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 1,
+            "body": 1,
+            "veil": 1,
+            "dust": 1,
+            "burst": 0,
+            "disperse": 0,
+            "titleY": 0,
+            "bodyY": 0,
+            "dustCapacity": 24,
+            "dustVisible": 8,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C1",
+          "requestedU": 0.9,
+          "actualH": "9.4200000",
+          "state": {
+            "frame": 0.9645061728395061,
+            "title": 0.9645061728395061,
+            "body": 0.27520751953124967,
+            "offset": -5.798339843750003
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 0.9645061728395061,
+            "body": 0.27520751953124967,
+            "veil": 0.9645061728395061,
+            "dust": 0.9645061728395061,
+            "burst": 1,
+            "disperse": 0.5,
+            "titleY": -0.21296296296296324,
+            "bodyY": -5.798339843750003,
+            "dustCapacity": 24,
+            "dustVisible": 24,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C1",
+          "requestedU": 0.97,
+          "actualH": "9.4755556",
+          "state": {
+            "frame": 0.10845859166682636,
+            "title": 0.10845859166682636,
+            "body": 0,
+            "offset": -8
+          },
+          "magic": {
+            "trace": 0.9105872109805729,
+            "glyph": 0.170507326277757,
+            "title": 0.10845859166682636,
+            "body": 0,
+            "veil": 0.10845859166682636,
+            "dust": 0.10845859166682636,
+            "burst": 0.21321178182448206,
+            "disperse": 0.9720127280332713,
+            "titleY": -5.349248449999042,
+            "bodyY": -8,
+            "dustCapacity": 24,
+            "dustVisible": 12,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C2",
+          "requestedU": 0.1,
+          "actualH": "9.6000000",
+          "state": {
+            "frame": 0,
+            "title": 0,
+            "body": 0,
+            "offset": 8
+          },
+          "magic": {
+            "trace": 0.7901234567901376,
+            "glyph": 0.7901234567901376,
+            "title": 0,
+            "body": 0,
+            "veil": 0,
+            "dust": 0.03549382716050067,
+            "burst": 0.07937323358442037,
+            "disperse": 0,
+            "titleY": 6,
+            "bodyY": 8,
+            "dustCapacity": 24,
+            "dustVisible": 10,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C2",
+          "requestedU": 0.18,
+          "actualH": "9.6800000",
+          "state": {
+            "frame": 0.3678824299398988,
+            "title": 0.3678824299398988,
+            "body": 0,
+            "offset": 8
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 0.3678824299398988,
+            "body": 0,
+            "veil": 0.3678824299398988,
+            "dust": 0.9645061728395047,
+            "burst": 0.9797464868072475,
+            "disperse": 0,
+            "titleY": 3.792705420360607,
+            "bodyY": 8,
+            "dustCapacity": 24,
+            "dustVisible": 24,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C2",
+          "requestedU": 0.25,
+          "actualH": "9.7500000",
+          "state": {
+            "frame": 1,
+            "title": 1,
+            "body": 0.5000000000000333,
+            "offset": 3.9999999999997335
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 1,
+            "body": 0.5000000000000333,
+            "veil": 1,
+            "dust": 1,
+            "burst": 0.4288425808633329,
+            "disperse": 0,
+            "titleY": 0,
+            "bodyY": 3.9999999999997335,
+            "dustCapacity": 24,
+            "dustVisible": 15,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C2",
+          "requestedU": 0.55,
+          "actualH": "10.0500000",
+          "state": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 1,
+            "body": 1,
+            "veil": 1,
+            "dust": 1,
+            "burst": 0,
+            "disperse": 0,
+            "titleY": 0,
+            "bodyY": 0,
+            "dustCapacity": 24,
+            "dustVisible": 8,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C2",
+          "requestedU": 0.9,
+          "actualH": "10.4000000",
+          "state": {
+            "frame": 0.9645061728395045,
+            "title": 0.9645061728395045,
+            "body": 0.2752075195312461,
+            "offset": -5.798339843750031
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 0.9645061728395045,
+            "body": 0.2752075195312461,
+            "veil": 0.9645061728395045,
+            "dust": 0.9645061728395045,
+            "burst": 1,
+            "disperse": 0.5000000000000032,
+            "titleY": -0.21296296296297323,
+            "bodyY": -5.798339843750031,
+            "dustCapacity": 24,
+            "dustVisible": 24,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C2",
+          "requestedU": 0.97,
+          "actualH": "10.4700000",
+          "state": {
+            "frame": 0.10351562499999434,
+            "title": 0.10351562499999434,
+            "body": 0,
+            "offset": -8
+          },
+          "magic": {
+            "trace": 0.8964843749999825,
+            "glyph": 0.16307999999999168,
+            "title": 0.10351562499999434,
+            "body": 0,
+            "veil": 0.10351562499999434,
+            "dust": 0.10351562499999434,
+            "burst": 0.206107373853756,
+            "disperse": 0.9733881250000017,
+            "titleY": -5.378906250000034,
+            "bodyY": -8,
+            "dustCapacity": 24,
+            "dustVisible": 12,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C3",
+          "requestedU": 0.1,
+          "actualH": "10.5600000",
+          "state": {
+            "frame": 0,
+            "title": 0,
+            "body": 0,
+            "offset": 8
+          },
+          "magic": {
+            "trace": 0.7901234567901324,
+            "glyph": 0.7901234567901324,
+            "title": 0,
+            "body": 0,
+            "veil": 0,
+            "dust": 0.03549382716049813,
+            "burst": 0.07937323358441628,
+            "disperse": 0,
+            "titleY": 6,
+            "bodyY": 8,
+            "dustCapacity": 24,
+            "dustVisible": 10,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C3",
+          "requestedU": 0.18,
+          "actualH": "10.6077778",
+          "state": {
+            "frame": 0.35839266280290616,
+            "title": 0.35839266280290616,
+            "body": 0,
+            "offset": 8
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 0.35839266280290616,
+            "body": 0,
+            "veil": 0.35839266280290616,
+            "dust": 0.9626935411262911,
+            "burst": 0.9782296269952443,
+            "disperse": 0,
+            "titleY": 3.849644023182563,
+            "bodyY": 8,
+            "dustCapacity": 24,
+            "dustVisible": 24,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C3",
+          "requestedU": 0.25,
+          "actualH": "10.6500000",
+          "state": {
+            "frame": 1,
+            "title": 1,
+            "body": 0.5000000000000135,
+            "offset": 3.9999999999998916
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 1,
+            "body": 0.5000000000000135,
+            "veil": 1,
+            "dust": 1,
+            "burst": 0.4288425808633474,
+            "disperse": 0,
+            "titleY": 0,
+            "bodyY": 3.9999999999998916,
+            "dustCapacity": 24,
+            "dustVisible": 15,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C3",
+          "requestedU": 0.55,
+          "actualH": "10.8300000",
+          "state": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 1,
+            "body": 1,
+            "veil": 1,
+            "dust": 1,
+            "burst": 0,
+            "disperse": 0,
+            "titleY": 0,
+            "bodyY": 0,
+            "dustCapacity": 24,
+            "dustVisible": 8,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C3",
+          "requestedU": 0.9,
+          "actualH": "11.0400000",
+          "state": {
+            "frame": 0.9645061728394965,
+            "title": 0.9645061728394965,
+            "body": 0.27520751953122924,
+            "offset": -5.798339843750166
+          },
+          "magic": {
+            "trace": 1,
+            "glyph": 1,
+            "title": 0.9645061728394965,
+            "body": 0.27520751953122924,
+            "veil": 0.9645061728394965,
+            "dust": 0.9645061728394965,
+            "burst": 1,
+            "disperse": 0.5000000000000188,
+            "titleY": -0.2129629629630212,
+            "bodyY": -5.798339843750166,
+            "dustCapacity": 24,
+            "dustVisible": 24,
+            "time": 2,
+            "lod": 1
+          }
+        },
+        {
+          "station": "C3",
+          "requestedU": 0.97,
+          "actualH": "11.0822222",
+          "state": {
+            "frame": 0.10028724457401905,
+            "title": 0.10028724457401905,
+            "body": 0,
+            "offset": -8
+          },
+          "magic": {
+            "trace": 0.8864786704659441,
+            "glyph": 0.15821469886171546,
+            "title": 0.10028724457401905,
+            "body": 0,
+            "veil": 0.10028724457401905,
+            "dust": 0.10028724457401905,
+            "burst": 0.20142070414859137,
+            "disperse": 0.9742820829488996,
+            "titleY": -5.398276532555886,
+            "bodyY": -8,
+            "dustCapacity": 24,
+            "dustVisible": 12,
+            "time": 2,
+            "lod": 1
+          }
+        }
+      ]
+    },
+    {
+      "check": "reverse/fast jumps and paused descents reproduce exact states through the water return",
+      "passed": true,
+      "evidence": {
+        "positionsH": [
+          8.3,
+          8.7,
+          8.84,
+          9.14,
+          9.42,
+          9.5,
+          9.63,
+          10.05,
+          10.4,
+          10.5,
+          10.57,
+          10.83,
+          11.08,
+          11.1,
+          11.25,
+          11.5,
+          11.7,
+          11.8
+        ],
+        "pausedMidDescentExact": true
+      }
+    },
+    {
+      "check": "native wheel and C chapter/debug stops preserve native focus",
+      "passed": true,
+      "evidence": {
+        "C3Stop": 10.83,
+        "wheelMoves": true
+      }
+    },
+    {
+      "check": "live view uses one sharp actual canvas, hides glyphs, freezes story and returns exact paused state",
+      "passed": true,
+      "evidence": {
+        "sameCanvas": true,
+        "noBlur": true,
+        "scrollFrozen": true,
+        "pixelsAndFocusRestored": true,
+        "pausedDraws": 21264
+      }
+    },
+    {
+      "check": "explicit live mode/play choices survive exit with original station and synchronized controls",
+      "passed": true,
+      "evidence": {
+        "timeAdvanced": "2.200000",
+        "modeKept": "native",
+        "latestPauseKept": true,
+        "h": "10.0500000"
+      }
+    },
+    {
+      "check": "real version-labelled archive video decodes, advances and releases on tab change/close",
+      "passed": true,
+      "evidence": {
+        "duration": 12,
+        "width": 680,
+        "height": 680,
+        "loop": false,
+        "inline": true
+      }
+    },
+    {
+      "check": "archive suspension preserves manual play intent and only live view resumes it",
+      "passed": true,
+      "evidence": {
+        "archiveTimeFrozen": true,
+        "liveResumesChoice": true
+      }
+    },
+    {
+      "check": "three target layouts, live controls and normalized return after modal resizing pass",
+      "passed": true,
+      "evidence": [
+        {
+          "viewport": [
+            1366,
+            768
+          ],
+          "station": "C1",
+          "layout": {
+            "data": {
+              "progress": "0.5496374",
+              "visible": "true",
+              "station": "C1",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "462.0619",
+              "anchorY": "326.2188",
+              "anchorClear": "true",
+              "layout": "side",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 578,
+              "y": 207,
+              "width": 500,
+              "height": 237.875,
+              "top": 207,
+              "right": 1078,
+              "bottom": 444.875,
+              "left": 578
+            },
+            "nav": {
+              "x": 1234,
+              "y": 345.59375,
+              "width": 108,
+              "height": 240,
+              "top": 345.59375,
+              "right": 1342,
+              "bottom": 585.59375,
+              "left": 1234
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n创作\n\n从想法到交互\n\n我也使用 Vibe Coding，把视觉构想做成网页与交互体验。\n\n想法\n画面\n交互",
+            "textBoxes": [
+              {
+                "text": "从想法到交互",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "我也使用 Vibe Coding，把视觉构想做成网页与交互体验。",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "想法画面交互",
+                "font": 18,
+                "inside": true
+              }
+            ],
+            "buttons": []
+          }
+        },
+        {
+          "viewport": [
+            1366,
+            768
+          ],
+          "station": "C2",
+          "layout": {
+            "data": {
+              "progress": "0.5499047",
+              "visible": "true",
+              "station": "C2",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "460.6059",
+              "anchorY": "308.4695",
+              "anchorClear": "true",
+              "layout": "side",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 577,
+              "y": 114,
+              "width": 500,
+              "height": 453.28125,
+              "top": 114,
+              "right": 1077,
+              "bottom": 567.28125,
+              "left": 577
+            },
+            "nav": {
+              "x": 1234,
+              "y": 345.59375,
+              "width": 108,
+              "height": 240,
+              "top": 345.59375,
+              "right": 1342,
+              "bottom": 585.59375,
+              "left": 1234
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n庭院习作\n\n庭院习作\n\n交互网页场景\n\n一座可以停留、切换和探索的庭院。\n\n现场体验\n↗\n项目档案\n＋",
+            "textBoxes": [
+              {
+                "text": "庭院习作",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "交互网页场景",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "一座可以停留、切换和探索的庭院。",
+                "font": 18,
+                "inside": true
+              }
+            ],
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 601,
+                  "y": 499.28125,
+                  "width": 128.03125,
+                  "height": 44,
+                  "top": 499.28125,
+                  "right": 729.03125,
+                  "bottom": 543.28125,
+                  "left": 601
+                }
+              },
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 741.03125,
+                  "y": 499.28125,
+                  "width": 128.03125,
+                  "height": 44,
+                  "top": 499.28125,
+                  "right": 869.0625,
+                  "bottom": 543.28125,
+                  "left": 741.03125
+                }
+              }
+            ]
+          }
+        },
+        {
+          "viewport": [
+            1366,
+            768
+          ],
+          "station": "C3",
+          "layout": {
+            "data": {
+              "progress": "0.5498094",
+              "visible": "true",
+              "station": "C3",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "464.2459",
+              "anchorY": "274.1176",
+              "anchorClear": "true",
+              "layout": "side",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 580,
+              "y": 172,
+              "width": 500,
+              "height": 203.28125,
+              "top": 172,
+              "right": 1080,
+              "bottom": 375.28125,
+              "left": 580
+            },
+            "nav": {
+              "x": 1234,
+              "y": 345.59375,
+              "width": 108,
+              "height": 240,
+              "top": 345.59375,
+              "right": 1342,
+              "bottom": 585.59375,
+              "left": 1234
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n继续\n\n让想象，动起来。\n\n从一幅画面，到一个可以进入的世界。\n\n↓ 继续向下，回到水潭。",
+            "textBoxes": [
+              {
+                "text": "让想象，动起来。",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "从一幅画面，到一个可以进入的世界。",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "↓ 继续向下，回到水潭。",
+                "font": 18,
+                "inside": true
+              }
+            ],
+            "buttons": []
+          }
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "station": "C1",
+          "layout": {
+            "data": {
+              "progress": "0.5499831",
+              "visible": "true",
+              "station": "C1",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "131.1969",
+              "anchorY": "369.4740",
+              "anchorClear": "true",
+              "layout": "stacked",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 16,
+              "y": 421,
+              "width": 358,
+              "height": 186.765625,
+              "top": 421,
+              "right": 374,
+              "bottom": 607.765625,
+              "left": 16
+            },
+            "nav": {
+              "x": 16,
+              "y": 688,
+              "width": 358,
+              "height": 44,
+              "top": 688,
+              "right": 374,
+              "bottom": 732,
+              "left": 16
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n创作\n\n从想法到交互\n\n我也使用 Vibe Coding，把视觉构想做成网页与交互体验。\n\n想法\n画面\n交互",
+            "textBoxes": [
+              {
+                "text": "从想法到交互",
+                "font": 22,
+                "inside": true
+              },
+              {
+                "text": "我也使用 Vibe Coding，把视觉构想做成网页与交互体验。",
+                "font": 16,
+                "inside": true
+              },
+              {
+                "text": "想法画面交互",
+                "font": 16,
+                "inside": true
+              }
+            ],
+            "buttons": []
+          }
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "station": "C2",
+          "layout": {
+            "data": {
+              "progress": "0.5499567",
+              "visible": "true",
+              "station": "C2",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "130.3378",
+              "anchorY": "359.0017",
+              "anchorClear": "true",
+              "layout": "stacked",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 16,
+              "y": 411,
+              "width": 358,
+              "height": 231.59375,
+              "top": 411,
+              "right": 374,
+              "bottom": 642.59375,
+              "left": 16
+            },
+            "nav": {
+              "x": 16,
+              "y": 688,
+              "width": 358,
+              "height": 44,
+              "top": 688,
+              "right": 374,
+              "bottom": 732,
+              "left": 16
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n庭院习作\n\n庭院习作\n\n交互网页场景\n\n一座可以停留、切换和探索的庭院。\n\n现场体验\n↗\n项目档案\n＋",
+            "textBoxes": [
+              {
+                "text": "庭院习作",
+                "font": 22,
+                "inside": true
+              },
+              {
+                "text": "交互网页场景",
+                "font": 16,
+                "inside": true
+              },
+              {
+                "text": "一座可以停留、切换和探索的庭院。",
+                "font": 16,
+                "inside": true
+              }
+            ],
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 30,
+                  "y": 584.59375,
+                  "width": 160,
+                  "height": 44,
+                  "top": 584.59375,
+                  "right": 190,
+                  "bottom": 628.59375,
+                  "left": 30
+                }
+              },
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 200,
+                  "y": 584.59375,
+                  "width": 160,
+                  "height": 44,
+                  "top": 584.59375,
+                  "right": 360,
+                  "bottom": 628.59375,
+                  "left": 200
+                }
+              }
+            ]
+          }
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "station": "C3",
+          "layout": {
+            "data": {
+              "progress": "0.5493209",
+              "visible": "true",
+              "station": "C3",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "132.4855",
+              "anchorY": "338.7335",
+              "anchorClear": "true",
+              "layout": "stacked",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 16,
+              "y": 391,
+              "width": 358,
+              "height": 158.375,
+              "top": 391,
+              "right": 374,
+              "bottom": 549.375,
+              "left": 16
+            },
+            "nav": {
+              "x": 16,
+              "y": 688,
+              "width": 358,
+              "height": 44,
+              "top": 688,
+              "right": 374,
+              "bottom": 732,
+              "left": 16
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n继续\n\n让想象，动起来。\n\n从一幅画面，到一个可以进入的世界。\n\n↓ 继续向下，回到水潭。",
+            "textBoxes": [
+              {
+                "text": "让想象，动起来。",
+                "font": 22,
+                "inside": true
+              },
+              {
+                "text": "从一幅画面，到一个可以进入的世界。",
+                "font": 16,
+                "inside": true
+              },
+              {
+                "text": "↓ 继续向下，回到水潭。",
+                "font": 16,
+                "inside": true
+              }
+            ],
+            "buttons": []
+          }
+        },
+        {
+          "viewport": [
+            1440,
+            900
+          ],
+          "station": "C1",
+          "layout": {
+            "data": {
+              "progress": "0.5500000",
+              "visible": "true",
+              "station": "C1",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "486.7470",
+              "anchorY": "391.3638",
+              "anchorClear": "true",
+              "layout": "side",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 609,
+              "y": 272,
+              "width": 500,
+              "height": 237.875,
+              "top": 272,
+              "right": 1109,
+              "bottom": 509.875,
+              "left": 609
+            },
+            "nav": {
+              "x": 1308,
+              "y": 405,
+              "width": 108,
+              "height": 240,
+              "top": 405,
+              "right": 1416,
+              "bottom": 645,
+              "left": 1308
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n创作\n\n从想法到交互\n\n我也使用 Vibe Coding，把视觉构想做成网页与交互体验。\n\n想法\n画面\n交互",
+            "textBoxes": [
+              {
+                "text": "从想法到交互",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "我也使用 Vibe Coding，把视觉构想做成网页与交互体验。",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "想法画面交互",
+                "font": 18,
+                "inside": true
+              }
+            ],
+            "buttons": []
+          }
+        },
+        {
+          "viewport": [
+            1440,
+            900
+          ],
+          "station": "C2",
+          "layout": {
+            "data": {
+              "progress": "0.5500000",
+              "visible": "true",
+              "station": "C2",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "485.0002",
+              "anchorY": "370.0701",
+              "anchorClear": "true",
+              "layout": "side",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 607,
+              "y": 143,
+              "width": 500,
+              "height": 453.28125,
+              "top": 143,
+              "right": 1107,
+              "bottom": 596.28125,
+              "left": 607
+            },
+            "nav": {
+              "x": 1308,
+              "y": 405,
+              "width": 108,
+              "height": 240,
+              "top": 405,
+              "right": 1416,
+              "bottom": 645,
+              "left": 1308
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n庭院习作\n\n庭院习作\n\n交互网页场景\n\n一座可以停留、切换和探索的庭院。\n\n现场体验\n↗\n项目档案\n＋",
+            "textBoxes": [
+              {
+                "text": "庭院习作",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "交互网页场景",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "一座可以停留、切换和探索的庭院。",
+                "font": 18,
+                "inside": true
+              }
+            ],
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 631,
+                  "y": 528.28125,
+                  "width": 128.03125,
+                  "height": 44,
+                  "top": 528.28125,
+                  "right": 759.03125,
+                  "bottom": 572.28125,
+                  "left": 631
+                }
+              },
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 771.03125,
+                  "y": 528.28125,
+                  "width": 128.03125,
+                  "height": 44,
+                  "top": 528.28125,
+                  "right": 899.0625,
+                  "bottom": 572.28125,
+                  "left": 771.03125
+                }
+              }
+            ]
+          }
+        },
+        {
+          "viewport": [
+            1440,
+            900
+          ],
+          "station": "C3",
+          "layout": {
+            "data": {
+              "progress": "0.5500000",
+              "visible": "true",
+              "station": "C3",
+              "phase": "read",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "coverState": "ready",
+              "anchorX": "489.3671",
+              "anchorY": "328.8582",
+              "anchorClear": "true",
+              "layout": "side",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 612,
+              "y": 227,
+              "width": 500,
+              "height": 203.28125,
+              "top": 227,
+              "right": 1112,
+              "bottom": 430.28125,
+              "left": 612
+            },
+            "nav": {
+              "x": 1308,
+              "y": 405,
+              "width": 108,
+              "height": 240,
+              "top": 405,
+              "right": 1416,
+              "bottom": 645,
+              "left": 1308
+            },
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "text": "03 / 交互实验\n继续\n\n让想象，动起来。\n\n从一幅画面，到一个可以进入的世界。\n\n↓ 继续向下，回到水潭。",
+            "textBoxes": [
+              {
+                "text": "让想象，动起来。",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "从一幅画面，到一个可以进入的世界。",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "↓ 继续向下，回到水潭。",
+                "font": 18,
+                "inside": true
+              }
+            ],
+            "buttons": []
+          }
+        }
+      ]
+    },
+    {
+      "check": "ten project/media cycles and rapid reopen keep DOM/GPU stable and paused drawing stopped",
+      "passed": true,
+      "evidence": {
+        "cycles": 10,
+        "before": {
+          "geometries": 58,
+          "textures": 6,
+          "programs": 22,
+          "calls": 44,
+          "triangles": 7219,
+          "mode": "pixel",
+          "outputWidth": 1440,
+          "outputHeight": 793,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 211,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 28
+          }
+        },
+        "after": {
+          "geometries": 58,
+          "textures": 6,
+          "programs": 22,
+          "calls": 44,
+          "triangles": 7219,
+          "mode": "pixel",
+          "outputWidth": 1440,
+          "outputHeight": 793,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 211,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 48
+          }
+        },
+        "nodes": 294,
+        "singleCanvas": true,
+        "activeVideos": 0,
+        "staleCloseSafe": true
+      }
+    },
+    {
+      "check": "portrait touch, reduced motion, full content and actual contrast pass",
+      "passed": true,
+      "evidence": {
+        "simulatedPhone": true,
+        "nativeTouchDrag": true,
+        "stations": [
+          {
+            "station": "C1",
+            "layout": {
+              "data": {
+                "progress": "0.5499831",
+                "visible": "true",
+                "station": "C1",
+                "phase": "read",
+                "titleOpacity": "1.0000000",
+                "bodyOpacity": "1.0000000",
+                "anchorX": "131.1969",
+                "anchorY": "369.4740",
+                "anchorClear": "true",
+                "layout": "stacked",
+                "fits": "true",
+                "coverState": "ready"
+              },
+              "rect": {
+                "x": 16,
+                "y": 421,
+                "width": 358,
+                "height": 186.765625,
+                "top": 421,
+                "right": 374,
+                "bottom": 607.765625,
+                "left": 16
+              },
+              "nav": {
+                "x": 16,
+                "y": 688,
+                "width": 358,
+                "height": 44,
+                "top": 688,
+                "right": 374,
+                "bottom": 732,
+                "left": 16
+              },
+              "horizontalOverflow": false,
+              "internalScroll": false,
+              "text": "03 / 交互实验\n创作\n\n从想法到交互\n\n我也使用 Vibe Coding，把视觉构想做成网页与交互体验。\n\n想法\n画面\n交互",
+              "textBoxes": [
+                {
+                  "text": "从想法到交互",
+                  "font": 22,
+                  "inside": true
+                },
+                {
+                  "text": "我也使用 Vibe Coding，把视觉构想做成网页与交互体验。",
+                  "font": 16,
+                  "inside": true
+                },
+                {
+                  "text": "想法画面交互",
+                  "font": 16,
+                  "inside": true
+                }
+              ],
+              "buttons": []
+            },
+            "contrast": {
+              "station": "mobile-C1",
+              "minimumRatios": {
+                "title": 11.219541925656038,
+                "body": 7.83653162980629
+              },
+              "textParts": [
+                {
+                  "label": "",
+                  "minimumRatio": 11.219541925656038,
+                  "samples": 506
+                },
+                {
+                  "label": "",
+                  "minimumRatio": 11.20044168122291,
+                  "samples": 1096
+                },
+                {
+                  "label": "experiment-process",
+                  "minimumRatio": 7.83653162980629,
+                  "samples": 96
+                },
+                {
+                  "label": "experiment-process",
+                  "minimumRatio": 7.83653162980629,
+                  "samples": 96
+                },
+                {
+                  "label": "experiment-process",
+                  "minimumRatio": 7.83653162980629,
+                  "samples": 96
+                }
+              ],
+              "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+            }
+          },
+          {
+            "station": "C2",
+            "layout": {
+              "data": {
+                "progress": "0.5499567",
+                "visible": "true",
+                "station": "C2",
+                "phase": "read",
+                "titleOpacity": "1.0000000",
+                "bodyOpacity": "1.0000000",
+                "anchorX": "130.3378",
+                "anchorY": "359.0017",
+                "anchorClear": "true",
+                "layout": "stacked",
+                "fits": "true",
+                "coverState": "ready"
+              },
+              "rect": {
+                "x": 16,
+                "y": 411,
+                "width": 358,
+                "height": 231.59375,
+                "top": 411,
+                "right": 374,
+                "bottom": 642.59375,
+                "left": 16
+              },
+              "nav": {
+                "x": 16,
+                "y": 688,
+                "width": 358,
+                "height": 44,
+                "top": 688,
+                "right": 374,
+                "bottom": 732,
+                "left": 16
+              },
+              "horizontalOverflow": false,
+              "internalScroll": false,
+              "text": "03 / 交互实验\n庭院习作\n\n庭院习作\n\n交互网页场景\n\n一座可以停留、切换和探索的庭院。\n\n现场体验\n↗\n项目档案\n＋",
+              "textBoxes": [
+                {
+                  "text": "庭院习作",
+                  "font": 22,
+                  "inside": true
+                },
+                {
+                  "text": "交互网页场景",
+                  "font": 16,
+                  "inside": true
+                },
+                {
+                  "text": "一座可以停留、切换和探索的庭院。",
+                  "font": 16,
+                  "inside": true
+                }
+              ],
+              "buttons": [
+                {
+                  "disabled": false,
+                  "rect": {
+                    "x": 30,
+                    "y": 584.59375,
+                    "width": 160,
+                    "height": 44,
+                    "top": 584.59375,
+                    "right": 190,
+                    "bottom": 628.59375,
+                    "left": 30
+                  }
+                },
+                {
+                  "disabled": false,
+                  "rect": {
+                    "x": 200,
+                    "y": 584.59375,
+                    "width": 160,
+                    "height": 44,
+                    "top": 584.59375,
+                    "right": 360,
+                    "bottom": 628.59375,
+                    "left": 200
+                  }
+                }
+              ]
+            },
+            "contrast": {
+              "station": "mobile-C2",
+              "minimumRatios": {
+                "title": 11.219541925656038,
+                "body": 7.83653162980629
+              },
+              "textParts": [
+                {
+                  "label": "",
+                  "minimumRatio": 11.219541925656038,
+                  "samples": 341
+                },
+                {
+                  "label": "experiment-kind",
+                  "minimumRatio": 7.83653162980629,
+                  "samples": 288
+                },
+                {
+                  "label": "",
+                  "minimumRatio": 11.20044168122291,
+                  "samples": 768
+                }
+              ],
+              "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+            }
+          },
+          {
+            "station": "C3",
+            "layout": {
+              "data": {
+                "progress": "0.5493209",
+                "visible": "true",
+                "station": "C3",
+                "phase": "read",
+                "titleOpacity": "1.0000000",
+                "bodyOpacity": "1.0000000",
+                "anchorX": "132.4855",
+                "anchorY": "338.7335",
+                "anchorClear": "true",
+                "layout": "stacked",
+                "fits": "true",
+                "coverState": "ready"
+              },
+              "rect": {
+                "x": 16,
+                "y": 391,
+                "width": 358,
+                "height": 158.375,
+                "top": 391,
+                "right": 374,
+                "bottom": 549.375,
+                "left": 16
+              },
+              "nav": {
+                "x": 16,
+                "y": 688,
+                "width": 358,
+                "height": 44,
+                "top": 688,
+                "right": 374,
+                "bottom": 732,
+                "left": 16
+              },
+              "horizontalOverflow": false,
+              "internalScroll": false,
+              "text": "03 / 交互实验\n继续\n\n让想象，动起来。\n\n从一幅画面，到一个可以进入的世界。\n\n↓ 继续向下，回到水潭。",
+              "textBoxes": [
+                {
+                  "text": "让想象，动起来。",
+                  "font": 22,
+                  "inside": true
+                },
+                {
+                  "text": "从一幅画面，到一个可以进入的世界。",
+                  "font": 16,
+                  "inside": true
+                },
+                {
+                  "text": "↓ 继续向下，回到水潭。",
+                  "font": 16,
+                  "inside": true
+                }
+              ],
+              "buttons": []
+            },
+            "contrast": {
+              "station": "mobile-C3",
+              "minimumRatios": {
+                "title": 11.219541925656038,
+                "body": 8.947205388899084
+              },
+              "textParts": [
+                {
+                  "label": "",
+                  "minimumRatio": 11.219541925656038,
+                  "samples": 671
+                },
+                {
+                  "label": "",
+                  "minimumRatio": 11.20044168122291,
+                  "samples": 816
+                },
+                {
+                  "label": "experiment-cue",
+                  "minimumRatio": 8.947205388899084,
+                  "samples": 48
+                },
+                {
+                  "label": "experiment-cue",
+                  "minimumRatio": 8.947205388899084,
+                  "samples": 400
+                }
+              ],
+              "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "check": "normal browser diagnostics contain no unidentified errors or HTTP failures",
+      "passed": true,
+      "evidence": {
+        "knownFirefox": [],
+        "unexpected": []
+      }
+    }
+  ],
+  "issues": [],
+  "passed": true,
+  "environment": "Linux software graphics; simulated mobile; GTK WebKit is not Apple Safari; no physical FPS/trackpad claim"
+}

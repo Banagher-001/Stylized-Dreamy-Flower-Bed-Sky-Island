@@ -1,0 +1,81 @@
+{
+  "step": 7,
+  "status": "completed at review point",
+  "chapterChecks": {
+    "chromium": {
+      "passed": true,
+      "groups": 14,
+      "diagnostics": 0
+    },
+    "firefox": {
+      "passed": true,
+      "groups": 14,
+      "diagnostics": 3
+    },
+    "webkit": {
+      "passed": true,
+      "groups": 14,
+      "diagnostics": 0
+    }
+  },
+  "chapterGroups": 42,
+  "aboutRegressionGroups": 52,
+  "filmRegressionGroups": 51,
+  "nativeRecoveryGroups": 7,
+  "fallbackGroups": 4,
+  "resourceIncrement": {
+    "geometries": 2,
+    "textures": 1,
+    "programs": 0
+  },
+  "fullWarm": {
+    "geometries": 58,
+    "textures": 6,
+    "programs": 10,
+    "bothModeProgramCache": 18
+  },
+  "sourceScope": "scope-guard.json",
+  "strictMatchedImages": "fresh-matched-screenshot-isolation.json",
+  "originalImageDiagnostics": "screenshot-isolation.json",
+  "performance": "latency-pairs-summary.json",
+  "firstPerformanceTriggerRetained": "latency-after.json",
+  "pairedP95DeltaPercent": [
+    -0.2,
+    1.37
+  ],
+  "demo": "interactive-reading-demo.mp4",
+  "demoSeconds": 70.08,
+  "cover": "cover-provenance.json",
+  "runtimeSourceSha256": {
+    "src/tour/createPillarAppearance.ts": "5926d1ae964318cc65042e612fc20cfde37a5fb9523c93f1550358632f379940",
+    "src/tour/experimentContent.ts": "6373dd7c2fcfb0de6e6975287af695d482a8de53e13459d2b75760067231e4e2",
+    "src/tour/createPillarMagic.ts": "6b53135d76089f18cb8cec7d4cc64e6b86135fee0255cafb7a4857296951c809",
+    "src/tour/startTourPrototype.ts": "c9d950de981ce6a0b18c6ccd2c4d6c3f68ed0b8841ee9fc0a743dfd903ce64e0",
+    "src/tour/route.ts": "cdf35416edf0bd5463c1d644ed5544c7cdc9ba26673157012b6ce18a23f8d38f",
+    "src/tour/magicStyle.ts": "3a96a28946356394d40dabdcb3aed0671e3e3f3be9971e604702b79d7183f73d",
+    "src/tour/createMediaViewer.ts": "0f9782cb8339a264a31a4366f7034e3c82590da508e660574a9a7a22004bce6c",
+    "src/tour/filmContent.ts": "2998fc7a9d3aa71121da172917ac4ba3dbd0274e8476e32732b37e1d68bdec32",
+    "src/tour/experimentReading.ts": "613e4a1cc0e31cddd043e7e025450ecbbfe8f7830497aca6af9e0bfe8465f7d5",
+    "src/tour/filmReading.ts": "ef4c3d70c0411a24ab1e48408db96d72d591b474ea8dcee7b7fdea2c3087abf1",
+    "src/tour/film.css": "3a244a08815c78fb3176ce17d3d3aa328e97e454ac26b6b572e19a30d194ea7f",
+    "src/tour/reading.ts": "21b828a5328372058886a37331b018706974af84c5eda510d5d1e13ca77c1edf",
+    "src/tour/createExperimentReader.ts": "d91e9ca0f990c53c1ec1352867b9a2e1e40fcb37c6779104dce0c6a85405f8ca",
+    "src/tour/experiment.css": "74093a4fb75758856900850ae3eed5c208632b63a99631b3fa9c845e1e8969ab",
+    "src/tour/createProjectViewer.ts": "502766a5f2004397e96548020f7351bc90e6389c159175ad626f7e3dd6c85d82",
+    "src/tour/tour.css": "20f7145b72f5c8551d14b1a4cf9b617165eaf42f5488f96245d14b798e4eed2f",
+    "src/tour/createPillarReader.ts": "9f656b78b7a6369f8493fdb15b8c61b5229237fcc3f21fddd317545163f0b3a7",
+    "src/tour/createFilmReader.ts": "46069e93ad6121c43ad4c51ec82537ef4d4cf043a788298c93bab0969dfd5e8a",
+    "src/tour/aboutContent.ts": "f4d06f40eef94b035b09b78471aa277517d87ee22c788fba18aa367296b9eb28"
+  },
+  "limitations": [
+    "Linux software graphics, no hardware FPS claim",
+    "simulated portrait phone; real devices and Apple Safari not covered",
+    "narrow landscape, complete static phone, 200% text scaling deferred to Step11",
+    "real AI-film assets in second pillar still not supplied"
+  ],
+  "published": false,
+  "deployed": false,
+  "committed": false,
+  "pushed": false,
+  "nextStepStarted": false
+}

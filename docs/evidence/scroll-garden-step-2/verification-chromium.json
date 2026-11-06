@@ -1,0 +1,260 @@
+{
+  "engine": "chromium",
+  "version": "155.0.8059.79",
+  "environment": "Linux cloud software renderer; not real phone or hardware FPS acceptance",
+  "checks": [
+    {
+      "check": "isolated production prototype has one visible scene and native document scroll",
+      "passed": true,
+      "evidence": {
+        "canvasCount": 1,
+        "scene": {
+          "renderState": "ready",
+          "stage": "S00",
+          "chapter": "overview",
+          "displayH": "0.0000000",
+          "targetH": "0.0000000",
+          "cameraState": "settled",
+          "cameraPosition": "[4.5,23,16]",
+          "cameraTarget": "[0,0.45,0]",
+          "viewHeight": "11.3000000",
+          "aspect": "1.8158890",
+          "motionState": "paused",
+          "visibility": "visible",
+          "sceneTime": "2.000000",
+          "rendererStats": "{\"geometries\":52,\"textures\":3,\"programs\":9,\"calls\":68,\"triangles\":9053,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":793,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":211,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+        }
+      }
+    },
+    {
+      "check": "real browser wheel and Home/End control the same progress",
+      "passed": true,
+      "evidence": {
+        "wheelReversed": true,
+        "homeH": "0.0000000"
+      }
+    },
+    {
+      "check": "all five key views work with environment paused",
+      "passed": true,
+      "evidence": [
+        {
+          "key": "about",
+          "h": 1.74,
+          "position": [
+            -0.1032231,
+            6.95,
+            5.9617631
+          ],
+          "target": [
+            -1.3032231,
+            2.75,
+            -3.0382369
+          ],
+          "viewHeight": 3.6
+        },
+        {
+          "key": "films",
+          "h": 4.95,
+          "position": [
+            7.1147665,
+            7,
+            7.7993645
+          ],
+          "target": [
+            5.9147665,
+            2.8,
+            -1.2006355
+          ],
+          "viewHeight": 3.8
+        },
+        {
+          "key": "experiments",
+          "h": 9.14,
+          "position": [
+            5.1967769,
+            6.95,
+            13.9517631
+          ],
+          "target": [
+            3.9967769,
+            2.75,
+            4.9517631
+          ],
+          "viewHeight": 3.6
+        },
+        {
+          "key": "water",
+          "h": 11.5,
+          "position": [
+            2.32,
+            11.15,
+            7.5
+          ],
+          "target": [
+            0.12,
+            0.65,
+            0
+          ],
+          "viewHeight": 6.2
+        },
+        {
+          "key": "overview",
+          "h": 0.0,
+          "position": [
+            4.5,
+            23,
+            16
+          ],
+          "target": [
+            0,
+            0.45,
+            0
+          ],
+          "viewHeight": 11.3
+        }
+      ]
+    },
+    {
+      "check": "fast jumps and reverse travel restore identical settled camera parameters",
+      "passed": true,
+      "evidence": {
+        "midpointsH": [
+          0.9,
+          3.92,
+          8.32,
+          11.3
+        ],
+        "exact": true
+      }
+    },
+    {
+      "check": "near-view mode switching changes actual picture without resetting zoom",
+      "passed": true,
+      "evidence": {
+        "returnedPixelsExact": true
+      }
+    },
+    {
+      "check": "resize preserves chapter progress and current view height, controls do not cover the canvas",
+      "passed": true,
+      "evidence": {
+        "beforeH": 1.74,
+        "afterH": 1.7399198
+      }
+    },
+    {
+      "check": "real context restore keeps the paused camera pose and visible image",
+      "passed": true,
+      "evidence": {
+        "restoredPixelsExact": true
+      }
+    },
+    {
+      "check": "repeated tours retain GPU resource counts and settled pause stops drawing",
+      "passed": true,
+      "evidence": {
+        "cycles": 10,
+        "locationsPerCycle": 5,
+        "before": {
+          "geometries": 52,
+          "textures": 3,
+          "programs": 9,
+          "calls": 68,
+          "triangles": 9053,
+          "mode": "pixel",
+          "outputWidth": 1440,
+          "outputHeight": 793,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 211,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 3
+          }
+        },
+        "after": {
+          "geometries": 52,
+          "textures": 3,
+          "programs": 9,
+          "calls": 68,
+          "triangles": 9053,
+          "mode": "pixel",
+          "outputWidth": 1440,
+          "outputHeight": 793,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 211,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 3
+          }
+        },
+        "pausedDrawCount": 21786
+      }
+    },
+    {
+      "check": "environment playback and scroll camera remain independent",
+      "passed": true,
+      "evidence": {
+        "timeAdvancesWhileTouring": true
+      }
+    },
+    {
+      "check": "basic mobile touch navigation and reduced-motion camera work",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "simulatedPhone": true,
+        "nativeTouchDragTested": true
+      }
+    },
+    {
+      "check": "settle latency recorded from browser-observed frame state",
+      "passed": true,
+      "evidence": {
+        "samples": 76,
+        "maxMs": 209.2999999988824,
+        "p95Ms": 182,
+        "targetMs": 200,
+        "environment": "software rendering; observer includes frame work, not physical input-to-display timing"
+      }
+    },
+    {
+      "check": "default reference page retains both exact scene images and its portfolio",
+      "passed": true,
+      "evidence": {
+        "modes": [
+          "pixel",
+          "native"
+        ],
+        "pixelsExact": true
+      }
+    },
+    {
+      "check": "all diagnostics retained with no unidentified errors or warnings",
+      "passed": true,
+      "evidence": {
+        "knownFirefoxDiagnostics": 0,
+        "unexpected": []
+      }
+    }
+  ],
+  "issues": [],
+  "passed": true
+}

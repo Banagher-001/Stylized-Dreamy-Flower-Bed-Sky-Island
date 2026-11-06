@@ -1,0 +1,224 @@
+{
+  "createdAtUTC": "2026-11-05T03:39:50.218534+00:00",
+  "stage": 2,
+  "status": "implemented; stopped at user review gate",
+  "entry": "?tour=prototype",
+  "defaultPage": "previous portfolio retained",
+  "scope": "one renderer; native document scroll -> overview, three pillar first stations, water and overview; reverse, pause, resize, context recovery",
+  "build": {
+    "command": "npm run build (includes strict TypeScript check)",
+    "passed": true,
+    "sourceModifiedBeforeCurrentDist": true,
+    "dependenciesChanged": false,
+    "distFiles": {
+      "dist/assets/courtyard-keyframe-00-Dnvt_afN.png": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46",
+      "dist/assets/courtyard-keyframe-03-BpIvPl5V.png": "b6356c57d768eea3a06483e460d025e4066e79dbff8a46896eb55b9ad110617a",
+      "dist/assets/courtyard-motion-7fR7fsF8.mp4": "70d6128b6385c8f0da201112ce4fb1c99f25dccce98b6f705c094321a56a0b8c",
+      "dist/assets/courtyard-o3Fn-aDY.png": "802e0b8aff55e59042d6ab45085d00a0a4ae758aad56174f07a94f5ccae4fe5a",
+      "dist/assets/createAnimationController-BNrifYsR.js": "11605026a1b07704d41e88fe8596736ce3b5455aace0889820e165e1feade350",
+      "dist/assets/index-B5-UwPAe.css": "b3a0cb62aac1eafb4fee5694c90793f40cb1244003b437dd7baa48f916376162",
+      "dist/assets/index-BCrQ4-3y.js": "421b6f9d93a4ad94a8767bf1678a1e7e423976a2b4ba467d2698834e84257bb7",
+      "dist/assets/liquid-form-Yl5oqdSL.webp": "4affe046c4973f091c79e1a67c923fd3a8b7ab8490596331cfd36e9b766285cc",
+      "dist/assets/signal-garden-CbiDrnMk.webp": "1ccb2af6cf90ab0169cf96fa6a69404af74ac5d5424be0f4283e6ce907a5620e",
+      "dist/assets/startPortfolio-Dx7RGT6C.js": "eec73ab2e8980496c381a2819e6d63aa8810ef98cf5fc9bcdb0cc73972fb8896",
+      "dist/assets/startTourPrototype-Dj5PrLpG.css": "0e6872451523dbf5cfe25f91f861cef33bf28721ee02cb5176234b6b9bbded37",
+      "dist/assets/startTourPrototype-yOQHc2hs.js": "c15bd1e4a923c3229cb83163af0048bf740f787e873663f99c025d81e4fe11d1",
+      "dist/assets/three-core-DhN96CcZ.js": "0422580f001c62710daec32ae45f20989a9a24e1148874fe26169ffae0cea0a6",
+      "dist/assets/three-renderer-yvH6S2DZ.js": "8ccd0c382575b3658cc19cf57b42ef6f7c84febab0a9f9abef3c041e0225c5a9",
+      "dist/favicon.svg": "d9d37a32183e292ee556ff3918235bdec02cdf7f0405d51972b96471e62d33a8",
+      "dist/index.html": "647e04992036d6721ee787a1f46e3a9156c83a29763e61ec81a8889343f60ac2"
+    }
+  },
+  "sourceProtection": {
+    "baselineFiles": 348,
+    "unchanged": 342,
+    "changedExistingFiles": [
+      "README.md",
+      "dist/index.html",
+      "src/main.ts",
+      "docs/scroll-garden/README.md",
+      "src/scene/createScene.ts"
+    ],
+    "removedBuildArtifacts": [
+      "dist/assets/index-CzAVPfSU.js"
+    ],
+    "unexpectedChanges": [],
+    "protectedFiles": 332,
+    "protectedFilesByteIdentical": true,
+    "defaultLogicCopyExactAfterImportRelocation": true,
+    "defaultScenePixels": {
+      "pixel": {
+        "exact": true,
+        "imageSize": [
+          680,
+          680
+        ],
+        "beforeSha256": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46",
+        "afterSha256": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46"
+      },
+      "native": {
+        "exact": true,
+        "imageSize": [
+          680,
+          680
+        ],
+        "beforeSha256": "8e0ef4a1c61aff68cbc8ffe0247bf7f2b5d25d938af96f1b9ae1f0c05d262ffb",
+        "afterSha256": "8e0ef4a1c61aff68cbc8ffe0247bf7f2b5d25d938af96f1b9ae1f0c05d262ffb"
+      }
+    },
+    "instanceMatricesAndColorsExact": true,
+    "currentRuntimeSources": {
+      "src/main.ts": "0a343078f3e5ec31cef8c154b2f26a79945aeed68b5707330673e5dffc9337a9",
+      "src/scene/createScene.ts": "f5519a531cebaa14fd0ba45abaa7b070c13052f538dec81f11cdb94bddf73860",
+      "src/portfolio/startPortfolio.ts": "7986be5bf5f725d3647112d9161e4b7fab9cfebde8f39a19faeae9d1f5e9bbfe",
+      "src/tour/route.ts": "53a5792d176e65b457e618a5131a7e2744de40dc6dc9bda8c3c80b8326a1f123",
+      "src/tour/startTourPrototype.ts": "7f3d689d16b1813d93404d3c2ecb7cde427711f32dbd9b8dc254eb2b42ac0454",
+      "src/tour/tour.css": "e57644523fe477781387c5fb4bfd94de1adf8d292971f1458c76417dac6d808e"
+    },
+    "newSourceTestsAndDesignDocs": [
+      "src/tour/route.ts",
+      "src/tour/startTourPrototype.ts",
+      "src/tour/tour.css",
+      "tests/scroll-garden/README.md",
+      "tests/scroll-garden/inspect_route.js",
+      "tests/scroll-garden/record_demo.py",
+      "tests/scroll-garden/step2_browser.py",
+      "tests/scroll-garden/step2_geometry.py",
+      "docs/scroll-garden/step-2-implementation.md",
+      "docs/scroll-garden/step-2-standard.md",
+      "docs/scroll-garden/step-2-verification.md",
+      "src/portfolio/startPortfolio.ts"
+    ]
+  },
+  "geometry": {
+    "samples": 3003,
+    "aspects": [
+      1.815889029003783,
+      2.066565809379728,
+      0.5241935483870968
+    ],
+    "collisionSamples": 0,
+    "maximumBoundaryDelta": 2.220446049250313e-14,
+    "stage1TimelineMatches": true,
+    "instanceBaselineMatches": true,
+    "scope": "Camera eye against conservative static-building bounds, shaft ray visibility at three held poses, and principal object framing; screenshots/review supplement geometry."
+  },
+  "browserChecks": {
+    "totalPassedGroups": 37,
+    "engines": {
+      "chromium": {
+        "version": "155.0.8059.79",
+        "passedGroups": 13,
+        "retainedDiagnostics": 0,
+        "knownDiagnostics": 0,
+        "unexpectedDiagnostics": 0,
+        "latency": {
+          "samples": 76,
+          "maxMs": 209.2999999988824,
+          "p95Ms": 182,
+          "targetMs": 200,
+          "environment": "software rendering; observer includes frame work, not physical input-to-display timing"
+        },
+        "reportSha256": "93792b17595a204fe385028a4de813bbfb2a542cf0e5e70f12f9d8231544b5e3"
+      },
+      "firefox": {
+        "version": "153.0",
+        "passedGroups": 12,
+        "retainedDiagnostics": 4,
+        "knownDiagnostics": 4,
+        "unexpectedDiagnostics": 0,
+        "latency": {
+          "samples": 36,
+          "maxMs": 158,
+          "p95Ms": 155,
+          "targetMs": 200,
+          "environment": "software rendering; observer includes frame work, not physical input-to-display timing"
+        },
+        "reportSha256": "51bf36af94ce1cd56ee1000b19132b7a2861f3bc120165deea22baca8239384f"
+      },
+      "webkit": {
+        "version": "26.5",
+        "passedGroups": 12,
+        "retainedDiagnostics": 0,
+        "knownDiagnostics": 0,
+        "unexpectedDiagnostics": 0,
+        "latency": {
+          "samples": 37,
+          "maxMs": 180,
+          "p95Ms": 177,
+          "targetMs": 200,
+          "environment": "software rendering; observer includes frame work, not physical input-to-display timing"
+        },
+        "reportSha256": "c9c0378b6cc47a98cd69359a1930c2bec0ffbdeb62989dd19e62f9332e644696"
+      }
+    },
+    "finalCaptionSupplement": {
+      "passedPositions": 5,
+      "separateFrom37Groups": true,
+      "productionSourceMatches": true
+    }
+  },
+  "fallback": {
+    "readableAlert": true,
+    "sceneControlsDisabled": 8,
+    "referenceLinkUsable": true,
+    "unhandledExceptions": [],
+    "expectedInitializationDiagnosticsRetained": 8
+  },
+  "recording": {
+    "file": "scroll-camera-demo.mp4",
+    "sha256": "a96c3e70098b1bb70fc8c07a6ed804bbc9f73324506252c48ca9298d17f83fde",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 800
+        }
+      ],
+      "format": {
+        "duration": "32.200000",
+        "size": "3747424"
+      }
+    },
+    "method": "actual native wheel-driven browser screen recording; converted from retained WebM to H.264",
+    "hardwareFPSProof": false
+  },
+  "limits": [
+    "Cloud Linux software rendering; no physical GPU FPS acceptance.",
+    "GTK WebKit is not Safari on Apple hardware; phone viewport and touch are simulated.",
+    "Chromium peak observed settle latency 209.3 ms slightly exceeds approximately 200 ms prototype target.",
+    "Geometry samples and three held-pose rays do not prove every sightline or pixel.",
+    "Three pillar reading windows hold at first station; later vertical reading remains pending."
+  ],
+  "pendingSteps": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "excludedFromThisStep": [
+    "vertical pillar reading",
+    "formal biography and work text in pillars",
+    "magic lettering",
+    "darker stone",
+    "new water surface",
+    "new orb animation"
+  ],
+  "deliveryState": {
+    "savedInWorkspace": true,
+    "published": false,
+    "deployed": false,
+    "gitCommitted": false,
+    "gitPushed": false,
+    "previousReleaseArchivesUnchanged": true
+  }
+}

@@ -1,0 +1,2233 @@
+{
+  "engine": "firefox",
+  "version": "153.0",
+  "checks": [
+    {
+      "check": "cold scene defers exhibition images until approach and never requests a fake film",
+      "passed": true,
+      "evidence": {
+        "coldRequests": [
+          "http://127.0.0.1:4173/?tour=prototype&waterTime=2",
+          "http://127.0.0.1:4173/assets/index-CYqFdlgd.js",
+          "http://127.0.0.1:4173/assets/index-B5-UwPAe.css",
+          "http://127.0.0.1:4173/assets/startTourPrototype-DPrIsacv.js",
+          "http://127.0.0.1:4173/assets/three-core-fF3eFWvM.js",
+          "http://127.0.0.1:4173/assets/createAnimationController-DHdOecke.js",
+          "http://127.0.0.1:4173/assets/three-renderer-S3hHllWn.js",
+          "http://127.0.0.1:4173/assets/startTourPrototype-DYQUvAQJ.css",
+          "http://127.0.0.1:4173/favicon.svg"
+        ],
+        "approachRequests": [
+          "http://127.0.0.1:4173/assets/signal-garden-CbiDrnMk.webp"
+        ],
+        "realFilm": "not-supplied"
+      }
+    },
+    {
+      "check": "four distinct full-reading stations preserve true sample labels, proportions and real actions",
+      "passed": true,
+      "evidence": [
+        {
+          "station": "B1",
+          "layout": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5500000",
+              "station": "B1",
+              "phase": "read",
+              "frameOpacity": "1.0000000",
+              "mediaOpacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "anchorX": "400.5107",
+              "anchorY": "399.0810",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 523,
+              "y": 159,
+              "width": 560,
+              "height": 479.95001220703125,
+              "top": 159,
+              "right": 1083,
+              "bottom": 638.9500122070312,
+              "left": 523
+            },
+            "nav": {
+              "x": 1308,
+              "y": 405,
+              "width": 108,
+              "height": 240,
+              "top": 405,
+              "right": 1416,
+              "bottom": 645,
+              "left": 1308
+            },
+            "stage": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 789,
+              "top": 0,
+              "right": 1440,
+              "bottom": 789,
+              "left": 0
+            },
+            "header": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 101,
+              "top": 0,
+              "right": 1440,
+              "bottom": 101,
+              "left": 0
+            },
+            "text": "02 / AI 影像\n影像展映\n\n异星来信\n↗\n\n关于遗迹、信号与生命的视觉设想。\n\n网页设计样片 / 非个人实际项目",
+            "articles": [
+              "B1"
+            ],
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 543,
+                  "y": 249.10000610351562,
+                  "width": 520,
+                  "height": 292.6499938964844,
+                  "top": 249.10000610351562,
+                  "right": 1063,
+                  "bottom": 541.75,
+                  "left": 543
+                }
+              }
+            ],
+            "textBoxes": [
+              {
+                "text": "异星来信",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "关于遗迹、信号与生命的视觉设想。",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "网页设计样片 / 非个人实际项目",
+                "font": 18,
+                "inside": true
+              }
+            ]
+          },
+          "scene": {
+            "renderState": "ready",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "overlayState": "closed",
+            "stage": "B1",
+            "chapter": "films",
+            "displayH": "4.9500000",
+            "targetH": "4.9500000",
+            "cameraState": "settled",
+            "cameraPosition": "[7.1223952,7,7.7983473]",
+            "cameraTarget": "[5.9223952,2.8,-1.2016527]",
+            "viewHeight": "3.8000000",
+            "aspect": "1.8250951",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "B1",
+            "filmPhase": "read",
+            "filmPresentation": "{\"frame\":1,\"media\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":56,\"textures\":5,\"programs\":10,\"calls\":23,\"triangles\":5271,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":789,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":210,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+          }
+        },
+        {
+          "station": "B2",
+          "layout": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5500000",
+              "station": "B2",
+              "phase": "read",
+              "frameOpacity": "1.0000000",
+              "mediaOpacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "anchorX": "402.5689",
+              "anchorY": "413.8876",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 525,
+              "y": 215,
+              "width": 560,
+              "height": 398.70001220703125,
+              "top": 215,
+              "right": 1085,
+              "bottom": 613.7000122070312,
+              "left": 525
+            },
+            "nav": {
+              "x": 1308,
+              "y": 405,
+              "width": 108,
+              "height": 240,
+              "top": 405,
+              "right": 1416,
+              "bottom": 645,
+              "left": 1308
+            },
+            "stage": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 789,
+              "top": 0,
+              "right": 1440,
+              "bottom": 789,
+              "left": 0
+            },
+            "header": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 101,
+              "top": 0,
+              "right": 1440,
+              "bottom": 101,
+              "left": 0
+            },
+            "text": "02 / AI 影像\n画面切片\n\n画面切片\n↗\n全景\n↗\n局部\n↗\n细节\n\n网页设计样片 / 非个人实际项目",
+            "articles": [
+              "B2"
+            ],
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 545,
+                  "y": 305.1000061035156,
+                  "width": 234.9499969482422,
+                  "height": 215,
+                  "top": 305.1000061035156,
+                  "right": 779.9499969482422,
+                  "bottom": 520.1000061035156,
+                  "left": 545
+                }
+              },
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 791.9500122070312,
+                  "y": 325.1000061035156,
+                  "width": 130.53334045410156,
+                  "height": 175,
+                  "top": 325.1000061035156,
+                  "right": 922.4833526611328,
+                  "bottom": 500.1000061035156,
+                  "left": 791.9500122070312
+                }
+              },
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 934.4833374023438,
+                  "y": 375.1000061035156,
+                  "width": 130.5333251953125,
+                  "height": 145,
+                  "top": 375.1000061035156,
+                  "right": 1065.0166625976562,
+                  "bottom": 520.1000061035156,
+                  "left": 934.4833374023438
+                }
+              }
+            ],
+            "textBoxes": [
+              {
+                "text": "画面切片",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "全景",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "局部",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "细节",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "网页设计样片 / 非个人实际项目",
+                "font": 18,
+                "inside": true
+              }
+            ]
+          },
+          "scene": {
+            "renderState": "ready",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "overlayState": "closed",
+            "stage": "B2",
+            "chapter": "films",
+            "displayH": "5.9500000",
+            "targetH": "5.9500000",
+            "cameraState": "settled",
+            "cameraPosition": "[7.1223952,6.35,7.7983473]",
+            "cameraTarget": "[5.9223952,2.15,-1.2016527]",
+            "viewHeight": "3.8000000",
+            "aspect": "1.8250951",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "B2",
+            "filmPhase": "read",
+            "filmPresentation": "{\"frame\":1,\"media\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":56,\"textures\":5,\"programs\":10,\"calls\":25,\"triangles\":5391,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":789,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":210,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+          }
+        },
+        {
+          "station": "B3",
+          "layout": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5500000",
+              "station": "B3",
+              "phase": "read",
+              "frameOpacity": "1.0000000",
+              "mediaOpacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "anchorX": "398.4526",
+              "anchorY": "440.7973",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 521,
+              "y": 226,
+              "width": 560,
+              "height": 428.70001220703125,
+              "top": 226,
+              "right": 1081,
+              "bottom": 654.7000122070312,
+              "left": 521
+            },
+            "nav": {
+              "x": 1308,
+              "y": 405,
+              "width": 108,
+              "height": 240,
+              "top": 405,
+              "right": 1416,
+              "bottom": 645,
+              "left": 1308
+            },
+            "stage": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 789,
+              "top": 0,
+              "right": 1440,
+              "bottom": 789,
+              "left": 0
+            },
+            "header": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 101,
+              "top": 0,
+              "right": 1440,
+              "bottom": 101,
+              "left": 0
+            },
+            "text": "02 / AI 影像\n视觉探索\n\n视觉探索\n↗\n流动标本\n↗\n异星来信\n\n网页设计样片 / 非个人实际项目",
+            "articles": [
+              "B3"
+            ],
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 541,
+                  "y": 316.1000061035156,
+                  "width": 213.61666870117188,
+                  "height": 245,
+                  "top": 316.1000061035156,
+                  "right": 754.6166687011719,
+                  "bottom": 561.1000061035156,
+                  "left": 541
+                }
+              },
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 772.61669921875,
+                  "y": 394.5,
+                  "width": 288.3833312988281,
+                  "height": 166.60000610351562,
+                  "top": 394.5,
+                  "right": 1061.0000305175781,
+                  "bottom": 561.1000061035156,
+                  "left": 772.61669921875
+                }
+              }
+            ],
+            "textBoxes": [
+              {
+                "text": "视觉探索",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "流动标本",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "异星来信",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "网页设计样片 / 非个人实际项目",
+                "font": 18,
+                "inside": true
+              }
+            ]
+          },
+          "scene": {
+            "renderState": "ready",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "overlayState": "closed",
+            "stage": "B3",
+            "chapter": "films",
+            "displayH": "6.8400000",
+            "targetH": "6.8400000",
+            "cameraState": "settled",
+            "cameraPosition": "[7.1223952,5.7,7.7983473]",
+            "cameraTarget": "[5.9223952,1.5,-1.2016527]",
+            "viewHeight": "3.8000000",
+            "aspect": "1.8250951",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "B3",
+            "filmPhase": "read",
+            "filmPresentation": "{\"frame\":1,\"media\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":56,\"textures\":5,\"programs\":10,\"calls\":29,\"triangles\":5709,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":789,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":210,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+          }
+        },
+        {
+          "station": "B4",
+          "layout": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5500000",
+              "station": "B4",
+              "phase": "read",
+              "frameOpacity": "1.0000000",
+              "mediaOpacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "anchorX": "398.4526",
+              "anchorY": "330.4880",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 521,
+              "y": 235,
+              "width": 560,
+              "height": 191.6999969482422,
+              "top": 235,
+              "right": 1081,
+              "bottom": 426.6999969482422,
+              "left": 521
+            },
+            "nav": {
+              "x": 1308,
+              "y": 405,
+              "width": 108,
+              "height": 240,
+              "top": 405,
+              "right": 1416,
+              "bottom": 645,
+              "left": 1308
+            },
+            "stage": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 789,
+              "top": 0,
+              "right": 1440,
+              "bottom": 789,
+              "left": 0
+            },
+            "header": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 101,
+              "top": 0,
+              "right": 1440,
+              "bottom": 101,
+              "left": 0
+            },
+            "text": "02 / AI 影像\n影像余韵\n\n影像，仍在继续。\n\n继续向下，进入交互实验。\n\n↓",
+            "articles": [
+              "B4"
+            ],
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "buttons": [],
+            "textBoxes": [
+              {
+                "text": "影像，仍在继续。",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "继续向下，进入交互实验。",
+                "font": 18,
+                "inside": true
+              }
+            ]
+          },
+          "scene": {
+            "renderState": "ready",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "overlayState": "closed",
+            "stage": "B4",
+            "chapter": "films",
+            "displayH": "7.6400000",
+            "targetH": "7.6400000",
+            "cameraState": "settled",
+            "cameraPosition": "[7.1223952,5.05,7.7983473]",
+            "cameraTarget": "[5.9223952,0.85,-1.2016527]",
+            "viewHeight": "3.8000000",
+            "aspect": "1.8250951",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "B4",
+            "filmPhase": "read",
+            "filmPresentation": "{\"frame\":1,\"media\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":56,\"textures\":5,\"programs\":10,\"calls\":36,\"triangles\":6321,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":789,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":210,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+          }
+        }
+      ]
+    },
+    {
+      "check": "all station titles, captions and provenance pass actual-background contrast",
+      "passed": true,
+      "evidence": [
+        {
+          "station": "B1",
+          "minimumRatios": {
+            "title": 11.219541925656038,
+            "body": 7.83653162980629
+          },
+          "textParts": [
+            {
+              "label": "",
+              "minimumRatio": 11.219541925656038,
+              "samples": 468
+            },
+            {
+              "label": "film-caption",
+              "minimumRatio": 11.20044168122291,
+              "samples": 864
+            },
+            {
+              "label": "film-provenance",
+              "minimumRatio": 7.83653162980629,
+              "samples": 720
+            }
+          ],
+          "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+        },
+        {
+          "station": "B2",
+          "minimumRatios": {
+            "title": 11.219541925656038,
+            "body": 7.83653162980629
+          },
+          "textParts": [
+            {
+              "label": "",
+              "minimumRatio": 11.219541925656038,
+              "samples": 468
+            },
+            {
+              "label": "",
+              "minimumRatio": 11.20044168122291,
+              "samples": 108
+            },
+            {
+              "label": "",
+              "minimumRatio": 11.20044168122291,
+              "samples": 108
+            },
+            {
+              "label": "",
+              "minimumRatio": 11.20044168122291,
+              "samples": 108
+            },
+            {
+              "label": "film-provenance",
+              "minimumRatio": 7.83653162980629,
+              "samples": 720
+            }
+          ],
+          "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+        },
+        {
+          "station": "B3",
+          "minimumRatios": {
+            "title": 11.219541925656038,
+            "body": 7.83653162980629
+          },
+          "textParts": [
+            {
+              "label": "",
+              "minimumRatio": 11.219541925656038,
+              "samples": 468
+            },
+            {
+              "label": "",
+              "minimumRatio": 11.20044168122291,
+              "samples": 216
+            },
+            {
+              "label": "",
+              "minimumRatio": 11.20044168122291,
+              "samples": 216
+            },
+            {
+              "label": "film-provenance",
+              "minimumRatio": 7.83653162980629,
+              "samples": 720
+            }
+          ],
+          "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+        },
+        {
+          "station": "B4",
+          "minimumRatios": {
+            "title": 11.219541925656038,
+            "body": 11.20044168122291
+          },
+          "textParts": [
+            {
+              "label": "",
+              "minimumRatio": 11.219541925656038,
+              "samples": 936
+            },
+            {
+              "label": "film-epilogue",
+              "minimumRatio": 11.20044168122291,
+              "samples": 648
+            }
+          ],
+          "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+        }
+      ]
+    },
+    {
+      "check": "all four held reading windows keep exact camera, layout and composed pixels",
+      "passed": true,
+      "evidence": [
+        {
+          "startH": 4.4,
+          "pixelsExact": true
+        },
+        {
+          "startH": 5.4,
+          "pixelsExact": true
+        },
+        {
+          "startH": 6.4,
+          "pixelsExact": true
+        },
+        {
+          "startH": 7.2,
+          "pixelsExact": true
+        }
+      ]
+    },
+    {
+      "check": "twenty-four ordered reveal states and a paused mid-descent remain scroll-controlled",
+      "passed": true,
+      "evidence": [
+        {
+          "station": "B1",
+          "requestedU": 0.1,
+          "actualH": 4.5,
+          "actualU": 0.09999999999999964,
+          "state": {
+            "frame": 0,
+            "media": 0,
+            "title": 0,
+            "body": 0,
+            "offset": 8
+          },
+          "glyph": 0.79012345679012
+        },
+        {
+          "station": "B1",
+          "requestedU": 0.18,
+          "actualH": 4.58,
+          "actualU": 0.17999999999999972,
+          "state": {
+            "frame": 0.3678824299398988,
+            "media": 0,
+            "title": 0,
+            "body": 0,
+            "offset": 8
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B1",
+          "requestedU": 0.25,
+          "actualH": 4.65,
+          "actualU": 0.25,
+          "state": {
+            "frame": 1,
+            "media": 0.9839477539062507,
+            "title": 0.7901234567901233,
+            "body": 0.03549382716049392,
+            "offset": 0.12841796874999467
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B1",
+          "requestedU": 0.55,
+          "actualH": 4.95,
+          "actualU": 0.5499999999999998,
+          "state": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B1",
+          "requestedU": 0.9,
+          "actualH": 5.3,
+          "actualU": 0.8999999999999995,
+          "state": {
+            "frame": 1,
+            "media": 0.36788242993990083,
+            "title": 0.8265951687750606,
+            "body": 0.14470161242339152,
+            "offset": -5.056940560480793
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B1",
+          "requestedU": 0.97,
+          "actualH": 5.37,
+          "actualU": 0.9699999999999998,
+          "state": {
+            "frame": 0.16308000000000333,
+            "media": 0,
+            "title": 0.02852733555440179,
+            "body": 0,
+            "offset": -8
+          },
+          "glyph": 0.16308000000000333
+        },
+        {
+          "station": "B2",
+          "requestedU": 0.1,
+          "actualH": 5.5,
+          "actualU": 0.09999999999999964,
+          "state": {
+            "frame": 0,
+            "media": 0,
+            "title": 0,
+            "body": 0,
+            "offset": 8
+          },
+          "glyph": 0.79012345679012
+        },
+        {
+          "station": "B2",
+          "requestedU": 0.18,
+          "actualH": 5.58,
+          "actualU": 0.17999999999999972,
+          "state": {
+            "frame": 0.3678824299398988,
+            "media": 0,
+            "title": 0,
+            "body": 0,
+            "offset": 8
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B2",
+          "requestedU": 0.25,
+          "actualH": 5.65,
+          "actualU": 0.25,
+          "state": {
+            "frame": 1,
+            "media": 0.9839477539062507,
+            "title": 0.7901234567901233,
+            "body": 0.03549382716049392,
+            "offset": 0.12841796874999467
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B2",
+          "requestedU": 0.55,
+          "actualH": 5.95,
+          "actualU": 0.5499999999999998,
+          "state": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B2",
+          "requestedU": 0.9,
+          "actualH": 6.3,
+          "actualU": 0.8999999999999995,
+          "state": {
+            "frame": 1,
+            "media": 0.36788242993990083,
+            "title": 0.8265951687750606,
+            "body": 0.14470161242339152,
+            "offset": -5.056940560480793
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B2",
+          "requestedU": 0.97,
+          "actualH": 6.37,
+          "actualU": 0.9699999999999998,
+          "state": {
+            "frame": 0.16307999999999168,
+            "media": 0,
+            "title": 0.028527335554397903,
+            "body": 0,
+            "offset": -8
+          },
+          "glyph": 0.16307999999999168
+        },
+        {
+          "station": "B3",
+          "requestedU": 0.1,
+          "actualH": 6.48,
+          "actualU": 0.10000000000000009,
+          "state": {
+            "frame": 0,
+            "media": 0,
+            "title": 0,
+            "body": 0,
+            "offset": 8
+          },
+          "glyph": 0.7901234567901247
+        },
+        {
+          "station": "B3",
+          "requestedU": 0.18,
+          "actualH": 6.5444444,
+          "actualU": 0.1805554999999992,
+          "state": {
+            "frame": 0.3822259495335943,
+            "media": 3.314191464258339e-06,
+            "title": 0,
+            "body": 0,
+            "offset": 7.999973486468286
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B3",
+          "requestedU": 0.25,
+          "actualH": 6.6,
+          "actualU": 0.2499999999999991,
+          "state": {
+            "frame": 1,
+            "media": 0.9839477539062506,
+            "title": 0.7901234567901302,
+            "body": 0.0354938271604966,
+            "offset": 0.12841796874999556
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B3",
+          "requestedU": 0.55,
+          "actualH": 6.84,
+          "actualU": 0.5499999999999994,
+          "state": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B3",
+          "requestedU": 0.9,
+          "actualH": 7.12,
+          "actualU": 0.8999999999999997,
+          "state": {
+            "frame": 1,
+            "media": 0.3678824299399066,
+            "title": 0.8265951687750652,
+            "body": 0.14470161242339563,
+            "offset": -5.056940560480747
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B3",
+          "requestedU": 0.97,
+          "actualH": 7.1755556,
+          "actualU": 0.9694444999999996,
+          "state": {
+            "frame": 0.170507326277757,
+            "media": 0,
+            "title": 0.03074946783332888,
+            "body": 0,
+            "offset": -8
+          },
+          "glyph": 0.170507326277757
+        },
+        {
+          "station": "B4",
+          "requestedU": 0.1,
+          "actualH": 7.28,
+          "actualU": 0.10000000000000009,
+          "state": {
+            "frame": 0,
+            "media": 0,
+            "title": 0,
+            "body": 0,
+            "offset": 8
+          },
+          "glyph": 0.7901234567901358
+        },
+        {
+          "station": "B4",
+          "requestedU": 0.18,
+          "actualH": 7.3444444,
+          "actualU": 0.1805555000000003,
+          "state": {
+            "frame": 0.38222594953356553,
+            "media": 3.3141914642385396e-06,
+            "title": 0,
+            "body": 0,
+            "offset": 7.999973486468286
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B4",
+          "requestedU": 0.25,
+          "actualH": 7.4,
+          "actualU": 0.2500000000000002,
+          "state": {
+            "frame": 1,
+            "media": 0.9839477539062557,
+            "title": 0.7901234567901578,
+            "body": 0.0354938271605073,
+            "offset": 0.1284179687499547
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B4",
+          "requestedU": 0.55,
+          "actualH": 7.64,
+          "actualU": 0.5499999999999994,
+          "state": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B4",
+          "requestedU": 0.9,
+          "actualH": 7.92,
+          "actualU": 0.8999999999999997,
+          "state": {
+            "frame": 1,
+            "media": 0.3678824299398923,
+            "title": 0.8265951687750537,
+            "body": 0.14470161242338564,
+            "offset": -5.056940560480862
+          },
+          "glyph": 1
+        },
+        {
+          "station": "B4",
+          "requestedU": 0.97,
+          "actualH": 7.9755556,
+          "actualU": 0.9694444999999996,
+          "state": {
+            "frame": 0.17050732627774223,
+            "media": 0,
+            "title": 0.030749467833324773,
+            "body": 0,
+            "offset": -8
+          },
+          "glyph": 0.17050732627774223
+        }
+      ]
+    },
+    {
+      "check": "reverse and fast jumps restore exact camera, presentation and layout including pillar exit",
+      "passed": true,
+      "evidence": {
+        "positionsH": [
+          4.57,
+          4.95,
+          5.3,
+          5.4,
+          5.6,
+          5.95,
+          6.3,
+          6.4,
+          6.58,
+          6.84,
+          7.12,
+          7.2,
+          7.4,
+          7.64,
+          7.96,
+          8,
+          8.3
+        ],
+        "exact": true
+      }
+    },
+    {
+      "check": "wheel, keyboard, chapter and four debug stops use native progress without stealing focus",
+      "passed": true,
+      "evidence": {
+        "nativeMappedH": 5.327777777777778,
+        "HomeEnd": true,
+        "debugB4": true
+      }
+    },
+    {
+      "check": "render modes preserve media and camera and return exact pixels",
+      "passed": true,
+      "evidence": {
+        "exact": true
+      }
+    },
+    {
+      "check": "desktop resizing keeps all four stations complete and preserves descent position",
+      "passed": true,
+      "evidence": [
+        {
+          "station": "B1",
+          "layout": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5494283",
+              "station": "B1",
+              "phase": "read",
+              "frameOpacity": "1.0000000",
+              "mediaOpacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "anchorX": "380.2407",
+              "anchorY": "332.3146",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 496,
+              "y": 117,
+              "width": 560,
+              "height": 479.95001220703125,
+              "top": 117,
+              "right": 1056,
+              "bottom": 596.9500122070312,
+              "left": 496
+            },
+            "nav": {
+              "x": 1234,
+              "y": 345.6000061035156,
+              "width": 108,
+              "height": 240,
+              "top": 345.6000061035156,
+              "right": 1342,
+              "bottom": 585.6000061035156,
+              "left": 1234
+            },
+            "stage": {
+              "x": 0,
+              "y": 0,
+              "width": 1366,
+              "height": 657,
+              "top": 0,
+              "right": 1366,
+              "bottom": 657,
+              "left": 0
+            },
+            "header": {
+              "x": 0,
+              "y": 0,
+              "width": 1366,
+              "height": 101,
+              "top": 0,
+              "right": 1366,
+              "bottom": 101,
+              "left": 0
+            },
+            "text": "02 / AI 影像\n影像展映\n\n异星来信\n↗\n\n关于遗迹、信号与生命的视觉设想。\n\n网页设计样片 / 非个人实际项目",
+            "articles": [
+              "B1"
+            ],
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 516,
+                  "y": 207.10000610351562,
+                  "width": 520,
+                  "height": 292.6499938964844,
+                  "top": 207.10000610351562,
+                  "right": 1036,
+                  "bottom": 499.75,
+                  "left": 516
+                }
+              }
+            ],
+            "textBoxes": [
+              {
+                "text": "异星来信",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "关于遗迹、信号与生命的视觉设想。",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "网页设计样片 / 非个人实际项目",
+                "font": 18,
+                "inside": true
+              }
+            ]
+          }
+        },
+        {
+          "station": "B2",
+          "layout": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5494707",
+              "station": "B2",
+              "phase": "read",
+              "frameOpacity": "1.0000000",
+              "mediaOpacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "anchorX": "381.9544",
+              "anchorY": "344.6440",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 498,
+              "y": 145,
+              "width": 560,
+              "height": 398.70001220703125,
+              "top": 145,
+              "right": 1058,
+              "bottom": 543.7000122070312,
+              "left": 498
+            },
+            "nav": {
+              "x": 1234,
+              "y": 345.6000061035156,
+              "width": 108,
+              "height": 240,
+              "top": 345.6000061035156,
+              "right": 1342,
+              "bottom": 585.6000061035156,
+              "left": 1234
+            },
+            "stage": {
+              "x": 0,
+              "y": 0,
+              "width": 1366,
+              "height": 657,
+              "top": 0,
+              "right": 1366,
+              "bottom": 657,
+              "left": 0
+            },
+            "header": {
+              "x": 0,
+              "y": 0,
+              "width": 1366,
+              "height": 101,
+              "top": 0,
+              "right": 1366,
+              "bottom": 101,
+              "left": 0
+            },
+            "text": "02 / AI 影像\n画面切片\n\n画面切片\n↗\n全景\n↗\n局部\n↗\n细节\n\n网页设计样片 / 非个人实际项目",
+            "articles": [
+              "B2"
+            ],
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 518,
+                  "y": 235.10000610351562,
+                  "width": 234.9499969482422,
+                  "height": 215,
+                  "top": 235.10000610351562,
+                  "right": 752.9499969482422,
+                  "bottom": 450.1000061035156,
+                  "left": 518
+                }
+              },
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 764.9500122070312,
+                  "y": 255.10000610351562,
+                  "width": 130.53334045410156,
+                  "height": 175,
+                  "top": 255.10000610351562,
+                  "right": 895.4833526611328,
+                  "bottom": 430.1000061035156,
+                  "left": 764.9500122070312
+                }
+              },
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 907.4833374023438,
+                  "y": 305.1000061035156,
+                  "width": 130.5333251953125,
+                  "height": 145,
+                  "top": 305.1000061035156,
+                  "right": 1038.0166625976562,
+                  "bottom": 450.1000061035156,
+                  "left": 907.4833374023438
+                }
+              }
+            ],
+            "textBoxes": [
+              {
+                "text": "画面切片",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "全景",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "局部",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "细节",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "网页设计样片 / 非个人实际项目",
+                "font": 18,
+                "inside": true
+              }
+            ]
+          }
+        },
+        {
+          "station": "B3",
+          "layout": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5501667",
+              "station": "B3",
+              "phase": "read",
+              "frameOpacity": "1.0000000",
+              "mediaOpacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "anchorX": "378.5269",
+              "anchorY": "367.0517",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 495,
+              "y": 153,
+              "width": 560,
+              "height": 428.70001220703125,
+              "top": 153,
+              "right": 1055,
+              "bottom": 581.7000122070312,
+              "left": 495
+            },
+            "nav": {
+              "x": 1234,
+              "y": 345.6000061035156,
+              "width": 108,
+              "height": 240,
+              "top": 345.6000061035156,
+              "right": 1342,
+              "bottom": 585.6000061035156,
+              "left": 1234
+            },
+            "stage": {
+              "x": 0,
+              "y": 0,
+              "width": 1366,
+              "height": 657,
+              "top": 0,
+              "right": 1366,
+              "bottom": 657,
+              "left": 0
+            },
+            "header": {
+              "x": 0,
+              "y": 0,
+              "width": 1366,
+              "height": 101,
+              "top": 0,
+              "right": 1366,
+              "bottom": 101,
+              "left": 0
+            },
+            "text": "02 / AI 影像\n视觉探索\n\n视觉探索\n↗\n流动标本\n↗\n异星来信\n\n网页设计样片 / 非个人实际项目",
+            "articles": [
+              "B3"
+            ],
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 515,
+                  "y": 243.10000610351562,
+                  "width": 213.61666870117188,
+                  "height": 245,
+                  "top": 243.10000610351562,
+                  "right": 728.6166687011719,
+                  "bottom": 488.1000061035156,
+                  "left": 515
+                }
+              },
+              {
+                "disabled": false,
+                "rect": {
+                  "x": 746.61669921875,
+                  "y": 321.5,
+                  "width": 288.3833312988281,
+                  "height": 166.60000610351562,
+                  "top": 321.5,
+                  "right": 1035.0000305175781,
+                  "bottom": 488.1000061035156,
+                  "left": 746.61669921875
+                }
+              }
+            ],
+            "textBoxes": [
+              {
+                "text": "视觉探索",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "流动标本",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "异星来信",
+                "font": 18,
+                "inside": true
+              },
+              {
+                "text": "网页设计样片 / 非个人实际项目",
+                "font": 18,
+                "inside": true
+              }
+            ]
+          }
+        },
+        {
+          "station": "B4",
+          "layout": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5495580",
+              "station": "B4",
+              "phase": "read",
+              "frameOpacity": "1.0000000",
+              "mediaOpacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "bodyOpacity": "1.0000000",
+              "anchorX": "378.5269",
+              "anchorY": "275.1973",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 495,
+              "y": 179,
+              "width": 560,
+              "height": 191.6999969482422,
+              "top": 179,
+              "right": 1055,
+              "bottom": 370.6999969482422,
+              "left": 495
+            },
+            "nav": {
+              "x": 1234,
+              "y": 345.6000061035156,
+              "width": 108,
+              "height": 240,
+              "top": 345.6000061035156,
+              "right": 1342,
+              "bottom": 585.6000061035156,
+              "left": 1234
+            },
+            "stage": {
+              "x": 0,
+              "y": 0,
+              "width": 1366,
+              "height": 657,
+              "top": 0,
+              "right": 1366,
+              "bottom": 657,
+              "left": 0
+            },
+            "header": {
+              "x": 0,
+              "y": 0,
+              "width": 1366,
+              "height": 101,
+              "top": 0,
+              "right": 1366,
+              "bottom": 101,
+              "left": 0
+            },
+            "text": "02 / AI 影像\n影像余韵\n\n影像，仍在继续。\n\n继续向下，进入交互实验。\n\n↓",
+            "articles": [
+              "B4"
+            ],
+            "horizontalOverflow": false,
+            "internalScroll": false,
+            "buttons": [],
+            "textBoxes": [
+              {
+                "text": "影像，仍在继续。",
+                "font": 27,
+                "inside": true
+              },
+              {
+                "text": "继续向下，进入交互实验。",
+                "font": 18,
+                "inside": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "full-image dialogs retain provenance, freeze background and restore exact progress and focus",
+      "passed": true,
+      "evidence": [
+        {
+          "station": "B1",
+          "progressTimeAndFocusRestored": true,
+          "backgroundScrollBlocked": true
+        },
+        {
+          "station": "B2",
+          "progressTimeAndFocusRestored": true,
+          "backgroundScrollBlocked": true
+        },
+        {
+          "station": "B3",
+          "progressTimeAndFocusRestored": true,
+          "backgroundScrollBlocked": true
+        }
+      ]
+    },
+    {
+      "check": "dialog resizing restores the normalized station rather than old scroll pixels",
+      "passed": true,
+      "evidence": {
+        "station": "B3",
+        "h": 6.84
+      }
+    },
+    {
+      "check": "context recovery restores four-station presentation and actual pixels",
+      "passed": true,
+      "evidence": {
+        "pixelsExact": true,
+        "disabledGraphControls": 15
+      }
+    },
+    {
+      "check": "repeated tours and image dialogs keep DOM and GPU counts stable and stop paused drawing",
+      "passed": true,
+      "evidence": {
+        "cycles": 2,
+        "before": {
+          "geometries": 56,
+          "textures": 5,
+          "programs": 10,
+          "calls": 36,
+          "triangles": 6321,
+          "mode": "pixel",
+          "outputWidth": 1440,
+          "outputHeight": 789,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 210,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 13
+          }
+        },
+        "after": {
+          "geometries": 56,
+          "textures": 5,
+          "programs": 10,
+          "calls": 36,
+          "triangles": 6321,
+          "mode": "pixel",
+          "outputWidth": 1440,
+          "outputHeight": 789,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 210,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 13
+          }
+        },
+        "documentNodes": 196,
+        "activeVideos": 0,
+        "pausedDraws": 35457
+      }
+    },
+    {
+      "check": "closing a view restores the prior manual environment playback choice",
+      "passed": true,
+      "evidence": {
+        "resumesIfPreviouslyPlaying": true,
+        "keepsPausedIfPreviouslyPaused": true
+      }
+    },
+    {
+      "check": "four portrait layouts, contrast, touch viewing and reduced-motion navigation pass",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "simulatedPhone": true,
+        "nativeTouchDrag": false,
+        "stations": [
+          {
+            "station": "B1",
+            "layout": {
+              "data": {
+                "visible": "true",
+                "progress": "0.5503323",
+                "station": "B1",
+                "phase": "read",
+                "frameOpacity": "1.0000000",
+                "mediaOpacity": "1.0000000",
+                "titleOpacity": "1.0000000",
+                "bodyOpacity": "1.0000000",
+                "anchorX": "107.8707",
+                "anchorY": "372.2644",
+                "layout": "stacked",
+                "anchorClear": "true",
+                "fits": "true"
+              },
+              "rect": {
+                "x": 16,
+                "y": 412,
+                "width": 358,
+                "height": 255.73333740234375,
+                "top": 412,
+                "right": 374,
+                "bottom": 667.7333374023438,
+                "left": 16
+              },
+              "nav": {
+                "x": 16,
+                "y": 684,
+                "width": 358,
+                "height": 44,
+                "top": 684,
+                "right": 374,
+                "bottom": 728,
+                "left": 16
+              },
+              "stage": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 740,
+                "top": 0,
+                "right": 390,
+                "bottom": 740,
+                "left": 0
+              },
+              "header": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 75,
+                "top": 0,
+                "right": 390,
+                "bottom": 75,
+                "left": 0
+              },
+              "text": "02 / AI 影像\n影像展映\n\n异星来信\n↗\n\n关于遗迹、信号与生命的视觉设想。\n\n网页设计样片 / 非个人实际项目",
+              "articles": [
+                "B1"
+              ],
+              "horizontalOverflow": false,
+              "internalScroll": false,
+              "buttons": [
+                {
+                  "disabled": false,
+                  "rect": {
+                    "x": 30,
+                    "y": 487.6000061035156,
+                    "width": 330,
+                    "height": 97.33332824707031,
+                    "top": 487.6000061035156,
+                    "right": 360,
+                    "bottom": 584.9333343505859,
+                    "left": 30
+                  }
+                }
+              ],
+              "textBoxes": [
+                {
+                  "text": "异星来信",
+                  "font": 22,
+                  "inside": true
+                },
+                {
+                  "text": "关于遗迹、信号与生命的视觉设想。",
+                  "font": 16,
+                  "inside": true
+                },
+                {
+                  "text": "网页设计样片 / 非个人实际项目",
+                  "font": 16,
+                  "inside": true
+                }
+              ]
+            },
+            "contrast": {
+              "station": "mobile-B1",
+              "minimumRatios": {
+                "title": 11.219541925656038,
+                "body": 7.83653162980629
+              },
+              "textParts": [
+                {
+                  "label": "",
+                  "minimumRatio": 11.219541925656038,
+                  "samples": 341
+                },
+                {
+                  "label": "film-caption",
+                  "minimumRatio": 11.20044168122291,
+                  "samples": 768
+                },
+                {
+                  "label": "film-provenance",
+                  "minimumRatio": 7.83653162980629,
+                  "samples": 584
+                }
+              ],
+              "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+            }
+          },
+          {
+            "station": "B2",
+            "layout": {
+              "data": {
+                "visible": "true",
+                "progress": "0.5503516",
+                "station": "B2",
+                "phase": "read",
+                "frameOpacity": "1.0000000",
+                "mediaOpacity": "1.0000000",
+                "titleOpacity": "1.0000000",
+                "bodyOpacity": "1.0000000",
+                "anchorX": "108.8880",
+                "anchorY": "379.5832",
+                "layout": "stacked",
+                "anchorClear": "true",
+                "fits": "true"
+              },
+              "rect": {
+                "x": 16,
+                "y": 420,
+                "width": 358,
+                "height": 248.4166717529297,
+                "top": 420,
+                "right": 374,
+                "bottom": 668.4166717529297,
+                "left": 16
+              },
+              "nav": {
+                "x": 16,
+                "y": 684,
+                "width": 358,
+                "height": 44,
+                "top": 684,
+                "right": 374,
+                "bottom": 728,
+                "left": 16
+              },
+              "stage": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 740,
+                "top": 0,
+                "right": 390,
+                "bottom": 740,
+                "left": 0
+              },
+              "header": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 75,
+                "top": 0,
+                "right": 390,
+                "bottom": 75,
+                "left": 0
+              },
+              "text": "02 / AI 影像\n画面切片\n\n画面切片\n↗\n全景\n↗\n局部\n↗\n细节\n\n网页设计样片 / 非个人实际项目",
+              "articles": [
+                "B2"
+              ],
+              "horizontalOverflow": false,
+              "internalScroll": false,
+              "buttons": [
+                {
+                  "disabled": false,
+                  "rect": {
+                    "x": 30,
+                    "y": 495.6000061035156,
+                    "width": 148.73333740234375,
+                    "height": 93.41665649414062,
+                    "top": 495.6000061035156,
+                    "right": 178.73333740234375,
+                    "bottom": 589.0166625976562,
+                    "left": 30
+                  }
+                },
+                {
+                  "disabled": false,
+                  "rect": {
+                    "x": 186.73333740234375,
+                    "y": 505.54998779296875,
+                    "width": 82.63333129882812,
+                    "height": 73.5,
+                    "top": 505.54998779296875,
+                    "right": 269.3666687011719,
+                    "bottom": 579.0499877929688,
+                    "left": 186.73333740234375
+                  }
+                },
+                {
+                  "disabled": false,
+                  "rect": {
+                    "x": 277.3666687011719,
+                    "y": 530.4500122070312,
+                    "width": 82.63333129882812,
+                    "height": 58.56666564941406,
+                    "top": 530.4500122070312,
+                    "right": 360,
+                    "bottom": 589.0166778564453,
+                    "left": 277.3666687011719
+                  }
+                }
+              ],
+              "textBoxes": [
+                {
+                  "text": "画面切片",
+                  "font": 22,
+                  "inside": true
+                },
+                {
+                  "text": "全景",
+                  "font": 16,
+                  "inside": true
+                },
+                {
+                  "text": "局部",
+                  "font": 16,
+                  "inside": true
+                },
+                {
+                  "text": "细节",
+                  "font": 16,
+                  "inside": true
+                },
+                {
+                  "text": "网页设计样片 / 非个人实际项目",
+                  "font": 16,
+                  "inside": true
+                }
+              ]
+            },
+            "contrast": {
+              "station": "mobile-B2",
+              "minimumRatios": {
+                "title": 11.219541925656038,
+                "body": 7.83653162980629
+              },
+              "textParts": [
+                {
+                  "label": "",
+                  "minimumRatio": 11.219541925656038,
+                  "samples": 341
+                },
+                {
+                  "label": "",
+                  "minimumRatio": 11.20044168122291,
+                  "samples": 96
+                },
+                {
+                  "label": "",
+                  "minimumRatio": 11.20044168122291,
+                  "samples": 80
+                },
+                {
+                  "label": "",
+                  "minimumRatio": 11.20044168122291,
+                  "samples": 80
+                },
+                {
+                  "label": "film-provenance",
+                  "minimumRatio": 7.83653162980629,
+                  "samples": 584
+                }
+              ],
+              "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+            }
+          },
+          {
+            "station": "B3",
+            "layout": {
+              "data": {
+                "visible": "true",
+                "progress": "0.5502240",
+                "station": "B3",
+                "phase": "read",
+                "frameOpacity": "1.0000000",
+                "mediaOpacity": "1.0000000",
+                "titleOpacity": "1.0000000",
+                "bodyOpacity": "1.0000000",
+                "anchorX": "106.8534",
+                "anchorY": "392.8846",
+                "layout": "stacked",
+                "anchorClear": "true",
+                "fits": "true"
+              },
+              "rect": {
+                "x": 16,
+                "y": 433,
+                "width": 358,
+                "height": 235.11666870117188,
+                "top": 433,
+                "right": 374,
+                "bottom": 668.1166687011719,
+                "left": 16
+              },
+              "nav": {
+                "x": 16,
+                "y": 684,
+                "width": 358,
+                "height": 44,
+                "top": 684,
+                "right": 374,
+                "bottom": 728,
+                "left": 16
+              },
+              "stage": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 740,
+                "top": 0,
+                "right": 390,
+                "bottom": 740,
+                "left": 0
+              },
+              "header": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 75,
+                "top": 0,
+                "right": 390,
+                "bottom": 75,
+                "left": 0
+              },
+              "text": "02 / AI 影像\n视觉探索\n\n视觉探索\n↗\n流动标本\n↗\n异星来信\n\n网页设计样片 / 非个人实际项目",
+              "articles": [
+                "B3"
+              ],
+              "horizontalOverflow": false,
+              "internalScroll": false,
+              "buttons": [
+                {
+                  "disabled": false,
+                  "rect": {
+                    "x": 30,
+                    "y": 508.6000061035156,
+                    "width": 135.31666564941406,
+                    "height": 80.11665344238281,
+                    "top": 508.6000061035156,
+                    "right": 165.31666564941406,
+                    "bottom": 588.7166595458984,
+                    "left": 30
+                  }
+                },
+                {
+                  "disabled": false,
+                  "rect": {
+                    "x": 177.31666564941406,
+                    "y": 539.7166748046875,
+                    "width": 182.68333435058594,
+                    "height": 49,
+                    "top": 539.7166748046875,
+                    "right": 360,
+                    "bottom": 588.7166748046875,
+                    "left": 177.31666564941406
+                  }
+                }
+              ],
+              "textBoxes": [
+                {
+                  "text": "视觉探索",
+                  "font": 22,
+                  "inside": true
+                },
+                {
+                  "text": "流动标本",
+                  "font": 16,
+                  "inside": true
+                },
+                {
+                  "text": "异星来信",
+                  "font": 16,
+                  "inside": true
+                },
+                {
+                  "text": "网页设计样片 / 非个人实际项目",
+                  "font": 16,
+                  "inside": true
+                }
+              ]
+            },
+            "contrast": {
+              "station": "mobile-B3",
+              "minimumRatios": {
+                "title": 11.219541925656038,
+                "body": 7.83653162980629
+              },
+              "textParts": [
+                {
+                  "label": "",
+                  "minimumRatio": 11.219541925656038,
+                  "samples": 341
+                },
+                {
+                  "label": "",
+                  "minimumRatio": 11.20044168122291,
+                  "samples": 192
+                },
+                {
+                  "label": "",
+                  "minimumRatio": 11.20044168122291,
+                  "samples": 160
+                },
+                {
+                  "label": "film-provenance",
+                  "minimumRatio": 7.83653162980629,
+                  "samples": 584
+                }
+              ],
+              "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+            }
+          },
+          {
+            "station": "B4",
+            "layout": {
+              "data": {
+                "visible": "true",
+                "progress": "0.5499470",
+                "station": "B4",
+                "phase": "read",
+                "frameOpacity": "1.0000000",
+                "mediaOpacity": "1.0000000",
+                "titleOpacity": "1.0000000",
+                "bodyOpacity": "1.0000000",
+                "anchorX": "106.8534",
+                "anchorY": "338.3591",
+                "layout": "stacked",
+                "anchorClear": "true",
+                "fits": "true"
+              },
+              "rect": {
+                "x": 16,
+                "y": 398,
+                "width": 358,
+                "height": 167,
+                "top": 398,
+                "right": 374,
+                "bottom": 565,
+                "left": 16
+              },
+              "nav": {
+                "x": 16,
+                "y": 684,
+                "width": 358,
+                "height": 44,
+                "top": 684,
+                "right": 374,
+                "bottom": 728,
+                "left": 16
+              },
+              "stage": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 740,
+                "top": 0,
+                "right": 390,
+                "bottom": 740,
+                "left": 0
+              },
+              "header": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 75,
+                "top": 0,
+                "right": 390,
+                "bottom": 75,
+                "left": 0
+              },
+              "text": "02 / AI 影像\n影像余韵\n\n影像，仍在继续。\n\n继续向下，进入交互实验。\n\n↓",
+              "articles": [
+                "B4"
+              ],
+              "horizontalOverflow": false,
+              "internalScroll": false,
+              "buttons": [],
+              "textBoxes": [
+                {
+                  "text": "影像，仍在继续。",
+                  "font": 22,
+                  "inside": true
+                },
+                {
+                  "text": "继续向下，进入交互实验。",
+                  "font": 16,
+                  "inside": true
+                }
+              ]
+            },
+            "contrast": {
+              "station": "mobile-B4",
+              "minimumRatios": {
+                "title": 11.219541925656038,
+                "body": 11.20044168122291
+              },
+              "textParts": [
+                {
+                  "label": "",
+                  "minimumRatio": 11.219541925656038,
+                  "samples": 671
+                },
+                {
+                  "label": "film-epilogue",
+                  "minimumRatio": 11.20044168122291,
+                  "samples": 576
+                }
+              ],
+              "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "check": "integration settle diagnostics retained separately from the matched benchmark",
+      "passed": true,
+      "evidence": {
+        "samples": 119,
+        "p95Ms": 162,
+        "maxMs": 174,
+        "hardwareFPSProof": false
+      }
+    },
+    {
+      "check": "all browser diagnostics retained with no unidentified errors or requests",
+      "passed": true,
+      "evidence": {
+        "knownFirefoxDiagnostics": 5,
+        "unexpected": []
+      }
+    }
+  ],
+  "issues": [
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL context was lost.\" {file: \"debugger eval code line 311 > eval\" line: 1}]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"This site appears to use a scroll-linked positioning effect. This may not work well with asynchronous panning; see https://firefox-source-docs.mozilla.org/performance/scroll-linked_effects.html for further details and to join the discussion on related tools and features!\" {file: \"http://127.0.0.1:4173/?tour=prototype&waterTime=2\" line: 0}]"
+    }
+  ],
+  "passed": true,
+  "environment": "Linux software graphics; simulated phone; GTK WebKit is not Apple Safari; no hardware FPS acceptance"
+}

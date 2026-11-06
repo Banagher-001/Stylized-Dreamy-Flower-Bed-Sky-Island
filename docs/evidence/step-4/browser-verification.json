@@ -1,0 +1,2444 @@
+{
+  "environment": {
+    "browser": "155.0.8059.79",
+    "rendering": "Chromium headless / ANGLE SwiftShader; not hardware or Safari validation"
+  },
+  "checks": [
+    {
+      "check": "real scene and stone shader compilation",
+      "outcome": "passed",
+      "evidence": {
+        "width": 680,
+        "height": 680,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "native",
+        "dpr": 1,
+        "imageRendering": "auto",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "camera, six group anchors, layout and lighting preserved",
+      "outcome": "passed",
+      "evidence": {
+        "boundsChanges": {
+          "fountain": {
+            "minU": 0.0007392475652363562,
+            "maxU": -0.0007392475652362451,
+            "minV": 0.001984897688588172,
+            "maxV": -0.0012411623590929954
+          },
+          "columnUpperLeft": {
+            "minU": 0.001006312715844282,
+            "maxU": -0.001006312715844282,
+            "minV": 0.002737712300505679,
+            "maxV": -0.002002633736283732
+          },
+          "columnRight": {
+            "minU": 0.001006312715844282,
+            "maxU": -0.001006312715844393,
+            "minV": 0.002737712300505679,
+            "maxV": -0.002002633736283732
+          },
+          "columnLower": {
+            "minU": 0.001006312715844282,
+            "maxU": -0.001006312715844282,
+            "minV": 0.002737712300505679,
+            "maxV": -0.002002633736283843
+          },
+          "wallLeft": {
+            "minU": 0.002598509817947736,
+            "maxU": -0.0025985036193462707,
+            "minV": 0.00211208330461371,
+            "maxV": -0.0022729966458741035
+          },
+          "pathRight": {
+            "minU": 0.0010781904679822985,
+            "maxU": -0.0010781904679824095,
+            "minV": 0.0015579546599845395,
+            "maxV": -0.0015579546599846505
+          }
+        },
+        "preservedFiles": [
+          "package.json",
+          "package-lock.json",
+          "src/config/layout.ts",
+          "src/config/scene.ts",
+          "src/config/lighting.ts",
+          "src/config/palette.ts",
+          "src/scene/createScene.ts",
+          "src/styles.css",
+          "src/main.ts"
+        ]
+      }
+    },
+    {
+      "check": "geometry and material budget",
+      "outcome": "passed",
+      "evidence": {
+        "meshes": 60,
+        "triangles": 4868,
+        "stoneMeshes": 58,
+        "geometries": 44,
+        "materials": 3
+      }
+    },
+    {
+      "check": "closed solids, outward normals and nondegenerate triangles",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "name": "fountain-base",
+          "triangles": 192,
+          "volume": 2.5797102316613287,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "fountain-rim-wall",
+          "triangles": 64,
+          "volume": 1.650986954368804,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "fountain-coping-0",
+          "triangles": 96,
+          "volume": 0.08609829550095334,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "fountain-coping-1",
+          "triangles": 102,
+          "volume": 0.08598676028639385,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "fountain-coping-3",
+          "triangles": 96,
+          "volume": 0.08609829550095334,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "fountain-pedestal-foot",
+          "triangles": 96,
+          "volume": 0.09485984994439568,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "fountain-pedestal",
+          "triangles": 96,
+          "volume": 0.24996430738083858,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "fountain-pedestal-cap",
+          "triangles": 102,
+          "volume": 0.06611808023725423,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnUpperLeft-base",
+          "triangles": 96,
+          "volume": 0.19925554249146227,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnUpperLeft-block-0",
+          "triangles": 96,
+          "volume": 0.43615330467640645,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnUpperLeft-joint-0",
+          "triangles": 24,
+          "volume": 0.01651859928673805,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnUpperLeft-block-1",
+          "triangles": 96,
+          "volume": 0.3910945522045237,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnUpperLeft-block-2",
+          "triangles": 96,
+          "volume": 0.41976831131292497,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnUpperLeft-block-3",
+          "triangles": 102,
+          "volume": 0.38290205467565386,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnUpperLeft-cap",
+          "triangles": 102,
+          "volume": 0.2480452544276339,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnRight-base",
+          "triangles": 96,
+          "volume": 0.19925554249146227,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnRight-block-0",
+          "triangles": 96,
+          "volume": 0.43615330467640645,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnRight-block-1",
+          "triangles": 102,
+          "volume": 0.3910945343731554,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnRight-block-3",
+          "triangles": 96,
+          "volume": 0.3829020729228879,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnRight-cap",
+          "triangles": 102,
+          "volume": 0.24813220859200077,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnLower-block-0",
+          "triangles": 102,
+          "volume": 0.436153286438313,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnLower-block-1",
+          "triangles": 96,
+          "volume": 0.3910945522045237,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnLower-block-2",
+          "triangles": 96,
+          "volume": 0.41976831131292497,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnLower-block-3",
+          "triangles": 96,
+          "volume": 0.3829020729228879,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "columnLower-cap",
+          "triangles": 102,
+          "volume": 0.24788330023659438,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "wallLeft-base",
+          "triangles": 96,
+          "volume": 0.3462147180276844,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "wallLeft-body-0",
+          "triangles": 96,
+          "volume": 0.27590594060841034,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "wallLeft-body-joint-0",
+          "triangles": 24,
+          "volume": 0.006060999762073154,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "wallLeft-body-1",
+          "triangles": 96,
+          "volume": 0.27590594060841034,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "wallLeft-body-2",
+          "triangles": 102,
+          "volume": 0.27589540815283853,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "wallLeft-cap-0",
+          "triangles": 96,
+          "volume": 0.09560138119498542,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "wallLeft-cap-joint-0",
+          "triangles": 24,
+          "volume": 0.0009632998983576926,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "wallLeft-cap-1",
+          "triangles": 102,
+          "volume": 0.09559375236231075,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "wallLeft-end",
+          "triangles": 102,
+          "volume": 0.09966787565612968,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "pathRight-slab-0-0",
+          "triangles": 96,
+          "volume": 0.028731942775931062,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "pathRight-slab-0-1",
+          "triangles": 102,
+          "volume": 0.028724614775858553,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "pathRight-slab-0-2",
+          "triangles": 96,
+          "volume": 0.028731942775931062,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "pathRight-slab-0-3",
+          "triangles": 96,
+          "volume": 0.028731942775931062,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "pathRight-slab-1-0",
+          "triangles": 102,
+          "volume": 0.02872461477585855,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "pathRight-slab-1-1",
+          "triangles": 96,
+          "volume": 0.028731942775931062,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "pathRight-slab-1-2",
+          "triangles": 102,
+          "volume": 0.028724614775858547,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        },
+        {
+          "name": "pathRight-slab-1-3",
+          "triangles": 96,
+          "volume": 0.028731942775931062,
+          "zeroTriangles": 0,
+          "wrongNormals": 0,
+          "unpairedEdges": 0,
+          "hasTint": true
+        }
+      ]
+    },
+    {
+      "check": "three distinct columns, exact height and connected recessed joints",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "name": "columnUpperLeft",
+          "height": 3.47000000089407,
+          "bottom": -3.5762786898541066e-09,
+          "intervals": [
+            {
+              "name": "columnUpperLeft-base",
+              "bottom": -3.5762786898541066e-09,
+              "top": 0.18000000357627868
+            },
+            {
+              "name": "columnUpperLeft-block-0",
+              "bottom": 0.17999999708175662,
+              "top": 0.9653800029182434
+            },
+            {
+              "name": "columnUpperLeft-joint-0",
+              "bottom": 0.9653800006109478,
+              "top": 1.0033799993890526
+            },
+            {
+              "name": "columnUpperLeft-block-1",
+              "bottom": 1.003380014371872,
+              "top": 1.7080199856281282
+            },
+            {
+              "name": "columnUpperLeft-joint-1",
+              "bottom": 1.7080200006109476,
+              "top": 1.7460199993890524
+            },
+            {
+              "name": "columnUpperLeft-block-2",
+              "bottom": 1.7460199952411655,
+              "top": 2.502040004758835
+            },
+            {
+              "name": "columnUpperLeft-joint-2",
+              "bottom": 2.502040000610948,
+              "top": 2.5400399993890526
+            },
+            {
+              "name": "columnUpperLeft-block-3",
+              "bottom": 2.540039998550415,
+              "top": 3.230000001449585
+            },
+            {
+              "name": "columnUpperLeft-cap",
+              "bottom": 3.230000002682209,
+              "top": 3.469999997317791
+            }
+          ],
+          "gaps": [
+            -6.494522059030672e-09,
+            -2.30729568784227e-09,
+            1.4982819429576466e-08,
+            1.4982819429576466e-08,
+            -4.147886922822863e-09,
+            -4.147887366912073e-09,
+            -8.386376038060916e-10,
+            1.2326242249116603e-09
+          ]
+        },
+        {
+          "name": "columnRight",
+          "height": 3.47000000089407,
+          "bottom": -3.5762786898541066e-09,
+          "intervals": [
+            {
+              "name": "columnRight-base",
+              "bottom": -3.5762786898541066e-09,
+              "top": 0.18000000357627868
+            },
+            {
+              "name": "columnRight-block-0",
+              "bottom": 0.17999999708175662,
+              "top": 0.9653800029182434
+            },
+            {
+              "name": "columnRight-joint-0",
+              "bottom": 0.9653800006109478,
+              "top": 1.0033799993890526
+            },
+            {
+              "name": "columnRight-block-1",
+              "bottom": 1.003380014371872,
+              "top": 1.7080199856281282
+            },
+            {
+              "name": "columnRight-joint-1",
+              "bottom": 1.7080200006109476,
+              "top": 1.7460199993890524
+            },
+            {
+              "name": "columnRight-block-2",
+              "bottom": 1.7460199952411655,
+              "top": 2.502040004758835
+            },
+            {
+              "name": "columnRight-joint-2",
+              "bottom": 2.502040000610948,
+              "top": 2.5400399993890526
+            },
+            {
+              "name": "columnRight-block-3",
+              "bottom": 2.540039998550415,
+              "top": 3.230000001449585
+            },
+            {
+              "name": "columnRight-cap",
+              "bottom": 3.230000002682209,
+              "top": 3.469999997317791
+            }
+          ],
+          "gaps": [
+            -6.494522059030672e-09,
+            -2.30729568784227e-09,
+            1.4982819429576466e-08,
+            1.4982819429576466e-08,
+            -4.147886922822863e-09,
+            -4.147887366912073e-09,
+            -8.386376038060916e-10,
+            1.2326242249116603e-09
+          ]
+        },
+        {
+          "name": "columnLower",
+          "height": 3.47000000089407,
+          "bottom": -3.5762786898541066e-09,
+          "intervals": [
+            {
+              "name": "columnLower-base",
+              "bottom": -3.5762786898541066e-09,
+              "top": 0.18000000357627868
+            },
+            {
+              "name": "columnLower-block-0",
+              "bottom": 0.17999999708175662,
+              "top": 0.9653800029182434
+            },
+            {
+              "name": "columnLower-joint-0",
+              "bottom": 0.9653800006109478,
+              "top": 1.0033799993890526
+            },
+            {
+              "name": "columnLower-block-1",
+              "bottom": 1.003380014371872,
+              "top": 1.7080199856281282
+            },
+            {
+              "name": "columnLower-joint-1",
+              "bottom": 1.7080200006109476,
+              "top": 1.7460199993890524
+            },
+            {
+              "name": "columnLower-block-2",
+              "bottom": 1.7460199952411655,
+              "top": 2.502040004758835
+            },
+            {
+              "name": "columnLower-joint-2",
+              "bottom": 2.502040000610948,
+              "top": 2.5400399993890526
+            },
+            {
+              "name": "columnLower-block-3",
+              "bottom": 2.540039998550415,
+              "top": 3.230000001449585
+            },
+            {
+              "name": "columnLower-cap",
+              "bottom": 3.230000002682209,
+              "top": 3.469999997317791
+            }
+          ],
+          "gaps": [
+            -6.494522059030672e-09,
+            -2.30729568784227e-09,
+            1.4982819429576466e-08,
+            1.4982819429576466e-08,
+            -4.147886922822863e-09,
+            -4.147887366912073e-09,
+            -8.386376038060916e-10,
+            1.2326242249116603e-09
+          ]
+        }
+      ]
+    },
+    {
+      "check": "continuous basin wall, eight coping stones, visible water and grounded paving",
+      "outcome": "passed",
+      "evidence": {
+        "wallTop": 0.43999999284744323,
+        "waterHeight": 0.32,
+        "wallRays": [
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.2799999713897705
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.147713024108417
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.106445332477737
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1477130483785465
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.2800000250426713
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1477130483785465
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1064453324777364
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.147713024108418
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.279999971389771
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.147713024108417
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1064453324777364
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1477130483785465
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.2800000250426717
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1477130483785465
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1064453324777372
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.147713024108417
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.2799999713897705
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.147713024108417
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1064453324777364
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1477130483785465
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.2800000250426717
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1477130483785465
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.106445332477737
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1477130241084175
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.279999971389771
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.147713024108417
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1064453324777364
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1477130483785465
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.2800000250426713
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.1477130483785465
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.106445332477737
+          },
+          {
+            "name": "fountain-rim-wall",
+            "distance": 2.147713024108417
+          }
+        ],
+        "coping": [
+          [
+            0.4399999997019768,
+            0.5800000002980232
+          ],
+          [
+            0.4399999997019768,
+            0.5800000002980232
+          ],
+          [
+            0.4399999997019768,
+            0.5800000002980232
+          ],
+          [
+            0.4399999997019768,
+            0.5800000002980232
+          ],
+          [
+            0.4399999997019768,
+            0.5800000002980232
+          ],
+          [
+            0.4399999997019768,
+            0.5800000002980232
+          ],
+          [
+            0.4399999997019768,
+            0.5800000002980232
+          ],
+          [
+            0.4399999997019768,
+            0.5800000002980232
+          ]
+        ],
+        "paving": [
+          {
+            "name": "pathRight-slab-0-0",
+            "position": [
+              -1.1099999999999999,
+              0.045,
+              -0.315
+            ],
+            "bottom": -1.7881393449270533e-09,
+            "height": 0.09000000357627869
+          },
+          {
+            "name": "pathRight-slab-0-1",
+            "position": [
+              -0.37,
+              0.045,
+              -0.315
+            ],
+            "bottom": -1.7881393449270533e-09,
+            "height": 0.09000000357627869
+          },
+          {
+            "name": "pathRight-slab-0-2",
+            "position": [
+              0.37,
+              0.045,
+              -0.315
+            ],
+            "bottom": -1.7881393449270533e-09,
+            "height": 0.09000000357627869
+          },
+          {
+            "name": "pathRight-slab-0-3",
+            "position": [
+              1.1099999999999999,
+              0.045,
+              -0.315
+            ],
+            "bottom": -1.7881393449270533e-09,
+            "height": 0.09000000357627869
+          },
+          {
+            "name": "pathRight-slab-1-0",
+            "position": [
+              -1.1099999999999999,
+              0.045,
+              0.315
+            ],
+            "bottom": -1.7881393449270533e-09,
+            "height": 0.09000000357627869
+          },
+          {
+            "name": "pathRight-slab-1-1",
+            "position": [
+              -0.37,
+              0.045,
+              0.315
+            ],
+            "bottom": -1.7881393449270533e-09,
+            "height": 0.09000000357627869
+          },
+          {
+            "name": "pathRight-slab-1-2",
+            "position": [
+              0.37,
+              0.045,
+              0.315
+            ],
+            "bottom": -1.7881393449270533e-09,
+            "height": 0.09000000357627869
+          },
+          {
+            "name": "pathRight-slab-1-3",
+            "position": [
+              1.1099999999999999,
+              0.045,
+              0.315
+            ],
+            "bottom": -1.7881393449270533e-09,
+            "height": 0.09000000357627869
+          }
+        ]
+      }
+    },
+    {
+      "check": "geometry and material disposal is complete and idempotent",
+      "outcome": "passed",
+      "evidence": {
+        "resources": 47,
+        "everyResourceDisposedOnce": true
+      }
+    },
+    {
+      "check": "step 3 color roles and shadow containment retained",
+      "outcome": "passed",
+      "evidence": {
+        "colors": {
+          "grass": [
+            189,
+            218,
+            103
+          ],
+          "buildingShadow": [
+            17,
+            121,
+            88
+          ],
+          "treeUpper": [
+            17,
+            121,
+            88
+          ],
+          "treeLower": [
+            17,
+            121,
+            88
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            246,
+            237,
+            198
+          ],
+          "stoneBlue": [
+            107,
+            142,
+            154
+          ],
+          "stoneWarm": [
+            210,
+            210,
+            181
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        },
+        "lowerShadow": {
+          "minU": 0.3417657041334791,
+          "maxU": 0.6849492158478729,
+          "minV": 0.8553284801135635,
+          "maxV": 0.9758094549620031
+        }
+      }
+    },
+    {
+      "check": "geometry, tint and placement deterministic across reload",
+      "outcome": "passed",
+      "evidence": {
+        "meshFingerprints": {
+          "courtyard-ground": {
+            "positions": "f00001c5",
+            "normals": "919d15a5",
+            "tint": null,
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              -1.5707963267948966,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-base": {
+            "positions": "86142e85",
+            "normals": "d3ba59d",
+            "tint": "6c4ad245",
+            "position": [
+              0,
+              0.06,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-rim-wall": {
+            "positions": "4b422c41",
+            "normals": "c1bdd8a5",
+            "tint": "11583a1e",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              -1.5707963267948966,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-coping-0": {
+            "positions": "32e0e795",
+            "normals": "934fd241",
+            "tint": "4c5571c1",
+            "position": [
+              0,
+              0.39,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-coping-1": {
+            "positions": "c95c51ea",
+            "normals": "cdc71f5c",
+            "tint": "329d8bb8",
+            "position": [
+              0,
+              0.39,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0.7853981633974483,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-coping-2": {
+            "positions": "32e0e795",
+            "normals": "934fd241",
+            "tint": "4c5571c1",
+            "position": [
+              0,
+              0.39,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              1.5707963267948966,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-coping-3": {
+            "positions": "32e0e795",
+            "normals": "934fd241",
+            "tint": "93f599ed",
+            "position": [
+              0,
+              0.39,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              2.356194490192345,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-coping-4": {
+            "positions": "32e0e795",
+            "normals": "934fd241",
+            "tint": "4c5571c1",
+            "position": [
+              0,
+              0.39,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              3.141592653589793,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-coping-5": {
+            "positions": "c95c51ea",
+            "normals": "cdc71f5c",
+            "tint": "329d8bb8",
+            "position": [
+              0,
+              0.39,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              3.9269908169872414,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-coping-6": {
+            "positions": "32e0e795",
+            "normals": "934fd241",
+            "tint": "4c5571c1",
+            "position": [
+              0,
+              0.39,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              4.71238898038469,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-coping-7": {
+            "positions": "32e0e795",
+            "normals": "934fd241",
+            "tint": "93f599ed",
+            "position": [
+              0,
+              0.39,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              5.497787143782138,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-water": {
+            "positions": "228d39e7",
+            "normals": "88320f5",
+            "tint": null,
+            "position": [
+              0,
+              0.32,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              -1.5707963267948966,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-pedestal-foot": {
+            "positions": "38bf4305",
+            "normals": "5cb20e75",
+            "tint": "79a660d9",
+            "position": [
+              0,
+              0.18,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-pedestal": {
+            "positions": "c22d3f15",
+            "normals": "20eb74a1",
+            "tint": "5e41563d",
+            "position": [
+              0,
+              0.55,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "fountain-pedestal-cap": {
+            "positions": "c7669235",
+            "normals": "130f0fc5",
+            "tint": "fa04a7dc",
+            "position": [
+              0,
+              0.91,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnUpperLeft-base": {
+            "positions": "89409f95",
+            "normals": "28c6b469",
+            "tint": "5db84ed1",
+            "position": [
+              0,
+              0.09,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnUpperLeft-block-0": {
+            "positions": "998527f1",
+            "normals": "fc305ea5",
+            "tint": "d919d2cd",
+            "position": [
+              -0.012,
+              0.57269,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnUpperLeft-joint-0": {
+            "positions": "4deb99e5",
+            "normals": "8954e985",
+            "tint": "e442c60d",
+            "position": [
+              0,
+              0.9843800000000001,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnUpperLeft-block-1": {
+            "positions": "b0f58575",
+            "normals": "e833db25",
+            "tint": "589a5d81",
+            "position": [
+              0.012,
+              1.3557000000000001,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnUpperLeft-joint-1": {
+            "positions": "4deb99e5",
+            "normals": "8954e985",
+            "tint": "e442c60d",
+            "position": [
+              0,
+              1.72702,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnUpperLeft-block-2": {
+            "positions": "ecc365ed",
+            "normals": "f50a5c25",
+            "tint": "d919d2cd",
+            "position": [
+              -0.008,
+              2.1240300000000003,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnUpperLeft-joint-2": {
+            "positions": "4deb99e5",
+            "normals": "8954e985",
+            "tint": "e442c60d",
+            "position": [
+              0,
+              2.52104,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnUpperLeft-block-3": {
+            "positions": "9dea98f8",
+            "normals": "669b550e",
+            "tint": "a67a27bb",
+            "position": [
+              0,
+              2.88502,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnUpperLeft-cap": {
+            "positions": "b73aa370",
+            "normals": "5334546f",
+            "tint": "3021507b",
+            "position": [
+              0,
+              3.35,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnRight-base": {
+            "positions": "89409f95",
+            "normals": "28c6b469",
+            "tint": "5db84ed1",
+            "position": [
+              0,
+              0.09,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnRight-block-0": {
+            "positions": "998527f1",
+            "normals": "fc305ea5",
+            "tint": "589a5d81",
+            "position": [
+              0.008,
+              0.57269,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnRight-joint-0": {
+            "positions": "4deb99e5",
+            "normals": "8954e985",
+            "tint": "e442c60d",
+            "position": [
+              0,
+              0.9843800000000001,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnRight-block-1": {
+            "positions": "4a7bd401",
+            "normals": "d7c3d8ce",
+            "tint": "a67a27bb",
+            "position": [
+              -0.01,
+              1.3557000000000001,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnRight-joint-1": {
+            "positions": "4deb99e5",
+            "normals": "8954e985",
+            "tint": "e442c60d",
+            "position": [
+              0,
+              1.72702,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnRight-block-2": {
+            "positions": "ecc365ed",
+            "normals": "f50a5c25",
+            "tint": "d919d2cd",
+            "position": [
+              0.01,
+              2.1240300000000003,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnRight-joint-2": {
+            "positions": "4deb99e5",
+            "normals": "8954e985",
+            "tint": "e442c60d",
+            "position": [
+              0,
+              2.52104,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnRight-block-3": {
+            "positions": "4705c615",
+            "normals": "c448e69",
+            "tint": "589a5d81",
+            "position": [
+              0,
+              2.88502,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnRight-cap": {
+            "positions": "97c52f54",
+            "normals": "ba2f2904",
+            "tint": "5c901c47",
+            "position": [
+              0,
+              3.35,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnLower-base": {
+            "positions": "89409f95",
+            "normals": "28c6b469",
+            "tint": "5db84ed1",
+            "position": [
+              0,
+              0.09,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnLower-block-0": {
+            "positions": "43a5cdc7",
+            "normals": "ebc38c29",
+            "tint": "a67a27bb",
+            "position": [
+              -0.008,
+              0.57269,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnLower-joint-0": {
+            "positions": "4deb99e5",
+            "normals": "8954e985",
+            "tint": "e442c60d",
+            "position": [
+              0,
+              0.9843800000000001,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnLower-block-1": {
+            "positions": "b0f58575",
+            "normals": "e833db25",
+            "tint": "d919d2cd",
+            "position": [
+              0.012,
+              1.3557000000000001,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnLower-joint-1": {
+            "positions": "4deb99e5",
+            "normals": "8954e985",
+            "tint": "e442c60d",
+            "position": [
+              0,
+              1.72702,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnLower-block-2": {
+            "positions": "ecc365ed",
+            "normals": "f50a5c25",
+            "tint": "589a5d81",
+            "position": [
+              -0.008,
+              2.1240300000000003,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnLower-joint-2": {
+            "positions": "4deb99e5",
+            "normals": "8954e985",
+            "tint": "e442c60d",
+            "position": [
+              0,
+              2.52104,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnLower-block-3": {
+            "positions": "4705c615",
+            "normals": "c448e69",
+            "tint": "d919d2cd",
+            "position": [
+              0,
+              2.88502,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "columnLower-cap": {
+            "positions": "8246a5af",
+            "normals": "610d350f",
+            "tint": "1c3c9cc1",
+            "position": [
+              0,
+              3.35,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "wallLeft-base": {
+            "positions": "f6175f35",
+            "normals": "2931a471",
+            "tint": "6e19483d",
+            "position": [
+              0,
+              0.06,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "wallLeft-body-0": {
+            "positions": "5fb04259",
+            "normals": "dc697235",
+            "tint": "7ce52969",
+            "position": [
+              -1.3793333333333333,
+              0.395,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "wallLeft-body-joint-0": {
+            "positions": "af532115",
+            "normals": "8954e985",
+            "tint": "5416aa1d",
+            "position": [
+              -0.6896666666666667,
+              0.395,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "wallLeft-body-1": {
+            "positions": "5fb04259",
+            "normals": "dc697235",
+            "tint": "edab7999",
+            "position": [
+              0,
+              0.395,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "wallLeft-body-joint-1": {
+            "positions": "af532115",
+            "normals": "8954e985",
+            "tint": "5416aa1d",
+            "position": [
+              0.6896666666666667,
+              0.395,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "wallLeft-body-2": {
+            "positions": "f7fbab71",
+            "normals": "46982e53",
+            "tint": "2f4a71e7",
+            "position": [
+              1.3793333333333333,
+              0.395,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "wallLeft-cap-0": {
+            "positions": "eeda8f55",
+            "normals": "7ec7eda5",
+            "tint": "ae5b12ed",
+            "position": [
+              -1.0345,
+              0.7200000000000001,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "wallLeft-cap-joint-0": {
+            "positions": "529b42e5",
+            "normals": "8954e985",
+            "tint": "2edccda5",
+            "position": [
+              -1.2836953722228372e-16,
+              0.7025,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "wallLeft-cap-1": {
+            "positions": "f6aa4a18",
+            "normals": "93916505",
+            "tint": "cf775b3e",
+            "position": [
+              1.0344999999999995,
+              0.7200000000000001,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "wallLeft-end": {
+            "positions": "e23b95b6",
+            "normals": "f235af4e",
+            "tint": "67509f3f",
+            "position": [
+              2.05,
+              0.245,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "pathRight-slab-0-0": {
+            "positions": "dadc6e75",
+            "normals": "d02cfdfd",
+            "tint": "87d06d3d",
+            "position": [
+              -1.1099999999999999,
+              0.045,
+              -0.315
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "pathRight-slab-0-1": {
+            "positions": "7ac2f59f",
+            "normals": "da287689",
+            "tint": "9a008ba6",
+            "position": [
+              -0.37,
+              0.045,
+              -0.315
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "pathRight-slab-0-2": {
+            "positions": "dadc6e75",
+            "normals": "d02cfdfd",
+            "tint": "8655c3dd",
+            "position": [
+              0.37,
+              0.045,
+              -0.315
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "pathRight-slab-0-3": {
+            "positions": "dadc6e75",
+            "normals": "d02cfdfd",
+            "tint": "87d06d3d",
+            "position": [
+              1.1099999999999999,
+              0.045,
+              -0.315
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "pathRight-slab-1-0": {
+            "positions": "9f71db8b",
+            "normals": "87f2b6f5",
+            "tint": "11942a36",
+            "position": [
+              -1.1099999999999999,
+              0.045,
+              0.315
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "pathRight-slab-1-1": {
+            "positions": "dadc6e75",
+            "normals": "d02cfdfd",
+            "tint": "8655c3dd",
+            "position": [
+              -0.37,
+              0.045,
+              0.315
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "pathRight-slab-1-2": {
+            "positions": "e1da0a8f",
+            "normals": "eb6cdc35",
+            "tint": "bd22d7d0",
+            "position": [
+              0.37,
+              0.045,
+              0.315
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          },
+          "pathRight-slab-1-3": {
+            "positions": "dadc6e75",
+            "normals": "d02cfdfd",
+            "tint": "f0b8669d",
+            "position": [
+              1.1099999999999999,
+              0.045,
+              0.315
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              "XYZ"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check": "geometry configuration hot update without reload or duplicate canvas",
+      "outcome": "passed",
+      "evidence": {
+        "bevelChangeApplied": true,
+        "restoredImage": true
+      }
+    },
+    {
+      "check": "subtle stone tint is active and leaves ground and water unchanged",
+      "outcome": "passed",
+      "evidence": {
+        "variationDisabledAndRestored": true
+      }
+    },
+    {
+      "check": "normal and pixel views, URL restore and keyboard switching",
+      "outcome": "passed",
+      "evidence": {
+        "width": 680,
+        "height": 680,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "native",
+        "dpr": 1,
+        "imageRendering": "auto",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "six responsive viewports preserve square canvas without overflow",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "viewport": [
+            1280,
+            900
+          ],
+          "metrics": {
+            "width": 640,
+            "height": 640,
+            "displayWidth": 640,
+            "displayHeight": 640,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            768,
+            1024
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "metrics": {
+            "width": 358,
+            "height": 358,
+            "displayWidth": 358,
+            "displayHeight": 358,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "metrics": {
+            "width": 288,
+            "height": 288,
+            "displayWidth": 288,
+            "displayHeight": 288,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            844,
+            390
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            1440,
+            1000
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        }
+      ]
+    },
+    {
+      "check": "mobile DPR2 and touch pixel mode retain scene projection",
+      "outcome": "passed",
+      "evidence": {
+        "width": 179,
+        "height": 179,
+        "displayWidth": 358,
+        "displayHeight": 358,
+        "mode": "pixel",
+        "dpr": 2,
+        "imageRendering": "pixelated",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "detail captures use same camera at DPR2",
+      "outcome": "passed",
+      "evidence": {
+        "regions": [
+          "column-detail",
+          "fountain-detail",
+          "paving-detail"
+        ]
+      }
+    },
+    {
+      "check": "production assets match development and support pixel mode",
+      "outcome": "passed",
+      "evidence": {
+        "width": 340,
+        "height": 340,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "pixel",
+        "dpr": 1,
+        "imageRendering": "pixelated",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "console, shaders and resource requests",
+      "outcome": "passed",
+      "evidence": {
+        "exceptions": 0,
+        "errors": 0,
+        "warnings": 0,
+        "failedHttpResponses": 0
+      }
+    }
+  ],
+  "issues": []
+}

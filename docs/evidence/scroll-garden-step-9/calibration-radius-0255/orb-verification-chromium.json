@@ -1,0 +1,350 @@
+{
+  "engine": "chromium",
+  "version": "155.0.8059.79",
+  "checks": [
+    {
+      "check": "lively orb and refined pool share one clock and original effect capacities",
+      "passed": true,
+      "evidence": {
+        "pool": {
+          "bindings": [
+            {
+              "object": "fountain-base",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-rim-wall",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-coping-0",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-coping-1",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-coping-2",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-coping-3",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-coping-4",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-coping-5",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-coping-6",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-coping-7",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-pedestal-foot",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-pedestal",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-pedestal-cap",
+              "material": "courtyard-pool-stone"
+            },
+            {
+              "object": "fountain-water",
+              "material": "courtyard-water-refined-surface"
+            }
+          ],
+          "newGeometries": 0,
+          "newTextures": 0,
+          "extraPasses": 0
+        },
+        "orb": {
+          "radius": 0.255,
+          "centerY": 1.37,
+          "amplitude": 0.03,
+          "period": 6,
+          "envelope": 1.06,
+          "replacedGeometries": 2,
+          "addedGeometries": 0,
+          "addedTextures": 0,
+          "addedPasses": 0,
+          "dropCapacity": 32,
+          "rippleCapacity": 8
+        }
+      }
+    },
+    {
+      "check": "four fixed times and both visual modes render O/W",
+      "passed": true,
+      "evidence": [
+        {
+          "time": 2,
+          "mode": "pixel",
+          "pose": "W",
+          "image": "chromium-2-pixel-W.png",
+          "camera": "[2.32,11.15,7.5]"
+        },
+        {
+          "time": 2,
+          "mode": "pixel",
+          "pose": "O",
+          "image": "chromium-2-pixel-O.png",
+          "camera": "[4.5,23,16]"
+        },
+        {
+          "time": 2,
+          "mode": "native",
+          "pose": "W",
+          "image": "chromium-2-native-W.png",
+          "camera": "[2.32,11.15,7.5]"
+        },
+        {
+          "time": 2,
+          "mode": "native",
+          "pose": "O",
+          "image": "chromium-2-native-O.png",
+          "camera": "[4.5,23,16]"
+        },
+        {
+          "time": 4,
+          "mode": "pixel",
+          "pose": "W",
+          "image": "chromium-4-pixel-W.png",
+          "camera": "[2.32,11.15,7.5]"
+        },
+        {
+          "time": 4,
+          "mode": "pixel",
+          "pose": "O",
+          "image": "chromium-4-pixel-O.png",
+          "camera": "[4.5,23,16]"
+        },
+        {
+          "time": 4,
+          "mode": "native",
+          "pose": "W",
+          "image": "chromium-4-native-W.png",
+          "camera": "[2.32,11.15,7.5]"
+        },
+        {
+          "time": 4,
+          "mode": "native",
+          "pose": "O",
+          "image": "chromium-4-native-O.png",
+          "camera": "[4.5,23,16]"
+        },
+        {
+          "time": 6,
+          "mode": "pixel",
+          "pose": "W",
+          "image": "chromium-6-pixel-W.png",
+          "camera": "[2.32,11.15,7.5]"
+        },
+        {
+          "time": 6,
+          "mode": "pixel",
+          "pose": "O",
+          "image": "chromium-6-pixel-O.png",
+          "camera": "[4.5,23,16]"
+        },
+        {
+          "time": 6,
+          "mode": "native",
+          "pose": "W",
+          "image": "chromium-6-native-W.png",
+          "camera": "[2.32,11.15,7.5]"
+        },
+        {
+          "time": 6,
+          "mode": "native",
+          "pose": "O",
+          "image": "chromium-6-native-O.png",
+          "camera": "[4.5,23,16]"
+        },
+        {
+          "time": 8,
+          "mode": "pixel",
+          "pose": "W",
+          "image": "chromium-8-pixel-W.png",
+          "camera": "[2.32,11.15,7.5]"
+        },
+        {
+          "time": 8,
+          "mode": "pixel",
+          "pose": "O",
+          "image": "chromium-8-pixel-O.png",
+          "camera": "[4.5,23,16]"
+        },
+        {
+          "time": 8,
+          "mode": "native",
+          "pose": "W",
+          "image": "chromium-8-native-W.png",
+          "camera": "[2.32,11.15,7.5]"
+        },
+        {
+          "time": 8,
+          "mode": "native",
+          "pose": "O",
+          "image": "chromium-8-native-O.png",
+          "camera": "[4.5,23,16]"
+        }
+      ]
+    },
+    {
+      "check": "orb and water advance on the shared clock and fully freezes while paused",
+      "passed": true,
+      "evidence": {
+        "initialTime": "8.000000",
+        "advancedTime": "8.200000",
+        "pausedDraws": 2003
+      }
+    },
+    {
+      "check": "full-route identical mode history stays within GPU budgets",
+      "passed": true,
+      "evidence": {
+        "before": [
+          {
+            "geometries": 58,
+            "textures": 6,
+            "programs": 11,
+            "calls": 68,
+            "triangles": 9053,
+            "mode": "pixel",
+            "outputWidth": 1440,
+            "outputHeight": 793,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 211,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 1
+            }
+          },
+          {
+            "geometries": 58,
+            "textures": 6,
+            "programs": 20,
+            "calls": 67,
+            "triangles": 9052,
+            "mode": "native",
+            "outputWidth": 1440,
+            "outputHeight": 793,
+            "pixel": null
+          },
+          {
+            "geometries": 58,
+            "textures": 6,
+            "programs": 20,
+            "calls": 68,
+            "triangles": 9053,
+            "mode": "pixel",
+            "outputWidth": 1440,
+            "outputHeight": 793,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 211,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 1
+            }
+          }
+        ],
+        "after": [
+          {
+            "geometries": 58,
+            "textures": 6,
+            "programs": 12,
+            "calls": 68,
+            "triangles": 9173,
+            "mode": "pixel",
+            "outputWidth": 1440,
+            "outputHeight": 793,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 211,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 1
+            }
+          },
+          {
+            "geometries": 58,
+            "textures": 6,
+            "programs": 22,
+            "calls": 67,
+            "triangles": 9172,
+            "mode": "native",
+            "outputWidth": 1440,
+            "outputHeight": 793,
+            "pixel": null
+          },
+          {
+            "geometries": 58,
+            "textures": 6,
+            "programs": 22,
+            "calls": 68,
+            "triangles": 9173,
+            "mode": "pixel",
+            "outputWidth": 1440,
+            "outputHeight": 793,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 211,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "check": "orb can independently return to the Step8 effects while preserving refined pool",
+      "passed": true,
+      "evidence": {
+        "pool": "refined",
+        "orb": "legacy"
+      }
+    }
+  ],
+  "unhandledExceptions": [],
+  "passed": true,
+  "environment": "Linux software graphics; simulated portrait; GTK is not Apple Safari; no hardwareFPS claim"
+}

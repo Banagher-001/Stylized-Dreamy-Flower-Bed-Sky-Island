@@ -1,0 +1,601 @@
+{
+  "environment": {
+    "browser": "155.0.8059.79",
+    "rendering": "Chromium headless / ANGLE SwiftShader; not a hardware FPS benchmark"
+  },
+  "checks": [
+    {
+      "check": "restored environment builds and renders water shaders at fixed time",
+      "outcome": "passed",
+      "evidence": {
+        "metrics": {
+          "width": 680,
+          "height": 680,
+          "displayWidth": 680,
+          "displayHeight": 680,
+          "mode": "native",
+          "dpr": 1,
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "fixedTime": 2
+      }
+    },
+    {
+      "check": "all prior geometry, plant instance data, camera, colors and main lighting preserved",
+      "outcome": "passed",
+      "evidence": {
+        "unchangedMeshes": 64,
+        "plantBatches": 4,
+        "protectedFiles": [
+          "package.json",
+          "package-lock.json",
+          "src/config/layout.ts",
+          "src/config/scene.ts",
+          "src/config/lighting.ts",
+          "src/config/stone.ts",
+          "src/config/vegetation.ts",
+          "src/config/palette.ts",
+          "src/scene/createVegetation.ts",
+          "src/geometry/createStoneBlockGeometry.ts",
+          "src/geometry/createFlowerGeometry.ts",
+          "src/materials/createArtMaterial.ts"
+        ]
+      }
+    },
+    {
+      "check": "32 drop trajectories avoid stone and terminate at the water surface",
+      "outcome": "passed",
+      "evidence": {
+        "trajectorySegments": 2560,
+        "collisions": 0,
+        "minimumCapClearance": 0.06519943647225125,
+        "landings": [
+          {
+            "drop": 0,
+            "x": 1.0063532764705028,
+            "z": 0.043213019201094216,
+            "y": 0.3401089751659896,
+            "radius": 0.02010897516598925,
+            "wallMargin": 1.1400502578422416
+          },
+          {
+            "drop": 1,
+            "x": -0.8547138755616941,
+            "z": 0.7035464322196017,
+            "y": 0.34237119115982195,
+            "radius": 0.022371191159822047,
+            "wallMargin": 1.0251859236710532
+          },
+          {
+            "drop": 2,
+            "x": 0.23169654327849926,
+            "z": -1.0480292765554777,
+            "y": 0.34368079940183094,
+            "radius": 0.023680799401830883,
+            "wallMargin": 1.0258453081927434
+          },
+          {
+            "drop": 3,
+            "x": 0.6084408080320628,
+            "z": 0.9533273318894381,
+            "y": 0.3408197554256769,
+            "radius": 0.020819755425676705,
+            "wallMargin": 0.972025752175112
+          },
+          {
+            "drop": 4,
+            "x": -1.1220380062245288,
+            "z": -0.262117488837468,
+            "y": 0.3406395041556094,
+            "radius": 0.020639504155609757,
+            "wallMargin": 0.9488698610082698
+          },
+          {
+            "drop": 5,
+            "x": 0.8531311718462954,
+            "z": -0.5110630070386945,
+            "y": 0.3387955484548584,
+            "radius": 0.01879554845485836,
+            "wallMargin": 1.103884011766322
+          },
+          {
+            "drop": 6,
+            "x": -0.3104392587491874,
+            "z": 1.1185293124386664,
+            "y": 0.3360187362446452,
+            "radius": 0.01601873624464497,
+            "wallMargin": 0.9382402985260695
+          },
+          {
+            "drop": 7,
+            "x": -0.46648846322050225,
+            "z": -1.0135230307487055,
+            "y": 0.3344381558345635,
+            "radius": 0.014438155834563076,
+            "wallMargin": 0.9771165881896963
+          },
+          {
+            "drop": 8,
+            "x": 1.0127674815925243,
+            "z": 0.40492532657247343,
+            "y": 0.338612882928923,
+            "radius": 0.018612882928922773,
+            "wallMargin": 0.9971990899361672
+          },
+          {
+            "drop": 9,
+            "x": -0.972335632438671,
+            "z": 0.256530973505693,
+            "y": 0.3411874046116137,
+            "radius": 0.0211874046116136,
+            "wallMargin": 1.0887667865234978
+          },
+          {
+            "drop": 10,
+            "x": 0.4797115819580468,
+            "z": -0.8833618632772072,
+            "y": 0.33988084908900795,
+            "radius": 0.019880849089007824,
+            "wallMargin": 1.086866865024888
+          },
+          {
+            "drop": 11,
+            "x": 0.2279823146976725,
+            "z": 1.040131006158659,
+            "y": 0.34291382303088946,
+            "radius": 0.022913823030889034,
+            "wallMargin": 1.0353307086674453
+          },
+          {
+            "drop": 12,
+            "x": -0.8917500360141177,
+            "z": -0.5344799618898894,
+            "y": 0.3384463503942825,
+            "radius": 0.01844635039428249,
+            "wallMargin": 1.0595927509954197
+          },
+          {
+            "drop": 13,
+            "x": 1.0726293159037545,
+            "z": -0.20883342430915589,
+            "y": 0.34339615076640584,
+            "radius": 0.023396150766406207,
+            "wallMargin": 1.0121518208170825
+          },
+          {
+            "drop": 14,
+            "x": -0.6557033661995729,
+            "z": 0.8765728755671294,
+            "y": 0.3358693945533595,
+            "radius": 0.0158693945533596,
+            "wallMargin": 1.029801386290744
+          },
+          {
+            "drop": 15,
+            "x": -0.03183350030028622,
+            "z": -1.0035327996330023,
+            "y": 0.3383820350850002,
+            "radius": 0.0183820350850001,
+            "wallMargin": 1.1487377320969439
+          },
+          {
+            "drop": 16,
+            "x": 0.8325292765746223,
+            "z": 0.8803903403179674,
+            "y": 0.3394783712141216,
+            "radius": 0.01947837121412158,
+            "wallMargin": 0.9549971857671942
+          },
+          {
+            "drop": 17,
+            "x": -1.0611695630218958,
+            "z": 0.009084055513517573,
+            "y": 0.3382086504609323,
+            "radius": 0.018208650460932403,
+            "wallMargin": 1.1043675263212176
+          },
+          {
+            "drop": 18,
+            "x": 0.8395879507819143,
+            "z": -0.6247970381963561,
+            "y": 0.33825117730395804,
+            "radius": 0.018251177303958685,
+            "wallMargin": 1.0734165582427473
+          },
+          {
+            "drop": 19,
+            "x": -0.06374501079478377,
+            "z": 1.1792692281782795,
+            "y": 0.33515217880113024,
+            "radius": 0.015152178801130504,
+            "wallMargin": 0.977396292563211
+          },
+          {
+            "drop": 20,
+            "x": -0.6055028154219039,
+            "z": -0.9867107038066135,
+            "y": 0.3387085073008198,
+            "radius": 0.0187085073008202,
+            "wallMargin": 0.944419107355797
+          },
+          {
+            "drop": 21,
+            "x": 1.0343235314746693,
+            "z": 0.16219565383752418,
+            "y": 0.34338037991989423,
+            "radius": 0.023380379919894043,
+            "wallMargin": 1.0654050239563555
+          },
+          {
+            "drop": 22,
+            "x": -0.919959073940694,
+            "z": 0.592047373208127,
+            "y": 0.3351913535324851,
+            "radius": 0.015191353532485664,
+            "wallMargin": 1.014755900529382
+          },
+          {
+            "drop": 23,
+            "x": 0.31357689803914646,
+            "z": -0.9707743731799737,
+            "y": 0.3384623754103673,
+            "radius": 0.018462375410366803,
+            "wallMargin": 1.071103700995897
+          },
+          {
+            "drop": 24,
+            "x": 0.5513298149941038,
+            "z": 1.0683952120447127,
+            "y": 0.3430594522003083,
+            "radius": 0.023059452200308445,
+            "wallMargin": 0.8853326269171053
+          },
+          {
+            "drop": 25,
+            "x": -0.9991679734000468,
+            "z": -0.3792512932953991,
+            "y": 0.33993609446892514,
+            "radius": 0.01993609446892515,
+            "wallMargin": 1.0182652128445409
+          },
+          {
+            "drop": 26,
+            "x": 0.9617417554672892,
+            "z": -0.38438525336635915,
+            "y": 0.3402456675362775,
+            "radius": 0.020245667536277323,
+            "wallMargin": 1.0505682750429899
+          },
+          {
+            "drop": 27,
+            "x": -0.42118344300807814,
+            "z": 0.9880812681850195,
+            "y": 0.3350067851888019,
+            "radius": 0.015006785188801587,
+            "wallMargin": 1.0173905631773192
+          },
+          {
+            "drop": 28,
+            "x": -0.3251518863456638,
+            "z": -1.1059160704110065,
+            "y": 0.3340735964998598,
+            "radius": 0.014073596499860288,
+            "wallMargin": 0.9462082755910913
+          },
+          {
+            "drop": 29,
+            "x": 0.9808411909072725,
+            "z": 0.5203010430821227,
+            "y": 0.3434846385344865,
+            "radius": 0.023484638534486294,
+            "wallMargin": 0.9776710056382193
+          },
+          {
+            "drop": 30,
+            "x": -1.0876103042001037,
+            "z": 0.2569339310249373,
+            "y": 0.3384158026296644,
+            "radius": 0.01841580262966454,
+            "wallMargin": 0.9848842734815406
+          },
+          {
+            "drop": 31,
+            "x": 0.6540881340820083,
+            "z": -0.8706081852914537,
+            "y": 0.3342441480592824,
+            "radius": 0.014244148059282452,
+            "wallMargin": 1.0375554106191032
+          }
+        ]
+      }
+    },
+    {
+      "check": "ripple positions and ages follow analytic impact events",
+      "outcome": "passed",
+      "evidence": {
+        "sampleTimes": [
+          0,
+          0.2,
+          0.8,
+          1.3,
+          2,
+          2.4,
+          5,
+          60,
+          600,
+          3600
+        ],
+        "errors": [],
+        "activeAtTwo": 8
+      }
+    },
+    {
+      "check": "600 simulated seconds retain buffers and reproduce fixed-time state",
+      "outcome": "passed",
+      "evidence": {
+        "minActive": 16,
+        "maxActive": 18,
+        "nonFinite": 0,
+        "deterministic": true
+      }
+    },
+    {
+      "check": "bounded geometry budget and complete repeat-safe disposal",
+      "outcome": "passed",
+      "evidence": {
+        "meshes": 67,
+        "peakTriangles": 9180,
+        "geometries": 51,
+        "materials": 6,
+        "newBatches": [
+          {
+            "name": "fountain-water-column",
+            "castShadow": false,
+            "receiveShadow": true
+          },
+          {
+            "name": "fountain-water-crown",
+            "castShadow": false,
+            "receiveShadow": true
+          },
+          {
+            "name": "fountain-water-drops",
+            "castShadow": false,
+            "receiveShadow": true
+          }
+        ],
+        "disposedResources": 62
+      }
+    },
+    {
+      "check": "clock handles pause, resume and long stalls without fast-forward",
+      "outcome": "passed",
+      "evidence": {
+        "actual": [
+          2,
+          2.016,
+          2.032,
+          2.032,
+          2.032,
+          2.048,
+          2.098
+        ],
+        "expected": [
+          2,
+          2.016,
+          2.032,
+          2.032,
+          2.032,
+          2.048,
+          2.098
+        ]
+      }
+    },
+    {
+      "check": "real pause/play UI, keyboard operation and frozen rendering",
+      "outcome": "passed",
+      "evidence": {
+        "pausedTime": "2.526600"
+      }
+    },
+    {
+      "check": "reduced motion defaults to still, allows opt-in and preserves manual pause",
+      "outcome": "passed",
+      "evidence": {
+        "passed": true
+      }
+    },
+    {
+      "check": "hidden-page event pauses and resumes without elapsed-time jump",
+      "outcome": "passed",
+      "evidence": {
+        "method": "visibilitychange-fixture",
+        "hiddenTime": "2.656000"
+      }
+    },
+    {
+      "check": "different times change only the fountain region",
+      "outcome": "passed",
+      "evidence": {
+        "changedPixelBounds": [
+          215,
+          238,
+          480,
+          449
+        ]
+      }
+    },
+    {
+      "check": "GPU water image responds to impact ripple uniforms",
+      "outcome": "passed",
+      "evidence": {
+        "ripplesOffAndRestored": true
+      }
+    },
+    {
+      "check": "animated surface retains geometric construction shadows",
+      "outcome": "passed",
+      "evidence": {
+        "shadowedWaterSamples": 29
+      }
+    },
+    {
+      "check": "five-second sampled demo and steady GPU resource counts",
+      "outcome": "passed",
+      "evidence": {
+        "before": {
+          "geometries": 51,
+          "textures": 2,
+          "programs": 15,
+          "calls": 67,
+          "triangles": 9068
+        },
+        "after": {
+          "geometries": 51,
+          "textures": 2,
+          "programs": 15,
+          "calls": 67,
+          "triangles": 9060
+        },
+        "frames": 60,
+        "sampleRate": 12
+      }
+    },
+    {
+      "check": "water switch and hot cleanup restore published step 5 or step 6 exactly",
+      "outcome": "passed",
+      "evidence": {
+        "sameDocument": true,
+        "oneCanvas": true
+      }
+    },
+    {
+      "check": "normal/pixel modes, URL restoration and six responsive viewports",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "viewport": [
+            1280,
+            900
+          ],
+          "metrics": {
+            "width": 640,
+            "height": 640,
+            "displayWidth": 640,
+            "displayHeight": 640,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            768,
+            1024
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "metrics": {
+            "width": 358,
+            "height": 358,
+            "displayWidth": 358,
+            "displayHeight": 358,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "metrics": {
+            "width": 288,
+            "height": 288,
+            "displayWidth": 288,
+            "displayHeight": 288,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            844,
+            390
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            1440,
+            1000
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        }
+      ]
+    },
+    {
+      "check": "mobile DPR2, touch playback, pause and pixel rendering",
+      "outcome": "passed",
+      "evidence": {
+        "passed": true
+      }
+    },
+    {
+      "check": "production assets match fixed-time development and animate",
+      "outcome": "passed",
+      "evidence": {
+        "fixedTime": 2
+      }
+    },
+    {
+      "check": "console, shaders and resource requests",
+      "outcome": "passed",
+      "evidence": {
+        "exceptions": 0,
+        "errors": 0,
+        "warnings": 0,
+        "failedHttpResponses": 0
+      }
+    }
+  ],
+  "issues": []
+}

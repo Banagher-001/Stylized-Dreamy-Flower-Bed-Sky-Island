@@ -1,0 +1,254 @@
+{
+  "engine": "chromium",
+  "browserVersion": "155.0.8059.79",
+  "environment": "Linux software rendering / Xvfb or headless; not real-device acceptance",
+  "gpu": {
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "floatTarget": true
+  },
+  "checks": [
+    {
+      "check": "production/native/pixel render and same-engine development equivalence",
+      "outcome": "passed",
+      "evidence": {
+        "metrics": {
+          "width": 680,
+          "height": 680,
+          "cssWidth": 680,
+          "cssHeight": 680,
+          "dpr": 1,
+          "engine": "three.js r187",
+          "renderMode": "pixel",
+          "sampleWidth": "384",
+          "sampleHeight": "384",
+          "pixelProfile": "384",
+          "finish": "clean",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "sameEnvironmentReferenceExact": true
+      }
+    },
+    {
+      "check": "actual WebGL2 renderer and float capability",
+      "outcome": "passed",
+      "evidence": {
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "floatTarget": true
+      }
+    },
+    {
+      "check": "valid and invalid review parameters restore or safely fall back",
+      "outcome": "passed",
+      "evidence": {
+        "profiles": [
+          320,
+          384,
+          448
+        ],
+        "validTimes": [
+          0,
+          2,
+          86400
+        ],
+        "invalidTimes": [
+          "empty",
+          -1,
+          "NaN",
+          "Infinity",
+          86401
+        ]
+      }
+    },
+    {
+      "check": "keyboard, focus, play/pause, frozen scene and accessible status",
+      "outcome": "passed",
+      "evidence": {
+        "outline": {
+          "style": "solid",
+          "width": "2px"
+        },
+        "pausedTime": "2.016600"
+      }
+    },
+    {
+      "check": "reduced-motion preference fixture and manual override",
+      "outcome": "passed",
+      "evidence": {
+        "method": "browser preference emulation",
+        "realOSPreferenceTested": false
+      }
+    },
+    {
+      "check": "seven viewport/DPR combinations, 44px targets and simulated touch",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "width": 248,
+          "height": 248,
+          "cssWidth": 248,
+          "cssHeight": 248,
+          "dpr": 1,
+          "engine": "three.js r187",
+          "renderMode": "pixel",
+          "sampleWidth": "248",
+          "sampleHeight": "248",
+          "pixelProfile": "384",
+          "finish": "clean",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        {
+          "width": 288,
+          "height": 288,
+          "cssWidth": 288,
+          "cssHeight": 288,
+          "dpr": 1,
+          "engine": "three.js r187",
+          "renderMode": "pixel",
+          "sampleWidth": "288",
+          "sampleHeight": "288",
+          "pixelProfile": "384",
+          "finish": "clean",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        {
+          "width": 716,
+          "height": 716,
+          "cssWidth": 358,
+          "cssHeight": 358,
+          "dpr": 2,
+          "engine": "three.js r187",
+          "renderMode": "pixel",
+          "sampleWidth": "384",
+          "sampleHeight": "384",
+          "pixelProfile": "384",
+          "finish": "clean",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        {
+          "width": 1020,
+          "height": 1020,
+          "cssWidth": 680,
+          "cssHeight": 680,
+          "dpr": 1.5,
+          "engine": "three.js r187",
+          "renderMode": "pixel",
+          "sampleWidth": "384",
+          "sampleHeight": "384",
+          "pixelProfile": "384",
+          "finish": "clean",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        {
+          "width": 850,
+          "height": 850,
+          "cssWidth": 680,
+          "cssHeight": 680,
+          "dpr": 1.25,
+          "engine": "three.js r187",
+          "renderMode": "pixel",
+          "sampleWidth": "384",
+          "sampleHeight": "384",
+          "pixelProfile": "384",
+          "finish": "clean",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        {
+          "width": 1360,
+          "height": 1360,
+          "cssWidth": 680,
+          "cssHeight": 680,
+          "dpr": 2,
+          "engine": "three.js r187",
+          "renderMode": "pixel",
+          "sampleWidth": "384",
+          "sampleHeight": "384",
+          "pixelProfile": "384",
+          "finish": "clean",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        {
+          "width": 1360,
+          "height": 1360,
+          "cssWidth": 680,
+          "cssHeight": 680,
+          "dpr": 3,
+          "engine": "three.js r187",
+          "renderMode": "pixel",
+          "sampleWidth": "384",
+          "sampleHeight": "384",
+          "pixelProfile": "384",
+          "finish": "clean",
+          "canvasCount": 1,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "check": "two real context losses restore the paused scene and controls",
+      "outcome": "passed",
+      "evidence": {
+        "cycles": 2
+      }
+    },
+    {
+      "check": "GPU color palette and exact nearest-neighbor cells in both storage paths",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "requested": "auto",
+          "actual": "linear-half-float",
+          "maxChannelError": 0,
+          "checker": {
+            "colors": [
+              "0,0,0",
+              "255,255,255"
+            ],
+            "wrongCells": 0,
+            "readback": "same-draw GPU framebuffer inside RAF"
+          }
+        },
+        {
+          "requested": "byte",
+          "actual": "srgb8",
+          "maxChannelError": 0,
+          "checker": {
+            "colors": [
+              "0,0,0",
+              "255,255,255"
+            ],
+            "wrongCells": 0,
+            "readback": "same-draw GPU framebuffer inside RAF"
+          }
+        }
+      ]
+    },
+    {
+      "check": "20 initialization/disposal cycles explicitly release context slots",
+      "outcome": "passed",
+      "evidence": {
+        "cycles": 20,
+        "contextsReleased": 20
+      }
+    },
+    {
+      "check": "normal-workflow diagnostics recorded without hiding browser output",
+      "outcome": "passed",
+      "evidence": {
+        "unexpectedIssues": [],
+        "knownBrowserWarnings": [],
+        "expectedContextLossDiagnostics": [],
+        "zeroWarningTargetMet": true
+      }
+    }
+  ],
+  "issues": []
+}

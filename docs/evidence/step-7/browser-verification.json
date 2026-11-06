@@ -1,0 +1,952 @@
+{
+  "browser": "155.0.8059.79",
+  "renderer": "ANGLE / SwiftShader, Chromium headless",
+  "checks": [
+    {
+      "check": "normal render exactly preserves the published step 6 composition",
+      "outcome": "passed",
+      "evidence": {
+        "canvas": [
+          680,
+          680
+        ],
+        "differentPixels": 0,
+        "fixedTime": 2
+      }
+    },
+    {
+      "check": "scene, plants and analytic water physics remain unchanged",
+      "outcome": "passed",
+      "evidence": {
+        "protectedFiles": [
+          "src/styles.css",
+          "src/animation/createAnimationController.ts",
+          "src/config/layout.ts",
+          "src/config/lighting.ts",
+          "src/config/palette.ts",
+          "src/config/stone.ts",
+          "src/config/vegetation.ts",
+          "src/config/water.ts",
+          "src/geometry/createFlowerGeometry.ts",
+          "src/geometry/createStoneBlockGeometry.ts",
+          "src/materials/createArtMaterial.ts",
+          "src/materials/createGroundMaterial.ts",
+          "src/materials/createStoneMaterial.ts",
+          "src/materials/createVegetationMaterial.ts",
+          "src/materials/createWaterMaterial.ts",
+          "src/scene/createBlockout.ts",
+          "src/scene/createFountainEffects.ts",
+          "src/scene/createScene.ts",
+          "src/scene/createVegetation.ts",
+          "package.json",
+          "package-lock.json"
+        ],
+        "unchangedPriorMeshes": 64,
+        "currentMeshes": 67,
+        "waterSegments": 2560,
+        "collisions": 0,
+        "minimumCapClearance": 0.06519943647225125,
+        "deterministic": true
+      }
+    },
+    {
+      "check": "three bounded sample profiles and stable optional finish, clean 384 default",
+      "outcome": "passed",
+      "evidence": {
+        "comparisons": [
+          {
+            "resolution": 320,
+            "metrics": {
+              "width": 680,
+              "height": 680,
+              "cssWidth": 680,
+              "cssHeight": 680,
+              "dpr": 1,
+              "engine": "three.js r187",
+              "renderMode": "pixel",
+              "sampleWidth": "320",
+              "sampleHeight": "320",
+              "pixelProfile": "320",
+              "finish": "clean",
+              "canvasCount": 1,
+              "overflow": false
+            }
+          },
+          {
+            "resolution": 384,
+            "metrics": {
+              "width": 680,
+              "height": 680,
+              "cssWidth": 680,
+              "cssHeight": 680,
+              "dpr": 1,
+              "engine": "three.js r187",
+              "renderMode": "pixel",
+              "sampleWidth": "384",
+              "sampleHeight": "384",
+              "pixelProfile": "384",
+              "finish": "clean",
+              "canvasCount": 1,
+              "overflow": false
+            }
+          },
+          {
+            "resolution": 448,
+            "metrics": {
+              "width": 680,
+              "height": 680,
+              "cssWidth": 680,
+              "cssHeight": 680,
+              "dpr": 1,
+              "engine": "three.js r187",
+              "renderMode": "pixel",
+              "sampleWidth": "448",
+              "sampleHeight": "448",
+              "pixelProfile": "448",
+              "finish": "clean",
+              "canvasCount": 1,
+              "overflow": false
+            }
+          }
+        ],
+        "soft": {
+          "levelsPerChannel": 64,
+          "dither": 0.18,
+          "timeInvariantWhenPaused": true
+        },
+        "invalidOptionsFallback": "pixel / 384 / clean"
+      }
+    },
+    {
+      "check": "GPU palette has one sRGB conversion, half-float and forced sRGB8 fallback",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "requestedStorage": "auto",
+          "actualStorage": "linear-half-float",
+          "maxChannelError": 0,
+          "colors": [
+            {
+              "hex": "#030609",
+              "native": [
+                3,
+                6,
+                9
+              ],
+              "pixel": [
+                3,
+                6,
+                9
+              ]
+            },
+            {
+              "hex": "#0a0f17",
+              "native": [
+                10,
+                15,
+                23
+              ],
+              "pixel": [
+                10,
+                15,
+                23
+              ]
+            },
+            {
+              "hex": "#124b3c",
+              "native": [
+                18,
+                75,
+                60
+              ],
+              "pixel": [
+                18,
+                75,
+                60
+              ]
+            },
+            {
+              "hex": "#58a7b5",
+              "native": [
+                88,
+                167,
+                181
+              ],
+              "pixel": [
+                88,
+                167,
+                181
+              ]
+            },
+            {
+              "hex": "#ffb6d5",
+              "native": [
+                255,
+                182,
+                213
+              ],
+              "pixel": [
+                255,
+                182,
+                213
+              ]
+            },
+            {
+              "hex": "#e5eacb",
+              "native": [
+                229,
+                234,
+                203
+              ],
+              "pixel": [
+                229,
+                234,
+                203
+              ]
+            },
+            {
+              "hex": "#ffffff",
+              "native": [
+                255,
+                255,
+                255
+              ],
+              "pixel": [
+                255,
+                255,
+                255
+              ]
+            },
+            {
+              "hex": "#000000",
+              "native": [
+                0,
+                0,
+                0
+              ],
+              "pixel": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "hex": "#2b557c",
+              "native": [
+                43,
+                85,
+                124
+              ],
+              "pixel": [
+                43,
+                85,
+                124
+              ]
+            },
+            {
+              "hex": "#b3d3df",
+              "native": [
+                179,
+                211,
+                223
+              ],
+              "pixel": [
+                179,
+                211,
+                223
+              ]
+            },
+            {
+              "hex": "#b9d964",
+              "native": [
+                185,
+                217,
+                100
+              ],
+              "pixel": [
+                185,
+                217,
+                100
+              ]
+            },
+            {
+              "hex": "#117356",
+              "native": [
+                17,
+                115,
+                86
+              ],
+              "pixel": [
+                17,
+                115,
+                86
+              ]
+            },
+            {
+              "hex": "#183d35",
+              "native": [
+                24,
+                61,
+                53
+              ],
+              "pixel": [
+                24,
+                61,
+                53
+              ]
+            },
+            {
+              "hex": "#728f96",
+              "native": [
+                114,
+                143,
+                150
+              ],
+              "pixel": [
+                114,
+                143,
+                150
+              ]
+            },
+            {
+              "hex": "#f3ebc2",
+              "native": [
+                243,
+                235,
+                194
+              ],
+              "pixel": [
+                243,
+                235,
+                194
+              ]
+            },
+            {
+              "hex": "#dba2e8",
+              "native": [
+                219,
+                162,
+                232
+              ],
+              "pixel": [
+                219,
+                162,
+                232
+              ]
+            }
+          ]
+        },
+        {
+          "requestedStorage": "byte",
+          "actualStorage": "srgb8",
+          "maxChannelError": 0,
+          "colors": [
+            {
+              "hex": "#030609",
+              "native": [
+                3,
+                6,
+                9
+              ],
+              "pixel": [
+                3,
+                6,
+                9
+              ]
+            },
+            {
+              "hex": "#0a0f17",
+              "native": [
+                10,
+                15,
+                23
+              ],
+              "pixel": [
+                10,
+                15,
+                23
+              ]
+            },
+            {
+              "hex": "#124b3c",
+              "native": [
+                18,
+                75,
+                60
+              ],
+              "pixel": [
+                18,
+                75,
+                60
+              ]
+            },
+            {
+              "hex": "#58a7b5",
+              "native": [
+                88,
+                167,
+                181
+              ],
+              "pixel": [
+                88,
+                167,
+                181
+              ]
+            },
+            {
+              "hex": "#ffb6d5",
+              "native": [
+                255,
+                182,
+                213
+              ],
+              "pixel": [
+                255,
+                182,
+                213
+              ]
+            },
+            {
+              "hex": "#e5eacb",
+              "native": [
+                229,
+                234,
+                203
+              ],
+              "pixel": [
+                229,
+                234,
+                203
+              ]
+            },
+            {
+              "hex": "#ffffff",
+              "native": [
+                255,
+                255,
+                255
+              ],
+              "pixel": [
+                255,
+                255,
+                255
+              ]
+            },
+            {
+              "hex": "#000000",
+              "native": [
+                0,
+                0,
+                0
+              ],
+              "pixel": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "hex": "#2b557c",
+              "native": [
+                43,
+                85,
+                124
+              ],
+              "pixel": [
+                43,
+                85,
+                124
+              ]
+            },
+            {
+              "hex": "#b3d3df",
+              "native": [
+                179,
+                211,
+                223
+              ],
+              "pixel": [
+                179,
+                211,
+                223
+              ]
+            },
+            {
+              "hex": "#b9d964",
+              "native": [
+                185,
+                217,
+                100
+              ],
+              "pixel": [
+                185,
+                217,
+                100
+              ]
+            },
+            {
+              "hex": "#117356",
+              "native": [
+                17,
+                115,
+                86
+              ],
+              "pixel": [
+                17,
+                115,
+                86
+              ]
+            },
+            {
+              "hex": "#183d35",
+              "native": [
+                24,
+                61,
+                53
+              ],
+              "pixel": [
+                24,
+                61,
+                53
+              ]
+            },
+            {
+              "hex": "#728f96",
+              "native": [
+                114,
+                143,
+                150
+              ],
+              "pixel": [
+                114,
+                143,
+                150
+              ]
+            },
+            {
+              "hex": "#f3ebc2",
+              "native": [
+                243,
+                235,
+                194
+              ],
+              "pixel": [
+                243,
+                235,
+                194
+              ]
+            },
+            {
+              "hex": "#dba2e8",
+              "native": [
+                219,
+                162,
+                232
+              ],
+              "pixel": [
+                219,
+                162,
+                232
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "check": "GPU nearest-neighbor checkerboard has exact 2x2 cells with no blended colors",
+      "outcome": "passed",
+      "evidence": {
+        "source": [
+          320,
+          320
+        ],
+        "output": [
+          640,
+          640
+        ],
+        "colors": 2,
+        "storagePaths": [
+          "auto",
+          "byte"
+        ]
+      }
+    },
+    {
+      "check": "mode buttons and keyboard preserve time, camera and default URL",
+      "outcome": "passed",
+      "evidence": {
+        "width": 680,
+        "height": 680,
+        "cssWidth": 680,
+        "cssHeight": 680,
+        "dpr": 1,
+        "engine": "three.js r187",
+        "renderMode": "pixel",
+        "sampleWidth": "384",
+        "sampleHeight": "384",
+        "pixelProfile": "384",
+        "finish": "clean",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "responsive sizes, fractional DPR, live DPR changes and mobile touch",
+      "outcome": "passed",
+      "evidence": {
+        "matrix": [
+          {
+            "width": 680,
+            "height": 680,
+            "cssWidth": 680,
+            "cssHeight": 680,
+            "dpr": 1,
+            "engine": "three.js r187",
+            "renderMode": "pixel",
+            "sampleWidth": "384",
+            "sampleHeight": "384",
+            "pixelProfile": "384",
+            "finish": "clean",
+            "canvasCount": 1,
+            "overflow": false
+          },
+          {
+            "width": 800,
+            "height": 800,
+            "cssWidth": 640,
+            "cssHeight": 640,
+            "dpr": 1.25,
+            "engine": "three.js r187",
+            "renderMode": "pixel",
+            "sampleWidth": "384",
+            "sampleHeight": "384",
+            "pixelProfile": "384",
+            "finish": "clean",
+            "canvasCount": 1,
+            "overflow": false
+          },
+          {
+            "width": 1360,
+            "height": 1360,
+            "cssWidth": 680,
+            "cssHeight": 680,
+            "dpr": 2,
+            "engine": "three.js r187",
+            "renderMode": "pixel",
+            "sampleWidth": "384",
+            "sampleHeight": "384",
+            "pixelProfile": "384",
+            "finish": "clean",
+            "canvasCount": 1,
+            "overflow": false
+          },
+          {
+            "width": 716,
+            "height": 716,
+            "cssWidth": 358,
+            "cssHeight": 358,
+            "dpr": 2,
+            "engine": "three.js r187",
+            "renderMode": "pixel",
+            "sampleWidth": "384",
+            "sampleHeight": "384",
+            "pixelProfile": "384",
+            "finish": "clean",
+            "canvasCount": 1,
+            "overflow": false
+          },
+          {
+            "width": 288,
+            "height": 288,
+            "cssWidth": 288,
+            "cssHeight": 288,
+            "dpr": 1,
+            "engine": "three.js r187",
+            "renderMode": "pixel",
+            "sampleWidth": "288",
+            "sampleHeight": "288",
+            "pixelProfile": "384",
+            "finish": "clean",
+            "canvasCount": 1,
+            "overflow": false
+          },
+          {
+            "width": 1360,
+            "height": 1360,
+            "cssWidth": 680,
+            "cssHeight": 680,
+            "dpr": 3,
+            "engine": "three.js r187",
+            "renderMode": "pixel",
+            "sampleWidth": "384",
+            "sampleHeight": "384",
+            "pixelProfile": "384",
+            "finish": "clean",
+            "canvasCount": 1,
+            "overflow": false
+          },
+          {
+            "width": 540,
+            "height": 540,
+            "cssWidth": 540,
+            "cssHeight": 540,
+            "dpr": 1,
+            "engine": "three.js r187",
+            "renderMode": "pixel",
+            "sampleWidth": "384",
+            "sampleHeight": "384",
+            "pixelProfile": "384",
+            "finish": "clean",
+            "canvasCount": 1,
+            "overflow": false
+          },
+          {
+            "width": 850,
+            "height": 850,
+            "cssWidth": 680,
+            "cssHeight": 680,
+            "dpr": 1.25,
+            "engine": "three.js r187",
+            "renderMode": "pixel",
+            "sampleWidth": "384",
+            "sampleHeight": "384",
+            "pixelProfile": "384",
+            "finish": "clean",
+            "canvasCount": 1,
+            "overflow": false
+          },
+          {
+            "width": 1360,
+            "height": 1360,
+            "cssWidth": 680,
+            "cssHeight": 680,
+            "dpr": 2,
+            "engine": "three.js r187",
+            "renderMode": "pixel",
+            "sampleWidth": "384",
+            "sampleHeight": "384",
+            "pixelProfile": "384",
+            "finish": "clean",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        ],
+        "dynamicDpr": [
+          1,
+          1.25,
+          2,
+          1
+        ],
+        "dynamicDprMethod": "CDP actual DPR + MediaQueryList change fixture; headless CDP did not emit native change",
+        "mobilePauseStable": true,
+        "dprCap": 2
+      }
+    },
+    {
+      "check": "pixel sampling changes only fountain pixels and leaves motion continuous",
+      "outcome": "passed",
+      "evidence": {
+        "changedBounds": [
+          214,
+          239,
+          480,
+          450
+        ],
+        "deterministicReturn": true,
+        "physicsTimeQuantized": false
+      }
+    },
+    {
+      "check": "60 sampled frames and 24 mode switches retain GPU resources and target allocation",
+      "outcome": "passed",
+      "evidence": {
+        "before": {
+          "geometries": 52,
+          "textures": 3,
+          "programs": 16,
+          "calls": 68,
+          "triangles": 9053,
+          "mode": "pixel",
+          "outputWidth": 680,
+          "outputHeight": 680,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 384,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 1
+          }
+        },
+        "after": {
+          "geometries": 52,
+          "textures": 3,
+          "programs": 16,
+          "calls": 68,
+          "triangles": 9061,
+          "mode": "pixel",
+          "outputWidth": 680,
+          "outputHeight": 680,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 384,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 1
+          }
+        },
+        "afterToggles": {
+          "geometries": 52,
+          "textures": 3,
+          "programs": 16,
+          "calls": 68,
+          "triangles": 9061,
+          "mode": "pixel",
+          "outputWidth": 680,
+          "outputHeight": 680,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 384,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 1
+          }
+        },
+        "sampledDuration": 5,
+        "sampledRate": 12,
+        "hardwareFPSMeasured": false
+      }
+    },
+    {
+      "check": "pixel target and fullscreen geometry release safely on repeated disposal",
+      "outcome": "passed",
+      "evidence": {
+        "before": {
+          "geometries": 2,
+          "textures": 1
+        },
+        "after": {
+          "geometries": 1,
+          "textures": 0
+        }
+      }
+    },
+    {
+      "check": "real WebGL context loss/restoration rebuilds pixel output and shadows",
+      "outcome": "passed",
+      "evidence": {
+        "cycles": 2,
+        "restoredExactFixedTimeImage": true,
+        "instanceBuffersRetained": true,
+        "restoredStats": [
+          {
+            "geometries": 52,
+            "textures": 3,
+            "programs": 16,
+            "calls": 68,
+            "triangles": 9053,
+            "mode": "pixel",
+            "outputWidth": 680,
+            "outputHeight": 680,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 384,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 1
+            }
+          },
+          {
+            "geometries": 52,
+            "textures": 3,
+            "programs": 16,
+            "calls": 68,
+            "triangles": 9053,
+            "mode": "pixel",
+            "outputWidth": 680,
+            "outputHeight": 680,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 384,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "check": "default pixel mode respects pause, reduced motion and hidden-page events",
+      "outcome": "passed",
+      "evidence": {
+        "manualPauseStable": true,
+        "reducedMotionStill": true,
+        "manualOptIn": true,
+        "visibilityMethod": "document.hidden + visibilitychange fixture"
+      }
+    },
+    {
+      "check": "production output matches development and runs the new two-pass renderer",
+      "outcome": "passed",
+      "evidence": {
+        "pixelIdentical": true,
+        "playbackAdvances": true,
+        "metrics": {
+          "width": 680,
+          "height": 680,
+          "cssWidth": 680,
+          "cssHeight": 680,
+          "dpr": 1,
+          "engine": "three.js r187",
+          "renderMode": "pixel",
+          "sampleWidth": "384",
+          "sampleHeight": "384",
+          "pixelProfile": "384",
+          "finish": "clean",
+          "canvasCount": 1,
+          "overflow": false
+        }
+      }
+    },
+    {
+      "check": "no browser exceptions, console errors, warnings, failed responses or remaining capture canvas",
+      "outcome": "passed",
+      "evidence": {
+        "issues": [],
+        "captureCanvases": 0
+      }
+    }
+  ],
+  "issues": []
+}

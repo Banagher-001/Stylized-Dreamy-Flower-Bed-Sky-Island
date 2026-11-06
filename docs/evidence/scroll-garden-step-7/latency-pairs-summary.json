@@ -1,0 +1,79 @@
+{
+  "method": "Two sequential before/after pairs from isolated saved Step6 production build and current Step7 build; same fresh Chromium options/viewport/warm route/native wheel/probe; no screenshots or concurrent diagnostic browsers; retain all raw samples and original one-run discrepancy",
+  "originalSingleRunP95Ms": {
+    "before": 196.29999999701977,
+    "after": 221.20000000298023
+  },
+  "originalSingleRunChangePercent": 12.684666330279427,
+  "pairs": [
+    {
+      "pair": 1,
+      "beforeReceipt": "latency-pair1-before.json",
+      "afterReceipt": "latency-pair1-after.json",
+      "beforeP95Ms": 200,
+      "afterP95Ms": 199.60000000149012,
+      "p95ChangePercent": -0.1999999992549406,
+      "beforeMaxMs": 265.5,
+      "afterMaxMs": 226.70000000298023,
+      "metrics": {
+        "LayoutDuration": {
+          "beforeMs": 68.03399999999999,
+          "afterMs": 27.133000000000003,
+          "changePercent": -60.118470176676354
+        },
+        "RecalcStyleDuration": {
+          "beforeMs": 33.96399999999999,
+          "afterMs": 66.38900000000001,
+          "changePercent": 95.46873159816285
+        },
+        "ScriptDuration": {
+          "beforeMs": 280.2199999999999,
+          "afterMs": 298.254,
+          "changePercent": 6.435657697523411
+        },
+        "TaskDuration": {
+          "beforeMs": 767.058,
+          "afterMs": 788.6139999999999,
+          "changePercent": 2.810217741031318
+        }
+      },
+      "samplesEach": 30
+    },
+    {
+      "pair": 2,
+      "beforeReceipt": "latency-pair2-before.json",
+      "afterReceipt": "latency-pair2-after.json",
+      "beforeP95Ms": 211.20000000298023,
+      "afterP95Ms": 214.10000000149012,
+      "p95ChangePercent": 1.3731060598811462,
+      "beforeMaxMs": 228.60000000149012,
+      "afterMaxMs": 269.70000000298023,
+      "metrics": {
+        "LayoutDuration": {
+          "beforeMs": 57.65200000000001,
+          "afterMs": 26.849999999999998,
+          "changePercent": -53.427461319642
+        },
+        "RecalcStyleDuration": {
+          "beforeMs": 36.26900000000001,
+          "afterMs": 51.675,
+          "changePercent": 42.477046513551464
+        },
+        "ScriptDuration": {
+          "beforeMs": 286.35900000000004,
+          "afterMs": 269.64199999999994,
+          "changePercent": -5.837777056073001
+        },
+        "TaskDuration": {
+          "beforeMs": 730.8589999999999,
+          "afterMs": 629.7539999999999,
+          "changePercent": -13.83372168913567
+        }
+      },
+      "samplesEach": 30
+    }
+  ],
+  "bothRepeatedPairP95ChangesWithin10Percent": true,
+  "hardwareFPSProof": false,
+  "interpretation": "The first before/after observation exceeded the investigation threshold and is retained. Contemporary isolated version comparisons did not reproduce that persistent p95 regression. Cloud software graphics and host timing remain limitations."
+}

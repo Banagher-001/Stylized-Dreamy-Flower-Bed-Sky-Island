@@ -1,0 +1,42 @@
+{
+  "isolatedDirectory": "/tmp/sakan-portfolio-build-_jhfmnv3",
+  "freshNodeModules": true,
+  "allArtifactsIdentical": true,
+  "artifacts": {
+    "favicon.svg": "d9d37a32183e292ee556ff3918235bdec02cdf7f0405d51972b96471e62d33a8",
+    "index.html": "f860fdbb340ee4e1f9891c97b951614cd1d0c89132ab4c6c7754a789d8181192",
+    "assets/three-renderer-yvH6S2DZ.js": "8ccd0c382575b3658cc19cf57b42ef6f7c84febab0a9f9abef3c041e0225c5a9",
+    "assets/courtyard-motion-7fR7fsF8.mp4": "70d6128b6385c8f0da201112ce4fb1c99f25dccce98b6f705c094321a56a0b8c",
+    "assets/courtyard-keyframe-03-BpIvPl5V.png": "b6356c57d768eea3a06483e460d025e4066e79dbff8a46896eb55b9ad110617a",
+    "assets/signal-garden-CbiDrnMk.webp": "1ccb2af6cf90ab0169cf96fa6a69404af74ac5d5424be0f4283e6ce907a5620e",
+    "assets/index-CzAVPfSU.js": "093184e9da555809bc44cd2b4995ff549035ccfbfa2a0da285455c6293449c81",
+    "assets/index-B5-UwPAe.css": "b3a0cb62aac1eafb4fee5694c90793f40cb1244003b437dd7baa48f916376162",
+    "assets/three-core-DhN96CcZ.js": "0422580f001c62710daec32ae45f20989a9a24e1148874fe26169ffae0cea0a6",
+    "assets/courtyard-o3Fn-aDY.png": "802e0b8aff55e59042d6ab45085d00a0a4ae758aad56174f07a94f5ccae4fe5a",
+    "assets/liquid-form-Yl5oqdSL.webp": "4affe046c4973f091c79e1a67c923fd3a8b7ab8490596331cfd36e9b766285cc",
+    "assets/courtyard-keyframe-00-Dnvt_afN.png": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46"
+  },
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--cache",
+        "/workspace/.cache/npm",
+        "--no-fund",
+        "--no-audit"
+      ],
+      "exitCode": 0,
+      "output": "\nadded 27 packages in 2s\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "output": "\n> dreamy-courtyard-study@0.1.0 build\n> npm run typecheck && vite build\n\n\n> dreamy-courtyard-study@0.1.0 typecheck\n> tsc --noEmit\n\nvite v8.3.5 building client environment for production...\ntransforming...\n✓ 42 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                   0.83 kB │ gzip:  0.53 kB\ndist/assets/courtyard-o3Fn-aDY.png               93.93 kB\ndist/assets/courtyard-keyframe-00-Dnvt_afN.png   93.94 kB\ndist/assets/courtyard-keyframe-03-BpIvPl5V.png   94.38 kB\ndist/assets/liquid-form-Yl5oqdSL.webp           122.59 kB\ndist/assets/signal-garden-CbiDrnMk.webp         162.18 kB\ndist/assets/courtyard-motion-7fR7fsF8.mp4       556.25 kB\ndist/assets/index-B5-UwPAe.css                   19.12 kB │ gzip:  4.78 kB\ndist/assets/index-CzAVPfSU.js                    69.69 kB │ gzip: 25.61 kB\ndist/assets/three-core-DhN96CcZ.js              216.47 kB │ gzip: 59.31 kB\ndist/assets/three-renderer-yvH6S2DZ.js          352.56 kB │ gzip: 84.33 kB\n\n✓ built in 228ms\n"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "isolatedDirectory": "/tmp/courtyard-step9-clean-iwbd6mgl",
+  "installUsedExistingNodeModules": false,
+  "artifactHashesMatch": true,
+  "artifacts": {
+    "favicon.svg": "d9d37a32183e292ee556ff3918235bdec02cdf7f0405d51972b96471e62d33a8",
+    "index.html": "d5e476bd74993a43c767de61cde89bee8faaba1257a4c277f5c1393d324cc864",
+    "assets/three-renderer-yvH6S2DZ.js": "8ccd0c382575b3658cc19cf57b42ef6f7c84febab0a9f9abef3c041e0225c5a9",
+    "assets/index-oJL7ljjm.js": "6b9e7157154fb5266c11abf6bf6ef5d75ada039ef7ddb07cee894acc7c94e940",
+    "assets/index-Bno77X6o.css": "9dbaacd2db2b8ac3e0b42f3ea0477435401aff17701a83f1bbe812cfaa2b383b",
+    "assets/three-core-DhN96CcZ.js": "0422580f001c62710daec32ae45f20989a9a24e1148874fe26169ffae0cea0a6"
+  },
+  "commands": [
+    {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exitCode": 0,
+      "output": "v24.22.1\n"
+    },
+    {
+      "command": [
+        "npm",
+        "--version"
+      ],
+      "exitCode": 0,
+      "output": "11.9.0\n"
+    },
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--cache",
+        "/workspace/.cache/npm",
+        "--no-fund",
+        "--no-audit"
+      ],
+      "exitCode": 0,
+      "output": "\nadded 27 packages in 2s\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "output": "\n> dreamy-courtyard-study@0.1.0 build\n> npm run typecheck && vite build\n\n\n> dreamy-courtyard-study@0.1.0 typecheck\n> tsc --noEmit\n\nvite v8.3.5 building client environment for production...\ntransforming...\n✓ 34 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                           0.77 kB │ gzip:  0.47 kB\ndist/assets/index-Bno77X6o.css            4.49 kB │ gzip:  1.43 kB\ndist/assets/index-oJL7ljjm.js            55.91 kB │ gzip: 19.78 kB\ndist/assets/three-core-DhN96CcZ.js      216.47 kB │ gzip: 59.31 kB\ndist/assets/three-renderer-yvH6S2DZ.js  352.56 kB │ gzip: 84.33 kB\n\n✓ built in 273ms\n"
+    }
+  ]
+}

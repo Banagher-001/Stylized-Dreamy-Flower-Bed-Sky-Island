@@ -1,0 +1,145 @@
+{
+  "milestone": 9,
+  "engineeringDelivery": "complete",
+  "fullPhysicalPlatformAcceptance": "incomplete",
+  "published": false,
+  "deployed": false,
+  "gitCommittedOrPushed": false,
+  "environment": "Linux cloud / software GPU; no physical phone or display acceptance",
+  "browsers": {
+    "chromium": {
+      "version": "155.0.8059.79",
+      "outcomes": [
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed"
+      ],
+      "unexpectedIssues": 0,
+      "knownBrowserWarnings": 0,
+      "expectedContextLossDiagnostics": 0,
+      "zeroWarningTargetMet": true,
+      "evidence": "verification-chromium.json"
+    },
+    "firefox": {
+      "version": "153.0",
+      "outcomes": [
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed_with_notes"
+      ],
+      "unexpectedIssues": 0,
+      "knownBrowserWarnings": 29,
+      "expectedContextLossDiagnostics": 24,
+      "zeroWarningTargetMet": false,
+      "evidence": "verification-firefox.json"
+    },
+    "webkit": {
+      "version": "26.5",
+      "outcomes": [
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed",
+        "passed"
+      ],
+      "unexpectedIssues": 0,
+      "knownBrowserWarnings": 0,
+      "expectedContextLossDiagnostics": 0,
+      "zeroWarningTargetMet": true,
+      "evidence": "verification-webkit.json"
+    }
+  },
+  "source": {
+    "modifiedApplicationFiles": [
+      "src/main.ts",
+      "src/styles.css",
+      "src/animation/createAnimationController.ts",
+      "src/config/palette.ts",
+      "src/rendering/createRenderer.ts"
+    ],
+    "protectedFileCount": 29,
+    "scenePaletteUnchanged": true,
+    "pureClockUnchanged": true,
+    "sameChromiumScenePixelsAsStep8": true
+  },
+  "stability": {
+    "wallSeconds": 604.4829028509994,
+    "snapshots": 20,
+    "modeChanges": 50,
+    "stableGPUObjectCounts": {
+      "Buffer": 181,
+      "Texture": 7,
+      "Program": 16,
+      "VertexArray": 145,
+      "Framebuffer": 5,
+      "Renderbuffer": 1
+    },
+    "passed": true,
+    "hardwareFPSAccepted": false
+  },
+  "network": {
+    "coldHTTPCacheRuns": 3,
+    "downloadMbps": 1.6,
+    "latencyMs": 150,
+    "realGzip": true,
+    "maxVisibleSeconds": 2.4651810499999556,
+    "maxFirstModeSwitchSeconds": 2.9214491990005627,
+    "maxEncodedBodyBytes": 164553,
+    "publicNetworkMeasured": false
+  },
+  "cleanBuild": {
+    "freshNodeModules": true,
+    "allSixArtifactsIdentical": true,
+    "artifacts": {
+      "favicon.svg": "d9d37a32183e292ee556ff3918235bdec02cdf7f0405d51972b96471e62d33a8",
+      "index.html": "d5e476bd74993a43c767de61cde89bee8faaba1257a4c277f5c1393d324cc864",
+      "assets/three-renderer-yvH6S2DZ.js": "8ccd0c382575b3658cc19cf57b42ef6f7c84febab0a9f9abef3c041e0225c5a9",
+      "assets/index-oJL7ljjm.js": "6b9e7157154fb5266c11abf6bf6ef5d75ada039ef7ddb07cee894acc7c94e940",
+      "assets/index-Bno77X6o.css": "9dbaacd2db2b8ac3e0b42f3ea0477435401aff17701a83f1bbe812cfaa2b383b",
+      "assets/three-core-DhN96CcZ.js": "0422580f001c62710daec32ae45f20989a9a24e1148874fe26169ffae0cea0a6"
+    }
+  },
+  "nativeZoom": {
+    "tested": true,
+    "method": "X11 native Chromium keyboard",
+    "percentages": [
+      80,
+      100,
+      125,
+      150,
+      200
+    ]
+  },
+  "notAccepted": [
+    "Firefox zero-warning target (known PCF depth filtering warning retained)",
+    "physical desktop GPU FPS",
+    "midrange Android phone FPS and touch",
+    "iPhone Safari",
+    "macOS Safari",
+    "native background tab/minimize: hidden event not observed",
+    "physical cross-monitor DPR movement",
+    "native OS reduced-motion settings",
+    "screen reader assistive technology",
+    "public domain cold load"
+  ],
+  "documentation": "../../step-9-final-verification.md"
+}

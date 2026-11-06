@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "phase": "scroll-garden-step-1",
+  "documentStatus": "design-delivery",
+  "runtimeImplementation": "not-started",
+  "authorizedScope": "Narrative and storyboard documents only; each later step requires its own standards and explicit start instruction.",
+  "language": "zh-CN",
+  "progressModel": {
+    "unit": "H: stable visible viewport height",
+    "totalH": 12.3,
+    "normalized": "clamp(scrollOffset / narrativeScrollRange, 0, 1)",
+    "stageProgress": "clamp((progressH - stage.startH) / stage.durationH, 0, 1)",
+    "budgetStatus": "Initial desktop prototype budget; adjust after step 2 review.",
+    "viewportResize": "Preserve stage ID and local stage progress, then recompute H-based offsets.",
+    "source": "Actual document scroll position; wheel, trackpad, touch, keys and chapter navigation share one progress.",
+    "separateEnvironmentTime": true,
+    "cameraSettleTargetSeconds": 0.2,
+    "cameraSettleMeasured": false,
+    "narrativeRangeNote": "12.3H is the scrollable narrative travel; the containing document also needs a viewport of layout space."
+  },
+  "sceneBaseline": {
+    "sourceFiles": ["src/config/scene.ts", "src/config/layout.ts", "src/content/portfolio.ts"],
+    "camera": { "type": "OrthographicCamera", "position": [4.5, 23, 16], "target": [0, 0.45, 0], "viewHeight": 11.3, "near": 0.1, "far": 100 },
+    "columnShape": { "baseHeight": 0.18, "shaftWidth": 0.72, "shaftDepth": 0.78, "shaftHeight": 3.05, "shaftBottomY": 0.18, "shaftTopY": 3.23, "totalHeight": 3.47 },
+    "fountainPosition": [0.12, 0, 0],
+    "readingHeightMeaning": "World Y on the column axis for narrative focus, not camera eye height or the final text surface position.",
+    "newCameraPoses": "To be calibrated in step 2; no new numerical eye positions or collision acceptance claimed."
+  },
+  "chapters": [
+    { "id": "about", "number": "01", "title": "关于我", "column": "columnUpperLeft", "position": [-2.34, 0, -2.9], "stations": ["A1", "A2", "A3"], "desktopComposition": "column left of center; readable text unfolds nearby on its right" },
+    { "id": "films", "number": "02", "title": "AI 影像", "column": "columnRight", "position": [4.41, 0, -1], "stations": ["B1", "B2", "B3", "B4"], "desktopComposition": "column remains the spatial anchor; image or film frame expands beside it" },
+    { "id": "experiments", "number": "03", "title": "交互实验", "column": "columnLower", "position": [2.96, 0, 5.09], "stations": ["C1", "C2", "C3"], "desktopComposition": "column and nearby project presentation share a stable reading view" }
+  ],
+  "readingPresentation": {
+    "chapterMark": "Number, short title and a small sigil anchored to the stone surface.",
+    "body": "Light text unfolds close to the column, faces the reader and keeps screen-readable type size.",
+    "bodyBackdrop": "A soft deep-cyan shadow haze with fading edges supports light text beyond the column silhouette.",
+    "scenePixelStyle": "Retained for the scene; reading text remains crisp.",
+    "desktopBodyPx": [16, 18],
+    "mobileBodyPx": [15, 16],
+    "bodyContrastTarget": 4.5,
+    "contrastMeasured": false,
+    "oneFullyReadableMainBody": true,
+    "bodyDensityGuide": "Usually 60-100 Chinese characters per reading station; longer content is divided rather than silently truncated."
+  },
+  "magicText": {
+    "style": "自然系魔法铭文",
+    "colorIntent": { "columnFace": "深青灰，略带墨绿", "litStoneCap": "暖浅石色", "heading": "浅象牙白，少量淡金边光", "body": "柔和浅白绿", "accents": ["淡水蓝", "淡紫"] },
+    "ranges": [
+      { "id": "approach", "from": 0, "to": 0.15, "state": "Camera reaches reading position; previous main body completes its exit." },
+      { "id": "awaken", "from": 0.15, "to": 0.3, "state": "Sigil awakens; title appears before body condenses." },
+      { "id": "read", "from": 0.3, "to": 0.8, "state": "Body fully readable with stable brightness; camera drift is minimal." },
+      { "id": "release", "from": 0.8, "to": 1, "state": "Body fades; a thin trace guides the eye downward to the next station." }
+    ],
+    "exactBoundaryRule": "Use half-open ranges except the final endpoint; at 1 the leaving main body is hidden.",
+    "reverse": "The same scroll position restores the same narrative camera/text state; environmental particles need not rewind.",
+    "continuity": "Adjacent stations share a continuous downward path across the previous release and next approach; no pose jump at their boundary.",
+    "ambient": "Subtle edge particles may use environment time; main glyph visibility and reading brightness follow narrative progress.",
+    "reducedMotion": "Stable chapter poses and readable content, direct chapter navigation; suppress decorative particles and continuous camera travel."
+  },
+  "stages": [
+    { "id": "S00", "kind": "opening", "startH": 0, "durationH": 0.5, "endH": 0.5, "focus": "courtyard", "station": null, "camera": "Keep approved overview; identity and scroll cue establish the entrance.", "text": "sakan / 张辰翰 · AIGC 创作者，专注 AI 动画", "handoff": "Begin moving toward the first column after the overview interval." },
+    { "id": "T01", "kind": "travel", "startH": 0.5, "durationH": 0.8, "endH": 1.3, "focus": "columnUpperLeft", "station": null, "camera": "Translate toward the first column, reduce view height and lower the viewing angle; establish its outline, then upper reading area.", "text": "01 / 关于我；main body hidden", "handoff": "Join A1 approach continuously." },
+    { "id": "A1", "kind": "reading", "startH": 1.3, "durationH": 0.8, "endH": 2.1, "focus": "columnUpperLeft", "station": "A1", "camera": "Upper shaft reading view at reference Y 2.75.", "text": "identity and alias", "handoff": "Release and descend toward A2." },
+    { "id": "A2", "kind": "reading", "startH": 2.1, "durationH": 0.8, "endH": 2.9, "focus": "columnUpperLeft", "station": "A2", "camera": "Middle shaft reading view at reference Y 1.8.", "text": "current and previous employment", "handoff": "Release and descend toward A3." },
+    { "id": "A3", "kind": "reading", "startH": 2.9, "durationH": 0.8, "endH": 3.7, "focus": "columnUpperLeft", "station": "A3", "camera": "Lower shaft reading view at reference Y 0.85; ground remains outside the camera path.", "text": "creative tools and abilities", "handoff": "Hide main body and begin T12." },
+    { "id": "T12", "kind": "travel", "startH": 3.7, "durationH": 0.7, "endH": 4.4, "focus": "columnRight", "station": null, "camera": "Pull back and rise, travel around the fountain exterior, then approach the second column upper shaft.", "text": "01 → 02；main bodies hidden", "handoff": "Join B1 without a pose jump." },
+    { "id": "B1", "kind": "reading", "startH": 4.4, "durationH": 1, "endH": 5.4, "focus": "columnRight", "station": "B1", "camera": "Upper shaft at reference Y 2.8; reserve space for a large film poster.", "text": "representative animation slot", "handoff": "Release and descend toward B2." },
+    { "id": "B2", "kind": "reading", "startH": 5.4, "durationH": 1, "endH": 6.4, "focus": "columnRight", "station": "B2", "camera": "Upper-middle shaft at reference Y 2.15; frames and role description share the presentation area.", "text": "frames and actual contribution", "handoff": "Release and descend toward B3." },
+    { "id": "B3", "kind": "reading", "startH": 6.4, "durationH": 0.8, "endH": 7.2, "focus": "columnRight", "station": "B3", "camera": "Lower-middle shaft at reference Y 1.5; adapt the frame to the supplied image orientation.", "text": "AI visual studies", "handoff": "Release and descend toward B4." },
+    { "id": "B4", "kind": "reading", "startH": 7.2, "durationH": 0.8, "endH": 8, "focus": "columnRight", "station": "B4", "camera": "Lower shaft at reference Y 0.85; keep a compact project index readable.", "text": "further works index", "handoff": "Hide main body and begin T23." },
+    { "id": "T23", "kind": "travel", "startH": 8, "durationH": 0.7, "endH": 8.7, "focus": "columnLower", "station": null, "camera": "Rise and pull back, establish the foreground column relative to the pool, then approach its upper shaft.", "text": "02 → 03；main bodies hidden", "handoff": "Join C1 without a pose jump." },
+    { "id": "C1", "kind": "reading", "startH": 8.7, "durationH": 0.8, "endH": 9.5, "focus": "columnLower", "station": "C1", "camera": "Upper shaft at reference Y 2.75.", "text": "Vibe Coding direction", "handoff": "Release and descend toward C2." },
+    { "id": "C2", "kind": "reading", "startH": 9.5, "durationH": 1, "endH": 10.5, "focus": "columnLower", "station": "C2", "camera": "Middle shaft at reference Y 1.8; show the courtyard project evidence beside it.", "text": "existing courtyard case", "handoff": "Release and descend toward C3." },
+    { "id": "C3", "kind": "reading", "startH": 10.5, "durationH": 0.6, "endH": 11.1, "focus": "columnLower", "station": "C3", "camera": "Lower shaft at reference Y 0.85; prepare to leave the columns.", "text": "closing and verified contact slot", "handoff": "Hide main body and begin T3W." },
+    { "id": "T3W", "kind": "travel", "startH": 11.1, "durationH": 0.7, "endH": 11.8, "focus": "fountain", "station": null, "camera": "Leave the third column, rise and bring the central water sphere into the visual center; then start widening.", "text": "short closing cue only", "handoff": "Join the final overview." },
+    { "id": "S99", "kind": "closing", "startH": 11.8, "durationH": 0.5, "endH": 12.3, "focus": "courtyard", "station": null, "camera": "Restore the approved overview pose; stay at the ending until input changes.", "text": "sakan · 让想象，动起来；回到开场", "handoff": "Explicit return action targets S00; no automatic looping." }
+  ],
+  "stations": [
+    { "id": "A1", "chapter": "about", "column": "columnUpperLeft", "anchorY": 2.75, "title": "我是 sakan", "body": "我是张辰翰，也叫 sakan（萨坎），一名专注 AIGC 的创作者。", "note": "sakan（萨坎）这个化名，取自《战锤 40K》的角色。", "contentStatus": "owner-facts-copy-draft", "mediaStatus": "not-required", "presentation": "sigil, title and short introduction", "requiredAssets": [] },
+    { "id": "A2", "chapter": "about", "column": "columnUpperLeft", "anchorY": 1.8, "title": "现在与此前", "body": "目前在枫叶互动制作 AI 动画，此前曾在游族网络工作。", "note": "NOW / 枫叶互动 · AI 动画；BEFORE / 游族网络。", "contentStatus": "owner-facts-copy-draft", "mediaStatus": "not-required", "presentation": "two short experience entries; no invented dates or levels", "requiredAssets": [] },
+    { "id": "A3", "chapter": "about", "column": "columnUpperLeft", "anchorY": 0.85, "title": "我的创作方式", "body": "熟悉主流 AI 图像与视频工具，也使用 Vibe Coding，把想法变成可以交互的体验。", "note": "图像构建 / 影像制作 / 交互表达。", "contentStatus": "owner-facts-copy-draft", "mediaStatus": "not-required", "presentation": "three capability phrases linked to the next chapter", "requiredAssets": [] },
+    { "id": "B1", "chapter": "films", "column": "columnRight", "anchorY": 2.8, "title": "代表动画", "body": "〔待补充真实项目名称与一句介绍〕", "note": "设计占位；当前没有个人真实动画正片，不以庭院录屏替代 AI 动画项目。", "contentStatus": "pending-owner-project", "mediaStatus": "pending-real-film-and-poster", "presentation": "large poster and explicit play action; preserve source aspect ratio", "requiredAssets": ["M01"] },
+    { "id": "B2", "chapter": "films", "column": "columnRight", "anchorY": 2.15, "title": "分镜与我的职责", "body": "〔待补充关键分镜、创作过程和本人负责内容〕", "note": "Only describe work and contributions actually supplied by the owner.", "contentStatus": "pending-owner-project", "mediaStatus": "pending-matching-frames", "presentation": "two or three frames with brief captions and role description", "requiredAssets": ["M02"] },
+    { "id": "B3", "chapter": "films", "column": "columnRight", "anchorY": 1.5, "title": "AI 视觉探索", "body": "〔待补充个人视觉作品与简短说明〕", "note": "Existing generated concepts may illustrate layout only with explicit design-sample labels.", "contentStatus": "pending-owner-project", "mediaStatus": "labeled-design-samples-available", "presentation": "image group adapted to landscape or portrait media", "requiredAssets": ["M03"] },
+    { "id": "B4", "chapter": "films", "column": "columnRight", "anchorY": 0.85, "title": "更多作品", "body": "〔待补充其他作品目录〕", "note": "Omit unavailable entries in the eventual page; never create inactive fake project links.", "contentStatus": "pending-owner-project", "mediaStatus": "pending-real-project-index", "presentation": "small project index with accurate status", "requiredAssets": ["M04"] },
+    { "id": "C1", "chapter": "experiments", "column": "columnLower", "anchorY": 2.75, "title": "从想法到交互", "body": "我也使用 Vibe Coding，把视觉构想进一步做成网页与交互体验。", "note": "Capability statement based on the owner's supplied direction and current project.", "contentStatus": "owner-facts-copy-draft", "mediaStatus": "not-required", "presentation": "short statement and small geometric sigil", "requiredAssets": [] },
+    { "id": "C2", "chapter": "experiments", "column": "columnLower", "anchorY": 1.8, "title": "庭院项目案例", "body": "以这座庭院作为交互案例，展示场景、画面与页面体验之间的关系。", "note": "Existing fixed-camera courtyard is real; new scroll-camera and magic-text features remain planned until implemented.", "contentStatus": "existing-project-copy-draft", "mediaStatus": "existing-scene-demo-available", "presentation": "existing project poster, silent motion sample and factual explanation", "requiredAssets": [] },
+    { "id": "C3", "chapter": "experiments", "column": "columnLower", "anchorY": 0.85, "title": "继续交流", "body": "让想象，动起来。", "note": "Real contact details are pending. The contact layout is reserved, with no invented address or account.", "contentStatus": "contact-pending", "mediaStatus": "not-required", "presentation": "brief conclusion with verified contact only when supplied", "requiredAssets": ["M05"] }
+  ],
+  "navigation": {
+    "readingLocalProgress": 0.55,
+    "targets": [
+      { "id": "overview", "stage": "S00", "localProgress": 0, "atH": 0 },
+      { "id": "about", "stage": "A1", "localProgress": 0.55, "atH": 1.74 },
+      { "id": "films", "stage": "B1", "localProgress": 0.55, "atH": 4.95 },
+      { "id": "experiments", "stage": "C1", "localProgress": 0.55, "atH": 9.14 }
+    ],
+    "urlPolicy": "Chapter IDs are design references, not new application URLs in step 1.",
+    "preserveOnJump": ["manual environment pause preference", "render mode"],
+    "mediaReturn": "Save stage ID and local progress; retain while theater is open and restore on close."
+  },
+  "mediaInventory": [
+    { "id": "E01", "kind": "existing-project", "label": "庭院场景及截图", "paths": ["src/assets/courtyard.png"], "use": "C2, existing project reference" },
+    { "id": "E02", "kind": "existing-scene-demo", "label": "12 秒无声庭院动效与采样帧", "paths": ["src/assets/courtyard-motion.mp4", "src/assets/courtyard-keyframe-00.png", "src/assets/courtyard-keyframe-03.png"], "use": "C2, not an AI animation client project or device FPS proof" },
+    { "id": "E03", "kind": "generated-design-samples", "label": "异星来信、流动标本", "paths": ["src/assets/signal-garden.webp", "src/assets/liquid-form.webp"], "use": "B3 layout study only, visibly labeled 概念样片" },
+    { "id": "M01", "kind": "missing", "label": "代表动画、真实名称、海报与一句介绍", "paths": [], "use": "B1" },
+    { "id": "M02", "kind": "missing", "label": "同一项目关键帧、过程与本人职责", "paths": [], "use": "B2" },
+    { "id": "M03", "kind": "missing", "label": "个人 AI 视觉作品及说明", "paths": [], "use": "B3" },
+    { "id": "M04", "kind": "missing", "label": "其他真实项目索引与可用入口", "paths": [], "use": "B4" },
+    { "id": "M05", "kind": "missing", "label": "允许公开的真实联系方式", "paths": [], "use": "C3" }
+  ],
+  "acceptance": [
+    { "id": "D01", "criterion": "Complete route from overview through all three columns to water and closing." },
+    { "id": "D02", "criterion": "Ten unique reading stations with column, anchor, copy/status, presentation and scroll allocation." },
+    { "id": "D03", "criterion": "All stage budgets contiguous, total 12.3H, with entry/read/release behavior specified." },
+    { "id": "D04", "criterion": "Reading heights inside current shafts; travel intentions specified, future camera validation explicit." },
+    { "id": "D05", "criterion": "Deep-column/light-magic-text visual roles and synchronized reveal rules documented." },
+    { "id": "D06", "criterion": "Fast scroll, reverse scroll, navigation, viewport changes and media return have explicit behavior." },
+    { "id": "D07", "criterion": "Owner facts, genuine existing media, generated samples and missing content remain distinct." },
+    { "id": "D08", "criterion": "Step 2 has an actionable brief; application source, dependencies, media, builds and archives unchanged." }
+  ]
+}

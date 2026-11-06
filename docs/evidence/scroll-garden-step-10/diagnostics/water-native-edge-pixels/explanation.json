@@ -1,0 +1,6 @@
+{
+  "scope": "native W landing differs intentionally with new hold",
+  "observation": "At1366x768 native mode, unchanged scene rendered from slightly different physical camera poses differs at bbox686,281–689,283. Old camera is5e-7 above exactW, new hold exactW.",
+  "correction": "For only canonical W isolation samples align test-only scroll range to123px multiple so H11.5 is physically representable, then require identical camera fields and full-canvas ZERO difference. Restore native range afterwards. All visitor/browser/performance tests retain original scroll range. Preserve original actual-nav differences separately.",
+  "applicationChanged": false
+}

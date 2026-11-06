@@ -1,0 +1,287 @@
+{
+  "environment": {
+    "browser": "155.0.8059.79",
+    "platform": "Linux",
+    "rendering": "Chromium headless / ANGLE SwiftShader; not a hardware or Safari validation"
+  },
+  "checks": [
+    {
+      "check": "development WebGL scene and distinct ground/top/sides",
+      "outcome": "passed",
+      "evidence": {
+        "metrics": {
+          "width": 680,
+          "height": 680,
+          "displayWidth": 680,
+          "displayHeight": 680,
+          "mode": "native",
+          "dpr": 1,
+          "imageRendering": "auto",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "samples": {
+          "ground": [
+            193,
+            226,
+            101
+          ],
+          "top": [
+            247,
+            242,
+            190
+          ],
+          "coolFace": [
+            64,
+            93,
+            98
+          ],
+          "warmFace": [
+            193,
+            194,
+            155
+          ]
+        }
+      }
+    },
+    {
+      "check": "pixel mode sampling and accessible button state",
+      "outcome": "passed",
+      "evidence": {
+        "width": 340,
+        "height": 340,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "pixel",
+        "dpr": 1,
+        "imageRendering": "pixelated",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "mode survives reload and keyboard switches back",
+      "outcome": "passed",
+      "evidence": {
+        "width": 680,
+        "height": 680,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "native",
+        "dpr": 1,
+        "imageRendering": "auto",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "six consecutive desktop/tablet/mobile/landscape resizes",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "viewport": [
+            1280,
+            900
+          ],
+          "metrics": {
+            "width": 640,
+            "height": 640,
+            "displayWidth": 640,
+            "displayHeight": 640,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            768,
+            1024
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "metrics": {
+            "width": 358,
+            "height": 358,
+            "displayWidth": 358,
+            "displayHeight": 358,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "metrics": {
+            "width": 288,
+            "height": 288,
+            "displayWidth": 288,
+            "displayHeight": 288,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            844,
+            390
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            1440,
+            1000
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        }
+      ]
+    },
+    {
+      "check": "125 percent CSS layout zoom",
+      "outcome": "passed",
+      "evidence": {
+        "width": 680,
+        "height": 680,
+        "displayWidth": 850,
+        "displayHeight": 850,
+        "mode": "native",
+        "dpr": 1,
+        "imageRendering": "auto",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "palette hot update without reload, single canvas, original restored",
+      "outcome": "passed",
+      "evidence": {
+        "before": [
+          193,
+          226,
+          101
+        ],
+        "modified": [
+          168,
+          207,
+          87
+        ],
+        "restored": true
+      }
+    },
+    {
+      "check": "mobile DPR2 normal and touch-operated pixel mode",
+      "outcome": "passed",
+      "evidence": {
+        "native": {
+          "width": 716,
+          "height": 716,
+          "displayWidth": 358,
+          "displayHeight": 358,
+          "mode": "native",
+          "dpr": 2,
+          "imageRendering": "auto",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "pixel": {
+          "width": 179,
+          "height": 179,
+          "displayWidth": 358,
+          "displayHeight": 358,
+          "mode": "pixel",
+          "dpr": 2,
+          "imageRendering": "pixelated",
+          "canvasCount": 1,
+          "overflow": false
+        }
+      }
+    },
+    {
+      "check": "fractional device pixel ratio",
+      "outcome": "passed",
+      "evidence": {
+        "width": 320,
+        "height": 320,
+        "displayWidth": 640,
+        "displayHeight": 640,
+        "mode": "pixel",
+        "dpr": 1.25,
+        "imageRendering": "pixelated",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "production assets, identical native output and working pixel mode",
+      "outcome": "passed",
+      "evidence": {
+        "width": 340,
+        "height": 340,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "pixel",
+        "dpr": 1,
+        "imageRendering": "pixelated",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "application console and resource requests",
+      "outcome": "passed",
+      "evidence": {
+        "exceptions": 0,
+        "errors": 0,
+        "warnings": 0,
+        "failedHttpResponses": 0
+      }
+    }
+  ],
+  "issues": []
+}

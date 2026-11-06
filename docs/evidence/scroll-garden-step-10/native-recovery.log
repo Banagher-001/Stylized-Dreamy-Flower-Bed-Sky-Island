@@ -1,0 +1,10 @@
+C2 real hidden/return keeps exact paused time, story, layout and pixels
+context restore during C descent retains exact story and pixels
+live actual tab hide freezes environment, return resumes latest play choice
+live context restore keeps tab, camera and pixels while close remains available
+archive actual video hides paused and remains paused on return
+archive context restore preserves tab/video pause and close releases decoder
+close during active context loss returns to original station without deadlock
+ending real hidden/return preserves exact paused story, replay controls and pixels
+ending context recovery restores replay and returns opening with same canvas/time/focus
+Nine native visibility/context/ending recovery groups passed.

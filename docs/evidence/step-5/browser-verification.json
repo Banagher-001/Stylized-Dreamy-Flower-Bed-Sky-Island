@@ -1,0 +1,843 @@
+{
+  "environment": {
+    "browser": "155.0.8059.79",
+    "rendering": "Chromium headless / ANGLE SwiftShader; not hardware or Safari validation"
+  },
+  "checks": [
+    {
+      "check": "real ground, canopy and instanced shader rendering",
+      "outcome": "passed",
+      "evidence": {
+        "width": 680,
+        "height": 680,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "native",
+        "dpr": 1,
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "all 60 architecture/ground meshes and approved camera, layout and light preserved",
+      "outcome": "passed",
+      "evidence": {
+        "meshFingerprintsUnchanged": 60,
+        "files": [
+          "package.json",
+          "package-lock.json",
+          "src/config/layout.ts",
+          "src/config/scene.ts",
+          "src/config/lighting.ts",
+          "src/config/stone.ts",
+          "src/scene/createBlockout.ts",
+          "src/geometry/createStoneBlockGeometry.ts",
+          "src/styles.css",
+          "src/main.ts"
+        ]
+      }
+    },
+    {
+      "check": "plant counts, instance buffers, bounds and instance-weighted triangle budget",
+      "outcome": "passed",
+      "evidence": {
+        "counts": {
+          "grass": 252,
+          "flowers": 144,
+          "batches": 4
+        },
+        "seed": 52026,
+        "triangles": 8828,
+        "batches": [
+          {
+            "name": "grass-clusters",
+            "count": 252,
+            "trianglesPerInstance": 6,
+            "matrixHash": "360229c8",
+            "colorHash": "9f80bd15",
+            "castShadow": false,
+            "receiveShadow": true,
+            "sphereRadius": 8.596023312135852
+          },
+          {
+            "name": "flower-stems",
+            "count": 144,
+            "trianglesPerInstance": 6,
+            "matrixHash": "181eea1d",
+            "colorHash": "9c4a5f5b",
+            "castShadow": false,
+            "receiveShadow": true,
+            "sphereRadius": 6.845050000055698
+          },
+          {
+            "name": "flowers-four-petal",
+            "count": 72,
+            "trianglesPerInstance": 10,
+            "matrixHash": "39c06b72",
+            "colorHash": "65e03082",
+            "castShadow": false,
+            "receiveShadow": true,
+            "sphereRadius": 6.596701469488163
+          },
+          {
+            "name": "flowers-five-petal",
+            "count": 72,
+            "trianglesPerInstance": 12,
+            "matrixHash": "8f3c95e",
+            "colorHash": "dfae2236",
+            "castShadow": false,
+            "receiveShadow": true,
+            "sphereRadius": 6.921325028480217
+          }
+        ],
+        "uniqueGeometries": 48,
+        "uniqueMaterials": 5,
+        "collisions": [],
+        "collisionCount": 0,
+        "outsideBounds": [],
+        "badRoots": [],
+        "badAttributes": [],
+        "quietGrass": 2,
+        "quietFlowers": 0,
+        "clusterCounts": [
+          12,
+          15,
+          14,
+          4,
+          16,
+          3,
+          15,
+          12,
+          15,
+          6,
+          15,
+          17
+        ],
+        "rootChecks": 3564,
+        "disposal": [
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "geometry",
+            "count": 1
+          },
+          {
+            "type": "material",
+            "count": 1
+          },
+          {
+            "type": "material",
+            "count": 1
+          },
+          {
+            "type": "material",
+            "count": 1
+          },
+          {
+            "type": "material",
+            "count": 1
+          },
+          {
+            "type": "material",
+            "count": 1
+          },
+          {
+            "type": "instance",
+            "count": 1
+          },
+          {
+            "type": "instance",
+            "count": 1
+          },
+          {
+            "type": "instance",
+            "count": 1
+          },
+          {
+            "type": "instance",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "check": "actual stone raycasts verify roots and plant footprint clearance",
+      "outcome": "passed",
+      "evidence": {
+        "rootAndFootprintRays": 3564,
+        "collisions": 0,
+        "quietGrass": 2,
+        "quietFlowers": 0,
+        "clusterCounts": [
+          12,
+          15,
+          14,
+          4,
+          16,
+          3,
+          15,
+          12,
+          15,
+          6,
+          15,
+          17
+        ]
+      }
+    },
+    {
+      "check": "instances, geometry and materials dispose once with repeat-safe cleanup",
+      "outcome": "passed",
+      "evidence": {
+        "resources": 57,
+        "everyResourceDisposedOnce": true
+      }
+    },
+    {
+      "check": "GPU probe proves per-instance world shadow coordinates and per-instance colors",
+      "outcome": "passed",
+      "evidence": {
+        "flower": {
+          "surface": "flower",
+          "building": false,
+          "first": [
+            [
+              166,
+              127,
+              185
+            ],
+            [
+              237,
+              199,
+              240
+            ]
+          ],
+          "second": [
+            [
+              166,
+              127,
+              185
+            ],
+            [
+              219,
+              170,
+              233
+            ]
+          ]
+        },
+        "foliage": {
+          "surface": "foliage",
+          "building": false,
+          "first": [
+            [
+              38,
+              110,
+              83
+            ],
+            [
+              185,
+              212,
+              115
+            ]
+          ],
+          "second": [
+            [
+              38,
+              110,
+              83
+            ],
+            [
+              146,
+              182,
+              91
+            ]
+          ]
+        },
+        "building": {
+          "surface": "flower",
+          "building": true,
+          "first": [
+            [
+              166,
+              127,
+              185
+            ],
+            [
+              237,
+              199,
+              240
+            ]
+          ],
+          "second": [
+            [
+              219,
+              170,
+              233
+            ],
+            [
+              237,
+              199,
+              240
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "check": "GPU probe proves live construction shadow reception on instanced petals",
+      "outcome": "passed",
+      "evidence": {
+        "surface": "flower",
+        "building": true,
+        "first": [
+          [
+            166,
+            127,
+            185
+          ],
+          [
+            237,
+            199,
+            240
+          ]
+        ],
+        "second": [
+          [
+            219,
+            170,
+            233
+          ],
+          [
+            237,
+            199,
+            240
+          ]
+        ]
+      }
+    },
+    {
+      "check": "pink flowers are visible and distributed; stone/water color roles retained",
+      "outcome": "passed",
+      "evidence": {
+        "pinkCoverage": {
+          "pixels": 1325,
+          "occupiedCells": 15
+        },
+        "colors": {
+          "grass": [
+            186,
+            216,
+            102
+          ],
+          "buildingShadow": [
+            17,
+            121,
+            88
+          ],
+          "treeUpper": [
+            17,
+            121,
+            88
+          ],
+          "treeLower": [
+            17,
+            121,
+            88
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            246,
+            237,
+            198
+          ],
+          "stoneBlue": [
+            107,
+            142,
+            154
+          ],
+          "stoneWarm": [
+            210,
+            210,
+            181
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        }
+      }
+    },
+    {
+      "check": "world ground variation is active and does not tint architecture",
+      "outcome": "passed",
+      "evidence": {
+        "groundOffColors": {
+          "grass": [
+            189,
+            218,
+            103
+          ],
+          "buildingShadow": [
+            17,
+            121,
+            88
+          ],
+          "treeUpper": [
+            17,
+            121,
+            88
+          ],
+          "treeLower": [
+            17,
+            121,
+            88
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            246,
+            237,
+            198
+          ],
+          "stoneBlue": [
+            107,
+            142,
+            154
+          ],
+          "stoneWarm": [
+            210,
+            210,
+            181
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        },
+        "restored": true
+      }
+    },
+    {
+      "check": "refined tree edges and gaps add detail without staining stone/water",
+      "outcome": "passed",
+      "evidence": {
+        "refinedTransitions": 3948,
+        "basicTransitions": 1098,
+        "restored": true
+      }
+    },
+    {
+      "check": "vegetation switch removes actual flower geometry and restores cleanly",
+      "outcome": "passed",
+      "evidence": {
+        "pinkPixelsWithVegetation": 1325,
+        "pinkPixelsWithoutVegetation": 0
+      }
+    },
+    {
+      "check": "seed changes placements; restore and reload reproduce matrices, colors and image",
+      "outcome": "passed",
+      "evidence": {
+        "seed": 52026,
+        "batchFingerprints": [
+          {
+            "name": "grass-clusters",
+            "count": 252,
+            "trianglesPerInstance": 6,
+            "matrixHash": "360229c8",
+            "colorHash": "9f80bd15",
+            "castShadow": false,
+            "receiveShadow": true,
+            "sphereRadius": 8.596023312135852
+          },
+          {
+            "name": "flower-stems",
+            "count": 144,
+            "trianglesPerInstance": 6,
+            "matrixHash": "181eea1d",
+            "colorHash": "9c4a5f5b",
+            "castShadow": false,
+            "receiveShadow": true,
+            "sphereRadius": 6.845050000055698
+          },
+          {
+            "name": "flowers-four-petal",
+            "count": 72,
+            "trianglesPerInstance": 10,
+            "matrixHash": "39c06b72",
+            "colorHash": "65e03082",
+            "castShadow": false,
+            "receiveShadow": true,
+            "sphereRadius": 6.596701469488163
+          },
+          {
+            "name": "flowers-five-petal",
+            "count": 72,
+            "trianglesPerInstance": 12,
+            "matrixHash": "8f3c95e",
+            "colorHash": "dfae2236",
+            "castShadow": false,
+            "receiveShadow": true,
+            "sphereRadius": 6.921325028480217
+          }
+        ]
+      }
+    },
+    {
+      "check": "pixel flower visibility, URL restoration and keyboard mode controls",
+      "outcome": "passed",
+      "evidence": {
+        "pixels": 1368,
+        "occupiedCells": 15
+      }
+    },
+    {
+      "check": "six consecutive viewport changes preserve square scene and single canvas",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "viewport": [
+            1280,
+            900
+          ],
+          "metrics": {
+            "width": 640,
+            "height": 640,
+            "displayWidth": 640,
+            "displayHeight": 640,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            768,
+            1024
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "metrics": {
+            "width": 358,
+            "height": 358,
+            "displayWidth": 358,
+            "displayHeight": 358,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "metrics": {
+            "width": 288,
+            "height": 288,
+            "displayWidth": 288,
+            "displayHeight": 288,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            844,
+            390
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            1440,
+            1000
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false
+          }
+        }
+      ]
+    },
+    {
+      "check": "mobile DPR2 uses identical placements and retains visible flowers",
+      "outcome": "passed",
+      "evidence": {
+        "metrics": {
+          "width": 179,
+          "height": 179,
+          "displayWidth": 358,
+          "displayHeight": 358,
+          "mode": "pixel",
+          "dpr": 2,
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "pinkCoverage": {
+          "pixels": 1280,
+          "occupiedCells": 15
+        }
+      }
+    },
+    {
+      "check": "flower, canopy and paving-gap detail captures use original camera",
+      "outcome": "passed",
+      "evidence": {
+        "DPR": 2
+      }
+    },
+    {
+      "check": "production split assets reproduce complete vegetation scene",
+      "outcome": "passed",
+      "evidence": {
+        "width": 340,
+        "height": 340,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "pixel",
+        "dpr": 1,
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "console, shader compilation and resource requests",
+      "outcome": "passed",
+      "evidence": {
+        "exceptions": 0,
+        "errors": 0,
+        "warnings": 0,
+        "failedHttpResponses": 0
+      }
+    }
+  ],
+  "issues": []
+}

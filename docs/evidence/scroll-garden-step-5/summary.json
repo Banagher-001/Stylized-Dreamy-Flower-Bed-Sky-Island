@@ -1,0 +1,293 @@
+{
+  "step": 5,
+  "status": "implemented; stopped at user review gate with recorded prototype limits",
+  "recordedAtUtc": "2026-11-05T07:21:30.974890+00:00",
+  "entryQuery": "?tour=prototype",
+  "userReview": "awaiting visual review",
+  "scope": {
+    "firstPillar": [
+      "A1 identity inscription",
+      "A2 current/previous experience axis",
+      "A3 creative directions"
+    ],
+    "ownerFactsOnly": true,
+    "contentModule": "src/tour/aboutContent.ts",
+    "sourceOfFacts": "Owner statements in this conversation; no dates, previous responsibilities, commercial credits or contact details added."
+  },
+  "build": {
+    "command": "npm run build",
+    "strictTypecheck": "passed",
+    "productionBuild": "passed",
+    "distFiles": 16,
+    "runtimeSourcesOlderThanBuild": true,
+    "distSha256": {
+      "dist/assets/courtyard-keyframe-00-Dnvt_afN.png": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46",
+      "dist/assets/courtyard-keyframe-03-BpIvPl5V.png": "b6356c57d768eea3a06483e460d025e4066e79dbff8a46896eb55b9ad110617a",
+      "dist/assets/courtyard-motion-7fR7fsF8.mp4": "70d6128b6385c8f0da201112ce4fb1c99f25dccce98b6f705c094321a56a0b8c",
+      "dist/assets/courtyard-o3Fn-aDY.png": "802e0b8aff55e59042d6ab45085d00a0a4ae758aad56174f07a94f5ccae4fe5a",
+      "dist/assets/createAnimationController-DJKzvZVm.js": "3eb45b95d3b5ce34f8d152392d0f621e84fb61d511758b8fd885e6564e4aa4a1",
+      "dist/assets/index-B-vAtnFv.js": "284a94d7d202a1a49e4850f9762fbcc459fcea46fc8c0f5c50a3ca0c910ab5a5",
+      "dist/assets/index-B5-UwPAe.css": "b3a0cb62aac1eafb4fee5694c90793f40cb1244003b437dd7baa48f916376162",
+      "dist/assets/liquid-form-Yl5oqdSL.webp": "4affe046c4973f091c79e1a67c923fd3a8b7ab8490596331cfd36e9b766285cc",
+      "dist/assets/signal-garden-CbiDrnMk.webp": "1ccb2af6cf90ab0169cf96fa6a69404af74ac5d5424be0f4283e6ce907a5620e",
+      "dist/assets/startPortfolio-lSTo7Wtz.js": "a2c50956bacf75232ef52199bf03e6b57420f40be733f38557928d16456a31a9",
+      "dist/assets/startTourPrototype-C4IVh_uo.css": "76aac6d9f9cb5f700df8c436aa2faeeb0fb05f860dedab40a961f640b0b36297",
+      "dist/assets/startTourPrototype-D0dmso7z.js": "cc08fc827068ed1e12cb43a059b9667f5eedc0494a9bcf33b0754ce4fb936c2f",
+      "dist/assets/three-core-Da-Qjtyq.js": "6f4c610a51534c7706d30aa27d266c82e22b90e56eeb5b322b79a14beab0a24b",
+      "dist/assets/three-renderer-D9YOmJJ0.js": "5a87be1ccdd23e5b8729c825d74d0d83dece2eae76819841b55b512b0980d808",
+      "dist/favicon.svg": "d9d37a32183e292ee556ff3918235bdec02cdf7f0405d51972b96471e62d33a8",
+      "dist/index.html": "ab9904e64156fefc59db74f1b6bb6074b9a15b4745f085776b0e9f439bf7c269"
+    }
+  },
+  "fileProtection": {
+    "baseline": "protected-baseline-sha256.json",
+    "baselineExistingFiles": 693,
+    "protectedExistingNonDistFiles": 669,
+    "allProtectedFilesByteIdentical": true,
+    "allowedExistingChanges": [
+      "README.md",
+      "docs/scroll-garden/README.md",
+      "docs/scroll-garden/step-5-standard.md",
+      "src/tour/createPillarReader.ts",
+      "src/tour/reading.ts",
+      "src/tour/startTourPrototype.ts",
+      "src/tour/tour.css",
+      "tests/scroll-garden/README.md"
+    ],
+    "changedExisting": [
+      "README.md",
+      "dist/index.html",
+      "docs/scroll-garden/README.md",
+      "docs/scroll-garden/step-5-standard.md",
+      "src/tour/startTourPrototype.ts",
+      "src/tour/reading.ts",
+      "src/tour/tour.css",
+      "src/tour/createPillarReader.ts",
+      "tests/scroll-garden/README.md"
+    ],
+    "removedExisting": [
+      "dist/assets/startTourPrototype-B6FR3V14.css",
+      "dist/assets/startTourPrototype-DNsxEE0L.js",
+      "dist/assets/index-BAga2SMH.js"
+    ],
+    "newRuntimeFiles": [
+      "src/tour/aboutContent.ts"
+    ],
+    "runtimeSha256": {
+      "src/tour/reading.ts": "21b828a5328372058886a37331b018706974af84c5eda510d5d1e13ca77c1edf",
+      "src/tour/createPillarReader.ts": "9f656b78b7a6369f8493fdb15b8c61b5229237fcc3f21fddd317545163f0b3a7",
+      "src/tour/tour.css": "20f7145b72f5c8551d14b1a4cf9b617165eaf42f5488f96245d14b798e4eed2f",
+      "src/tour/startTourPrototype.ts": "0e642f087ce7947bd38606e7034b06af8376ba8263c5dcca77276b8be7de6d45",
+      "src/tour/aboutContent.ts": "f4d06f40eef94b035b09b78471aa277517d87ee22c788fba18aa367296b9eb28"
+    },
+    "routeSourceByteIdentical": true,
+    "readingCoordinatesAndSamplingAlgorithmsUnchanged": true,
+    "allOtherRuntimeSourcesMediaDependenciesPriorEvidenceReleaseArchivesUnchanged": true,
+    "defaultReference": {
+      "pixel": {
+        "pixelsExact": true,
+        "size": [
+          680,
+          680
+        ],
+        "before": "before-reference-pixel.png",
+        "after": "after-reference-pixel.png"
+      },
+      "native": {
+        "pixelsExact": true,
+        "size": [
+          680,
+          680
+        ],
+        "before": "before-reference-native.png",
+        "after": "after-reference-native.png"
+      }
+    }
+  },
+  "browserIntegration": {
+    "totalGroups": 52,
+    "allPassed": true,
+    "unexpectedDiagnostics": 0,
+    "minimumNewTextContrastRatio": 7.506791669011734,
+    "engines": {
+      "chromium": {
+        "version": "155.0.8059.79",
+        "passedGroups": 18,
+        "knownDiagnosticsRetained": 0
+      },
+      "firefox": {
+        "version": "153.0",
+        "passedGroups": 17,
+        "knownDiagnosticsRetained": 5
+      },
+      "webkit": {
+        "version": "26.5",
+        "passedGroups": 17,
+        "knownDiagnosticsRetained": 0
+      }
+    },
+    "environment": "Linux software graphics and simulated phone; GTK WebKit is not Apple Safari; no real device or hardware GPU FPS acceptance"
+  },
+  "geometry": {
+    "routeSamples": 3003,
+    "timelineH": 12.3,
+    "stages": 16,
+    "routeKeyPosesInstancesAndInscriptionFacesMatchPriorStep": true,
+    "cameraGroundCollisionSamples": 0,
+    "originalBuffersTransformsAndMaterialIsolationPass": true,
+    "anchors": 3,
+    "evidence": "geometry-isolation.json"
+  },
+  "readabilityAndFallback": {
+    "targetViewports": [
+      [
+        1440,
+        900
+      ],
+      [
+        1366,
+        768
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "allThreeStationsFit": true,
+    "fontFallbackLayouts": 9,
+    "minimumFontFallbackContrast": 7.506791669011734,
+    "textSelectableAndSemanticListsPass": true,
+    "noWebGLPass": true,
+    "decorationUnavailablePass": true
+  },
+  "recovery": {
+    "actualDocumentHiddenObserved": true,
+    "actualTabReturnStateTimeAndPixelsExact": true,
+    "descendingContextH": 2.02,
+    "descendingContextStateAndPixelsExact": true,
+    "evidence": "native-recovery.json",
+    "initialHarnessCleanupRace": "initial-native-cleanup.json; browser shutdown order fixed, complete rerun passed; application unchanged"
+  },
+  "resources": {
+    "priorStepSteady": {
+      "geometries": 54,
+      "textures": 4,
+      "programs": 10
+    },
+    "currentSteady": {
+      "geometries": 54,
+      "textures": 4,
+      "programs": 10
+    },
+    "newGPUResources": 0,
+    "programCacheByModeSwitch": {
+      "decorationUnavailable": [
+        9,
+        16,
+        16
+      ],
+      "normal": [
+        10,
+        18,
+        18
+      ]
+    },
+    "loopCycles": 10,
+    "loopResourceGrowth": false,
+    "readerArticles": 3,
+    "readerDescendants": 40,
+    "documentNodes": 112,
+    "allNodeCountsStable": true,
+    "settledPauseStopsDrawing": true
+  },
+  "performance": {
+    "method": "same browser, viewport and 30 native wheel stops; no screenshots during measurement",
+    "matchedRuns": {
+      "before": {
+        "samples": 30,
+        "p95Ms": 202,
+        "maxMs": 227.80000000074506,
+        "evidence": "latency-before.json"
+      },
+      "after": {
+        "samples": 30,
+        "p95Ms": 212.30000000074506,
+        "maxMs": 234.89999999850988,
+        "evidence": "latency-after.json"
+      }
+    },
+    "p95RelativeChangePercent": 5.099009901358942,
+    "withinRelativeBudget": true,
+    "bothSourceRevisionsMatch": true,
+    "allRawSamplesRetained": true,
+    "fullIntegrationDiagnostics": {
+      "chromium": {
+        "samples": 123,
+        "p95Ms": 198.29999999701977,
+        "maxMs": 348.1000000014901,
+        "targetMs": 200
+      },
+      "firefox": {
+        "samples": 91,
+        "p95Ms": 164,
+        "maxMs": 177,
+        "targetMs": 200
+      },
+      "webkit": {
+        "samples": 91,
+        "p95Ms": 186,
+        "maxMs": 198,
+        "targetMs": 200
+      }
+    },
+    "observedIntegrationPeakMs": 348.1,
+    "limitations": "Cloud software measurements vary; matched p95 is above approximate 200ms goal. Full integration Chromium peak 348.1ms retained separately. No claim every stop under 200ms or physical input-to-display/hardware FPS acceptance."
+  },
+  "recording": {
+    "actualNativeWheel": true,
+    "bothDirections": true,
+    "stops": 10,
+    "fixedEnvironmentTime": 2,
+    "environmentPausedForComparison": true,
+    "convertedVideo": {
+      "file": "about-reading-demo.mp4",
+      "sha256": "0c83ab3f983b56609489675743b243064a61ecd8709deb94a0426877ad8ac5a3",
+      "durationSeconds": 32.04,
+      "sizeBytes": 3709914,
+      "codec": "h264",
+      "width": 1280,
+      "height": 800,
+      "encodingFrameRate": "25/1",
+      "hardwareFPSProof": false,
+      "timing": "original actual browser recording timing; encoding frame rate does not prove physical display FPS",
+      "webmSha256": "b67536e2fa92abf746ff7ceec298dcf3585e33e6e1b494f029aaac10f4617f47"
+    }
+  },
+  "remainingLimits": [
+    "Known mobile 200-character pressure sample, short landscape, 200% text enlargement and complete static mobile chapters remain pending later adaptation; actual short biography passes target portrait.",
+    "Real phone, touchpad/APZ, Apple Safari and physical GPU performance require device review.",
+    "Firefox retains five identified diagnostics."
+  ],
+  "delivery": {
+    "savedInWorkspace": true,
+    "published": false,
+    "deployed": false,
+    "gitCommitted": false,
+    "gitPushed": false,
+    "sixthStepStarted": false,
+    "pendingSteps": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "documentation": {
+    "filesChecked": 7,
+    "localLinksChecked": 107,
+    "brokenLinks": []
+  }
+}

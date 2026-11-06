@@ -1,0 +1,68 @@
+{
+  "engine": "firefox",
+  "version": "153.0",
+  "mechanismOnly": true,
+  "realFilmIntegrated": false,
+  "fixture": "12-second silent courtyard scene, not an AI animation project",
+  "checks": [
+    {
+      "check": "actual native playback decodes changing frames from the labelled local test clip",
+      "passed": true,
+      "evidence": {
+        "time": 0.166666,
+        "width": 680,
+        "height": 680,
+        "duration": 12,
+        "frames": 2,
+        "loop": false,
+        "inline": true
+      }
+    },
+    {
+      "check": "close releases the decoder source, removes video and restores focus",
+      "passed": true,
+      "evidence": {
+        "paused": true,
+        "sourceRemoved": true,
+        "videoRemoved": true,
+        "focusRestored": true
+      }
+    },
+    {
+      "check": "queued close and rapid reopen keep a single decoder and switching releases old media",
+      "passed": true,
+      "evidence": {
+        "balancedCallbacks": true,
+        "singleVideo": true,
+        "imageSwitchPass": true
+      }
+    },
+    {
+      "check": "failed video exposes retry and close, and retry loads without unexpected playback",
+      "passed": true,
+      "evidence": {
+        "errorReadable": true,
+        "retryLoaded": true,
+        "retryPaused": true
+      }
+    },
+    {
+      "check": "ten playback cycles retain closed DOM size with balanced lifecycle callbacks",
+      "passed": true,
+      "evidence": {
+        "cycles": 10,
+        "closedNodes": 32,
+        "activeVideos": 0,
+        "unhandledExceptions": []
+      }
+    }
+  ],
+  "unhandledExceptions": [],
+  "expectedMissingMediaDiagnostics": [
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"HTTP “Content-Type” of “text/html” is not supported. Load of media resource http://127.0.0.1:5173/tests/scroll-garden/missing-fixture.mp4 failed.\" {file: \"http://127.0.0.1:5173/tests/scroll-garden/media-fixture.html\" line: 0}]"
+    }
+  ],
+  "passed": true
+}

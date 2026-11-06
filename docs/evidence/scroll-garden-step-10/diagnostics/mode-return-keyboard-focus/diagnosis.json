@@ -1,0 +1,20 @@
+{
+  "scope": "test input focus",
+  "differenceBbox": [
+    1276,
+    453,
+    1414,
+    507
+  ],
+  "maximumRGB": [
+    197,
+    178,
+    174
+  ],
+  "changedPixels": 752,
+  "location": "keyboard focus-visible outline of the permanent about navigation button",
+  "cause": "native Home/End retained keyboard focus; replacement of old debug interaction with native positioning left a focused navigation button in the baseline; clicking render-mode controls moves that focus",
+  "correction": "after separate keyboard-focus assertions, click neutral canvas once before mode-comparison baseline; retain strict zero pixel tolerance and visible focus styles",
+  "diagnosticToolCorrection": "missing save reference replaced with explicit JSON output; before/after/difference PNGs were retained",
+  "applicationChanged": false
+}

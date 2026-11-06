@@ -1,0 +1,291 @@
+{
+  "step": 4,
+  "status": "implemented; stopped at user review gate with prototype limits recorded",
+  "recordedAtUtc": "2026-11-05T06:38:52.900590+00:00",
+  "entryQuery": "?tour=prototype",
+  "userReview": "awaiting visual review",
+  "scope": "First-pillar dark shaft and face-attached magic reading sample at A1/A2/A3, using existing three short true paragraphs.",
+  "build": {
+    "command": "npm run build",
+    "typecheck": "passed",
+    "productionBuild": "passed",
+    "distFiles": 16,
+    "runtimeSourcesOlderThanBuild": true,
+    "distSha256": {
+      "dist/assets/courtyard-keyframe-00-Dnvt_afN.png": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46",
+      "dist/assets/courtyard-keyframe-03-BpIvPl5V.png": "b6356c57d768eea3a06483e460d025e4066e79dbff8a46896eb55b9ad110617a",
+      "dist/assets/courtyard-motion-7fR7fsF8.mp4": "70d6128b6385c8f0da201112ce4fb1c99f25dccce98b6f705c094321a56a0b8c",
+      "dist/assets/courtyard-o3Fn-aDY.png": "802e0b8aff55e59042d6ab45085d00a0a4ae758aad56174f07a94f5ccae4fe5a",
+      "dist/assets/createAnimationController-DJKzvZVm.js": "3eb45b95d3b5ce34f8d152392d0f621e84fb61d511758b8fd885e6564e4aa4a1",
+      "dist/assets/index-B5-UwPAe.css": "b3a0cb62aac1eafb4fee5694c90793f40cb1244003b437dd7baa48f916376162",
+      "dist/assets/index-BAga2SMH.js": "6941d4d12215cf160528eee4391dd192a698a64cfa4f9485f5b275a8a1c1d72e",
+      "dist/assets/liquid-form-Yl5oqdSL.webp": "4affe046c4973f091c79e1a67c923fd3a8b7ab8490596331cfd36e9b766285cc",
+      "dist/assets/signal-garden-CbiDrnMk.webp": "1ccb2af6cf90ab0169cf96fa6a69404af74ac5d5424be0f4283e6ce907a5620e",
+      "dist/assets/startPortfolio-lSTo7Wtz.js": "a2c50956bacf75232ef52199bf03e6b57420f40be733f38557928d16456a31a9",
+      "dist/assets/startTourPrototype-B6FR3V14.css": "b66297838bb79fcb5b30c7fda1d5ff9c85cc907b7feae04a3fca89276dafd4c7",
+      "dist/assets/startTourPrototype-DNsxEE0L.js": "e0c960b3dba8b04b65804f692a451b86c5f9fe3d955668b6808cf1b6ecfa5809",
+      "dist/assets/three-core-Da-Qjtyq.js": "6f4c610a51534c7706d30aa27d266c82e22b90e56eeb5b322b79a14beab0a24b",
+      "dist/assets/three-renderer-D9YOmJJ0.js": "5a87be1ccdd23e5b8729c825d74d0d83dece2eae76819841b55b512b0980d808",
+      "dist/favicon.svg": "d9d37a32183e292ee556ff3918235bdec02cdf7f0405d51972b96471e62d33a8",
+      "dist/index.html": "a1b05fc3ca275a4696f4e827e87c0095eb5a3bcbe7c8be4a022fe4c56c4dcdda"
+    }
+  },
+  "fileProtection": {
+    "baselineFile": "protected-baseline-sha256.json",
+    "baselineExistingFiles": 525,
+    "existingNonDistProtected": 499,
+    "protectedFilesByteIdentical": true,
+    "allowedExistingChanges": [
+      "README.md",
+      "docs/scroll-garden/README.md",
+      "docs/scroll-garden/step-4-standard.md",
+      "src/materials/createArtMaterial.ts",
+      "src/materials/createStoneMaterial.ts",
+      "src/rendering/releaseSceneGpuResources.ts",
+      "src/tour/createPillarReader.ts",
+      "src/tour/startTourPrototype.ts",
+      "src/tour/tour.css",
+      "tests/scroll-garden/README.md"
+    ],
+    "changedExisting": [
+      "README.md",
+      "dist/index.html",
+      "docs/scroll-garden/README.md",
+      "docs/scroll-garden/step-4-standard.md",
+      "src/materials/createArtMaterial.ts",
+      "src/materials/createStoneMaterial.ts",
+      "src/rendering/releaseSceneGpuResources.ts",
+      "src/tour/startTourPrototype.ts",
+      "src/tour/tour.css",
+      "src/tour/createPillarReader.ts",
+      "tests/scroll-garden/README.md"
+    ],
+    "removedExisting": [
+      "dist/assets/three-renderer-yvH6S2DZ.js",
+      "dist/assets/startTourPrototype-E8rQ4K-y.css",
+      "dist/assets/index-DjYLWI_m.js",
+      "dist/assets/startPortfolio-Dx7RGT6C.js",
+      "dist/assets/startTourPrototype-COwZ6ewJ.js",
+      "dist/assets/three-core-DhN96CcZ.js",
+      "dist/assets/createAnimationController-BNrifYsR.js"
+    ],
+    "newRuntimeFiles": [
+      "src/tour/magicStyle.ts",
+      "src/tour/createPillarAppearance.ts",
+      "src/tour/createPillarMagic.ts"
+    ],
+    "runtimeSha256": {
+      "src/materials/createArtMaterial.ts": "a052f5c42b9a64ce2d713284f54b350330f21c2458abfb9cc1e533428a9667a9",
+      "src/materials/createStoneMaterial.ts": "6700fef5ad3b7808693d9d743be8fc02a61b1e4f4014477662b93598b87830af",
+      "src/rendering/releaseSceneGpuResources.ts": "472b0428b97e19f8beb786f5acda29d5137d6b479e772b5da8f3aef53a91cc7c",
+      "src/tour/createPillarReader.ts": "98b28e96d9032dfa22840686de85661877959af16f30b2284f25b58df127ebaa",
+      "src/tour/startTourPrototype.ts": "41627f4ae7423b4ac2902e3ca1b1384668171e46dbd82c5bc6307c45a9beb4e1",
+      "src/tour/tour.css": "5095e5a0884d50d75c59c606b0789dd4d1d39dbf764efa8505b122d5f283e5c5",
+      "src/tour/magicStyle.ts": "d04b54e1f5d7e6a50bb1c2550482cbfb998dec3f360051b27156ae167eb85218",
+      "src/tour/createPillarAppearance.ts": "5c902ae8a73b13b440fbfa5e3b6e419f15e80df6858a81603f1e77056fa611f3",
+      "src/tour/createPillarMagic.ts": "81300232e441f9d621dbf25b56f29da34f55b8913299b65cf8a648ffe71dbca6"
+    },
+    "cameraRouteAndReadingSourceByteIdentical": true,
+    "packageFilesUnchanged": true,
+    "oldReleaseArchivesAndPriorEvidenceUnchanged": true,
+    "defaultReference": {
+      "pixel": {
+        "pixelsExact": true,
+        "before": "before-reference-pixel.png",
+        "after": "after-reference-pixel.png",
+        "size": [
+          680,
+          680
+        ]
+      },
+      "native": {
+        "pixelsExact": true,
+        "before": "before-reference-native.png",
+        "after": "after-reference-native.png",
+        "size": [
+          680,
+          680
+        ]
+      }
+    }
+  },
+  "browserIntegration": {
+    "totalGroups": 50,
+    "allPassed": true,
+    "unexpectedDiagnostics": 0,
+    "engines": {
+      "chromium": {
+        "version": "155.0.8059.79",
+        "passedGroups": 18,
+        "knownDiagnosticsRetained": 0
+      },
+      "firefox": {
+        "version": "153.0",
+        "passedGroups": 16,
+        "knownDiagnosticsRetained": 5
+      },
+      "webkit": {
+        "version": "26.5",
+        "passedGroups": 16,
+        "knownDiagnosticsRetained": 0
+      }
+    },
+    "minimumBodyContrastRatio": 10.72915752449203,
+    "evidence": "verification-{chromium,firefox,webkit}.json",
+    "environment": "Linux software graphics, simulated phone and GTK WebKit; no real device, Apple Safari or hardware FPS acceptance"
+  },
+  "geometry": {
+    "routeSamples": 3003,
+    "readingRays": 9,
+    "monotonicDescentSamples": 1001,
+    "changedMaterialMeshes": 7,
+    "originalBuffersAndTransformsUnchanged": true,
+    "instancesUnchanged": true,
+    "timelineAndPosesUnchanged": true,
+    "timelineH": 12.3,
+    "stages": 16,
+    "faceAnchors": 3,
+    "ownedCleanupRestoresBindings": true,
+    "evidence": "geometry-isolation.json"
+  },
+  "recovery": {
+    "actualDocumentHiddenObserved": true,
+    "actualTabReturnPixelsExact": true,
+    "descendingContextH": 2.02,
+    "descendingContextPixelsExact": true,
+    "evidence": "native-recovery.json"
+  },
+  "resources": {
+    "steady": {
+      "geometries": 54,
+      "textures": 4,
+      "programs": 10
+    },
+    "loopCycles": 10,
+    "loopResourceGrowth": false,
+    "readArticles": 3,
+    "programCacheByModeSwitch": {
+      "decorationUnavailable": [
+        9,
+        16,
+        16
+      ],
+      "normal": [
+        10,
+        18,
+        18
+      ]
+    },
+    "decorationIncrement": {
+      "geometries": 2,
+      "textures": 1,
+      "activeModePrograms": 1,
+      "bothModesCachedPrograms": 2
+    },
+    "decorationAndFontFallbackPass": true,
+    "noWebGLFallbackPass": true
+  },
+  "performance": {
+    "method": "same browser, viewport and 30 native wheel stops; no screenshots during measurement",
+    "records": {
+      "latency-before.json": {
+        "p95Ms": 214.89999999850988,
+        "maxMs": 221.89999999850988,
+        "hardwareFPSProof": false,
+        "samples": 30
+      },
+      "before-cost-reduction-latency-after.json": {
+        "p95Ms": 242,
+        "maxMs": 246.59999999776483,
+        "hardwareFPSProof": false,
+        "samples": 30
+      },
+      "cost-reduced-latency-after.json": {
+        "p95Ms": 207.40000000223517,
+        "maxMs": 264.69999999925494,
+        "hardwareFPSProof": false,
+        "samples": 30
+      },
+      "latency-after.json": {
+        "p95Ms": 192.30000000074506,
+        "maxMs": 216,
+        "hardwareFPSProof": false,
+        "samples": 30
+      }
+    },
+    "finalSourceShaMatches": true,
+    "finalP95WithinRelativeBudget": true,
+    "retainedObservedPostOptimizationPeakMs": 264.7,
+    "allTrialSamplesRetained": true,
+    "limitations": "Software cloud observations vary; 264.7ms prior optimized-run peak remains a limit. No guarantee of every stop under 200ms, physical input-to-display latency or hardware FPS."
+  },
+  "recordings": {
+    "nativeWheelStops": 10,
+    "bothDirections": true,
+    "stationaryAmbientActuallyChanges": true,
+    "paragraphRemainsStable": true,
+    "videos": {
+      "magic-reading-demo": {
+        "file": "magic-reading-demo.mp4",
+        "sha256": "c054aa0b15e2c7dc19f47c3ffc99e27014276f85453ff892432816dd8f228957",
+        "durationSeconds": 31.84,
+        "sizeBytes": 3689096,
+        "codec": "h264",
+        "width": 1280,
+        "height": 800,
+        "encodingFrameRate": "25/1",
+        "hardwareFPSProof": false,
+        "timing": "original browser recording timing; encoding rate is not physical display FPS",
+        "webm": {
+          "file": "magic-reading-demo.webm",
+          "sha256": "0decdcc51505f10506e321bec8563d81ebed846e3fce58647a482e7954aff873"
+        }
+      },
+      "magic-ambient-demo": {
+        "file": "magic-ambient-demo.mp4",
+        "sha256": "fbaa2c2f2825402a3a8e1b09bba0663b46a542804eb8cb67ee0a8a06bf867978",
+        "durationSeconds": 9.0,
+        "sizeBytes": 441500,
+        "codec": "h264",
+        "width": 1280,
+        "height": 800,
+        "encodingFrameRate": "25/1",
+        "hardwareFPSProof": false,
+        "timing": "original browser recording timing; encoding rate is not physical display FPS",
+        "webm": {
+          "file": "magic-ambient-demo.webm",
+          "sha256": "ebb75f2911289d300a5f90a40c16992ebd379f05160a9d1836cd5188f69dab08"
+        }
+      }
+    }
+  },
+  "remainingLimits": [
+    "Mobile 200-character pressure sample fails pillar-focus composition; current short paragraphs pass simulated portrait tests.",
+    "Short landscape reading layout and complete static phone chapters remain Step 11.",
+    "Real phone, touchpad/APZ, Apple Safari and physical GPU performance need device review.",
+    "Firefox retains five identified diagnostics, including scroll-linked positioning warning."
+  ],
+  "delivery": {
+    "savedInWorkspace": true,
+    "published": false,
+    "deployed": false,
+    "gitCommitted": false,
+    "gitPushed": false,
+    "fifthStepStarted": false,
+    "pendingSteps": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "documentation": {
+    "filesChecked": 7,
+    "localLinksChecked": 102,
+    "brokenLinks": []
+  }
+}

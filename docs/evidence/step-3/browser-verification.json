@@ -1,0 +1,760 @@
+{
+  "environment": {
+    "browser": "155.0.8059.79",
+    "rendering": "Chromium headless / ANGLE SwiftShader; not hardware or Safari validation"
+  },
+  "checks": [
+    {
+      "check": "real WebGL shader compilation and visible scene",
+      "outcome": "passed",
+      "evidence": {
+        "metrics": {
+          "width": 680,
+          "height": 680,
+          "displayWidth": 680,
+          "displayHeight": 680,
+          "mode": "native",
+          "dpr": 1,
+          "imageRendering": "auto",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "colors": {
+          "grass": [
+            189,
+            218,
+            103
+          ],
+          "buildingShadow": [
+            17,
+            121,
+            88
+          ],
+          "treeUpper": [
+            17,
+            121,
+            88
+          ],
+          "treeLower": [
+            17,
+            121,
+            88
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            243,
+            234,
+            196
+          ],
+          "stoneBlue": [
+            108,
+            144,
+            156
+          ],
+          "stoneWarm": [
+            213,
+            213,
+            184
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        }
+      }
+    },
+    {
+      "check": "approved camera, layout, geometry, dependencies and page preserved",
+      "outcome": "passed",
+      "evidence": {
+        "sameProjection": true,
+        "meshes": 28,
+        "geometries": 5,
+        "materials": 3
+      }
+    },
+    {
+      "check": "warm light, readable blue shade, teal shadows and bounded overlap",
+      "outcome": "passed",
+      "evidence": {
+        "points": {
+          "grass": {
+            "u": 0.6197989278399487,
+            "v": 0.18074879182707787,
+            "firstHit": "courtyard-ground"
+          },
+          "buildingShadow": {
+            "u": 0.4805925736899283,
+            "v": 0.9106948276829313,
+            "firstHit": "courtyard-ground"
+          },
+          "treeUpper": {
+            "u": 0.057010186831834175,
+            "v": 0.18653487102621708,
+            "firstHit": "courtyard-ground"
+          },
+          "treeLower": {
+            "u": 0.06659410105903008,
+            "v": 0.8695065157542439,
+            "firstHit": "courtyard-ground"
+          },
+          "overlap": {
+            "u": 0.22052241234138192,
+            "v": 0.2605538249292797,
+            "firstHit": "courtyard-ground"
+          },
+          "stoneTop": {
+            "u": 0.37013796222149564,
+            "v": 0.0974317222153353,
+            "firstHit": "columnUpperLeft-cap"
+          },
+          "stoneBlue": {
+            "u": 0.6208638071985261,
+            "v": 0.8672523349444619,
+            "firstHit": "columnLower-shaft"
+          },
+          "stoneWarm": {
+            "u": 0.6608766490970689,
+            "v": 0.8474510861296298,
+            "firstHit": "columnLower-shaft"
+          },
+          "water": {
+            "u": 0.39305740901231573,
+            "v": 0.5593658523584818,
+            "firstHit": "fountain-water"
+          }
+        },
+        "colors": {
+          "grass": [
+            189,
+            218,
+            103
+          ],
+          "buildingShadow": [
+            17,
+            121,
+            88
+          ],
+          "treeUpper": [
+            17,
+            121,
+            88
+          ],
+          "treeLower": [
+            17,
+            121,
+            88
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            243,
+            234,
+            196
+          ],
+          "stoneBlue": [
+            108,
+            144,
+            156
+          ],
+          "stoneWarm": [
+            213,
+            213,
+            184
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        }
+      }
+    },
+    {
+      "check": "lower column shadow fits frame; pedestal and inner water remain visible",
+      "outcome": "passed",
+      "evidence": {
+        "samples": {
+          "grass": {
+            "u": 0.6197989278399487,
+            "v": 0.18074879182707787,
+            "firstHit": "courtyard-ground"
+          },
+          "buildingShadow": {
+            "u": 0.4805925736899283,
+            "v": 0.9106948276829313,
+            "firstHit": "courtyard-ground"
+          },
+          "treeUpper": {
+            "u": 0.057010186831834175,
+            "v": 0.18653487102621708,
+            "firstHit": "courtyard-ground"
+          },
+          "treeLower": {
+            "u": 0.06659410105903008,
+            "v": 0.8695065157542439,
+            "firstHit": "courtyard-ground"
+          },
+          "overlap": {
+            "u": 0.22052241234138192,
+            "v": 0.2605538249292797,
+            "firstHit": "courtyard-ground"
+          },
+          "stoneTop": {
+            "u": 0.37013796222149564,
+            "v": 0.0974317222153353,
+            "firstHit": "columnUpperLeft-cap"
+          },
+          "stoneBlue": {
+            "u": 0.6208638071985261,
+            "v": 0.8672523349444619,
+            "firstHit": "columnLower-shaft"
+          },
+          "stoneWarm": {
+            "u": 0.6608766490970689,
+            "v": 0.8474510861296298,
+            "firstHit": "columnLower-shaft"
+          },
+          "water": {
+            "u": 0.39305740901231573,
+            "v": 0.5593658523584818,
+            "firstHit": "fountain-water"
+          }
+        },
+        "shadows": {
+          "columnUpperLeft": {
+            "minU": 0.07824726949437061,
+            "maxU": 0.4273752277450267,
+            "minV": 0.2040479885213895,
+            "maxV": 0.32668656718314515
+          },
+          "columnRight": {
+            "minU": 0.6077585305469438,
+            "maxU": 0.9568864887976001,
+            "minV": 0.4645287020974537,
+            "maxV": 0.5871672807592093
+          },
+          "columnLower": {
+            "minU": 0.33831743084291693,
+            "maxU": 0.6874453890935731,
+            "minV": 0.8541889912750412,
+            "maxV": 0.9768275699367968
+          }
+        },
+        "previousLowerShadow": {
+          "minU": 0.38236041085938866,
+          "maxU": 0.6874453890935731,
+          "minV": 0.8827073482974652,
+          "maxV": 1.0174015574073039
+        },
+        "sun": {
+          "position": [
+            8.5,
+            11,
+            -1
+          ],
+          "intensity": 1
+        },
+        "fill": {
+          "intensity": 0.75
+        },
+        "shadowSettings": {
+          "enabled": true,
+          "mapSize": 2048,
+          "extent": 8,
+          "near": 0.5,
+          "far": 32,
+          "bias": -0.0001,
+          "normalBias": 0.012,
+          "radius": 1
+        }
+      }
+    },
+    {
+      "check": "tree mask affects ground only; construction shadows remain",
+      "outcome": "passed",
+      "evidence": {
+        "treesOff": {
+          "grass": [
+            189,
+            218,
+            103
+          ],
+          "buildingShadow": [
+            17,
+            121,
+            88
+          ],
+          "treeUpper": [
+            189,
+            218,
+            103
+          ],
+          "treeLower": [
+            189,
+            218,
+            103
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            243,
+            234,
+            196
+          ],
+          "stoneBlue": [
+            108,
+            144,
+            156
+          ],
+          "stoneWarm": [
+            213,
+            213,
+            184
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        },
+        "restored": true
+      }
+    },
+    {
+      "check": "real building shadows disable independently without darkening canopy overlap",
+      "outcome": "passed",
+      "evidence": {
+        "shadowsOff": {
+          "grass": [
+            189,
+            218,
+            103
+          ],
+          "buildingShadow": [
+            189,
+            218,
+            103
+          ],
+          "treeUpper": [
+            17,
+            121,
+            88
+          ],
+          "treeLower": [
+            17,
+            121,
+            88
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            243,
+            234,
+            196
+          ],
+          "stoneBlue": [
+            108,
+            144,
+            156
+          ],
+          "stoneWarm": [
+            213,
+            213,
+            184
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        },
+        "restored": true
+      }
+    },
+    {
+      "check": "light direction moves actual cast shadows with same camera and objects",
+      "outcome": "passed",
+      "evidence": {
+        "sunMoved": {
+          "grass": [
+            189,
+            218,
+            103
+          ],
+          "buildingShadow": [
+            189,
+            218,
+            103
+          ],
+          "treeUpper": [
+            17,
+            121,
+            88
+          ],
+          "treeLower": [
+            17,
+            121,
+            88
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            243,
+            234,
+            196
+          ],
+          "stoneBlue": [
+            120,
+            150,
+            158
+          ],
+          "stoneWarm": [
+            213,
+            213,
+            184
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        },
+        "restored": true
+      }
+    },
+    {
+      "check": "fill configuration changes shade brightness; hot updates cleanly restore",
+      "outcome": "passed",
+      "evidence": {
+        "lowerFill": {
+          "grass": [
+            186,
+            216,
+            102
+          ],
+          "buildingShadow": [
+            17,
+            121,
+            88
+          ],
+          "treeUpper": [
+            17,
+            121,
+            88
+          ],
+          "treeLower": [
+            17,
+            121,
+            88
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            243,
+            234,
+            196
+          ],
+          "stoneBlue": [
+            102,
+            136,
+            147
+          ],
+          "stoneWarm": [
+            213,
+            213,
+            184
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        },
+        "restored": true
+      }
+    },
+    {
+      "check": "pixel sampling preserves art colors; refresh and keyboard controls work",
+      "outcome": "passed",
+      "evidence": {
+        "pixelColors": {
+          "grass": [
+            189,
+            218,
+            103
+          ],
+          "buildingShadow": [
+            17,
+            121,
+            88
+          ],
+          "treeUpper": [
+            17,
+            121,
+            88
+          ],
+          "treeLower": [
+            17,
+            121,
+            88
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            243,
+            234,
+            196
+          ],
+          "stoneBlue": [
+            108,
+            144,
+            156
+          ],
+          "stoneWarm": [
+            213,
+            213,
+            184
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        }
+      }
+    },
+    {
+      "check": "six responsive viewport changes preserve square single canvas",
+      "outcome": "passed",
+      "evidence": [
+        {
+          "viewport": [
+            1280,
+            900
+          ],
+          "metrics": {
+            "width": 640,
+            "height": 640,
+            "displayWidth": 640,
+            "displayHeight": 640,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            768,
+            1024
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "metrics": {
+            "width": 358,
+            "height": 358,
+            "displayWidth": 358,
+            "displayHeight": 358,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "metrics": {
+            "width": 288,
+            "height": 288,
+            "displayWidth": 288,
+            "displayHeight": 288,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            844,
+            390
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        },
+        {
+          "viewport": [
+            1440,
+            1000
+          ],
+          "metrics": {
+            "width": 680,
+            "height": 680,
+            "displayWidth": 680,
+            "displayHeight": 680,
+            "mode": "native",
+            "dpr": 1,
+            "imageRendering": "auto",
+            "canvasCount": 1,
+            "overflow": false
+          }
+        }
+      ]
+    },
+    {
+      "check": "mobile DPR2 and touch mode share composition and colors",
+      "outcome": "passed",
+      "evidence": {
+        "native": {
+          "width": 716,
+          "height": 716,
+          "displayWidth": 358,
+          "displayHeight": 358,
+          "mode": "native",
+          "dpr": 2,
+          "imageRendering": "auto",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "pixel": {
+          "width": 179,
+          "height": 179,
+          "displayWidth": 358,
+          "displayHeight": 358,
+          "mode": "pixel",
+          "dpr": 2,
+          "imageRendering": "pixelated",
+          "canvasCount": 1,
+          "overflow": false
+        },
+        "colors": {
+          "grass": [
+            189,
+            218,
+            103
+          ],
+          "buildingShadow": [
+            17,
+            121,
+            88
+          ],
+          "treeUpper": [
+            17,
+            121,
+            88
+          ],
+          "treeLower": [
+            17,
+            121,
+            88
+          ],
+          "overlap": [
+            17,
+            121,
+            88
+          ],
+          "stoneTop": [
+            243,
+            234,
+            196
+          ],
+          "stoneBlue": [
+            108,
+            144,
+            156
+          ],
+          "stoneWarm": [
+            213,
+            213,
+            184
+          ],
+          "water": [
+            184,
+            215,
+            229
+          ]
+        }
+      }
+    },
+    {
+      "check": "production split assets and identical rendered lighting",
+      "outcome": "passed",
+      "evidence": {
+        "width": 340,
+        "height": 340,
+        "displayWidth": 680,
+        "displayHeight": 680,
+        "mode": "pixel",
+        "dpr": 1,
+        "imageRendering": "pixelated",
+        "canvasCount": 1,
+        "overflow": false
+      }
+    },
+    {
+      "check": "console, shader compilation and resource requests",
+      "outcome": "passed",
+      "evidence": {
+        "exceptions": 0,
+        "errors": 0,
+        "warnings": 0,
+        "failedHttpResponses": 0
+      }
+    }
+  ],
+  "issues": []
+}

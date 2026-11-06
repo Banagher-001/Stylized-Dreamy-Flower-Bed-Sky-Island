@@ -1,0 +1,476 @@
+{
+  "createdAtUTC": "2026-11-05T04:28:26.332949+00:00",
+  "stage": 3,
+  "status": "implemented; stopped at user review gate with prototype limits recorded",
+  "userReview": "awaiting review",
+  "entry": "?tour=prototype",
+  "defaultPage": "prior portfolio retained",
+  "scope": "First pillar A1/A2/A3 reading, unified scroll visibility, descending camera and continuous A3-to-B1 transition. B/C remain first stations.",
+  "build": {
+    "command": "npm run build (strict TypeScript and production Vite)",
+    "passed": true,
+    "runtimeSourcesPrecedeBuildAndBrowserReports": true,
+    "applicationDependenciesChanged": false,
+    "distFiles": {
+      "dist/assets/courtyard-keyframe-00-Dnvt_afN.png": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46",
+      "dist/assets/courtyard-keyframe-03-BpIvPl5V.png": "b6356c57d768eea3a06483e460d025e4066e79dbff8a46896eb55b9ad110617a",
+      "dist/assets/courtyard-motion-7fR7fsF8.mp4": "70d6128b6385c8f0da201112ce4fb1c99f25dccce98b6f705c094321a56a0b8c",
+      "dist/assets/courtyard-o3Fn-aDY.png": "802e0b8aff55e59042d6ab45085d00a0a4ae758aad56174f07a94f5ccae4fe5a",
+      "dist/assets/createAnimationController-BNrifYsR.js": "11605026a1b07704d41e88fe8596736ce3b5455aace0889820e165e1feade350",
+      "dist/assets/index-B5-UwPAe.css": "b3a0cb62aac1eafb4fee5694c90793f40cb1244003b437dd7baa48f916376162",
+      "dist/assets/index-DjYLWI_m.js": "738741aafdccec7073cd6a7c65524c73e5589dadfcffe0343569b29b1a523e84",
+      "dist/assets/liquid-form-Yl5oqdSL.webp": "4affe046c4973f091c79e1a67c923fd3a8b7ab8490596331cfd36e9b766285cc",
+      "dist/assets/signal-garden-CbiDrnMk.webp": "1ccb2af6cf90ab0169cf96fa6a69404af74ac5d5424be0f4283e6ce907a5620e",
+      "dist/assets/startPortfolio-Dx7RGT6C.js": "eec73ab2e8980496c381a2819e6d63aa8810ef98cf5fc9bcdb0cc73972fb8896",
+      "dist/assets/startTourPrototype-COwZ6ewJ.js": "fceb2e0c630e6002f9d16fbada4bf5866568fb7030ab0e34e2e5885dd8ee3c1a",
+      "dist/assets/startTourPrototype-E8rQ4K-y.css": "cd4e1d741fe53713e378ac538a1824d448b40bacec6e0003e962fc8b16d01170",
+      "dist/assets/three-core-DhN96CcZ.js": "0422580f001c62710daec32ae45f20989a9a24e1148874fe26169ffae0cea0a6",
+      "dist/assets/three-renderer-yvH6S2DZ.js": "8ccd0c382575b3658cc19cf57b42ef6f7c84febab0a9f9abef3c041e0225c5a9",
+      "dist/favicon.svg": "d9d37a32183e292ee556ff3918235bdec02cdf7f0405d51972b96471e62d33a8",
+      "dist/index.html": "de7e57a0b48b44e26e61b4440e5886250bb734b22eebe42128fb0ec53b95c3a8"
+    }
+  },
+  "sourceProtection": {
+    "baselineFiles": 423,
+    "changedExistingFiles": [
+      "README.md",
+      "dist/index.html",
+      "docs/scroll-garden/README.md",
+      "docs/scroll-garden/step-3-standard.md",
+      "src/tour/startTourPrototype.ts",
+      "src/tour/route.ts",
+      "src/tour/tour.css",
+      "tests/scroll-garden/README.md"
+    ],
+    "removedOldBuildChunks": [
+      "dist/assets/index-BCrQ4-3y.js",
+      "dist/assets/startTourPrototype-yOQHc2hs.js",
+      "dist/assets/startTourPrototype-Dj5PrLpG.css"
+    ],
+    "unexpectedChanges": [],
+    "protectedExistingFiles": 400,
+    "protectedExistingFilesByteIdentical": true,
+    "currentRuntimeSources": {
+      "src/tour/createPillarReader.ts": "b28867a8ad68c709237b1d619e7ff5b87f7ab88ec36dab34409c483e23598186",
+      "src/tour/reading.ts": "58c03f494830f2548ad1578ceeab0643910913322f97ef7a66ac2ff8a6781a54",
+      "src/tour/route.ts": "f98210238d21768f352176d21ab82c19a2b9b9114870abd60a58e65b6cae280d",
+      "src/tour/startTourPrototype.ts": "88b9a893abcbc194ce76e9a5ec5087d312ea35b834830206c7b498f3dabbc1cb",
+      "src/tour/tour.css": "841bdde8c5cccf16b4592005f9f6fe0c47b9bdce6e5e85345b23fcb635787299"
+    },
+    "newRuntimeTestsAndDesignDocs": [
+      "src/tour/createPillarReader.ts",
+      "src/tour/reading.ts",
+      "tests/scroll-garden/inspect_reading.js",
+      "tests/scroll-garden/step3_browser.py",
+      "tests/scroll-garden/step3_geometry.py",
+      "tests/scroll-garden/step3_layout.py",
+      "tests/scroll-garden/step3_record.py",
+      "tests/scroll-garden/step3_recovery.py",
+      "docs/scroll-garden/step-3-implementation.md",
+      "docs/scroll-garden/step-3-verification.md"
+    ],
+    "defaultCanvasPixelComparison": {
+      "pixel": {
+        "exact": true,
+        "imageSize": [
+          680,
+          680
+        ],
+        "beforeSha256": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46",
+        "afterSha256": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46"
+      },
+      "native": {
+        "exact": true,
+        "imageSize": [
+          680,
+          680
+        ],
+        "beforeSha256": "8e0ef4a1c61aff68cbc8ffe0247bf7f2b5d25d938af96f1b9ae1f0c05d262ffb",
+        "afterSha256": "8e0ef4a1c61aff68cbc8ffe0247bf7f2b5d25d938af96f1b9ae1f0c05d262ffb"
+      }
+    },
+    "previousEvidenceAndReleaseArchivesUnchanged": true,
+    "testProbeAndPressureTextAbsentFromApplication": true
+  },
+  "geometry": {
+    "pathSamples": 3003,
+    "aspects": [
+      1.815889029003783,
+      2.066565809379728,
+      0.5241935483870968
+    ],
+    "readingRays": 9,
+    "plateauSamples": 45,
+    "monotonicDescentSamples": 1001,
+    "collidingSamples": 0,
+    "minimumEyeY": 5.050000000000001,
+    "maxBoundaryParameterDelta": 1.22091985299555e-06,
+    "instanceBaselineMatches": true,
+    "timelineUnchanged": true,
+    "existingKeyPosesUnchanged": true,
+    "scope": "Camera eye against conservative static-building bounds, shaft ray visibility at three held poses, and principal object framing; screenshots/review supplement geometry. Extended to all three first-pillar stations and actual text-read windows from the first-step CSV."
+  },
+  "browserChecks": {
+    "totalPassedGroups": 47,
+    "engines": {
+      "chromium": {
+        "version": "155.0.8059.79",
+        "passedGroups": 17,
+        "retainedDiagnostics": 0,
+        "unexpectedDiagnostics": [],
+        "latency": {
+          "samples": 108,
+          "p95Ms": 189.90000000037253,
+          "maxMs": 259.09999999962747,
+          "targetMs": 200
+        },
+        "resources": {
+          "cycles": 10,
+          "before": {
+            "geometries": 52,
+            "textures": 3,
+            "programs": 9,
+            "calls": 21,
+            "triangles": 5269,
+            "mode": "pixel",
+            "outputWidth": 1440,
+            "outputHeight": 793,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 211,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 5
+            }
+          },
+          "after": {
+            "geometries": 52,
+            "textures": 3,
+            "programs": 9,
+            "calls": 21,
+            "triangles": 5269,
+            "mode": "pixel",
+            "outputWidth": 1440,
+            "outputHeight": 793,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 211,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 5
+            }
+          },
+          "articles": 3,
+          "pausedDrawCount": 20025
+        },
+        "reportSha256": "382b4d8b8e4ace910a38f75868a7a9fea0171000b8645ace7214320be946ffdc"
+      },
+      "firefox": {
+        "version": "153.0",
+        "passedGroups": 15,
+        "retainedDiagnostics": 4,
+        "unexpectedDiagnostics": [],
+        "latency": {
+          "samples": 75,
+          "p95Ms": 157,
+          "maxMs": 158,
+          "targetMs": 200
+        },
+        "resources": {
+          "cycles": 2,
+          "before": {
+            "geometries": 52,
+            "textures": 3,
+            "programs": 9,
+            "calls": 21,
+            "triangles": 5269,
+            "mode": "pixel",
+            "outputWidth": 1440,
+            "outputHeight": 789,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 210,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 5
+            }
+          },
+          "after": {
+            "geometries": 52,
+            "textures": 3,
+            "programs": 9,
+            "calls": 21,
+            "triangles": 5269,
+            "mode": "pixel",
+            "outputWidth": 1440,
+            "outputHeight": 789,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 210,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 5
+            }
+          },
+          "articles": 3,
+          "pausedDrawCount": 25103
+        },
+        "reportSha256": "f57350300766b94d1a34dd149cf2f9f8a7038603e49fad63c5467cc4562e3efe"
+      },
+      "webkit": {
+        "version": "26.5",
+        "passedGroups": 15,
+        "retainedDiagnostics": 0,
+        "unexpectedDiagnostics": [],
+        "latency": {
+          "samples": 75,
+          "p95Ms": 174,
+          "maxMs": 182,
+          "targetMs": 200
+        },
+        "resources": {
+          "cycles": 2,
+          "before": {
+            "geometries": 52,
+            "textures": 3,
+            "programs": 9,
+            "calls": 21,
+            "triangles": 5269,
+            "mode": "pixel",
+            "outputWidth": 1440,
+            "outputHeight": 793,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 211,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 5
+            }
+          },
+          "after": {
+            "geometries": 52,
+            "textures": 3,
+            "programs": 9,
+            "calls": 21,
+            "triangles": 5269,
+            "mode": "pixel",
+            "outputWidth": 1440,
+            "outputHeight": 793,
+            "pixel": {
+              "sampleWidth": 384,
+              "sampleHeight": 211,
+              "designResolution": 384,
+              "finish": "clean",
+              "storage": "linear-half-float",
+              "minFilter": "nearest",
+              "magFilter": "nearest",
+              "mipmaps": false,
+              "levels": 0,
+              "dither": 0,
+              "allocations": 5
+            }
+          },
+          "articles": 3,
+          "pausedDrawCount": 20453
+        },
+        "reportSha256": "da16db0e49db849d086f5c914546924cbdafb0d03748e7facdd7b736ac042998"
+      }
+    }
+  },
+  "focusedSupplements": {
+    "nativeTabVisibility": {
+      "method": "native Chromium Target.activateTarget through direct CDP, without Playwright attachment",
+      "realTabSwitch": true,
+      "documentHiddenObserved": true,
+      "poseAndParagraphExact": true,
+      "pausedTimeExact": true,
+      "pixelsExact": true
+    },
+    "descendingContextRestore": {
+      "h": 2.08,
+      "stateExact": true,
+      "pixelsExact": true,
+      "state": {
+        "position": "[-0.1140229,6.475,5.963203]",
+        "target": "[-1.3140229,2.275,-3.036797]",
+        "height": "3.6000000",
+        "station": "A1",
+        "opacity": "0.0160522",
+        "phase": "leave",
+        "time": "2.000000"
+      }
+    },
+    "fullReadContrast": {
+      "computedStyles": {
+        "background": "rgb(38, 62, 53)",
+        "body": "rgb(240, 243, 230)",
+        "title": "rgb(240, 243, 230)",
+        "opacity": "1"
+      },
+      "ratios": {
+        "body": 10.24094141896498,
+        "title": 10.24094141896498
+      },
+      "opaqueBackground": true,
+      "condition": "full read only; transitional opacity excluded"
+    },
+    "layoutAndOrientation": {
+      "engine": "chromium",
+      "mediumViewport": [
+        1366,
+        768
+      ],
+      "threeStationLayouts": [
+        {
+          "station": "A1",
+          "layout": {
+            "fits": "true",
+            "rect": {
+              "x": 580.546875,
+              "y": 233,
+              "width": 420,
+              "height": 194.984375,
+              "top": 233,
+              "right": 1000.546875,
+              "bottom": 427.984375,
+              "left": 580.546875
+            }
+          }
+        },
+        {
+          "station": "A2",
+          "layout": {
+            "fits": "true",
+            "rect": {
+              "x": 580.546875,
+              "y": 233,
+              "width": 420,
+              "height": 194.984375,
+              "top": 233,
+              "right": 1000.546875,
+              "bottom": 427.984375,
+              "left": 580.546875
+            }
+          }
+        },
+        {
+          "station": "A3",
+          "layout": {
+            "fits": "true",
+            "rect": {
+              "x": 580.546875,
+              "y": 233,
+              "width": 420,
+              "height": 194.984375,
+              "top": 233,
+              "right": 1000.546875,
+              "bottom": 427.984375,
+              "left": 580.546875
+            }
+          }
+        }
+      ],
+      "simulatedPhoneRotation": [
+        {
+          "h": 2.54,
+          "progressPreserved": true,
+          "stationPreserved": true,
+          "phasePreserved": true,
+          "pauseTimePreserved": true,
+          "landscapeFits": "false",
+          "scope": "simulated viewport rotation; short landscape composition belongs to step 11"
+        },
+        {
+          "h": 2.08,
+          "progressPreserved": true,
+          "stationPreserved": true,
+          "phasePreserved": true,
+          "pauseTimePreserved": true,
+          "landscapeFits": "false",
+          "scope": "simulated viewport rotation; short landscape composition belongs to step 11"
+        }
+      ],
+      "physicalDevice": false
+    },
+    "noWebGLFallback": {
+      "noWebGL": true,
+      "readableAlert": true,
+      "disabledSceneControls": 11,
+      "readerHidden": true,
+      "referenceLinkUsable": true,
+      "unhandledExceptions": []
+    }
+  },
+  "recording": {
+    "file": "pillar-reading-demo.mp4",
+    "durationSeconds": 32.0,
+    "sha256": "899d96da78df7d3315b372140b0a47da49ad25f673d2a0eddbf9e104c3455b20",
+    "nativeWheelBothDirections": true,
+    "wallSeconds": 31.268606900001032,
+    "hardwareFPSProof": false
+  },
+  "prototypeLimits": [
+    "Chromium observed p95 189.9ms, peak 259.1ms; peak exceeds approximately 200ms target. Cause of peak change not isolated.",
+    "200-character sample fits at 1440x900 but covers the pillar focus at 390x844; long content requires later segmentation.",
+    "Simulated 844x390 landscape preserves progress but reading composition does not fit; full phone adaptation belongs to step 11.",
+    "Linux software renderer, simulated phone and GTK WebKit are not physical-device, Apple Safari or hardware FPS acceptance.",
+    "Geometry samples and held-pose rays do not establish every sightline or pixel."
+  ],
+  "pendingSteps": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "excludedFromThisStep": [
+    "dark stone material",
+    "formal magic lettering, glow, runes or particles",
+    "finished biography presentation",
+    "other pillar reading contents",
+    "new water or orb effects",
+    "complete phone static/landscape presentation"
+  ],
+  "deliveryState": {
+    "savedInWorkspace": true,
+    "published": false,
+    "deployed": false,
+    "gitCommitted": false,
+    "gitPushed": false,
+    "oldReleaseArchivesRebuilt": false
+  }
+}

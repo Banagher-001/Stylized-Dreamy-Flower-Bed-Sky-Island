@@ -1,0 +1,1354 @@
+{
+  "engine": "firefox",
+  "version": "153.0",
+  "checks": [
+    {
+      "check": "one production scene and three semantic reading stations",
+      "passed": true,
+      "evidence": {
+        "canvasCount": 1,
+        "articles": 3,
+        "resources": {
+          "anchors": [
+            {
+              "station": "A1",
+              "stone": "columnUpperLeft-block-3",
+              "local": [
+                0.04000001430511474,
+                0.024980001449584954,
+                0.39799998569488526
+              ],
+              "faceBounds": [
+                [
+                  -0.36000001430511475,
+                  -0.34498000144958496,
+                  -0.38999998569488525
+                ],
+                [
+                  0.36000001430511475,
+                  0.34498000144958496,
+                  0.38999998569488525
+                ]
+              ],
+              "size": 0.54,
+              "offset": 0.008
+            },
+            {
+              "station": "A2",
+              "stone": "columnUpperLeft-block-2",
+              "local": [
+                0.04000001430511474,
+                -0.05801000475883483,
+                0.39799998569488526
+              ],
+              "faceBounds": [
+                [
+                  -0.36000001430511475,
+                  -0.37801000475883484,
+                  -0.38999998569488525
+                ],
+                [
+                  0.36000001430511475,
+                  0.37801000475883484,
+                  0.38999998569488525
+                ]
+              ],
+              "size": 0.54,
+              "offset": 0.008
+            },
+            {
+              "station": "A3",
+              "stone": "columnUpperLeft-block-1",
+              "local": [
+                0.03999999809265109,
+                -0.032319985628128045,
+                0.39799998569488526
+              ],
+              "faceBounds": [
+                [
+                  -0.36000001430511475,
+                  -0.35231998562812805,
+                  -0.38999998569488525
+                ],
+                [
+                  0.36000001430511475,
+                  0.35231998562812805,
+                  0.38999998569488525
+                ]
+              ],
+              "size": 0.54,
+              "offset": 0.008
+            }
+          ],
+          "pool": 24,
+          "geometries": 2,
+          "textures": 1,
+          "programFamilies": 1,
+          "bindings": [
+            {
+              "object": "columnUpperLeft-block-0",
+              "material": "reading-pillar-stone"
+            },
+            {
+              "object": "columnUpperLeft-joint-0",
+              "material": "reading-pillar-joint"
+            },
+            {
+              "object": "columnUpperLeft-block-1",
+              "material": "reading-pillar-stone"
+            },
+            {
+              "object": "columnUpperLeft-joint-1",
+              "material": "reading-pillar-joint"
+            },
+            {
+              "object": "columnUpperLeft-block-2",
+              "material": "reading-pillar-stone"
+            },
+            {
+              "object": "columnUpperLeft-joint-2",
+              "material": "reading-pillar-joint"
+            },
+            {
+              "object": "columnUpperLeft-block-3",
+              "material": "reading-pillar-stone"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": "all three heights show the correct complete accessible biography layout",
+      "passed": true,
+      "evidence": [
+        {
+          "key": "A1",
+          "scene": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.06,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "overlayState": "closed",
+            "stage": "A1",
+            "chapter": "about",
+            "displayH": "1.7400000",
+            "targetH": "1.7400000",
+            "cameraState": "settled",
+            "cameraPosition": "[-0.097967,6.95,5.9610623]",
+            "cameraTarget": "[-1.297967,2.75,-3.0389377]",
+            "viewHeight": "3.6000000",
+            "aspect": "1.8250951",
+            "readingStation": "A1",
+            "readingPhase": "read",
+            "readingOpacity": "1.0000000",
+            "readingTitleOpacity": "1.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "",
+            "experimentPhase": "off",
+            "experimentPresentation": "{\"frame\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":54,\"textures\":4,\"programs\":12,\"calls\":23,\"triangles\":5231,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":789,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":210,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+          },
+          "reader": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5500000",
+              "station": "A1",
+              "phase": "read",
+              "opacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "glyphOpacity": "1.0000000",
+              "anchorX": "486.7613",
+              "anchorY": "389.3897",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 609.1666870117188,
+              "y": 245.38333129882812,
+              "width": 420,
+              "height": 288,
+              "top": 245.38333129882812,
+              "right": 1029.1666870117188,
+              "bottom": 533.3833312988281,
+              "left": 609.1666870117188
+            },
+            "visibleArticles": [
+              "A1"
+            ],
+            "text": "01 / 关于我\n身份\n\nsakan\n\n张辰翰 / 萨坎\n\n专注 AIGC 的创作者。\n\n化名取自《战锤 40K》的角色。"
+          }
+        },
+        {
+          "key": "A2",
+          "scene": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.06,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "overlayState": "closed",
+            "stage": "A2",
+            "chapter": "about",
+            "displayH": "2.5400000",
+            "targetH": "2.5400000",
+            "cameraState": "settled",
+            "cameraPosition": "[-0.097967,6,5.9610623]",
+            "cameraTarget": "[-1.297967,1.8,-3.0389377]",
+            "viewHeight": "3.6000000",
+            "aspect": "1.8250951",
+            "readingStation": "A2",
+            "readingPhase": "read",
+            "readingOpacity": "1.0000000",
+            "readingTitleOpacity": "1.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "",
+            "experimentPhase": "off",
+            "experimentPresentation": "{\"frame\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":54,\"textures\":4,\"programs\":12,\"calls\":30,\"triangles\":5923,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":789,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":210,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+          },
+          "reader": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5500000",
+              "station": "A2",
+              "phase": "read",
+              "opacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "glyphOpacity": "1.0000000",
+              "anchorX": "485.0234",
+              "anchorY": "368.2034",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 607.4166870117188,
+              "y": 224.1999969482422,
+              "width": 420,
+              "height": 288,
+              "top": 224.1999969482422,
+              "right": 1027.4166870117188,
+              "bottom": 512.1999969482422,
+              "left": 607.4166870117188
+            },
+            "visibleArticles": [
+              "A2"
+            ],
+            "text": "01 / 关于我\n经历\n\n现在与此前\n\n现在\nNOW\n\n枫叶互动\n\nAI 动画制作\n\n此前\nBEFORE\n\n游族网络"
+          }
+        },
+        {
+          "key": "A3",
+          "scene": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.06,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "overlayState": "closed",
+            "stage": "A3",
+            "chapter": "about",
+            "displayH": "3.3400000",
+            "targetH": "3.3400000",
+            "cameraState": "settled",
+            "cameraPosition": "[-0.097967,5.05,5.9610623]",
+            "cameraTarget": "[-1.297967,0.85,-3.0389377]",
+            "viewHeight": "3.6000000",
+            "aspect": "1.8250951",
+            "readingStation": "A3",
+            "readingPhase": "read",
+            "readingOpacity": "1.0000000",
+            "readingTitleOpacity": "1.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "",
+            "experimentPhase": "off",
+            "experimentPresentation": "{\"frame\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":54,\"textures\":4,\"programs\":12,\"calls\":40,\"triangles\":6823,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":789,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":210,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}"
+          },
+          "reader": {
+            "data": {
+              "visible": "true",
+              "progress": "0.5500000",
+              "station": "A3",
+              "phase": "read",
+              "opacity": "1.0000000",
+              "titleOpacity": "1.0000000",
+              "glyphOpacity": "1.0000000",
+              "anchorX": "489.3683",
+              "anchorY": "327.1994",
+              "layout": "side",
+              "anchorClear": "true",
+              "fits": "true"
+            },
+            "rect": {
+              "x": 611.7666625976562,
+              "y": 183.1999969482422,
+              "width": 420,
+              "height": 288,
+              "top": 183.1999969482422,
+              "right": 1031.7666625976562,
+              "bottom": 471.1999969482422,
+              "left": 611.7666625976562
+            },
+            "visibleArticles": [
+              "A3"
+            ],
+            "text": "01 / 关于我\n创作\n\n让想法成形\n图像构建\nAI 图像\n影像制作\nAI 视频与动画\n交互表达\nVibe Coding\n\n↓ 继续向下，进入 AI 影像。"
+          }
+        }
+      ]
+    },
+    {
+      "check": "actual composed backgrounds retain readable title and body contrast",
+      "passed": true,
+      "evidence": [
+        {
+          "station": "A1",
+          "minimumRatios": {
+            "title": 10.747454082530707,
+            "body": 10.72915752449203
+          },
+          "textParts": [
+            {
+              "label": "",
+              "minimumRatio": 10.747454082530707,
+              "samples": 720
+            },
+            {
+              "label": "about-name",
+              "minimumRatio": 10.72915752449203,
+              "samples": 297
+            },
+            {
+              "label": "about-role",
+              "minimumRatio": 10.72915752449203,
+              "samples": 504
+            },
+            {
+              "label": "about-note",
+              "minimumRatio": 10.72915752449203,
+              "samples": 552
+            }
+          ],
+          "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+        },
+        {
+          "station": "A2",
+          "minimumRatios": {
+            "title": 10.747454082530707,
+            "body": 7.506791669011734
+          },
+          "textParts": [
+            {
+              "label": "",
+              "minimumRatio": 10.747454082530707,
+              "samples": 585
+            },
+            {
+              "label": "about-when",
+              "minimumRatio": 7.506791669011734,
+              "samples": 48
+            },
+            {
+              "label": "about-when",
+              "minimumRatio": 7.506791669011734,
+              "samples": 24
+            },
+            {
+              "label": "about-company",
+              "minimumRatio": 10.72915752449203,
+              "samples": 216
+            },
+            {
+              "label": "about-duty",
+              "minimumRatio": 10.72915752449203,
+              "samples": 270
+            },
+            {
+              "label": "about-when",
+              "minimumRatio": 8.570731293785997,
+              "samples": 48
+            },
+            {
+              "label": "about-when",
+              "minimumRatio": 8.570731293785997,
+              "samples": 48
+            },
+            {
+              "label": "about-company",
+              "minimumRatio": 10.72915752449203,
+              "samples": 216
+            }
+          ],
+          "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+        },
+        {
+          "station": "A3",
+          "minimumRatios": {
+            "title": 10.747454082530707,
+            "body": 7.506791669011734
+          },
+          "textParts": [
+            {
+              "label": "",
+              "minimumRatio": 10.747454082530707,
+              "samples": 585
+            },
+            {
+              "label": "about-practice-name",
+              "minimumRatio": 7.506791669011734,
+              "samples": 216
+            },
+            {
+              "label": "",
+              "minimumRatio": 10.72915752449203,
+              "samples": 162
+            },
+            {
+              "label": "about-practice-name",
+              "minimumRatio": 7.506791669011734,
+              "samples": 216
+            },
+            {
+              "label": "",
+              "minimumRatio": 10.72915752449203,
+              "samples": 324
+            },
+            {
+              "label": "about-practice-name",
+              "minimumRatio": 7.506791669011734,
+              "samples": 216
+            },
+            {
+              "label": "",
+              "minimumRatio": 10.72915752449203,
+              "samples": 306
+            },
+            {
+              "label": "about-cue",
+              "minimumRatio": 8.570731293785997,
+              "samples": 40
+            },
+            {
+              "label": "about-cue",
+              "minimumRatio": 8.328294752931088,
+              "samples": 440
+            }
+          ],
+          "method": "sample composed background at every real text-node character rectangle including notes, companies and direction labels; temporarily hide ink then restore; glow excluded"
+        }
+      ]
+    },
+    {
+      "check": "all approved facts, distinct layouts, list semantics and actual selectable text remain complete",
+      "passed": true,
+      "evidence": [
+        {
+          "station": "A1",
+          "layout": "identity",
+          "copiedText": "01 / 关于我 身份\nsakan\n\n张辰翰 / 萨坎\n\n专注 AIGC 的创作者。\n\n化名取自《战锤 40K》的角色。",
+          "textBounds": [
+            {
+              "class": "",
+              "font": 40,
+              "inside": true
+            },
+            {
+              "class": "about-name",
+              "font": 18,
+              "inside": true
+            },
+            {
+              "class": "about-role",
+              "font": 18,
+              "inside": true
+            },
+            {
+              "class": "about-note",
+              "font": 16,
+              "inside": true
+            }
+          ]
+        },
+        {
+          "station": "A2",
+          "layout": "experience",
+          "copiedText": "01 / 关于我 经历\n现在与此前\n\n    现在 NOW\n\n    枫叶互动\n\n    AI 动画制作\n\n    此前 BEFORE\n\n    游族网络",
+          "textBounds": [
+            {
+              "class": "",
+              "font": 27,
+              "inside": true
+            },
+            {
+              "class": "about-when",
+              "font": 12,
+              "inside": true
+            },
+            {
+              "class": "about-company",
+              "font": 18,
+              "inside": true
+            },
+            {
+              "class": "about-duty",
+              "font": 18,
+              "inside": true
+            },
+            {
+              "class": "about-when",
+              "font": 12,
+              "inside": true
+            },
+            {
+              "class": "about-company",
+              "font": 18,
+              "inside": true
+            }
+          ]
+        },
+        {
+          "station": "A3",
+          "layout": "practice",
+          "copiedText": "01 / 关于我 创作\n让想法成形\n\n    图像构建AI 图像\n    影像制作AI 视频与动画\n    交互表达Vibe Coding\n\n↓ 继续向下，进入 AI 影像。",
+          "textBounds": [
+            {
+              "class": "",
+              "font": 27,
+              "inside": true
+            },
+            {
+              "class": "about-practice-name",
+              "font": 18,
+              "inside": true
+            },
+            {
+              "class": "",
+              "font": 18,
+              "inside": true
+            },
+            {
+              "class": "about-practice-name",
+              "font": 18,
+              "inside": true
+            },
+            {
+              "class": "",
+              "font": 18,
+              "inside": true
+            },
+            {
+              "class": "about-practice-name",
+              "font": 18,
+              "inside": true
+            },
+            {
+              "class": "",
+              "font": 18,
+              "inside": true
+            },
+            {
+              "class": "about-cue",
+              "font": 16,
+              "inside": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "check": "reading plateaus retain identical camera, text and visible scene",
+      "passed": true,
+      "evidence": [
+        {
+          "startH": 1.3,
+          "samplesH": [
+            1.604,
+            1.876
+          ],
+          "pixelsExact": true
+        },
+        {
+          "startH": 2.1,
+          "samplesH": [
+            2.404,
+            2.676
+          ],
+          "pixelsExact": true
+        },
+        {
+          "startH": 2.9,
+          "samplesH": [
+            3.2039999999999997,
+            3.476
+          ],
+          "pixelsExact": true
+        }
+      ]
+    },
+    {
+      "check": "eighteen ordered glyph/title/body states and a mid-fade pause follow scroll",
+      "passed": true,
+      "evidence": [
+        {
+          "h": 1.38,
+          "body": 0.0,
+          "title": 0.0,
+          "glyph": 0.7901234567901245,
+          "dust": 10
+        },
+        {
+          "h": 1.4444444,
+          "body": 0.0,
+          "title": 0.3822259,
+          "glyph": 1,
+          "dust": 24
+        },
+        {
+          "h": 1.5,
+          "body": 0.5,
+          "title": 1.0,
+          "glyph": 1,
+          "dust": 15
+        },
+        {
+          "h": 1.74,
+          "body": 1.0,
+          "title": 1.0,
+          "glyph": 1,
+          "dust": 8
+        },
+        {
+          "h": 2.02,
+          "body": 0.2752075,
+          "title": 0.9645062,
+          "glyph": 1,
+          "dust": 24
+        },
+        {
+          "h": 2.0755556,
+          "body": 0.0,
+          "title": 0.1084586,
+          "glyph": 0.17050732627774956,
+          "dust": 12
+        },
+        {
+          "h": 2.18,
+          "body": 0.0,
+          "title": 0.0,
+          "glyph": 0.7901234567901247,
+          "dust": 10
+        },
+        {
+          "h": 2.2444444,
+          "body": 0.0,
+          "title": 0.3822259,
+          "glyph": 1,
+          "dust": 24
+        },
+        {
+          "h": 2.3,
+          "body": 0.5,
+          "title": 1.0,
+          "glyph": 1,
+          "dust": 15
+        },
+        {
+          "h": 2.54,
+          "body": 1.0,
+          "title": 1.0,
+          "glyph": 1,
+          "dust": 8
+        },
+        {
+          "h": 2.82,
+          "body": 0.2752075,
+          "title": 0.9645062,
+          "glyph": 1,
+          "dust": 24
+        },
+        {
+          "h": 2.8755556,
+          "body": 0.0,
+          "title": 0.1084586,
+          "glyph": 0.17050732627774956,
+          "dust": 12
+        },
+        {
+          "h": 2.98,
+          "body": 0.0,
+          "title": 0.0,
+          "glyph": 0.7901234567901242,
+          "dust": 10
+        },
+        {
+          "h": 3.0444444,
+          "body": 0.0,
+          "title": 0.3822259,
+          "glyph": 1,
+          "dust": 24
+        },
+        {
+          "h": 3.1,
+          "body": 0.5,
+          "title": 1.0,
+          "glyph": 1,
+          "dust": 15
+        },
+        {
+          "h": 3.34,
+          "body": 1.0,
+          "title": 1.0,
+          "glyph": 1,
+          "dust": 8
+        },
+        {
+          "h": 3.62,
+          "body": 0.2752075,
+          "title": 0.9645062,
+          "glyph": 1,
+          "dust": 24
+        },
+        {
+          "h": 3.6755556,
+          "body": 0.0,
+          "title": 0.1084586,
+          "glyph": 0.170507326277757,
+          "dust": 12
+        }
+      ]
+    },
+    {
+      "check": "reverse and fast jumps restore identical camera and reading states, including pillar exit",
+      "passed": true,
+      "evidence": {
+        "positionsH": [
+          1.48,
+          2.02,
+          2.1,
+          2.28,
+          2.54,
+          2.82,
+          2.9,
+          3.08,
+          3.34,
+          3.7,
+          3.92
+        ],
+        "exact": true
+      }
+    },
+    {
+      "check": "real wheel, keyboard and native navigation share native progress without stealing focus",
+      "passed": true,
+      "evidence": {
+        "wheelMappedH": 2.1288889,
+        "nativeH": 2.128888888888889,
+        "HomeEnd": true,
+        "debugStop": "A2"
+      }
+    },
+    {
+      "check": "render mode changes the scene and preserves reading; pixel return is exact",
+      "passed": true,
+      "evidence": {
+        "pixelsExact": true
+      }
+    },
+    {
+      "check": "resize preserves full-read and descending positions with legible layout",
+      "passed": true,
+      "evidence": [
+        {
+          "h": 1.74,
+          "after": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.06,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "overlayState": "closed",
+            "stage": "A1",
+            "chapter": "about",
+            "displayH": "1.7396570",
+            "targetH": "1.7396570",
+            "cameraState": "settled",
+            "cameraPosition": "[0.0470837,6.95,5.9417222]",
+            "cameraTarget": "[-1.1529163,2.75,-3.0582778]",
+            "viewHeight": "3.6000000",
+            "aspect": "2.0791476",
+            "readingStation": "A1",
+            "readingPhase": "read",
+            "readingOpacity": "1.0000000",
+            "readingTitleOpacity": "1.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "",
+            "experimentPhase": "off",
+            "experimentPresentation": "{\"frame\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":58,\"textures\":6,\"programs\":22,\"calls\":23,\"triangles\":5231,\"mode\":\"pixel\",\"outputWidth\":1366,\"outputHeight\":657,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":185,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":2}}"
+          }
+        },
+        {
+          "h": 2.54,
+          "after": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.06,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "overlayState": "closed",
+            "stage": "A2",
+            "chapter": "about",
+            "displayH": "2.5404722",
+            "targetH": "2.5404722",
+            "cameraState": "settled",
+            "cameraPosition": "[0.0470837,6,5.9417222]",
+            "cameraTarget": "[-1.1529163,1.8,-3.0582778]",
+            "viewHeight": "3.6000000",
+            "aspect": "2.0791476",
+            "readingStation": "A2",
+            "readingPhase": "read",
+            "readingOpacity": "1.0000000",
+            "readingTitleOpacity": "1.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "",
+            "experimentPhase": "off",
+            "experimentPresentation": "{\"frame\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":58,\"textures\":6,\"programs\":22,\"calls\":31,\"triangles\":6019,\"mode\":\"pixel\",\"outputWidth\":1366,\"outputHeight\":657,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":185,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":4}}"
+          }
+        },
+        {
+          "h": 3.34,
+          "after": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.06,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "overlayState": "closed",
+            "stage": "A3",
+            "chapter": "about",
+            "displayH": "3.3399852",
+            "targetH": "3.3399852",
+            "cameraState": "settled",
+            "cameraPosition": "[0.0470837,5.05,5.9417222]",
+            "cameraTarget": "[-1.1529163,0.85,-3.0582778]",
+            "viewHeight": "3.6000000",
+            "aspect": "2.0791476",
+            "readingStation": "A3",
+            "readingPhase": "read",
+            "readingOpacity": "1.0000000",
+            "readingTitleOpacity": "1.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "",
+            "experimentPhase": "off",
+            "experimentPresentation": "{\"frame\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":58,\"textures\":6,\"programs\":22,\"calls\":41,\"triangles\":6919,\"mode\":\"pixel\",\"outputWidth\":1366,\"outputHeight\":657,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":185,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":6}}"
+          }
+        },
+        {
+          "h": 2.08,
+          "after": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.06,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "overlayState": "closed",
+            "stage": "A1",
+            "chapter": "about",
+            "displayH": "2.0795151",
+            "targetH": "2.0795151",
+            "cameraState": "settled",
+            "cameraPosition": "[0.0470837,6.4780845,5.9417222]",
+            "cameraTarget": "[-1.1529163,2.2780845,-3.0582778]",
+            "viewHeight": "3.6000000",
+            "aspect": "2.0791476",
+            "readingStation": "A1",
+            "readingPhase": "leave",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0687155",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "",
+            "experimentPhase": "off",
+            "experimentPresentation": "{\"frame\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "magicFrame": "{\"trace\":0.7493445799656747,\"glyph\":0.11001086252374859,\"title\":0.06871545975300197,\"body\":0,\"veil\":0.06871545975300197,\"dust\":0.06871545975300197,\"burst\":0.1532421081594479,\"disperse\":0.9828374955613323,\"titleY\":-5.587707241481988,\"bodyY\":-8,\"dustCapacity\":24,\"dustVisible\":11,\"time\":2,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}",
+            "sceneTime": "2.000000",
+            "rendererStats": "{\"geometries\":58,\"textures\":6,\"programs\":22,\"calls\":26,\"triangles\":5519,\"mode\":\"pixel\",\"outputWidth\":1366,\"outputHeight\":657,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":185,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":8}}"
+          }
+        }
+      ]
+    },
+    {
+      "check": "context restore preserves the reading camera, paragraph and actual image",
+      "passed": true,
+      "evidence": {
+        "pixelsExact": true,
+        "disabledSceneControls": 3
+      }
+    },
+    {
+      "check": "repeated reading tours retain GPU/DOM counts; settled pause stops drawing",
+      "passed": true,
+      "evidence": {
+        "cycles": 2,
+        "before": {
+          "geometries": 56,
+          "textures": 5,
+          "programs": 12,
+          "calls": 24,
+          "triangles": 5415,
+          "mode": "pixel",
+          "outputWidth": 1440,
+          "outputHeight": 789,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 210,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 11
+          }
+        },
+        "after": {
+          "geometries": 56,
+          "textures": 5,
+          "programs": 12,
+          "calls": 24,
+          "triangles": 5415,
+          "mode": "pixel",
+          "outputWidth": 1440,
+          "outputHeight": 789,
+          "pixel": {
+            "sampleWidth": 384,
+            "sampleHeight": 210,
+            "designResolution": 384,
+            "finish": "clean",
+            "storage": "linear-half-float",
+            "minFilter": "nearest",
+            "magFilter": "nearest",
+            "mipmaps": false,
+            "levels": 0,
+            "dither": 0,
+            "allocations": 11
+          }
+        },
+        "articles": 3,
+        "readerDescendants": 40,
+        "documentNodes": 321,
+        "allNodeCountsStable": true,
+        "pausedDrawCount": 30777
+      }
+    },
+    {
+      "check": "environment time advances independently and manual pause retains scroll reading",
+      "passed": true,
+      "evidence": {
+        "independent": true
+      }
+    },
+    {
+      "check": "other pillar first views, water and overview retain their approved camera poses",
+      "passed": true,
+      "evidence": [
+        {
+          "key": "B1",
+          "approvedBasePoseRetained": true,
+          "actualAspect": 1.8250951
+        },
+        {
+          "key": "C1",
+          "approvedBasePoseRetained": true,
+          "actualAspect": 1.8250951
+        },
+        {
+          "key": "water",
+          "approvedBasePoseRetained": true,
+          "actualAspect": 1.8250951
+        },
+        {
+          "key": "overview",
+          "approvedBasePoseRetained": true,
+          "actualAspect": 1.8250951
+        }
+      ]
+    },
+    {
+      "check": "three mobile reading stations fit, remain clear and support normal-motion navigation; reduced motion separately covered in Step11",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "simulatedPhone": true,
+        "nativeTouchDrag": false,
+        "stations": [
+          {
+            "station": "A1",
+            "layout": {
+              "fits": "true",
+              "anchorClear": "true",
+              "fontSize": 16,
+              "panel": {
+                "x": 16,
+                "y": 421.6000061035156,
+                "width": 358,
+                "height": 246.39999389648438,
+                "top": 421.6000061035156,
+                "right": 374,
+                "bottom": 668,
+                "left": 16
+              },
+              "body": {
+                "x": 42,
+                "y": 517.5999755859375,
+                "width": 306,
+                "height": 93.19999694824219,
+                "top": 517.5999755859375,
+                "right": 348,
+                "bottom": 610.7999725341797,
+                "left": 42
+              },
+              "nav": {
+                "x": 16,
+                "y": 684,
+                "width": 358,
+                "height": 44,
+                "top": 684,
+                "right": 374,
+                "bottom": 728,
+                "left": 16
+              },
+              "stage": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 740,
+                "top": 0,
+                "right": 390,
+                "bottom": 740,
+                "left": 0
+              },
+              "noHorizontalOverflow": true,
+              "noInternalScroll": true
+            }
+          },
+          {
+            "station": "A2",
+            "layout": {
+              "fits": "true",
+              "anchorClear": "true",
+              "fontSize": 16,
+              "panel": {
+                "x": 16,
+                "y": 417,
+                "width": 358,
+                "height": 246.39999389648438,
+                "top": 417,
+                "right": 374,
+                "bottom": 663.3999938964844,
+                "left": 16
+              },
+              "body": {
+                "x": 42,
+                "y": 507.79998779296875,
+                "width": 306,
+                "height": 95.19999694824219,
+                "top": 507.79998779296875,
+                "right": 348,
+                "bottom": 602.9999847412109,
+                "left": 42
+              },
+              "nav": {
+                "x": 16,
+                "y": 684,
+                "width": 358,
+                "height": 44,
+                "top": 684,
+                "right": 374,
+                "bottom": 728,
+                "left": 16
+              },
+              "stage": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 740,
+                "top": 0,
+                "right": 390,
+                "bottom": 740,
+                "left": 0
+              },
+              "noHorizontalOverflow": true,
+              "noInternalScroll": true
+            }
+          },
+          {
+            "station": "A3",
+            "layout": {
+              "fits": "true",
+              "anchorClear": "true",
+              "fontSize": 16,
+              "panel": {
+                "x": 16,
+                "y": 396.73333740234375,
+                "width": 358,
+                "height": 246.39999389648438,
+                "top": 396.73333740234375,
+                "right": 374,
+                "bottom": 643.1333312988281,
+                "left": 16
+              },
+              "body": {
+                "x": 42,
+                "y": 487.5333251953125,
+                "width": 306,
+                "height": 129.59999084472656,
+                "top": 487.5333251953125,
+                "right": 348,
+                "bottom": 617.1333160400391,
+                "left": 42
+              },
+              "nav": {
+                "x": 16,
+                "y": 684,
+                "width": 358,
+                "height": 44,
+                "top": 684,
+                "right": 374,
+                "bottom": 728,
+                "left": 16
+              },
+              "stage": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 740,
+                "top": 0,
+                "right": 390,
+                "bottom": 740,
+                "left": 0
+              },
+              "noHorizontalOverflow": true,
+              "noInternalScroll": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "check": "browser-observed settle latency retained, without hardware FPS claims",
+      "passed": true,
+      "evidence": {
+        "samples": 93,
+        "p95Ms": 163,
+        "maxMs": 223,
+        "targetMs": 200
+      }
+    },
+    {
+      "check": "diagnostics retained, with no unidentified errors or warnings",
+      "passed": true,
+      "evidence": {
+        "knownFirefoxDiagnostics": 4,
+        "unexpected": []
+      }
+    }
+  ],
+  "issues": [
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL context was lost.\" {file: \"debugger eval code line 311 > eval\" line: 1}]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    }
+  ],
+  "passed": true,
+  "environment": "Linux software rendering; simulated phone; not Apple Safari or hardware FPS acceptance",
+  "runtimeSourceSha256": {
+    "src/main.ts": "0a343078f3e5ec31cef8c154b2f26a79945aeed68b5707330673e5dffc9337a9",
+    "src/styles.css": "5cb46fe0ccb5a658c85126a1f6c6074b1a2c4f2624dcecc6850f85c33ddef4c1",
+    "src/animation/createAnimationController.ts": "94d15bdeffb1553a49bc2062528a413c793da6f720889ce551d213cb5575e72a",
+    "src/animation/orbMotion.ts": "7aa156d676deb3531f3d63114f8931769a16629bcdce0ba594169816cea8f83b",
+    "src/animation/environmentMotion.ts": "bac22c865ab8e5840eb4f823dd591f0672c122163cc3345af7264db544316f40",
+    "src/config/layout.ts": "8a5cfc869c85a06fbc4f051d3f7d32e3811647fa4d8dad998eabcaea9c6d72a4",
+    "src/config/lighting.ts": "4325a52444fe10fbd02d38e7f1b795caa90e130733dcf1dd146984ecc84213a2",
+    "src/config/palette.ts": "1b9843d40a217a27cfb72f59538198f4f3d77e90e6d614bd4df5903245b5ab34",
+    "src/config/scene.ts": "a8bf827b4b9a29356a580000c5300bc52c70106a10195c1ddcad37289c9f7879",
+    "src/config/stone.ts": "f0a0729bc43fcd0fb1166abd06b4cd6d66d6700f9a68bdf9186762bf92088f69",
+    "src/config/vegetation.ts": "f721065a6d2309180f3ac1f8a3cfd411a95f5098b3fd45b9a0f223964cb3377a",
+    "src/config/water.ts": "9212798784cebafabc94948bf51762c0d54da0ca39d711584a4f7b97d98eed70",
+    "src/config/environment.ts": "dd9bace9b01fad64b63bff0f110a14844d3986ca4f73889a666513181f8e297d",
+    "src/config/orb.ts": "eb46e9e111e0201dc9ab88861d9639b39b94d367d0e6917b72064f3ec1291b92",
+    "src/config/visual.ts": "963c14d1a8c45fe49308e250d77b17d9d77897fa5a6f88738b27f71e0af2e862",
+    "src/config/fountain.ts": "f3f6783f93e866173dcbb821083019c0fd04c4ffdf75427ba45d3b7276f246b9",
+    "src/geometry/createFlowerGeometry.ts": "dd5e322c83c0655c45184117f4798e0ea21129e7fbbd75cf2ea0b99234dc5085",
+    "src/geometry/createStoneBlockGeometry.ts": "71d64186f29da04485b33db2036961067d050229344fe51d3e21997ac48636ea",
+    "src/materials/createArtMaterial.ts": "a052f5c42b9a64ce2d713284f54b350330f21c2458abfb9cc1e533428a9667a9",
+    "src/materials/createGroundMaterial.ts": "257fc41a6e4e55198e7e5178f6fb075a41777b0bb938a07d65d5f862c5f17592",
+    "src/materials/createStoneMaterial.ts": "6700fef5ad3b7808693d9d743be8fc02a61b1e4f4014477662b93598b87830af",
+    "src/materials/createVegetationMaterial.ts": "a88a56ac54d836aea973ae3a405ec4f99190ae5a551c1f0884f749626c80855b",
+    "src/materials/createWaterMaterial.ts": "43f2a5f5ffa163ffc205c05f10bf226392faed970f291bd43ee7e6bf494beec7",
+    "src/materials/createOrbMaterial.ts": "f0ec5677f2c33b3485d453bc061d08659e4906b11b997c1cbf69fc7fb32f516b",
+    "src/materials/createFountainStoneMaterial.ts": "c51b09a3ec7c46df241e7009013c5336cef648da30016d4dc8468e55303dcdac",
+    "src/materials/createRefinedWaterMaterial.ts": "7dbfb90646e50bb307f5b629ebea3d16983484033e0a2d27438b87039e0ec502",
+    "src/materials/applyEnvironmentMotion.ts": "46df486f8ef6100368ad4fa5e90e73141b0f21b8e3b294c08e590ed921ddce35",
+    "src/rendering/createRenderer.ts": "95de8be418ac0b3385e159804a9a9f060a357c121a42042f8da4c57af3fef1f3",
+    "src/rendering/releaseSceneGpuResources.ts": "472b0428b97e19f8beb786f5acda29d5137d6b479e772b5da8f3aef53a91cc7c",
+    "src/rendering/createPixelPipeline.ts": "f35d0844d5e1ce614f5c13667c878352f3c5d435d1e5efb989bcf1b500646401",
+    "src/scene/createBlockout.ts": "325f98453f6593e50f788510bd7c57d93507e9516a4a71b9956b24fde01176f1",
+    "src/scene/createFountainEffects.ts": "ef61b066167663f166523fa720b1bdcb1dc933fb4400aa91b4efbb7b4193416a",
+    "src/scene/createScene.ts": "fbf91b32927a1ce83f6973914d01fdd960ea231c402551818510e782e5d47be3",
+    "src/scene/createVegetation.ts": "27e38ad48221d8e2eb4a6b684179058a84d417fc8f66173ce55faf92332f989c",
+    "src/scene/createLivelyFountainEffects.ts": "8ae14857df5094eb026989e8766c1effb5b9e02394f5d02371aa078487441c60",
+    "src/scene/createFountainAppearance.ts": "04d188ff35282979b759ee749a8ea77e275b343458af22d4dbd27c6b6abbf94b",
+    "src/scene/createFloatingPetals.ts": "78a9b8ba3b121806f157ecef24df5d9d23598ecc78c02595df881afe1ff575e3",
+    "src/portfolio/createPortfolio.ts": "1713c8d3b06a203283063cabbb6ba85a0a6880686b721cdbac4da8b6fb94eda0",
+    "src/portfolio/startPortfolio.ts": "7986be5bf5f725d3647112d9161e4b7fab9cfebde8f39a19faeae9d1f5e9bbfe",
+    "src/tour/createPillarAppearance.ts": "5926d1ae964318cc65042e612fc20cfde37a5fb9523c93f1550358632f379940",
+    "src/tour/experimentContent.ts": "1dda50a3528f64f055d040ae71a01610cd3d4e36377ecdb24a1b5b3c244e6612",
+    "src/tour/presentation.ts": "625736e7b7ec87d0255ea616dab20f75b3bd5ac22c97285011d984b045564b80",
+    "src/tour/createPillarMagic.ts": "6b53135d76089f18cb8cec7d4cc64e6b86135fee0255cafb7a4857296951c809",
+    "src/tour/startTourPrototype.ts": "ffd9f34d60c442ee05ea559d82e01298dff5904971106602138f7b33e6dc41ae",
+    "src/tour/route.ts": "00357f151b83bc3112c477d5520893977534bad00346b07d0ddd5544a3cf209c",
+    "src/tour/readerFlow.ts": "e830cbc5e1fe575cecfb493a2456a5a18a716097e8fbe3e9ee76241518994099",
+    "src/tour/magicStyle.ts": "3a96a28946356394d40dabdcb3aed0671e3e3f3be9971e604702b79d7183f73d",
+    "src/tour/createMediaViewer.ts": "0f9782cb8339a264a31a4366f7034e3c82590da508e660574a9a7a22004bce6c",
+    "src/tour/filmContent.ts": "2998fc7a9d3aa71121da172917ac4ba3dbd0274e8476e32732b37e1d68bdec32",
+    "src/tour/experimentReading.ts": "613e4a1cc0e31cddd043e7e025450ecbbfe8f7830497aca6af9e0bfe8465f7d5",
+    "src/tour/createReadingLayout.ts": "9774b6aa5a88b442a0556b9e66eeab1868f92cca43d428eb7bb258cc5ff4870d",
+    "src/tour/filmReading.ts": "ef4c3d70c0411a24ab1e48408db96d72d591b474ea8dcee7b7fdea2c3087abf1",
+    "src/tour/film.css": "3a244a08815c78fb3176ce17d3d3aa328e97e454ac26b6b572e19a30d194ea7f",
+    "src/tour/readingLayout.css": "0390952666e2c8fd5841c4c41e390aecd2773c363ef67ead08505bbdc9544036",
+    "src/tour/reading.ts": "21b828a5328372058886a37331b018706974af84c5eda510d5d1e13ca77c1edf",
+    "src/tour/createExperimentReader.ts": "d552faabf64efe303e0b69a71e76629f3e5fe1b595f8836ee5c961fb844367e3",
+    "src/tour/experiment.css": "74093a4fb75758856900850ae3eed5c208632b63a99631b3fa9c845e1e8969ab",
+    "src/tour/createProjectViewer.ts": "c47b7ed0ce0faeb6ae926d96c87349f4692065bb4811f962d3c2f65352cf8e38",
+    "src/tour/tour.css": "03fb9ca1c7829ecc4220cf5aea067bd4cbdac964e2a2190cbf116af068d62633",
+    "src/tour/createPillarReader.ts": "5fe7133e6d71e4ecca087ce81fea0c12733725c2e434d9c83d58404b51542014",
+    "src/tour/createFilmReader.ts": "3eaebef9835e60dcb6908663588479d4d660eb3180f97a25362bc0e163b94e59",
+    "src/tour/aboutContent.ts": "f4d06f40eef94b035b09b78471aa277517d87ee22c788fba18aa367296b9eb28",
+    "src/content/portfolio.ts": "db5c9e9b14be7f5ce02cefbf3f308067efb38c77dc8d81a6d18cf729dffab8d1"
+  }
+}
