@@ -2,6 +2,7 @@ import './tour.css';
 import './film.css';
 import './experiment.css';
 import './readingLayout.css';
+import './autoGuide.css';
 import { Vector3 } from 'three';
 import { pagePalette } from '../config/palette';
 import { renderConfig } from '../config/scene';
@@ -30,12 +31,16 @@ import type { ProjectTab } from './createProjectViewer';
 import { chapterLabels, createTourPresentation } from './presentation';
 import { createReadingLayout } from './createReadingLayout';
 import type { ReadingCapacity, ReadingPosition } from './createReadingLayout';
+import { createAutoGuide } from './autoGuide';
+import type { GuideSnapshot, GuideStop } from './autoGuide';
+import { createBirdVisibility } from './birdVisibility';
 
 for (const [key, color] of Object.entries(pagePalette)) document.documentElement.style.setProperty(`--color-${key}`, color);
 const app = document.querySelector<HTMLDivElement>('#app');
 if (!app) throw new Error('Missing application root.');
 const query = new URLSearchParams(location.search);
 const debug = query.get('debug') === '1';
+const inspectBirds = debug || query.get('birds') === 'inspect';
 const requestedMode = query.get('render');
 let mode: RenderMode = requestedMode === 'native' || requestedMode === 'pixel' ? requestedMode : renderConfig.defaultMode;
 const parsed = query.get('waterTime')?.trim();
@@ -49,13 +54,14 @@ document.documentElement.classList.add('tour-document');
 app.innerHTML = `
   <main class="tour-prototype" data-debug="${debug}" aria-label="sakan 的滚动庭院、个人介绍、AI影像与交互实验">
     <div id="tour-host" class="scene-host tour-stage" data-render-state="loading"><p id="tour-notice" class="scene-notice" hidden></p></div>
-    <header class="tour-header"><div class="tour-brand"><span>sakan.</span><p>CREATIVE COURTYARD</p></div><div class="tour-header-actions"><button type="button" id="tour-layout-toggle" data-reading-toggle>稳定阅读</button><a id="tour-reference" class="tour-reference" ${debug ? '' : 'hidden'}>返回参考稿 <span aria-hidden="true">↗</span></a></div></header>
+    <header class="tour-header"><div class="tour-brand"><span>sakan.</span><p>CREATIVE COURTYARD</p></div><div class="tour-header-actions"><div class="tour-guide-control"><button type="button" id="tour-guide" class="tour-guide-button" aria-pressed="false" aria-disabled="true" aria-describedby="tour-guide-note">开始导览</button><span id="tour-guide-note" class="tour-guide-note" role="tooltip">从当前位置开始，滚动可随时接管。</span></div><button type="button" id="tour-layout-toggle" data-reading-toggle>稳定阅读</button><a id="tour-reference" class="tour-reference" ${debug ? '' : 'hidden'}>返回参考稿 <span aria-hidden="true">↗</span></a></div></header>
     <section class="tour-heading" data-kind="opening" aria-label="当前章节与回看"><p class="tour-kicker">SAKAN / 张辰翰</p><h1 id="tour-title">让想象，动起来。</h1><p id="tour-note">AI动画 · 视觉创作 · 交互实验</p><p class="tour-scroll-cue"><span aria-hidden="true">↓</span> 向下滚动，进入庭院</p><div class="tour-ending-actions" hidden inert aria-hidden="true"><button type="button" data-tour-replay="overview" data-h="0" disabled>回到开场 <span aria-hidden="true">↗</span></button><button type="button" data-tour-replay="films" data-h="4.95" disabled>回看影像 <span aria-hidden="true">↗</span></button></div></section>
     <nav class="tour-stops" aria-label="庭院章节">${tourStops.map((stop, i) => `<button type="button" id="tour-stop-${stop.id}" data-stop="${stop.id}" data-h="${stop.h}" aria-label="${stop.label}"><span class="tour-stop-index" aria-hidden="true">${i === 0 ? '○' : i === 4 ? '≈' : `0${i}`}</span><span>${stop.label.replace(/^\d+\s*/, '')}</span></button>`).join('')}</nav>
     <div id="tour-focus" class="tour-focus" hidden aria-hidden="true"><span></span><small id="tour-focus-label"></small></div>
     <div id="tour-reading-area" class="tour-reading-area" hidden aria-hidden="true"><span>READING SPACE</span><p>阅读区域预留</p><small>本步只校准柱首站构图</small></div>
     <footer class="tour-footer"><div class="tour-progress-row"><span id="tour-phase">GARDEN</span><progress id="tour-progress" max="1" value="0" aria-label="庭院浏览进度"></progress><span id="tour-percent">0%</span></div><div class="tour-footer-row"><p class="tour-instruction">滚动进入庭院 <span aria-hidden="true">↓</span><span>向上滚动可返回</span></p><div class="tour-actions"><div class="mode-controls" role="group" aria-label="画面模式"><button type="button" data-mode="native">正常画面</button><button type="button" data-mode="pixel">像素画面</button></div><button id="tour-motion" type="button" class="motion-control">暂停动效</button><details class="tour-inspector" ${debug ? '' : 'hidden inert'}><summary>镜头数据</summary><div class="tour-inspector-panel"><nav class="tour-reading-stops" aria-label="阅读站点调试定位"><span>阅读定位（调试）</span>${[...readingStations, ...filmStations, ...experimentStations].map((station) => `<button type="button" data-reading-stop="${station.id}" data-h="${station.stop}">${station.id}</button>`).join('')}</nav><pre id="tour-inspector-data"></pre></div></details></div></div></footer>
     <p id="tour-status" class="sr-only" role="status" aria-live="polite"></p>
+    <p id="tour-guide-status" class="sr-only" role="status" aria-live="polite"></p>
     <div id="tour-scroll-space" class="tour-scroll-space" aria-hidden="true"></div>
     <div id="tour-viewport-probe" class="tour-viewport-probe" aria-hidden="true"></div>
   </main>`;
@@ -67,6 +73,10 @@ const marker = app.querySelector<HTMLElement>('#tour-focus')!;
 const markerLabel = app.querySelector<HTMLElement>('#tour-focus-label')!;
 const readingArea = app.querySelector<HTMLElement>('#tour-reading-area')!;
 const motion = app.querySelector<HTMLButtonElement>('#tour-motion')!;
+const guideButton = app.querySelector<HTMLButtonElement>('#tour-guide')!;
+const guideNote = app.querySelector<HTMLElement>('#tour-guide-note')!;
+const guideStatus = app.querySelector<HTMLElement>('#tour-guide-status')!;
+const main = app.querySelector<HTMLElement>('main')!;
 const inspector = app.querySelector<HTMLDetailsElement>('.tour-inspector')!;
 const inspectorData = app.querySelector<HTMLElement>('#tour-inspector-data')!;
 const stopButtons = [...app.querySelectorAll<HTMLButtonElement>('[data-stop]')];
@@ -90,7 +100,7 @@ let projectViewer: ReturnType<typeof createProjectViewer>;
 const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id));
 const filmReader = createFilmReader(app, host, (id) => filmMagic?.getAnchor(id), (media, trigger) => mediaViewer.open(media, trigger));
 const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), (tab, trigger) => projectViewer.open(tab, trigger));
-const world = createScene(resolveEnvironmentOptions(query), query.get('pool') === 'legacy' ? 'legacy' : 'refined', query.get('orb') === 'legacy' ? 'legacy' : 'lively');
+const world = createScene(resolveEnvironmentOptions(query), query.get('pool') === 'legacy' ? 'legacy' : 'refined', query.get('orb') === 'legacy' ? 'legacy' : 'lively', query.get('clouds') !== 'off', query.get('birds') !== 'off');
 host.dataset.fountainStyle = world.fountainStyle;
 host.dataset.fountainResources = JSON.stringify(world.fountainMetadata ?? null);
 host.dataset.orbStyle = world.orbStyle;
@@ -98,6 +108,8 @@ host.dataset.orbResources = JSON.stringify(world.orbMetadata ?? null);
 const appearance = createPillarAppearance(world.scene);
 const filmAppearance = createPillarAppearance(world.scene, 'columnRight');
 const experimentAppearance = createPillarAppearance(world.scene, 'columnLower');
+world.cloudShadows.bind(world.scene);
+host.dataset.cloudShadows = JSON.stringify(world.cloudShadows.metadata);
 try { magic = createPillarMagic(world.scene); } catch (error) { console.warn('Pillar decoration unavailable; reading remains available.', error); }
 try { filmMagic = createPillarMagic(world.scene, { column: 'columnRight', number: '02', stations: filmStations, poses: [tourPoses.B, tourPoses.B2, tourPoses.B3, tourPoses.B4] }); } catch (error) { console.warn('Film pillar decoration unavailable; exhibition remains available.', error); }
 try { experimentMagic = createPillarMagic(world.scene, { column: 'columnLower', number: '03', stations: experimentStations, poses: [tourPoses.C, tourPoses.C2, tourPoses.C3] }); } catch (error) { console.warn('Experiment decoration unavailable; project remains available.', error); }
@@ -108,6 +120,7 @@ host.dataset.filmMagicResources = JSON.stringify(filmMagic ? { ...filmMagic.meta
 host.dataset.filmAvailability = JSON.stringify(filmAvailability);
 host.dataset.experimentMagicStatus = experimentMagic ? 'ready' : 'fallback';
 host.dataset.experimentMagicResources = JSON.stringify(experimentMagic ? { ...experimentMagic.metadata, bindings: experimentAppearance.bindings } : { bindings: experimentAppearance.bindings });
+host.dataset.birdResources = JSON.stringify(world.birds?.metadata ?? null);
 host.dataset.overlayState = 'closed';
 if (!magic) status.textContent = '装饰暂不可用，仍可滚动阅读。';
 let view: ReturnType<typeof createRenderer> | undefined;
@@ -131,17 +144,20 @@ let lastInspection = 0;
 let scrollRange = 1;
 let navigationH: number | undefined;
 let readingLayout: ReturnType<typeof createReadingLayout> | undefined;
+let guide: ReturnType<typeof createAutoGuide> | undefined;
+let guideWrittenY: number | undefined;
 let overlayPosition: ReadingPosition | undefined;
 let routeWidth = 0, routeHeight = 0, routeFooter = 0;
 const focusPoint = new Vector3();
 const rounded = (values: number[]) => values.map((value) => Number(value.toFixed(7)));
+let birdVisibility: ReturnType<typeof createBirdVisibility> | undefined;
 const cameraMoving = () => !readingLayout?.stable && Math.abs(targetH - displayH) > 0.0000001;
 const covered = () => mediaOpen || projectTab === 'archive';
 const offscreen = () => !!readingLayout?.stable && !readingLayout.coverVisible && projectTab !== 'live';
 
 function syncLoop() {
   if (!view || disposed || failed) return;
-  const wanted = !covered() && !offscreen() && (animation.state.playing || (!projectTab && cameraMoving()));
+  const wanted = !animation.state.hidden && !covered() && !offscreen() && (animation.state.playing || (!projectTab && (cameraMoving() || !!guide?.needsFrames)));
   if (wanted !== loopRequested) {
     loopRequested = wanted;
     cameraTimestamp = null;
@@ -150,10 +166,11 @@ function syncLoop() {
 }
 
 function syncAnimation(state: AnimationState) {
-  motion.textContent = state.playing ? '暂停动效' : '播放动效';
+  motion.textContent = state.playing ? '暂停环境' : '播放环境';
   motion.title = state.reducedMotion && !state.playing ? '已按减少动态设置暂停，可手动播放' : '';
   host.dataset.motionState = state.hidden ? 'hidden' : covered() ? 'covered' : state.playing ? 'running' : 'paused';
   host.dataset.visibility = state.hidden ? 'hidden' : 'visible';
+  guide?.refresh();
   cameraTimestamp = null;
   view?.setSuspended(state.hidden || covered() || offscreen());
   projectViewer?.sync(mode, state.playing, failed ? 'failed' : contextLost ? 'recovering' : 'none');
@@ -163,6 +180,7 @@ function syncAnimation(state: AnimationState) {
 }
 const animation = createAnimationController(syncAnimation, fixedTime ?? waterConfig.initialTime, fixedTime !== undefined, { retainReducedPause: true });
 function beginOverlay(owner: 'media' | 'project') {
+  guide?.stop('作品已打开，关闭后可从当前位置继续导览。');
   if (!overlayOwner) { mediaProgress = displayH;overlayPosition = readingLayout?.capture(); }
   targetH = displayH;overlayOwner = owner;
   mediaOpen = owner === 'media';
@@ -267,6 +285,7 @@ function applyCamera() {
 
 function update(timestamp: number) {
   if (disposed || failed || covered() || offscreen()) return;
+  guide?.tick(timestamp);
   const now = performance.now();
   if (!projectTab && cameraMoving()) {
     const elapsed = cameraTimestamp === null ? 1 / 60 : Math.max(0, Math.min(0.05, (timestamp - cameraTimestamp) / 1000));
@@ -276,8 +295,17 @@ function update(timestamp: number) {
   }
   cameraTimestamp = timestamp;
   const frame = applyCamera();
+  guide?.afterFrame();
   const sceneTime = animation.advance(timestamp);
   world.update(sceneTime);
+  if (world.birds) {
+    birdVisibility ??= createBirdVisibility(app!, host, () => { if (!disposed && !failed && !loopRequested && !covered() && !offscreen() && !animation.state.hidden) view?.renderOnce(); });
+    const layout = `${routeWidth}/${routeHeight}/${routeFooter}/${main.dataset.readingMode}/${projectTab ?? ''}`;
+    const pose = `${host.dataset.cameraPosition}/${host.dataset.cameraTarget}/${host.dataset.viewHeight}/${host.dataset.stage}/${host.dataset.displayH}`;
+    const glyph = projectTab ? undefined : frame.reading ? magic?.getAnchor(frame.reading.station.id) : frame.filmReading ? filmMagic?.getAnchor(frame.filmReading.station.id) : frame.experimentReading ? experimentMagic?.getAnchor(frame.experimentReading.station.id) : undefined;
+    world.birds.present(world.camera, birdVisibility.measure(layout, pose, projectTab === 'live', world.camera, glyph));
+    if (inspectBirds) host.dataset.birdState = JSON.stringify(world.birds.snapshot());
+  }
   const inscriptions = !projectTab && !readingLayout?.stable;
   const magicFrame = magic?.update(inscriptions ? frame.reading : undefined, world.camera, sceneTime, animation.state.reducedMotion, mode);
   const filmMagicFrame = filmMagic?.update(inscriptions ? frame.filmReading : undefined, world.camera, sceneTime, animation.state.reducedMotion, mode);
@@ -302,6 +330,8 @@ function readScroll() {
   const range = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
   scrollRange = range;
   const next = Math.min(tourTotalH, Math.max(0, window.scrollY / range * tourTotalH));
+  if (guide?.active && guideWrittenY !== undefined && Math.abs(scrollY - guideWrittenY) > 1.5) guide.stop('已交还手动浏览，可从当前位置继续导览。');
+  if (!guide?.active) guide?.refresh();
   if (navigationH !== undefined && Math.abs(next - navigationH) >= .003) navigationH = undefined;
   if (Math.abs(next - targetH) < 0.0000001) return;
   targetH = next;
@@ -320,6 +350,7 @@ function resizeLayout() {
   const footerHeight = footer.getBoundingClientRect().height;
   app!.style.setProperty('--tour-footer-height', `${footerHeight}px`);
   const h = viewportProbe.getBoundingClientRect().height || window.innerHeight;
+  if (routeWidth !== innerWidth || routeHeight !== h || routeFooter !== footerHeight) guide?.stop('窗口布局已改变，可在布局稳定后继续导览。');
   spacer.style.height = `${tourTotalH * h + window.innerHeight}px`;
   const range = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
   scrollRange = range;
@@ -334,6 +365,7 @@ function resizeLayout() {
 
 function rendererState(state: RendererState) {
   contextLost = state === 'context-lost';
+  if (contextLost) guide?.stop('图形正在恢复，导览已停止。');
   presentation.setUnavailable(failed || state === 'context-lost' || state === 'restored');
   projectViewer.sync(mode, animation.state.playing, contextLost ? 'recovering' : 'none');
   if (state === 'restored') { animation.resetTimestamp();cameraTimestamp = null;readingLayout?.available();return; }
@@ -427,7 +459,130 @@ try {
 }
 readingLayout.start();
 
+function guideBlocked() {
+  if (disposed || failed || contextLost || !view || host.dataset.renderState !== 'ready') return '图形暂不可用，请使用稳定阅读。';
+  if (animation.state.reducedMotion) return '已按减少动态设置关闭自动运镜。';
+  if (document.hidden) return '页面已隐藏，回来后可手动继续导览。';
+  if (overlayOwner) return '作品查看中，返回阅读后可继续导览。';
+  if (readingLayout?.stable) return '当前为稳定阅读，可切换沉浸浏览后导览。';
+  if (main.dataset.layoutReady !== 'true' || main.dataset.immersiveAvailable !== 'true') return '正在核对阅读空间，请稍候。';
+  return '';
+}
+const decodedGuideImages = new WeakSet<HTMLImageElement>(), pendingGuideImages = new WeakSet<HTMLImageElement>(), failedGuideImages = new WeakSet<HTMLImageElement>();
+function guideReady(stop: GuideStop) {
+  const unread = { ready: false, text: '' };
+  if (cameraMoving() || Math.abs(targetH - displayH) >= .000001) return unread;
+  if (!/^[ABC]/.test(stop.id)) return { ready: Number(app!.querySelector<HTMLElement>('.tour-heading')!.dataset.opacity) >= .999, text: '' };
+  const panel = stop.id.startsWith('A') ? reader.element : stop.id.startsWith('B') ? filmReader.element : experimentReader.element;
+  const article = panel.querySelector<HTMLElement>(`article[data-flow-anchor="${stop.id}"]`);
+  if (!article || article.hidden || article.inert || article.getAttribute('aria-hidden') !== 'false' || panel.dataset.fits !== 'true') return unread;
+  const frame = stop.id.startsWith('A') ? { body: Number(host.dataset.readingOpacity), title: Number(host.dataset.readingTitleOpacity) }
+    : JSON.parse(stop.id.startsWith('B') ? host.dataset.filmPresentation! : host.dataset.experimentPresentation!) as { body: number; title: number; media?: number };
+  if (frame.body < .999 || frame.title < .999 || 'media' in frame && frame.media! < .999) return unread;
+  for (const image of article.querySelectorAll<HTMLImageElement>('img')) {
+    if (!image.currentSrc || !image.complete) return unread;
+    // Existing error placeholders remain usable; successful images must decode.
+    if (image.naturalWidth === 0) continue;
+    if (failedGuideImages.has(image)) return unread;
+    if (!decodedGuideImages.has(image)) {
+      if (!pendingGuideImages.has(image)) {
+        pendingGuideImages.add(image);
+        void image.decode().then(() => { decodedGuideImages.add(image);if (!disposed) guide?.poke(); }).catch(() => { failedGuideImages.add(image);if (!disposed) guide?.poke(); });
+      }
+      return unread;
+    }
+  }
+  return { ready: true, text: article.innerText };
+}
+let guideAnnouncement = '';
+function renderGuide(state: GuideSnapshot) {
+  const blocked = state.state === 'blocked';
+  const label = blocked ? '导览暂不可用' : state.active ? '停止导览' : state.phase === 'finished' ? '重新导览' : state.phase === 'paused' ? '继续导览' : '开始导览';
+  if (guideButton.textContent !== label) guideButton.textContent = label;
+  guideButton.setAttribute('aria-pressed', String(state.active));guideButton.setAttribute('aria-disabled', String(blocked));
+  const note = blocked ? state.reason : state.active ? `自动导览中 · ${state.stop.label}。滚动可随时接管。` : state.phase === 'finished' ? '完整导览已结束，点击可回到开场重新开始。' : '从当前位置继续原路线，滚动可随时接管。';
+  if (guideNote.textContent !== note) guideNote.textContent = note;
+  guideButton.title = note;
+  host.dataset.guideState = state.state;host.dataset.guidePhase = state.phase;host.dataset.guideStation = state.stop.id;
+  host.dataset.guideTargetH = String(state.targetH);host.dataset.guideReadSeconds = String(state.seconds);
+  host.dataset.guideReadyAt = state.readyAt === null ? '' : String(state.readyAt);host.dataset.guideDeadline = state.deadline === null ? '' : String(state.deadline);
+  host.dataset.guideReason = state.reason;
+  const announce = state.active ? 'running' : `${state.state}|${state.reason}`;
+  if (announce !== guideAnnouncement) {
+    if (state.active) guideStatus.textContent = '自动导览已开始，滚动或点击停止可随时接管。';
+    else if (state.phase === 'paused' || state.phase === 'finished') guideStatus.textContent = state.reason;
+    guideAnnouncement = announce;
+  }
+  syncLoop();
+}
+guide = createAutoGuide({
+  h: () => Math.min(tourTotalH, Math.max(0, scrollY / scrollRange * tourTotalH)), blocked: guideBlocked, ready: guideReady,
+  prepare(stop) { if (stop.id.startsWith('B')) filmReader.prime();if (stop.id.startsWith('C')) experimentReader.prime(); },
+  write(h) {
+    guideWrittenY = h / tourTotalH * scrollRange;window.scrollTo({ top: guideWrittenY, behavior: 'instant' });guideWrittenY = scrollY;readScroll();
+  },
+  wake() {
+    const generation = guide?.snapshot.generation;
+    queueMicrotask(() => {
+      if (!disposed && guide?.active && guide.snapshot.generation === generation && !guideBlocked()) {
+        syncLoop();if (!loopRequested) view?.renderOnce();
+      }
+    });
+  },
+  changed: renderGuide,
+});
+guide.refresh();
+// Paused environment + pending image has no continuous GL loop. A real image
+// completion wakes only the current arrival; stopped guides cannot be revived.
+const guideImageReady = (event: Event) => {
+  if (event.target instanceof HTMLImageElement && event.target.closest('article')) guide?.poke();
+};
+main.addEventListener('load', guideImageReady, { capture: true, signal: listenerController.signal });
+main.addEventListener('error', guideImageReady, { capture: true, signal: listenerController.signal });
+guideButton.addEventListener('click', () => {
+  // A first-ever start at an already held station may not write any scroll yet.
+  // Anchor ownership now so scrollbar/accessibility scroll is still detectable.
+  if (!guide?.active) guideWrittenY = scrollY;
+  guide?.toggle();
+}, eventOptions);
+const guideSettings = '#tour-guide,#tour-motion,[data-mode],[data-project-mode],.tour-project-motion';
+const inputElement = (event: Event) => event.target instanceof Element ? event.target : undefined;
+window.addEventListener('wheel', () => guide?.stop('已交还手动滚动，可从当前位置继续导览。'), { passive: true, capture: true, signal: listenerController.signal });
+window.addEventListener('pointerdown', event => {
+  const target = inputElement(event);if (!target || target.closest(guideSettings) || event.button !== 0) return;
+  if (event.pointerType === 'touch' || target === document.documentElement || target.closest('article,nav,a,button,.tour-heading,canvas,.tour-brand')) guide?.stop('已交还手动浏览，可从当前位置继续导览。');
+}, { passive: true, capture: true, signal: listenerController.signal });
+window.addEventListener('keydown', event => {
+  if (event.altKey || event.ctrlKey || event.metaKey) return;
+  const target = inputElement(event);
+  if (target?.closest('input,textarea,select,[contenteditable="true"],[role="tablist"],[role="slider"]')) return;
+  if (event.key === ' ' && target?.closest('button,a')) return;
+  if (['Tab', 'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) guide?.stop('已交还键盘浏览，可从当前位置继续导览。');
+}, { capture: true, signal: listenerController.signal });
+document.addEventListener('selectionchange', () => {
+  const selection = getSelection();
+  if (selection && !selection.isCollapsed && selection.rangeCount && [...main.querySelectorAll('article,.tour-heading')].some(node => selection.getRangeAt(0).intersectsNode(node))) guide?.stop('文字选择已保留，可稍后继续导览。');
+}, eventOptions);
+document.addEventListener('focusin', event => {
+  const target = inputElement(event);if (target && !target.closest(guideSettings) && target.closest('article,a,[data-reading-toggle]')) guide?.stop('已交还阅读操作，可从当前位置继续导览。');
+}, eventOptions);
+const guideLayoutObserver = new MutationObserver(records => {
+  const meaningful = records.some(r => r.oldValue !== (r.target as Element).getAttribute(r.attributeName!));
+  if (!meaningful || disposed) return;
+  if (records.some(r => r.attributeName === 'data-reading-capacity' && r.oldValue !== null && r.oldValue !== main.dataset.readingCapacity)) guide?.stop('阅读布局已更新，可从当前位置继续导览。');
+  guide?.refresh();
+});
+guideLayoutObserver.observe(main, { attributes: true, attributeOldValue: true, attributeFilter: ['data-reading-mode', 'data-reading-capacity', 'data-layout-ready', 'data-immersive-available'] });
+guideLayoutObserver.observe(host, { attributes: true, attributeOldValue: true, attributeFilter: ['data-render-state'] });
+let guideViewportScale = window.visualViewport?.scale ?? 1;
+window.visualViewport?.addEventListener('resize', () => {
+  const scale = window.visualViewport!.scale;
+  if (Math.abs(scale - guideViewportScale) > .001) guide?.stop('缩放已改变，可在布局稳定后继续导览。');
+  guideViewportScale = scale;
+}, { passive: true, signal: listenerController.signal });
+
 function navigate(h: number) {
+  guide?.stop('已切换章节，可从新位置继续导览。');
   if (disposed || overlayOwner || !Number.isFinite(h)) return;
   if (readingLayout?.navigate(h)) return;
   if (failed || contextLost) return;
@@ -482,12 +637,13 @@ function dispose() {
   if (disposed) return;
   disposed = true;
   listenerController.abort();
+  guide?.dispose();guideLayoutObserver.disconnect();
   if (restoreFrame !== undefined) cancelAnimationFrame(restoreFrame);
   clearTimeout(recoveryTimer);
   experienceResize.disconnect();
   if (experienceLayoutFrame !== undefined) cancelAnimationFrame(experienceLayoutFrame);
   animation.dispose();
-  readingLayout?.dispose();
+  birdVisibility?.dispose();readingLayout?.dispose();
   presentation.dispose();
   view?.dispose();
   mediaViewer.dispose();

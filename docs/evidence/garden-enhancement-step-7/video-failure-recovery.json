@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "candidateId": "garden-enhancement-step7-487410d10d8ad600",
+  "checks": [
+    {
+      "name": "actual intercepted video404 exposes retry and retains project reading",
+      "passed": true,
+      "rejectedRequests": [
+        "http://127.0.0.1:4183/assets/courtyard-motion-7fR7fsF8.mp4"
+      ],
+      "guide": {
+        "displayH": "10.0500000",
+        "targetH": "10.0500000",
+        "cameraState": "settled",
+        "motionState": "covered",
+        "sceneTime": "2.000000",
+        "guideState": "blocked",
+        "guidePhase": "paused",
+        "guideStation": "C2",
+        "guideTargetH": "10.05",
+        "guideReadSeconds": "12",
+        "guideReadyAt": "2887.800000011921",
+        "guideDeadline": "",
+        "guideReason": "作品查看中，返回阅读后可继续导览。"
+      }
+    },
+    {
+      "name": "original retry loads real decoded clip; close releases video and retains focus/position/paused time",
+      "passed": true,
+      "decoded": {
+        "duration": 12,
+        "width": 680,
+        "height": 680,
+        "currentTime": 0.167196
+      },
+      "canvasCount": 1,
+      "nativePosition": 9045,
+      "guide": {
+        "displayH": "10.0500000",
+        "targetH": "10.0500000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "paused",
+        "guidePhase": "paused",
+        "guideStation": "C2",
+        "guideTargetH": "10.05",
+        "guideReadSeconds": "12",
+        "guideReadyAt": "2887.800000011921",
+        "guideDeadline": "",
+        "guideReason": "已交还手动浏览，可从当前位置继续导览。"
+      }
+    }
+  ],
+  "unhandledExceptions": [],
+  "method": "explicit real MP4 HTTP404 injection followed by original retry button; real decoder metadata and playback observed (video.play is test media API, not claimed trusted footage); native close/focus and paused original scene time checked",
+  "physicalDevice": false
+}

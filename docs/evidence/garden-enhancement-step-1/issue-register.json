@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "gitCommit": "4d564f3a79e1e4cc84f9d08b043f9ac5b83c69e3",
+  "issues": [
+    {
+      "id": "I01",
+      "request": "可开始/停止/打断的自动导览",
+      "current": "当前按钮只控制环境动效，尚无自动推进相机/原生滚动的导览",
+      "evidence": [
+        "desktop-pixel-O.png",
+        "phone-pixel-O.png",
+        "src/tour/startTourPrototype.ts"
+      ],
+      "nextStep": 4,
+      "status": "confirmed-current-baseline; not fixed in step1"
+    },
+    {
+      "id": "I02",
+      "request": "球面流动水纹与波浪",
+      "current": "已有轻悬浮、形变和较弱sheen，连续曲面流纹/波峰层次尚待增强",
+      "evidence": [
+        "water-orb-baseline.mp4",
+        "water-orb-recording.json",
+        "src/materials/createOrbMaterial.ts",
+        "src/animation/orbMotion.ts"
+      ],
+      "nextStep": 3,
+      "status": "confirmed-current-baseline; not fixed in step1"
+    },
+    {
+      "id": "I03",
+      "request": "介绍背景完整羽化",
+      "current": "实际复现；固有420x240遮罩最外缘alpha最大43/255，现有伪元素无box-shadow，模糊位于SVG遮罩内部",
+      "outerEdgeAlpha": {
+        "left": 25,
+        "right": 43,
+        "top": 23,
+        "bottom": 28
+      },
+      "evidence": [
+        "about-edge-detail.png",
+        "about-edge-measurement.json",
+        "src/tour/tour.css"
+      ],
+      "nextStep": 2,
+      "status": "confirmed-current-baseline; not fixed in step1"
+    },
+    {
+      "id": "I04",
+      "request": "掠过庭院的云影",
+      "current": "仅有既有树影轻微摇动，暂无独立云影场；石材现有环境接收关系需明确接入",
+      "evidence": [
+        "src/config/environment.ts",
+        "src/materials/applyEnvironmentMotion.ts",
+        "src/materials/createArtMaterial.ts",
+        "src/materials/createStoneMaterial.ts"
+      ],
+      "nextStep": 5,
+      "status": "confirmed-current-baseline; not fixed in step1"
+    },
+    {
+      "id": "I05",
+      "request": "几只运动的鸟",
+      "current": "现有src无bird/cloud场景模块，只有原草花、水滴等环境运动",
+      "evidence": [
+        "src/scene/createScene.ts",
+        "src/config/environment.ts",
+        "desktop-native-O.png"
+      ],
+      "nextStep": 6,
+      "status": "confirmed-current-baseline; not fixed in step1"
+    }
+  ],
+  "newFeaturesImplemented": false
+}

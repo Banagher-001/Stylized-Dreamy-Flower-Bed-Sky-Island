@@ -45,8 +45,42 @@ html.tour-document { scroll-behavior: auto; scroll-padding-top: 0; }
 .tour-reading-stops { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 .tour-reading-stops > span { margin-right: auto; font-size: 10px; }
 .tour-reading-stops button { min-width: 44px; min-height: 44px; padding: 8px; border: 1px solid var(--color-rule); background: #edf0e1; font-size: 11px; }
-.pillar-reading { position: fixed; z-index: 2; display: grid; isolation: isolate; width: min(420px, calc(100vw - 32px)); padding: 30px 34px 32px; color: #edf4e6; pointer-events: none; opacity: 0; visibility: hidden; }
-.pillar-reading::before { content: ''; position: absolute; z-index: -1; inset: 0; background: #223b33; opacity: var(--veil-opacity, 0); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20420%20240%22%20preserveAspectRatio%3D%22none%22%3E%3Cfilter%20id%3D%22f%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%3CfeGaussianBlur%20stdDeviation%3D%226%22%2F%3E%3C%2Ffilter%3E%3Cpath%20fill%3D%22white%22%20filter%3D%22url%28%23f%29%22%20d%3D%22M30%2012%20Q110%205%20204%2012%20T395%2012%20Q412%2016%20409%2045%20L414%20178%20Q411%20227%20386%20228%20Q300%20236%20216%20228%20T27%20230%20Q8%20229%2011%20191%20L8%2050%20Q8%2019%2030%2012Z%22%2F%3E%3C%2Fsvg%3E"); mask-size: 100% 100%; mask-repeat: no-repeat; }
+.pillar-reading {
+  position: fixed; z-index: 2; display: grid; isolation: isolate;
+  width: min(420px, calc(100vw - 32px)); padding: 30px 34px 32px;
+  color: #edf4e6; pointer-events: none; opacity: 0; visibility: hidden;
+  --veil-feather: 36px;
+  --veil-outset: 12px;
+  /* A smooth ramp in CSS pixels, with a complete transparent edge at every size. */
+  --veil-ramp:
+    transparent 0 2px,
+    rgb(0 0 0 / .058) calc(2px + (var(--veil-feather) - 2px) * .2),
+    rgb(0 0 0 / .317) calc(2px + (var(--veil-feather) - 2px) * .4),
+    rgb(0 0 0 / .683) calc(2px + (var(--veil-feather) - 2px) * .6),
+    rgb(0 0 0 / .942) calc(2px + (var(--veil-feather) - 2px) * .8),
+    #000 var(--veil-feather),
+    #000 calc(100% - var(--veil-feather)),
+    rgb(0 0 0 / .942) calc(100% - 2px - (var(--veil-feather) - 2px) * .8),
+    rgb(0 0 0 / .683) calc(100% - 2px - (var(--veil-feather) - 2px) * .6),
+    rgb(0 0 0 / .317) calc(100% - 2px - (var(--veil-feather) - 2px) * .4),
+    rgb(0 0 0 / .058) calc(100% - 2px - (var(--veil-feather) - 2px) * .2),
+    transparent calc(100% - 2px) 100%;
+}
+.pillar-reading::before {
+  content: ''; position: absolute; z-index: -1; inset: calc(-1 * var(--veil-outset));
+  background: #223b33; opacity: calc(var(--veil-opacity, 0) * .9);
+  border-radius: 12px; pointer-events: none;
+}
+@supports (mask-composite: intersect) or (-webkit-mask-composite: source-in) {
+  .pillar-reading::before {
+    border-radius: 0;
+    -webkit-mask-image: linear-gradient(to right, var(--veil-ramp)), linear-gradient(to bottom, var(--veil-ramp));
+    mask-image: linear-gradient(to right, var(--veil-ramp)), linear-gradient(to bottom, var(--veil-ramp));
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    mask-size: 100% 100%; mask-repeat: no-repeat;
+  }
+}
 .pillar-reading[data-visible="true"] { pointer-events: auto; }
 .pillar-reading article { grid-area: 1 / 1; min-width: 0; visibility: hidden; }
 .pillar-reading-eyebrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 14px; color: #c4dfdb; font-size: 10px; letter-spacing: .1em; }
@@ -101,7 +135,7 @@ html.tour-document { scroll-behavior: auto; scroll-padding-top: 0; }
   .tour-actions .mode-controls button { padding-inline: 10px; }
   .tour-inspector summary { padding-inline: 8px; font-size: 9px; }
   .tour-inspector-panel { right: 16px; max-height: 50svh; }
-  .pillar-reading { padding: 24px 26px 26px; }
+  .pillar-reading { --veil-feather: 24px; --veil-outset: 8px; padding: 24px 26px 26px; }
   .pillar-reading-eyebrow { margin-bottom: 10px; font-size: 9px; }
   .pillar-reading h2 { font-size: 22px; text-shadow: 0 0 4px rgb(255 241 205 / 20%); }
   .pillar-reading-body { margin-top: 12px; font-size: 16px; line-height: 1.65; }

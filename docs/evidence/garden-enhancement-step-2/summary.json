@@ -1,0 +1,168 @@
+{
+  "passed": true,
+  "round": "garden-enhancement",
+  "completedStep": 2,
+  "completedAtUtc": "2026-11-07T06:33:25.368676+00:00",
+  "completionScope": "About background feather + necessary stable-reading large-text wrap; all executable step2 criteria passed; physical-device capabilities separately pending",
+  "candidateId": "garden-enhancement-step2-3a477d247f5475fe",
+  "gitBaseCommit": "4d564f3a79e1e4cc84f9d08b043f9ac5b83c69e3",
+  "buildInputFingerprint": "3a477d247f5475fe3412522994a7ff7a04932843aa19055eeb670049c8f294e4",
+  "changedRuntimeSources": [
+    "src/tour/readingLayout.css",
+    "src/tour/tour.css"
+  ],
+  "F01_F15": {
+    "F01": {
+      "passed": true
+    },
+    "F02": {
+      "passed": true
+    },
+    "F03": {
+      "passed": true
+    },
+    "F04": {
+      "passed": true
+    },
+    "F05": {
+      "passed": true
+    },
+    "F06": {
+      "passed": true
+    },
+    "F07": {
+      "passed": true
+    },
+    "F08": {
+      "passed": true
+    },
+    "F09": {
+      "passed": true
+    },
+    "F10": {
+      "passed": true
+    },
+    "F11": {
+      "passed": true
+    },
+    "F12": {
+      "passed": true
+    },
+    "F13": {
+      "passed": true
+    },
+    "F14": {
+      "passed": true
+    },
+    "F15": {
+      "passed": true
+    }
+  },
+  "fresh": {
+    "stationPhaseDirectionCases": 324,
+    "byEngine": {
+      "chromium": {
+        "version": "155.0.8059.79",
+        "phaseCases": 108,
+        "pairedBackgroundMeasurements": 18,
+        "extraCases": 9,
+        "minimumContrast": 5.555338359069898,
+        "outerAlphaMax": 0
+      },
+      "firefox": {
+        "version": "153.0",
+        "phaseCases": 108,
+        "pairedBackgroundMeasurements": 18,
+        "extraCases": 7,
+        "minimumContrast": 5.584954319077553,
+        "outerAlphaMax": 0
+      },
+      "webkit": {
+        "version": "26.5",
+        "phaseCases": 108,
+        "pairedBackgroundMeasurements": 18,
+        "extraCases": 7,
+        "minimumContrast": 5.567444608589539,
+        "outerAlphaMax": 0
+      }
+    },
+    "pairedActualBackgroundMeasurements": 54,
+    "extraActualDprBoundaryMeasurements": 4,
+    "minimumConservativeContrast": 5.555338359069898,
+    "maximumOuterAlpha": 0,
+    "pureFullCanvasPairs": 12,
+    "otherChapterFullPagePairs": 8,
+    "legacyFullPagePairs": 2,
+    "resourceViewports": 3,
+    "modeCyclesPerViewport": 10,
+    "viewerReturnCases": 2,
+    "productionFileHashAndMimeChecks": 36,
+    "videoSeconds": 17.24
+  },
+  "resources": {
+    "newWebGLGeometries": 0,
+    "newWebGLTextures": 0,
+    "newWebGLPrograms": 0,
+    "newWebGLPasses": 0,
+    "prewarmedGeometries": 58,
+    "prewarmedTextures": 6,
+    "programsBothModes": 22,
+    "cssCompositionCostIsNotClaimedZero": true
+  },
+  "performance": {
+    "travel30": {
+      "beforeP95Ms": 184.79999999998836,
+      "afterP95Ms": 187.5,
+      "changePercent": 1.4610389610453467,
+      "samplesPerVersion": 30,
+      "beforeMaxMs": 198,
+      "afterMaxMs": 193.5,
+      "withinTenPercentBudget": true
+    },
+    "aboutVisible18": {
+      "beforeP95Ms": 241.10000000003492,
+      "afterP95Ms": 199.09999999997672,
+      "changePercent": -17.420157610971433,
+      "samplesPerVersion": 18,
+      "beforeMaxMs": 255.80000000004657,
+      "afterMaxMs": 201.79999999998836,
+      "withinTenPercentBudget": true
+    }
+  },
+  "preserved": {
+    "step1SealedArtifacts": 79,
+    "oldReleaseFiles": 10,
+    "typeScriptAssetsSceneDependenciesUnchanged": true,
+    "oldZipsRepacked": false
+  },
+  "candidateArchiveSha256": "34fa09c1812b12863a9187b2478e1077a8088391c6c35d620432ea6fd2ac1438",
+  "resultBindingSha256": "e47f4482542cc0c1df7de987a482a6a7c4e52c5dbfb6c4de9049c38f84897d34",
+  "nextStep": 3,
+  "step3Started": false,
+  "otherEnhancementsImplemented": {
+    "newOrbFlow": false,
+    "automaticTour": false,
+    "cloudShadows": false,
+    "birds": false
+  },
+  "newGitCommitOrPush": false,
+  "publishedOrDeployed": false,
+  "previewsPreserved": [
+    5173,
+    4173
+  ],
+  "ownTestServicesStopped": [
+    4176,
+    4177
+  ],
+  "limits": [
+    "Phone viewport/touch and200%rem are browser/layout simulation, not real devices or OS settings",
+    "Firefox screenshot backend lacks transparent capture; raw black/white composites reconstruct alpha with target properties unchanged",
+    "GTK WebKit is not real iOS Safari; fixed-mobile wheel interface unavailable; actual tap and other input conditions recorded separately",
+    "OS selection handles/system clipboard, physical iOS/Android, system text/notch, screen reader, physical trackpad/APZ and hardwareFPS need actual-device review",
+    "Existing historic test counts not represented as fresh runs"
+  ],
+  "evidenceManifestSha256": "eeb900a5f35a2a1cfc92d3e76fcda525b91c925618743b46a325183a8a7fbace",
+  "artifactFilesCovered": 355,
+  "resolvedDocumentationLinks": 36
+}

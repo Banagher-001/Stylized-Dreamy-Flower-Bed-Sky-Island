@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "candidateId": "garden-enhancement-step5-fc6b56eb4157625e",
+  "checkedAtUtc": "2026-11-08T11:16:47.917568+00:00",
+  "stoppedOwnedQaPorts": [
+    4178,
+    4179
+  ],
+  "stoppedOwnedXvfb": ":103",
+  "x103SocketAbsent": true,
+  "knownOwnedSessionsStopped": [
+    26193,
+    54243,
+    37762
+  ],
+  "keptUserServices": [
+    {
+      "port": 5173,
+      "status": 200,
+      "mime": "text/html",
+      "bodySha256": "1493f6affe16e73c085eaf8fdc89395bcad2cc805aa63a4f449a65c4af911565"
+    },
+    {
+      "port": 4173,
+      "status": 200,
+      "mime": "text/html",
+      "bodySha256": "8e29f87d33589abd0526e0b0598f41ad89ee38f7c6f4b73ba2e1540263561428"
+    }
+  ],
+  "restoredMissingUserServicePorts": [
+    5173,
+    4173
+  ],
+  "restoredSessions": [
+    86293,
+    77793
+  ],
+  "reason": "both user preview ports were observed closed during final delivery; restored using existing npm dev/preview scripts and verified current served bytes",
+  "otherDisplaysAndServicesTouched": false,
+  "published": false
+}

@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "candidateId": "garden-enhancement-step7-487410d10d8ad600",
+  "browser": "155.0.8059.79",
+  "checks": [
+    {
+      "name": "actual final six-second hold and no loop",
+      "start": {
+        "displayH": "12.3000000",
+        "targetH": "12.3000000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "reading",
+        "guidePhase": "reading",
+        "guideStation": "S99",
+        "guideTargetH": "12.3",
+        "guideReadSeconds": "6",
+        "guideReadyAt": "3136.5",
+        "guideDeadline": "9136.5",
+        "guideReason": ""
+      },
+      "end": {
+        "displayH": "12.3000000",
+        "targetH": "12.3000000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "finished",
+        "guidePhase": "finished",
+        "guideStation": "S99",
+        "guideTargetH": "12.3",
+        "guideReadSeconds": "6",
+        "guideReadyAt": "3136.5",
+        "guideDeadline": "",
+        "guideReason": "导览结束，可重新导览或自由浏览。"
+      },
+      "observedEndAt": 9155.70000000298,
+      "noLoopWindowMs": 1100
+    },
+    {
+      "name": "explicit replay uses original overview, native wheel interrupts return without rebound",
+      "replay": {
+        "displayH": "12.3000000",
+        "targetH": "12.3000000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "arriving",
+        "guidePhase": "arriving",
+        "guideStation": "O",
+        "guideTargetH": "0",
+        "guideReadSeconds": "0",
+        "guideReadyAt": "",
+        "guideDeadline": "",
+        "guideReason": ""
+      },
+      "takeover": {
+        "scrollY": 160,
+        "H": "0.1777778",
+        "noAutomaticWritesWindowMs": 1000,
+        "guide": {
+          "displayH": "0.1777778",
+          "targetH": "0.1777778",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "2.000000",
+          "guideState": "paused",
+          "guidePhase": "paused",
+          "guideStation": "O",
+          "guideTargetH": "0",
+          "guideReadSeconds": "4",
+          "guideReadyAt": "10584",
+          "guideDeadline": "",
+          "guideReason": "已交还手动滚动，可从当前位置继续导览。"
+        }
+      },
+      "environmentTimeBefore": "2.000000",
+      "environmentTimeAfter": "2.000000"
+    }
+  ],
+  "errors": [],
+  "method": "real production controller/deadlines; near-ending native scroll position is test setup; actual button and native wheel provide replay/takeover proof; no accelerated time",
+  "physicalDevice": false,
+  "freshHarness": {
+    "source": "tests/garden-enhancement/step4_replay.py",
+    "sha256": "77c1c80c2e4e71ce9a6b794a913e8aad20d8f6b232c5cbcc940211f9e2cf0bb7",
+    "adaptations": {
+      "from step4_common import *": "from step7_common import *",
+      "127.0.0.1:4177": "127.0.0.1:4183"
+    }
+  }
+}

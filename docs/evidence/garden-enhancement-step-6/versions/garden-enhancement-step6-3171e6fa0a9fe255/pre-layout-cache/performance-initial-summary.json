@@ -1,0 +1,77 @@
+{
+  "passed": false,
+  "completedMeasurements": true,
+  "candidateId": "garden-enhancement-step6-3171e6fa0a9fe255",
+  "groups": {
+    "pixel": {
+      "before": {
+        "frameWork": {
+          "count": 336,
+          "p50Ms": 1.1000000014901161,
+          "p95Ms": 1.5999999940395355,
+          "meanMs": 1.1934523808415092
+        },
+        "intervals": {
+          "count": 334,
+          "p50Ms": 33.40000000000873,
+          "p95Ms": 66.80000000000291,
+          "meanMs": 42.762874251496974
+        }
+      },
+      "after": {
+        "frameWork": {
+          "count": 336,
+          "p50Ms": 1.7000000029802322,
+          "p95Ms": 5.800000004470348,
+          "meanMs": 2.1190476189589216
+        },
+        "intervals": {
+          "count": 334,
+          "p50Ms": 33.400000000001455,
+          "p95Ms": 83.29999999999563,
+          "meanMs": 42.26407185628746
+        }
+      },
+      "frameWorkP95ChangePercent": 262.5000016298145,
+      "intervalP95ChangePercent": 24.700598802383244
+    },
+    "native": {
+      "before": {
+        "frameWork": {
+          "count": 336,
+          "p50Ms": 1.1000000014901161,
+          "p95Ms": 5.4000000059604645,
+          "meanMs": 1.6919642858251573
+        },
+        "intervals": {
+          "count": 334,
+          "p50Ms": 116.69999999998254,
+          "p95Ms": 199.89999999999418,
+          "meanMs": 121.30239520958084
+        }
+      },
+      "after": {
+        "frameWork": {
+          "count": 336,
+          "p50Ms": 1.6999999955296516,
+          "p95Ms": 6.100000001490116,
+          "meanMs": 2.34166666672432
+        },
+        "intervals": {
+          "count": 334,
+          "p50Ms": 116.69999999998254,
+          "p95Ms": 200.0,
+          "meanMs": 119.55598802395204
+        }
+      },
+      "frameWorkP95ChangePercent": 12.962962865870352,
+      "intervalP95ChangePercent": 0.050025012509169464
+    }
+  },
+  "rawFile": "performance-progress.json",
+  "originalHarnessAssertion": "same camera height metadata string; exactly one1e-7 rounding difference in first selected frame in each native pair; actual H/time/position/target equal",
+  "maxMatchedHError": 0,
+  "maxEnvironmentTimeError": 0,
+  "maximumHeightMetadataDifference": 1.0000000028043132e-07,
+  "decision": "script p95 and pixel interval exceed10%; preserve all raw data, optimize layout reads, then rerun; do not sign off"
+}

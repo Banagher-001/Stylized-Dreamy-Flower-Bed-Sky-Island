@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "engine": "native Chromium, Linux Xvfb/SwiftShader; real CDP target switching and context extension",
+  "checks": [
+    {
+      "check": "real native hidden/return preserves stable text, exact native position, pixels and paused scene",
+      "passed": true,
+      "evidence": {
+        "state": {
+          "mode": "stable",
+          "anchor": "A2",
+          "y": 1933,
+          "h": "2.5400000",
+          "time": "2.000000",
+          "position": "[4.5,23,16]",
+          "target": "[0,0.45,0]",
+          "height": "11.3000000",
+          "canvas": true
+        },
+        "zeroHiddenDrawMs": 400,
+        "actualHiddenObserved": true,
+        "fullViewportPixelsExact": true
+      }
+    },
+    {
+      "check": "offscreen context recovery retains full stable reading and waits for explicit immersive choice",
+      "passed": true,
+      "evidence": {
+        "noAutomaticCameraReturn": true,
+        "sameCanvas": true,
+        "returnedH": 2.54,
+        "allTenStationsWhileLost": true
+      }
+    },
+    {
+      "check": "close during live graphic loss returns to full C2 reading and recovery keeps layout",
+      "passed": true,
+      "evidence": {
+        "noModalDeadlock": true,
+        "stableAnchor": "C2",
+        "archiveStillUsable": true,
+        "noVideoAfterClose": true
+      }
+    },
+    {
+      "check": "real hidden pauses archive video, return never autoplays and close releases decoder",
+      "passed": true,
+      "evidence": {
+        "realHidden": true,
+        "videoPausedAfterReturn": true,
+        "decoderReleased": true
+      }
+    },
+    {
+      "check": "playing cover suspends all GL and its clock offscreen, then resumes only preserved play intent",
+      "passed": true,
+      "evidence": {
+        "offscreenZeroDrawMs": 400,
+        "offscreenClock": "2.166700",
+        "sameCanvas": true
+      }
+    },
+    {
+      "check": "reduced-motion change respects active modal ownership, restores C2 and never auto-resumes",
+      "passed": true,
+      "evidence": {
+        "sourceAnchor": "C2",
+        "modeAfterClose": "stable",
+        "preferenceRemovedStillPaused": true
+      }
+    }
+  ],
+  "unhandledExceptions": [],
+  "intentionalContextLossConsoleDiagnostics": [],
+  "fakeHiddenEventsUsed": false,
+  "physicalDeviceOrFPSProof": false
+}

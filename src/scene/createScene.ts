@@ -21,9 +21,14 @@ import { createFloatingPetals } from './createFloatingPetals';
 import { createFountainAppearance } from './createFountainAppearance';
 import type { FountainStyle } from '../config/fountain';
 import type { OrbStyle } from '../config/orb';
+import { createCloudShadowState } from '../animation/cloudShadows';
+import { createCloudShadowBinding } from '../materials/applyCloudShadows';
+import { createBirds } from './createBirds';
 
-export function createScene(options: Partial<EnvironmentOptions> = {}, fountainStyle: FountainStyle = 'legacy', orbStyle: OrbStyle = 'legacy') {
+export function createScene(options: Partial<EnvironmentOptions> = {}, fountainStyle: FountainStyle = 'legacy', orbStyle: OrbStyle = 'legacy', clouds = false, flyingBirds = false) {
   const environmentState = createEnvironmentState(options);
+  const cloudState = createCloudShadowState(clouds && environmentState.options.enabled, environmentState.time.value);
+  const cloudShadows = createCloudShadowBinding(cloudState);
   const scene = new Scene();
   scene.background = new Color(palette.grassBase);
 
@@ -93,6 +98,12 @@ export function createScene(options: Partial<EnvironmentOptions> = {}, fountainS
   scene.add(vegetation.root);
   const petals = environmentState.options.enabled && environmentState.options.petals ? createFloatingPetals() : undefined;
   if (petals) { petals.update(environmentState.time.value);scene.add(petals.mesh); }
+  cloudShadows.bind(scene);
+  let birds: ReturnType<typeof createBirds> | undefined;
+  if (flyingBirds && environmentState.options.enabled) {
+    try { birds = createBirds();birds.update(environmentState.time.value);scene.add(birds.root); }
+    catch (error) { console.warn('Birds unavailable; original courtyard retained.', error); }
+  }
   let disposed = false;
 
   return {
@@ -108,6 +119,8 @@ export function createScene(options: Partial<EnvironmentOptions> = {}, fountainS
     update(time: number) {
       fountainEffects.update(time);
       environmentState.time.value = time;
+      cloudState.update(time);
+      birds?.update(time);
       petals?.update(time);
     },
     waterState,
@@ -116,9 +129,13 @@ export function createScene(options: Partial<EnvironmentOptions> = {}, fountainS
     orbStyle: fountainEffects.root.userData.orbStyle ?? (orbStyle === 'lively' ? 'fallback' : 'legacy'),
     orbMetadata: fountainEffects.root.userData.orbMetadata,
     environmentState,
+    cloudShadows,
+    birds,
     dispose() {
       if (disposed) return;
       disposed = true;
+      cloudShadows.dispose();
+      birds?.dispose();
       groundGeometry.dispose();
       groundMaterial.dispose();
       fountainAppearance?.dispose();

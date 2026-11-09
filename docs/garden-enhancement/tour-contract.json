@@ -1,0 +1,199 @@
+{
+  "schema": 1,
+  "status": "design only; not imported by the application",
+  "baselineCommit": "4d564f3a79e1e4cc84f9d08b043f9ac5b83c69e3",
+  "defaultTourEnabled": false,
+  "environmentPlaybackIndependent": true,
+  "singleSceneCameraAndRenderScheduler": true,
+  "labels": {
+    "manual": "开始导览",
+    "moving": "停止导览",
+    "reading": "停止导览",
+    "paused": "继续导览",
+    "blocked": "导览暂不可用",
+    "finished": "重新导览"
+  },
+  "endBehavior": "stop; explicit interruptible replay only",
+  "resume": "use current actual scroll and displayed route; give current full-reading station a complete dwell; never rewind to old saved auto target",
+  "blockedWhen": [
+    "stable reading",
+    "prefers-reduced-motion: reduce",
+    "page hidden",
+    "viewer open",
+    "graphics unavailable",
+    "layout transition"
+  ],
+  "neverStartedReturnsToManual": true,
+  "programmaticScrollIsNotManualTakeover": true,
+  "interrupts": [
+    "native wheel",
+    "touch drag",
+    "scrollbar drag",
+    "native scrolling keys",
+    "chapter/replay/skip navigation",
+    "text selection",
+    "viewer open",
+    "true layout/orientation/zoom or capacity change",
+    "reduced motion",
+    "real hidden",
+    "graphics loss"
+  ],
+  "settingsKeepTourUnlessLayoutChanges": [
+    "render mode",
+    "environment play/pause"
+  ],
+  "opening": {
+    "h": 0,
+    "dwellSeconds": 6
+  },
+  "stations": [
+    {
+      "id": "A1",
+      "h": 1.74,
+      "title": "sakan",
+      "actualBodyNonWhitespaceCodePoints": 32,
+      "dwellSeconds": 7
+    },
+    {
+      "id": "A2",
+      "h": 2.54,
+      "title": "现在与此前",
+      "actualBodyNonWhitespaceCodePoints": 27,
+      "dwellSeconds": 9
+    },
+    {
+      "id": "A3",
+      "h": 3.34,
+      "title": "让想法成形",
+      "actualBodyNonWhitespaceCodePoints": 46,
+      "dwellSeconds": 8
+    },
+    {
+      "id": "B1",
+      "h": 4.95,
+      "title": "异星来信",
+      "actualBodyNonWhitespaceCodePoints": 34,
+      "dwellSeconds": 10
+    },
+    {
+      "id": "B2",
+      "h": 5.95,
+      "title": "画面切片",
+      "actualBodyNonWhitespaceCodePoints": 32,
+      "dwellSeconds": 12
+    },
+    {
+      "id": "B3",
+      "h": 6.84,
+      "title": "视觉探索",
+      "actualBodyNonWhitespaceCodePoints": 30,
+      "dwellSeconds": 10
+    },
+    {
+      "id": "B4",
+      "h": 7.64,
+      "title": "影像，仍在继续。",
+      "actualBodyNonWhitespaceCodePoints": 13,
+      "dwellSeconds": 8
+    },
+    {
+      "id": "C1",
+      "h": 9.14,
+      "title": "从想法到交互",
+      "actualBodyNonWhitespaceCodePoints": 36,
+      "dwellSeconds": 8
+    },
+    {
+      "id": "C2",
+      "h": 10.05,
+      "title": "庭院习作",
+      "actualBodyNonWhitespaceCodePoints": 37,
+      "dwellSeconds": 12
+    },
+    {
+      "id": "C3",
+      "h": 10.83,
+      "title": "让想象，动起来。",
+      "actualBodyNonWhitespaceCodePoints": 28,
+      "dwellSeconds": 6
+    }
+  ],
+  "water": {
+    "h": 11.5,
+    "dwellSeconds": 10
+  },
+  "ending": {
+    "h": 12.3,
+    "behavior": "finished"
+  },
+  "transitionSeconds": {
+    "long": [
+      3,
+      5
+    ],
+    "withinPillar": [
+      1.5,
+      2.5
+    ]
+  },
+  "longTransitions": [
+    [
+      "O",
+      "A1"
+    ],
+    [
+      "A3",
+      "B1"
+    ],
+    [
+      "B4",
+      "C1"
+    ],
+    [
+      "C3",
+      "W"
+    ],
+    [
+      "W",
+      "S99"
+    ]
+  ],
+  "withinPillarTransitions": [
+    [
+      "A1",
+      "A2"
+    ],
+    [
+      "A2",
+      "A3"
+    ],
+    [
+      "B1",
+      "B2"
+    ],
+    [
+      "B2",
+      "B3"
+    ],
+    [
+      "B3",
+      "B4"
+    ],
+    [
+      "C1",
+      "C2"
+    ],
+    [
+      "C2",
+      "C3"
+    ]
+  ],
+  "dwellStartsWhen": "camera settled at specified H and full readable content shown",
+  "totalStationDwellSeconds": 90,
+  "totalDwellIncludingOpeningAndWaterSeconds": 106,
+  "estimatedWholeTourSeconds": [
+    131.5,
+    148.5
+  ],
+  "mediaAutoOpenOrAutoplay": false
+}

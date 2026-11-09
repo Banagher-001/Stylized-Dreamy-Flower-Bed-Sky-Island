@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "candidateId": "garden-enhancement-step6-487410d10d8ad600",
+  "checkedAtUtc": "2026-11-08T15:37:44.448303+00:00",
+  "stoppedOwnedQaPorts": [
+    4180,
+    4181
+  ],
+  "stoppedOwnedXvfb": ":104",
+  "x104SocketAbsent": true,
+  "knownOwnedSessionsStopped": [
+    97956,
+    11326,
+    65464
+  ],
+  "keptUserServices": [
+    {
+      "port": 5173,
+      "status": 200,
+      "mime": "text/html",
+      "bodySha256": "1493f6affe16e73c085eaf8fdc89395bcad2cc805aa63a4f449a65c4af911565"
+    },
+    {
+      "port": 4173,
+      "status": 200,
+      "mime": "text/html",
+      "bodySha256": "b9e1e3f8b5e15c948622d76f71e0ba6891807e2878f39f0637811b8f5cc5761c"
+    }
+  ],
+  "restoredMissingUserServicePorts": [
+    5173,
+    4173
+  ],
+  "restoredSessions": [
+    6297,
+    7101
+  ],
+  "reason": "the two user preview ports were observed absent at the start of Step6 and restored with the existing dev/preview scripts; current final site bytes and service retention verified",
+  "otherDisplaysAndServicesTouched": false,
+  "published": false
+}

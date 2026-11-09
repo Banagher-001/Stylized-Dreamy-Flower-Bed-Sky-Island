@@ -1,0 +1,279 @@
+{
+  "passed": true,
+  "candidateId": "garden-enhancement-step5-1c195311be269c29",
+  "method": "actual source scene/material objects through Vite SSR; CPU field reference and shader composition checks, not GPU pixels or real-time browser proof",
+  "cases": [
+    {
+      "name": "bounded field, height-correct sunlight projection, wind translation and wrap continuity",
+      "passed": true,
+      "evidence": {
+        "minimum": 0,
+        "maximum": 1,
+        "heightError": 0,
+        "periodError": 9.103828801926284e-15,
+        "translationError": 2.220446049250313e-13,
+        "seamError": 0.000041929896474779405,
+        "coverage": [
+          {
+            "time": 0,
+            "worldGroundGrid": [
+              -7,
+              7,
+              -5,
+              6
+            ],
+            "threshold": 0.25,
+            "coveredFraction": 0.3730994152046784
+          },
+          {
+            "time": 2,
+            "worldGroundGrid": [
+              -7,
+              7,
+              -5,
+              6
+            ],
+            "threshold": 0.25,
+            "coveredFraction": 0.3805068226120858
+          },
+          {
+            "time": 10,
+            "worldGroundGrid": [
+              -7,
+              7,
+              -5,
+              6
+            ],
+            "threshold": 0.25,
+            "coveredFraction": 0.3840155945419103
+          },
+          {
+            "time": 18,
+            "worldGroundGrid": [
+              -7,
+              7,
+              -5,
+              6
+            ],
+            "threshold": 0.25,
+            "coveredFraction": 0.3840155945419103
+          },
+          {
+            "time": 40,
+            "worldGroundGrid": [
+              -7,
+              7,
+              -5,
+              6
+            ],
+            "threshold": 0.25,
+            "coveredFraction": 0.28771929824561404
+          },
+          {
+            "time": 64,
+            "worldGroundGrid": [
+              -7,
+              7,
+              -5,
+              6
+            ],
+            "threshold": 0.25,
+            "coveredFraction": 0.3017543859649123
+          },
+          {
+            "time": 96,
+            "worldGroundGrid": [
+              -7,
+              7,
+              -5,
+              6
+            ],
+            "threshold": 0.25,
+            "coveredFraction": 0.37115009746588695
+          },
+          {
+            "time": 132,
+            "worldGroundGrid": [
+              -7,
+              7,
+              -5,
+              6
+            ],
+            "threshold": 0.25,
+            "coveredFraction": 0.33372319688109164
+          },
+          {
+            "time": 145.4545454545,
+            "worldGroundGrid": [
+              -7,
+              7,
+              -5,
+              6
+            ],
+            "threshold": 0.25,
+            "coveredFraction": 0.3730994152046784
+          },
+          {
+            "time": 86400,
+            "worldGroundGrid": [
+              -7,
+              7,
+              -5,
+              6
+            ],
+            "threshold": 0.25,
+            "coveredFraction": 0.3730994152046784
+          }
+        ],
+        "groundCrossingSeconds": 59.09090909090909,
+        "repeatSeconds": 145.45454545454547
+      }
+    },
+    {
+      "name": "all mesh geometry, instancing, world transforms, water events and time unchanged",
+      "passed": true,
+      "evidence": {
+        "times": [
+          2,
+          18,
+          60,
+          300
+        ],
+        "meshCount": 67
+      }
+    },
+    {
+      "name": "one shared field after every existing art finish; twenty idempotent binds",
+      "passed": true,
+      "evidence": {
+        "materials": [
+          {
+            "name": "courtyard-ground",
+            "surface": "ground",
+            "strength": 0.18,
+            "file": "0-courtyard-ground.frag.glsl",
+            "fragmentSha256": "c1f65be3e8ad0ff6762ef6d35f76bea88efd95d3dadc48e5abd2d5d6f92ef188"
+          },
+          {
+            "name": "courtyard-pool-stone",
+            "surface": "stone",
+            "strength": 0.14,
+            "file": "1-courtyard-pool-stone.frag.glsl",
+            "fragmentSha256": "5ee560880d3a4416f0fc6f46ce789bde423a5a729188429a5ec69713b640367f"
+          },
+          {
+            "name": "courtyard-water-refined-surface",
+            "surface": "water",
+            "strength": 0.075,
+            "file": "2-courtyard-water-refined-surface.frag.glsl",
+            "fragmentSha256": "1609848d03dfedc1148ac6d48464db352702e678b77250fc7c8dca7739af1832"
+          },
+          {
+            "name": "courtyard-stone",
+            "surface": "stone",
+            "strength": 0.14,
+            "file": "3-courtyard-stone.frag.glsl",
+            "fragmentSha256": "b7e37585790a196cd292c62aae89d43209a2e4332782a6c100cca56c91abcc09"
+          },
+          {
+            "name": "reading-pillar-stone",
+            "surface": "stone",
+            "strength": 0.14,
+            "file": "4-reading-pillar-stone.frag.glsl",
+            "fragmentSha256": "b7e37585790a196cd292c62aae89d43209a2e4332782a6c100cca56c91abcc09"
+          },
+          {
+            "name": "reading-pillar-joint",
+            "surface": "stone",
+            "strength": 0.14,
+            "file": "5-reading-pillar-joint.frag.glsl",
+            "fragmentSha256": "b7e37585790a196cd292c62aae89d43209a2e4332782a6c100cca56c91abcc09"
+          },
+          {
+            "name": "reading-pillar-stone",
+            "surface": "stone",
+            "strength": 0.14,
+            "file": "6-reading-pillar-stone.frag.glsl",
+            "fragmentSha256": "b7e37585790a196cd292c62aae89d43209a2e4332782a6c100cca56c91abcc09"
+          },
+          {
+            "name": "reading-pillar-joint",
+            "surface": "stone",
+            "strength": 0.14,
+            "file": "7-reading-pillar-joint.frag.glsl",
+            "fragmentSha256": "b7e37585790a196cd292c62aae89d43209a2e4332782a6c100cca56c91abcc09"
+          },
+          {
+            "name": "reading-pillar-stone",
+            "surface": "stone",
+            "strength": 0.14,
+            "file": "8-reading-pillar-stone.frag.glsl",
+            "fragmentSha256": "b7e37585790a196cd292c62aae89d43209a2e4332782a6c100cca56c91abcc09"
+          },
+          {
+            "name": "reading-pillar-joint",
+            "surface": "stone",
+            "strength": 0.14,
+            "file": "9-reading-pillar-joint.frag.glsl",
+            "fragmentSha256": "b7e37585790a196cd292c62aae89d43209a2e4332782a6c100cca56c91abcc09"
+          },
+          {
+            "name": "courtyard-water-jet",
+            "surface": "water",
+            "strength": 0.045,
+            "file": "10-courtyard-water-jet.frag.glsl",
+            "fragmentSha256": "5c7fd788efd8927233f2dfe42721ec397858b082263ab8e1c5e40f310c702993"
+          },
+          {
+            "name": "courtyard-living-orb",
+            "surface": "water",
+            "strength": 0.05,
+            "file": "11-courtyard-living-orb.frag.glsl",
+            "fragmentSha256": "e230fe999cb921c48e9789f0aea4101d5ee83e6662f973aa63289f28368e1880"
+          },
+          {
+            "name": "courtyard-foliage",
+            "surface": "foliage",
+            "strength": 0.13,
+            "file": "12-courtyard-foliage.frag.glsl",
+            "fragmentSha256": "4bb4880ef19d33a0aca34b8eaae2f23c4f3a3d765bdd143c64c2f102204374a3"
+          },
+          {
+            "name": "courtyard-flower",
+            "surface": "flower",
+            "strength": 0.1,
+            "file": "13-courtyard-flower.frag.glsl",
+            "fragmentSha256": "02177f8a15258f7f371b3bd4a4ff39763afbe54260c4ceff38b7b62f4730192c"
+          }
+        ],
+        "sharedUniformObjects": true,
+        "bindingCycles": 20
+      }
+    },
+    {
+      "name": "unlit magic/emissive class excluded and dispose idempotent",
+      "passed": true,
+      "evidence": {
+        "unlitUnchanged": true
+      }
+    },
+    {
+      "name": "explicit shader-anchor fault disables shared shade and retains original finish",
+      "passed": true,
+      "evidence": {
+        "method": "intentional missing shader anchor fixture; not a real production compile error",
+        "active": 0,
+        "warnings": [
+          "Cloud shade unavailable; original surface lighting retained. Error: Cloud receiver shader anchor unavailable"
+        ]
+      }
+    }
+  ],
+  "sourceSha256": {
+    "src/animation/cloudShadows.ts": "d7b9a43a4921bfc7778bde8d6679a0a8b702c93cb574214ac70f6150add981a4",
+    "src/config/cloudShadows.ts": "258d158c5440347831a63be0ac86024220d32469f1ca43836fe29513c770e010",
+    "src/materials/applyCloudShadows.ts": "90fb747e0e80e898842b03fb1ed353259dafd04e427e1c7c0bf47ac5dbd64900",
+    "src/scene/createScene.ts": "a6b6da111e657cbfe94d2c33206f4364fb38703ed72ed1c2a7084730c12d8368",
+    "src/tour/startTourPrototype.ts": "d52b9b66d34b2d9adfeeb0bc03e9877c80322da55ca93009c7672b40229deca8"
+  }
+}

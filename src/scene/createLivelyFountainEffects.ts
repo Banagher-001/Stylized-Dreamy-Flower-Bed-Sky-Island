@@ -1,24 +1,26 @@
-import { Box3, CylinderGeometry, DynamicDrawUsage, Group, InstancedMesh, Matrix4, Mesh, OctahedronGeometry, Quaternion, Sphere, SphereGeometry, Vector3 } from 'three';
+import { Box3, BufferAttribute, CylinderGeometry, DynamicDrawUsage, Group, InstancedMesh, Matrix4, Mesh, OctahedronGeometry, Quaternion, Sphere, SphereGeometry, Vector3, Vector4 } from 'three';
 import { layoutConfig } from '../config/layout';
 import { waterConfig } from '../config/water';
 import { orbConfig } from '../config/orb';
-import { createOrbFlight, createOrbPose, sampleOrbDrop, sampleOrbFlight, sampleOrbPose, sampleOrbRadius } from '../animation/orbMotion';
+import { createOrbFlight, createOrbPose, sampleOrbDrop, sampleOrbFlight, sampleOrbPose } from '../animation/orbMotion';
+import { sampleOrbPhases, sampleOrbSurfaceRadius } from '../animation/orbSurface';
 import { createWaterMaterial } from '../materials/createWaterMaterial';
 import { createOrbMaterial } from '../materials/createOrbMaterial';
 import type { WaterState } from '../materials/createWaterMaterial';
 import type { DropParameters } from './createFountainEffects';
-import type { BufferAttribute } from 'three';
 
 /** One existing effects group, three owned geometries and the original bounded pools. */
 export function createLivelyFountainEffects(state: WaterState, drops: DropParameters[]) {
   const root = new Group();root.name = 'fountain-effects';root.userData.orbStyle = 'lively';
   const f = layoutConfig.fountain;root.position.set(...f.position);root.rotation.y = f.rotationY;
-  const jetMaterial = createWaterMaterial(state, 'jet'), orbMaterial = createOrbMaterial(state);
+  const phases = new Vector4();
+  const jetMaterial = createWaterMaterial(state, 'jet'), orbMaterial = createOrbMaterial(phases);
   const capTop = f.baseHeight + f.pedestalFootHeight + f.pedestalHeight + f.pedestalCapHeight;
   const stemGeometry = new CylinderGeometry(orbConfig.stemRadius, orbConfig.stemRadius, 1, 8);
   const orbGeometry = new SphereGeometry(1, ...orbConfig.sphereSegments);
   const points = orbGeometry.getAttribute('position') as BufferAttribute;points.setUsage(DynamicDrawUsage);
   const originalPoints = new Float32Array(points.array);
+  orbGeometry.setAttribute('orbRest', new BufferAttribute(originalPoints, 3));
   orbGeometry.boundingSphere = new Sphere(new Vector3(), orbConfig.shape.envelope);
   orbGeometry.boundingBox = new Box3(new Vector3().setScalar(-orbConfig.shape.envelope), new Vector3().setScalar(orbConfig.shape.envelope));
   const dropGeometry = new OctahedronGeometry(1, 0);
@@ -31,16 +33,16 @@ export function createLivelyFountainEffects(state: WaterState, drops: DropParame
   const pose = createOrbPose(), position = new Vector3(), scale = new Vector3(), rotation = new Quaternion(), matrix = new Matrix4(), inactive = new Matrix4();
   const records = drops.map((drop, index) => ({ drop, index, current: createOrbFlight(), previous: createOrbFlight() }));
   const events = records.map(record => ({ record, age: 0, flight: record.current }));
-  root.userData.flights = records;root.userData.orbPose = pose;root.userData.impactEvents = events;
-  root.userData.orbMetadata = { radius: orbConfig.radius, centerY: orbConfig.centerY, amplitude: orbConfig.floatAmplitude, period: orbConfig.floatPeriod, envelope: orbConfig.shape.envelope, replacedGeometries: 2, addedGeometries: 0, addedTextures: 0, addedPasses: 0, dropCapacity: drops.length, rippleCapacity: state.impacts.value.length };
+  root.userData.flights = records;root.userData.orbPose = pose;root.userData.impactEvents = events;root.userData.orbPhases = phases;
+  root.userData.orbMetadata = { radius: orbConfig.radius, centerY: orbConfig.centerY, amplitude: orbConfig.floatAmplitude, period: orbConfig.floatPeriod, envelope: orbConfig.shape.envelope, replacedGeometries: 2, addedGeometries: 0, addedTextures: 0, addedPasses: 0, flow: 'curved-rest-sphere-v2', vertices: points.count, triangles: orbGeometry.index!.count / 3, restAttributeBytes: originalPoints.byteLength, dropCapacity: drops.length, rippleCapacity: state.impacts.value.length };
   let lastTime: number | undefined, disposed = false;
   function update(time: number) {
     if (disposed || time === lastTime) return;
-    lastTime = time;state.time.value = time;sampleOrbPose(time, pose);
+    lastTime = time;state.time.value = time;sampleOrbPose(time, pose);sampleOrbPhases(time, phases);
     let lowest = Infinity;
     for (let i = 0; i < points.count; i++) {
       const j = i * 3, x = originalPoints[j]!, y = originalPoints[j + 1]!, z = originalPoints[j + 2]!;
-      const radial = sampleOrbRadius(x, y, z, time);
+      const radial = sampleOrbSurfaceRadius(x, y, z, phases);
       const py = y * radial * pose.sy;
       points.setXYZ(i, x * radial * pose.sx, py, z * radial * pose.sz);lowest = Math.min(lowest, py);
     }

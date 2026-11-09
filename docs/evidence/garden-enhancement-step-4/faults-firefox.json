@@ -1,0 +1,253 @@
+{
+  "passed": true,
+  "candidateId": "garden-enhancement-step4-2b6d5479a1939f3e",
+  "url": "http://127.0.0.1:4177",
+  "engine": "firefox",
+  "cases": [
+    {
+      "scenario": "release",
+      "pending": {
+        "displayH": "4.9500000",
+        "targetH": "4.9500000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "arriving",
+        "guidePhase": "arriving",
+        "guideStation": "B1",
+        "guideTargetH": "4.95",
+        "guideReadSeconds": "0",
+        "guideReadyAt": "",
+        "guideDeadline": "",
+        "guideReason": ""
+      },
+      "actual": {
+        "displayH": "4.9500000",
+        "targetH": "4.9500000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "reading",
+        "guidePhase": "reading",
+        "guideStation": "B1",
+        "guideTargetH": "4.95",
+        "guideReadSeconds": "12",
+        "guideReadyAt": "3213",
+        "guideDeadline": "15213",
+        "guideReason": ""
+      },
+      "quietAfterReady": {
+        "time": "2.000000",
+        "zeroDrawWindowMs": 450,
+        "draws": 932,
+        "finitePendingDrawWindows": 0
+      }
+    },
+    {
+      "scenario": "timeout",
+      "pending": {
+        "displayH": "4.9500000",
+        "targetH": "4.9500000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "arriving",
+        "guidePhase": "arriving",
+        "guideStation": "B1",
+        "guideTargetH": "4.95",
+        "guideReadSeconds": "0",
+        "guideReadyAt": "",
+        "guideDeadline": "",
+        "guideReason": ""
+      },
+      "timedOut": {
+        "displayH": "4.9500000",
+        "targetH": "4.9500000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "paused",
+        "guidePhase": "paused",
+        "guideStation": "B1",
+        "guideTargetH": "4.95",
+        "guideReadSeconds": "0",
+        "guideReadyAt": "",
+        "guideDeadline": "",
+        "guideReason": "内容尚在准备，导览已暂停，可稍后继续。"
+      },
+      "lateLoadDoesNotRestart": true,
+      "explicitResume": {
+        "displayH": "4.9500000",
+        "targetH": "4.9500000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "reading",
+        "guidePhase": "reading",
+        "guideStation": "B1",
+        "guideTargetH": "4.95",
+        "guideReadSeconds": "12",
+        "guideReadyAt": "10658",
+        "guideDeadline": "22658",
+        "guideReason": ""
+      }
+    },
+    {
+      "scenario": "error",
+      "pending": {
+        "displayH": "4.9500000",
+        "targetH": "4.9500000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "arriving",
+        "guidePhase": "arriving",
+        "guideStation": "B1",
+        "guideTargetH": "4.95",
+        "guideReadSeconds": "0",
+        "guideReadyAt": "",
+        "guideDeadline": "",
+        "guideReason": ""
+      },
+      "actual": {
+        "displayH": "4.9500000",
+        "targetH": "4.9500000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "reading",
+        "guidePhase": "reading",
+        "guideStation": "B1",
+        "guideTargetH": "4.95",
+        "guideReadSeconds": "12",
+        "guideReadyAt": "2904",
+        "guideDeadline": "14904",
+        "guideReason": ""
+      },
+      "quietAfterReady": {
+        "time": "2.000000",
+        "zeroDrawWindowMs": 450,
+        "draws": 932,
+        "finitePendingDrawWindows": 0
+      }
+    },
+    {
+      "scenario": "explicit test-only decode rejection",
+      "result": {
+        "displayH": "4.9500000",
+        "targetH": "4.9500000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "paused",
+        "guidePhase": "paused",
+        "guideStation": "B1",
+        "guideTargetH": "4.95",
+        "guideReadSeconds": "0",
+        "guideReadyAt": "",
+        "guideDeadline": "",
+        "guideReason": "内容尚在准备，导览已暂停，可稍后继续。"
+      },
+      "finiteFailureNoUnhandledException": true,
+      "quietAfterStop": {
+        "time": "2.000000",
+        "zeroDrawWindowMs": 450,
+        "draws": 788,
+        "finitePendingDrawWindows": 0
+      }
+    },
+    {
+      "scenario": "320px CSS root font200percent,DPR3",
+      "allOriginalArticles": [
+        {
+          "id": "A1",
+          "hidden": false,
+          "aria": "false",
+          "overflowX": 0,
+          "overflowY": 0
+        },
+        {
+          "id": "A2",
+          "hidden": false,
+          "aria": "false",
+          "overflowX": 0,
+          "overflowY": 0
+        },
+        {
+          "id": "A3",
+          "hidden": false,
+          "aria": "false",
+          "overflowX": 0,
+          "overflowY": 0
+        },
+        {
+          "id": "B1",
+          "hidden": false,
+          "aria": "false",
+          "overflowX": 0,
+          "overflowY": 0
+        },
+        {
+          "id": "B2",
+          "hidden": false,
+          "aria": "false",
+          "overflowX": 0,
+          "overflowY": 0
+        },
+        {
+          "id": "B3",
+          "hidden": false,
+          "aria": "false",
+          "overflowX": 0,
+          "overflowY": 0
+        },
+        {
+          "id": "B4",
+          "hidden": false,
+          "aria": "false",
+          "overflowX": 0,
+          "overflowY": 0
+        },
+        {
+          "id": "C1",
+          "hidden": false,
+          "aria": "false",
+          "overflowX": 0,
+          "overflowY": 0
+        },
+        {
+          "id": "C2",
+          "hidden": false,
+          "aria": "false",
+          "overflowX": 0,
+          "overflowY": 0
+        },
+        {
+          "id": "C3",
+          "hidden": false,
+          "aria": "false",
+          "overflowX": 0,
+          "overflowY": 0
+        }
+      ],
+      "guide": {
+        "displayH": "0.0000000",
+        "targetH": "0.0000000",
+        "cameraState": "settled",
+        "motionState": "paused",
+        "sceneTime": "2.000000",
+        "guideState": "blocked",
+        "guidePhase": "manual",
+        "guideStation": "O",
+        "guideTargetH": "0",
+        "guideReadSeconds": "0",
+        "guideReadyAt": "",
+        "guideDeadline": "",
+        "guideReason": "当前为稳定阅读，可切换沉浸浏览后导览。"
+      },
+      "horizontalOverflow": false
+    }
+  ],
+  "method": "real intercepted image requests delayed/fulfilled404; decoder-rejection explicitly injected in test; no production timing overrides, DOM ready-state flags or fake visibility events",
+  "physicalDevice": false
+}

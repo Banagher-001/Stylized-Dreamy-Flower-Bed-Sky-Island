@@ -1,0 +1,28 @@
+"""Strict build and independent source/site snapshot, retaining trial identities."""
+from pathlib import Path
+import hashlib,json,subprocess,tarfile
+ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'docs/evidence/garden-enhancement-step-6'
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
+with(OUT/'build.log').open('w')as log:subprocess.run(['npm','run','build'],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,check=True)
+old=json.loads((ROOT/'docs/evidence/garden-enhancement-step-5/build-verification.json').read_text())
+new={'src/config/birds.ts','src/animation/birdMotion.ts','src/geometry/createBirdGeometry.ts','src/materials/createBirdMaterial.ts','src/scene/createBirds.ts','src/tour/birdVisibility.ts'}
+inputs={n:sha(ROOT/n)for n in sorted(set(old['buildInputsSha256'])|new)}
+finger=hashlib.sha256(json.dumps(inputs,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+candidate='garden-enhancement-step6-'+finger[:16]
+production={str(p.relative_to(ROOT)):sha(p)for p in sorted((ROOT/'dist').rglob('*'))if p.is_file()}
+build={'passed':True,'candidateId':candidate,'buildInputFingerprint':finger,'buildInputsSha256':inputs,'productionSha256':production,
+    'changedRuntimeSources':[n for n,v in inputs.items()if n.startswith('src/')and old['buildInputsSha256'].get(n)!=v],
+    'command':'npm run build (strict typecheck included)','exitCode':0,'log':'build.log','node':subprocess.check_output(['node','-v'],text=True).strip()}
+archive_old=json.loads((ROOT/'docs/evidence/garden-enhancement-step-5/candidate-archive-manifest.json').read_text())
+names=sorted({n for n in archive_old['files']if not n.startswith('dist/')}|new|set(production))
+archive=OUT/'candidate-source-site.tar.gz'
+with tarfile.open(archive,'w:gz')as t:
+    for n in names:t.add(ROOT/n,arcname=n,recursive=False)
+manifest={'candidateId':candidate,'file':archive.name,'bytes':archive.stat().st_size,'sha256':sha(archive),
+    'files':{n:{'bytes':(ROOT/n).stat().st_size,'sha256':sha(ROOT/n)}for n in names}}
+write(OUT/'build-verification.json',build);write(OUT/'candidate-archive-manifest.json',manifest)
+version=OUT/'versions'/candidate;version.mkdir(parents=True,exist_ok=True)
+if not(version/'source-site.tar.gz').exists():
+    (version/'source-site.tar.gz').write_bytes(archive.read_bytes());write(version/'build-verification.json',build);write(version/'archive-manifest.json',{**manifest,'file':'source-site.tar.gz'})
+print('PASS',candidate,';',len(inputs),'inputs;',len(production),'outputs;',len(names),'archive files;',build['changedRuntimeSources'])

@@ -1,0 +1,319 @@
+{
+  "passed": true,
+  "candidateId": "garden-enhancement-step5-fc6b56eb4157625e",
+  "engine": "native headed Chromium/Linux Xvfb/SwiftShader; actual CDP input, targets, metrics, scale and context extension",
+  "checks": [
+    {
+      "check": "real native scrollbar drag interrupts the first held guide without rebound",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "y": 1951,
+          "h": "2.5404722",
+          "target": "2.5404722",
+          "time": "2.000000",
+          "state": "reading",
+          "phase": "reading",
+          "station": "A2",
+          "deadline": "16376.300000000745",
+          "reason": "",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "after": {
+          "y": 2919,
+          "h": "3.8009422",
+          "target": "3.8009422",
+          "time": "2.000000",
+          "state": "paused",
+          "phase": "paused",
+          "station": "A2",
+          "deadline": "",
+          "reason": "已交还手动浏览，可从当前位置继续导览。",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "scrollbar": {
+          "width": 1366,
+          "height": 768,
+          "client": 1351,
+          "total": 10214,
+          "y": 1951
+        },
+        "input": "actual CDP mouse drag at native scrollbar thumb; no CSS replacement or DOM synthetic scroll"
+      }
+    },
+    {
+      "check": "real hidden tab cancels reading deadline and never resumes after it would have expired",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "y": 1951,
+          "h": "2.5404722",
+          "target": "2.5404722",
+          "time": "2.000000",
+          "state": "reading",
+          "phase": "reading",
+          "station": "A2",
+          "deadline": "18377",
+          "reason": "",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "hidden": {
+          "y": 1951,
+          "h": "2.5404722",
+          "target": "2.5404722",
+          "time": "2.000000",
+          "state": "blocked",
+          "phase": "paused",
+          "station": "A2",
+          "deadline": "",
+          "reason": "页面已隐藏，回来后可手动继续导览。",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "after": {
+          "y": 1951,
+          "h": "2.5404722",
+          "target": "2.5404722",
+          "time": "2.000000",
+          "state": "paused",
+          "phase": "paused",
+          "station": "A2",
+          "deadline": "",
+          "reason": "页面已隐藏，回来后可手动继续导览。",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "zeroHiddenDrawMs": 400,
+        "oldDeadlineAllowedToPass": true,
+        "noFakeHiddenEvent": true
+      }
+    },
+    {
+      "check": "actual layout metrics change preserves anchor and explicit consent",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "y": 1951,
+          "h": "2.5404722",
+          "target": "2.5404722",
+          "time": "2.000000",
+          "state": "reading",
+          "phase": "reading",
+          "station": "A2",
+          "deadline": "32592.89999999851",
+          "reason": "",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "after": {
+          "y": 2144,
+          "h": "2.5403333",
+          "target": "2.5403333",
+          "time": "2.000000",
+          "state": "paused",
+          "phase": "paused",
+          "station": "A2",
+          "deadline": "",
+          "reason": "窗口布局已改变，可在布局稳定后继续导览。",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "returnedPaused": true
+      }
+    },
+    {
+      "check": "actual visual scale change cancels guide without auto-resume",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "y": 2286,
+          "h": "2.5400000",
+          "target": "2.5400000",
+          "time": "2.000000",
+          "state": "reading",
+          "phase": "reading",
+          "station": "A2",
+          "deadline": "33592.699999999255",
+          "reason": "",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "scaled": {
+          "y": 2286,
+          "h": "2.5400000",
+          "target": "2.5400000",
+          "time": "2.000000",
+          "state": "paused",
+          "phase": "paused",
+          "station": "A2",
+          "deadline": "",
+          "reason": "缩放已改变，可在布局稳定后继续导览。",
+          "layout": "immersive",
+          "canvas": true
+        }
+      }
+    },
+    {
+      "check": "real context loss retains all text and restores one canvas without guide restart",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "y": 2286,
+          "h": "2.5400000",
+          "target": "2.5400000",
+          "time": "2.000000",
+          "state": "reading",
+          "phase": "reading",
+          "station": "A2",
+          "deadline": "34061.39999999851",
+          "reason": "",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "after": {
+          "y": 2286,
+          "h": "2.5400000",
+          "target": "2.5400000",
+          "time": "2.000000",
+          "state": "paused",
+          "phase": "paused",
+          "station": "A2",
+          "deadline": "",
+          "reason": "图形正在恢复，导览已停止。",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "tenReadableNodesDuringLoss": true
+      }
+    },
+    {
+      "check": "viewer close during graphics loss cannot revive guide or leak media",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "y": 9045,
+          "h": "10.0500000",
+          "target": "10.0500000",
+          "time": "2.000000",
+          "state": "reading",
+          "phase": "reading",
+          "station": "C2",
+          "deadline": "34330.800000000745",
+          "reason": "",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "after": {
+          "y": 9045,
+          "h": "10.0500000",
+          "target": "10.0500000",
+          "time": "2.000000",
+          "state": "paused",
+          "phase": "paused",
+          "station": "C2",
+          "deadline": "",
+          "reason": "已交还手动浏览，可从当前位置继续导览。",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "oneCanvas": true,
+        "videoReleased": true
+      }
+    },
+    {
+      "check": "actual reduced-motion preference change preserves stopped guide and stable reading",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "y": 2286,
+          "h": "2.5400000",
+          "target": "2.5400000",
+          "time": "2.000000",
+          "state": "reading",
+          "phase": "reading",
+          "station": "A2",
+          "deadline": "38359",
+          "reason": "",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "after": {
+          "y": 1933,
+          "h": "2.5400000",
+          "target": "2.5400000",
+          "time": "2.000000",
+          "state": "blocked",
+          "phase": "paused",
+          "station": "A2",
+          "deadline": "",
+          "reason": "当前为稳定阅读，可切换沉浸浏览后导览。",
+          "layout": "stable",
+          "canvas": true
+        }
+      }
+    },
+    {
+      "check": "offscreen stable cover suspends environment, return never enables guide",
+      "passed": true,
+      "evidence": {
+        "offscreenZeroDrawMs": 400,
+        "clock": "2.000000",
+        "guide": {
+          "y": 1055,
+          "h": "2.5400000",
+          "target": "2.5400000",
+          "time": "2.099964",
+          "state": "blocked",
+          "phase": "paused",
+          "station": "A2",
+          "deadline": "",
+          "reason": "当前为稳定阅读，可切换沉浸浏览后导览。",
+          "layout": "stable",
+          "canvas": true
+        }
+      }
+    },
+    {
+      "check": "playing cloud environment freezes in a true hidden target and returns without catch-up",
+      "passed": true,
+      "evidence": {
+        "hidden": {
+          "y": 0,
+          "h": "0.0000000",
+          "target": "0.0000000",
+          "time": "2.333264",
+          "state": "blocked",
+          "phase": "paused",
+          "station": "A2",
+          "deadline": "",
+          "reason": "页面已隐藏，回来后可手动继续导览。",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "after": {
+          "y": 0,
+          "h": "0.0000000",
+          "target": "0.0000000",
+          "time": "2.516464",
+          "state": "paused",
+          "phase": "paused",
+          "station": "A2",
+          "deadline": "",
+          "reason": "已按减少动态设置关闭自动运镜。",
+          "layout": "immersive",
+          "canvas": true
+        },
+        "hiddenWindowMs": 650,
+        "zeroHiddenDraws": true,
+        "actualTargetVisibility": true
+      }
+    }
+  ],
+  "unhandledExceptions": [],
+  "fakeHiddenEventsUsed": false,
+  "exactCloudedCanvasBeforeAfterContextRestore": true,
+  "physicalDevice": false
+}

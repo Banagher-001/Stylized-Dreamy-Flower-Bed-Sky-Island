@@ -1,0 +1,248 @@
+{
+  "passed": true,
+  "method": "deterministic controller-only injected scheduler/bridge; no fake real browser visibility or physical device claim; independent approved minima and all retained cases",
+  "cases": [
+    {
+      "name": "full deterministic itinerary, real reading deadlines and terminal stop",
+      "passed": true,
+      "evidence": {
+        "visits": [
+          {
+            "id": "O",
+            "h": 0,
+            "time": 33.333333333333336,
+            "seconds": 4
+          },
+          {
+            "id": "A1",
+            "h": 1.74,
+            "time": 12083.343333333265,
+            "seconds": 10
+          },
+          {
+            "id": "A2",
+            "h": 2.54,
+            "time": 26116.68666666689,
+            "seconds": 14
+          },
+          {
+            "id": "A3",
+            "h": 3.34,
+            "time": 44166.6966666663,
+            "seconds": 14
+          },
+          {
+            "id": "B1",
+            "h": 4.95,
+            "time": 65216.70666666527,
+            "seconds": 12
+          },
+          {
+            "id": "B2",
+            "h": 5.95,
+            "time": 82250.05000000008,
+            "seconds": 10
+          },
+          {
+            "id": "B3",
+            "h": 6.84,
+            "time": 96783.39333333474,
+            "seconds": 10
+          },
+          {
+            "id": "B4",
+            "h": 7.64,
+            "time": 110816.73666666925,
+            "seconds": 8
+          },
+          {
+            "id": "C1",
+            "h": 9.14,
+            "time": 125850.08000000464,
+            "seconds": 10
+          },
+          {
+            "id": "C2",
+            "h": 10.05,
+            "time": 140400.09000000198,
+            "seconds": 12
+          },
+          {
+            "id": "C3",
+            "h": 10.83,
+            "time": 156450.0999999996,
+            "seconds": 12
+          },
+          {
+            "id": "W",
+            "h": 11.5,
+            "time": 172500.10999999722,
+            "seconds": 8
+          },
+          {
+            "id": "S99",
+            "h": 12.3,
+            "time": 185550.11999999426,
+            "seconds": 6
+          }
+        ],
+        "simulatedSeconds": 191.55011999999425,
+        "frames": 3706,
+        "noLoopAfterHour": true
+      }
+    },
+    {
+      "name": "mid-route and reverse-manual continuation moves only forwards from actual new position",
+      "passed": true,
+      "evidence": [
+        {
+          "h": 0.2,
+          "station": "O",
+          "target": 0.2
+        },
+        {
+          "h": 0.45,
+          "station": "A1",
+          "target": 1.74
+        },
+        {
+          "h": 1.5,
+          "station": "A1",
+          "target": 1.74
+        },
+        {
+          "h": 1.74,
+          "station": "A1",
+          "target": 1.74
+        },
+        {
+          "h": 2,
+          "station": "A2",
+          "target": 2.54
+        },
+        {
+          "h": 2.18,
+          "station": "A2",
+          "target": 2.54
+        },
+        {
+          "h": 2.54,
+          "station": "A2",
+          "target": 2.54
+        },
+        {
+          "h": 2.65,
+          "station": "A2",
+          "target": 2.65
+        },
+        {
+          "h": 2.81,
+          "station": "A3",
+          "target": 3.34
+        },
+        {
+          "h": 3.87,
+          "station": "B1",
+          "target": 4.95
+        },
+        {
+          "h": 5.9,
+          "station": "B2",
+          "target": 5.9
+        },
+        {
+          "h": 8.3,
+          "station": "C1",
+          "target": 9.14
+        },
+        {
+          "h": 10.4,
+          "station": "C3",
+          "target": 10.83
+        },
+        {
+          "h": 11.46,
+          "station": "W",
+          "target": 11.5
+        },
+        {
+          "h": 11.52,
+          "station": "W",
+          "target": 11.52
+        },
+        {
+          "h": 11.545,
+          "station": "S99",
+          "target": 12.3
+        },
+        {
+          "h": 12.1,
+          "station": "S99",
+          "target": 12.3
+        }
+      ]
+    },
+    {
+      "name": "readiness and two-frame gate; no reading time consumed during preparation",
+      "passed": true,
+      "evidence": {
+        "readyAt": 533.3333333333335
+      }
+    },
+    {
+      "name": "finite8s content preparation deadline",
+      "passed": true,
+      "evidence": {
+        "reason": "内容尚在准备，导览已暂停，可稍后继续。"
+      }
+    },
+    {
+      "name": "long visible text extends minimum",
+      "passed": true,
+      "evidence": {
+        "seconds": 45.58441558441558
+      }
+    },
+    {
+      "name": "stale callback generation and twenty cancellation cycles",
+      "passed": true,
+      "evidence": {
+        "staleCallbackIgnored": true,
+        "cycles": 20
+      }
+    },
+    {
+      "name": "blocked identity and explicit-only resumption",
+      "passed": true,
+      "evidence": {
+        "neverStarted": "manual",
+        "previouslyStarted": "paused"
+      }
+    },
+    {
+      "name": "foreground stall cannot jump multiple route segments",
+      "passed": true,
+      "evidence": {
+        "hAfterMinuteStall": 0.9000178754486966
+      }
+    },
+    {
+      "name": "explicit restart reuses overview position and remains cancellable",
+      "passed": true,
+      "evidence": {
+        "h": 0
+      }
+    },
+    {
+      "name": "idempotent dispose clears owned deadline and callbacks",
+      "passed": true,
+      "evidence": {
+        "timers": 0
+      }
+    }
+  ],
+  "candidateId": "garden-enhancement-step4-2b6d5479a1939f3e",
+  "sourceSha256": {
+    "src/tour/autoGuide.ts": "1c77684883736dfe53f6d53ba0ec0189e77a49c0d7db92115b0570260ee9be41"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "passed": false,
+  "candidateId": "garden-enhancement-step7-487410d10d8ad600",
+  "wheelAllSamples": {
+    "before": {
+      "count": 90,
+      "p50Ms": 158,
+      "p95Ms": 214.20000000298023,
+      "meanMs": 166.86777777771155,
+      "maxMs": 233.59999999403954
+    },
+    "after": {
+      "count": 90,
+      "p50Ms": 165,
+      "p95Ms": 209.40000000596046,
+      "meanMs": 171.36666666683223,
+      "maxMs": 277.6000000089407
+    }
+  },
+  "groups": {
+    "pixel": {
+      "maxMatchedHError": 0,
+      "maxEnvironmentTimeError": 0,
+      "maxCameraCoordinateError": 0,
+      "maxViewHeightMetadataError": 0,
+      "before": {
+        "frameWork": {
+          "count": 672,
+          "p50Ms": 1.199999988079071,
+          "p95Ms": 5.300000011920929,
+          "meanMs": 1.6624999998713887,
+          "maxMs": 17.200000002980232
+        },
+        "intervals": {
+          "count": 668,
+          "p50Ms": 50.0,
+          "p95Ms": 99.89999999999418,
+          "meanMs": 51.61946107784431,
+          "maxMs": 133.5
+        }
+      },
+      "after": {
+        "frameWork": {
+          "count": 672,
+          "p50Ms": 1.2000000029802322,
+          "p95Ms": 6.299999997019768,
+          "meanMs": 1.8260416668351918,
+          "maxMs": 16.200000002980232
+        },
+        "intervals": {
+          "count": 668,
+          "p50Ms": 50.0,
+          "p95Ms": 99.89999999999418,
+          "meanMs": 52.04401197604788,
+          "maxMs": 216.6999999999971
+        }
+      },
+      "frameWorkP95ChangePercent": 18.867924204709574,
+      "intervalP95ChangePercent": 0.0
+    },
+    "native": {
+      "maxMatchedHError": 0,
+      "maxEnvironmentTimeError": 0,
+      "maxCameraCoordinateError": 0,
+      "maxViewHeightMetadataError": 1.0000000028043132e-07,
+      "before": {
+        "frameWork": {
+          "count": 336,
+          "p50Ms": 1.2000000029802322,
+          "p95Ms": 7,
+          "meanMs": 2.030654761807195,
+          "maxMs": 14.5
+        },
+        "intervals": {
+          "count": 334,
+          "p50Ms": 150.0,
+          "p95Ms": 300.0,
+          "meanMs": 153.28742514970068,
+          "maxMs": 466.6000000000349
+        }
+      },
+      "after": {
+        "frameWork": {
+          "count": 336,
+          "p50Ms": 1.2000000029802322,
+          "p95Ms": 6.5,
+          "meanMs": 2.008035714560676,
+          "maxMs": 15.200000002980232
+        },
+        "intervals": {
+          "count": 334,
+          "p50Ms": 150.0,
+          "p95Ms": 266.70000000001164,
+          "meanMs": 151.49131736526948,
+          "maxMs": 466.70000000001164
+        }
+      },
+      "frameWorkP95ChangePercent": -7.14285714285714,
+      "intervalP95ChangePercent": -11.099999999996124
+    }
+  },
+  "recheck": {
+    "reason": "initial wheel/pixel flags with proven byte-identical application and exact resources; native passed; investigate temporal software-renderer sampling variance with balanced wheel/pixel ABBA",
+    "allInitialAndNewSamplesIncluded": true,
+    "wheelSamplesPerPhase": 90,
+    "pixelWorkSamplesPerPhase": 672,
+    "pixelIntervalsPerPhase": 668,
+    "nativeSamplesRetained": 336,
+    "CPUStatBefore": "usage_usec 25625227432\nuser_usec 24023670108\nsystem_usec 1601557324\nnice_usec 31974\nnr_periods 203599\nnr_throttled 43270\nthrottled_usec 2394437944\nnr_bursts 0\nburst_usec 0\n",
+    "CPUStatAfter": "usage_usec 26101644284\nuser_usec 24478618345\nsystem_usec 1623025939\nnice_usec 31974\nnr_periods 205297\nnr_throttled 43270\nthrottled_usec 2394437944\nnr_bursts 0\nburst_usec 0\n",
+    "affinity": [
+      0,
+      1,
+      2
+    ]
+  }
+}

@@ -1,0 +1,2188 @@
+{
+  "complete": false,
+  "candidateId": "garden-enhancement-step4-6bfd6e3c3ab538e7",
+  "completedWidths": [
+    1440,
+    1366,
+    390
+  ],
+  "checks": [
+    {
+      "check": "1440:default off and never-started identity survives viewer",
+      "passed": true,
+      "evidence": {
+        "guide": {
+          "displayH": "4.9500000",
+          "targetH": "4.9500000",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "2.000000",
+          "guideState": "manual",
+          "guidePhase": "manual",
+          "guideStation": "O",
+          "guideTargetH": "0",
+          "guideReadSeconds": "0",
+          "guideReadyAt": "",
+          "guideDeadline": "",
+          "guideReason": ""
+        },
+        "canvas": 1
+      }
+    },
+    {
+      "check": "1440:four guide/environment combinations and render-mode retention",
+      "passed": true,
+      "evidence": {
+        "guideOnly": {
+          "displayH": "2.5400000",
+          "targetH": "2.5400000",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "2.000000",
+          "guideState": "reading",
+          "guidePhase": "reading",
+          "guideStation": "A2",
+          "guideTargetH": "2.54",
+          "guideReadSeconds": "14",
+          "guideReadyAt": "1995",
+          "guideDeadline": "15995",
+          "guideReason": ""
+        },
+        "heldZeroGL": {
+          "time": "2.000000",
+          "zeroDrawWindowMs": 450,
+          "draws": 1134,
+          "finitePendingDrawWindows": 0
+        },
+        "bothOnTimes": [
+          2.186,
+          2.463
+        ],
+        "guideOffEnvironmentOn": true,
+        "bothOff": {
+          "time": "3.813000",
+          "zeroDrawWindowMs": 450,
+          "draws": 3172,
+          "finitePendingDrawWindows": 0
+        },
+        "exactPixelModeRoundtrip": true
+      }
+    },
+    {
+      "check": "1440:all ten actual stations hold complete original content",
+      "passed": true,
+      "evidence": [
+        {
+          "id": "A1",
+          "H": 1.74,
+          "opacity": {
+            "body": 1.0,
+            "title": 1.0
+          },
+          "guide": {
+            "displayH": "1.7388889",
+            "targetH": "1.7388889",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.813000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "A1",
+            "guideTargetH": "1.7388888888888892",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "7247",
+            "guideDeadline": "17247",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "A2",
+          "H": 2.54,
+          "opacity": {
+            "body": 1.0,
+            "title": 1.0
+          },
+          "guide": {
+            "displayH": "2.5400000",
+            "targetH": "2.5400000",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.813000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "A2",
+            "guideTargetH": "2.54",
+            "guideReadSeconds": "14",
+            "guideReadyAt": "7889",
+            "guideDeadline": "21889",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "A3",
+          "H": 3.34,
+          "opacity": {
+            "body": 1.0,
+            "title": 1.0
+          },
+          "guide": {
+            "displayH": "3.3388889",
+            "targetH": "3.3388889",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.813000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "A3",
+            "guideTargetH": "3.338888888888889",
+            "guideReadSeconds": "14",
+            "guideReadyAt": "8525",
+            "guideDeadline": "22525",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B1",
+          "H": 4.95,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "4.9500000",
+            "targetH": "4.9500000",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.813000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B1",
+            "guideTargetH": "4.95",
+            "guideReadSeconds": "12",
+            "guideReadyAt": "9274",
+            "guideDeadline": "21274",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B2",
+          "H": 5.95,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "5.9500000",
+            "targetH": "5.9500000",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.813000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B2",
+            "guideTargetH": "5.95",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "10048",
+            "guideDeadline": "20048",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B3",
+          "H": 6.84,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "6.8388889",
+            "targetH": "6.8388889",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.813000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B3",
+            "guideTargetH": "6.8388888888888895",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "10909",
+            "guideDeadline": "20909",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B4",
+          "H": 7.64,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "7.6400000",
+            "targetH": "7.6400000",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.813000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B4",
+            "guideTargetH": "7.64",
+            "guideReadSeconds": "8",
+            "guideReadyAt": "11564",
+            "guideDeadline": "19564",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "C1",
+          "H": 9.14,
+          "opacity": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "9.1400000",
+            "targetH": "9.1400000",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.813000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "C1",
+            "guideTargetH": "9.14",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "12331",
+            "guideDeadline": "22331",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "C2",
+          "H": 10.05,
+          "opacity": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "10.0500000",
+            "targetH": "10.0500000",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.813000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "C2",
+            "guideTargetH": "10.05",
+            "guideReadSeconds": "12",
+            "guideReadyAt": "13022",
+            "guideDeadline": "25022",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "C3",
+          "H": 10.83,
+          "opacity": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "10.8300000",
+            "targetH": "10.8300000",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.813000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "C3",
+            "guideTargetH": "10.83",
+            "guideReadSeconds": "12",
+            "guideReadyAt": "13900",
+            "guideDeadline": "25900",
+            "guideReason": ""
+          }
+        }
+      ]
+    },
+    {
+      "check": "1440:actual reverse wheel interrupts moving camera",
+      "passed": true,
+      "evidence": {
+        "scrollY": 775,
+        "H": "0.8611111",
+        "noAutomaticWritesWindowMs": 450,
+        "guide": {
+          "displayH": "0.8611111",
+          "targetH": "0.8611111",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "3.813000",
+          "guideState": "paused",
+          "guidePhase": "paused",
+          "guideStation": "A1",
+          "guideTargetH": "1.74",
+          "guideReadSeconds": "0",
+          "guideReadyAt": "",
+          "guideDeadline": "",
+          "guideReason": "已交还手动滚动，可从当前位置继续导览。"
+        }
+      }
+    },
+    {
+      "check": "1440:image/live/archive stop first and restore native position/focus",
+      "passed": true,
+      "evidence": {
+        "imagePause": {
+          "time": "3.813000",
+          "zeroDrawWindowMs": 450,
+          "draws": 10217,
+          "finitePendingDrawWindows": 0
+        },
+        "archivePause": {
+          "time": "3.813000",
+          "zeroDrawWindowMs": 450,
+          "draws": 11184,
+          "finitePendingDrawWindows": 0
+        },
+        "within1CssPixel": true,
+        "focusReturned": true,
+        "videoReleased": true,
+        "oneOriginalCanvas": true
+      }
+    },
+    {
+      "check": "actual A1 deadline wakes existing loop and reaches A2 with water frozen",
+      "passed": true,
+      "evidence": {
+        "A1": {
+          "displayH": "1.7388889",
+          "targetH": "1.7388889",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "3.813000",
+          "guideState": "reading",
+          "guidePhase": "reading",
+          "guideStation": "A1",
+          "guideTargetH": "1.7388888888888892",
+          "guideReadSeconds": "10",
+          "guideReadyAt": "20437",
+          "guideDeadline": "30437",
+          "guideReason": ""
+        },
+        "heldZeroGL": {
+          "time": "3.813000",
+          "zeroDrawWindowMs": 450,
+          "draws": 11670,
+          "finitePendingDrawWindows": 0
+        },
+        "A2": {
+          "displayH": "2.5400000",
+          "targetH": "2.5400000",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "3.813000",
+          "guideState": "reading",
+          "guidePhase": "reading",
+          "guideStation": "A2",
+          "guideTargetH": "2.54",
+          "guideReadSeconds": "14",
+          "guideReadyAt": "34573",
+          "guideDeadline": "48573",
+          "guideReason": ""
+        },
+        "sceneTime": "3.813000"
+      }
+    },
+    {
+      "check": "trusted browser keyboard preserves native meaning and yields control",
+      "passed": true,
+      "evidence": [
+        {
+          "key": "PageDown",
+          "result": {
+            "scrollY": 3006,
+            "H": "3.3400000",
+            "noAutomaticWritesWindowMs": 250,
+            "guide": {
+              "displayH": "3.3400000",
+              "targetH": "3.3400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "paused",
+              "guidePhase": "paused",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "34931",
+              "guideDeadline": "",
+              "guideReason": "已交还键盘浏览，可从当前位置继续导览。"
+            }
+          }
+        },
+        {
+          "key": "ArrowUp",
+          "result": {
+            "scrollY": 2193,
+            "H": "2.4366667",
+            "noAutomaticWritesWindowMs": 250,
+            "guide": {
+              "displayH": "2.4366667",
+              "targetH": "2.4366667",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "paused",
+              "guidePhase": "paused",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "36071",
+              "guideDeadline": "",
+              "guideReason": "已交还键盘浏览，可从当前位置继续导览。"
+            }
+          }
+        },
+        {
+          "key": "Home",
+          "result": {
+            "scrollY": 0,
+            "H": "0.0000000",
+            "noAutomaticWritesWindowMs": 250,
+            "guide": {
+              "displayH": "0.0000000",
+              "targetH": "0.0000000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "paused",
+              "guidePhase": "paused",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "37109",
+              "guideDeadline": "",
+              "guideReason": "已交还键盘浏览，可从当前位置继续导览。"
+            }
+          }
+        },
+        {
+          "key": "End",
+          "result": {
+            "scrollY": 11070,
+            "H": "12.3000000",
+            "noAutomaticWritesWindowMs": 250,
+            "guide": {
+              "displayH": "12.3000000",
+              "targetH": "12.3000000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "finished",
+              "guidePhase": "finished",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "38248",
+              "guideDeadline": "",
+              "guideReason": "已交还键盘浏览，可从当前位置继续导览。"
+            }
+          }
+        },
+        {
+          "key": "Tab",
+          "result": {
+            "scrollY": 2286,
+            "H": "2.5400000",
+            "noAutomaticWritesWindowMs": 250,
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "paused",
+              "guidePhase": "paused",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "39429",
+              "guideDeadline": "",
+              "guideReason": "已交还键盘浏览，可从当前位置继续导览。"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "native selection/copy keeps original text nodes",
+      "passed": true,
+      "evidence": {
+        "selected": "枫叶互动",
+        "copyEvents": [
+          {
+            "trusted": true,
+            "text": "枫叶互动"
+          }
+        ]
+      }
+    },
+    {
+      "check": "1440:stable reading preserves all original nodes and explicit resume",
+      "passed": true,
+      "evidence": {
+        "articles": 10,
+        "sameTextAndNodes": true,
+        "noAutomaticReturnStart": true
+      }
+    },
+    {
+      "check": "1440:repeated actual start/stop keeps fixed GPU resources",
+      "passed": true,
+      "evidence": {
+        "cycles": 20,
+        "warm": {
+          "geometries": 58,
+          "textures": 6,
+          "programs": 22,
+          "calls": 29,
+          "triangles": 5914,
+          "mode": "native",
+          "outputWidth": 1440,
+          "outputHeight": 793,
+          "pixel": null
+        },
+        "samples": [
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "50551",
+              "guideDeadline": "64551",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "50903",
+              "guideDeadline": "64903",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "51278",
+              "guideDeadline": "65278",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "51600",
+              "guideDeadline": "65600",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "52003",
+              "guideDeadline": "66003",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "52418",
+              "guideDeadline": "66418",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "52768",
+              "guideDeadline": "66768",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "53177",
+              "guideDeadline": "67177",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "53568",
+              "guideDeadline": "67568",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "53917",
+              "guideDeadline": "67917",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "54303",
+              "guideDeadline": "68303",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "54684",
+              "guideDeadline": "68684",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "55035",
+              "guideDeadline": "69035",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "55421",
+              "guideDeadline": "69421",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "55768",
+              "guideDeadline": "69768",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "56117",
+              "guideDeadline": "70117",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "56435",
+              "guideDeadline": "70435",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "56784",
+              "guideDeadline": "70784",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "57101",
+              "guideDeadline": "71101",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5400000",
+              "targetH": "2.5400000",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.813000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.54",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "57450",
+              "guideDeadline": "71450",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 29,
+              "triangles": 5914,
+              "mode": "native",
+              "outputWidth": 1440,
+              "outputHeight": 793,
+              "pixel": null
+            }
+          }
+        ],
+        "quietAfterStop": {
+          "time": "3.813000",
+          "zeroDrawWindowMs": 450,
+          "draws": 35956,
+          "finitePendingDrawWindows": 0
+        }
+      }
+    },
+    {
+      "check": "1366:default off and never-started identity survives viewer",
+      "passed": true,
+      "evidence": {
+        "guide": {
+          "displayH": "4.9494283",
+          "targetH": "4.9494283",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "2.000000",
+          "guideState": "manual",
+          "guidePhase": "manual",
+          "guideStation": "O",
+          "guideTargetH": "0",
+          "guideReadSeconds": "0",
+          "guideReadyAt": "",
+          "guideDeadline": "",
+          "guideReason": ""
+        },
+        "canvas": 1
+      }
+    },
+    {
+      "check": "1366:four guide/environment combinations and render-mode retention",
+      "passed": true,
+      "evidence": {
+        "guideOnly": {
+          "displayH": "2.5391700",
+          "targetH": "2.5391700",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "2.000000",
+          "guideState": "reading",
+          "guidePhase": "reading",
+          "guideStation": "A2",
+          "guideTargetH": "2.539170019055685",
+          "guideReadSeconds": "14",
+          "guideReadyAt": "1521",
+          "guideDeadline": "15521",
+          "guideReason": ""
+        },
+        "heldZeroGL": {
+          "time": "2.000000",
+          "zeroDrawWindowMs": 450,
+          "draws": 1267,
+          "finitePendingDrawWindows": 0
+        },
+        "bothOnTimes": [
+          2.108,
+          2.284
+        ],
+        "guideOffEnvironmentOn": true,
+        "bothOff": {
+          "time": "3.252000",
+          "zeroDrawWindowMs": 450,
+          "draws": 3497,
+          "finitePendingDrawWindows": 0
+        },
+        "exactPixelModeRoundtrip": true
+      }
+    },
+    {
+      "check": "1366:all ten actual stations hold complete original content",
+      "passed": true,
+      "evidence": [
+        {
+          "id": "A1",
+          "H": 1.74,
+          "opacity": {
+            "body": 1.0,
+            "title": 1.0
+          },
+          "guide": {
+            "displayH": "1.7396570",
+            "targetH": "1.7396570",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.252000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "A1",
+            "guideTargetH": "1.739656997670972",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "5465",
+            "guideDeadline": "15465",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "A2",
+          "H": 2.54,
+          "opacity": {
+            "body": 1.0,
+            "title": 1.0
+          },
+          "guide": {
+            "displayH": "2.5391700",
+            "targetH": "2.5391700",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.252000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "A2",
+            "guideTargetH": "2.539170019055685",
+            "guideReadSeconds": "14",
+            "guideReadyAt": "6058",
+            "guideDeadline": "20058",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "A3",
+          "H": 3.34,
+          "opacity": {
+            "body": 1.0,
+            "title": 1.0
+          },
+          "guide": {
+            "displayH": "3.3399852",
+            "targetH": "3.3399852",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.252000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "A3",
+            "guideTargetH": "3.3399851789117085",
+            "guideReadSeconds": "14",
+            "guideReadyAt": "6557",
+            "guideDeadline": "20557",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B1",
+          "H": 4.95,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "4.9494283",
+            "targetH": "4.9494283",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.252000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B1",
+            "guideTargetH": "4.94942832945162",
+            "guideReadSeconds": "12",
+            "guideReadyAt": "7093",
+            "guideDeadline": "19093",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B2",
+          "H": 5.95,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "5.9494707",
+            "targetH": "5.9494707",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.252000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B2",
+            "guideTargetH": "5.9494706754181665",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "7644",
+            "guideDeadline": "17644",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B3",
+          "H": 6.84,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "6.8388313",
+            "targetH": "6.8388313",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.252000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B3",
+            "guideTargetH": "6.838831251323312",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "8338",
+            "guideDeadline": "18338",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B4",
+          "H": 7.64,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "7.6396464",
+            "targetH": "7.6396464",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.252000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B4",
+            "guideTargetH": "7.639646411179336",
+            "guideReadSeconds": "8",
+            "guideReadyAt": "8876",
+            "guideDeadline": "16876",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "C1",
+          "H": 9.14,
+          "opacity": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "9.1397099",
+            "targetH": "9.1397099",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.252000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "C1",
+            "guideTargetH": "9.139709930129156",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "9359",
+            "guideDeadline": "19359",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "C2",
+          "H": 10.05,
+          "opacity": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "10.0499047",
+            "targetH": "10.0499047",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.252000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "C2",
+            "guideTargetH": "10.04990472157527",
+            "guideReadSeconds": "12",
+            "guideReadyAt": "9845",
+            "guideDeadline": "21845",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "C3",
+          "H": 10.83,
+          "opacity": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "10.8298857",
+            "targetH": "10.8298857",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.252000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "C3",
+            "guideTargetH": "10.829885665890325",
+            "guideReadSeconds": "12",
+            "guideReadyAt": "10449",
+            "guideDeadline": "22449",
+            "guideReason": ""
+          }
+        }
+      ]
+    },
+    {
+      "check": "1366:actual reverse wheel interrupts moving camera",
+      "passed": true,
+      "evidence": {
+        "scrollY": 632,
+        "H": "0.8229515",
+        "noAutomaticWritesWindowMs": 450,
+        "guide": {
+          "displayH": "0.8229515",
+          "targetH": "0.8229515",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "3.252000",
+          "guideState": "paused",
+          "guidePhase": "paused",
+          "guideStation": "A1",
+          "guideTargetH": "1.74",
+          "guideReadSeconds": "0",
+          "guideReadyAt": "",
+          "guideDeadline": "",
+          "guideReason": "已交还手动滚动，可从当前位置继续导览。"
+        }
+      }
+    },
+    {
+      "check": "1366:image/live/archive stop first and restore native position/focus",
+      "passed": true,
+      "evidence": {
+        "imagePause": {
+          "time": "3.252000",
+          "zeroDrawWindowMs": 450,
+          "draws": 12177,
+          "finitePendingDrawWindows": 0
+        },
+        "archivePause": {
+          "time": "3.252000",
+          "zeroDrawWindowMs": 450,
+          "draws": 13235,
+          "finitePendingDrawWindows": 0
+        },
+        "within1CssPixel": true,
+        "focusReturned": true,
+        "videoReleased": true,
+        "oneOriginalCanvas": true
+      }
+    },
+    {
+      "check": "1366:stable reading preserves all original nodes and explicit resume",
+      "passed": true,
+      "evidence": {
+        "articles": 10,
+        "sameTextAndNodes": true,
+        "noAutomaticReturnStart": true
+      }
+    },
+    {
+      "check": "1366:repeated actual start/stop keeps fixed GPU resources",
+      "passed": true,
+      "evidence": {
+        "cycles": 4,
+        "warm": {
+          "geometries": 58,
+          "textures": 6,
+          "programs": 22,
+          "calls": 30,
+          "triangles": 6018,
+          "mode": "native",
+          "outputWidth": 1366,
+          "outputHeight": 661,
+          "pixel": null
+        },
+        "samples": [
+          {
+            "guide": {
+              "displayH": "2.5391700",
+              "targetH": "2.5391700",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.252000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.539170019055685",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "25915",
+              "guideDeadline": "39915",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 30,
+              "triangles": 6018,
+              "mode": "native",
+              "outputWidth": 1366,
+              "outputHeight": 661,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5391700",
+              "targetH": "2.5391700",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.252000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.539170019055685",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "26228",
+              "guideDeadline": "40228",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 30,
+              "triangles": 6018,
+              "mode": "native",
+              "outputWidth": 1366,
+              "outputHeight": 661,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5391700",
+              "targetH": "2.5391700",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.252000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.539170019055685",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "26558",
+              "guideDeadline": "40558",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 30,
+              "triangles": 6018,
+              "mode": "native",
+              "outputWidth": 1366,
+              "outputHeight": 661,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5391700",
+              "targetH": "2.5391700",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.252000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.539170019055685",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "26858",
+              "guideDeadline": "40858",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 30,
+              "triangles": 6018,
+              "mode": "native",
+              "outputWidth": 1366,
+              "outputHeight": 661,
+              "pixel": null
+            }
+          }
+        ],
+        "quietAfterStop": {
+          "time": "3.252000",
+          "zeroDrawWindowMs": 450,
+          "draws": 29033,
+          "finitePendingDrawWindows": 0
+        }
+      }
+    },
+    {
+      "check": "390:default off and never-started identity survives viewer",
+      "passed": true,
+      "evidence": {
+        "guide": {
+          "displayH": "4.9491475",
+          "targetH": "4.9491475",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "2.000000",
+          "guideState": "manual",
+          "guidePhase": "manual",
+          "guideStation": "O",
+          "guideTargetH": "0",
+          "guideReadSeconds": "0",
+          "guideReadyAt": "",
+          "guideDeadline": "",
+          "guideReason": ""
+        },
+        "canvas": 1
+      }
+    },
+    {
+      "check": "390:four guide/environment combinations and render-mode retention",
+      "passed": true,
+      "evidence": {
+        "guideOnly": {
+          "displayH": "2.5391484",
+          "targetH": "2.5391484",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "2.000000",
+          "guideState": "reading",
+          "guidePhase": "reading",
+          "guideStation": "A2",
+          "guideTargetH": "2.5391484442731915",
+          "guideReadSeconds": "14",
+          "guideReadyAt": "1591",
+          "guideDeadline": "15591",
+          "guideReason": ""
+        },
+        "heldZeroGL": {
+          "time": "2.000000",
+          "zeroDrawWindowMs": 450,
+          "draws": 1214,
+          "finitePendingDrawWindows": 0
+        },
+        "bothOnTimes": [
+          2.124,
+          2.333
+        ],
+        "guideOffEnvironmentOn": true,
+        "bothOff": {
+          "time": "3.475000",
+          "zeroDrawWindowMs": 450,
+          "draws": 3627,
+          "finitePendingDrawWindows": 0
+        },
+        "exactPixelModeRoundtrip": true
+      }
+    },
+    {
+      "check": "390:all ten actual stations hold complete original content",
+      "passed": true,
+      "evidence": [
+        {
+          "id": "A1",
+          "H": 1.74,
+          "opacity": {
+            "body": 1.0,
+            "title": 1.0
+          },
+          "guide": {
+            "displayH": "1.7393700",
+            "targetH": "1.7393700",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "A1",
+            "guideTargetH": "1.739370002889895",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "5902",
+            "guideDeadline": "15902",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "A2",
+          "H": 2.54,
+          "opacity": {
+            "body": 1.0,
+            "title": 1.0
+          },
+          "guide": {
+            "displayH": "2.5391484",
+            "targetH": "2.5391484",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "A2",
+            "guideTargetH": "2.5391484442731915",
+            "guideReadSeconds": "14",
+            "guideReadyAt": "6512",
+            "guideDeadline": "20512",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "A3",
+          "H": 3.34,
+          "opacity": {
+            "body": 1.0,
+            "title": 1.0
+          },
+          "guide": {
+            "displayH": "3.3389269",
+            "targetH": "3.3389269",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "A3",
+            "guideTargetH": "3.338926885656488",
+            "guideReadSeconds": "14",
+            "guideReadyAt": "7066",
+            "guideDeadline": "21066",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B1",
+          "H": 4.95,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "4.9491475",
+            "targetH": "4.9491475",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B1",
+            "guideTargetH": "4.949147480974858",
+            "guideReadSeconds": "12",
+            "guideReadyAt": "7635",
+            "guideDeadline": "19635",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B2",
+          "H": 5.95,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "5.9491667",
+            "targetH": "5.9491667",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B2",
+            "guideTargetH": "5.949166746941528",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "8216",
+            "guideDeadline": "18216",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B3",
+          "H": 6.84,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "6.8389943",
+            "targetH": "6.8389943",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B3",
+            "guideTargetH": "6.838994316539833",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "8944",
+            "guideDeadline": "18944",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "B4",
+          "H": 7.64,
+          "opacity": {
+            "frame": 1,
+            "media": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "7.6399576",
+            "targetH": "7.6399576",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "B4",
+            "guideTargetH": "7.639957614873326",
+            "guideReadSeconds": "8",
+            "guideReadyAt": "9489",
+            "guideDeadline": "17489",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "C1",
+          "H": 9.14,
+          "opacity": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "9.1399865",
+            "targetH": "9.1399865",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "C1",
+            "guideTargetH": "9.139986513823331",
+            "guideReadSeconds": "10",
+            "guideReadyAt": "10030",
+            "guideDeadline": "20030",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "C2",
+          "H": 10.05,
+          "opacity": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "10.0499567",
+            "targetH": "10.0499567",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "C2",
+            "guideTargetH": "10.049956651574993",
+            "guideReadSeconds": "12",
+            "guideReadyAt": "10576",
+            "guideDeadline": "22576",
+            "guideReason": ""
+          }
+        },
+        {
+          "id": "C3",
+          "H": 10.83,
+          "opacity": {
+            "frame": 1,
+            "title": 1,
+            "body": 1,
+            "offset": 0
+          },
+          "guide": {
+            "displayH": "10.8295925",
+            "targetH": "10.8295925",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "reading",
+            "guidePhase": "reading",
+            "guideStation": "C3",
+            "guideTargetH": "10.829592524804934",
+            "guideReadSeconds": "12",
+            "guideReadyAt": "11212",
+            "guideDeadline": "23212",
+            "guideReason": ""
+          }
+        }
+      ]
+    },
+    {
+      "check": "390:actual reverse wheel interrupts moving camera",
+      "passed": true,
+      "evidence": {
+        "scrollY": 711,
+        "H": "0.8424333",
+        "noAutomaticWritesWindowMs": 450,
+        "guide": {
+          "displayH": "0.8424333",
+          "targetH": "0.8424333",
+          "cameraState": "settled",
+          "motionState": "paused",
+          "sceneTime": "3.475000",
+          "guideState": "paused",
+          "guidePhase": "paused",
+          "guideStation": "A1",
+          "guideTargetH": "1.74",
+          "guideReadSeconds": "0",
+          "guideReadyAt": "",
+          "guideDeadline": "",
+          "guideReason": "已交还手动滚动，可从当前位置继续导览。"
+        }
+      }
+    },
+    {
+      "check": "390:image/live/archive stop first and restore native position/focus",
+      "passed": true,
+      "evidence": {
+        "imagePause": {
+          "time": "3.475000",
+          "zeroDrawWindowMs": 450,
+          "draws": 11428,
+          "finitePendingDrawWindows": 0
+        },
+        "archivePause": {
+          "time": "3.475000",
+          "zeroDrawWindowMs": 450,
+          "draws": 12405,
+          "finitePendingDrawWindows": 0
+        },
+        "within1CssPixel": true,
+        "focusReturned": true,
+        "videoReleased": true,
+        "oneOriginalCanvas": true
+      }
+    },
+    {
+      "check": "touch interaction relinquishes guide without scroll suppression",
+      "passed": true,
+      "evidence": {
+        "method": "actual Playwright touchscreen tap; native drag covered in Chromium, real phones remain pending",
+        "beforeY": 2143,
+        "after": {
+          "scrollY": 2143,
+          "H": "2.5391484",
+          "noAutomaticWritesWindowMs": 450,
+          "guide": {
+            "displayH": "2.5391484",
+            "targetH": "2.5391484",
+            "cameraState": "settled",
+            "motionState": "paused",
+            "sceneTime": "3.475000",
+            "guideState": "paused",
+            "guidePhase": "paused",
+            "guideStation": "A2",
+            "guideTargetH": "2.5391484442731915",
+            "guideReadSeconds": "14",
+            "guideReadyAt": "17215",
+            "guideDeadline": "",
+            "guideReason": "已交还手动浏览，可从当前位置继续导览。"
+          }
+        }
+      }
+    },
+    {
+      "check": "390:stable reading preserves all original nodes and explicit resume",
+      "passed": true,
+      "evidence": {
+        "articles": 10,
+        "sameTextAndNodes": true,
+        "noAutomaticReturnStart": true
+      }
+    },
+    {
+      "check": "390:repeated actual start/stop keeps fixed GPU resources",
+      "passed": true,
+      "evidence": {
+        "cycles": 4,
+        "warm": {
+          "geometries": 58,
+          "textures": 6,
+          "programs": 22,
+          "calls": 34,
+          "triangles": 6414,
+          "mode": "native",
+          "outputWidth": 780,
+          "outputHeight": 1486,
+          "pixel": null
+        },
+        "samples": [
+          {
+            "guide": {
+              "displayH": "2.5391484",
+              "targetH": "2.5391484",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.475000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.5391484442731915",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "28569",
+              "guideDeadline": "42569",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 34,
+              "triangles": 6414,
+              "mode": "native",
+              "outputWidth": 780,
+              "outputHeight": 1486,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5391484",
+              "targetH": "2.5391484",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.475000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.5391484442731915",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "29025",
+              "guideDeadline": "43025",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 34,
+              "triangles": 6414,
+              "mode": "native",
+              "outputWidth": 780,
+              "outputHeight": 1486,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5391484",
+              "targetH": "2.5391484",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.475000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.5391484442731915",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "29429",
+              "guideDeadline": "43429",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 34,
+              "triangles": 6414,
+              "mode": "native",
+              "outputWidth": 780,
+              "outputHeight": 1486,
+              "pixel": null
+            }
+          },
+          {
+            "guide": {
+              "displayH": "2.5391484",
+              "targetH": "2.5391484",
+              "cameraState": "settled",
+              "motionState": "paused",
+              "sceneTime": "3.475000",
+              "guideState": "reading",
+              "guidePhase": "reading",
+              "guideStation": "A2",
+              "guideTargetH": "2.5391484442731915",
+              "guideReadSeconds": "14",
+              "guideReadyAt": "29875",
+              "guideDeadline": "43875",
+              "guideReason": ""
+            },
+            "stats": {
+              "geometries": 58,
+              "textures": 6,
+              "programs": 22,
+              "calls": 34,
+              "triangles": 6414,
+              "mode": "native",
+              "outputWidth": 780,
+              "outputHeight": 1486,
+              "pixel": null
+            }
+          }
+        ],
+        "quietAfterStop": {
+          "time": "3.475000",
+          "zeroDrawWindowMs": 450,
+          "draws": 26448,
+          "finitePendingDrawWindows": 0
+        }
+      }
+    }
+  ]
+}

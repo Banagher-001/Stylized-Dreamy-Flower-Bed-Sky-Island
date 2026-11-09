@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "candidateId": "garden-enhancement-step7-487410d10d8ad600",
+  "checkedAtUtc": "2026-11-09T02:57:34.963106+00:00",
+  "stoppedOwnedQaPorts": [
+    4182,
+    4183
+  ],
+  "stoppedOwnedXvfb": ":105",
+  "x105SocketAbsent": true,
+  "knownOwnedSessionsStopped": [
+    81185,
+    75184,
+    25080
+  ],
+  "keptUserServices": [
+    {
+      "port": 5173,
+      "status": 200,
+      "mime": "text/html",
+      "bodySha256": "1493f6affe16e73c085eaf8fdc89395bcad2cc805aa63a4f449a65c4af911565"
+    },
+    {
+      "port": 4173,
+      "status": 200,
+      "mime": "text/html",
+      "bodySha256": "b9e1e3f8b5e15c948622d76f71e0ba6891807e2878f39f0637811b8f5cc5761c"
+    }
+  ],
+  "restoredMissingUserServicePorts": [
+    5173,
+    4173
+  ],
+  "restoredSessions": [
+    7635,
+    77151
+  ],
+  "reason": "both user preview ports were observed closed at Step7 start; restored with existing dev/preview commands and final root bytes verified; packaged ephemeral test servers closed by their own checks",
+  "otherDisplaysAndServicesTouched": false,
+  "published": false
+}

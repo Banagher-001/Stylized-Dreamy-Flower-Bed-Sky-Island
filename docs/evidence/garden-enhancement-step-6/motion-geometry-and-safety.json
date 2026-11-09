@@ -1,0 +1,121 @@
+{
+  "passed": true,
+  "candidateId": "garden-enhancement-step6-487410d10d8ad600",
+  "method": "actual source and geometry through SSR; dense absolute-time sampling and actual instance matrices; no GPU or real-time browser claim",
+  "cases": [
+    {
+      "name": "absolute-time routes, wings, glide, heading and all cycle joins continuous",
+      "passed": true,
+      "evidence": {
+        "sampledSeconds": 120,
+        "stepSeconds": 0.01,
+        "minSpeed": 0.5017252467910198,
+        "maxSpeed": 1.0342078229163227,
+        "minHeight": 4.379058711525033,
+        "maxHeight": 5.820975304192836,
+        "maxBankDegrees": 10.313240312354818,
+        "maxPositionStepAtPoint0001": 0.00010935327446453043,
+        "maxWingStep": 0.0006525956572004388,
+        "maxRotationStep": 4.371292217086875e-11,
+        "boundary": [
+          {
+            "bird": 0,
+            "time": 41.28,
+            "positionDifference": 0.0000014517974034361119,
+            "wingDifference": 0
+          },
+          {
+            "bird": 0,
+            "time": 5.2,
+            "positionDifference": 0.0000020683269930153014,
+            "wingDifference": 4.718447854656915e-16
+          },
+          {
+            "bird": 1,
+            "time": 24.299999999999997,
+            "positionDifference": 0.0000014375634716875004,
+            "wingDifference": 0
+          },
+          {
+            "bird": 1,
+            "time": 4.03,
+            "positionDifference": 0.000001473126898893258,
+            "wingDifference": 1.6653345369377348e-16
+          },
+          {
+            "bird": 2,
+            "time": 11.589999999999996,
+            "positionDifference": 0.0000010199298205148556,
+            "wingDifference": 0
+          },
+          {
+            "bird": 2,
+            "time": 2.16,
+            "positionDifference": 0.0000013957770419292693,
+            "wingDifference": 1.5265566588595902e-16
+          }
+        ]
+      }
+    },
+    {
+      "name": "all prior world geometry, grass distribution, matrices, water events, cloud bindings and time unchanged",
+      "passed": true,
+      "evidence": {
+        "times": [
+          2,
+          18,
+          60,
+          300
+        ],
+        "cloudReceivers": 14
+      }
+    },
+    {
+      "name": "actual transformed body and wings clear every original mesh and each other",
+      "passed": true,
+      "evidence": {
+        "sampledSeconds": 600,
+        "stepSeconds": 0.1,
+        "staticGap": 0.8304158886777965,
+        "birdGap": 0.42982989005675787,
+        "requiredGap": 0.25,
+        "maxMergedHingeError": 1.9984014443252818e-15,
+        "method": "actual instance matrices, per-vertex part/wing attributes and full posed vertices; conservative3D envelopes; packed hinge positions independently compared to separate reference body/wing Matrix4 transforms; GPU projection/depth/footage separately verified"
+      }
+    },
+    {
+      "name": "paused pose/uploads, shared material and full-envelope UI safety",
+      "passed": true,
+      "evidence": {
+        "samePausedMatrixVersions": true,
+        "geometries": 1,
+        "materials": 1,
+        "colorDrawCalls": 1,
+        "trianglesPerBird": 60,
+        "castShadow": false,
+        "depthTest": true,
+        "UIEnvelopeRadius": 15,
+        "margin": 20
+      }
+    },
+    {
+      "name": "idempotent release and global environment gate",
+      "passed": true,
+      "evidence": {
+        "noIndependentTimerOrRAF": true,
+        "disposedRootEmpty": true,
+        "environmentOffCreatesNoBirdResources": true
+      }
+    }
+  ],
+  "sourceSha256": {
+    "src/animation/birdMotion.ts": "5588316f8efba7e55e36a98a693b09931fa87800710f93d79a26e98a69c1d596",
+    "src/config/birds.ts": "99d089365f8bb75cfd2b5c36ecda5f05bf3eb478f29f9a6bf6d334471d5aa59b",
+    "src/geometry/createBirdGeometry.ts": "e42e9e0ef07b084aac64979cb1c00d22af8e1565ca29ea2562cd7b52709822db",
+    "src/materials/createBirdMaterial.ts": "716dcebb7ec2c8d49c184f29b49b90a1de722763900332733ecc3ea22f24c9b9",
+    "src/scene/createBirds.ts": "32d9ed7caa5d827431e80e5241a87422b3c7fd68a9d9d4217ab8dd2d33a47b0c",
+    "src/scene/createScene.ts": "976ba4cefab5c9dae70b71287b3da867054d78804a20dea6ebfc8d5469d5d3e7",
+    "src/tour/birdVisibility.ts": "9e9c6630e272ee8b6c60f34aa4c09d88186512f5d5a4f2d7326375be90e2f0d5",
+    "src/tour/startTourPrototype.ts": "a3f88c1faceef54671c1156a81c2400a528e89e395a9f8e90bfbdc1f590ccf9b"
+  }
+}

@@ -1,0 +1,475 @@
+{
+  "passed": false,
+  "reason": "some initial callback/interval p95 changes exceed10%; investigation and matched repeats required",
+  "travel30P95ChangePercent": -6.164383562208464,
+  "cases": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "mode": "pixel",
+      "pose": "O",
+      "beforeCallback": {
+        "count": 90,
+        "p50Ms": 1.299999998882413,
+        "p95Ms": 1.5,
+        "maxMs": 1.699999999254942,
+        "meanMs": 1.2700000000496705
+      },
+      "afterCallback": {
+        "count": 90,
+        "p50Ms": 1.299999998882413,
+        "p95Ms": 1.699999999254942,
+        "maxMs": 6,
+        "meanMs": 1.3677777776701583
+      },
+      "beforeInterval": {
+        "count": 89,
+        "p50Ms": 49.899999999999636,
+        "p95Ms": 66.69999999999982,
+        "maxMs": 99.89999999999964,
+        "meanMs": 43.2561797752809
+      },
+      "afterInterval": {
+        "count": 89,
+        "p50Ms": 33.400000000000546,
+        "p95Ms": 66.60000000000036,
+        "maxMs": 133.39999999999964,
+        "meanMs": 42.695505617977524
+      },
+      "callbackP95ChangePercent": 13.333333283662796,
+      "intervalP95ChangePercent": -0.14992503748043617,
+      "beforeCalls": [
+        68
+      ],
+      "afterCalls": [
+        68
+      ],
+      "beforeStats": {
+        "geometries": 52,
+        "textures": 3,
+        "programs": 11,
+        "calls": 68,
+        "triangles": 9173,
+        "mode": "pixel",
+        "outputWidth": 1440,
+        "outputHeight": 793,
+        "pixel": {
+          "sampleWidth": 384,
+          "sampleHeight": 211,
+          "designResolution": 384,
+          "finish": "clean",
+          "storage": "linear-half-float",
+          "minFilter": "nearest",
+          "magFilter": "nearest",
+          "mipmaps": false,
+          "levels": 0,
+          "dither": 0,
+          "allocations": 1
+        }
+      },
+      "afterStats": {
+        "geometries": 52,
+        "textures": 3,
+        "programs": 11,
+        "calls": 68,
+        "triangles": 9173,
+        "mode": "pixel",
+        "outputWidth": 1440,
+        "outputHeight": 793,
+        "pixel": {
+          "sampleWidth": 384,
+          "sampleHeight": 211,
+          "designResolution": 384,
+          "finish": "clean",
+          "storage": "linear-half-float",
+          "minFilter": "nearest",
+          "magFilter": "nearest",
+          "mipmaps": false,
+          "levels": 0,
+          "dither": 0,
+          "allocations": 1
+        }
+      }
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "mode": "pixel",
+      "pose": "W",
+      "beforeCallback": {
+        "count": 90,
+        "p50Ms": 1,
+        "p95Ms": 1.599999999627471,
+        "maxMs": 6,
+        "meanMs": 1.20222222223464
+      },
+      "afterCallback": {
+        "count": 90,
+        "p50Ms": 1.200000001117587,
+        "p95Ms": 5.099999999627471,
+        "maxMs": 7.400000000372529,
+        "meanMs": 1.6122222222801712
+      },
+      "beforeInterval": {
+        "count": 89,
+        "p50Ms": 49.900000000001455,
+        "p95Ms": 50.100000000000364,
+        "maxMs": 66.70000000000073,
+        "meanMs": 44.38089887640451
+      },
+      "afterInterval": {
+        "count": 89,
+        "p50Ms": 49.899999999999636,
+        "p95Ms": 66.60000000000036,
+        "maxMs": 83.39999999999964,
+        "meanMs": 43.8191011235955
+      },
+      "callbackP95ChangePercent": 218.7500000509317,
+      "intervalP95ChangePercent": 32.93413173652671,
+      "beforeCalls": [
+        60
+      ],
+      "afterCalls": [
+        60
+      ],
+      "beforeStats": {
+        "geometries": 54,
+        "textures": 4,
+        "programs": 12,
+        "calls": 60,
+        "triangles": 8603,
+        "mode": "pixel",
+        "outputWidth": 1440,
+        "outputHeight": 793,
+        "pixel": {
+          "sampleWidth": 384,
+          "sampleHeight": 211,
+          "designResolution": 384,
+          "finish": "clean",
+          "storage": "linear-half-float",
+          "minFilter": "nearest",
+          "magFilter": "nearest",
+          "mipmaps": false,
+          "levels": 0,
+          "dither": 0,
+          "allocations": 1
+        }
+      },
+      "afterStats": {
+        "geometries": 54,
+        "textures": 4,
+        "programs": 12,
+        "calls": 60,
+        "triangles": 8603,
+        "mode": "pixel",
+        "outputWidth": 1440,
+        "outputHeight": 793,
+        "pixel": {
+          "sampleWidth": 384,
+          "sampleHeight": 211,
+          "designResolution": 384,
+          "finish": "clean",
+          "storage": "linear-half-float",
+          "minFilter": "nearest",
+          "magFilter": "nearest",
+          "mipmaps": false,
+          "levels": 0,
+          "dither": 0,
+          "allocations": 1
+        }
+      }
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "mode": "native",
+      "pose": "O",
+      "beforeCallback": {
+        "count": 90,
+        "p50Ms": 1.199999999254942,
+        "p95Ms": 5.400000000372529,
+        "maxMs": 9.200000001117587,
+        "meanMs": 1.6777777776949936
+      },
+      "afterCallback": {
+        "count": 90,
+        "p50Ms": 1.299999998882413,
+        "p95Ms": 6.400000000372529,
+        "maxMs": 12.099999999627471,
+        "meanMs": 2.0922222222305007
+      },
+      "beforeInterval": {
+        "count": 89,
+        "p50Ms": 133.29999999999927,
+        "p95Ms": 150.0,
+        "maxMs": 299.8999999999978,
+        "meanMs": 131.82921348314605
+      },
+      "afterInterval": {
+        "count": 89,
+        "p50Ms": 133.29999999999927,
+        "p95Ms": 316.59999999999854,
+        "maxMs": 366.6999999999971,
+        "meanMs": 136.69887640449434
+      },
+      "callbackP95ChangePercent": 18.518518517240977,
+      "intervalP95ChangePercent": 111.06666666666571,
+      "beforeCalls": [
+        67
+      ],
+      "afterCalls": [
+        67
+      ],
+      "beforeStats": {
+        "geometries": 56,
+        "textures": 5,
+        "programs": 22,
+        "calls": 67,
+        "triangles": 9172,
+        "mode": "native",
+        "outputWidth": 1440,
+        "outputHeight": 793,
+        "pixel": null
+      },
+      "afterStats": {
+        "geometries": 56,
+        "textures": 5,
+        "programs": 22,
+        "calls": 67,
+        "triangles": 9172,
+        "mode": "native",
+        "outputWidth": 1440,
+        "outputHeight": 793,
+        "pixel": null
+      }
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "mode": "native",
+      "pose": "W",
+      "beforeCallback": {
+        "count": 90,
+        "p50Ms": 1.199999999254942,
+        "p95Ms": 5.700000001117587,
+        "maxMs": 7.900000000372529,
+        "meanMs": 1.6411111111442247
+      },
+      "afterCallback": {
+        "count": 90,
+        "p50Ms": 1.199999999254942,
+        "p95Ms": 6.700000001117587,
+        "maxMs": 11.399999998509884,
+        "meanMs": 2.008888888897167
+      },
+      "beforeInterval": {
+        "count": 89,
+        "p50Ms": 150.0,
+        "p95Ms": 300.0,
+        "maxMs": 416.6999999999971,
+        "meanMs": 157.29662921348316
+      },
+      "afterInterval": {
+        "count": 89,
+        "p50Ms": 150.09999999999854,
+        "p95Ms": 249.90000000000146,
+        "maxMs": 333.20000000000437,
+        "meanMs": 158.98314606741573
+      },
+      "callbackP95ChangePercent": 17.543859645683014,
+      "intervalP95ChangePercent": -16.699999999999516,
+      "beforeCalls": [
+        59
+      ],
+      "afterCalls": [
+        59
+      ],
+      "beforeStats": {
+        "geometries": 56,
+        "textures": 5,
+        "programs": 22,
+        "calls": 59,
+        "triangles": 8594,
+        "mode": "native",
+        "outputWidth": 1440,
+        "outputHeight": 793,
+        "pixel": null
+      },
+      "afterStats": {
+        "geometries": 56,
+        "textures": 5,
+        "programs": 22,
+        "calls": 59,
+        "triangles": 8602,
+        "mode": "native",
+        "outputWidth": 1440,
+        "outputHeight": 793,
+        "pixel": null
+      }
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "pixel",
+      "pose": "W",
+      "beforeCallback": {
+        "count": 90,
+        "p50Ms": 1.099999999627471,
+        "p95Ms": 1.699999999254942,
+        "maxMs": 6.299999998882413,
+        "meanMs": 1.2777777777984738
+      },
+      "afterCallback": {
+        "count": 90,
+        "p50Ms": 1,
+        "p95Ms": 1.300000000745058,
+        "maxMs": 4.299999998882413,
+        "meanMs": 1.0411111111235287
+      },
+      "beforeInterval": {
+        "count": 89,
+        "p50Ms": 33.399999999999636,
+        "p95Ms": 50.0,
+        "maxMs": 83.39999999999964,
+        "meanMs": 36.70224719101124
+      },
+      "afterInterval": {
+        "count": 89,
+        "p50Ms": 33.30000000000018,
+        "p95Ms": 50.0,
+        "maxMs": 116.69999999999982,
+        "meanMs": 36.32808988764045
+      },
+      "callbackP95ChangePercent": -23.52941168736421,
+      "intervalP95ChangePercent": 0.0,
+      "beforeCalls": [
+        45
+      ],
+      "afterCalls": [
+        45
+      ],
+      "beforeStats": {
+        "geometries": 54,
+        "textures": 4,
+        "programs": 12,
+        "calls": 45,
+        "triangles": 7375,
+        "mode": "pixel",
+        "outputWidth": 780,
+        "outputHeight": 1488,
+        "pixel": {
+          "sampleWidth": 201,
+          "sampleHeight": 384,
+          "designResolution": 384,
+          "finish": "clean",
+          "storage": "linear-half-float",
+          "minFilter": "nearest",
+          "magFilter": "nearest",
+          "mipmaps": false,
+          "levels": 0,
+          "dither": 0,
+          "allocations": 1
+        }
+      },
+      "afterStats": {
+        "geometries": 54,
+        "textures": 4,
+        "programs": 12,
+        "calls": 45,
+        "triangles": 7375,
+        "mode": "pixel",
+        "outputWidth": 780,
+        "outputHeight": 1488,
+        "pixel": {
+          "sampleWidth": 201,
+          "sampleHeight": 384,
+          "designResolution": 384,
+          "finish": "clean",
+          "storage": "linear-half-float",
+          "minFilter": "nearest",
+          "magFilter": "nearest",
+          "mipmaps": false,
+          "levels": 0,
+          "dither": 0,
+          "allocations": 1
+        }
+      }
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "native",
+      "pose": "W",
+      "beforeCallback": {
+        "count": 90,
+        "p50Ms": 1.199999999254942,
+        "p95Ms": 5.5,
+        "maxMs": 6.800000000745058,
+        "meanMs": 1.852222222317424
+      },
+      "afterCallback": {
+        "count": 90,
+        "p50Ms": 1.199999999254942,
+        "p95Ms": 5.5,
+        "maxMs": 6.700000001117587,
+        "meanMs": 1.6977777778274483
+      },
+      "beforeInterval": {
+        "count": 89,
+        "p50Ms": 133.40000000000146,
+        "p95Ms": 266.7000000000007,
+        "maxMs": 366.59999999999854,
+        "meanMs": 146.43595505617978
+      },
+      "afterInterval": {
+        "count": 89,
+        "p50Ms": 133.40000000000146,
+        "p95Ms": 250.0,
+        "maxMs": 300.0,
+        "meanMs": 145.1258426966292
+      },
+      "callbackP95ChangePercent": 0.0,
+      "intervalP95ChangePercent": -6.261717285339586,
+      "beforeCalls": [
+        44
+      ],
+      "afterCalls": [
+        44
+      ],
+      "beforeStats": {
+        "geometries": 54,
+        "textures": 4,
+        "programs": 21,
+        "calls": 44,
+        "triangles": 7366,
+        "mode": "native",
+        "outputWidth": 780,
+        "outputHeight": 1488,
+        "pixel": null
+      },
+      "afterStats": {
+        "geometries": 54,
+        "textures": 4,
+        "programs": 21,
+        "calls": 44,
+        "triangles": 7358,
+        "mode": "native",
+        "outputWidth": 780,
+        "outputHeight": 1488,
+        "pixel": null
+      }
+    }
+  ]
+}

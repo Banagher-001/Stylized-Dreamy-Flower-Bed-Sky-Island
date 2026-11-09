@@ -6,7 +6,11 @@ export const orbConfig = {
   floatAmplitude: .03,
   floatPeriod: 6,
   sphereSegments: [12, 8] as const,
-  shape: { first: .018, second: .009, x: .012, y: .015, z: .012, yRatio: .96, envelope: 1.06 },
+  // The two radial waves total 3.4%; this replaces, rather than adds to, the old waves.
+  shape: { first: .025, second: .009, x: .012, y: .015, z: .012, yRatio: .96, envelope: (1 + .025 + .009) * 1.012 },
+  flow: { mainPeriod: 7.2, detailPeriod: 4.1, turnPeriod: 23,
+    main: [2.2, 7.4, .8] as const, bend: [3.2, 0, 2] as const, bendStrength: .8,
+    detail: [2.1, -3, 7] as const },
   stemRadius: .04,
   stemOverlap: .025,
   releaseLatitude: -.16,
