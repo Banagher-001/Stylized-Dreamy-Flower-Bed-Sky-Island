@@ -1,0 +1,36 @@
+{
+  "capturedAtShanghai": "2026-11-10T18:37:54.737843+08:00",
+  "complete": true,
+  "ownedProcesses": [
+    {
+      "pid": 53009,
+      "commandVerified": [
+        "python",
+        "-u",
+        "tests/lawson-fullpage-step-3/serve_built.py",
+        "--port",
+        "4193"
+      ],
+      "terminationRequested": true,
+      "stopped": true
+    },
+    {
+      "pid": 53013,
+      "commandVerified": [
+        "/workspace/.cache/browser-deps/root/usr/bin/Xvfb",
+        ":109",
+        "-screen",
+        "0",
+        "1600x1000x24",
+        "-nolisten",
+        "tcp"
+      ],
+      "terminationRequested": true,
+      "stopped": true
+    }
+  ],
+  "ownDistBackupRemoved": "/tmp/lawson-step3-dist-before",
+  "backupVerifiedBeforeRemoval": true,
+  "productionServicesTouched": false,
+  "testBrowserClosedByRunner": true
+}

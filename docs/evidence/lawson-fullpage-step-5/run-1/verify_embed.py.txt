@@ -1,0 +1,84 @@
+"""Exercise the real built host and original child document in Chromium."""
+from pathlib import Path
+import argparse,json,shutil,traceback
+from playwright.sync_api import sync_playwright
+
+ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'docs/evidence/lawson-fullpage-step-5'
+args_parser=argparse.ArgumentParser();args_parser.add_argument('--run',required=True);args_parser.add_argument('--only-prefix',default='');args=args_parser.parse_args()
+FOLDER=OUT/args.run;FOLDER.mkdir(exist_ok=False);shutil.copyfile(__file__,FOLDER/'verify_embed.py.txt')
+report={'checks':[],'pageErrors':[],'httpErrors':[],'requests':[],'failedRequests':[],'consoleErrors':[]}
+AUDIT='''(()=>{const a=window.__frameAudit={draws:0};for(const cls of [window.WebGLRenderingContext,window.WebGL2RenderingContext])if(cls)for(const key of ['drawArrays','drawElements','drawArraysInstanced','drawElementsInstanced']){const raw=cls.prototype[key];if(raw)cls.prototype[key]=function(...args){a.draws++;return raw.apply(this,args)}}})()'''
+def save():(FOLDER/'browser.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+def case(name,fn):
+    if args.only_prefix and not name.startswith(args.only_prefix):return
+    try:report['checks'].append({'name':name,'passed':True,'evidence':fn()});print('PASS '+name,flush=True)
+    except Exception as e:report['checks'].append({'name':name,'passed':False,'error':str(e),'traceback':traceback.format_exc()});print('FAIL '+name+': '+str(e),flush=True)
+    save()
+
+with sync_playwright()as pw:
+    browser=pw.chromium.launch(executable_path='/usr/bin/chromium',headless=False,args=['--no-sandbox','--use-gl=angle','--use-angle=gl','--ignore-gpu-blocklist']);report['browser']=browser.version
+    def setup(w=1440,h=900,prefix='/',fault=None):
+        context=browser.new_context(viewport={'width':w,'height':h},device_scale_factor=1);context.add_init_script(AUDIT)
+        page=context.new_page();page.set_default_timeout(20000)
+        page.on('pageerror',lambda e:report['pageErrors'].append({'fault':fault,'text':str(e)}))
+        page.on('response',lambda r:report['httpErrors'].append({'fault':fault,'url':r.url,'status':r.status})if r.status>=400 else None)
+        page.on('request',lambda r:report['requests'].append({'fault':fault,'url':r.url}))
+        page.on('requestfailed',lambda r:report['failedRequests'].append({'fault':fault,'url':r.url,'failure':r.failure}))
+        page.on('console',lambda m:report['consoleErrors'].append({'fault':fault,'text':m.text})if m.type=='error'else None)
+        page.goto('http://127.0.0.1:4195'+prefix,wait_until='domcontentloaded');page.wait_for_function('document.querySelector("main")?.dataset.layoutReady==="true"',timeout=60000,polling=100)
+        return context,page
+    def c2(p):
+        if p.locator('main').get_attribute('data-reading-mode')=='stable':p.locator('article[data-experiment-station=C2]').scroll_into_view_if_needed()
+        else:
+            p.evaluate('scrollTo({top:(document.documentElement.scrollHeight-innerHeight)*10.05/12.3,behavior:"instant"})')
+            p.wait_for_function('Math.abs(Number(document.querySelector("#tour-host").dataset.displayH)-10.05)<.005',timeout=20000,polling=100)
+        p.wait_for_function('!document.querySelector("[data-project-tab=live]").disabled',polling=100)
+    def open_view(p,tab='live'):
+        button=p.locator('[data-project-tab='+tab+']');button.scroll_into_view_if_needed();before=p.evaluate('({y:scrollY,h:document.querySelector("#tour-host").dataset.displayH,mode:document.querySelector("main").dataset.readingMode})');button.click();p.wait_for_function('document.querySelector(".tour-project-dialog").open');return before
+    def close_view(p):p.locator('.tour-project-close').click();p.wait_for_function('!document.querySelector(".tour-project-dialog").open');p.wait_for_timeout(250)
+    def state(p,value,timeout=90000):p.wait_for_function('v=>document.querySelector(".tour-project-dialog").dataset.embeddedState===v',arg=value,timeout=timeout,polling=100)
+    def child(p):
+        p.wait_for_selector('.tour-project-embed-mount > iframe',state='attached')
+        return p.locator('.tour-project-embed-mount > iframe').element_handle().content_frame()
+    def ready(p):
+        state(p,'ready');f=child(p);f.wait_for_function('window.__LAWSON__?.ready===true');f.locator('#loader').wait_for(state='hidden',timeout=20000);return f
+    def draws(target,p,seconds=1):
+        start=target.evaluate('__frameAudit.draws');p.wait_for_timeout(seconds*1000);return target.evaluate('__frameAudit.draws')-start
+    def screenshot(p,name):p.screenshot(path=str(FOLDER/(name+'.png')))
+
+    def normal():
+        c,p=setup()
+        try:
+            c2(p);assert not any('/experiments/lawson/'in r['url']for r in report['requests'])
+            open_view(p,'archive');assert p.locator('iframe').count()==0;close_view(p)
+            before=open_view(p);f=ready(p)
+            assert p.locator('iframe').count()==1;assert not p.locator('iframe').get_attribute('sandbox')
+            assert f.url=='http://127.0.0.1:4195/experiments/lawson/index.html'
+            parent_draws=draws(p,p);child_draws=draws(f,p);assert parent_draws==0 and child_draws>0
+            assert f.locator('#panel').is_visible()and f.locator('#light-toggles .toggle').count()==8
+            g=p.locator('iframe').bounding_box();header=p.locator('.tour-project-header').bounding_box()
+            assert abs(g['width']-1440)<1 and abs(g['height']-(900-header['height']))<1
+            screenshot(p,'desktop-ready')
+            f.locator('[data-preset=day]').click();assert f.locator('[data-preset=day]').evaluate('e=>e.classList.contains("active")')
+            f.locator('#lights-all-off').click();assert all(v is False for v in f.evaluate('__LAWSON__.api.getState().lights').values())
+            f.locator('#lights-all-on').click();assert all(v is True for v in f.evaluate('__LAWSON__.api.getState().lights').values())
+            f.locator('[data-cam=top]').click();f.wait_for_function('__LAWSON__.api.getState().cameraMode==="top"')
+            f.locator('#btn-roof').click();f.wait_for_function('__LAWSON__.api.getState().roofVisible===false')
+            f.locator('#clerk-buttons [data-clerk=A]').click()
+            f.locator('#traffic-speed [data-speed="1.8"]').click();f.locator('#car-demo [data-car=A]').click()
+            native_state=f.evaluate('__LAWSON__.api.getState()')
+            p.locator('#project-tab-archive').click();assert p.locator('iframe').count()==0;assert draws(p,p)==0
+            p.locator('#project-tab-live').click();again=ready(p);assert again!=f
+            assert again.evaluate('__LAWSON__.api.getState().roofVisible')is True
+            close_view(p);assert p.locator('iframe').count()==0;assert abs(p.evaluate('scrollY')-before['y'])<=3
+            assert p.evaluate('document.activeElement.dataset.projectTab')=='live'
+            assert p.locator('#tour-guide').get_attribute('aria-pressed')=='false'
+            assert draws(p,p,.4)>0
+            return {'parentDrawsDuringOriginal':parent_draws,'originalDraws':child_draws,'geometry':g,'header':header,'originalStateAfterNativeControls':native_state,'archiveUnloads':True,'reentryOriginalDefaults':True,'readingAndFocusRestored':True}
+        finally:c.close()
+    case('normal embedded original and lifecycle',normal)
+    browser.close()
+
+report['passed']=all(c['passed']for c in report['checks'])and not report['pageErrors']and not report['httpErrors']
+save();print(json.dumps({'passed':report['passed'],'checks':len(report['checks']),'pageErrors':report['pageErrors'],'httpErrors':report['httpErrors']},ensure_ascii=False),flush=True)
+raise SystemExit(0 if report['passed']else 1)

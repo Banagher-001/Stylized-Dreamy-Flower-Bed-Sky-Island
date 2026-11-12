@@ -1,0 +1,135 @@
+"""Write human-readable reports from the completed, verified result selection."""
+from pathlib import Path
+import json
+ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'docs/evidence/lawson-fullpage-step-7';DOC=ROOT/'docs/lawson-fullpage'
+read=lambda p:json.loads(p.read_text());p=read(OUT/'functional-parity.json');a=read(OUT/'accepted-browser-results.json');i=read(OUT/'integrity.json');c=read(OUT/'candidate-manifest.json');audit=read(OUT/'event-audit.json');cleanup=read(OUT/'cleanup.json')
+assert i['passed']and audit['passed']and cleanup['passed']and not p['hostNewRegressions']
+def link(ref,label):return f"[{label}](../evidence/lawson-fullpage-step-7/{ref['report']}) · `{ref['case']}`"
+def table(rows):
+    out=['| 项目 | 原页 | 内嵌 | 结论 |','|---|---|---|---|']
+    for row in rows:out.append(f"| {row['label']} | {link(row['original'],'记录')} | {link(row['embedded'],'记录')} | {row['result']} |")
+    return '\n'.join(out)
+text=f'''# 第七步：原页与内嵌逐项功能对照
+
+已完成固定原版本的 41 控件、13 条键位记录、17 类拾取及三辆车完整流程对照。原页正常项在正式内嵌中保持可用；原页已有问题单独列明，未修复或包装成通过。候选：`{c['candidateId']}`。
+
+原运行文件保持 46 个、20,332,784 字节，源、公有目录和构建目录 SHA256 一致。主验证为 Chromium 155.0.8059.79、Linux Mesa 软件渲染；原页与子文档匹配 CSS 视口。默认界面 1440×900／1366×768，较重功能对照 960×540；通过原画质按钮选择 low，默认状态在选择前采集。时间、相机、暂停等均使用原输入；调试 API 用于读数或明确标注的观察视角，不代替实际点击。
+
+## 41 个原控件
+
+32 个静态按钮、1 个滑杆、8 个动态灯光控件。控件清单与原 41 个调试 API 清单是两个概念，本次不宣称逐项验证全部开发 API。
+
+{table(p['controls'])}
+
+灯光除了 UI 状态，还记录真实光源和发光材质。屋顶记录实际可绘制节点、祖先可见性、显式 roofRoot 及原目标计数；空分组自身的 visible 不等于可见几何体。重置按钮的实际镜头恢复与原 R 惯性问题分别记录，未承诺所有拖动时机像素精确复位。
+
+## 13 条键位记录
+
+{table(p['keyboard'])}
+
+R 拖动后惯性、起点 W/S 碰撞与 N 未绑定均在两页复现，归为原页问题。漫游中 R 后再触发 UI 同步的缓存问题另见 {link(p['additionalOriginalBoundary']['original'],'原页')}／{link(p['additionalOriginalBoundary']['embedded'],'内嵌')}。A/D 和左右 Shift 加速采用真实平面位移，未把上下摆动作为 W/S 行走成功。
+
+## 17 类场景拾取
+
+{table(p['picks'])}
+
+通过真实指针命中原物件，读取原处理结果及实际材质、灯光、门位移、蒸汽或镜头变化。观察包装以原参数调用原函数一次；没有用 clickAt、activate 或业务 API 派发替代用户点击。购物篮切冷柜灯、店员聚焦固定岗位均保留原绑定。车辆不属于原 17 类拾取，仍通过原车辆按钮演示。
+
+## 连续车辆与店员流程
+
+| 车辆 | 原页完整流程墙钟 | 内嵌完整流程墙钟 | 结果 |
+|---|---:|---:|---|
+'''
+for row in p['vehicleCycles']:text+=f"| {row['label']} | {row['standaloneSummary']['wallSeconds']:.1f} 秒 | {row['embeddedSummary']['wallSeconds']:.1f} 秒 | 通过 |\n"
+text+='''
+每辆车均实际经过进场、停靠、倒车、离场和变为非活动/不可见的完整周期，记录车轮和倒车灯。使用原 UI 的 1.8 档，未改变原时钟、RAF、dt 或强行完成任务；采样未宣称穷举每一短暂中间状态。云端墙钟时间不作为访客设备性能或硬件 FPS 的承诺。
+
+两名店员在连续流程中的实际任务：
+
+'''
+for mode,label in [('standalone','原页'),('embedded','内嵌')]:
+    for tag,tasks in p['autonomousClerkTasksActuallyObserved'][mode].items():text+=f"- {label}店员 {tag}：{', '.join(tasks)}。\n"
+text+='''
+两页保留随机自主行为，观察到的任务顺序和种类不同；没有调用强制任务接口，也不宣称所有随机分支已穷举。
+
+原有问题总表保留在 [原版记录](original-issues.md)，本次最终验收及边界见 [验收报告](step-7-verification.md)。
+'''
+(DOC/'step-7-parity.md').write_text(text)
+engines={}
+for item in a['cases']:engines.setdefault(item['browserVersion'],0);engines[item['browserVersion']]+=1
+failed=[r for r in a['allAttemptsPreserved']if r['needsRecheck']]
+verification=f'''# 第七步验收：完整功能对照与最终交付
+
+状态：已完成当前环境内的本轮完整嵌入验收。候选 `{c['candidateId']}`。未提交、推送或发布。
+
+## 结果
+
+- 41 个控件逐项对照通过，包含真实模型失败后的原错误重试与原生全屏。
+- 13 条键位记录完成；R、W/S、N 及漫游中 R 的已知原问题保留并分别标明。
+- 17 类场景真实点击在原页和正式内嵌中均有实际效果证据。
+- A/B/C 在两页各走完一个完整原时钟周期，共六次；两名店员均观察到多种自主任务。
+- 根路径与项目子路径的完整使用流程、档案、独立打开、关闭返回、阅读/焦点恢复通过。庭院视频、两张帧图、现场正常/像素模式、播放暂停和水潭入口保留。
+- 原模型失败与两种重试、慢载入后就绪、真实图形丢失/恢复后显式重载、键盘隔离、原生全屏绘制/锁定及系统 Esc 通过。
+- Chromium 触摸模拟的单指旋转、双指缩放、面板滚动、原按钮和横竖屏通过；Firefox 与 Linux WebKit 的关键控件及原页/内嵌手机版布局对照通过。
+
+逐项结果见 [功能对照](step-7-parity.md)；[机器对照](../evidence/lawson-fullpage-step-7/functional-parity.json)记录原页与内嵌引用。[采用结果](../evidence/lawson-fullpage-step-7/accepted-browser-results.json)共 {a['acceptedCaseCount']} 项确定结果，其中 {a['functionalPassCases']} 项功能通过、{a['knownOriginalIssueCases']} 项记录原页已有问题。该统计包含加载、重复观察及边界，不把它当作互不重复的功能数量。宿主新增阻塞问题为 0。
+
+## 构建和文件完整性
+
+本步没有修改生产功能代码。95 项宿主生产输入与第六步一致，65 个最终构建文件逐字节等于第六步最终构建，原 46 文件在源/public/dist 中均一致。因此前一步 [49 组核心结果](../evidence/lawson-fullpage-step-6/accepted-browser-results.json)按其原范围可复用；本步新增对照和最终冒烟不是将旧截图冒充新结果。
+
+Node.js {read(OUT/'baseline.json')['node']}、npm {read(OUT/'baseline.json')['npm']}；npm run build 内含严格类型检查并通过。在独立临时副本按原 package-lock 执行 npm ci 和构建，依赖锁未变，65 个产物与工作区构建全部一致。
+
+HTTP 实际读取并校验根路径/项目子路径共 130 份构建文件、46 份独立原页文件，另外 4 个缺失 JS/模型请求均得到真实 404。未配置或测试公网托管平台。[完整性记录](../evidence/lawson-fullpage-step-7/integrity.json)与[候选清单](../evidence/lawson-fullpage-step-7/candidate-manifest.json)记录精确输入和产物摘要；95 项生产输入与最终 README 以 after/ 副本封存，后续当前源码可继续正常修改。
+
+## 原始失败与纠正
+
+所有早期失败、中间进度和脚本快照保留，没有删除或改写为通过：
+
+'''
+humanCauses={
+ 'INPUT.time-slider':'定位器已返回主文档坐标，测试又叠加了一次 iframe 偏移；改用子文档局部坐标，并完整重跑内嵌控件。',
+ 'BUTTON.roof-actual':'最初混淆节点自身可见性与祖先可见性，第二次又将没有绘制内容的灯板空分组计入。最终原页和内嵌均核对 145 个实际绘制节点及 roofRoot，共 146 个原目标；隐藏后实际可见几何体为 0，恢复后均显示。',
+ 'journey / / journey /Stylized-Dreamy-Flower-Bed-Sky-Island/':'测试读取按钮不存在的 aria-pressed，导致切换方向错误；改用既有 running/paused 状态与连续绘制读数，两种路径完整复测。',
+}
+for fix in a['probeCorrections']:
+    name=fix['case']if 'case'in fix else' / '.join(fix['cases'])
+    verification+=f"- {name}：{humanCauses.get(name,fix['cause'])}\n"
+verification+='''
+时间滑杆更正子文档坐标后重跑整组内嵌控件，以恢复相同的后续前置状态。屋顶最终检查同时记录原目标总数、真实绘制节点及空分组，避免只看 UI 或误把空分组当成仍可见的屋顶。庭院动效使用实际 running/paused 状态与持续绘制读数复查，两种路径重新走完整流程。采用结果均指向更正后的实际复测；未采用失败记录单列。
+
+车辆 progress 文件是途中自动保存，最终完成状态与完整时间线以被采用的 traffic.json 为准。
+
+## 日志、环境与边界
+
+'''
+verification+=f"实际采用日志中，预期故障/生命周期错误 {len(audit['expectedFaultAndLifecycleErrors'])} 条、警告 {len(audit['warnings'])} 条、未解释错误 {len(audit['unexpectedErrors'])} 条，见[事件审计](../evidence/lawson-fullpage-step-7/event-audit.json)。模型错误由明确故障注入产生，未吞掉原异常或静音正常日志。\n\n"
+verification+='''Chromium 155.0.8059.79 执行完整主对照；Firefox 153.0 与 Linux WebKit 26.5 执行列明的代表检查，未称这两个引擎都逐项穷举 41 控件和 17 拾取。原页与主站模块版本隔离；生产页面未插入测试观察脚本、样式或业务桥接。
+
+软件 Mesa/llvmpipe 不等于硬件 GPU；原 HUD 使用受限 dt，不能当作真实硬件帧率。iOS/Android 真机、物理刘海/动态地址栏、系统字号和真实屏幕阅读器仍未验证。第六步真实后台、浏览器缩放与 CSS env 模拟结果按原边界保留；BFCache 当时未实际触发，不把整页重载返回算成 BFCache 通过。
+
+原手机版重叠、小点击区、无触摸漫游方向键、原帮助车辆点击不匹配、减少动态不停止原 JS 与 pauseAll 不停止绘制等限制保持记录。策略拒绝时原脚本的 Promise 拒绝行为以前一步实际证据为准，没有通过本步假装修复。
+
+## 交付与清理
+
+运行方法、目录、部署条件与维护入口见 [交付说明](step-7-handoff.md)。README 已区分本次集成与旧庭院压缩包，并说明本次未推送内容不会自动进入 GitHub 下载。
+
+本步独立 HTTP 服务、私有 Xvfb 和临时干净安装副本已清理，见[清理记录](../evidence/lawson-fullpage-step-7/cleanup.json)。没有关闭他人进程或修改原仓库。七组历史封存保持完整，本步另建独立封存。
+
+## 复查
+
+新脚本在 tests/lawson-fullpage-step-7，逐次脚本快照和输入日志在本步证据目录。原版测试工具仅提取只读观察定义，未修改历史脚本。实际浏览器命令使用 DISPLAY=:117、Mesa 软件 GL、LP_NUM_THREADS=3；Firefox/WebKit 使用工作区缓存，并记录实际版本。复跑需独立服务、私有显示器和新的输出位置，不能覆盖封存结果。
+
+封存后可只读检查：
+
+```bash
+python tests/lawson-fullpage-step-7/finalize_step.py --verify-only
+```
+
+GitHub 提交/推送及公网发布未执行。本轮嵌入验收结果已交付，后续保存或部署按用户另行指示进行。
+'''
+(DOC/'step-7-verification.md').write_text(verification)
+handoff=DOC/'step-7-handoff.md';s=handoff.read_text();s=s.replace('状态：第七步验收执行中，结果待逐项对照完成后填写。当前工作区未提交、推送或发布。',f"状态：第七步当前环境验收已完成，候选 `{c['candidateId']}`。当前工作区未提交、推送或发布。\n\n[逐项功能对照](step-7-parity.md) · [最终验收报告](step-7-verification.md) · [候选清单](../evidence/lawson-fullpage-step-7/candidate-manifest.json)")
+s=s.replace('详情见原版问题记录，最终对照将逐项注明。','详情见[原版问题记录](original-issues.md)，本次[最终对照](step-7-parity.md)已逐项注明。');handoff.write_text(s)
+standard=DOC/'step-7-standard.md';s=standard.read_text();lines=s.splitlines();lines[2]='状态：已完成当前环境内的本轮完整嵌入验收。执行前标准保存在本步 standard-before.md；实际结果见[验收报告](step-7-verification.md)和[功能对照](step-7-parity.md)。未提交、推送或发布。';standard.write_text('\n'.join(lines)+'\n')
+print(json.dumps({'reportsWritten':4,'candidateId':c['candidateId'],'acceptedCases':a['acceptedCaseCount']},ensure_ascii=False))

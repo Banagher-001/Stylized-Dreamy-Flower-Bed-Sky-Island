@@ -1,0 +1,532 @@
+diff --git a/src/tour/autoGuide.ts b/src/tour/autoGuide.ts
+index 27bef82..9dd3592 100644
+--- a/src/tour/autoGuide.ts
++++ b/src/tour/autoGuide.ts
+@@ -8,7 +8,7 @@ export interface GuideStop { id: string; h: number; label: string; seconds: numb
+ const timing: Record<string, [string, number, number]> = {
+   A1: ['关于我 · 身份', 10, 8], A2: ['关于我 · 经历', 14, 4], A3: ['关于我 · 创作', 14, 4],
+   B1: ['AI影像 · 展映', 12, 7], B2: ['AI影像 · 切片', 10, 5], B3: ['AI影像 · 探索', 10, 4.5], B4: ['AI影像 · 余韵', 8, 4],
+-  C1: ['交互实验 · 想法', 10, 7], C2: ['交互实验 · 庭院', 12, 4.5], C3: ['交互实验 · 继续', 12, 4],
++  C1: ['交互实验 · 想法', 10, 7], C2: ['交互实验 · 交互作品', 12, 4.5], C3: ['交互实验 · 继续', 12, 4],
+ };
+ export const autoGuideStops: readonly GuideStop[] = [
+   { id: 'O', h: 0, label: '庭院全景', seconds: 4, travel: 0 },
+diff --git a/src/tour/createExperimentReader.ts b/src/tour/createExperimentReader.ts
+index b8b3530..5c8acb1 100644
+--- a/src/tour/createExperimentReader.ts
++++ b/src/tour/createExperimentReader.ts
+@@ -2,16 +2,18 @@ import { Vector3 } from 'three';
+ import type { Camera } from 'three';
+ import { experimentStations, sampleExperimentPresentation } from './experimentReading';
+ import type { ExperimentReadingFrame } from './experimentReading';
+-import { courtyardProject as project, experimentContent as content } from './experimentContent';
+-import type { ProjectTab } from './createProjectViewer';
++import { experimentContent as content } from './experimentContent';
++import { projects } from './projectContent';
++import type { ProjectId, ProjectTab } from './projectContent';
+ import { createReaderFlow } from './readerFlow';
+ 
+ /** Short pillar inscriptions; extended content lives in the project archive. */
+-export function createExperimentReader(app: HTMLElement, host: HTMLElement, anchorFor: (id: string) => Vector3 | undefined, open: (tab: ProjectTab, trigger: HTMLElement) => void) {
++export function createExperimentReader(app: HTMLElement, host: HTMLElement, anchorFor: (id: string) => Vector3 | undefined, open: (id: ProjectId, tab: ProjectTab, trigger: HTMLElement) => void, handover: () => void) {
++  const project = projects.lawson;
+   const panel = document.createElement('section');panel.className = 'experiment-reading';panel.setAttribute('aria-label', '交互实验，沿第三根石柱浏览');panel.setAttribute('aria-hidden', 'true');
+   const bodies = [
+     `<p data-experiment-ink>${content.C1.body}</p><ol class="experiment-process" data-experiment-ink aria-label="从想法到交互">${content.C1.steps.map((s) => `<li>${s}</li>`).join('')}</ol>`,
+-    `<div class="experiment-project-summary"><figure class="experiment-cover"><img width="${project.cover.width}" height="${project.cover.height}" alt="${project.cover.alt}" decoding="async"/><span class="experiment-image-state" role="status">封面载入中</span></figure><div><p class="experiment-kind" data-experiment-ink>${project.kind}</p><p data-experiment-ink>${project.summary}</p></div></div><div class="experiment-entry-actions"><button type="button" data-project-tab="live">现场体验 <span aria-hidden="true">↗</span></button><button type="button" data-project-tab="archive">项目档案 <span aria-hidden="true">＋</span></button></div>`,
++    `<div class="experiment-project-selector" role="tablist" aria-label="选择交互作品"><button type="button" role="tab" id="experiment-project-lawson" data-project-select="lawson" aria-controls="experiment-project-preview" aria-selected="true"><span>LAWSON</span>罗森便利店</button><button type="button" role="tab" id="experiment-project-courtyard" data-project-select="courtyard" aria-controls="experiment-project-preview" aria-selected="false" tabindex="-1"><span>COURTYARD</span>庭院习作</button></div><div id="experiment-project-preview" role="tabpanel" aria-labelledby="experiment-project-lawson"><div class="experiment-project-summary"><figure class="experiment-cover"><img width="${project.cover.width}" height="${project.cover.height}" alt="${project.cover.alt}" decoding="async"/><span class="experiment-image-state" role="status">封面载入中</span></figure><div><p class="experiment-kind" data-experiment-ink>${project.kind}</p><p class="experiment-summary" data-experiment-ink>${project.summary}</p></div></div><div class="experiment-entry-actions"><button type="button" data-project-tab="live">进入完整网页 <span aria-hidden="true">↗</span></button><button type="button" data-project-tab="archive">项目档案 <span aria-hidden="true">＋</span></button></div></div>`,
+     `<p data-experiment-ink>${content.C3.body}</p><p class="experiment-cue" data-experiment-ink><span aria-hidden="true">↓</span> ${content.C3.cue}</p>`,
+   ];
+   const titles = [content.C1.title, project.title, content.C3.title];
+@@ -20,21 +22,69 @@ export function createExperimentReader(app: HTMLElement, host: HTMLElement, anch
+   const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');connector.append(line);app.querySelector('main')!.append(connector, panel);
+   const parts = [...panel.querySelectorAll<HTMLElement>('article')].map((article) => ({ article, title: article.querySelector<HTMLElement>('h2')!, eyebrow: article.querySelector<HTMLElement>('.experiment-eyebrow')!, body: article.querySelector<HTMLElement>('.experiment-body')!, buttons: [...article.querySelectorAll<HTMLButtonElement>('button')] }));
+   const flow = createReaderFlow(panel);
+-  const image = panel.querySelector<HTMLImageElement>('img')!, imageState = panel.querySelector<HTMLElement>('.experiment-image-state')!;
++  let image = panel.querySelector<HTMLImageElement>('img')!;
++  const imageState = panel.querySelector<HTMLElement>('.experiment-image-state')!;
++  let coverListeners: AbortController | undefined;
+   const controller = new AbortController(), options = { signal: controller.signal };
+   let primed = false, fallback = false, disposed = false, dirty = true, selected = '', signature = '';
++  let projectId: ProjectId = 'lawson', unavailable = false;
+   let layoutFrame: number | undefined;
+   let reading: ExperimentReadingFrame | undefined, camera: Camera | undefined;
+   let bounds = host.getBoundingClientRect(), header = app.querySelector<HTMLElement>('.tour-header')!.getBoundingClientRect(), heading = app.querySelector<HTMLElement>('.tour-heading')!.getBoundingClientRect(), nav = app.querySelector<HTMLElement>('.tour-stops')!.getBoundingClientRect();
+   let width = 0, height = 0;
+   const point = new Vector3();
+-  function prime() { if (!primed && !disposed) { primed = true;image.src = project.cover.src; } }
+-  image.addEventListener('load', () => { imageState.hidden = true;panel.dataset.coverState = 'ready'; }, options);
+-  image.addEventListener('error', () => { imageState.textContent = '封面暂不可用';panel.dataset.coverState = 'error'; }, options);
++  function prime() {
++    if (primed || disposed) return;
++    primed = true;coverListeners?.abort();coverListeners = new AbortController();
++    const current = image, src = new URL(projects[projectId].cover.src, document.baseURI).href;
++    const ownsCover = () => !disposed && current === image && current.src === src;
++    imageState.hidden = false;imageState.textContent = '封面载入中';panel.dataset.coverState = 'loading';
++    current.addEventListener('load', () => { if (ownsCover()) { imageState.hidden = true;panel.dataset.coverState = 'ready'; } }, { signal: coverListeners.signal });
++    current.addEventListener('error', () => { if (ownsCover()) { imageState.hidden = false;imageState.textContent = '封面暂不可用';panel.dataset.coverState = 'error'; } }, { signal: coverListeners.signal });
++    current.src = src;
++  }
++  function syncButtons() {
++    const active = fallback || flow.active || (reading?.station.id === 'C2' && sampleExperimentPresentation(reading).body >= .999999);
++    for (const button of panel.querySelectorAll<HTMLButtonElement>('[data-project-select],[data-project-tab]')) {
++      button.disabled = !active || (button.dataset.projectTab === 'live' && projectId === 'courtyard' && unavailable);
++      if (button.dataset.projectSelect) {
++        const current = button.dataset.projectSelect === projectId;
++        button.setAttribute('aria-selected', String(current));button.tabIndex = current ? 0 : -1;
++      }
++    }
++    const liveButton = panel.querySelector<HTMLButtonElement>('[data-project-tab="live"]')!;
++    liveButton.title = unavailable && projectId === 'courtyard' ? '庭院场景暂不可用，可查看项目档案。' : '';
++  }
++  function choose(id: ProjectId) {
++    handover();projectId = id;const item = projects[id];primed = false;
++    panel.dataset.projectId = id;
++    panel.querySelector('#experiment-C2-title')!.textContent = item.title;
++    panel.querySelector('.experiment-kind')!.textContent = item.kind;
++    panel.querySelector('.experiment-summary')!.textContent = item.summary;
++    panel.querySelector('#experiment-project-preview')!.setAttribute('aria-labelledby', `experiment-project-${id}`);
++    // Each resource owns its image callbacks; an old response cannot mark the
++    // current project ready or failed. The article and preview stay in place.
++    const nextImage = document.createElement('img');
++    nextImage.width = item.cover.width;nextImage.height = item.cover.height;nextImage.alt = item.cover.alt;nextImage.decoding = 'async';
++    image.replaceWith(nextImage);image = nextImage;
++    const liveButton = panel.querySelector<HTMLButtonElement>('[data-project-tab="live"]')!;
++    liveButton.innerHTML = `${id === 'lawson' ? '进入完整网页' : '现场体验'} <span aria-hidden="true">↗</span>`;
++    liveButton.setAttribute('aria-label', `进入${item.title}${id === 'lawson' ? '完整网页' : '现场体验'}`);
++    panel.querySelector('[data-project-tab="archive"]')!.setAttribute('aria-label', `查看${item.title}项目档案`);
++    signature = '';dirty = true;prime();syncButtons();measure();place();
++  }
+   panel.addEventListener('click', (event) => {
++    const selector = event.target instanceof Element ? event.target.closest<HTMLButtonElement>('[data-project-select]') : null;
++    if (selector && !selector.disabled) { choose(selector.dataset.projectSelect as ProjectId);return; }
+     const button = event.target instanceof Element ? event.target.closest<HTMLButtonElement>('[data-project-tab]') : null;
+-    if (button && !button.disabled) open(button.dataset.projectTab as ProjectTab, button);
++    if (button && !button.disabled) open(projectId, button.dataset.projectTab as ProjectTab, button);
++  }, options);
++  panel.querySelector('.experiment-project-selector')!.addEventListener('keydown', event => {
++    const e = event as KeyboardEvent;if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
++    e.preventDefault();const id = e.key === 'Home' ? 'lawson' : e.key === 'End' ? 'courtyard' : projectId === 'lawson' ? 'courtyard' : 'lawson';
++    choose(id);panel.querySelector<HTMLButtonElement>(`[data-project-select="${id}"]`)!.focus({ preventScroll: true });
+   }, options);
++  panel.dataset.projectId = projectId;
+   function measure() {
+     if (flow.active) return;
+     bounds = host.getBoundingClientRect();header = app.querySelector<HTMLElement>('.tour-header')!.getBoundingClientRect();heading = app.querySelector<HTMLElement>('.tour-heading')!.getBoundingClientRect();nav = app.querySelector<HTMLElement>('.tour-stops')!.getBoundingClientRect();
+@@ -84,19 +134,22 @@ export function createExperimentReader(app: HTMLElement, host: HTMLElement, anch
+         body.style.opacity = String(active ? state.body : 0);body.style.visibility = active && state.body > .000001 ? 'inherit' : 'hidden';body.style.transform = `translateY(${state.offset}px)`;body.setAttribute('aria-hidden', String(!active || state.body <= .000001));
+         for (const button of buttons) button.disabled = !active || state.body < .999999;
+       }
++      syncButtons();
+       if (reading) { if (reading.station.id === 'C2' && !measuring) prime();place(); }
+       return state;
+     },
+     showFallback() {
+-      fallback = true;prime();panel.classList.add('experiment-fallback');panel.style.visibility = 'visible';panel.setAttribute('aria-hidden', 'false');panel.style.setProperty('--experiment-frame-opacity', '1');connector.style.display = 'none';
++      fallback = true;unavailable = true;prime();panel.classList.add('experiment-fallback');panel.style.visibility = 'visible';panel.setAttribute('aria-hidden', 'false');panel.style.setProperty('--experiment-frame-opacity', '1');connector.style.display = 'none';
+       for (const part of parts) {
+         part.article.hidden = false;part.article.inert = false;part.article.setAttribute('aria-hidden', 'false');
+         for (const element of [part.title, part.eyebrow, part.body]) { element.style.opacity = '1';element.style.visibility = 'visible';element.removeAttribute('aria-hidden');element.style.transform = 'none'; }
+         for (const button of part.buttons) { button.disabled = button.dataset.projectTab === 'live';if (button.disabled) button.title = '图形场景暂不可用，可查看项目档案。'; }
+       }
++      syncButtons();
+     },
+-    setFlow(enabled: boolean, unavailable = false) { flow.set(enabled, unavailable);signature = '';dirty = true;if (enabled) prime();else measure(); },
++    setFlow(enabled: boolean, gardenUnavailable = false) { unavailable = gardenUnavailable;flow.set(enabled, unavailable && projectId === 'courtyard');signature = '';dirty = true;syncButtons();if (enabled) prime();else measure(); },
++    get projectId() { return projectId; },
+     get element() { return panel; },
+-    dispose() { disposed = true;if (layoutFrame !== undefined) cancelAnimationFrame(layoutFrame);controller.abort();observer.disconnect();panel.remove();connector.remove(); },
++    dispose() { disposed = true;if (layoutFrame !== undefined) cancelAnimationFrame(layoutFrame);controller.abort();coverListeners?.abort();observer.disconnect();panel.remove();connector.remove(); },
+   };
+ }
+diff --git a/src/tour/createMediaViewer.ts b/src/tour/createMediaViewer.ts
+index ccf0aa2..3dafba0 100644
+--- a/src/tour/createMediaViewer.ts
++++ b/src/tour/createMediaViewer.ts
+@@ -75,7 +75,10 @@ export function createMediaViewer(root: HTMLElement, lifecycle: { open(): void;
+     if (!engaged) return;
+     engaged = false;lifecycle.close();
+     const target = trigger;trigger = undefined;
+-    focusFrame = requestAnimationFrame(() => { focusFrame = undefined;if (!disposed && !dialog.open && target?.isConnected) target.focus({ preventScroll: true }); });
++    focusFrame = requestAnimationFrame(() => {
++      focusFrame = undefined;
++      if (!disposed && !root.querySelector('dialog[open]') && target?.isConnected && !target.closest('[hidden],[inert]') && target.getClientRects().length) target.focus({ preventScroll: true });
++    });
+   }
+   const options = { signal: listeners.signal };
+   closeButton.addEventListener('click', () => { video?.pause();dialog.close(); }, options);
+diff --git a/src/tour/createProjectViewer.ts b/src/tour/createProjectViewer.ts
+index 118e9ca..b1c4066 100644
+--- a/src/tour/createProjectViewer.ts
++++ b/src/tour/createProjectViewer.ts
+@@ -1,10 +1,11 @@
+ import type { RenderMode } from '../config/scene';
+ import { courtyardProject as project } from './experimentContent';
++import { projects, resolveProjectEntry } from './projectContent';
++import type { ActiveProject, EmbeddedProjectState, ProjectId, ProjectTab } from './projectContent';
+ 
+-export type ProjectTab = 'live' | 'archive';
+ interface ProjectLifecycle {
+-  open(tab: ProjectTab): void;
+-  change(tab: ProjectTab): void;
++  open(project: ActiveProject): void;
++  change(project: ActiveProject): void;
+   close(): void;
+   mode(mode: RenderMode): void;
+   motion(): void;
+@@ -13,19 +14,42 @@ interface ProjectLifecycle {
+ /** One modal owner for a live view of the existing canvas and its media archive. */
+ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecycle) {
+   const dialog = document.createElement('dialog');dialog.className = 'tour-project-dialog';dialog.setAttribute('aria-labelledby', 'project-title');
+-  dialog.innerHTML = `<div class="tour-project-shell"><header class="tour-project-header"><div><p>03 / 交互实验 <span>交互网页场景</span></p><h2 id="project-title">${project.title}</h2></div><button type="button" class="tour-project-close" aria-label="关闭项目，返回阅读" autofocus>返回阅读 <span aria-hidden="true">×</span></button></header><div class="tour-project-tabs" role="tablist" aria-label="项目内容"><button type="button" role="tab" id="project-tab-live" aria-controls="tour-project-live" data-project-view="live">现场体验</button><button type="button" role="tab" id="project-tab-archive" aria-controls="tour-project-archive" data-project-view="archive">项目档案</button></div><section id="tour-project-live" class="tour-project-live" role="tabpanel" aria-labelledby="project-tab-live"><div class="tour-project-live-space" role="img" aria-label="庭院全景：三根深色石柱与小花围绕八边形水潭，可使用下方控件切换画面和环境动效"><p class="tour-project-scene-status" role="status" hidden></p></div><div class="tour-project-live-controls"><p>停一会儿，看风经过。</p><div><div role="group" aria-label="体验画面模式"><button type="button" data-project-mode="native">正常画面</button><button type="button" data-project-mode="pixel">像素画面</button></div><button type="button" class="tour-project-motion">播放动效</button></div></div></section><section id="tour-project-archive" class="tour-project-archive" role="tabpanel" aria-labelledby="project-tab-archive" tabindex="0" hidden></section></div>`;
++  dialog.innerHTML = `<div class="tour-project-shell"><header class="tour-project-header"><div class="tour-project-identity"><p>03 / 交互实验 <span>交互网页场景</span></p><h2 id="project-title"><span data-project-title></span><span data-project-short-title></span></h2><span class="tour-project-embed-status" role="status"></span></div><div class="tour-project-tabs" role="tablist" aria-label="项目内容"><button type="button" role="tab" id="project-tab-live" aria-controls="tour-project-live" data-project-view="live"><span class="project-label-full">现场体验</span><span class="project-label-short">体验</span></button><button type="button" role="tab" id="project-tab-archive" aria-controls="tour-project-archive" data-project-view="archive"><span class="project-label-full">项目档案</span><span class="project-label-short">档案</span></button></div><div class="tour-project-header-actions"><a class="tour-project-independent" data-project-independent target="_blank" rel="noopener noreferrer" aria-label="独立打开完整网页"><span class="project-label-full">独立打开</span><span aria-hidden="true">↗</span></a><button type="button" class="tour-project-close" aria-label="关闭项目，返回阅读" autofocus><span class="project-label-full">返回阅读</span><span class="project-label-short">返回</span><span class="project-close-icon" aria-hidden="true">×</span></button></div></header><section id="tour-project-live" class="tour-project-live" role="tabpanel" aria-labelledby="project-tab-live"><div class="tour-project-live-space" role="img" aria-label="庭院全景：三根深色石柱与小花围绕蓝白水潭"><p class="tour-project-scene-status" role="status" hidden></p></div><div class="tour-project-live-controls"><p>停一会儿，看风经过。</p><div><div role="group" aria-label="体验画面模式"><button type="button" data-project-mode="native">正常画面</button><button type="button" data-project-mode="pixel">像素画面</button></div><button type="button" class="tour-project-motion">播放动效</button></div></div><div class="tour-project-embedded-live" hidden><div class="tour-project-embed-mount" aria-label="罗森便利店完整网页挂载区域"></div><section class="tour-project-prepared"><p class="tour-project-section-label">LAWSON / INTERACTIVE WORLD</p><h3>一间店，<br>几个日夜。</h3><p>完整网页可独立打开，嵌入体验正在准备。</p><a data-project-independent target="_blank" rel="noopener noreferrer">独立打开完整网页 <span aria-hidden="true">↗</span></a></section></div></section><section id="tour-project-archive" class="tour-project-archive" role="tabpanel" aria-labelledby="project-tab-archive" tabindex="0" hidden></section></div>`;
+   root.append(dialog);
+   const listeners = new AbortController(), options = { signal: listeners.signal };
+   const tabs = [...dialog.querySelectorAll<HTMLButtonElement>('[data-project-view]')], closeButton = dialog.querySelector<HTMLButtonElement>('.tour-project-close')!;
+   const live = dialog.querySelector<HTMLElement>('#tour-project-live')!, archive = dialog.querySelector<HTMLElement>('#tour-project-archive')!, liveSpace = dialog.querySelector<HTMLElement>('.tour-project-live-space')!;
+   const shell = dialog.querySelector<HTMLElement>('.tour-project-shell')!;
+   const modeButtons = [...dialog.querySelectorAll<HTMLButtonElement>('[data-project-mode]')], motion = dialog.querySelector<HTMLButtonElement>('.tour-project-motion')!, sceneStatus = dialog.querySelector<HTMLElement>('.tour-project-scene-status')!;
+-  let selected: ProjectTab = 'live', engaged = false, disposed = false, initialized = false;
++  const embeddedLive = dialog.querySelector<HTMLElement>('.tour-project-embedded-live')!;
++  const embeddedMount = dialog.querySelector<HTMLElement>('.tour-project-embed-mount')!;
++  const prepared = dialog.querySelector<HTMLElement>('.tour-project-prepared')!;
++  const liveControls = dialog.querySelector<HTMLElement>('.tour-project-live-controls')!;
++  let projectId: ProjectId = 'lawson', selected: ProjectTab = 'live', engaged = false, disposed = false;
++  let initialized: ProjectId | undefined, gardenUnavailable: 'none' | 'recovering' | 'failed' = 'none';
+   let trigger: HTMLElement | undefined, focusFrame: number | undefined;
+   let video: HTMLVideoElement | undefined, loadListeners: AbortController | undefined, loadTimer: number | undefined;
++  let archiveListeners: AbortController | undefined;
+   let generation = 0, archiveScroll = 0;
+   let viewport: HTMLElement | undefined, mediaStatus: HTMLElement | undefined, retry: HTMLButtonElement | undefined;
+   const archiveScroller = () => getComputedStyle(archive).overflowY === 'visible' ? shell : archive;
++  const active = (): ActiveProject => ({ id: projectId, tab: selected });
++  function setEmbeddedStatus(state: EmbeddedProjectState, message?: string) {
++    if (!engaged || projectId !== 'lawson') return;
++    dialog.dataset.embeddedState = state;prepared.hidden = state !== 'prepared';
++    dialog.querySelector<HTMLElement>('.tour-project-embed-status')!.textContent = message ?? ({ prepared: '独立打开可体验', loading: '正在载入', slow: '载入较慢', error: '暂未就绪', ready: '' }[state]);
++  }
++  function configure() {
++    const item = projects[projectId], lawson = projectId === 'lawson';dialog.dataset.projectId = projectId;
++    dialog.querySelector('[data-project-title]')!.textContent = item.title;
++    dialog.querySelector('[data-project-short-title]')!.textContent = item.shortTitle;
++    liveSpace.hidden = lawson;liveControls.hidden = lawson;embeddedLive.hidden = !lawson;
++    for (const link of dialog.querySelectorAll<HTMLAnchorElement>('[data-project-independent]')) {
++      link.hidden = !lawson;link.href = resolveProjectEntry(projectId) ?? '';link.setAttribute('aria-label', `独立打开${item.title}完整网页`);
++    }
++    tabs[0]!.disabled = !lawson && gardenUnavailable === 'failed';
++    if (lawson) setEmbeddedStatus('prepared');
++  }
+ 
+   function releaseVideo() {
+     generation++;clearTimeout(loadTimer);loadListeners?.abort();loadListeners = undefined;
+@@ -41,7 +65,7 @@ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecyc
+     dialog.dataset.mediaState = value;if (mediaStatus) mediaStatus.textContent = message;if (retry) retry.hidden = value !== 'error' && value !== 'slow';
+   }
+   function loadVideo(play: boolean) {
+-    if (selected !== 'archive' || !dialog.open || !viewport) return;
++    if (projectId !== 'courtyard' || selected !== 'archive' || !dialog.open || !viewport) return;
+     releaseVideo();viewport.replaceChildren();loadListeners = new AbortController();const token = generation, loadOptions = { signal: loadListeners.signal };
+     video = document.createElement('video');const item = video;
+     item.controls = true;item.playsInline = true;item.preload = 'metadata';item.poster = project.frames[0].src;item.width = 680;item.height = 680;item.setAttribute('aria-label', project.clip.label);
+@@ -52,16 +76,23 @@ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecyc
+     loadTimer = window.setTimeout(() => { if (token === generation && dialog.dataset.mediaState === 'loading') setMediaState('slow', '载入较慢，可重试或返回阅读。'); }, 12000);
+   }
+   function initializeArchive() {
+-    if (initialized) return;initialized = true;
++    if (initialized === projectId) return;
++    releaseVideo();archiveListeners?.abort();archiveListeners = new AbortController();const archiveOptions = { signal: archiveListeners.signal };
++    viewport = undefined;mediaStatus = undefined;retry = undefined;archive.replaceChildren();initialized = projectId;archive.dataset.projectId = projectId;
++    if (projectId === 'lawson') {
++      const item = projects.lawson;
++      archive.innerHTML = `<div class="lawson-archive-intro"><div><p class="tour-project-section-label">LAWSON / INTERACTIVE WORLD</p><h3>一间店，<br>几个日夜。</h3></div><p>${item.introduction}</p></div><figure class="project-current-cover"><img src="${item.cover.src}" width="${item.cover.width}" height="${item.cover.height}" alt="${item.cover.alt}" decoding="async"/><figcaption>罗森便利店 · 场景画面</figcaption></figure><div class="lawson-archive-features">${item.features.map((f, i) => `<section><span>0${i + 1}</span><h3>${f.title}</h3><p>${f.body}</p></section>`).join('')}</div>`;
++    } else {
+     archive.innerHTML = `<div class="project-archive-intro"><p class="tour-project-section-label">PROJECT / 庭院习作</p><p class="tour-project-introduction">${project.introduction}</p></div><figure class="project-current-cover"><img src="${project.cover.src}" width="${project.cover.width}" height="${project.cover.height}" alt="${project.cover.alt}" decoding="async"/><figcaption>当前庭院 · 全景</figcaption></figure><section class="tour-project-features"><h3>当前可体验</h3><ol>${project.features.map((f) => `<li>${f}</li>`).join('')}</ol></section><section class="tour-project-clip"><div><p class="tour-project-section-label">EARLIER STUDY / 早期习作</p><h3>${project.clip.label}</h3><p>${project.clip.note}</p><p>记录最初的水面与悬浮球，也保留庭院逐渐生长的痕迹。</p></div><div><div class="tour-project-video-viewport"></div><p class="tour-project-media-status" role="status" aria-live="polite"></p><button type="button" class="tour-project-media-retry" hidden>重新载入片段</button></div></section><div class="tour-project-frame-pair">${project.frames.map((f) => `<figure><img src="${f.src}" width="680" height="680" alt="${f.alt}" loading="lazy" decoding="async"/><figcaption>${f.label}</figcaption></figure>`).join('')}</div>`;
+     viewport = archive.querySelector<HTMLElement>('.tour-project-video-viewport')!;mediaStatus = archive.querySelector<HTMLElement>('.tour-project-media-status')!;retry = archive.querySelector<HTMLButtonElement>('.tour-project-media-retry')!;
++    }
+     for (const img of archive.querySelectorAll<HTMLImageElement>('img')) img.addEventListener('error', () => {
+       const figure = img.closest('figure');if (!figure || figure.querySelector('.tour-project-image-error')) return;
+       const text = document.createElement('p');text.className = 'tour-project-image-error';text.textContent = '画面暂不可用。';
+-      const button = document.createElement('button');button.type = 'button';button.textContent = '重新载入画面';button.addEventListener('click', () => { const src = img.src;img.removeAttribute('src');img.src = src; }, options);
++      const button = document.createElement('button');button.type = 'button';button.textContent = '重新载入画面';button.addEventListener('click', () => { const src = img.src;img.removeAttribute('src');img.src = src; }, archiveOptions);
+       text.append(button);figure.append(text);
+-      img.addEventListener('load', () => text.remove(), { once: true, signal: listeners.signal });
+-    }, options);
++      img.addEventListener('load', () => text.remove(), { once: true, signal: archiveListeners!.signal });
++    }, archiveOptions);
+     poster();
+   }
+   function select(tab: ProjectTab, notify: boolean) {
+@@ -71,17 +102,22 @@ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecyc
+     for (const button of tabs) { const active = button.dataset.projectView === tab;button.setAttribute('aria-selected', String(active));button.tabIndex = active ? 0 : -1; }
+     if (tab === 'archive') { initializeArchive();archiveScroller().scrollTop = archiveScroll; }
+     else shell.scrollTop = 0;
+-    if (notify) lifecycle.change(tab);
++    if (notify) lifecycle.change(active());
+   }
+   function finish() {
+     if (dialog.open || !engaged) return;
+     releaseVideo();poster();engaged = false;lifecycle.close();
+     const target = trigger;trigger = undefined;
+-    focusFrame = requestAnimationFrame(() => { focusFrame = undefined;if (!disposed && !dialog.open && target?.isConnected) target.focus({ preventScroll: true }); });
++    focusFrame = requestAnimationFrame(() => {
++      focusFrame = undefined;if (disposed || root.querySelector('dialog[open]')) return;
++      const usable = target?.isConnected && !target.closest('[hidden],[inert]') && target.getClientRects().length;
++      const fallback = root.querySelector<HTMLElement>('[data-project-select][aria-selected="true"]') ?? root.querySelector<HTMLElement>('#experiment-C2-title');
++      (usable ? target : fallback)?.focus({ preventScroll: true });
++    });
+   }
+   function close() { if (dialog.open) dialog.close();finish(); }
+   closeButton.addEventListener('click', close, options);dialog.addEventListener('close', finish, options);
+-  dialog.addEventListener('cancel', (event) => { event.preventDefault();close(); }, options);
++  dialog.addEventListener('cancel', (event) => { event.preventDefault();if (!embeddedMount.contains(document.activeElement)) close(); }, options);
+   for (const tab of tabs) tab.addEventListener('click', () => select(tab.dataset.projectView as ProjectTab, true), options);
+   dialog.querySelector('.tour-project-tabs')!.addEventListener('keydown', (event) => {
+     const key = (event as KeyboardEvent).key;if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(key)) return;
+@@ -98,23 +134,27 @@ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecyc
+   // The modal's document lock owns the background; preserve native pan/pinch
+   // and video gestures inside the dialog, including short-screen layouts.
+   return {
+-    open(tab: ProjectTab, source?: HTMLElement) {
++    open(id: ProjectId, tab: ProjectTab, source?: HTMLElement) {
+       if (disposed) return;
++      if (dialog.open && projectId !== id) close();
+       if (focusFrame !== undefined) { cancelAnimationFrame(focusFrame);focusFrame = undefined; }
+       if (!dialog.open) {
+         trigger = source ?? (document.activeElement instanceof HTMLElement ? document.activeElement : undefined);
+-        archiveScroll = 0;select(tab, false);engaged = true;lifecycle.open(tab);dialog.showModal();shell.scrollTop = 0;archive.scrollTop = 0;closeButton.focus({ preventScroll: true });
++        projectId = id;archiveScroll = 0;engaged = true;configure();select(tab === 'live' && id === 'courtyard' && gardenUnavailable === 'failed' ? 'archive' : tab, false);lifecycle.open(active());dialog.showModal();shell.scrollTop = 0;archive.scrollTop = 0;closeButton.focus({ preventScroll: true });
+       } else select(tab, true);
+     },
+     close,
+     sync(mode: RenderMode, playing: boolean, unavailable: 'none' | 'recovering' | 'failed' = 'none') {
++      gardenUnavailable = unavailable;
+       for (const button of modeButtons) { button.setAttribute('aria-pressed', String(button.dataset.projectMode === mode));button.disabled = unavailable !== 'none'; }
+-      motion.textContent = playing ? '暂停动效' : '播放动效';motion.disabled = unavailable !== 'none';tabs[0]!.disabled = unavailable === 'failed';
++      motion.textContent = playing ? '暂停动效' : '播放动效';motion.disabled = unavailable !== 'none';tabs[0]!.disabled = projectId === 'courtyard' && unavailable === 'failed';
+       sceneStatus.hidden = unavailable === 'none';sceneStatus.textContent = unavailable === 'recovering' ? '画面正在恢复，仍可查看档案或返回阅读。' : unavailable === 'failed' ? '图形场景暂不可用，可查看项目档案。' : '';
+     },
+-    get tab() { return dialog.open ? selected : undefined; },
++    setEmbeddedStatus,
++    get active() { return engaged ? active() : undefined; },
++    get embeddedMount() { return embeddedMount; },
+     get liveBounds() { return liveSpace.getBoundingClientRect(); },
+     get element() { return dialog; },
+-    dispose() { if (disposed) return;disposed = true;listeners.abort();if (focusFrame !== undefined) cancelAnimationFrame(focusFrame);releaseVideo();if (dialog.open) dialog.close();if (engaged) { engaged = false;lifecycle.close(); }dialog.remove(); },
++    dispose() { if (disposed) return;disposed = true;listeners.abort();archiveListeners?.abort();if (focusFrame !== undefined) cancelAnimationFrame(focusFrame);releaseVideo();if (dialog.open) dialog.close();if (engaged) { engaged = false;lifecycle.close(); }dialog.remove(); },
+   };
+ }
+diff --git a/src/tour/experimentReading.ts b/src/tour/experimentReading.ts
+index 043d7e1..4b1ba02 100644
+--- a/src/tour/experimentReading.ts
++++ b/src/tour/experimentReading.ts
+@@ -2,7 +2,7 @@ import { sampleMagic } from './magicStyle';
+ 
+ export const experimentStations = [
+   { id: 'C1', start: 8.7, end: 9.5, y: 2.75, label: '创作', stop: 9.14 },
+-  { id: 'C2', start: 9.5, end: 10.5, y: 1.8, label: '庭院习作', stop: 10.05 },
++  { id: 'C2', start: 9.5, end: 10.5, y: 1.8, label: '交互作品', stop: 10.05 },
+   { id: 'C3', start: 10.5, end: 11.1, y: .85, label: '继续', stop: 10.83 },
+ ] as const;
+ export interface ExperimentReadingFrame {
+diff --git a/src/tour/startTourPrototype.ts b/src/tour/startTourPrototype.ts
+index ec06eeb..bbf5970 100644
+--- a/src/tour/startTourPrototype.ts
++++ b/src/tour/startTourPrototype.ts
+@@ -1,6 +1,7 @@
+ import './tour.css';
+ import './film.css';
+ import './experiment.css';
++import './projectHost.css';
+ import './readingLayout.css';
+ import './autoGuide.css';
+ import { Vector3 } from 'three';
+@@ -27,7 +28,6 @@ import { filmAvailability } from './filmContent';
+ import { experimentStations } from './experimentReading';
+ import { createExperimentReader } from './createExperimentReader';
+ import { createProjectViewer } from './createProjectViewer';
+-import type { ProjectTab } from './createProjectViewer';
+ import { chapterLabels, createTourPresentation } from './presentation';
+ import { createReadingLayout } from './createReadingLayout';
+ import type { ReadingCapacity, ReadingPosition } from './createReadingLayout';
+@@ -99,7 +99,7 @@ let mediaViewer: ReturnType<typeof createMediaViewer>;
+ let projectViewer: ReturnType<typeof createProjectViewer>;
+ const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id));
+ const filmReader = createFilmReader(app, host, (id) => filmMagic?.getAnchor(id), (media, trigger) => mediaViewer.open(media, trigger));
+-const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), (tab, trigger) => projectViewer.open(tab, trigger));
++const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), (id, tab, trigger) => projectViewer.open(id, tab, trigger), () => { guide?.stop('已切换作品，可从当前位置继续导览。');readingLayout?.resize(); });
+ const world = createScene(resolveEnvironmentOptions(query), query.get('pool') === 'legacy' ? 'legacy' : 'refined', query.get('orb') === 'legacy' ? 'legacy' : 'lively', query.get('clouds') !== 'off', query.get('birds') !== 'off');
+ host.dataset.fountainStyle = world.fountainStyle;
+ host.dataset.fountainResources = JSON.stringify(world.fountainMetadata ?? null);
+@@ -136,7 +136,6 @@ let layoutLock = false;
+ let mediaOpen = false;
+ let mediaProgress = 0;
+ let overlayOwner: 'media' | 'project' | undefined;
+-let projectTab: ProjectTab | undefined;
+ let contextLost = false;
+ let restoreFrame: number | undefined;
+ let recoveryTimer: number | undefined;
+@@ -152,12 +151,15 @@ const focusPoint = new Vector3();
+ const rounded = (values: number[]) => values.map((value) => Number(value.toFixed(7)));
+ let birdVisibility: ReturnType<typeof createBirdVisibility> | undefined;
+ const cameraMoving = () => !readingLayout?.stable && Math.abs(targetH - displayH) > 0.0000001;
+-const covered = () => mediaOpen || projectTab === 'archive';
+-const offscreen = () => !!readingLayout?.stable && !readingLayout.coverVisible && projectTab !== 'live';
++const activeProject = () => projectViewer?.active;
++const projectOpen = () => !!activeProject();
++const courtyardLive = () => activeProject()?.id === 'courtyard' && activeProject()?.tab === 'live';
++const covered = () => mediaOpen || (projectOpen() && !courtyardLive());
++const offscreen = () => !!readingLayout?.stable && !readingLayout.coverVisible && !courtyardLive();
+ 
+ function syncLoop() {
+   if (!view || disposed || failed) return;
+-  const wanted = !animation.state.hidden && !covered() && !offscreen() && (animation.state.playing || (!projectTab && (cameraMoving() || !!guide?.needsFrames)));
++  const wanted = !animation.state.hidden && !covered() && !offscreen() && (animation.state.playing || (!projectOpen() && (cameraMoving() || !!guide?.needsFrames)));
+   if (wanted !== loopRequested) {
+     loopRequested = wanted;
+     cameraTimestamp = null;
+@@ -191,7 +193,7 @@ function beginOverlay(owner: 'media' | 'project') {
+ }
+ function closeOverlay(owner: 'media' | 'project') {
+   if (overlayOwner !== owner) return;
+-  overlayOwner = undefined;mediaOpen = false;projectTab = undefined;
++  overlayOwner = undefined;mediaOpen = false;delete host.dataset.projectId;
+   document.documentElement.classList.remove('tour-media-open', 'tour-project-open');host.dataset.projectView = 'closed';host.dataset.overlayState = 'closed';
+   presentation.setCovered(false);
+   if (disposed) return;
+@@ -203,18 +205,19 @@ function closeOverlay(owner: 'media' | 'project') {
+ }
+ mediaViewer = createMediaViewer(app, {
+   open() {
+-    projectViewer?.close();projectTab = undefined;beginOverlay('media');
++    projectViewer?.close();beginOverlay('media');
+     animation.resetTimestamp();syncAnimation(animation.state);
+   },
+   close() { closeOverlay('media'); },
+ });
+-function setProjectTab(tab: ProjectTab) {
+-  projectTab = tab;host.dataset.projectView = tab;animation.resetTimestamp();
++function syncProject() {
++  const current = activeProject();host.dataset.projectView = current?.tab ?? 'closed';
++  host.dataset.projectId = current?.id ?? '';animation.resetTimestamp();
+   if (!failed) applyCamera();syncAnimation(animation.state);
+ }
+ projectViewer = createProjectViewer(app, {
+-  open(tab) { mediaViewer.close();beginOverlay('project');setProjectTab(tab); },
+-  change: setProjectTab,
++  open() { mediaViewer.close();beginOverlay('project');syncProject(); },
++  change: syncProject,
+   close() { closeOverlay('project'); },
+   mode: setMode,
+   motion() { animation.toggle(); },
+@@ -237,7 +240,7 @@ function experiencePose() {
+ 
+ function applyCamera() {
+   const frame = sampleTour(displayH);
+-  const pose = projectTab === 'live' ? experiencePose() : resolveTourPose(readingLayout?.stable ? tourPoses.O : frame.pose, lastAspect);
++  const pose = courtyardLive() ? experiencePose() : resolveTourPose(readingLayout?.stable ? tourPoses.O : frame.pose, lastAspect);
+   world.setViewHeight(pose.viewHeight);
+   world.camera.position.set(...pose.position);
+   world.camera.up.set(0, 1, 0);
+@@ -255,15 +258,15 @@ function applyCamera() {
+   host.dataset.aspect = lastAspect.toFixed(7);
+   host.dataset.readingStation = frame.reading?.station.id ?? '';
+   host.dataset.readingPhase = frame.reading?.phase ?? 'off';
+-  const lettering = reader.update(projectTab ? undefined : frame.reading, world.camera, animation.state.reducedMotion);
++  const lettering = reader.update(projectOpen() ? undefined : frame.reading, world.camera, animation.state.reducedMotion);
+   host.dataset.readingOpacity = lettering.body.toFixed(7);
+   host.dataset.readingTitleOpacity = lettering.title.toFixed(7);
+-  const exhibition = filmReader.update(projectTab ? undefined : frame.filmReading, world.camera, animation.state.reducedMotion);
++  const exhibition = filmReader.update(projectOpen() ? undefined : frame.filmReading, world.camera, animation.state.reducedMotion);
+   host.dataset.filmStation = frame.filmReading?.station.id ?? '';
+   host.dataset.filmPhase = frame.filmReading?.phase ?? 'off';
+   host.dataset.filmPresentation = JSON.stringify(exhibition);
+   if (displayH >= 3.7 && displayH < 8) filmReader.prime();
+-  const experiment = experimentReader.update(projectTab ? undefined : frame.experimentReading, world.camera, animation.state.reducedMotion);
++  const experiment = experimentReader.update(projectOpen() ? undefined : frame.experimentReading, world.camera, animation.state.reducedMotion);
+   host.dataset.experimentStation = frame.experimentReading?.station.id ?? '';host.dataset.experimentPhase = frame.experimentReading?.phase ?? 'off';host.dataset.experimentPresentation = JSON.stringify(experiment);
+   if (displayH >= 8 && displayH < 11.1) experimentReader.prime();
+   if (navigationH !== undefined && !cameraMoving()) {
+@@ -287,7 +290,7 @@ function update(timestamp: number) {
+   if (disposed || failed || covered() || offscreen()) return;
+   guide?.tick(timestamp);
+   const now = performance.now();
+-  if (!projectTab && cameraMoving()) {
++  if (!projectOpen() && cameraMoving()) {
+     const elapsed = cameraTimestamp === null ? 1 / 60 : Math.max(0, Math.min(0.05, (timestamp - cameraTimestamp) / 1000));
+     if (animation.state.reducedMotion || now - lastScrollAt >= 140) displayH = targetH;
+     else displayH += (targetH - displayH) * (1 - Math.exp(-elapsed / 0.012));
+@@ -300,13 +303,13 @@ function update(timestamp: number) {
+   world.update(sceneTime);
+   if (world.birds) {
+     birdVisibility ??= createBirdVisibility(app!, host, () => { if (!disposed && !failed && !loopRequested && !covered() && !offscreen() && !animation.state.hidden) view?.renderOnce(); });
+-    const layout = `${routeWidth}/${routeHeight}/${routeFooter}/${main.dataset.readingMode}/${projectTab ?? ''}`;
++    const layout = `${routeWidth}/${routeHeight}/${routeFooter}/${main.dataset.readingMode}/${activeProject()?.id ?? ''}/${activeProject()?.tab ?? ''}`;
+     const pose = `${host.dataset.cameraPosition}/${host.dataset.cameraTarget}/${host.dataset.viewHeight}/${host.dataset.stage}/${host.dataset.displayH}`;
+-    const glyph = projectTab ? undefined : frame.reading ? magic?.getAnchor(frame.reading.station.id) : frame.filmReading ? filmMagic?.getAnchor(frame.filmReading.station.id) : frame.experimentReading ? experimentMagic?.getAnchor(frame.experimentReading.station.id) : undefined;
+-    world.birds.present(world.camera, birdVisibility.measure(layout, pose, projectTab === 'live', world.camera, glyph));
++    const glyph = projectOpen() ? undefined : frame.reading ? magic?.getAnchor(frame.reading.station.id) : frame.filmReading ? filmMagic?.getAnchor(frame.filmReading.station.id) : frame.experimentReading ? experimentMagic?.getAnchor(frame.experimentReading.station.id) : undefined;
++    world.birds.present(world.camera, birdVisibility.measure(layout, pose, courtyardLive(), world.camera, glyph));
+     if (inspectBirds) host.dataset.birdState = JSON.stringify(world.birds.snapshot());
+   }
+-  const inscriptions = !projectTab && !readingLayout?.stable;
++  const inscriptions = !projectOpen() && !readingLayout?.stable;
+   const magicFrame = magic?.update(inscriptions ? frame.reading : undefined, world.camera, sceneTime, animation.state.reducedMotion, mode);
+   const filmMagicFrame = filmMagic?.update(inscriptions ? frame.filmReading : undefined, world.camera, sceneTime, animation.state.reducedMotion, mode);
+   const experimentMagicFrame = experimentMagic?.update(inscriptions ? frame.experimentReading : undefined, world.camera, sceneTime, animation.state.reducedMotion, mode);
+@@ -431,14 +434,14 @@ readingLayout = createReadingLayout(app, host, [reader.element, filmReader.eleme
+   unavailable: () => failed || contextLost, overlay: () => !!overlayOwner,
+   refresh() { resizeLayout();if (!failed) applyCamera();animation.resetTimestamp();syncAnimation(animation.state); },
+   visible() { animation.resetTimestamp();syncAnimation(animation.state); },
+-  live: trigger => projectViewer.open('live', trigger),
++  live: trigger => projectViewer.open('courtyard', 'live', trigger),
+ });
+ 
+ resizeLayout();
+ window.scrollTo({ top: 0, behavior: 'instant' });
+ try {
+   view = createRenderer(host, mode, (aspect) => { lastAspect = aspect;world.setAspect(aspect);applyCamera(); }, resolveVisualOptions(query), rendererState);
+-  view.canvas.setAttribute('aria-label', '滚动庭院：第一柱介绍，第二柱AI影像设计样片，第三柱交互实验与真实庭院体验，随后回到水潭。');
++  view.canvas.setAttribute('aria-label', '滚动庭院：第一柱介绍，第二柱AI影像设计样片，第三柱交互实验与罗森、庭院体验，随后回到水潭。');
+   view.start(world.scene, world.camera, update);
+   syncAnimation(animation.state);
+ } catch (error) {
+@@ -468,7 +471,7 @@ function guideBlocked() {
+   if (main.dataset.layoutReady !== 'true' || main.dataset.immersiveAvailable !== 'true') return '正在核对阅读空间，请稍候。';
+   return '';
+ }
+-const decodedGuideImages = new WeakSet<HTMLImageElement>(), pendingGuideImages = new WeakSet<HTMLImageElement>(), failedGuideImages = new WeakSet<HTMLImageElement>();
++const decodedGuideImages = new WeakMap<HTMLImageElement, string>(), pendingGuideImages = new WeakMap<HTMLImageElement, string>(), failedGuideImages = new WeakMap<HTMLImageElement, string>();
+ function guideReady(stop: GuideStop) {
+   const unread = { ready: false, text: '' };
+   if (cameraMoving() || Math.abs(targetH - displayH) >= .000001) return unread;
+@@ -483,11 +486,12 @@ function guideReady(stop: GuideStop) {
+     if (!image.currentSrc || !image.complete) return unread;
+     // Existing error placeholders remain usable; successful images must decode.
+     if (image.naturalWidth === 0) continue;
+-    if (failedGuideImages.has(image)) return unread;
+-    if (!decodedGuideImages.has(image)) {
+-      if (!pendingGuideImages.has(image)) {
+-        pendingGuideImages.add(image);
+-        void image.decode().then(() => { decodedGuideImages.add(image);if (!disposed) guide?.poke(); }).catch(() => { failedGuideImages.add(image);if (!disposed) guide?.poke(); });
++    const src = image.currentSrc;
++    if (failedGuideImages.get(image) === src) return unread;
++    if (decodedGuideImages.get(image) !== src) {
++      if (pendingGuideImages.get(image) !== src) {
++        pendingGuideImages.set(image, src);
++        void image.decode().then(() => { if (image.currentSrc === src) decodedGuideImages.set(image, src);if (!disposed) guide?.poke(); }).catch(() => { if (image.currentSrc === src) failedGuideImages.set(image, src);if (!disposed) guide?.poke(); });
+       }
+       return unread;
+     }
+@@ -623,10 +627,10 @@ window.addEventListener('resize', () => { resizeLayout();readingLayout?.resize()
+ window.visualViewport?.addEventListener('resize', () => readingLayout?.resize(), { passive: true, signal: listenerController.signal });
+ let experienceLayoutFrame: number | undefined;
+ function queueExperienceLayout() {
+-  if (disposed || failed || projectTab !== 'live' || experienceLayoutFrame !== undefined) return;
++  if (disposed || failed || !courtyardLive() || experienceLayoutFrame !== undefined) return;
+   experienceLayoutFrame = requestAnimationFrame(() => {
+     experienceLayoutFrame = undefined;
+-    if (!disposed && !failed && projectTab === 'live') { applyCamera();if (!animation.state.hidden) view?.renderOnce(); }
++    if (!disposed && !failed && courtyardLive()) { applyCamera();if (!animation.state.hidden) view?.renderOnce(); }
+   });
+ }
+ const experienceResize = new ResizeObserver(queueExperienceLayout);

@@ -1,0 +1,189 @@
+"""Fill gaps in original control and shortcut evidence using native browser inputs."""
+import argparse, json, time
+from common import Run
+from native_keys import escape
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--run', default='run-1')
+parser.add_argument('--only', default='', help='Comma-separated exact case IDs for targeted rechecks')
+args = parser.parse_args()
+r = Run('controls', args.run, 1440, 900)
+r.only = args.only.split(',') if args.only else None
+p = r.page
+try:
+    r.case('LOAD.original', '原默认页面加载', r.load)
+
+    def default_inventory():
+        data = r.state()
+        data['controls'] = p.locator('button,input,.toggle').evaluate_all('''els=>els.map(e=>({tag:e.tagName,id:e.id,text:e.innerText||e.title||'',data:{...e.dataset},type:e.type,value:e.value,visible:!!(e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden'),rect:e.getBoundingClientRect().toJSON()}))''')
+        data['displayAreas'] = p.locator('.brand,.topbar,#panel,.hints,.perf,#help,#walk-bar,#tooltip').evaluate_all('''els=>els.map(e=>({selector:e.id||e.className,text:e.innerText,visible:!!(e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden')}))''')
+        assert len(data['controls']) == 41
+        assert data['state']['timeOfDay'] == 18.5 and not data['panelCollapsed']
+        r.picture('default-1440x900')
+        p.set_viewport_size({'width': 1366, 'height': 768})
+        p.wait_for_function('__LAWSON__.api.getStats().renderSize[0]===1366 && __LAWSON__.api.getStats().renderSize[1]===768')
+        r.picture('default-1366x768')
+        data['secondViewportState'] = r.state()
+        return data
+    r.case('UI.inventory', '默认界面、全部41个控件与两种桌面尺寸', default_inventory)
+
+    p.set_viewport_size({'width': 960, 'height': 540})
+    p.wait_for_function('__LAWSON__.api.getStats().renderSize[0]===960')
+    r.report['functionalSetup'] = r.low()
+    r.save()
+
+    def slider():
+        loc = p.locator('#time-slider')
+        records = []
+        for key, value in [('Home', 0), ('End', 24)]:
+            loc.press(key)
+            actual = float(loc.input_value())
+            assert actual == value
+            p.wait_for_function('v=>Math.abs(__LAWSON__.api.getStats().timeOfDay-v)<.02', arg=actual, timeout=45000)
+            records.append({'input': key, 'value': actual, 'state': r.state()})
+        box = loc.bounding_box()
+        p.mouse.click(box['x'] + box['width'] * .5, box['y'] + box['height'] * .5)
+        actual = float(loc.input_value())
+        assert 11 < actual < 13
+        p.wait_for_function('v=>Math.abs(__LAWSON__.api.getStats().timeOfDay-v)<.02', arg=actual, timeout=45000)
+        records.append({'input': 'actual pointer at slider middle', 'value': actual, 'state': r.state()})
+        loc.press('ArrowRight')
+        assert abs(float(loc.input_value()) - actual - .1) < .001
+        records.append({'input': 'ArrowRight', 'value': float(loc.input_value())})
+        p.locator('[data-preset=dusk]').click()
+        p.wait_for_function('Math.abs(__LAWSON__.api.getStats().timeOfDay-18.5)<.02', timeout=45000)
+        return {'operations': records, 'step': .1, 'originalInputEvents': p.evaluate('__fullpageAudit.events.filter(e=>e.kind==="input")')}
+    r.case('INPUT.time-slider', '原时间滑杆起点、终点、中间与步进', slider)
+
+    groups = p.locator('.toggle').evaluate_all('els=>els.map(e=>({id:e.dataset.group,label:e.innerText}))')
+    for group in groups:
+        def toggle(group=group):
+            loc = p.locator(f'.toggle[data-group={group["id"]}]')
+            records = []
+            for _ in range(2):
+                before = p.evaluate('(id)=>__LAWSON__.api.getState().lights[id]', group['id'])
+                event = r.last_click(f'.toggle[data-group={group["id"]}]')
+                after = event['snapshot']['state']['lights'][group['id']]
+                assert after is not before
+                records.append({'before': before, 'after': after, 'originalClick': event})
+            return {'label': group['label'], 'toggles': records}
+        r.case('LIGHT.' + group['id'], group['label'] + '分别开关', toggle)
+
+    def qualities():
+        rows = []
+        for _ in range(3):
+            before = p.evaluate('__LAWSON__.api.getState().quality')
+            expected = {'low': 'high', 'high': 'medium', 'medium': 'low'}[before]
+            event = r.last_click('#btn-settings')
+            actual = event['snapshot']['state']['quality']
+            assert actual == expected, (before, actual, expected)
+            rows.append({'before': before, 'expected': expected, 'originalClick': event})
+        r.low()
+        return {'cycles': rows, 'method': 'all quality transitions through original icon, observed after its original handler'}
+    r.case('BUTTON.btn-settings', '原画质按钮实际切换三档', qualities)
+
+    def help_panel():
+        p.locator('#btn-help').click()
+        assert p.locator('#help').is_visible()
+        text = p.locator('#help').inner_text()
+        r.picture('help-original')
+        p.locator('#help-close').click()
+        assert p.locator('#help').is_hidden()
+        p.locator('#btn-help').click()
+        p.mouse.click(10, 10)
+        assert p.locator('#help').is_hidden()
+        return {'text': text, 'openCloseButton': True, 'clickOutsideCloses': True}
+    r.case('BUTTON.help', '操作说明打开、知道了及遮罩关闭', help_panel)
+
+    def collapse():
+        before = p.locator('#panel').bounding_box()
+        p.locator('#panel-collapse').click()
+        assert p.locator('#panel').evaluate('e=>e.classList.contains("collapsed")')
+        after = p.locator('#panel').bounding_box()
+        assert after['width'] < before['width']
+        p.locator('#panel-collapse').click()
+        assert not p.locator('#panel').evaluate('e=>e.classList.contains("collapsed")')
+        return {'expanded': before, 'collapsed': after, 'restored': p.locator('#panel').bounding_box()}
+    r.case('BUTTON.panel-collapse', '原控制台收起与重新展开', collapse)
+
+    def fullscreen():
+        rows = []
+        for exit_method in ['original button', 'Escape']:
+            p.locator('#btn-fullscreen').click()
+            p.wait_for_function('!!document.fullscreenElement', timeout=15000)
+            rows.append({'entered': r.state(), 'exitMethod': exit_method})
+            if exit_method == 'original button':
+                p.locator('#btn-fullscreen').click()
+            else:
+                p.wait_for_timeout(300)
+                rows[-1]['nativeEscape'] = escape()
+            p.wait_for_function('!document.fullscreenElement', timeout=15000)
+            rows[-1]['exited'] = r.state()
+        return {'cycles': rows, 'noProgrammaticExitFullscreenUsed': True}
+    r.case('BUTTON.btn-fullscreen', '原全屏按钮进出及真实Esc退出', fullscreen)
+
+    def speeds():
+        rows = []
+        for speed in [.6, 1, 1.8]:
+            event = r.last_click(f'[data-speed="{speed:g}"]')
+            assert event['snapshot']['state']['traffic']['speed'] == speed
+            rows.append(event)
+        return {'originalSpeedButtonClicks': rows}
+    r.case('TRAFFIC.speeds', '慢速、正常和快速按钮分别操作', speeds)
+
+    def keyboard_space():
+        p.mouse.click(10, 10)
+        before = p.evaluate('__LAWSON__.api.getState().traffic.running')
+        p.keyboard.press('Space')
+        after = p.evaluate('__LAWSON__.api.getState().traffic.running')
+        assert after is not before
+        p.keyboard.press('Space')
+        assert p.evaluate('__LAWSON__.api.getState().traffic.running') is before
+        return {'before': before, 'after': after, 'restored': before, 'focus': p.evaluate('document.activeElement.tagName')}
+    r.case('KEY.Space', '空格暂停与恢复车流', keyboard_space)
+
+    def keyboard_r():
+        p.locator('[data-cam=hero]').click()
+        r.observed()
+        before = r.state()
+        p.mouse.move(300, 320)
+        p.mouse.down()
+        p.mouse.move(430, 350, steps=4)
+        p.mouse.up()
+        moved = r.state()
+        assert moved['projection'] != before['projection']
+        p.mouse.click(10, 10)
+        p.keyboard.press('r')
+        r.observed()
+        at_flight_end = r.state()
+        started_wait = time.monotonic()
+        p.wait_for_function('''original=>{
+          const now=[__LAWSON__.api.project([0,0,0]),__LAWSON__.api.project([8,0,0]),__LAWSON__.api.project([0,4,0])];
+          return Math.max(...original.flatMap((p,i)=>p.map((v,j)=>Math.abs(v-now[i][j]))))<=3;
+        }''', arg=before['projection'], timeout=120000, polling=100)
+        restored = r.state()
+        error = max(abs(x-y) for a,b in zip(before['projection'],restored['projection']) for x,y in zip(a,b))
+        assert error <= 3, error
+        return {'original': before, 'afterDrag': moved, 'atOriginalFlightEnd': at_flight_end,
+                'afterKeyR': restored, 'maxProjectionErrorCSSPixels': error, 'additionalNativeDampingWaitSeconds': time.monotonic() - started_wait,
+                'method': 'wait original flight and original OrbitControls damping to settle; no camera reset API or clock changes'}
+    r.case('KEY.KeyR', '实际R键恢复全景', keyboard_r)
+
+    def documented_n():
+        def hud():
+            return p.locator('pre').evaluate_all('els=>els.map(e=>({id:e.id,visible:getComputedStyle(e).display!=="none"&&getComputedStyle(e).visibility!=="hidden",text:e.innerText.slice(0,150)}))')
+        p.mouse.click(10, 10)
+        before = hud()
+        p.keyboard.press('n')
+        p.wait_for_timeout(300)
+        after = hud()
+        visible_before = [x['id'] for x in before if x['visible']]
+        visible_after = [x['id'] for x in after if x['visible']]
+        assert visible_before == visible_after
+        return {'_status': '原页已有问题', 'kind': 'documentation-runtime-mismatch', 'documented': 'Original README claims N opens clerk debug HUD',
+                'runtimeSourceHasKeyNBinding': False, 'before': before, 'after': after,
+                'conclusion': 'N is not wired in this source version; do not misclassify this as a future iframe regression. Existing debug API remains inventoried.'}
+    r.case('DOC.KeyN', '核对原说明中的N调试快捷键', documented_n)
+
+finally:
+    r.finish()

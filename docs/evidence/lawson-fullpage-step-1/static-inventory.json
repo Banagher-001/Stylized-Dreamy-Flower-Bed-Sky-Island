@@ -1,0 +1,351 @@
+{
+  "staticControls": [
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "fatal-retry"
+      },
+      "text": "重试"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "btn-fullscreen",
+        "class": "icon-btn",
+        "title": "全屏"
+      },
+      "text": ""
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "btn-settings",
+        "class": "icon-btn",
+        "title": "画质"
+      },
+      "text": ""
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "btn-help",
+        "class": "icon-btn",
+        "title": "操作说明"
+      },
+      "text": ""
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "panel-collapse",
+        "class": "collapse-btn",
+        "title": "折叠"
+      },
+      "text": "–"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-preset": "day"
+      },
+      "text": "白天"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-preset": "dusk",
+        "class": "active"
+      },
+      "text": "黄昏"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-preset": "night"
+      },
+      "text": "夜晚"
+    },
+    {
+      "tag": "input",
+      "attributes": {
+        "id": "time-slider",
+        "type": "range",
+        "min": "0",
+        "max": "24",
+        "step": "0.1",
+        "value": "18.5"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "lights-all-on"
+      },
+      "text": "全开"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "lights-all-off"
+      },
+      "text": "全关"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "traffic-toggle",
+        "class": "active"
+      },
+      "text": "暂停车辆"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "traffic-reset"
+      },
+      "text": "重置"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-speed": "0.6"
+      },
+      "text": "慢速"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-speed": "1",
+        "class": "active"
+      },
+      "text": "正常"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-speed": "1.8"
+      },
+      "text": "快速"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-car": "A"
+      },
+      "text": "车 A"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-car": "B"
+      },
+      "text": "车 B"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-car": "C"
+      },
+      "text": "车 C"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-clerk": "A"
+      },
+      "text": "店员 A"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-clerk": "B"
+      },
+      "text": "店员 B"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-cam": "hero",
+        "class": "active"
+      },
+      "text": "全景"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-cam": "front"
+      },
+      "text": "正面"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-cam": "left"
+      },
+      "text": "左侧"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-cam": "rear"
+      },
+      "text": "后侧"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-cam": "top"
+      },
+      "text": "俯视"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-cam": "interior"
+      },
+      "text": "室内"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-cam": "checkout"
+      },
+      "text": "收银区"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "data-cam": "vehicle"
+      },
+      "text": "车辆"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "btn-roof"
+      },
+      "text": "隐藏屋顶"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "btn-walk"
+      },
+      "text": "室内漫游"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "btn-reset-cam"
+      },
+      "text": "重置视角"
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "primary",
+        "id": "help-close"
+      },
+      "text": "知道了"
+    }
+  ],
+  "dynamicLightGroups": [
+    {
+      "id": "StoreInterior",
+      "label": "店内灯光"
+    },
+    {
+      "id": "LawsonSign",
+      "label": "LAWSON 招牌"
+    },
+    {
+      "id": "FacadeStrip",
+      "label": "外墙灯带"
+    },
+    {
+      "id": "StreetLamp",
+      "label": "路灯"
+    },
+    {
+      "id": "CoolerLighting",
+      "label": "冷柜灯光"
+    },
+    {
+      "id": "VendingLighting",
+      "label": "售货机灯光"
+    },
+    {
+      "id": "WarmExterior",
+      "label": "墙面暖光"
+    },
+    {
+      "id": "VehicleLights",
+      "label": "车辆灯光"
+    }
+  ],
+  "mainBoundShortcuts": [
+    "KeyR",
+    "Digit1",
+    "Digit2",
+    "Digit3",
+    "Space",
+    "Escape"
+  ],
+  "movementKeys": [
+    "KeyA",
+    "KeyD",
+    "KeyS",
+    "KeyW",
+    "ShiftLeft",
+    "ShiftRight"
+  ],
+  "documentationOnlyShortcutToVerify": "N: mentioned in original README but no matching key binding found in runtime JS",
+  "publicAPIs": [
+    "setTimeOfDay",
+    "setPreset",
+    "setLight",
+    "setAllLights",
+    "setCamera",
+    "toggleRoof",
+    "setRoof",
+    "trafficStart",
+    "getClerkStates",
+    "setClerkDebug",
+    "notifyCustomer",
+    "clerkTrigger",
+    "clerkNav",
+    "clerkForceTask",
+    "clerkCamera",
+    "getVehicleState",
+    "setVehicleDebug",
+    "toggleVehicleDebug",
+    "trafficPause",
+    "trafficReset",
+    "trafficSpeed",
+    "demoCar",
+    "pauseAll",
+    "setQuality",
+    "hideUI",
+    "getStats",
+    "getState",
+    "toggleDoor",
+    "setDoorsAutomatic",
+    "toggleWalk",
+    "triggerClerk",
+    "focusOn",
+    "focusPoint",
+    "setFreeCamera",
+    "clearFreeCamera",
+    "followClerk",
+    "project",
+    "pickAt",
+    "pickAll",
+    "entryInfo",
+    "clickAt"
+  ],
+  "documentationReferences": [
+    "index.html help panel",
+    "README.md"
+  ],
+  "staticControlCount": 33
+}

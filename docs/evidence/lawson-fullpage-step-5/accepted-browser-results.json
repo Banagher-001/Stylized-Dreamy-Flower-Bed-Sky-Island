@@ -1,0 +1,391 @@
+{
+  "passed": true,
+  "acceptedGroups": 15,
+  "groups": [
+    {
+      "report": "run-1/browser.json",
+      "build": "build-1.log",
+      "name": "normal embedded original and lifecycle",
+      "passed": true,
+      "evidence": {
+        "parentDrawsDuringOriginal": 0,
+        "originalDraws": 3805,
+        "geometry": {
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56
+        },
+        "originalStateAfterNativeControls": {
+          "loaded": true,
+          "paused": false,
+          "quality": "high",
+          "cameraMode": "top",
+          "timeOfDay": 9,
+          "roofVisible": false,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "A",
+            "phase": "APPROACHING",
+            "speed": 1.8,
+            "activePosition": [
+              -41,
+              -0.18,
+              23.4
+            ],
+            "reverseLamp": false,
+            "brake": false
+          },
+          "doors": {
+            "state": "CLOSED",
+            "isOpen": false,
+            "progress": 0,
+            "automatic": true
+          },
+          "walk": false,
+          "fps": 10,
+          "stats": {
+            "drawCalls": 1974,
+            "triangles": 708558,
+            "programs": 26,
+            "geometries": 1204,
+            "textures": 16,
+            "pixelRatio": 1,
+            "resScale": 1,
+            "width": 1440,
+            "height": 844
+          }
+        },
+        "archiveUnloads": true,
+        "reentryOriginalDefaults": true,
+        "readingAndFocusRestored": true
+      }
+    },
+    {
+      "report": "run-3/browser.json",
+      "build": "build-2.log",
+      "name": "state model failure and both retries",
+      "passed": true,
+      "evidence": {
+        "realModelFailureObserved": true,
+        "nativeRetryKeepsIframeAndReplacesDocument": true,
+        "oldReadyAPIIgnoredAfterReloadFailure": true,
+        "hostRetryReplacesIframe": true,
+        "retiredFrameInjectedLoadIgnored": true
+      }
+    },
+    {
+      "report": "run-3/browser.json",
+      "build": "build-2.log",
+      "name": "state slow original then recovery",
+      "passed": true,
+      "evidence": {
+        "heldRealModuleUntilAfter12Seconds": true,
+        "HTMLDidNotBecomeReady": true,
+        "slowNotError": true,
+        "mobileExitAndRetryFit": true,
+        "lateRealLoadRecovered": true,
+        "parentDraws": 0
+      }
+    },
+    {
+      "report": "run-3/browser.json",
+      "build": "build-2.log",
+      "name": "state rapid exit and late response",
+      "passed": true,
+      "evidence": {
+        "sameTaskOpenCloseCancelledMount": true,
+        "noOriginalRequestBeforeCancelledMount": true,
+        "loadingCloseIgnoresLateModule": true,
+        "gardenResumed": true
+      }
+    },
+    {
+      "report": "run-3/browser.json",
+      "build": "build-2.log",
+      "name": "input fullscreen pointer lock and escape",
+      "passed": true,
+      "evidence": {
+        "nativeWheelChangesOriginalCamera": true,
+        "nativeDragChangesOriginalCamera": true,
+        "originalKeyboardPresetWorks": true,
+        "parentReadingUnchanged": true,
+        "nativeFullscreenAndX11Escape": true,
+        "nativePointerLockAndX11Escape": true,
+        "parentPointerLockGetterDuringChildLock": null,
+        "childEscapeKeepsHostOpen": true,
+        "forcedCloseReleasesOwnedLockAndFullscreen": true,
+        "hostFocusedEscapeCloses": true
+      }
+    },
+    {
+      "report": "run-2/browser.json",
+      "build": "build-1.log",
+      "name": "layout 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "prefix": "/",
+        "largeParentFont": false,
+        "frameGeometry": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 48
+        },
+        "originalViewportMatchesContainer": true,
+        "independentReady": false
+      }
+    },
+    {
+      "report": "run-2/browser.json",
+      "build": "build-1.log",
+      "name": "layout 320x568",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          320,
+          568
+        ],
+        "prefix": "/",
+        "largeParentFont": false,
+        "frameGeometry": {
+          "x": 0,
+          "y": 48,
+          "width": 320,
+          "height": 520
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 48
+        },
+        "originalViewportMatchesContainer": true,
+        "independentReady": false
+      }
+    },
+    {
+      "report": "run-2/browser.json",
+      "build": "build-1.log",
+      "name": "layout 844x390",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          844,
+          390
+        ],
+        "prefix": "/",
+        "largeParentFont": false,
+        "frameGeometry": {
+          "x": 0,
+          "y": 48,
+          "width": 844,
+          "height": 342
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 844,
+          "height": 48
+        },
+        "originalViewportMatchesContainer": true,
+        "independentReady": false
+      }
+    },
+    {
+      "report": "run-2/browser.json",
+      "build": "build-1.log",
+      "name": "layout 320x568 parent 200%",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          320,
+          568
+        ],
+        "prefix": "/",
+        "largeParentFont": true,
+        "frameGeometry": {
+          "x": 0,
+          "y": 115,
+          "width": 320,
+          "height": 453
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 115
+        },
+        "originalViewportMatchesContainer": true,
+        "independentReady": false
+      }
+    },
+    {
+      "report": "run-2/browser.json",
+      "build": "build-1.log",
+      "name": "layout project prefix and independent",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1366,
+          768
+        ],
+        "prefix": "/Stylized-Dreamy-Flower-Bed-Sky-Island/",
+        "largeParentFont": false,
+        "frameGeometry": {
+          "x": 0,
+          "y": 56,
+          "width": 1366,
+          "height": 712
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1366,
+          "height": 56
+        },
+        "originalViewportMatchesContainer": true,
+        "independentReady": true
+      }
+    },
+    {
+      "report": "run-2/browser.json",
+      "build": "build-1.log",
+      "name": "cycles paused original unload and resize",
+      "passed": true,
+      "evidence": {
+        "successfulOpenCloseCycles": 5,
+        "detachedOriginalDrawsRemainFrozen": true,
+        "pausedSettingPreserved": true,
+        "liveResizeKeepsGardenSuspended": true,
+        "resizeReturnsToStableC2": {
+          "x": 16,
+          "y": 90.953125,
+          "width": 343,
+          "height": 563
+        },
+        "guideRemainsStopped": true
+      }
+    },
+    {
+      "report": "run-2/browser.json",
+      "build": "build-1.log",
+      "name": "courtyard original functions retained",
+      "passed": true,
+      "evidence": {
+        "originalArchiveVideoAndFrames": true,
+        "originalCourtyardLiveModes": true,
+        "noLawsonInstanceForCourtyard": true
+      }
+    },
+    {
+      "report": "run-3/browser.json",
+      "build": "build-2.log",
+      "name": "state original timeout fatal precedence",
+      "passed": true,
+      "evidence": {
+        "original30SecondGuardObserved": true,
+        "fatalWithoutAPIErrorDetected": true,
+        "visibleFatalOverridesLaterReady": true,
+        "nativeRetryAfterTimeoutRecovered": true,
+        "sourceOrClockModified": false
+      }
+    },
+    {
+      "report": "run-3/browser.json",
+      "build": "build-2.log",
+      "name": "independence original runs despite parent failure",
+      "passed": true,
+      "evidence": {
+        "parentWebGLDisabledOnly": true,
+        "originalIframeStillRuns": true,
+        "courtyardAvailabilityRemainsIndependent": true
+      }
+    },
+    {
+      "report": "run-4/browser.json",
+      "build": "build-2.log",
+      "name": "fullscreen stable scene paint",
+      "passed": true,
+      "evidence": {
+        "originalDrawsContinueInFullscreen": true,
+        "steadySceneRegionUniqueColors": 59115,
+        "stableSceneScreenshot": "fullscreen-steady-scene.png",
+        "transientResizeFrameNotUsedAsFinalEvidence": true
+      }
+    }
+  ],
+  "allAttemptsPreserved": [
+    {
+      "report": "run-1/browser.json",
+      "passed": true,
+      "checks": 1,
+      "failedChecks": []
+    },
+    {
+      "report": "run-2/browser.json",
+      "passed": false,
+      "checks": 11,
+      "failedChecks": [
+        "state slow original then recovery",
+        "input fullscreen pointer lock and escape"
+      ]
+    },
+    {
+      "report": "run-3/browser.json",
+      "passed": true,
+      "checks": 6,
+      "failedChecks": []
+    },
+    {
+      "report": "run-4/browser.json",
+      "passed": true,
+      "checks": 1,
+      "failedChecks": []
+    }
+  ],
+  "finalBuild": "build-2.log",
+  "unchangedJavaScriptAcrossBuilds": true,
+  "onlyBuildDelta": "build-delta.json",
+  "testCorrections": [
+    "Pending slow route must continue once; removing its handler first already handled it (run2).",
+    "Pointer lock is read from the owning child document; the parent getter is null in this browser (run2)."
+  ],
+  "environment": {
+    "browser": "155.0.8059.79",
+    "backend": "Headful Chromium, Mesa software GL",
+    "physicalMobile": false,
+    "hardwarePerformanceProof": false
+  },
+  "productionBridgeOrRuntimeInjected": false,
+  "testOnlyDrawCounters": true,
+  "testOnlyNetworkFaults": true,
+  "nativeFullscreenAndPointerLockEscape": "X11 Escape, not synthetic DOM key events"
+}

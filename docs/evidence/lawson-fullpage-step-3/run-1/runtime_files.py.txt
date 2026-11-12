@@ -1,0 +1,65 @@
+"""Copy the pinned runtime without transforming bytes, and verify built parity."""
+from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
+import argparse,hashlib,json,os,shutil,uuid
+
+ROOT=Path(__file__).resolve().parents[2]
+OUT=ROOT/'docs/evidence/lawson-fullpage-step-3'
+SOURCE=ROOT.parent/'luosen-asset/lawson-blender/out/web_final'
+PUBLIC=ROOT/'public/experiments/lawson'
+BUILT=ROOT/'dist/experiments/lawson'
+def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+def read(path):return json.loads(path.read_text())
+def write(path,data):path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+def now():return datetime.now(ZoneInfo('Asia/Shanghai')).isoformat()
+def manifest():
+    b=read(OUT/'baseline.json');p=ROOT/b['runtimeManifest']
+    assert sha(p)==b['runtimeManifestSHA256']
+    handoff=read(ROOT/b['handoff']);assert sha(ROOT/b['handoff'])==b['handoffSHA256']
+    m=read(p);assert handoff['manifestSHA256']==sha(p)
+    assert len(m['runtimeFiles'])==m['runtimeFileCount']==46
+    assert sum(f['bytes']for f in m['runtimeFiles'])==m['runtimeBytes']==20332784
+    return m
+def verify(directory,m,exact=True):
+    files=sorted(p.relative_to(directory).as_posix()for p in directory.rglob('*')if p.is_file())
+    expected=sorted(f['path']for f in m['runtimeFiles'])
+    assert (files==expected if exact else set(expected).issubset(files)),{'directory':str(directory),'missing':sorted(set(expected)-set(files)),'extra':sorted(set(files)-set(expected))if exact else []}
+    rows=[]
+    for f in m['runtimeFiles']:
+        p=directory/f['path'];actual={'path':f['path'],'bytes':p.stat().st_size,'sha256':sha(p)}
+        assert actual==f,{'directory':str(directory),'expected':f,'actual':actual}
+        rows.append(actual)
+    return rows
+def copy_runtime():
+    assert not (OUT/'copy-verification.json').exists(),'Preserve prior copy evidence'
+    m=manifest();verify(SOURCE,m,exact=False)
+    reused=PUBLIC.exists()
+    if reused:verify(PUBLIC,m)
+    else:
+        PUBLIC.parent.mkdir(parents=True,exist_ok=True)
+        staging=PUBLIC.parent/('.lawson-step3-stage-'+uuid.uuid4().hex)
+        staging.mkdir()
+        try:
+            for f in m['runtimeFiles']:
+                target=staging/f['path'];target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(SOURCE/f['path'],target)
+            verify(staging,m)
+            assert not PUBLIC.exists(),'Target appeared during copy; preserve it'
+            os.rename(staging,PUBLIC)
+        finally:
+            if staging.exists():shutil.rmtree(staging)
+    rows=verify(PUBLIC,m)
+    result={'capturedAtShanghai':now(),'passed':True,'sourceCommit':m['sourceCommit'],'sourceRoot':str(SOURCE),'targetRoot':str(PUBLIC),
+            'targetReused':reused,'files':rows,'fileCount':len(rows),'totalBytes':sum(f['bytes']for f in rows),'originalBytesPreserved':True,'stagingDirectoriesRemaining':[]}
+    write(OUT/'copy-verification.json',result);print(json.dumps({k:v for k,v in result.items()if k!='files'},ensure_ascii=False))
+def verify_build():
+    m=manifest();rows=[]
+    for directory in [SOURCE,PUBLIC,BUILT]:verify(directory,m,exact=directory!=SOURCE)
+    for f in m['runtimeFiles']:
+        rows.append({'relativePath':f['path'],'bytes':f['bytes'],'sha256':f['sha256'],'source':str(SOURCE/f['path']),'public':str((PUBLIC/f['path']).relative_to(ROOT)),'build':str((BUILT/f['path']).relative_to(ROOT)),'allThreeMatch':True})
+    result={'capturedAtShanghai':now(),'passed':True,'fileCount':len(rows),'totalBytes':m['runtimeBytes'],'modelBytes':m['modelBytes'],'files':rows}
+    write(OUT/'source-public-dist.json',result)
+    print(json.dumps({k:v for k,v in result.items()if k!='files'},ensure_ascii=False))
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--verify-build',action='store_true');args=parser.parse_args()
+    verify_build()if args.verify_build else copy_runtime()

@@ -1,0 +1,667 @@
+{
+  "schema": 1,
+  "passed": true,
+  "sourceRoot": "/workspace/luosen-asset/lawson-blender/out/web_final",
+  "entry": "index.html",
+  "importMap": {
+    "three": "./vendor/three/three.module.js",
+    "three/addons/": "./vendor/three/jsm/"
+  },
+  "runtimeFiles": [
+    {
+      "path": "assets/models/car_A.glb",
+      "bytes": 396308,
+      "sha256": "7c832daf2463bc0a95915fa66309fc5254c65754b40b0410bcf7d1eefa54cb95"
+    },
+    {
+      "path": "assets/models/car_B.glb",
+      "bytes": 489936,
+      "sha256": "0fd3139059891dafc1f9e9ade0abd2872820335f4f327cbeb6fd13a1f1d20c3b"
+    },
+    {
+      "path": "assets/models/car_C.glb",
+      "bytes": 445748,
+      "sha256": "a730a81d78bc68cf661038cbde50f8cef4292d5c5c60c54e5015111f9bd417fb"
+    },
+    {
+      "path": "assets/models/lawson_scene.glb",
+      "bytes": 17316048,
+      "sha256": "f953f7413eb4ef20e3dfe206e8619dff2031c98eabd74866c90f75475a26e41c"
+    },
+    {
+      "path": "css/controls.css",
+      "bytes": 1316,
+      "sha256": "5cbe7cdcd9867d69400924998f220fd6b7d4f2ebf49397f9c18aa27560b9e171"
+    },
+    {
+      "path": "css/main.css",
+      "bytes": 9446,
+      "sha256": "6609cb077bd9495945bbe0c181885274c137fd63f1c7c17f419570a96f44a011"
+    },
+    {
+      "path": "css/responsive.css",
+      "bytes": 1310,
+      "sha256": "8601fcf67c71802f63b0ffe44b7777320097bf0597096512b65793e954b95c40"
+    },
+    {
+      "path": "index.html",
+      "bytes": 8821,
+      "sha256": "ef8eb8d656620e8e0337b24cfc78fa7fe2422f66d165780ae43c50fa23edd888"
+    },
+    {
+      "path": "js/config/assetManifest.js",
+      "bytes": 832,
+      "sha256": "30d61399598f139dfd9f52cbabdd297bf2ec960ef4b2f242db2b078b31b258e0"
+    },
+    {
+      "path": "js/config/lightConfig.js",
+      "bytes": 7082,
+      "sha256": "0a7c83866554d22ffd1bb1b8a0c2f6e37b18beed24805e7543a3f83cee67f1d6"
+    },
+    {
+      "path": "js/config/sceneConfig.js",
+      "bytes": 3051,
+      "sha256": "7a28ae30d4deaee89aec6f0a1b7f342cb2cf2c831e13a2479979bcbbb0a85271"
+    },
+    {
+      "path": "js/config/vehiclePaths.js",
+      "bytes": 3857,
+      "sha256": "0a35ecb9983944a64698ead709b678712466eecc3fc2a9b7044e4858feada3a9"
+    },
+    {
+      "path": "js/core/AnimationController.js",
+      "bytes": 919,
+      "sha256": "7d079522fd068f167342b499323a5e114da3088e6f5dfc130091d073a01f325d"
+    },
+    {
+      "path": "js/core/AssetManager.js",
+      "bytes": 20310,
+      "sha256": "180ea83606e0b9d5503ef40a238903df1c870bc6cf80821c5e86297738f378ea"
+    },
+    {
+      "path": "js/core/Renderer.js",
+      "bytes": 6653,
+      "sha256": "123579b8470bfe9ba21d7399928069d367f9bd85e98e74b33e53fef3acee3566"
+    },
+    {
+      "path": "js/core/SceneManager.js",
+      "bytes": 3627,
+      "sha256": "36d2d0ec3eeb724d3ba921f257a615d21e3afa0c04d8e707a9a3c4b0948545c3"
+    },
+    {
+      "path": "js/core/UpdateLoop.js",
+      "bytes": 1359,
+      "sha256": "fb6f999e91d4cfca001c818b578b2c5a01fa357235496025a8356dff945ccfaa"
+    },
+    {
+      "path": "js/main.js",
+      "bytes": 21797,
+      "sha256": "401b1f1331fda13472f4f37cef0ca652472afe6311d1d8538067d3f8ad13a134"
+    },
+    {
+      "path": "js/systems/CameraSystem.js",
+      "bytes": 7819,
+      "sha256": "319087cdd0aa9bf3d3afa96460810962609aff6eca21f704fbc702344c72f23b"
+    },
+    {
+      "path": "js/systems/ClerkSystem.js",
+      "bytes": 32677,
+      "sha256": "b96ba89d76cfbe7b73baf4b92bcad23aede3e6e7fc754a42bdc266934c1ea820"
+    },
+    {
+      "path": "js/systems/DayNightSystem.js",
+      "bytes": 2870,
+      "sha256": "7ea481dbbdb0c39a8e9b1654d44bb188d74f17a8c7376741e3f1253c29981007"
+    },
+    {
+      "path": "js/systems/DoorSystem.js",
+      "bytes": 3462,
+      "sha256": "d51a51d10cb3a523a4db81aae8d21d314d39e4a905773317708450b44a3b9243"
+    },
+    {
+      "path": "js/systems/InteractionSystem.js",
+      "bytes": 4315,
+      "sha256": "6bbd2abba1381dd80a535234643127550fe43114ea322936e3cacf0447dad8cd"
+    },
+    {
+      "path": "js/systems/LightingSystem.js",
+      "bytes": 5332,
+      "sha256": "778f76487ce8e38aa792bb61cbaac4806d022b9dd247db1a38eb84182d7f4d88"
+    },
+    {
+      "path": "js/systems/QualitySystem.js",
+      "bytes": 1768,
+      "sha256": "a6753418147ccc63533e7aa38dbed126dda32c82a308a8dd3938c56aacdf651f"
+    },
+    {
+      "path": "js/systems/TrafficSystem.js",
+      "bytes": 25616,
+      "sha256": "483844a695096fc6384c1ae4d741c4d0779f667009f7f560735926701fcdb680"
+    },
+    {
+      "path": "js/systems/clerk/AnimLibrary.js",
+      "bytes": 7981,
+      "sha256": "249d52296e0fc1900ba53c10a6abdfe89ebce47ff8982bd5859ca8c02d7ff9fe"
+    },
+    {
+      "path": "js/systems/clerk/NavGrid.js",
+      "bytes": 5835,
+      "sha256": "e8067b63b1f47a9ff62e002961a05389c772611033d17f3cd484aa189069025d"
+    },
+    {
+      "path": "js/systems/clerk/TaskManager.js",
+      "bytes": 4542,
+      "sha256": "c7346b527e25eb21f503008b0254a00abe450776bb9f5ff76053e1febd6361ae"
+    },
+    {
+      "path": "js/systems/clerk/clerkConfig.js",
+      "bytes": 8395,
+      "sha256": "165946aecca5b352e1117d876aac9b13defd532121568872681ed73e3a9cd7eb"
+    },
+    {
+      "path": "js/ui/UIController.js",
+      "bytes": 9561,
+      "sha256": "12bd956cff97fa211c2ca00b8b742f0ea93b24a6a96b49716da8665ddea23d74"
+    },
+    {
+      "path": "js/ui/UIState.js",
+      "bytes": 884,
+      "sha256": "005f671a6894c6f1b66afadec5c14f551fb4b427030aff1b7de9c7555ef43e95"
+    },
+    {
+      "path": "vendor/three/jsm/controls/OrbitControls.js",
+      "bytes": 29868,
+      "sha256": "5a44a9e86a2a0fb11933eed69bc2cd33c76a496854c1aed6ed776efa87d7b064"
+    },
+    {
+      "path": "vendor/three/jsm/loaders/GLTFLoader.js",
+      "bytes": 108522,
+      "sha256": "d073b438e6a07e1359741dd5d6c76c953420cc0d4fd84eb1bdde94315540e6a3"
+    },
+    {
+      "path": "vendor/three/jsm/postprocessing/EffectComposer.js",
+      "bytes": 4651,
+      "sha256": "d234e578618fa816955ebdc059c049c577e203e650e33cf22bde3f232c29e669"
+    },
+    {
+      "path": "vendor/three/jsm/postprocessing/MaskPass.js",
+      "bytes": 2231,
+      "sha256": "328cf7db0da5d9be83ffe39d54b01d5ac1fddf108cc98182ddbb056f5c8b537f"
+    },
+    {
+      "path": "vendor/three/jsm/postprocessing/OutputPass.js",
+      "bytes": 2398,
+      "sha256": "13817fc7a87f662d29d2c5e00f44d3a4588c9afac4a372de0cacb0e44e368ffd"
+    },
+    {
+      "path": "vendor/three/jsm/postprocessing/Pass.js",
+      "bytes": 1706,
+      "sha256": "b3c6128340eaa37e40a6a2f1b738e894c855239417d50959759b34a2b5e89f92"
+    },
+    {
+      "path": "vendor/three/jsm/postprocessing/RenderPass.js",
+      "bytes": 1915,
+      "sha256": "1c90c085312871c4bcdccfcf519499c6276dd503363fcf7cb7f703add45cf4a2"
+    },
+    {
+      "path": "vendor/three/jsm/postprocessing/ShaderPass.js",
+      "bytes": 1576,
+      "sha256": "3b28a1ee27e0eb96c0eab137a1f442ccf127a926904eced2d51e125ec44af781"
+    },
+    {
+      "path": "vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "bytes": 12406,
+      "sha256": "8f09315c0cec117a0ca2494d3e3586035b3c4323d6dcb037537cc51b04c3cdba"
+    },
+    {
+      "path": "vendor/three/jsm/shaders/CopyShader.js",
+      "bytes": 571,
+      "sha256": "4e3346db194db56a596cd074e9bdb39fb5eb52040c333e0d29dc4eb1324d3b1d"
+    },
+    {
+      "path": "vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "bytes": 1192,
+      "sha256": "3d841cc594a0c1767d1b0185720b32761a0133c5f1b70b56658e28f2fb9b7900"
+    },
+    {
+      "path": "vendor/three/jsm/shaders/OutputShader.js",
+      "bytes": 1393,
+      "sha256": "53a52e430c27bc36ceaab8ae90a2b4af7b02672d7ee4b29d6ba3c28e09c92c2a"
+    },
+    {
+      "path": "vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "bytes": 31906,
+      "sha256": "9be041e96308775d00e2695cc607645b9a9b64fd7c0e759dd8f7c00a8d92becb"
+    },
+    {
+      "path": "vendor/three/three.module.js",
+      "bytes": 1272972,
+      "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+    }
+  ],
+  "runtimeFileCount": 46,
+  "runtimeBytes": 20332784,
+  "modelBytes": 18648040,
+  "models": [
+    {
+      "path": "assets/models/car_A.glb",
+      "bytes": 396308,
+      "sha256": "7c832daf2463bc0a95915fa66309fc5254c65754b40b0410bcf7d1eefa54cb95",
+      "nodes": 94,
+      "meshes": 53,
+      "materials": 19,
+      "images": 0,
+      "animations": 0,
+      "externalOrDataURIs": [],
+      "extensionsRequired": [],
+      "importantNodes": {}
+    },
+    {
+      "path": "assets/models/car_B.glb",
+      "bytes": 489936,
+      "sha256": "0fd3139059891dafc1f9e9ade0abd2872820335f4f327cbeb6fd13a1f1d20c3b",
+      "nodes": 103,
+      "meshes": 57,
+      "materials": 20,
+      "images": 0,
+      "animations": 0,
+      "externalOrDataURIs": [],
+      "extensionsRequired": [],
+      "importantNodes": {}
+    },
+    {
+      "path": "assets/models/car_C.glb",
+      "bytes": 445748,
+      "sha256": "a730a81d78bc68cf661038cbde50f8cef4292d5c5c60c54e5015111f9bd417fb",
+      "nodes": 101,
+      "meshes": 61,
+      "materials": 18,
+      "images": 0,
+      "animations": 0,
+      "externalOrDataURIs": [],
+      "extensionsRequired": [],
+      "importantNodes": {}
+    },
+    {
+      "path": "assets/models/lawson_scene.glb",
+      "bytes": 17316048,
+      "sha256": "f953f7413eb4ef20e3dfe206e8619dff2031c98eabd74866c90f75475a26e41c",
+      "nodes": 2359,
+      "meshes": 1278,
+      "materials": 320,
+      "images": 0,
+      "animations": 0,
+      "externalOrDataURIs": [],
+      "extensionsRequired": [],
+      "importantNodes": {
+        "roofRoot": true,
+        "slideDoorLeft_pivot": true,
+        "slideDoorRight_pivot": true,
+        "clerkA_root": true,
+        "clerkB_root": true
+      }
+    }
+  ],
+  "dependencyEdges": [
+    {
+      "from": "index.html",
+      "to": "css/main.css"
+    },
+    {
+      "from": "index.html",
+      "to": "css/controls.css"
+    },
+    {
+      "from": "index.html",
+      "to": "css/responsive.css"
+    },
+    {
+      "from": "index.html",
+      "to": "js/main.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/core/SceneManager.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/core/Renderer.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/core/AssetManager.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/core/AnimationController.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/core/UpdateLoop.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/systems/LightingSystem.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/systems/DayNightSystem.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/systems/DoorSystem.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/systems/TrafficSystem.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/systems/ClerkSystem.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/systems/CameraSystem.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/systems/InteractionSystem.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/systems/QualitySystem.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/ui/UIState.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/ui/UIController.js"
+    },
+    {
+      "from": "js/main.js",
+      "to": "js/config/lightConfig.js"
+    },
+    {
+      "from": "js/ui/UIController.js",
+      "to": "js/config/lightConfig.js"
+    },
+    {
+      "from": "js/systems/QualitySystem.js",
+      "to": "js/config/sceneConfig.js"
+    },
+    {
+      "from": "js/systems/InteractionSystem.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/systems/CameraSystem.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/systems/CameraSystem.js",
+      "to": "vendor/three/jsm/controls/OrbitControls.js"
+    },
+    {
+      "from": "js/systems/CameraSystem.js",
+      "to": "js/config/sceneConfig.js"
+    },
+    {
+      "from": "vendor/three/jsm/controls/OrbitControls.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/systems/ClerkSystem.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/systems/ClerkSystem.js",
+      "to": "js/systems/clerk/NavGrid.js"
+    },
+    {
+      "from": "js/systems/ClerkSystem.js",
+      "to": "js/systems/clerk/AnimLibrary.js"
+    },
+    {
+      "from": "js/systems/ClerkSystem.js",
+      "to": "js/systems/clerk/TaskManager.js"
+    },
+    {
+      "from": "js/systems/ClerkSystem.js",
+      "to": "js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "from": "js/systems/clerk/TaskManager.js",
+      "to": "js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "from": "js/systems/clerk/NavGrid.js",
+      "to": "js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "from": "js/systems/TrafficSystem.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/systems/TrafficSystem.js",
+      "to": "js/config/vehiclePaths.js"
+    },
+    {
+      "from": "js/systems/TrafficSystem.js",
+      "to": "js/config/sceneConfig.js"
+    },
+    {
+      "from": "js/systems/DoorSystem.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/systems/DoorSystem.js",
+      "to": "js/config/sceneConfig.js"
+    },
+    {
+      "from": "js/systems/DayNightSystem.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/systems/DayNightSystem.js",
+      "to": "js/config/lightConfig.js"
+    },
+    {
+      "from": "js/systems/DayNightSystem.js",
+      "to": "js/config/sceneConfig.js"
+    },
+    {
+      "from": "js/systems/LightingSystem.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/systems/LightingSystem.js",
+      "to": "js/config/lightConfig.js"
+    },
+    {
+      "from": "js/core/AssetManager.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/core/AssetManager.js",
+      "to": "vendor/three/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "from": "js/core/AssetManager.js",
+      "to": "vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "from": "js/core/AssetManager.js",
+      "to": "js/config/assetManifest.js"
+    },
+    {
+      "from": "js/core/AssetManager.js",
+      "to": "js/config/sceneConfig.js"
+    },
+    {
+      "from": "index.html",
+      "to": "assets/models/lawson_scene.glb"
+    },
+    {
+      "from": "index.html",
+      "to": "assets/models/car_A.glb"
+    },
+    {
+      "from": "index.html",
+      "to": "assets/models/car_B.glb"
+    },
+    {
+      "from": "index.html",
+      "to": "assets/models/car_C.glb"
+    },
+    {
+      "from": "vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "vendor/three/jsm/loaders/GLTFLoader.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "vendor/three/jsm/loaders/GLTFLoader.js",
+      "to": "vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "from": "js/core/Renderer.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "js/core/Renderer.js",
+      "to": "vendor/three/jsm/postprocessing/EffectComposer.js"
+    },
+    {
+      "from": "js/core/Renderer.js",
+      "to": "vendor/three/jsm/postprocessing/RenderPass.js"
+    },
+    {
+      "from": "js/core/Renderer.js",
+      "to": "vendor/three/jsm/postprocessing/UnrealBloomPass.js"
+    },
+    {
+      "from": "js/core/Renderer.js",
+      "to": "vendor/three/jsm/postprocessing/OutputPass.js"
+    },
+    {
+      "from": "js/core/Renderer.js",
+      "to": "js/config/sceneConfig.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/OutputPass.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/OutputPass.js",
+      "to": "vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/OutputPass.js",
+      "to": "vendor/three/jsm/shaders/OutputShader.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/Pass.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "to": "vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "to": "vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "to": "vendor/three/jsm/shaders/LuminosityHighPassShader.js"
+    },
+    {
+      "from": "vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/RenderPass.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/RenderPass.js",
+      "to": "vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/EffectComposer.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/EffectComposer.js",
+      "to": "vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/EffectComposer.js",
+      "to": "vendor/three/jsm/postprocessing/ShaderPass.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/EffectComposer.js",
+      "to": "vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/EffectComposer.js",
+      "to": "vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/MaskPass.js",
+      "to": "vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/ShaderPass.js",
+      "to": "vendor/three/three.module.js"
+    },
+    {
+      "from": "vendor/three/jsm/postprocessing/ShaderPass.js",
+      "to": "vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "from": "js/core/SceneManager.js",
+      "to": "vendor/three/three.module.js"
+    }
+  ],
+  "missing": [],
+  "externalNetworkDependencies": [],
+  "unresolvedImports": [],
+  "unreferencedRuntimeFiles": [],
+  "threeRevision": "160",
+  "hostThreeVersion": "0.187.0",
+  "archiveImageCandidates": [
+    {
+      "path": "/workspace/luosen-asset/lawson-blender/out/web_final/screenshots_clerk/cherry_final_hero.png",
+      "sha256": "d795455b466097baa4a17ca0cc95bdfc42252baaea0cdc95fa8208ea6e926c8e",
+      "provenance": "existing source archive; not a new runtime verification"
+    },
+    {
+      "path": "/workspace/luosen-asset/lawson-blender/out/web_final/screenshots/03_hero_night.png",
+      "sha256": "cdb0e3ed137f211ef8b7f18fe03cc624209ea61b72a50b1031ade0cd34699a73",
+      "provenance": "existing source archive; not a new runtime verification"
+    },
+    {
+      "path": "/workspace/luosen-asset/lawson-blender/out/web_final/screenshots/08_interior.png",
+      "sha256": "c0649e23953a018940f722d601cd782a536a728beb961f8a5448369025bea1ce",
+      "provenance": "existing source archive; not a new runtime verification"
+    },
+    {
+      "path": "/workspace/luosen-asset/lawson-blender/out/web_final/screenshots/09_checkout.png",
+      "sha256": "1f2c14ab61b795af7387260af6bac30a6e17f6c6dacbf5e3d10dea2a7bdaed96",
+      "provenance": "existing source archive; not a new runtime verification"
+    }
+  ]
+}

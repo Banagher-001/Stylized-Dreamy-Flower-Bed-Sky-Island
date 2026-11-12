@@ -1,0 +1,27 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "graphics parent recovery stays covered",
+      "passed": true,
+      "evidence": {
+        "realParentContextLossAndRestore": true,
+        "originalRemainedIndependent": true,
+        "coveredRecoveryDidNotDraw": true,
+        "parentReadyWhenCoverVisibleAgain": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "graphics parent recovery stays covered",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

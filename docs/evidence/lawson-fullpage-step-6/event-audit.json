@@ -1,0 +1,664 @@
+{
+  "passed": true,
+  "unexpected": [],
+  "expectedFaultErrors": [
+    {
+      "report": "boundary-final/browser.json",
+      "case": "document wrong HTML",
+      "kind": "response",
+      "url": "http://127.0.0.1:4196/experiments/lawson/index.html",
+      "status": 404
+    },
+    {
+      "report": "boundary-final/browser.json",
+      "case": "document wrong HTML",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "report": "boundary-final/browser.json",
+      "case": "layout small error and 200 percent",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "report": "boundary-final/browser.json",
+      "case": "layout small error and 200 percent",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "report": "boundary-final/browser.json",
+      "case": "layout small error and 200 percent",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network document 404",
+      "kind": "response",
+      "url": "http://127.0.0.1:4196/experiments/lawson/index.html",
+      "status": 404
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network document 404",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network document 500",
+      "kind": "response",
+      "url": "http://127.0.0.1:4196/experiments/lawson/index.html",
+      "status": 500
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network document 500",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network vendor module failure",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/vendor/three/three.module.js",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network vendor module failure",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network car model failure",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/assets/models/car_B.glb",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network car model failure",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network car model failure",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/car_B.glb — Failed to fetch"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network cold offline and return",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/index.html",
+      "text": "net::ERR_INTERNET_DISCONNECTED"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network warm offline and return",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_INTERNET_DISCONNECTED"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network warm offline and return",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_INTERNET_DISCONNECTED"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network warm offline and return",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network restricted embedding",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/index.html",
+      "text": "net::ERR_BLOCKED_BY_RESPONSE"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network restricted embedding",
+      "kind": "console",
+      "level": "error",
+      "text": "Framing 'http://127.0.0.1:4196/' violates the following Content Security Policy directive: \"frame-ancestors 'none'\". The request has been blocked.\n"
+    },
+    {
+      "report": "hmr/browser.json",
+      "case": "HMR module loading",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:5196/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_ABORTED"
+    },
+    {
+      "report": "hmr/browser.json",
+      "case": "HMR module error",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:5196/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "report": "hmr/browser.json",
+      "case": "HMR module error",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "report": "hmr/browser.json",
+      "case": "HMR module error",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    },
+    {
+      "report": "permissions-final/browser.json",
+      "case": "permissions denied fullscreen remains usable",
+      "kind": "console",
+      "level": "error",
+      "text": "Permissions policy violation: fullscreen is not allowed in this document."
+    },
+    {
+      "report": "permissions-final/browser.json",
+      "case": "permissions denied fullscreen remains usable",
+      "kind": "pageerror",
+      "text": "Disallowed by permissions policy"
+    },
+    {
+      "report": "permissions-final/browser.json",
+      "case": "permissions pointer lock without activation",
+      "kind": "pageerror",
+      "text": "A user gesture is required to request Pointer Lock."
+    },
+    {
+      "report": "native-visibility-final/browser.json",
+      "case": "native visibility error",
+      "kind": "requestfailed",
+      "text": "net::ERR_FAILED",
+      "url": "http://127.0.0.1:4196/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "report": "native-visibility-final/browser.json",
+      "case": "native visibility error",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "report": "native-visibility-final/browser.json",
+      "case": "native visibility error",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: THREE.WebGLRenderer: Error creating WebGL context."
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "Tour scene initialization failed. Error: THREE.WebGLRenderer: Error creating WebGL context.\n    at new Br (http://127.0.0.1:4196/assets/three-renderer-Bo7ttXUR.js:4221:23774)\n    at Nt (http://127.0.0.1:4196/assets/createAnimationController-Cv0VwzcZ.js:454:1367)\n    at http://127.0.0.1:4196/assets/startTourPrototype-WeWohhtn.js:43:13790"
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: Error creating WebGL context."
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 无法创建 WebGL 渲染器：Error creating WebGL context."
+    }
+  ],
+  "warnings": [
+    {
+      "report": "boundary-final/browser.json",
+      "case": "document wrong HTML",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "boundary-final/browser.json",
+      "case": "graphics child context loss",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "boundary-final/browser.json",
+      "case": "layout small error and 200 percent",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "case": "layout 1440x900",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "case": "layout 1366x768",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "case": "layout 768x1024",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "case": "layout 390x844",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "case": "layout 375x812",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "case": "layout 320x568",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "case": "layout 844x390",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "case": "layout continuous rotation and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "layout-large-recheck/browser.json",
+      "case": "layout 1920x1080",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "layout-firefox/browser.json",
+      "case": "layout 1440x900",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "report": "layout-firefox/browser.json",
+      "case": "layout 390x844",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "report": "layout-firefox/browser.json",
+      "case": "layout continuous rotation and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "report": "layout-firefox/browser.json",
+      "case": "layout continuous rotation and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content.\" {file: \"http://127.0.0.1:4196/experiments/lawson/index.html\" line: 0}]"
+    },
+    {
+      "report": "layout-webkit/browser.json",
+      "case": "layout 1440x900",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "report": "layout-webkit/browser.json",
+      "case": "layout 390x844",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "report": "layout-webkit/browser.json",
+      "case": "layout continuous rotation and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network document 404",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network document 500",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network vendor module failure",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network car model failure",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network cold offline and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network warm offline and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "network/browser.json",
+      "case": "network restricted embedding",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "interactions/browser.json",
+      "case": "touch gestures and panel isolation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "interactions/browser.json",
+      "case": "touch gestures and panel isolation",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "report": "interactions/browser.json",
+      "case": "stress ten full and twenty cancelled",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "interactions/browser.json",
+      "case": "ownership project media rapid transfer",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "interactions/browser.json",
+      "case": "zoom actual browser two hundred percent",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "focus-safe-recheck/browser.json",
+      "case": "keyboard modal traversal and restoration",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "safe-area-final/browser.json",
+      "case": "safe area actual env inset emulation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "lifecycle/browser.json",
+      "case": "accessibility reduced motion semantics",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "graphics-recheck/browser.json",
+      "case": "graphics parent recovery stays covered",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "hmr/browser.json",
+      "case": "HMR module loading",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "hmr/browser.json",
+      "case": "HMR module ready",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "hmr/browser.json",
+      "case": "HMR module error",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "hmr/browser.json",
+      "case": "HMR stylesheet keeps current instance",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "permissions-final/browser.json",
+      "case": "permissions denied fullscreen remains usable",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "permissions-final/browser.json",
+      "case": "permissions pointer lock without activation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "native-visibility-final/browser.json",
+      "case": "native visibility loading",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "native-visibility-final/browser.json",
+      "case": "native visibility ready",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "native-visibility-final/browser.json",
+      "case": "native visibility error",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "compat-chromium/browser.json",
+      "case": "compat final engine native controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "compat-chromium/browser.json",
+      "case": "compat independent and embedded original mobile",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "compat-firefox/browser.json",
+      "case": "compat final engine native controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "report": "compat-webkit/browser.json",
+      "case": "compat final engine native controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "report": "permissions-supported/browser.json",
+      "case": "permissions supported native path",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "history-final/browser.json",
+      "case": "history actual back and recovery",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "history-final/browser.json",
+      "case": "history actual back and recovery",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+"""Explicitly select final evidence, preserving failed probes and source issues."""
+from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
+import hashlib,json
+ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'docs/evidence/lawson-fullpage-step-7'
+read=lambda p:json.loads(p.read_text())
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+def write(name,value):(OUT/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
+def common_path(mode,phase):return ('standalone-controls'if(mode,phase)==('standalone','controls')else'full-'+mode+'-'+phase)+'/'+phase+'.json'
+def ref(report,identifier,field='id'):
+    data=read(OUT/report);row=next(c for c in data['checks']if c[field]==identifier)
+    status=row.get('status','通过'if row.get('passed')else'失败')
+    assert status in ['原页正常','原页已有问题','通过'],(report,identifier,status)
+    return {'report':report,'case':identifier,'caseField':field,'status':status,'reportSHA256':sha(OUT/report),'browserVersion':data['browserVersion']}
+def selected(mode,phase,identifier):
+    report=common_path(mode,phase)
+    if(mode,phase)==('embedded','controls'):report='recheck-embedded-controls/controls.json'
+    if identifier=='BUTTON.roof-actual':report='recheck-'+mode+'-roof/supplement.json'
+    return ref(report,identifier)
+def pair(label,phase,identifier,selector=None):
+    a,b=(selected(mode,phase,identifier)for mode in ['standalone','embedded'])
+    assert a['status']==b['status'],(label,a,b)
+    return {'label':label,'selector':selector,'original':a,'embedded':b,'result':'原页已有问题'if a['status']=='原页已有问题'else'通过','newHostRegression':False}
+
+controls=[]
+def control(label,selector,phase,identifier):controls.append(pair(label,phase,identifier,selector))
+controls.append({'label':'原错误重试','selector':'#fatal-retry',
+ 'original':ref('standalone-native-retry/readiness.json','READINESS.retry'),
+ 'embedded':ref('recovery-chromium/browser.json','recovery original fatal retry and host retry','name'),
+ 'result':'通过','newHostRegression':False})
+for label,selector,identifier in [('全屏','#btn-fullscreen','BUTTON.btn-fullscreen'),('画质','#btn-settings','BUTTON.btn-settings'),('帮助打开','#btn-help','BUTTON.help'),('帮助关闭','#help-close','BUTTON.help'),('面板折叠','#panel-collapse','BUTTON.panel-collapse')]:control(label,selector,'controls',identifier)
+for preset,label in [('day','白天'),('dusk','黄昏'),('night','夜晚')]:control(label,'[data-preset='+preset+']','supplement','ENV.presets')
+control('时间滑杆','#time-slider','controls','INPUT.time-slider')
+for selector,label in [('#lights-all-on','灯光全开'),('#lights-all-off','灯光全关')]:control(label,selector,'supplement','LIGHT.all-actual')
+for group,label in [('StoreInterior','店内灯光'),('LawsonSign','LAWSON 招牌'),('FacadeStrip','外墙灯带'),('StreetLamp','路灯'),('CoolerLighting','冷柜灯光'),('VendingLighting','售货机灯光'),('WarmExterior','墙面暖光'),('VehicleLights','车辆灯光')]:control(label,'.toggle[data-group='+group+']','supplement','ACTUAL.LIGHT.'+group)
+for selector,label in [('#traffic-toggle','车流暂停与恢复'),('#traffic-reset','车流重置')]:control(label,selector,'supplement','TRAFFIC.actual')
+for speed,label in [('0.6','慢速'),('1','正常速度'),('1.8','快速')]:control(label,'[data-speed="'+speed+'"]','supplement','TRAFFIC.actual')
+for tag in ['A','B','C']:control('车辆 '+tag,'[data-car='+tag+']','traffic','CYCLE.'+tag)
+for tag in ['A','B']:control('店员 '+tag,'[data-clerk='+tag+']','supplement','BUTTON.clerk-'+tag)
+for name,label in [('hero','全景'),('front','正面'),('left','左侧'),('rear','后侧'),('top','俯视'),('interior','室内'),('checkout','收银区'),('vehicle','车辆镜头')]:control(label,'[data-cam='+name+']','supplement','CAMERA.'+name)
+control('屋顶','#btn-roof','supplement','BUTTON.roof-actual');control('漫游','#btn-walk','keyboard','POINTER.walk-look');control('重置视角','#btn-reset-cam','supplement','INPUT.orbit')
+assert len(controls)==41 and len({c['selector']for c in controls})==41
+keys=[pair('R','controls','KEY.KeyR')]
+keys.extend(pair(k,'supplement','KEY.123')for k in ['1','2','3'])
+keys.append(pair('Space','controls','KEY.Space'));keys.append(pair('Escape','keyboard','POINTER.walk-look'))
+keys.extend(pair(k,'keyboard','KEY.'+code)for k,code in [('W','KeyW'),('A','KeyA'),('S','KeyS'),('D','KeyD'),('左 Shift','ShiftLeft'),('右 Shift','ShiftRight')])
+keys.append(pair('N（原说明提及、实际未绑定）','controls','DOC.KeyN'));assert len(keys)==13
+targets=[pair(label,'targets','TARGET.'+id)for id,label in [('sign','招牌'),('facade','外墙灯带'),('door','门'),('vending','售货机'),('basket','购物篮：原绑定冷柜灯'),('checkout','收银台'),('shelf','货架'),('alcohol','酒类区'),('oden','关东煮蒸汽'),('clerkA','店员 A 固定岗位'),('clerkB','店员 B 固定岗位'),('atm','ATM'),('freezer','卧式冰柜'),('cooler','饮料冷藏柜'),('microwave','微波炉'),('dining','用餐区'),('coffee','咖啡机')]]
+assert len(targets)==17
+cycles=[];tasks={mode:{tag:set()for tag in ['A','B']}for mode in ['standalone','embedded']}
+for tag in ['A','B','C']:
+    p=pair('车辆 '+tag+' 完整流程','traffic','CYCLE.'+tag)
+    for mode in ['standalone','embedded']:
+        data=read(OUT/common_path(mode,'traffic'));row=next(c for c in data['checks']if c['id']=='CYCLE.'+tag);e=row['evidence']
+        assert e['complete']and e['nativeClock']and {'PARKED','REVERSING_OUT','DRIVING_OUT'}.issubset(e['phases'])
+        p[mode+'Summary']={'wallSeconds':e['wallSeconds'],'phasesObserved':e['phases'],'sampleCount':len(e['timeline']),'originalUISpeed':e['speedSelectedThroughOriginalUI']}
+        for clerk in ['A','B']:tasks[mode][clerk].update(e['clerkTasksObserved'][clerk])
+    cycles.append(p)
+for mode in tasks:
+    for tag in tasks[mode]:assert len(tasks[mode][tag])>=2,(mode,tag,tasks[mode][tag]);tasks[mode][tag]=sorted(tasks[mode][tag])
+boundary=pair('漫游中 R 后再触发 UI 同步','keyboard','BOUNDARY.R-in-walk')
+parity={'schema':1,'completedAtShanghai':datetime.now(ZoneInfo('Asia/Shanghai')).isoformat(),'pairedControlCount':41,'controls':controls,'keyboardRecordCount':13,'keyboard':keys,'pairedPickCount':17,'picks':targets,'vehicleCycles':cycles,'autonomousClerkTasksActuallyObserved':tasks,'randomBranchesExhaustive':False,'additionalOriginalBoundary':boundary,'allOriginalNormalFeaturesPreserved':True,'hostNewRegressions':[],'originalRuntimeModified':False}
+write('functional-parity.json',parity)
+
+accepted=[]
+for mode in ['standalone','embedded']:
+    for phase in ['controls','supplement','keyboard','targets','traffic']:
+        data=read(OUT/common_path(mode,phase));assert data['mode']==mode
+        if mode=='embedded':assert data['hostDrawsWhileOriginalActive']==0 and data['hostClosedAndIframeRemoved']
+        for c in data['checks']:accepted.append({'mode':mode,'phase':phase,**selected(mode,phase,c['id'])})
+for c in read(OUT/'standalone-native-retry/readiness.json')['checks']:accepted.append({'mode':'standalone','phase':'readiness',**ref('standalone-native-retry/readiness.json',c['id'])})
+for run in ['journey-chromium','recovery-chromium','touch-chromium','journey-firefox','journey-webkit']:
+    data=read(OUT/run/'browser.json');assert data['passed']
+    for c in data['checks']:accepted.append({'mode':'host','phase':run,**ref(run+'/browser.json',c['name'],'name')})
+attempts=[]
+for p in sorted(OUT.glob('*/*.json')):
+    if p.name not in ['controls.json','supplement.json','keyboard.json','targets.json','traffic.json','readiness.json','browser.json']:continue
+    d=read(p)
+    attempts.append({'report':p.relative_to(OUT).as_posix(),'complete':d.get('complete',d.get('passed')),'needsRecheck':[c.get('id',c.get('name'))for c in d['checks']if c.get('status')=='需补核'or c.get('passed')is False]})
+corrections=[
+ {'reports':['full-embedded-controls/controls.json'],'case':'INPUT.time-slider','cause':'Test used main-frame locator bounding_box then added iframe offset twice. Switched pointer setup to child getBoundingClientRect; original behavior untouched. All embedded control cases rerun to restore matching sequential preconditions.','replacement':'recheck-embedded-controls/controls.json'},
+ {'reports':['full-standalone-supplement/supplement.json','full-embedded-supplement/supplement.json'],'case':'BUTTON.roof-actual','cause':'Test checked own visibility on nested roof groups. Effective ancestor visibility is the actual scene criterion; corrected observation retains own flag as separate evidence.','replacement':['recheck-standalone-roof/supplement.json','recheck-embedded-roof/supplement.json']},
+]
+write('accepted-browser-results.json',{'allAcceptedCasesHaveDeterminateResults':True,'acceptedCaseCount':len(accepted),'functionalPassCases':sum(c['status']!='原页已有问题'for c in accepted),'knownOriginalIssueCases':sum(c['status']=='原页已有问题'for c in accepted),'cases':accepted,'allAttemptsPreserved':attempts,'probeCorrections':corrections,'prior49CoreGroups':'../lawson-fullpage-step-6/accepted-browser-results.json','priorEvidenceReuseRequiresUnchangedInputsAndBuild':True,'physicalDevicesVerified':False})
+print(json.dumps({'controls':41,'keyboardRecords':13,'picks':17,'pairedCompleteVehicleCycles':3,'acceptedCases':len(accepted),'hostNewRegressions':0},ensure_ascii=False))

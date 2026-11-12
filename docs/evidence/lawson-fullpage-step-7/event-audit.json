@@ -1,0 +1,307 @@
+{
+  "passed": true,
+  "adoptedReports": [
+    "full-embedded-keyboard/keyboard.json",
+    "full-embedded-supplement/supplement.json",
+    "full-embedded-targets/targets.json",
+    "full-embedded-traffic/traffic.json",
+    "full-standalone-keyboard/keyboard.json",
+    "full-standalone-supplement/supplement.json",
+    "full-standalone-targets/targets.json",
+    "full-standalone-traffic/traffic.json",
+    "journey-chromium/browser.json",
+    "journey-final2/browser.json",
+    "journey-firefox/browser.json",
+    "journey-webkit/browser.json",
+    "recheck-embedded-controls/controls.json",
+    "recovery-chromium/browser.json",
+    "roof-final-embedded/supplement.json",
+    "roof-final-standalone/supplement.json",
+    "standalone-controls/controls.json",
+    "standalone-native-retry/readiness.json",
+    "touch-chromium/browser.json"
+  ],
+  "expectedFaultAndLifecycleErrors": [
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "recovery original fatal retry and host retry",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4197/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_FAILED",
+      "expectedReason": "explicit main-model fetch failure injection"
+    },
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "recovery original fatal retry and host retry",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "expectedReason": "original error reporting for explicit failed model"
+    },
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "recovery original fatal retry and host retry",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch",
+      "expectedReason": "original error reporting for explicit failed model"
+    },
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "recovery original fatal retry and host retry",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4197/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_FAILED",
+      "expectedReason": "explicit main-model fetch failure injection"
+    },
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "recovery original fatal retry and host retry",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "expectedReason": "original error reporting for explicit failed model"
+    },
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "recovery original fatal retry and host retry",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch",
+      "expectedReason": "original error reporting for explicit failed model"
+    },
+    {
+      "report": "standalone-native-retry/readiness.json",
+      "kind": "console",
+      "case": "READINESS.retry",
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "location": {
+        "url": "http://127.0.0.1:4197/original/assets/models/lawson_scene.glb",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      },
+      "level": "error",
+      "expectedReason": "original error reporting for explicit failed model"
+    },
+    {
+      "report": "standalone-native-retry/readiness.json",
+      "kind": "console",
+      "case": "READINESS.retry",
+      "type": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch",
+      "location": {
+        "url": "http://127.0.0.1:4197/original/js/main.js",
+        "line": 43,
+        "column": 10,
+        "lineNumber": 43,
+        "columnNumber": 10
+      },
+      "level": "error",
+      "expectedReason": "original error reporting for explicit failed model"
+    },
+    {
+      "report": "standalone-native-retry/readiness.json",
+      "kind": "requestfailed",
+      "case": "READINESS.retry",
+      "url": "http://127.0.0.1:4197/original/assets/models/lawson_scene.glb",
+      "failure": "net::ERR_FAILED",
+      "text": "net::ERR_FAILED",
+      "expectedReason": "explicit main-model fetch failure injection"
+    }
+  ],
+  "warnings": [
+    {
+      "report": "full-embedded-keyboard/keyboard.json",
+      "kind": "console",
+      "case": "KEYS.load",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'.",
+      "location": {
+        "url": "http://127.0.0.1:4197/assets/startTourPrototype-WeWohhtn.js",
+        "line": 29,
+        "column": 0,
+        "lineNumber": 29,
+        "columnNumber": 0
+      },
+      "level": "warning"
+    },
+    {
+      "report": "full-embedded-supplement/supplement.json",
+      "kind": "console",
+      "case": "SUPPLEMENT.load",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'.",
+      "location": {
+        "url": "http://127.0.0.1:4197/assets/startTourPrototype-WeWohhtn.js",
+        "line": 29,
+        "column": 0,
+        "lineNumber": 29,
+        "columnNumber": 0
+      },
+      "level": "warning"
+    },
+    {
+      "report": "full-embedded-targets/targets.json",
+      "kind": "console",
+      "case": "TARGETS.load",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'.",
+      "location": {
+        "url": "http://127.0.0.1:4197/assets/startTourPrototype-WeWohhtn.js",
+        "line": 29,
+        "column": 0,
+        "lineNumber": 29,
+        "columnNumber": 0
+      },
+      "level": "warning"
+    },
+    {
+      "report": "full-embedded-traffic/traffic.json",
+      "kind": "console",
+      "case": "CYCLES.load",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'.",
+      "location": {
+        "url": "http://127.0.0.1:4197/assets/startTourPrototype-WeWohhtn.js",
+        "line": 29,
+        "column": 0,
+        "lineNumber": 29,
+        "columnNumber": 0
+      },
+      "level": "warning"
+    },
+    {
+      "report": "journey-chromium/browser.json",
+      "case": "engine representative original controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "journey-chromium/browser.json",
+      "case": "engine representative original controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "report": "journey-chromium/browser.json",
+      "case": "mobile independent embedded default parity",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "journey-final2/browser.json",
+      "case": "journey /",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "journey-final2/browser.json",
+      "case": "journey /Stylized-Dreamy-Flower-Bed-Sky-Island/",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "journey-firefox/browser.json",
+      "case": "engine representative original controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "report": "journey-firefox/browser.json",
+      "case": "engine representative original controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "report": "journey-firefox/browser.json",
+      "case": "mobile independent embedded default parity",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "report": "journey-webkit/browser.json",
+      "case": "engine representative original controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "report": "recheck-embedded-controls/controls.json",
+      "kind": "console",
+      "case": "LOAD.original",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'.",
+      "location": {
+        "url": "http://127.0.0.1:4197/assets/startTourPrototype-WeWohhtn.js",
+        "line": 29,
+        "column": 0,
+        "lineNumber": 29,
+        "columnNumber": 0
+      },
+      "level": "warning"
+    },
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "recovery original fatal retry and host retry",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "recovery slow original then ready",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "recovery graphics loss restored explicit reload",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "input child keyboard and host return isolation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "recovery-chromium/browser.json",
+      "case": "native fullscreen rendering pointer lock and exits",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "touch-chromium/browser.json",
+      "case": "touch gestures and panel isolation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "report": "touch-chromium/browser.json",
+      "case": "touch gestures and panel isolation",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    }
+  ],
+  "unexpectedErrors": [],
+  "failedProbeReportsNotReclassifiedAsProductPasses": true,
+  "normalLogsSilenced": false
+}

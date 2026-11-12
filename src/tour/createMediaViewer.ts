@@ -75,7 +75,10 @@ export function createMediaViewer(root: HTMLElement, lifecycle: { open(): void; 
     if (!engaged) return;
     engaged = false;lifecycle.close();
     const target = trigger;trigger = undefined;
-    focusFrame = requestAnimationFrame(() => { focusFrame = undefined;if (!disposed && !dialog.open && target?.isConnected) target.focus({ preventScroll: true }); });
+    focusFrame = requestAnimationFrame(() => {
+      focusFrame = undefined;
+      if (!disposed && !root.querySelector('dialog[open]') && target?.isConnected && !target.closest('[hidden],[inert]') && target.getClientRects().length) target.focus({ preventScroll: true });
+    });
   }
   const options = { signal: listeners.signal };
   closeButton.addEventListener('click', () => { video?.pause();dialog.close(); }, options);

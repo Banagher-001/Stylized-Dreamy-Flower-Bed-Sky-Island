@@ -1,0 +1,2114 @@
+{
+  "createdAtShanghai": "2026-11-10T18:33:40.137395+08:00",
+  "scope": "Independent original page from actual dist, root and subpath; no host UI or iframe integration",
+  "checks": [
+    {
+      "id": "root.load",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4193/experiments/lawson/index.html",
+        "readySeconds": 7.776763894005853,
+        "atReady": {
+          "ready": true,
+          "error": null,
+          "bodyReady": "1",
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 0,
+            "stats": {
+              "drawCalls": 2187,
+              "triangles": 730626,
+              "programs": 21,
+              "geometries": 1203,
+              "textures": 16,
+              "pixelRatio": 1,
+              "resScale": 1,
+              "width": 1440,
+              "height": 900
+            }
+          },
+          "stats": {
+            "fps": 0,
+            "drawCalls": 1612,
+            "triangles": 414346,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              1440,
+              900
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              787,
+              546
+            ],
+            [
+              1083,
+              579
+            ],
+            [
+              787,
+              389
+            ]
+          ],
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "clerks": {
+            "time": 0.4,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "WALK_TO_TARGET",
+                "task": "check_display",
+                "taskTarget": [
+                  -5.5,
+                  4.7
+                ],
+                "taskArea": "frontShelf",
+                "animation": "Walk_Normal",
+                "remaining": 4.97,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.11,
+                  0,
+                  5.09
+                ],
+                "yaw": 1.092,
+                "forward": [
+                  0.89,
+                  0.46
+                ],
+                "speed": 0.56,
+                "pathLeft": 1,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "WALK_TO_TARGET",
+                "task": "restock",
+                "taskTarget": [
+                  -4.7,
+                  1.1
+                ],
+                "taskArea": "aisleB",
+                "animation": "Walk_Normal",
+                "remaining": 16.67,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  2.38,
+                  0,
+                  -0.6
+                ],
+                "yaw": 4.088,
+                "forward": [
+                  -0.81,
+                  -0.58
+                ],
+                "speed": 0.56,
+                "pathLeft": 3,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 0.0900400079999993,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 0.09004000800000031,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "carA": {
+            "tag": "A",
+            "phase": "APPROACHING",
+            "visible": true,
+            "position": [
+              -39.086,
+              -0.18,
+              23.4
+            ],
+            "yaw": -1.5708,
+            "v": 8.2,
+            "vForward": 8.2,
+            "signedDist": 1.914,
+            "steer": 0,
+            "wheelSpinTotal": -25.5702,
+            "wheels": [
+              {
+                "name": "carA_wheelFL",
+                "radius": 0.2994,
+                "angle": -6.3925,
+                "deg": -366.27
+              },
+              {
+                "name": "carA_wheelFR",
+                "radius": 0.2994,
+                "angle": -6.3925,
+                "deg": -366.27
+              },
+              {
+                "name": "carA_wheelRL",
+                "radius": 0.2994,
+                "angle": -6.3925,
+                "deg": -366.27
+              },
+              {
+                "name": "carA_wheelRR",
+                "radius": 0.2994,
+                "angle": -6.3925,
+                "deg": -366.27
+              }
+            ],
+            "wheelbase": 2.42,
+            "track": 1.44,
+            "reverseLamp": false,
+            "reverseMaterials": 2,
+            "reverseEmissive": 0,
+            "brake": false,
+            "turn": "none",
+            "active": true
+          },
+          "panelCollapsed": false,
+          "controls": 41,
+          "canvas": {
+            "width": 1440,
+            "height": 900,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "top": 0,
+              "right": 1440,
+              "bottom": 900,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 13504,
+            "mainFrames": 7,
+            "cappedSeconds": 0.41680000000000017
+          }
+        },
+        "defaultSnapshot": {
+          "ready": true,
+          "error": null,
+          "bodyReady": "1",
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 0,
+            "stats": {
+              "drawCalls": 2187,
+              "triangles": 730626,
+              "programs": 21,
+              "geometries": 1203,
+              "textures": 16,
+              "pixelRatio": 1,
+              "resScale": 1,
+              "width": 1440,
+              "height": 900
+            }
+          },
+          "stats": {
+            "fps": 0,
+            "drawCalls": 2187,
+            "triangles": 730626,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              1440,
+              900
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              787,
+              546
+            ],
+            [
+              1083,
+              579
+            ],
+            [
+              787,
+              389
+            ]
+          ],
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "clerks": {
+            "time": 0.4,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "WALK_TO_TARGET",
+                "task": "check_display",
+                "taskTarget": [
+                  -5.5,
+                  4.7
+                ],
+                "taskArea": "frontShelf",
+                "animation": "Walk_Normal",
+                "remaining": 4.97,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.1,
+                  0,
+                  5.09
+                ],
+                "yaw": 1.17,
+                "forward": [
+                  0.92,
+                  0.39
+                ],
+                "speed": 0.6,
+                "pathLeft": 1,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "WALK_TO_TARGET",
+                "task": "restock",
+                "taskTarget": [
+                  -4.7,
+                  1.1
+                ],
+                "taskArea": "aisleB",
+                "animation": "Walk_Normal",
+                "remaining": 16.67,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  2.37,
+                  0,
+                  -0.61
+                ],
+                "yaw": 4.088,
+                "forward": [
+                  -0.81,
+                  -0.58
+                ],
+                "speed": 0.6,
+                "pathLeft": 3,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 0.100000008,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 0.10000000800000046,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "carA": {
+            "tag": "A",
+            "phase": "APPROACHING",
+            "visible": true,
+            "position": [
+              -38.95,
+              -0.18,
+              23.4
+            ],
+            "yaw": -1.5708,
+            "v": 8.201,
+            "vForward": 8.201,
+            "signedDist": 2.05,
+            "steer": 0,
+            "wheelSpinTotal": -27.3891,
+            "wheels": [
+              {
+                "name": "carA_wheelFL",
+                "radius": 0.2994,
+                "angle": -6.8473,
+                "deg": -392.32
+              },
+              {
+                "name": "carA_wheelFR",
+                "radius": 0.2994,
+                "angle": -6.8473,
+                "deg": -392.32
+              },
+              {
+                "name": "carA_wheelRL",
+                "radius": 0.2994,
+                "angle": -6.8473,
+                "deg": -392.32
+              },
+              {
+                "name": "carA_wheelRR",
+                "radius": 0.2994,
+                "angle": -6.8473,
+                "deg": -392.32
+              }
+            ],
+            "wheelbase": 2.42,
+            "track": 1.44,
+            "reverseLamp": false,
+            "reverseMaterials": 2,
+            "reverseEmissive": 0,
+            "brake": false,
+            "turn": "none",
+            "active": true
+          },
+          "panelCollapsed": false,
+          "controls": 41,
+          "canvas": {
+            "width": 1440,
+            "height": 900,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "top": 0,
+              "right": 1440,
+              "bottom": 900,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 15691,
+            "mainFrames": 8,
+            "cappedSeconds": 0.43340000000000006
+          }
+        },
+        "automaticTraffic": {
+          "tag": "A",
+          "phase": "APPROACHING",
+          "visible": true,
+          "position": [
+            -34.85,
+            -0.18,
+            23.4
+          ],
+          "yaw": -1.5708,
+          "v": 8.2,
+          "vForward": 8.2,
+          "signedDist": 6.15,
+          "steer": 0,
+          "wheelSpinTotal": -82.1679,
+          "wheels": [
+            {
+              "name": "carA_wheelFL",
+              "radius": 0.2994,
+              "angle": -20.542,
+              "deg": -1176.97
+            },
+            {
+              "name": "carA_wheelFR",
+              "radius": 0.2994,
+              "angle": -20.542,
+              "deg": -1176.97
+            },
+            {
+              "name": "carA_wheelRL",
+              "radius": 0.2994,
+              "angle": -20.542,
+              "deg": -1176.97
+            },
+            {
+              "name": "carA_wheelRR",
+              "radius": 0.2994,
+              "angle": -20.542,
+              "deg": -1176.97
+            }
+          ],
+          "wheelbase": 2.42,
+          "track": 1.44,
+          "reverseLamp": false,
+          "reverseMaterials": 2,
+          "reverseEmissive": 0,
+          "brake": false,
+          "turn": "none",
+          "active": true
+        },
+        "graphics": {
+          "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      }
+    },
+    {
+      "id": "root.network-bytes",
+      "passed": true,
+      "evidence": {
+        "entryRoot": "http://127.0.0.1:4193/experiments/lawson/",
+        "actualResponsesMatchingManifest": 46,
+        "files": {
+          "index.html": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/index.html",
+            "status": 200,
+            "bytes": 8821,
+            "sha256": "ef8eb8d656620e8e0337b24cfc78fa7fe2422f66d165780ae43c50fa23edd888",
+            "type": "text/html"
+          },
+          "css/controls.css": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/css/controls.css",
+            "status": 200,
+            "bytes": 1316,
+            "sha256": "5cbe7cdcd9867d69400924998f220fd6b7d4f2ebf49397f9c18aa27560b9e171",
+            "type": "text/css"
+          },
+          "css/responsive.css": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/css/responsive.css",
+            "status": 200,
+            "bytes": 1310,
+            "sha256": "8601fcf67c71802f63b0ffe44b7777320097bf0597096512b65793e954b95c40",
+            "type": "text/css"
+          },
+          "css/main.css": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/css/main.css",
+            "status": 200,
+            "bytes": 9446,
+            "sha256": "6609cb077bd9495945bbe0c181885274c137fd63f1c7c17f419570a96f44a011",
+            "type": "text/css"
+          },
+          "js/main.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/main.js",
+            "status": 200,
+            "bytes": 21797,
+            "sha256": "401b1f1331fda13472f4f37cef0ca652472afe6311d1d8538067d3f8ad13a134",
+            "type": "text/javascript"
+          },
+          "js/core/SceneManager.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/core/SceneManager.js",
+            "status": 200,
+            "bytes": 3627,
+            "sha256": "36d2d0ec3eeb724d3ba921f257a615d21e3afa0c04d8e707a9a3c4b0948545c3",
+            "type": "text/javascript"
+          },
+          "js/core/AnimationController.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/core/AnimationController.js",
+            "status": 200,
+            "bytes": 919,
+            "sha256": "7d079522fd068f167342b499323a5e114da3088e6f5dfc130091d073a01f325d",
+            "type": "text/javascript"
+          },
+          "js/core/UpdateLoop.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/core/UpdateLoop.js",
+            "status": 200,
+            "bytes": 1359,
+            "sha256": "fb6f999e91d4cfca001c818b578b2c5a01fa357235496025a8356dff945ccfaa",
+            "type": "text/javascript"
+          },
+          "js/core/Renderer.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/core/Renderer.js",
+            "status": 200,
+            "bytes": 6653,
+            "sha256": "123579b8470bfe9ba21d7399928069d367f9bd85e98e74b33e53fef3acee3566",
+            "type": "text/javascript"
+          },
+          "js/core/AssetManager.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/core/AssetManager.js",
+            "status": 200,
+            "bytes": 20310,
+            "sha256": "180ea83606e0b9d5503ef40a238903df1c870bc6cf80821c5e86297738f378ea",
+            "type": "text/javascript"
+          },
+          "js/systems/LightingSystem.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/LightingSystem.js",
+            "status": 200,
+            "bytes": 5332,
+            "sha256": "778f76487ce8e38aa792bb61cbaac4806d022b9dd247db1a38eb84182d7f4d88",
+            "type": "text/javascript"
+          },
+          "js/systems/DayNightSystem.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/DayNightSystem.js",
+            "status": 200,
+            "bytes": 2870,
+            "sha256": "7ea481dbbdb0c39a8e9b1654d44bb188d74f17a8c7376741e3f1253c29981007",
+            "type": "text/javascript"
+          },
+          "js/systems/DoorSystem.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/DoorSystem.js",
+            "status": 200,
+            "bytes": 3462,
+            "sha256": "d51a51d10cb3a523a4db81aae8d21d314d39e4a905773317708450b44a3b9243",
+            "type": "text/javascript"
+          },
+          "js/systems/CameraSystem.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/CameraSystem.js",
+            "status": 200,
+            "bytes": 7819,
+            "sha256": "319087cdd0aa9bf3d3afa96460810962609aff6eca21f704fbc702344c72f23b",
+            "type": "text/javascript"
+          },
+          "js/systems/ClerkSystem.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/ClerkSystem.js",
+            "status": 200,
+            "bytes": 32677,
+            "sha256": "b96ba89d76cfbe7b73baf4b92bcad23aede3e6e7fc754a42bdc266934c1ea820",
+            "type": "text/javascript"
+          },
+          "js/systems/TrafficSystem.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/TrafficSystem.js",
+            "status": 200,
+            "bytes": 25616,
+            "sha256": "483844a695096fc6384c1ae4d741c4d0779f667009f7f560735926701fcdb680",
+            "type": "text/javascript"
+          },
+          "js/systems/InteractionSystem.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/InteractionSystem.js",
+            "status": 200,
+            "bytes": 4315,
+            "sha256": "6bbd2abba1381dd80a535234643127550fe43114ea322936e3cacf0447dad8cd",
+            "type": "text/javascript"
+          },
+          "js/ui/UIState.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/ui/UIState.js",
+            "status": 200,
+            "bytes": 884,
+            "sha256": "005f671a6894c6f1b66afadec5c14f551fb4b427030aff1b7de9c7555ef43e95",
+            "type": "text/javascript"
+          },
+          "js/systems/QualitySystem.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/QualitySystem.js",
+            "status": 200,
+            "bytes": 1768,
+            "sha256": "a6753418147ccc63533e7aa38dbed126dda32c82a308a8dd3938c56aacdf651f",
+            "type": "text/javascript"
+          },
+          "js/ui/UIController.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/ui/UIController.js",
+            "status": 200,
+            "bytes": 9561,
+            "sha256": "12bd956cff97fa211c2ca00b8b742f0ea93b24a6a96b49716da8665ddea23d74",
+            "type": "text/javascript"
+          },
+          "js/config/lightConfig.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/config/lightConfig.js",
+            "status": 200,
+            "bytes": 7082,
+            "sha256": "0a7c83866554d22ffd1bb1b8a0c2f6e37b18beed24805e7543a3f83cee67f1d6",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/RenderPass.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+            "status": 200,
+            "bytes": 1915,
+            "sha256": "1c90c085312871c4bcdccfcf519499c6276dd503363fcf7cb7f703add45cf4a2",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/EffectComposer.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+            "status": 200,
+            "bytes": 4651,
+            "sha256": "d234e578618fa816955ebdc059c049c577e203e650e33cf22bde3f232c29e669",
+            "type": "text/javascript"
+          },
+          "js/config/sceneConfig.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/config/sceneConfig.js",
+            "status": 200,
+            "bytes": 3051,
+            "sha256": "7a28ae30d4deaee89aec6f0a1b7f342cb2cf2c831e13a2479979bcbbb0a85271",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/OutputPass.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+            "status": 200,
+            "bytes": 2398,
+            "sha256": "13817fc7a87f662d29d2c5e00f44d3a4588c9afac4a372de0cacb0e44e368ffd",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/UnrealBloomPass.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+            "status": 200,
+            "bytes": 12406,
+            "sha256": "8f09315c0cec117a0ca2494d3e3586035b3c4323d6dcb037537cc51b04c3cdba",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/loaders/GLTFLoader.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+            "status": 200,
+            "bytes": 108522,
+            "sha256": "d073b438e6a07e1359741dd5d6c76c953420cc0d4fd84eb1bdde94315540e6a3",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/utils/BufferGeometryUtils.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+            "status": 200,
+            "bytes": 31906,
+            "sha256": "9be041e96308775d00e2695cc607645b9a9b64fd7c0e759dd8f7c00a8d92becb",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/controls/OrbitControls.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+            "status": 200,
+            "bytes": 29868,
+            "sha256": "5a44a9e86a2a0fb11933eed69bc2cd33c76a496854c1aed6ed776efa87d7b064",
+            "type": "text/javascript"
+          },
+          "js/systems/clerk/TaskManager.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/TaskManager.js",
+            "status": 200,
+            "bytes": 4542,
+            "sha256": "c7346b527e25eb21f503008b0254a00abe450776bb9f5ff76053e1febd6361ae",
+            "type": "text/javascript"
+          },
+          "js/systems/clerk/AnimLibrary.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+            "status": 200,
+            "bytes": 7981,
+            "sha256": "249d52296e0fc1900ba53c10a6abdfe89ebce47ff8982bd5859ca8c02d7ff9fe",
+            "type": "text/javascript"
+          },
+          "js/config/assetManifest.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/config/assetManifest.js",
+            "status": 200,
+            "bytes": 832,
+            "sha256": "30d61399598f139dfd9f52cbabdd297bf2ec960ef4b2f242db2b078b31b258e0",
+            "type": "text/javascript"
+          },
+          "js/systems/clerk/NavGrid.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/NavGrid.js",
+            "status": 200,
+            "bytes": 5835,
+            "sha256": "e8067b63b1f47a9ff62e002961a05389c772611033d17f3cd484aa189069025d",
+            "type": "text/javascript"
+          },
+          "js/systems/clerk/clerkConfig.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/clerkConfig.js",
+            "status": 200,
+            "bytes": 8395,
+            "sha256": "165946aecca5b352e1117d876aac9b13defd532121568872681ed73e3a9cd7eb",
+            "type": "text/javascript"
+          },
+          "js/config/vehiclePaths.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/js/config/vehiclePaths.js",
+            "status": 200,
+            "bytes": 3857,
+            "sha256": "0a35ecb9983944a64698ead709b678712466eecc3fc2a9b7044e4858feada3a9",
+            "type": "text/javascript"
+          },
+          "vendor/three/three.module.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/three.module.js",
+            "status": 200,
+            "bytes": 1272972,
+            "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/Pass.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+            "status": 200,
+            "bytes": 1706,
+            "sha256": "b3c6128340eaa37e40a6a2f1b738e894c855239417d50959759b34a2b5e89f92",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/shaders/CopyShader.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+            "status": 200,
+            "bytes": 571,
+            "sha256": "4e3346db194db56a596cd074e9bdb39fb5eb52040c333e0d29dc4eb1324d3b1d",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/MaskPass.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+            "status": 200,
+            "bytes": 2231,
+            "sha256": "328cf7db0da5d9be83ffe39d54b01d5ac1fddf108cc98182ddbb056f5c8b537f",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/shaders/OutputShader.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+            "status": 200,
+            "bytes": 1393,
+            "sha256": "53a52e430c27bc36ceaab8ae90a2b4af7b02672d7ee4b29d6ba3c28e09c92c2a",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/shaders/LuminosityHighPassShader.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+            "status": 200,
+            "bytes": 1192,
+            "sha256": "3d841cc594a0c1767d1b0185720b32761a0133c5f1b70b56658e28f2fb9b7900",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/ShaderPass.js": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+            "status": 200,
+            "bytes": 1576,
+            "sha256": "3b28a1ee27e0eb96c0eab137a1f442ccf127a926904eced2d51e125ec44af781",
+            "type": "text/javascript"
+          },
+          "assets/models/lawson_scene.glb": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/assets/models/lawson_scene.glb",
+            "status": 200,
+            "bytes": 17316048,
+            "sha256": "f953f7413eb4ef20e3dfe206e8619dff2031c98eabd74866c90f75475a26e41c",
+            "type": "model/gltf-binary"
+          },
+          "assets/models/car_A.glb": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/assets/models/car_A.glb",
+            "status": 200,
+            "bytes": 396308,
+            "sha256": "7c832daf2463bc0a95915fa66309fc5254c65754b40b0410bcf7d1eefa54cb95",
+            "type": "model/gltf-binary"
+          },
+          "assets/models/car_B.glb": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/assets/models/car_B.glb",
+            "status": 200,
+            "bytes": 489936,
+            "sha256": "0fd3139059891dafc1f9e9ade0abd2872820335f4f327cbeb6fd13a1f1d20c3b",
+            "type": "model/gltf-binary"
+          },
+          "assets/models/car_C.glb": {
+            "url": "http://127.0.0.1:4193/experiments/lawson/assets/models/car_C.glb",
+            "status": 200,
+            "bytes": 445748,
+            "sha256": "a730a81d78bc68cf661038cbde50f8cef4292d5c5c60c54e5015111f9bd417fb",
+            "type": "model/gltf-binary"
+          }
+        },
+        "outsidePrefixResponses": 0,
+        "observerBufferBytes": {
+          "total": 67108864,
+          "perResource": 33554432
+        },
+        "bodyReadMethod": "Dedicated CDP Network session; unmodified resource bodies"
+      }
+    },
+    {
+      "id": "project.load",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/index.html",
+        "readySeconds": 5.903230243995495,
+        "atReady": {
+          "ready": true,
+          "error": null,
+          "bodyReady": "1",
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 0,
+            "stats": {
+              "drawCalls": 0,
+              "triangles": 0
+            }
+          },
+          "stats": {
+            "fps": 0,
+            "drawCalls": 2187,
+            "triangles": 730626,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              1440,
+              900
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              787,
+              546
+            ],
+            [
+              1083,
+              579
+            ],
+            [
+              787,
+              389
+            ]
+          ],
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "clerks": {
+            "time": 0.3,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "SELECT_TASK",
+                "task": null,
+                "taskTarget": null,
+                "taskArea": null,
+                "animation": "Idle_Stand",
+                "remaining": 0,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.2,
+                  0,
+                  5.1
+                ],
+                "yaw": 0,
+                "forward": [
+                  0,
+                  1
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "SELECT_TASK",
+                "task": null,
+                "taskTarget": null,
+                "taskArea": null,
+                "animation": "Idle_Stand",
+                "remaining": 0,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  2.45,
+                  0,
+                  -0.55
+                ],
+                "yaw": 3.142,
+                "forward": [
+                  0,
+                  -1
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "carA": {
+            "tag": "A",
+            "phase": "APPROACHING",
+            "visible": true,
+            "position": [
+              -40.18,
+              -0.18,
+              23.4
+            ],
+            "yaw": -1.5708,
+            "v": 8.199,
+            "vForward": 8.199,
+            "signedDist": 0.82,
+            "steer": 0,
+            "wheelSpinTotal": -10.955,
+            "wheels": [
+              {
+                "name": "carA_wheelFL",
+                "radius": 0.2994,
+                "angle": -2.7387,
+                "deg": -156.92
+              },
+              {
+                "name": "carA_wheelFR",
+                "radius": 0.2994,
+                "angle": -2.7387,
+                "deg": -156.92
+              },
+              {
+                "name": "carA_wheelRL",
+                "radius": 0.2994,
+                "angle": -2.7387,
+                "deg": -156.92
+              },
+              {
+                "name": "carA_wheelRR",
+                "radius": 0.2994,
+                "angle": -2.7387,
+                "deg": -156.92
+              }
+            ],
+            "wheelbase": 2.42,
+            "track": 1.44,
+            "reverseLamp": false,
+            "reverseMaterials": 2,
+            "reverseEmissive": 0,
+            "brake": false,
+            "turn": "none",
+            "active": true
+          },
+          "panelCollapsed": false,
+          "controls": 41,
+          "canvas": {
+            "width": 1440,
+            "height": 900,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "top": 0,
+              "right": 1440,
+              "bottom": 900,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 8093,
+            "mainFrames": 4,
+            "cappedSeconds": 0.25
+          }
+        },
+        "defaultSnapshot": {
+          "ready": true,
+          "error": null,
+          "bodyReady": "1",
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 0,
+            "stats": {
+              "drawCalls": 0,
+              "triangles": 0
+            }
+          },
+          "stats": {
+            "fps": 0,
+            "drawCalls": 2187,
+            "triangles": 730626,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              1440,
+              900
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              787,
+              546
+            ],
+            [
+              1083,
+              579
+            ],
+            [
+              787,
+              389
+            ]
+          ],
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "clerks": {
+            "time": 0.3,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "SELECT_TASK",
+                "task": null,
+                "taskTarget": null,
+                "taskArea": null,
+                "animation": "Idle_Stand",
+                "remaining": 0,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.2,
+                  0,
+                  5.1
+                ],
+                "yaw": 0,
+                "forward": [
+                  0,
+                  1
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "SELECT_TASK",
+                "task": null,
+                "taskTarget": null,
+                "taskArea": null,
+                "animation": "Idle_Stand",
+                "remaining": 0,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  2.45,
+                  0,
+                  -0.55
+                ],
+                "yaw": 3.142,
+                "forward": [
+                  0,
+                  -1
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "carA": {
+            "tag": "A",
+            "phase": "APPROACHING",
+            "visible": true,
+            "position": [
+              -40.18,
+              -0.18,
+              23.4
+            ],
+            "yaw": -1.5708,
+            "v": 8.199,
+            "vForward": 8.199,
+            "signedDist": 0.82,
+            "steer": 0,
+            "wheelSpinTotal": -10.955,
+            "wheels": [
+              {
+                "name": "carA_wheelFL",
+                "radius": 0.2994,
+                "angle": -2.7387,
+                "deg": -156.92
+              },
+              {
+                "name": "carA_wheelFR",
+                "radius": 0.2994,
+                "angle": -2.7387,
+                "deg": -156.92
+              },
+              {
+                "name": "carA_wheelRL",
+                "radius": 0.2994,
+                "angle": -2.7387,
+                "deg": -156.92
+              },
+              {
+                "name": "carA_wheelRR",
+                "radius": 0.2994,
+                "angle": -2.7387,
+                "deg": -156.92
+              }
+            ],
+            "wheelbase": 2.42,
+            "track": 1.44,
+            "reverseLamp": false,
+            "reverseMaterials": 2,
+            "reverseEmissive": 0,
+            "brake": false,
+            "turn": "none",
+            "active": true
+          },
+          "panelCollapsed": false,
+          "controls": 41,
+          "canvas": {
+            "width": 1440,
+            "height": 900,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "top": 0,
+              "right": 1440,
+              "bottom": 900,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 8093,
+            "mainFrames": 4,
+            "cappedSeconds": 0.25
+          }
+        },
+        "automaticTraffic": {
+          "tag": "A",
+          "phase": "APPROACHING",
+          "visible": true,
+          "position": [
+            -35.806,
+            -0.18,
+            23.4
+          ],
+          "yaw": -1.5708,
+          "v": 8.2,
+          "vForward": 8.2,
+          "signedDist": 5.194,
+          "steer": 0,
+          "wheelSpinTotal": -69.3935,
+          "wheels": [
+            {
+              "name": "carA_wheelFL",
+              "radius": 0.2994,
+              "angle": -17.3484,
+              "deg": -993.99
+            },
+            {
+              "name": "carA_wheelFR",
+              "radius": 0.2994,
+              "angle": -17.3484,
+              "deg": -993.99
+            },
+            {
+              "name": "carA_wheelRL",
+              "radius": 0.2994,
+              "angle": -17.3484,
+              "deg": -993.99
+            },
+            {
+              "name": "carA_wheelRR",
+              "radius": 0.2994,
+              "angle": -17.3484,
+              "deg": -993.99
+            }
+          ],
+          "wheelbase": 2.42,
+          "track": 1.44,
+          "reverseLamp": false,
+          "reverseMaterials": 2,
+          "reverseEmissive": 0,
+          "brake": false,
+          "turn": "none",
+          "active": true
+        },
+        "graphics": {
+          "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      }
+    },
+    {
+      "id": "project.network-bytes",
+      "passed": true,
+      "evidence": {
+        "entryRoot": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/",
+        "actualResponsesMatchingManifest": 46,
+        "files": {
+          "index.html": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/index.html",
+            "status": 200,
+            "bytes": 8821,
+            "sha256": "ef8eb8d656620e8e0337b24cfc78fa7fe2422f66d165780ae43c50fa23edd888",
+            "type": "text/html"
+          },
+          "css/responsive.css": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/css/responsive.css",
+            "status": 200,
+            "bytes": 1310,
+            "sha256": "8601fcf67c71802f63b0ffe44b7777320097bf0597096512b65793e954b95c40",
+            "type": "text/css"
+          },
+          "css/controls.css": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/css/controls.css",
+            "status": 200,
+            "bytes": 1316,
+            "sha256": "5cbe7cdcd9867d69400924998f220fd6b7d4f2ebf49397f9c18aa27560b9e171",
+            "type": "text/css"
+          },
+          "css/main.css": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/css/main.css",
+            "status": 200,
+            "bytes": 9446,
+            "sha256": "6609cb077bd9495945bbe0c181885274c137fd63f1c7c17f419570a96f44a011",
+            "type": "text/css"
+          },
+          "js/main.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/main.js",
+            "status": 200,
+            "bytes": 21797,
+            "sha256": "401b1f1331fda13472f4f37cef0ca652472afe6311d1d8538067d3f8ad13a134",
+            "type": "text/javascript"
+          },
+          "js/core/SceneManager.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/SceneManager.js",
+            "status": 200,
+            "bytes": 3627,
+            "sha256": "36d2d0ec3eeb724d3ba921f257a615d21e3afa0c04d8e707a9a3c4b0948545c3",
+            "type": "text/javascript"
+          },
+          "js/core/AnimationController.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/AnimationController.js",
+            "status": 200,
+            "bytes": 919,
+            "sha256": "7d079522fd068f167342b499323a5e114da3088e6f5dfc130091d073a01f325d",
+            "type": "text/javascript"
+          },
+          "js/core/AssetManager.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/AssetManager.js",
+            "status": 200,
+            "bytes": 20310,
+            "sha256": "180ea83606e0b9d5503ef40a238903df1c870bc6cf80821c5e86297738f378ea",
+            "type": "text/javascript"
+          },
+          "js/core/Renderer.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/Renderer.js",
+            "status": 200,
+            "bytes": 6653,
+            "sha256": "123579b8470bfe9ba21d7399928069d367f9bd85e98e74b33e53fef3acee3566",
+            "type": "text/javascript"
+          },
+          "js/core/UpdateLoop.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/UpdateLoop.js",
+            "status": 200,
+            "bytes": 1359,
+            "sha256": "fb6f999e91d4cfca001c818b578b2c5a01fa357235496025a8356dff945ccfaa",
+            "type": "text/javascript"
+          },
+          "js/systems/LightingSystem.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/LightingSystem.js",
+            "status": 200,
+            "bytes": 5332,
+            "sha256": "778f76487ce8e38aa792bb61cbaac4806d022b9dd247db1a38eb84182d7f4d88",
+            "type": "text/javascript"
+          },
+          "js/systems/DayNightSystem.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/DayNightSystem.js",
+            "status": 200,
+            "bytes": 2870,
+            "sha256": "7ea481dbbdb0c39a8e9b1654d44bb188d74f17a8c7376741e3f1253c29981007",
+            "type": "text/javascript"
+          },
+          "js/systems/DoorSystem.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/DoorSystem.js",
+            "status": 200,
+            "bytes": 3462,
+            "sha256": "d51a51d10cb3a523a4db81aae8d21d314d39e4a905773317708450b44a3b9243",
+            "type": "text/javascript"
+          },
+          "js/systems/ClerkSystem.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/ClerkSystem.js",
+            "status": 200,
+            "bytes": 32677,
+            "sha256": "b96ba89d76cfbe7b73baf4b92bcad23aede3e6e7fc754a42bdc266934c1ea820",
+            "type": "text/javascript"
+          },
+          "js/systems/TrafficSystem.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/TrafficSystem.js",
+            "status": 200,
+            "bytes": 25616,
+            "sha256": "483844a695096fc6384c1ae4d741c4d0779f667009f7f560735926701fcdb680",
+            "type": "text/javascript"
+          },
+          "js/systems/CameraSystem.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/CameraSystem.js",
+            "status": 200,
+            "bytes": 7819,
+            "sha256": "319087cdd0aa9bf3d3afa96460810962609aff6eca21f704fbc702344c72f23b",
+            "type": "text/javascript"
+          },
+          "js/systems/QualitySystem.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/QualitySystem.js",
+            "status": 200,
+            "bytes": 1768,
+            "sha256": "a6753418147ccc63533e7aa38dbed126dda32c82a308a8dd3938c56aacdf651f",
+            "type": "text/javascript"
+          },
+          "js/ui/UIState.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/ui/UIState.js",
+            "status": 200,
+            "bytes": 884,
+            "sha256": "005f671a6894c6f1b66afadec5c14f551fb4b427030aff1b7de9c7555ef43e95",
+            "type": "text/javascript"
+          },
+          "js/ui/UIController.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/ui/UIController.js",
+            "status": 200,
+            "bytes": 9561,
+            "sha256": "12bd956cff97fa211c2ca00b8b742f0ea93b24a6a96b49716da8665ddea23d74",
+            "type": "text/javascript"
+          },
+          "js/systems/InteractionSystem.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/InteractionSystem.js",
+            "status": 200,
+            "bytes": 4315,
+            "sha256": "6bbd2abba1381dd80a535234643127550fe43114ea322936e3cacf0447dad8cd",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/utils/BufferGeometryUtils.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+            "status": 200,
+            "bytes": 31906,
+            "sha256": "9be041e96308775d00e2695cc607645b9a9b64fd7c0e759dd8f7c00a8d92becb",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/loaders/GLTFLoader.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+            "status": 200,
+            "bytes": 108522,
+            "sha256": "d073b438e6a07e1359741dd5d6c76c953420cc0d4fd84eb1bdde94315540e6a3",
+            "type": "text/javascript"
+          },
+          "js/config/assetManifest.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/assetManifest.js",
+            "status": 200,
+            "bytes": 832,
+            "sha256": "30d61399598f139dfd9f52cbabdd297bf2ec960ef4b2f242db2b078b31b258e0",
+            "type": "text/javascript"
+          },
+          "js/config/sceneConfig.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/sceneConfig.js",
+            "status": 200,
+            "bytes": 3051,
+            "sha256": "7a28ae30d4deaee89aec6f0a1b7f342cb2cf2c831e13a2479979bcbbb0a85271",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/EffectComposer.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+            "status": 200,
+            "bytes": 4651,
+            "sha256": "d234e578618fa816955ebdc059c049c577e203e650e33cf22bde3f232c29e669",
+            "type": "text/javascript"
+          },
+          "js/config/lightConfig.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/lightConfig.js",
+            "status": 200,
+            "bytes": 7082,
+            "sha256": "0a7c83866554d22ffd1bb1b8a0c2f6e37b18beed24805e7543a3f83cee67f1d6",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/UnrealBloomPass.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+            "status": 200,
+            "bytes": 12406,
+            "sha256": "8f09315c0cec117a0ca2494d3e3586035b3c4323d6dcb037537cc51b04c3cdba",
+            "type": "text/javascript"
+          },
+          "vendor/three/three.module.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/three.module.js",
+            "status": 200,
+            "bytes": 1272972,
+            "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/RenderPass.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+            "status": 200,
+            "bytes": 1915,
+            "sha256": "1c90c085312871c4bcdccfcf519499c6276dd503363fcf7cb7f703add45cf4a2",
+            "type": "text/javascript"
+          },
+          "js/systems/clerk/NavGrid.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/NavGrid.js",
+            "status": 200,
+            "bytes": 5835,
+            "sha256": "e8067b63b1f47a9ff62e002961a05389c772611033d17f3cd484aa189069025d",
+            "type": "text/javascript"
+          },
+          "js/systems/clerk/clerkConfig.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/clerkConfig.js",
+            "status": 200,
+            "bytes": 8395,
+            "sha256": "165946aecca5b352e1117d876aac9b13defd532121568872681ed73e3a9cd7eb",
+            "type": "text/javascript"
+          },
+          "js/systems/clerk/AnimLibrary.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+            "status": 200,
+            "bytes": 7981,
+            "sha256": "249d52296e0fc1900ba53c10a6abdfe89ebce47ff8982bd5859ca8c02d7ff9fe",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/OutputPass.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+            "status": 200,
+            "bytes": 2398,
+            "sha256": "13817fc7a87f662d29d2c5e00f44d3a4588c9afac4a372de0cacb0e44e368ffd",
+            "type": "text/javascript"
+          },
+          "js/systems/clerk/TaskManager.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/TaskManager.js",
+            "status": 200,
+            "bytes": 4542,
+            "sha256": "c7346b527e25eb21f503008b0254a00abe450776bb9f5ff76053e1febd6361ae",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/ShaderPass.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+            "status": 200,
+            "bytes": 1576,
+            "sha256": "3b28a1ee27e0eb96c0eab137a1f442ccf127a926904eced2d51e125ec44af781",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/MaskPass.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+            "status": 200,
+            "bytes": 2231,
+            "sha256": "328cf7db0da5d9be83ffe39d54b01d5ac1fddf108cc98182ddbb056f5c8b537f",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/shaders/CopyShader.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+            "status": 200,
+            "bytes": 571,
+            "sha256": "4e3346db194db56a596cd074e9bdb39fb5eb52040c333e0d29dc4eb1324d3b1d",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/postprocessing/Pass.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+            "status": 200,
+            "bytes": 1706,
+            "sha256": "b3c6128340eaa37e40a6a2f1b738e894c855239417d50959759b34a2b5e89f92",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/shaders/LuminosityHighPassShader.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+            "status": 200,
+            "bytes": 1192,
+            "sha256": "3d841cc594a0c1767d1b0185720b32761a0133c5f1b70b56658e28f2fb9b7900",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/shaders/OutputShader.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+            "status": 200,
+            "bytes": 1393,
+            "sha256": "53a52e430c27bc36ceaab8ae90a2b4af7b02672d7ee4b29d6ba3c28e09c92c2a",
+            "type": "text/javascript"
+          },
+          "js/config/vehiclePaths.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/vehiclePaths.js",
+            "status": 200,
+            "bytes": 3857,
+            "sha256": "0a35ecb9983944a64698ead709b678712466eecc3fc2a9b7044e4858feada3a9",
+            "type": "text/javascript"
+          },
+          "vendor/three/jsm/controls/OrbitControls.js": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+            "status": 200,
+            "bytes": 29868,
+            "sha256": "5a44a9e86a2a0fb11933eed69bc2cd33c76a496854c1aed6ed776efa87d7b064",
+            "type": "text/javascript"
+          },
+          "assets/models/lawson_scene.glb": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/lawson_scene.glb",
+            "status": 200,
+            "bytes": 17316048,
+            "sha256": "f953f7413eb4ef20e3dfe206e8619dff2031c98eabd74866c90f75475a26e41c",
+            "type": "model/gltf-binary"
+          },
+          "assets/models/car_A.glb": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/car_A.glb",
+            "status": 200,
+            "bytes": 396308,
+            "sha256": "7c832daf2463bc0a95915fa66309fc5254c65754b40b0410bcf7d1eefa54cb95",
+            "type": "model/gltf-binary"
+          },
+          "assets/models/car_B.glb": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/car_B.glb",
+            "status": 200,
+            "bytes": 489936,
+            "sha256": "0fd3139059891dafc1f9e9ade0abd2872820335f4f327cbeb6fd13a1f1d20c3b",
+            "type": "model/gltf-binary"
+          },
+          "assets/models/car_C.glb": {
+            "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/car_C.glb",
+            "status": 200,
+            "bytes": 445748,
+            "sha256": "a730a81d78bc68cf661038cbde50f8cef4292d5c5c60c54e5015111f9bd417fb",
+            "type": "model/gltf-binary"
+          }
+        },
+        "outsidePrefixResponses": 0,
+        "observerBufferBytes": {
+          "total": 67108864,
+          "perResource": 33554432
+        },
+        "bodyReadMethod": "Dedicated CDP Network session; unmodified resource bodies"
+      }
+    }
+  ],
+  "pageErrors": [],
+  "console": [],
+  "httpErrors": [],
+  "failedRequests": [],
+  "requests": [
+    "http://127.0.0.1:4193/experiments/lawson/index.html",
+    "http://127.0.0.1:4193/experiments/lawson/css/main.css",
+    "http://127.0.0.1:4193/experiments/lawson/css/controls.css",
+    "http://127.0.0.1:4193/experiments/lawson/css/responsive.css",
+    "http://127.0.0.1:4193/experiments/lawson/js/main.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/three.module.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/core/SceneManager.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/core/Renderer.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/core/AssetManager.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/core/AnimationController.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/core/UpdateLoop.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/LightingSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/DayNightSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/DoorSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/TrafficSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/ClerkSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/CameraSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/InteractionSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/QualitySystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/ui/UIState.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/ui/UIController.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/config/lightConfig.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/config/sceneConfig.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/config/assetManifest.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/NavGrid.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/TaskManager.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/clerkConfig.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/config/vehiclePaths.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+    "http://127.0.0.1:4193/experiments/lawson/assets/models/lawson_scene.glb",
+    "http://127.0.0.1:4193/experiments/lawson/assets/models/car_A.glb",
+    "http://127.0.0.1:4193/experiments/lawson/assets/models/car_B.glb",
+    "http://127.0.0.1:4193/experiments/lawson/assets/models/car_C.glb",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/index.html",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/css/main.css",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/css/controls.css",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/css/responsive.css",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/main.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/three.module.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/SceneManager.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/Renderer.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/AssetManager.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/AnimationController.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/UpdateLoop.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/LightingSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/DayNightSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/DoorSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/TrafficSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/ClerkSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/CameraSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/InteractionSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/QualitySystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/ui/UIState.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/ui/UIController.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/lightConfig.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/assetManifest.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/sceneConfig.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/NavGrid.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/TaskManager.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/clerkConfig.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/vehiclePaths.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/lawson_scene.glb",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/car_A.glb",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/car_B.glb",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/car_C.glb"
+  ],
+  "clockModified": false,
+  "runtimeFilesModified": false,
+  "environment": {
+    "backend": "Mesa llvmpipe software GL",
+    "DISPLAY": ":109",
+    "LP_NUM_THREADS": "3",
+    "hardwareFPSProof": false
+  },
+  "browserVersion": "155.0.8059.79",
+  "functionalQualitySetup": {
+    "originalButtonChoices": [
+      {
+        "before": "high",
+        "after": "medium"
+      },
+      {
+        "before": "medium",
+        "after": "low"
+      }
+    ],
+    "defaultCapturedBeforeSelection": true,
+    "viewport": [
+      960,
+      540
+    ]
+  },
+  "lightObservation": {
+    "observation": "setGroupEnabled calls original exactly once with original arguments; only read light/material values",
+    "publicAPICount": 41
+  },
+  "externalRequests": [],
+  "passed": true
+}

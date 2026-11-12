@@ -1,0 +1,147 @@
+"""Original-page baseline observations; production files and clocks are unchanged."""
+from pathlib import Path
+import ast, hashlib, json, os, time, traceback
+from playwright.sync_api import sync_playwright
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / 'docs/evidence/lawson-fullpage-step-1'
+BASE = 'http://127.0.0.1:4191'
+_old = ast.parse((ROOT / 'tests/lawson-integration/step1_browser.py').read_text())
+PROBE = next(ast.literal_eval(n.value) for n in _old.body if isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'PROBE' for t in n.targets))
+
+INSTALL = r'''async () => {
+ const {InteractionSystem}=await import('./js/systems/InteractionSystem.js');
+ const audit=window.__fullpageAudit={events:[],activations:[],interaction:null};
+ const clone=v=>JSON.parse(JSON.stringify(v));
+ audit.state=()=>({state:clone(__LAWSON__.api.getState()),stats:__LAWSON__.api.getStats(),camera:__LAWSON__.debugDoor().cam,
+   projection:[__LAWSON__.api.project([0,0,0]),__LAWSON__.api.project([8,0,0]),__LAWSON__.api.project([0,4,0])],
+   pointerLock:document.pointerLockElement?.id??null,fullscreen:!!document.fullscreenElement,
+   panelCollapsed:document.querySelector('#panel').classList.contains('collapsed'),focus:document.activeElement?.id||document.activeElement?.tagName});
+ document.addEventListener('click',event=>{
+  const e=event.target.closest?.('button,.toggle');if(!e)return;
+  audit.events.push({kind:'click',id:e.id,data:{...e.dataset},text:e.innerText,title:e.title,time:performance.now(),snapshot:audit.state()});
+ });
+ document.addEventListener('input',event=>{if(event.target.id==='time-slider')audit.events.push({kind:'input',id:event.target.id,value:event.target.value,time:performance.now(),snapshot:audit.state()});});
+ window.addEventListener('keydown',event=>audit.events.push({kind:'keydown',code:event.code,focus:document.activeElement?.tagName,time:performance.now(),snapshot:audit.state()}));
+ const pick=InteractionSystem.prototype._pick;
+ InteractionSystem.prototype._pick=function(...args){audit.interaction=this;return pick.apply(this,args);};
+ audit.signature=action=>{
+  const [kind,arg]=action.split(':'),scene=audit.interaction?.outline.parent,materials=new Map(),nodes=[];
+  if(kind==='focus')return {camera:__LAWSON__.debugDoor().cam};
+  if(kind==='door')return __LAWSON__.debugDoor();
+  if(scene)scene.traverse(o=>{
+   if(kind==='toggle'&&arg==='steam'&&/steam/i.test(o.name))nodes.push({name:o.name,visible:o.visible});
+   const match=kind==='toggle'?(arg==='atm'?/atm/i:arg==='coffee'?/coffee/i:null):null;
+   if(o.isMesh)for(const m of(Array.isArray(o.material)?o.material:[o.material])){
+    if(m?.emissive&&(!match||match.test(m.name)||match.test(o.name)))materials.set(m.uuid,{name:m.name,intensity:m.emissiveIntensity,color:m.emissive.toArray()});
+   }
+  });
+  if(kind==='toggle'&&arg==='steam')return {nodes};
+  if(kind==='toggle')return {materials:[...materials.values()]};
+  return {group:arg,enabled:__LAWSON__.api.getState().lights[arg],materials:[...materials.values()]};
+ };
+ const activate=InteractionSystem.prototype.activate;
+ InteractionSystem.prototype.activate=function(action,...args){
+  const before=audit.signature(action),handlerPresent=typeof this.handlers[action?.split(':')[0]]==='function';
+  const result=activate.call(this,action,...args);
+  audit.activations.push({action,time:performance.now(),before,after:audit.signature(action),handlerPresent});
+  return result;
+ };
+ return {publicAPI:Object.keys(__LAWSON__.api),shortcutsObserver:'read-only DOM event listener',interactionObserver:'original _pick/activate called exactly once with original arguments; observations only'};
+}'''
+
+
+class Run:
+    def __init__(self, phase, run, width=960, height=540):
+        self.phase, self.run = phase, run
+        self.folder = OUT / run
+        self.folder.mkdir(parents=True, exist_ok=True)
+        self.path = self.folder / f'{phase}.json'
+        assert not self.path.exists(), 'Use a new run name; preserve previous evidence'
+        self.report = {'phase': phase, 'run': run, 'checks': [], 'pageErrors': [], 'console': [], 'requestsFailed': [], 'httpErrors': [],
+                       'sourceFilesModified': False, 'clockModified': False, 'scope': 'original standalone page only; no host integration',
+                       'environment': {'backend': 'Mesa llvmpipe software GL', 'DISPLAY': os.environ.get('DISPLAY'), 'LP_NUM_THREADS': os.environ.get('LP_NUM_THREADS'), 'hardwareFPSProof': False}}
+        for name in ['common.py', phase + '.py', 'native_keys.py']:
+            path = Path(__file__).parent / name
+            if path.exists():
+                (self.folder / (name + '.txt')).write_text(path.read_text())
+        self.pw = sync_playwright().start()
+        self.browser = self.pw.chromium.launch(executable_path='/usr/bin/chromium', headless=False,
+                    args=['--no-sandbox', '--use-gl=angle', '--use-angle=gl', '--ignore-gpu-blocklist'])
+        self.context = self.browser.new_context(viewport={'width': width, 'height': height}, device_scale_factor=1)
+        self.context.add_init_script(PROBE)
+        self.page = self.context.new_page()
+        self.watch(self.page)
+        self.report['browserVersion'] = self.browser.version
+
+    def watch(self, page):
+        page.on('pageerror', lambda e: self.report['pageErrors'].append(str(e)))
+        page.on('console', lambda m: self.report['console'].append({'type': m.type, 'text': m.text, 'location': m.location}) if m.type in ['warning', 'error'] else None)
+        page.on('requestfailed', lambda r: self.report['requestsFailed'].append({'url': r.url, 'failure': r.failure}))
+        page.on('response', lambda r: self.report['httpErrors'].append({'url': r.url, 'status': r.status}) if r.status >= 400 else None)
+
+    def save(self):
+        self.path.write_text(json.dumps(self.report, ensure_ascii=False, indent=2) + '\n')
+
+    def case(self, identifier, name, fn):
+        if getattr(self, 'only', None) and identifier not in self.only and not identifier.startswith('LOAD.') and not identifier.endswith('.load'):
+            return
+        try:
+            evidence = fn()
+            status = evidence.pop('_status', '原页正常') if isinstance(evidence, dict) else '原页正常'
+            self.report['checks'].append({'id': identifier, 'name': name, 'status': status, 'evidence': evidence})
+            print(status + ' ' + identifier + ' ' + name, flush=True)
+        except Exception as e:
+            row = {'id': identifier, 'name': name, 'status': '需补核', 'error': str(e), 'traceback': traceback.format_exc()}
+            try:
+                row['snapshot'] = self.state()
+            except Exception:
+                pass
+            self.report['checks'].append(row)
+            print('需补核 ' + identifier + ': ' + str(e), flush=True)
+        self.save()
+
+    def load(self, page=None):
+        page = page or self.page
+        started = time.monotonic()
+        page.goto(BASE + '/index.html', wait_until='domcontentloaded')
+        page.wait_for_function('window.__LAWSON__?.ready===true', timeout=90000, polling=100)
+        assert not page.locator('#fatal').is_visible()
+        result = {'readySeconds': time.monotonic() - started, 'stateAtReady': page.evaluate('({state:__LAWSON__.api.getState(),stats:__LAWSON__.api.getStats(),camera:__LAWSON__.debugDoor().cam})')}
+        result['observationsInstalled'] = page.evaluate(INSTALL)
+        page.wait_for_function('!document.querySelector("#loader")||document.querySelector("#loader").classList.contains("hide")', timeout=15000)
+        return result
+
+    def low(self, page=None):
+        page = page or self.page
+        clicks = []
+        while page.evaluate('__LAWSON__.api.getState().quality') != 'low' and len(clicks) < 3:
+            before = page.evaluate('__LAWSON__.api.getStats()')
+            page.locator('#btn-settings').click()
+            clicks.append({'before': before, 'after': page.evaluate('__LAWSON__.api.getStats()')})
+        assert page.evaluate('__LAWSON__.api.getState().quality') == 'low'
+        return {'qualitySelectedWithOriginalUI': clicks, 'reason': 'functional checks on cloud software GL; original default captured separately'}
+
+    def state(self, page=None):
+        return (page or self.page).evaluate('__fullpageAudit.state()')
+
+    def observed(self, seconds=1.6, page=None):
+        page = page or self.page
+        begin = page.evaluate('__lawsonAudit.observedCappedSeconds')
+        page.wait_for_function('b=>__lawsonAudit.observedCappedSeconds>=b.s+b.d', arg={'s': begin, 'd': seconds}, timeout=120000, polling=100)
+
+    def picture(self, name, page=None):
+        (page or self.page).screenshot(path=str(self.folder / (name + '.png')))
+
+    def last_click(self, selector, page=None):
+        page = page or self.page
+        page.locator(selector).click()
+        return page.evaluate('__fullpageAudit.events.filter(e=>e.kind==="click").at(-1)')
+
+    def finish(self):
+        self.report['complete'] = all(c['status'] != '需补核' for c in self.report['checks'])
+        self.report['knownOriginalIssues'] = [c['id'] for c in self.report['checks'] if c['status'] == '原页已有问题']
+        self.save()
+        self.browser.close()
+        self.pw.stop()
+        print(json.dumps({'phase': self.phase, 'complete': self.report['complete'], 'checks': len(self.report['checks']), 'knownOriginalIssues': self.report['knownOriginalIssues'], 'pageErrors': len(self.report['pageErrors'])}, ensure_ascii=False), flush=True)

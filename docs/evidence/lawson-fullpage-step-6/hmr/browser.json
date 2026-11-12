@@ -1,0 +1,104 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "HMR module loading",
+      "passed": true,
+      "evidence": {
+        "phaseBeforeUpdate": "loading",
+        "realViteModuleUpdate": true,
+        "oldOriginalUnloadedAndDrawsStopped": true,
+        "oneNewHostCanvas": true,
+        "newExperienceReady": true,
+        "workingRepositoryMutatedForTest": false
+      }
+    },
+    {
+      "name": "HMR module ready",
+      "passed": true,
+      "evidence": {
+        "phaseBeforeUpdate": "ready",
+        "realViteModuleUpdate": true,
+        "oldOriginalUnloadedAndDrawsStopped": true,
+        "oneNewHostCanvas": true,
+        "newExperienceReady": true,
+        "workingRepositoryMutatedForTest": false
+      }
+    },
+    {
+      "name": "HMR module error",
+      "passed": true,
+      "evidence": {
+        "phaseBeforeUpdate": "error",
+        "realViteModuleUpdate": true,
+        "oldOriginalUnloadedAndDrawsStopped": true,
+        "oneNewHostCanvas": true,
+        "newExperienceReady": true,
+        "workingRepositoryMutatedForTest": false
+      }
+    },
+    {
+      "name": "HMR stylesheet keeps current instance",
+      "passed": true,
+      "evidence": {
+        "realViteCSSUpdate": true,
+        "liveIframePreserved": true,
+        "hostStillSuspended": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "HMR module loading",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "HMR module loading",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:5196/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_ABORTED"
+    },
+    {
+      "case": "HMR module ready",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "HMR module error",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "HMR module error",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:5196/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "case": "HMR module error",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "case": "HMR module error",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    },
+    {
+      "case": "HMR stylesheet keeps current instance",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

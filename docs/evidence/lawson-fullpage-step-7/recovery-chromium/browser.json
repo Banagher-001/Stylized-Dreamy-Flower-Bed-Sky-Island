@@ -1,0 +1,131 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "recovery original fatal retry and host retry",
+      "passed": true,
+      "evidence": {
+        "realMainModelFailure": true,
+        "originalErrorMessage": "模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch",
+        "originalFatalRetryNavigatedNewDocumentInSameIframe": true,
+        "hostRetryCreatedNewIframe": true,
+        "readyAfterBothRetries": true,
+        "originalControl": "#fatal-retry"
+      }
+    },
+    {
+      "name": "recovery slow original then ready",
+      "passed": true,
+      "evidence": {
+        "actualModuleRequestHeld": true,
+        "slowBeforeReady": true,
+        "exitStillUsable": true,
+        "releasedModuleThenOriginalReady": true
+      }
+    },
+    {
+      "name": "recovery graphics loss restored explicit reload",
+      "passed": true,
+      "evidence": {
+        "realWebGLContextExtensionLoss": true,
+        "trustedRestoredEvent": true,
+        "staleOriginalReadyNotTrusted": true,
+        "newOriginalDocumentReadyAfterExplicitRetry": true
+      }
+    },
+    {
+      "name": "input child keyboard and host return isolation",
+      "passed": true,
+      "evidence": {
+        "originalHomeEndStayedInChild": true,
+        "parentScrollUnchanged": true,
+        "hostArrowKeySwitchedArchiveAndUnloaded": true,
+        "hostEscClosedAndRestoredTrigger": true,
+        "guideDidNotResume": true
+      }
+    },
+    {
+      "name": "native fullscreen rendering pointer lock and exits",
+      "passed": true,
+      "evidence": {
+        "actualOriginalFullscreen": true,
+        "renderedAfterEnteringFullscreen": true,
+        "actualOriginalPointerLock": true,
+        "realX11Escapes": true,
+        "hostStaysOpenUntilExplicitReturn": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "recovery original fatal retry and host retry",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "recovery original fatal retry and host retry",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4197/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "case": "recovery original fatal retry and host retry",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "case": "recovery original fatal retry and host retry",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    },
+    {
+      "case": "recovery original fatal retry and host retry",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4197/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "case": "recovery original fatal retry and host retry",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "case": "recovery original fatal retry and host retry",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    },
+    {
+      "case": "recovery slow original then ready",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "recovery graphics loss restored explicit reload",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "input child keyboard and host return isolation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "native fullscreen rendering pointer lock and exits",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

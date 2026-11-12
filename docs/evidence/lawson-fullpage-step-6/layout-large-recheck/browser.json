@@ -1,0 +1,47 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "layout 1920x1080",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 1920,
+          "height": 1024
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 10854,
+          "h": "10.0500000",
+          "mode": "immersive"
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "layout 1920x1080",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "layout-large-recheck",
+    "command": [
+      "verify_layout.py",
+      "--run",
+      "layout-large-recheck",
+      "--only",
+      "layout 1920"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "layout-firefox",
+    "command": [
+      "verify_layout.py",
+      "--run",
+      "layout-firefox",
+      "--engine",
+      "firefox"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "layout-webkit",
+    "command": [
+      "verify_layout.py",
+      "--run",
+      "layout-webkit",
+      "--engine",
+      "webkit"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "network",
+    "command": [
+      "verify_network.py",
+      "--run",
+      "network"
+    ],
+    "exitCode": 0
+  }
+]

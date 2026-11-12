@@ -1,0 +1,3394 @@
+{
+  "phase": "supplement",
+  "run": "roof-final-standalone",
+  "mode": "standalone",
+  "checks": [
+    {
+      "id": "SUPPLEMENT.load",
+      "name": "真实页面加载",
+      "status": "原页正常",
+      "evidence": {
+        "readySeconds": 3.996345421001024,
+        "stateAtReady": {
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 0,
+            "stats": {
+              "drawCalls": 2193,
+              "triangles": 730990,
+              "programs": 21,
+              "geometries": 1206,
+              "textures": 16,
+              "pixelRatio": 1,
+              "resScale": 1,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 16,
+            "drawCalls": 1618,
+            "triangles": 414710,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "viewport": [
+            960,
+            540
+          ],
+          "controls": 41
+        },
+        "observationsInstalled": {
+          "publicAPI": [
+            "setTimeOfDay",
+            "setPreset",
+            "setLight",
+            "setAllLights",
+            "setCamera",
+            "toggleRoof",
+            "setRoof",
+            "trafficStart",
+            "getClerkStates",
+            "setClerkDebug",
+            "notifyCustomer",
+            "clerkTrigger",
+            "clerkNav",
+            "clerkForceTask",
+            "clerkCamera",
+            "getVehicleState",
+            "setVehicleDebug",
+            "toggleVehicleDebug",
+            "trafficPause",
+            "trafficReset",
+            "trafficSpeed",
+            "demoCar",
+            "pauseAll",
+            "setQuality",
+            "hideUI",
+            "getStats",
+            "getState",
+            "toggleDoor",
+            "setDoorsAutomatic",
+            "toggleWalk",
+            "triggerClerk",
+            "focusOn",
+            "focusPoint",
+            "setFreeCamera",
+            "clearFreeCamera",
+            "followClerk",
+            "project",
+            "pickAt",
+            "pickAll",
+            "entryInfo",
+            "clickAt"
+          ],
+          "shortcutsObserver": "read-only DOM event listener",
+          "interactionObserver": "original _pick/activate called exactly once with original arguments; observations only"
+        }
+      }
+    },
+    {
+      "id": "BUTTON.roof-actual",
+      "name": "屋顶实际节点隐藏和恢复",
+      "status": "原页正常",
+      "evidence": {
+        "before": [
+          {
+            "name": "interiorCeiling",
+            "uuid": "c81c1e80-2f53-490a-87ae-111673134773",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingJointLines",
+            "uuid": "3c130e41-2972-4497-834d-3378627c67bb",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingLightFrames",
+            "uuid": "6d8dec97-196c-4857-9a89-25783bcc9801",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingLightPanels",
+            "uuid": "e76d50d1-4bfc-4de7-af33-431a5cc50861",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingLightPanels_1",
+            "uuid": "056ce297-01f6-4928-a382-128cfcb05e6a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingLightPanels_2",
+            "uuid": "f5b05568-3307-457e-93e1-a69d25d2ca38",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofRoot",
+            "uuid": "0b477a8a-3e86-44e5-a3b4-23e01915209a",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacGroups",
+            "uuid": "81a2cf55-049c-457a-859a-2ac66c2b9418",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofCableTray",
+            "uuid": "cc71f34c-b1eb-4213-ab87-dddb3c6833a8",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofCableTray2",
+            "uuid": "5a29ca85-06c1-47fc-9a49-88c84b6fe947",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_access",
+            "uuid": "8471d2a1-5069-4280-abf0-761b73f6ce3b",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_body",
+            "uuid": "e7c6874a-6fec-4438-a5dd-a7797e0489f9",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_curb",
+            "uuid": "914d12cf-db72-4215-a7df-3e9adba70cf3",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanHub_0",
+            "uuid": "93b395fa-bc9c-400f-a133-a86ae86129c5",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanHub_1",
+            "uuid": "1f686e78-03c4-4664-a044-f7fb5d48cc95",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanNet_0",
+            "uuid": "5555e08c-8c29-4185-ad32-c44fa7735688",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanNet_1",
+            "uuid": "b560d431-b38f-4df5-a738-0e1cac8cf390",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanRecess_0",
+            "uuid": "7ded9f21-ff72-44c3-95bc-40612535aa1d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanRecess_1",
+            "uuid": "9259b492-0015-464b-930b-ee8fe5fc26c4",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanRing_0",
+            "uuid": "e1433e2f-72eb-4bd8-af56-d2f7a01a8f56",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanRing_1",
+            "uuid": "83635fd5-331a-4eaf-8ea5-1c986fa9dcfe",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_handle",
+            "uuid": "b05599d1-2b78-43ed-bb1f-b08488b73d69",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_louver_0",
+            "uuid": "537733b1-9d70-42e5-9fe0-0b9eb1c0a0e5",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_louver_1",
+            "uuid": "b5d8380c-5b3c-403b-8e4e-b94a51cc4e3d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_louver_2",
+            "uuid": "49186436-da31-4125-9c33-ec0fcc54c0dd",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_louver_3",
+            "uuid": "e19241d7-49b8-44eb-8466-116975984c22",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_panel",
+            "uuid": "797418c2-09ee-4589-92db-e9058e155282",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_pipe_0",
+            "uuid": "4e7cbcb8-8056-480c-b294-03fc72586baf",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_pipe_1",
+            "uuid": "09555d93-dcb6-453a-8c90-631be42d5f2b",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_topGrille",
+            "uuid": "45c2c9db-7a10-4cb9-9b0d-0b38e8bd41b1",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_access",
+            "uuid": "c610ab47-8986-43a0-a9af-b7b45a33f258",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_body",
+            "uuid": "f090e530-4804-462c-b67f-eb63e668f71a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_curb",
+            "uuid": "fa1d757d-f08a-4ef3-9889-246f05febae2",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanHub_0",
+            "uuid": "fc9459e0-92d4-4b26-b3f3-7bcc0026aa6c",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanHub_1",
+            "uuid": "438e3d52-0778-45e9-9b3a-86355d0fc260",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanNet_0",
+            "uuid": "72901c9f-bb18-45b6-9f49-29d1610422bc",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanNet_1",
+            "uuid": "8ace2ddb-83e1-4070-a320-26cfbdc33021",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanRecess_0",
+            "uuid": "73229bb8-3d12-4387-94ce-66a93f0683d4",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanRecess_1",
+            "uuid": "75dfa441-757e-49b4-82da-562752fc7b29",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanRing_0",
+            "uuid": "c3575fdf-885e-4c9f-bd09-719c5522cf3d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanRing_1",
+            "uuid": "6625c301-8402-4290-86c5-cdd9af627a92",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_handle",
+            "uuid": "210ddc8c-b3f2-4061-8134-8585c84524ce",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_louver_0",
+            "uuid": "75d76426-e8e3-4e05-9068-3a2ac49e9420",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_louver_1",
+            "uuid": "a24df45c-8594-449d-96e2-10697c1ebd8e",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_louver_2",
+            "uuid": "48b548dd-d1c8-4841-a5e7-423f4cfe5396",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_louver_3",
+            "uuid": "2e9bde0e-3551-418f-9ba0-93274a60292b",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_panel",
+            "uuid": "a24408a6-a9ab-48f4-8572-86a3e6c46722",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_pipe_0",
+            "uuid": "8b9a510f-b8b4-4958-b452-81933dcac9dd",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_pipe_1",
+            "uuid": "175d4c42-8007-4ab8-bb4c-56fae56a4b85",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_topGrille",
+            "uuid": "cc66915d-3110-4986-9360-9b0fa7fcfd8f",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_access",
+            "uuid": "23c7a396-a79f-49b1-9df3-9f8c612cdaa7",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_body",
+            "uuid": "952ccb9b-c5a3-4102-836c-1bb6b7af4534",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_curb",
+            "uuid": "03cabe83-2777-4d2b-902e-6ea5a62235e5",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanHub_0",
+            "uuid": "220d7ed5-2c02-42e6-bf6a-b682252dc58a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanHub_1",
+            "uuid": "c5191226-cb83-4d10-8633-5ae515cbe4e2",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanNet_0",
+            "uuid": "d14b47a6-6014-4cbc-b141-69ff00ae070f",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanNet_1",
+            "uuid": "4e2d36f4-a08e-48e5-af35-b3887d723440",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanRecess_0",
+            "uuid": "ad714597-666c-4f67-a561-c809f54db26d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanRecess_1",
+            "uuid": "305326cd-e8c7-4f46-a112-17e44b133ae9",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanRing_0",
+            "uuid": "f72d6fbf-d1c8-40c2-a3bc-d3ffaba46dce",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanRing_1",
+            "uuid": "e6f0f2b8-3772-4810-a08c-41abf34c65f6",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_handle",
+            "uuid": "0007308c-a875-4d49-b03f-483b1c959714",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_louver_0",
+            "uuid": "52b8e80e-292d-4da2-a696-162d350e621f",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_louver_1",
+            "uuid": "19b8ccb2-7ea8-4df3-a863-a9123372f55e",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_louver_2",
+            "uuid": "46f1ad04-f463-4c3d-af84-9d0b6a24fccb",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_louver_3",
+            "uuid": "501cdd1b-bc4c-4c78-90dc-1644e3e6d165",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_panel",
+            "uuid": "cb8fa270-4d42-4fbb-8b31-f730774850b0",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_pipe_0",
+            "uuid": "c4090004-78fb-47dd-b65e-50bb3273509a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_pipe_1",
+            "uuid": "11b748dc-ac9c-4db0-adcc-2c5de221f991",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_topGrille",
+            "uuid": "7a3c9659-82a8-47e7-9d5a-3ecf6f2db625",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_body",
+            "uuid": "938881e9-d5ac-4a07-8595-cee4d190be33",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_curb",
+            "uuid": "eac3ae03-ebf6-4062-98ab-8129d1088475",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_fanNet",
+            "uuid": "3f41fe84-8f18-46b7-8af5-6211275044b2",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_fanRecess",
+            "uuid": "c07adf84-6d24-4ef4-8ae6-f00ee1aed9e1",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_fanRing",
+            "uuid": "0d833cc0-6c4a-4039-9820-fa717888666e",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_louver_0",
+            "uuid": "2f055684-7e3d-4b24-aaee-eab8b1b53757",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_louver_1",
+            "uuid": "6bb828f4-da84-4dd5-97a3-4095588c814d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_louver_2",
+            "uuid": "838a11c7-b660-4314-982d-1213beb0cb9d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_louver_3",
+            "uuid": "a0d27b76-1ecb-4a5e-bcc7-3a1a485b932b",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_top",
+            "uuid": "f45dfca9-0e3f-4226-ae81-ce7c37a38dce",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_body",
+            "uuid": "324f374d-879f-4f31-9604-4efee0f20a09",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_curb",
+            "uuid": "468f823a-b77e-4a7e-ba82-2e94f042ed71",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_fanNet",
+            "uuid": "914aa0bb-ff7d-4971-a11e-567f7021360e",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_fanRecess",
+            "uuid": "49195169-7cf4-4654-8261-3a10756ef801",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_fanRing",
+            "uuid": "c2d6e27d-103e-48e7-874a-be5880127a46",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_louver_0",
+            "uuid": "8522065b-d748-4eb2-86e7-9f1a5f5e30fc",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_louver_1",
+            "uuid": "5e0e189f-a872-4729-82e7-6edac7a40dc8",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_louver_2",
+            "uuid": "61b7e966-a938-42cd-94f1-c591c9fef21a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_louver_3",
+            "uuid": "56d79339-6783-46f6-b8b1-ab030e008d40",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_top",
+            "uuid": "9c3a853a-5808-4721-9418-7054c41bbb66",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_body",
+            "uuid": "6304ea20-605d-451a-ae4e-f50e9d0293a4",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_curb",
+            "uuid": "bda435d6-be3f-48e7-ba45-9fb383b1ab65",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_fanNet",
+            "uuid": "6669fb54-5aa5-48b9-a266-7d98792b7a51",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_fanRecess",
+            "uuid": "0ab6b1c6-e41b-49eb-9855-cf27c008bb49",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_fanRing",
+            "uuid": "bd25068e-eea8-4ae3-bf4c-f2ae69116d35",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_louver_0",
+            "uuid": "310f6d04-6191-4977-80ee-6bcb8cd0c904",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_louver_1",
+            "uuid": "75da8f47-eede-4772-8085-4cead74430ef",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_louver_2",
+            "uuid": "390d531d-f9cb-4040-b255-8e87467eee43",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_louver_3",
+            "uuid": "74a275ca-8437-4ef4-bbe3-b8d570e177a5",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_top",
+            "uuid": "9da20627-1aa3-4ecf-9061-7a7765262b25",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_body",
+            "uuid": "69543186-7548-4d1d-b3d9-fddedf2f3e84",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_curb",
+            "uuid": "75612fdb-2c75-4a66-be64-d03f47eb3142",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_fanNet",
+            "uuid": "7ba0b2e1-4dbd-40c3-ba5c-aa1b7fd3d8f0",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_fanRecess",
+            "uuid": "fa864936-aa7f-4a85-b178-38dc556574ca",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_fanRing",
+            "uuid": "4412da24-674b-458d-a6f2-bf42d6fe7b79",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_louver_0",
+            "uuid": "5a0aae91-c623-460a-9d51-4c4607b0cddc",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_louver_1",
+            "uuid": "79ac51fb-e19e-4f30-9f82-07628cf605c1",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_louver_2",
+            "uuid": "0a71e42c-b2ab-4720-80d1-e870a0334078",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_louver_3",
+            "uuid": "af5ca3a9-b6ad-4ef0-9a17-58dfb7a016d1",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_top",
+            "uuid": "82fecd17-a347-45da-84ae-182a69cafc28",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofIntake_A",
+            "uuid": "503eb80c-253d-4098-a0bd-145457b13c70",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofIntakeLouver_A_0",
+            "uuid": "cbb65e4a-a60e-4e54-9823-5478199deabe",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofIntakeLouver_A_1",
+            "uuid": "0c62f22e-5f99-4b0e-8b21-e2d9585ea897",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofIntakeLouver_A_2",
+            "uuid": "5707d849-5e24-4fe1-994c-3f6c69ab11db",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofMushroomCap",
+            "uuid": "b479f3b3-90d3-4eab-b563-561513a0f62d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofMushroomFan",
+            "uuid": "3ca48edd-46d1-41a1-aadf-bfe0dd08a362",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofMushroomFan_base",
+            "uuid": "f46d9cb3-193a-467a-89ed-11d007bc10a9",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofTrayHanger_0",
+            "uuid": "1236dfd1-ee05-4b9a-a3d5-1ad244ad2d40",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofTrayHanger_1",
+            "uuid": "72279d3a-db6b-4059-8cb2-fd180b84eded",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofTrayHanger_2",
+            "uuid": "098639d0-fb18-428e-9ca9-a5c397e688ba",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofTrayHanger_3",
+            "uuid": "60f32fef-59cb-4fc7-97e8-23c7d341a6e2",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofTrayHanger_4",
+            "uuid": "ad768aed-82e5-4b98-861f-2944a9e1ea61",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_0",
+            "uuid": "12afad00-2502-4d5f-8d01-c11587522a8b",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_0_base",
+            "uuid": "e2a762d9-8fab-42df-a1c3-6d18f625c43f",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_0_cap",
+            "uuid": "b05d3dba-14ea-4b3c-8cf1-412c80b0e013",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_1",
+            "uuid": "52b51569-070d-4596-8613-ed7eb1496564",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_1_base",
+            "uuid": "da95e47b-10d0-436f-85df-58e5ef47167c",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_1_cap",
+            "uuid": "09dd871d-e045-4993-b33c-7efa118abb77",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_2",
+            "uuid": "99b0f635-70e9-4981-819e-e2fb242c83c2",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_2_base",
+            "uuid": "76d27bf6-6076-4b56-9ff2-4e148fe229cd",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_2_cap",
+            "uuid": "b8c67468-5b01-41d3-846a-7b06bce4f4a1",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_3",
+            "uuid": "5e16835d-44d8-4b19-bc1a-00eb895bafef",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_3_base",
+            "uuid": "5b3b4ca4-2156-4d58-b9c9-e0f9569c7b90",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_3_cap",
+            "uuid": "52da5045-1fb9-4523-b360-5ef3666fe35f",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_4",
+            "uuid": "e81b7df2-ed72-463e-b87c-b462aba969ab",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_4_base",
+            "uuid": "2378479e-0ed9-4091-ac8e-0fd67d91e8cc",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_4_cap",
+            "uuid": "354f438b-8e99-4f0a-bdb7-d6cf99c52b1d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_5",
+            "uuid": "fff1cc2d-e2a1-4ec3-a5fe-6595f0c329c3",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_5_base",
+            "uuid": "1805240d-951c-4360-b7a2-9ac6f686c631",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_5_cap",
+            "uuid": "3be9a42c-15f9-46b7-82e6-17eb649253bf",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofWalkway_0",
+            "uuid": "5105d581-9853-46dc-b9e4-56f12b3dd36a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofWalkway_1",
+            "uuid": "3322d26c-1a9a-47d1-b5b6-ab061b31d246",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofWalkway_2",
+            "uuid": "107eaaed-f1ae-4c68-a9ed-5d8169f3e3a4",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofMain",
+            "uuid": "701f807f-efde-499d-a50f-a6563e6a0531",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roof_capTrim_back",
+            "uuid": "29422290-d829-4e9c-8386-e33d5c4fd6b8",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roof_capTrim_front",
+            "uuid": "edba03e9-13d7-4294-9343-ad1bd9f3830d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roof_capTrim_left",
+            "uuid": "b1df7807-316d-4ced-97dc-090aaa140c77",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roof_capTrim_right",
+            "uuid": "8b4463ec-f753-49ca-86f2-6620e7f27f62",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roof_slab",
+            "uuid": "831b66a3-15ac-4de6-adff-78917ecb1bbe",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          }
+        ],
+        "hidden": [
+          {
+            "name": "interiorCeiling",
+            "uuid": "c81c1e80-2f53-490a-87ae-111673134773",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "interiorCeilingJointLines",
+            "uuid": "3c130e41-2972-4497-834d-3378627c67bb",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "interiorCeilingLightFrames",
+            "uuid": "6d8dec97-196c-4857-9a89-25783bcc9801",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "interiorCeilingLightPanels",
+            "uuid": "e76d50d1-4bfc-4de7-af33-431a5cc50861",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingLightPanels_1",
+            "uuid": "056ce297-01f6-4928-a382-128cfcb05e6a",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "interiorCeilingLightPanels_2",
+            "uuid": "f5b05568-3307-457e-93e1-a69d25d2ca38",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofRoot",
+            "uuid": "0b477a8a-3e86-44e5-a3b4-23e01915209a",
+            "renderable": false,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacGroups",
+            "uuid": "81a2cf55-049c-457a-859a-2ac66c2b9418",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": false
+          },
+          {
+            "name": "roofCableTray",
+            "uuid": "cc71f34c-b1eb-4213-ab87-dddb3c6833a8",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofCableTray2",
+            "uuid": "5a29ca85-06c1-47fc-9a49-88c84b6fe947",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_access",
+            "uuid": "8471d2a1-5069-4280-abf0-761b73f6ce3b",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_body",
+            "uuid": "e7c6874a-6fec-4438-a5dd-a7797e0489f9",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_curb",
+            "uuid": "914d12cf-db72-4215-a7df-3e9adba70cf3",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_fanHub_0",
+            "uuid": "93b395fa-bc9c-400f-a133-a86ae86129c5",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_fanHub_1",
+            "uuid": "1f686e78-03c4-4664-a044-f7fb5d48cc95",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_fanNet_0",
+            "uuid": "5555e08c-8c29-4185-ad32-c44fa7735688",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_fanNet_1",
+            "uuid": "b560d431-b38f-4df5-a738-0e1cac8cf390",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_fanRecess_0",
+            "uuid": "7ded9f21-ff72-44c3-95bc-40612535aa1d",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_fanRecess_1",
+            "uuid": "9259b492-0015-464b-930b-ee8fe5fc26c4",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_fanRing_0",
+            "uuid": "e1433e2f-72eb-4bd8-af56-d2f7a01a8f56",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_fanRing_1",
+            "uuid": "83635fd5-331a-4eaf-8ea5-1c986fa9dcfe",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_handle",
+            "uuid": "b05599d1-2b78-43ed-bb1f-b08488b73d69",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_louver_0",
+            "uuid": "537733b1-9d70-42e5-9fe0-0b9eb1c0a0e5",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_louver_1",
+            "uuid": "b5d8380c-5b3c-403b-8e4e-b94a51cc4e3d",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_louver_2",
+            "uuid": "49186436-da31-4125-9c33-ec0fcc54c0dd",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_louver_3",
+            "uuid": "e19241d7-49b8-44eb-8466-116975984c22",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_panel",
+            "uuid": "797418c2-09ee-4589-92db-e9058e155282",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_pipe_0",
+            "uuid": "4e7cbcb8-8056-480c-b294-03fc72586baf",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_pipe_1",
+            "uuid": "09555d93-dcb6-453a-8c90-631be42d5f2b",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_A_topGrille",
+            "uuid": "45c2c9db-7a10-4cb9-9b0d-0b38e8bd41b1",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_access",
+            "uuid": "c610ab47-8986-43a0-a9af-b7b45a33f258",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_body",
+            "uuid": "f090e530-4804-462c-b67f-eb63e668f71a",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_curb",
+            "uuid": "fa1d757d-f08a-4ef3-9889-246f05febae2",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_fanHub_0",
+            "uuid": "fc9459e0-92d4-4b26-b3f3-7bcc0026aa6c",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_fanHub_1",
+            "uuid": "438e3d52-0778-45e9-9b3a-86355d0fc260",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_fanNet_0",
+            "uuid": "72901c9f-bb18-45b6-9f49-29d1610422bc",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_fanNet_1",
+            "uuid": "8ace2ddb-83e1-4070-a320-26cfbdc33021",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_fanRecess_0",
+            "uuid": "73229bb8-3d12-4387-94ce-66a93f0683d4",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_fanRecess_1",
+            "uuid": "75dfa441-757e-49b4-82da-562752fc7b29",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_fanRing_0",
+            "uuid": "c3575fdf-885e-4c9f-bd09-719c5522cf3d",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_fanRing_1",
+            "uuid": "6625c301-8402-4290-86c5-cdd9af627a92",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_handle",
+            "uuid": "210ddc8c-b3f2-4061-8134-8585c84524ce",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_louver_0",
+            "uuid": "75d76426-e8e3-4e05-9068-3a2ac49e9420",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_louver_1",
+            "uuid": "a24df45c-8594-449d-96e2-10697c1ebd8e",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_louver_2",
+            "uuid": "48b548dd-d1c8-4841-a5e7-423f4cfe5396",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_louver_3",
+            "uuid": "2e9bde0e-3551-418f-9ba0-93274a60292b",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_panel",
+            "uuid": "a24408a6-a9ab-48f4-8572-86a3e6c46722",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_pipe_0",
+            "uuid": "8b9a510f-b8b4-4958-b452-81933dcac9dd",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_pipe_1",
+            "uuid": "175d4c42-8007-4ab8-bb4c-56fae56a4b85",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_B_topGrille",
+            "uuid": "cc66915d-3110-4986-9360-9b0fa7fcfd8f",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_access",
+            "uuid": "23c7a396-a79f-49b1-9df3-9f8c612cdaa7",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_body",
+            "uuid": "952ccb9b-c5a3-4102-836c-1bb6b7af4534",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_curb",
+            "uuid": "03cabe83-2777-4d2b-902e-6ea5a62235e5",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_fanHub_0",
+            "uuid": "220d7ed5-2c02-42e6-bf6a-b682252dc58a",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_fanHub_1",
+            "uuid": "c5191226-cb83-4d10-8633-5ae515cbe4e2",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_fanNet_0",
+            "uuid": "d14b47a6-6014-4cbc-b141-69ff00ae070f",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_fanNet_1",
+            "uuid": "4e2d36f4-a08e-48e5-af35-b3887d723440",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_fanRecess_0",
+            "uuid": "ad714597-666c-4f67-a561-c809f54db26d",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_fanRecess_1",
+            "uuid": "305326cd-e8c7-4f46-a112-17e44b133ae9",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_fanRing_0",
+            "uuid": "f72d6fbf-d1c8-40c2-a3bc-d3ffaba46dce",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_fanRing_1",
+            "uuid": "e6f0f2b8-3772-4810-a08c-41abf34c65f6",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_handle",
+            "uuid": "0007308c-a875-4d49-b03f-483b1c959714",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_louver_0",
+            "uuid": "52b8e80e-292d-4da2-a696-162d350e621f",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_louver_1",
+            "uuid": "19b8ccb2-7ea8-4df3-a863-a9123372f55e",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_louver_2",
+            "uuid": "46f1ad04-f463-4c3d-af84-9d0b6a24fccb",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_louver_3",
+            "uuid": "501cdd1b-bc4c-4c78-90dc-1644e3e6d165",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_panel",
+            "uuid": "cb8fa270-4d42-4fbb-8b31-f730774850b0",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_pipe_0",
+            "uuid": "c4090004-78fb-47dd-b65e-50bb3273509a",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_pipe_1",
+            "uuid": "11b748dc-ac9c-4db0-adcc-2c5de221f991",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvac_G_topGrille",
+            "uuid": "7a3c9659-82a8-47e7-9d5a-3ecf6f2db625",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_C_body",
+            "uuid": "938881e9-d5ac-4a07-8595-cee4d190be33",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_C_curb",
+            "uuid": "eac3ae03-ebf6-4062-98ab-8129d1088475",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_C_fanNet",
+            "uuid": "3f41fe84-8f18-46b7-8af5-6211275044b2",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_C_fanRecess",
+            "uuid": "c07adf84-6d24-4ef4-8ae6-f00ee1aed9e1",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_C_fanRing",
+            "uuid": "0d833cc0-6c4a-4039-9820-fa717888666e",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_C_louver_0",
+            "uuid": "2f055684-7e3d-4b24-aaee-eab8b1b53757",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_C_louver_1",
+            "uuid": "6bb828f4-da84-4dd5-97a3-4095588c814d",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_C_louver_2",
+            "uuid": "838a11c7-b660-4314-982d-1213beb0cb9d",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_C_louver_3",
+            "uuid": "a0d27b76-1ecb-4a5e-bcc7-3a1a485b932b",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_C_top",
+            "uuid": "f45dfca9-0e3f-4226-ae81-ce7c37a38dce",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_D_body",
+            "uuid": "324f374d-879f-4f31-9604-4efee0f20a09",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_D_curb",
+            "uuid": "468f823a-b77e-4a7e-ba82-2e94f042ed71",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_D_fanNet",
+            "uuid": "914aa0bb-ff7d-4971-a11e-567f7021360e",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_D_fanRecess",
+            "uuid": "49195169-7cf4-4654-8261-3a10756ef801",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_D_fanRing",
+            "uuid": "c2d6e27d-103e-48e7-874a-be5880127a46",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_D_louver_0",
+            "uuid": "8522065b-d748-4eb2-86e7-9f1a5f5e30fc",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_D_louver_1",
+            "uuid": "5e0e189f-a872-4729-82e7-6edac7a40dc8",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_D_louver_2",
+            "uuid": "61b7e966-a938-42cd-94f1-c591c9fef21a",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_D_louver_3",
+            "uuid": "56d79339-6783-46f6-b8b1-ab030e008d40",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_D_top",
+            "uuid": "9c3a853a-5808-4721-9418-7054c41bbb66",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_E_body",
+            "uuid": "6304ea20-605d-451a-ae4e-f50e9d0293a4",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_E_curb",
+            "uuid": "bda435d6-be3f-48e7-ba45-9fb383b1ab65",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_E_fanNet",
+            "uuid": "6669fb54-5aa5-48b9-a266-7d98792b7a51",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_E_fanRecess",
+            "uuid": "0ab6b1c6-e41b-49eb-9855-cf27c008bb49",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_E_fanRing",
+            "uuid": "bd25068e-eea8-4ae3-bf4c-f2ae69116d35",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_E_louver_0",
+            "uuid": "310f6d04-6191-4977-80ee-6bcb8cd0c904",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_E_louver_1",
+            "uuid": "75da8f47-eede-4772-8085-4cead74430ef",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_E_louver_2",
+            "uuid": "390d531d-f9cb-4040-b255-8e87467eee43",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_E_louver_3",
+            "uuid": "74a275ca-8437-4ef4-bbe3-b8d570e177a5",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_E_top",
+            "uuid": "9da20627-1aa3-4ecf-9061-7a7765262b25",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_F_body",
+            "uuid": "69543186-7548-4d1d-b3d9-fddedf2f3e84",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_F_curb",
+            "uuid": "75612fdb-2c75-4a66-be64-d03f47eb3142",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_F_fanNet",
+            "uuid": "7ba0b2e1-4dbd-40c3-ba5c-aa1b7fd3d8f0",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_F_fanRecess",
+            "uuid": "fa864936-aa7f-4a85-b178-38dc556574ca",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_F_fanRing",
+            "uuid": "4412da24-674b-458d-a6f2-bf42d6fe7b79",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_F_louver_0",
+            "uuid": "5a0aae91-c623-460a-9d51-4c4607b0cddc",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_F_louver_1",
+            "uuid": "79ac51fb-e19e-4f30-9f82-07628cf605c1",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_F_louver_2",
+            "uuid": "0a71e42c-b2ab-4720-80d1-e870a0334078",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_F_louver_3",
+            "uuid": "af5ca3a9-b6ad-4ef0-9a17-58dfb7a016d1",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofHvacCube_F_top",
+            "uuid": "82fecd17-a347-45da-84ae-182a69cafc28",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofIntake_A",
+            "uuid": "503eb80c-253d-4098-a0bd-145457b13c70",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofIntakeLouver_A_0",
+            "uuid": "cbb65e4a-a60e-4e54-9823-5478199deabe",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofIntakeLouver_A_1",
+            "uuid": "0c62f22e-5f99-4b0e-8b21-e2d9585ea897",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofIntakeLouver_A_2",
+            "uuid": "5707d849-5e24-4fe1-994c-3f6c69ab11db",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofMushroomCap",
+            "uuid": "b479f3b3-90d3-4eab-b563-561513a0f62d",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofMushroomFan",
+            "uuid": "3ca48edd-46d1-41a1-aadf-bfe0dd08a362",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofMushroomFan_base",
+            "uuid": "f46d9cb3-193a-467a-89ed-11d007bc10a9",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofTrayHanger_0",
+            "uuid": "1236dfd1-ee05-4b9a-a3d5-1ad244ad2d40",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofTrayHanger_1",
+            "uuid": "72279d3a-db6b-4059-8cb2-fd180b84eded",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofTrayHanger_2",
+            "uuid": "098639d0-fb18-428e-9ca9-a5c397e688ba",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofTrayHanger_3",
+            "uuid": "60f32fef-59cb-4fc7-97e8-23c7d341a6e2",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofTrayHanger_4",
+            "uuid": "ad768aed-82e5-4b98-861f-2944a9e1ea61",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_0",
+            "uuid": "12afad00-2502-4d5f-8d01-c11587522a8b",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_0_base",
+            "uuid": "e2a762d9-8fab-42df-a1c3-6d18f625c43f",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_0_cap",
+            "uuid": "b05d3dba-14ea-4b3c-8cf1-412c80b0e013",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_1",
+            "uuid": "52b51569-070d-4596-8613-ed7eb1496564",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_1_base",
+            "uuid": "da95e47b-10d0-436f-85df-58e5ef47167c",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_1_cap",
+            "uuid": "09dd871d-e045-4993-b33c-7efa118abb77",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_2",
+            "uuid": "99b0f635-70e9-4981-819e-e2fb242c83c2",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_2_base",
+            "uuid": "76d27bf6-6076-4b56-9ff2-4e148fe229cd",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_2_cap",
+            "uuid": "b8c67468-5b01-41d3-846a-7b06bce4f4a1",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_3",
+            "uuid": "5e16835d-44d8-4b19-bc1a-00eb895bafef",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_3_base",
+            "uuid": "5b3b4ca4-2156-4d58-b9c9-e0f9569c7b90",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_3_cap",
+            "uuid": "52da5045-1fb9-4523-b360-5ef3666fe35f",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_4",
+            "uuid": "e81b7df2-ed72-463e-b87c-b462aba969ab",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_4_base",
+            "uuid": "2378479e-0ed9-4091-ac8e-0fd67d91e8cc",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_4_cap",
+            "uuid": "354f438b-8e99-4f0a-bdb7-d6cf99c52b1d",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_5",
+            "uuid": "fff1cc2d-e2a1-4ec3-a5fe-6595f0c329c3",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_5_base",
+            "uuid": "1805240d-951c-4360-b7a2-9ac6f686c631",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofVentPipe_5_cap",
+            "uuid": "3be9a42c-15f9-46b7-82e6-17eb649253bf",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofWalkway_0",
+            "uuid": "5105d581-9853-46dc-b9e4-56f12b3dd36a",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofWalkway_1",
+            "uuid": "3322d26c-1a9a-47d1-b5b6-ab061b31d246",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofWalkway_2",
+            "uuid": "107eaaed-f1ae-4c68-a9ed-5d8169f3e3a4",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roofMain",
+            "uuid": "701f807f-efde-499d-a50f-a6563e6a0531",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": false
+          },
+          {
+            "name": "roof_capTrim_back",
+            "uuid": "29422290-d829-4e9c-8386-e33d5c4fd6b8",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roof_capTrim_front",
+            "uuid": "edba03e9-13d7-4294-9343-ad1bd9f3830d",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roof_capTrim_left",
+            "uuid": "b1df7807-316d-4ced-97dc-090aaa140c77",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roof_capTrim_right",
+            "uuid": "8b4463ec-f753-49ca-86f2-6620e7f27f62",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          },
+          {
+            "name": "roof_slab",
+            "uuid": "831b66a3-15ac-4de6-adff-78917ecb1bbe",
+            "renderable": true,
+            "ownVisible": false,
+            "visible": false
+          }
+        ],
+        "restored": [
+          {
+            "name": "interiorCeiling",
+            "uuid": "c81c1e80-2f53-490a-87ae-111673134773",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingJointLines",
+            "uuid": "3c130e41-2972-4497-834d-3378627c67bb",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingLightFrames",
+            "uuid": "6d8dec97-196c-4857-9a89-25783bcc9801",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingLightPanels",
+            "uuid": "e76d50d1-4bfc-4de7-af33-431a5cc50861",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingLightPanels_1",
+            "uuid": "056ce297-01f6-4928-a382-128cfcb05e6a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "interiorCeilingLightPanels_2",
+            "uuid": "f5b05568-3307-457e-93e1-a69d25d2ca38",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofRoot",
+            "uuid": "0b477a8a-3e86-44e5-a3b4-23e01915209a",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacGroups",
+            "uuid": "81a2cf55-049c-457a-859a-2ac66c2b9418",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofCableTray",
+            "uuid": "cc71f34c-b1eb-4213-ab87-dddb3c6833a8",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofCableTray2",
+            "uuid": "5a29ca85-06c1-47fc-9a49-88c84b6fe947",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_access",
+            "uuid": "8471d2a1-5069-4280-abf0-761b73f6ce3b",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_body",
+            "uuid": "e7c6874a-6fec-4438-a5dd-a7797e0489f9",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_curb",
+            "uuid": "914d12cf-db72-4215-a7df-3e9adba70cf3",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanHub_0",
+            "uuid": "93b395fa-bc9c-400f-a133-a86ae86129c5",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanHub_1",
+            "uuid": "1f686e78-03c4-4664-a044-f7fb5d48cc95",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanNet_0",
+            "uuid": "5555e08c-8c29-4185-ad32-c44fa7735688",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanNet_1",
+            "uuid": "b560d431-b38f-4df5-a738-0e1cac8cf390",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanRecess_0",
+            "uuid": "7ded9f21-ff72-44c3-95bc-40612535aa1d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanRecess_1",
+            "uuid": "9259b492-0015-464b-930b-ee8fe5fc26c4",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanRing_0",
+            "uuid": "e1433e2f-72eb-4bd8-af56-d2f7a01a8f56",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_fanRing_1",
+            "uuid": "83635fd5-331a-4eaf-8ea5-1c986fa9dcfe",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_handle",
+            "uuid": "b05599d1-2b78-43ed-bb1f-b08488b73d69",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_louver_0",
+            "uuid": "537733b1-9d70-42e5-9fe0-0b9eb1c0a0e5",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_louver_1",
+            "uuid": "b5d8380c-5b3c-403b-8e4e-b94a51cc4e3d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_louver_2",
+            "uuid": "49186436-da31-4125-9c33-ec0fcc54c0dd",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_louver_3",
+            "uuid": "e19241d7-49b8-44eb-8466-116975984c22",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_panel",
+            "uuid": "797418c2-09ee-4589-92db-e9058e155282",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_pipe_0",
+            "uuid": "4e7cbcb8-8056-480c-b294-03fc72586baf",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_pipe_1",
+            "uuid": "09555d93-dcb6-453a-8c90-631be42d5f2b",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_A_topGrille",
+            "uuid": "45c2c9db-7a10-4cb9-9b0d-0b38e8bd41b1",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_access",
+            "uuid": "c610ab47-8986-43a0-a9af-b7b45a33f258",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_body",
+            "uuid": "f090e530-4804-462c-b67f-eb63e668f71a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_curb",
+            "uuid": "fa1d757d-f08a-4ef3-9889-246f05febae2",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanHub_0",
+            "uuid": "fc9459e0-92d4-4b26-b3f3-7bcc0026aa6c",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanHub_1",
+            "uuid": "438e3d52-0778-45e9-9b3a-86355d0fc260",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanNet_0",
+            "uuid": "72901c9f-bb18-45b6-9f49-29d1610422bc",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanNet_1",
+            "uuid": "8ace2ddb-83e1-4070-a320-26cfbdc33021",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanRecess_0",
+            "uuid": "73229bb8-3d12-4387-94ce-66a93f0683d4",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanRecess_1",
+            "uuid": "75dfa441-757e-49b4-82da-562752fc7b29",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanRing_0",
+            "uuid": "c3575fdf-885e-4c9f-bd09-719c5522cf3d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_fanRing_1",
+            "uuid": "6625c301-8402-4290-86c5-cdd9af627a92",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_handle",
+            "uuid": "210ddc8c-b3f2-4061-8134-8585c84524ce",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_louver_0",
+            "uuid": "75d76426-e8e3-4e05-9068-3a2ac49e9420",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_louver_1",
+            "uuid": "a24df45c-8594-449d-96e2-10697c1ebd8e",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_louver_2",
+            "uuid": "48b548dd-d1c8-4841-a5e7-423f4cfe5396",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_louver_3",
+            "uuid": "2e9bde0e-3551-418f-9ba0-93274a60292b",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_panel",
+            "uuid": "a24408a6-a9ab-48f4-8572-86a3e6c46722",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_pipe_0",
+            "uuid": "8b9a510f-b8b4-4958-b452-81933dcac9dd",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_pipe_1",
+            "uuid": "175d4c42-8007-4ab8-bb4c-56fae56a4b85",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_B_topGrille",
+            "uuid": "cc66915d-3110-4986-9360-9b0fa7fcfd8f",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_access",
+            "uuid": "23c7a396-a79f-49b1-9df3-9f8c612cdaa7",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_body",
+            "uuid": "952ccb9b-c5a3-4102-836c-1bb6b7af4534",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_curb",
+            "uuid": "03cabe83-2777-4d2b-902e-6ea5a62235e5",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanHub_0",
+            "uuid": "220d7ed5-2c02-42e6-bf6a-b682252dc58a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanHub_1",
+            "uuid": "c5191226-cb83-4d10-8633-5ae515cbe4e2",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanNet_0",
+            "uuid": "d14b47a6-6014-4cbc-b141-69ff00ae070f",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanNet_1",
+            "uuid": "4e2d36f4-a08e-48e5-af35-b3887d723440",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanRecess_0",
+            "uuid": "ad714597-666c-4f67-a561-c809f54db26d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanRecess_1",
+            "uuid": "305326cd-e8c7-4f46-a112-17e44b133ae9",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanRing_0",
+            "uuid": "f72d6fbf-d1c8-40c2-a3bc-d3ffaba46dce",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_fanRing_1",
+            "uuid": "e6f0f2b8-3772-4810-a08c-41abf34c65f6",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_handle",
+            "uuid": "0007308c-a875-4d49-b03f-483b1c959714",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_louver_0",
+            "uuid": "52b8e80e-292d-4da2-a696-162d350e621f",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_louver_1",
+            "uuid": "19b8ccb2-7ea8-4df3-a863-a9123372f55e",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_louver_2",
+            "uuid": "46f1ad04-f463-4c3d-af84-9d0b6a24fccb",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_louver_3",
+            "uuid": "501cdd1b-bc4c-4c78-90dc-1644e3e6d165",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_panel",
+            "uuid": "cb8fa270-4d42-4fbb-8b31-f730774850b0",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_pipe_0",
+            "uuid": "c4090004-78fb-47dd-b65e-50bb3273509a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_pipe_1",
+            "uuid": "11b748dc-ac9c-4db0-adcc-2c5de221f991",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvac_G_topGrille",
+            "uuid": "7a3c9659-82a8-47e7-9d5a-3ecf6f2db625",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_body",
+            "uuid": "938881e9-d5ac-4a07-8595-cee4d190be33",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_curb",
+            "uuid": "eac3ae03-ebf6-4062-98ab-8129d1088475",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_fanNet",
+            "uuid": "3f41fe84-8f18-46b7-8af5-6211275044b2",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_fanRecess",
+            "uuid": "c07adf84-6d24-4ef4-8ae6-f00ee1aed9e1",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_fanRing",
+            "uuid": "0d833cc0-6c4a-4039-9820-fa717888666e",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_louver_0",
+            "uuid": "2f055684-7e3d-4b24-aaee-eab8b1b53757",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_louver_1",
+            "uuid": "6bb828f4-da84-4dd5-97a3-4095588c814d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_louver_2",
+            "uuid": "838a11c7-b660-4314-982d-1213beb0cb9d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_louver_3",
+            "uuid": "a0d27b76-1ecb-4a5e-bcc7-3a1a485b932b",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_C_top",
+            "uuid": "f45dfca9-0e3f-4226-ae81-ce7c37a38dce",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_body",
+            "uuid": "324f374d-879f-4f31-9604-4efee0f20a09",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_curb",
+            "uuid": "468f823a-b77e-4a7e-ba82-2e94f042ed71",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_fanNet",
+            "uuid": "914aa0bb-ff7d-4971-a11e-567f7021360e",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_fanRecess",
+            "uuid": "49195169-7cf4-4654-8261-3a10756ef801",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_fanRing",
+            "uuid": "c2d6e27d-103e-48e7-874a-be5880127a46",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_louver_0",
+            "uuid": "8522065b-d748-4eb2-86e7-9f1a5f5e30fc",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_louver_1",
+            "uuid": "5e0e189f-a872-4729-82e7-6edac7a40dc8",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_louver_2",
+            "uuid": "61b7e966-a938-42cd-94f1-c591c9fef21a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_louver_3",
+            "uuid": "56d79339-6783-46f6-b8b1-ab030e008d40",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_D_top",
+            "uuid": "9c3a853a-5808-4721-9418-7054c41bbb66",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_body",
+            "uuid": "6304ea20-605d-451a-ae4e-f50e9d0293a4",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_curb",
+            "uuid": "bda435d6-be3f-48e7-ba45-9fb383b1ab65",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_fanNet",
+            "uuid": "6669fb54-5aa5-48b9-a266-7d98792b7a51",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_fanRecess",
+            "uuid": "0ab6b1c6-e41b-49eb-9855-cf27c008bb49",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_fanRing",
+            "uuid": "bd25068e-eea8-4ae3-bf4c-f2ae69116d35",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_louver_0",
+            "uuid": "310f6d04-6191-4977-80ee-6bcb8cd0c904",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_louver_1",
+            "uuid": "75da8f47-eede-4772-8085-4cead74430ef",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_louver_2",
+            "uuid": "390d531d-f9cb-4040-b255-8e87467eee43",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_louver_3",
+            "uuid": "74a275ca-8437-4ef4-bbe3-b8d570e177a5",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_E_top",
+            "uuid": "9da20627-1aa3-4ecf-9061-7a7765262b25",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_body",
+            "uuid": "69543186-7548-4d1d-b3d9-fddedf2f3e84",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_curb",
+            "uuid": "75612fdb-2c75-4a66-be64-d03f47eb3142",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_fanNet",
+            "uuid": "7ba0b2e1-4dbd-40c3-ba5c-aa1b7fd3d8f0",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_fanRecess",
+            "uuid": "fa864936-aa7f-4a85-b178-38dc556574ca",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_fanRing",
+            "uuid": "4412da24-674b-458d-a6f2-bf42d6fe7b79",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_louver_0",
+            "uuid": "5a0aae91-c623-460a-9d51-4c4607b0cddc",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_louver_1",
+            "uuid": "79ac51fb-e19e-4f30-9f82-07628cf605c1",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_louver_2",
+            "uuid": "0a71e42c-b2ab-4720-80d1-e870a0334078",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_louver_3",
+            "uuid": "af5ca3a9-b6ad-4ef0-9a17-58dfb7a016d1",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofHvacCube_F_top",
+            "uuid": "82fecd17-a347-45da-84ae-182a69cafc28",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofIntake_A",
+            "uuid": "503eb80c-253d-4098-a0bd-145457b13c70",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofIntakeLouver_A_0",
+            "uuid": "cbb65e4a-a60e-4e54-9823-5478199deabe",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofIntakeLouver_A_1",
+            "uuid": "0c62f22e-5f99-4b0e-8b21-e2d9585ea897",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofIntakeLouver_A_2",
+            "uuid": "5707d849-5e24-4fe1-994c-3f6c69ab11db",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofMushroomCap",
+            "uuid": "b479f3b3-90d3-4eab-b563-561513a0f62d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofMushroomFan",
+            "uuid": "3ca48edd-46d1-41a1-aadf-bfe0dd08a362",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofMushroomFan_base",
+            "uuid": "f46d9cb3-193a-467a-89ed-11d007bc10a9",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofTrayHanger_0",
+            "uuid": "1236dfd1-ee05-4b9a-a3d5-1ad244ad2d40",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofTrayHanger_1",
+            "uuid": "72279d3a-db6b-4059-8cb2-fd180b84eded",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofTrayHanger_2",
+            "uuid": "098639d0-fb18-428e-9ca9-a5c397e688ba",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofTrayHanger_3",
+            "uuid": "60f32fef-59cb-4fc7-97e8-23c7d341a6e2",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofTrayHanger_4",
+            "uuid": "ad768aed-82e5-4b98-861f-2944a9e1ea61",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_0",
+            "uuid": "12afad00-2502-4d5f-8d01-c11587522a8b",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_0_base",
+            "uuid": "e2a762d9-8fab-42df-a1c3-6d18f625c43f",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_0_cap",
+            "uuid": "b05d3dba-14ea-4b3c-8cf1-412c80b0e013",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_1",
+            "uuid": "52b51569-070d-4596-8613-ed7eb1496564",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_1_base",
+            "uuid": "da95e47b-10d0-436f-85df-58e5ef47167c",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_1_cap",
+            "uuid": "09dd871d-e045-4993-b33c-7efa118abb77",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_2",
+            "uuid": "99b0f635-70e9-4981-819e-e2fb242c83c2",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_2_base",
+            "uuid": "76d27bf6-6076-4b56-9ff2-4e148fe229cd",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_2_cap",
+            "uuid": "b8c67468-5b01-41d3-846a-7b06bce4f4a1",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_3",
+            "uuid": "5e16835d-44d8-4b19-bc1a-00eb895bafef",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_3_base",
+            "uuid": "5b3b4ca4-2156-4d58-b9c9-e0f9569c7b90",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_3_cap",
+            "uuid": "52da5045-1fb9-4523-b360-5ef3666fe35f",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_4",
+            "uuid": "e81b7df2-ed72-463e-b87c-b462aba969ab",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_4_base",
+            "uuid": "2378479e-0ed9-4091-ac8e-0fd67d91e8cc",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_4_cap",
+            "uuid": "354f438b-8e99-4f0a-bdb7-d6cf99c52b1d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_5",
+            "uuid": "fff1cc2d-e2a1-4ec3-a5fe-6595f0c329c3",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_5_base",
+            "uuid": "1805240d-951c-4360-b7a2-9ac6f686c631",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofVentPipe_5_cap",
+            "uuid": "3be9a42c-15f9-46b7-82e6-17eb649253bf",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofWalkway_0",
+            "uuid": "5105d581-9853-46dc-b9e4-56f12b3dd36a",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofWalkway_1",
+            "uuid": "3322d26c-1a9a-47d1-b5b6-ab061b31d246",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofWalkway_2",
+            "uuid": "107eaaed-f1ae-4c68-a9ed-5d8169f3e3a4",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roofMain",
+            "uuid": "701f807f-efde-499d-a50f-a6563e6a0531",
+            "renderable": false,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roof_capTrim_back",
+            "uuid": "29422290-d829-4e9c-8386-e33d5c4fd6b8",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roof_capTrim_front",
+            "uuid": "edba03e9-13d7-4294-9343-ad1bd9f3830d",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roof_capTrim_left",
+            "uuid": "b1df7807-316d-4ced-97dc-090aaa140c77",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roof_capTrim_right",
+            "uuid": "8b4463ec-f753-49ca-86f2-6620e7f27f62",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          },
+          {
+            "name": "roof_slab",
+            "uuid": "831b66a3-15ac-4de6-adff-78917ecb1bbe",
+            "renderable": true,
+            "ownVisible": true,
+            "visible": true
+          }
+        ],
+        "originalTargetCount": 146,
+        "originalRootGroupPlusRenderableGeometry": true,
+        "nonRenderableGroupsAreNotVisibleGeometry": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "console": [],
+  "requestsFailed": [],
+  "httpErrors": [],
+  "scope": "untouched independent original",
+  "sourceFilesModified": false,
+  "clockModified": false,
+  "physicalDevice": false,
+  "environment": {
+    "DISPLAY": ":117",
+    "backend": "Mesa llvmpipe software GL",
+    "hardwareFPSProof": false
+  },
+  "browserVersion": "155.0.8059.79",
+  "matchedOriginalViewport": [
+    960,
+    540
+  ],
+  "functionalSetup": {
+    "qualitySelectedWithOriginalUI": [
+      {
+        "before": {
+          "fps": 16,
+          "drawCalls": 1618,
+          "triangles": 414710,
+          "programs": 21,
+          "lights": 34,
+          "quality": "high",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "after": {
+          "fps": 16,
+          "drawCalls": 0,
+          "triangles": 0,
+          "programs": 21,
+          "lights": 34,
+          "quality": "medium",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        }
+      },
+      {
+        "before": {
+          "fps": 16,
+          "drawCalls": 0,
+          "triangles": 0,
+          "programs": 21,
+          "lights": 34,
+          "quality": "medium",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "after": {
+          "fps": 16,
+          "drawCalls": 0,
+          "triangles": 0,
+          "programs": 21,
+          "lights": 34,
+          "quality": "low",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        }
+      }
+    ],
+    "reason": "cloud software GL functional checks after original default evidence"
+  },
+  "complete": true,
+  "knownOriginalIssues": []
+}

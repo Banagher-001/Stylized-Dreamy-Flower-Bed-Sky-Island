@@ -1,0 +1,366 @@
+{
+  "phase": "supplement",
+  "run": "recheck-embedded-roof",
+  "mode": "embedded",
+  "checks": [
+    {
+      "id": "SUPPLEMENT.load",
+      "name": "真实页面加载",
+      "status": "原页正常",
+      "evidence": {
+        "readySeconds": 3.9481809890003206,
+        "stateAtReady": {
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 0,
+            "stats": {
+              "drawCalls": 2193,
+              "triangles": 730990,
+              "programs": 21,
+              "geometries": 1206,
+              "textures": 16,
+              "pixelRatio": 1,
+              "resScale": 1,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 17,
+            "drawCalls": 1618,
+            "triangles": 414710,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "viewport": [
+            960,
+            540
+          ],
+          "controls": 41
+        },
+        "observationsInstalled": {
+          "publicAPI": [
+            "setTimeOfDay",
+            "setPreset",
+            "setLight",
+            "setAllLights",
+            "setCamera",
+            "toggleRoof",
+            "setRoof",
+            "trafficStart",
+            "getClerkStates",
+            "setClerkDebug",
+            "notifyCustomer",
+            "clerkTrigger",
+            "clerkNav",
+            "clerkForceTask",
+            "clerkCamera",
+            "getVehicleState",
+            "setVehicleDebug",
+            "toggleVehicleDebug",
+            "trafficPause",
+            "trafficReset",
+            "trafficSpeed",
+            "demoCar",
+            "pauseAll",
+            "setQuality",
+            "hideUI",
+            "getStats",
+            "getState",
+            "toggleDoor",
+            "setDoorsAutomatic",
+            "toggleWalk",
+            "triggerClerk",
+            "focusOn",
+            "focusPoint",
+            "setFreeCamera",
+            "clearFreeCamera",
+            "followClerk",
+            "project",
+            "pickAt",
+            "pickAll",
+            "entryInfo",
+            "clickAt"
+          ],
+          "shortcutsObserver": "read-only DOM event listener",
+          "interactionObserver": "original _pick/activate called exactly once with original arguments; observations only"
+        }
+      }
+    },
+    {
+      "id": "BUTTON.roof-actual",
+      "name": "屋顶实际节点隐藏和恢复",
+      "status": "需补核",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/common.py\", line 57, in case\n    evidence=fn();status=evidence.pop('_status','原页正常')if isinstance(evidence,dict)else'原页正常'\n             ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/supplement.py\", line 80, in roof\n    p.locator('#btn-roof').click();hidden=p.evaluate('__fullpageAudit.roofSignature()');assert not p.evaluate('__LAWSON__.state.roofVisible')and all(not n['visible']for n in hidden)\n                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "snapshot": {
+        "state": {
+          "loaded": true,
+          "paused": false,
+          "quality": "low",
+          "cameraMode": "hero",
+          "timeOfDay": 21.99800000000001,
+          "roofVisible": false,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "A",
+            "phase": "TURNING_IN",
+            "speed": 1,
+            "activePosition": [
+              -41,
+              -0.18,
+              23.4
+            ],
+            "reverseLamp": false,
+            "brake": false
+          },
+          "doors": {
+            "state": "CLOSED",
+            "isOpen": false,
+            "progress": 0,
+            "automatic": true
+          },
+          "walk": false,
+          "fps": 13,
+          "stats": {
+            "drawCalls": 1604,
+            "triangles": 414696,
+            "programs": 32,
+            "geometries": 1206,
+            "textures": 2,
+            "pixelRatio": 0.92,
+            "resScale": 0.92,
+            "width": 960,
+            "height": 540
+          }
+        },
+        "stats": {
+          "fps": 13,
+          "drawCalls": 1604,
+          "triangles": 414696,
+          "programs": 32,
+          "lights": 34,
+          "quality": "low",
+          "timeOfDay": 21.99800000000001,
+          "pixelRatio": 0.92,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "camera": [
+          20.5,
+          5.2,
+          28.5
+        ],
+        "projection": [
+          [
+            520,
+            328
+          ],
+          [
+            698,
+            348
+          ],
+          [
+            520,
+            234
+          ]
+        ],
+        "pointerLock": null,
+        "fullscreen": false,
+        "panelCollapsed": false,
+        "focus": "btn-roof"
+      }
+    }
+  ],
+  "pageErrors": [],
+  "console": [
+    {
+      "case": "SUPPLEMENT.load",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'.",
+      "location": {
+        "url": "http://127.0.0.1:4197/assets/startTourPrototype-WeWohhtn.js",
+        "line": 29,
+        "column": 0,
+        "lineNumber": 29,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "requestsFailed": [],
+  "httpErrors": [],
+  "scope": "actual production personal website iframe",
+  "sourceFilesModified": false,
+  "clockModified": false,
+  "physicalDevice": false,
+  "environment": {
+    "DISPLAY": ":117",
+    "backend": "Mesa llvmpipe software GL",
+    "hardwareFPSProof": false
+  },
+  "browserVersion": "155.0.8059.79",
+  "matchedOriginalViewport": [
+    960,
+    540
+  ],
+  "functionalSetup": {
+    "qualitySelectedWithOriginalUI": [
+      {
+        "before": {
+          "fps": 17,
+          "drawCalls": 1618,
+          "triangles": 414710,
+          "programs": 21,
+          "lights": 34,
+          "quality": "high",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "after": {
+          "fps": 17,
+          "drawCalls": 0,
+          "triangles": 0,
+          "programs": 21,
+          "lights": 34,
+          "quality": "medium",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        }
+      },
+      {
+        "before": {
+          "fps": 17,
+          "drawCalls": 0,
+          "triangles": 0,
+          "programs": 21,
+          "lights": 34,
+          "quality": "medium",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "after": {
+          "fps": 17,
+          "drawCalls": 0,
+          "triangles": 0,
+          "programs": 21,
+          "lights": 34,
+          "quality": "low",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        }
+      }
+    ],
+    "reason": "cloud software GL functional checks after original default evidence"
+  },
+  "complete": false,
+  "knownOriginalIssues": [],
+  "hostDrawsWhileOriginalActive": 0,
+  "hostClosedAndIframeRemoved": true
+}

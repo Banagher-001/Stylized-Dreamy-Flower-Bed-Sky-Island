@@ -1,0 +1,324 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "layout 1920x1080",
+      "passed": false,
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-6/harness.py\", line 23, in check\n    evidence=fn();entry={'name':name,'passed':True,'evidence':evidence};print('PASS '+name,flush=True)\n             ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-6/verify_layout.py\", line 23, in <lambda>\n    for w,ht in sizes:h.check('layout '+str(w)+'x'+str(ht),lambda w=w,ht=ht:layout(w,ht))\n                                                                            ^^^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-6/verify_layout.py\", line 15, in layout\n    assert h.draws(p,p)==0 and h.draws(f,p,300)>0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "parent": {
+        "state": {
+          "projectId": "lawson",
+          "embeddedState": "ready",
+          "tab": "live"
+        },
+        "mode": "immersive",
+        "active": "<button type=\"button\" class=\"tour-project-close\" aria-label=\"关闭项目，返回阅读\" autofocus=\"\"><span class=\"project-label-full\">返回阅读</span><span class=\"project-label-short\">返回</span><span class=\"project-close-icon\" aria-hidden=\"true\">×</span></button>"
+      }
+    },
+    {
+      "name": "layout 1440x900",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 9045,
+          "h": "10.0500000",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "name": "layout 1366x768",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1366,
+          768
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 1366,
+          "height": 712
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1366,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 7718,
+          "h": "10.0499047",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "name": "layout 768x1024",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          768,
+          1024
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 768,
+          "height": 968
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 10291,
+          "h": "10.0499643",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "name": "layout 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 4076,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "name": "layout 375x812",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          375,
+          812
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 375,
+          "height": 764
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 4065,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "name": "layout 320x568",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          320,
+          568
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 320,
+          "height": 520
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 4122,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "name": "layout 844x390",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          844,
+          390
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 844,
+          "height": 342
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 844,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 6309,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "name": "layout continuous rotation and return",
+      "passed": true,
+      "evidence": {
+        "realViewportResizes": 3,
+        "frames": [
+          {
+            "x": 0,
+            "y": 48,
+            "width": 844,
+            "height": 342
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 375,
+            "height": 764
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 390,
+            "height": 796
+          }
+        ],
+        "physicalRotation": false,
+        "restoredC2": {
+          "x": 16,
+          "y": 200.953125,
+          "width": 343,
+          "height": 563
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "layout 1920x1080",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "layout 1440x900",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "layout 1366x768",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "layout 768x1024",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "layout 390x844",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "layout 375x812",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "layout 320x568",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "layout 844x390",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "layout continuous rotation and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": false
+}

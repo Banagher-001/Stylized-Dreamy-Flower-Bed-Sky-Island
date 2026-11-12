@@ -1,0 +1,2088 @@
+{
+  "checks": [
+    {
+      "name": "state model failure and both retries",
+      "passed": true,
+      "evidence": {
+        "realModelFailureObserved": true,
+        "nativeRetryKeepsIframeAndReplacesDocument": true,
+        "oldReadyAPIIgnoredAfterReloadFailure": true,
+        "hostRetryReplacesIframe": true,
+        "retiredFrameInjectedLoadIgnored": true
+      }
+    },
+    {
+      "name": "state slow original then recovery",
+      "passed": true,
+      "evidence": {
+        "heldRealModuleUntilAfter12Seconds": true,
+        "HTMLDidNotBecomeReady": true,
+        "slowNotError": true,
+        "mobileExitAndRetryFit": true,
+        "lateRealLoadRecovered": true,
+        "parentDraws": 0
+      }
+    },
+    {
+      "name": "state rapid exit and late response",
+      "passed": true,
+      "evidence": {
+        "sameTaskOpenCloseCancelledMount": true,
+        "noOriginalRequestBeforeCancelledMount": true,
+        "loadingCloseIgnoresLateModule": true,
+        "gardenResumed": true
+      }
+    },
+    {
+      "name": "state original timeout fatal precedence",
+      "passed": true,
+      "evidence": {
+        "original30SecondGuardObserved": true,
+        "fatalWithoutAPIErrorDetected": true,
+        "visibleFatalOverridesLaterReady": true,
+        "nativeRetryAfterTimeoutRecovered": true,
+        "sourceOrClockModified": false
+      }
+    },
+    {
+      "name": "input fullscreen pointer lock and escape",
+      "passed": true,
+      "evidence": {
+        "nativeWheelChangesOriginalCamera": true,
+        "nativeDragChangesOriginalCamera": true,
+        "originalKeyboardPresetWorks": true,
+        "parentReadingUnchanged": true,
+        "nativeFullscreenAndX11Escape": true,
+        "nativePointerLockAndX11Escape": true,
+        "parentPointerLockGetterDuringChildLock": null,
+        "childEscapeKeepsHostOpen": true,
+        "forcedCloseReleasesOwnedLockAndFullscreen": true,
+        "hostFocusedEscapeCloses": true
+      }
+    },
+    {
+      "name": "independence original runs despite parent failure",
+      "passed": true,
+      "evidence": {
+        "parentWebGLDisabledOnly": true,
+        "originalIframeStillRuns": true,
+        "courtyardAvailabilityRemainsIndependent": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "httpErrors": [],
+  "requests": [
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/assets/index-CYEVChXr.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-CrjnteVk.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-VQ1ktMv3.css"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/favicon.svg"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/main.css"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/controls.css"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/responsive.css"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/three.module.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/SceneManager.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/Renderer.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AssetManager.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AnimationController.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/UpdateLoop.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/LightingSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DayNightSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DoorSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/TrafficSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/ClerkSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/CameraSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/InteractionSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/QualitySystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIState.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIController.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/lightConfig.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/assetManifest.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/sceneConfig.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/vehiclePaths.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/NavGrid.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/AnimLibrary.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/TaskManager.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_A.glb"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_B.glb"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_C.glb"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/main.css"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/controls.css"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/responsive.css"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/three.module.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/SceneManager.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/Renderer.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AssetManager.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AnimationController.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/UpdateLoop.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/LightingSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DayNightSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DoorSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/TrafficSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/ClerkSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/CameraSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/InteractionSystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/QualitySystem.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIState.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIController.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/lightConfig.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/sceneConfig.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/assetManifest.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/vehiclePaths.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/NavGrid.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/AnimLibrary.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/TaskManager.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_A.glb"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_B.glb"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_C.glb"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/assets/index-CYEVChXr.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-CrjnteVk.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-VQ1ktMv3.css"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/favicon.svg"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/main.css"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/controls.css"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/responsive.css"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/three.module.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/SceneManager.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/Renderer.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AssetManager.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AnimationController.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/UpdateLoop.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/LightingSystem.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DayNightSystem.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DoorSystem.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/TrafficSystem.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/ClerkSystem.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/CameraSystem.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/InteractionSystem.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/QualitySystem.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIState.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIController.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/lightConfig.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/sceneConfig.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/assetManifest.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/NavGrid.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/AnimLibrary.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/TaskManager.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/vehiclePaths.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_A.glb"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_B.glb"
+    },
+    {
+      "fault": "slow",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_C.glb"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/assets/index-CYEVChXr.js"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-CrjnteVk.js"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-VQ1ktMv3.css"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/favicon.svg"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/main.css"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/controls.css"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/responsive.css"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/assets/index-CYEVChXr.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-CrjnteVk.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-VQ1ktMv3.css"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/favicon.svg"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/main.css"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/controls.css"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/responsive.css"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/three.module.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/SceneManager.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/Renderer.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AssetManager.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AnimationController.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/UpdateLoop.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/LightingSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DayNightSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DoorSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/TrafficSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/ClerkSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/CameraSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/InteractionSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/QualitySystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIState.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIController.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/lightConfig.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/sceneConfig.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/assetManifest.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/NavGrid.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/AnimLibrary.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/TaskManager.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/vehiclePaths.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_A.glb"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_B.glb"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_C.glb"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/main.css"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/controls.css"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/responsive.css"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/three.module.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/SceneManager.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/Renderer.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AssetManager.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AnimationController.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/UpdateLoop.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/LightingSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DayNightSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DoorSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/TrafficSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/ClerkSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/CameraSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/InteractionSystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/QualitySystem.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIState.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIController.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/lightConfig.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/sceneConfig.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/assetManifest.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/vehiclePaths.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/NavGrid.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/AnimLibrary.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/TaskManager.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_A.glb"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_B.glb"
+    },
+    {
+      "fault": "original-timeout",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_C.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/assets/index-CYEVChXr.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-CrjnteVk.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-VQ1ktMv3.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/main.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/controls.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/responsive.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/three.module.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/SceneManager.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/Renderer.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AssetManager.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AnimationController.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/UpdateLoop.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/LightingSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DayNightSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DoorSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/TrafficSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/ClerkSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/CameraSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/InteractionSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/QualitySystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIState.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIController.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/lightConfig.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/sceneConfig.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/assetManifest.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/vehiclePaths.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/NavGrid.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/AnimLibrary.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/TaskManager.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_A.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_B.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_C.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/main.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/controls.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/responsive.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/three.module.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/SceneManager.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/Renderer.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AssetManager.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AnimationController.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/UpdateLoop.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/LightingSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DayNightSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DoorSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/TrafficSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/ClerkSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/CameraSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/InteractionSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/QualitySystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIState.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIController.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/lightConfig.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/sceneConfig.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/assetManifest.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/NavGrid.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/AnimLibrary.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/TaskManager.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/vehiclePaths.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_A.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_B.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_C.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/main.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/controls.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/responsive.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/three.module.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/SceneManager.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/Renderer.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AssetManager.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AnimationController.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/UpdateLoop.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/LightingSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DayNightSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DoorSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/TrafficSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/ClerkSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/CameraSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/InteractionSystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/QualitySystem.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIState.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIController.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/lightConfig.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/sceneConfig.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/assetManifest.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/vehiclePaths.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/NavGrid.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/AnimLibrary.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/TaskManager.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_A.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_B.glb"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_C.glb"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/index-CYEVChXr.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-CrjnteVk.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/startTourPrototype-VQ1ktMv3.css"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/favicon.svg"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/index.html"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/main.css"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/controls.css"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/css/responsive.css"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/three.module.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/SceneManager.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/Renderer.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AssetManager.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/AnimationController.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/core/UpdateLoop.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/LightingSystem.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DayNightSystem.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/DoorSystem.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/TrafficSystem.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/ClerkSystem.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/CameraSystem.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/InteractionSystem.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/QualitySystem.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIState.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/ui/UIController.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/lightConfig.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/assetManifest.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/sceneConfig.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/config/vehiclePaths.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/NavGrid.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/AnimLibrary.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/TaskManager.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/systems/clerk/clerkConfig.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_A.glb"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_B.glb"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/car_C.glb"
+    },
+    {
+      "fault": "parent-no-gl",
+      "url": "http://127.0.0.1:4195/assets/courtyard-orb-cover-CFKlnXYs.webp"
+    }
+  ],
+  "failedRequests": [
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb",
+      "failure": "net::ERR_FAILED"
+    },
+    {
+      "fault": "model",
+      "url": "http://127.0.0.1:4195/experiments/lawson/assets/models/lawson_scene.glb",
+      "failure": "net::ERR_FAILED"
+    },
+    {
+      "fault": "quick-close",
+      "url": "http://127.0.0.1:4195/experiments/lawson/js/main.js",
+      "failure": "net::ERR_ABORTED"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "fault": "model",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "fault": "model",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    },
+    {
+      "fault": "model",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "fault": "model",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    },
+    {
+      "fault": "parent-no-gl",
+      "text": "THREE.WebGLRenderer: THREE.WebGLRenderer: Error creating WebGL context."
+    },
+    {
+      "fault": "parent-no-gl",
+      "text": "Tour scene initialization failed. Error: THREE.WebGLRenderer: Error creating WebGL context.\n    at new Br (http://127.0.0.1:4195/assets/three-renderer-Bo7ttXUR.js:4221:23774)\n    at Nt (http://127.0.0.1:4195/assets/createAnimationController-Cv0VwzcZ.js:454:1367)\n    at http://127.0.0.1:4195/assets/startTourPrototype-CrjnteVk.js:43:13768"
+    }
+  ],
+  "browser": "155.0.8059.79",
+  "unexpectedFailedRequests": [],
+  "unexpectedConsoleErrors": [],
+  "passed": true
+}

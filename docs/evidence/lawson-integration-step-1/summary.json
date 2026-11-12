@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "step": 1,
+  "complete": true,
+  "result": "baseline-and-integration-feasibility-verified-with-explicit-future-adaptation-items",
+  "completedAtUTC": "2026-11-09T17:12:24.841768+00:00",
+  "completedAtShanghai": "2026-11-10T01:12:24.841768+08:00",
+  "sourceCommit": "95dad9881a7b9d31c0ac635f1f335055d8cb3cc4",
+  "hostCommit": "4a6dd7c5c9c126ab3b9319fab5d8ea16a704dae8",
+  "runtimeFileCount": 46,
+  "runtimeBytes": 20332784,
+  "modelBytes": 18648040,
+  "browserChecks": {
+    "core": 11,
+    "embedding": 6,
+    "compatibilityBaseline": 6,
+    "performanceRecords": 4,
+    "total": 27
+  },
+  "scene": {
+    "interactives": 17,
+    "lights": 34,
+    "roofTargets": 146,
+    "cars": [
+      "A",
+      "B",
+      "C"
+    ],
+    "clerks": [
+      "A",
+      "B"
+    ]
+  },
+  "vehicleObservation": {
+    "wallSeconds": 191.12155382399942,
+    "speedUI": 1.8,
+    "nativeClock": true,
+    "carAPhases": [
+      "ALIGNING_TO_EXIT",
+      "APPROACHING",
+      "DRIVING_OUT",
+      "OFFSCREEN_RESET",
+      "OFFSCREEN_WAIT",
+      "PARKED",
+      "PARKING",
+      "REVERSE_PREPARE",
+      "REVERSE_STOP",
+      "REVERSING_OUT",
+      "SHIFT_TO_DRIVE",
+      "TURNING_IN"
+    ],
+    "clerkTasks": {
+      "A": [
+        "bag_check",
+        "observe_entrance",
+        "tidy_counter"
+      ],
+      "B": [
+        "cooler_check",
+        "restock"
+      ]
+    }
+  },
+  "mobileBaseline": {
+    "viewport": [
+      390,
+      844
+    ],
+    "panelWidthFraction": 0.5128205128205128,
+    "headerOverlap": true,
+    "smallTouchControls": 38,
+    "pinchProjectedScaleRatio": 1.3595185528550813,
+    "physicalDeviceTested": false
+  },
+  "performance": {
+    "environment": {
+      "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+    },
+    "softwareRendering": true,
+    "hardwareFPSProof": false,
+    "records": [
+      {
+        "name": "performance baseline default full overview",
+        "label": "default auto-quality",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "durationMs": 13395.400000000373,
+        "completedCallbacks": 28,
+        "callbackRate": 2.090269794108367,
+        "qualities": [
+          "high"
+        ]
+      },
+      {
+        "name": "performance baseline vehicle view",
+        "label": "vehicle area, original preset fixed pose",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "durationMs": 12951.5,
+        "completedCallbacks": 30,
+        "callbackRate": 2.316334015365016,
+        "qualities": [
+          "high",
+          "medium"
+        ]
+      },
+      {
+        "name": "performance baseline interior",
+        "label": "interior",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "durationMs": 12068.900000000373,
+        "completedCallbacks": 29,
+        "callbackRate": 2.4028701870095124,
+        "qualities": [
+          "medium"
+        ]
+      }
+    ]
+  },
+  "gates": {
+    "versionsFixedAndRemoteHeadsVerified": true,
+    "runtimeDependencyClosureComplete": true,
+    "standaloneCoreVerified": true,
+    "dayNightScenePixelsChanged": true,
+    "sameOriginSubdirectoryAndIframeVerified": true,
+    "modelFailureAndWebGLFailureVerified": true,
+    "lifecycleGapsDocumented": true,
+    "mobileBehaviorAndLimitsDocumented": true,
+    "softwarePerformanceRecorded": true,
+    "sourceAndHostRuntimeByteUnchanged": true,
+    "diagnosticAuxiliaryRequestResolved": true
+  },
+  "scope": {
+    "websiteIntegrationImplemented": false,
+    "productionSourceChanged": false,
+    "githubCommitOrPushPerformed": false,
+    "websiteDeployed": false
+  },
+  "acceptedEvidence": [
+    "asset-manifest.json",
+    "core-accepted.json",
+    "run-6/embed.json",
+    "compat-accepted.json",
+    "run-8/performance.json",
+    "integrity.json",
+    "day-night-pixel-check.json",
+    "harness-auxiliary-request-fixed.json"
+  ],
+  "historicalDiagnosticsPreserved": [
+    "run-1",
+    "run-2",
+    "run-3",
+    "run-5",
+    "run-7",
+    "state-isolation.json",
+    "mesa-isolation.json"
+  ],
+  "auditId": "lawson-integration-step1-95dad988-4a6dd7c5",
+  "finalizedAtUTC": "2026-11-09T17:19:23.137096+00:00",
+  "finalizedAtShanghai": "2026-11-10T01:19:23.137096+08:00"
+}

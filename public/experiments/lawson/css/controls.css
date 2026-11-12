@@ -1,0 +1,20 @@
+/* control-specific refinements */
+.panel .toggle .lbl { display: flex; align-items: center; gap: 7px; }
+.panel .toggle .dotc { width: 7px; height: 7px; border-radius: 50%; background: #59a4ff; flex: none;
+  box-shadow: 0 0 9px currentColor; }
+.panel .toggle[data-group="LawsonSign"] .dotc { background: #7fc0ff; }
+.panel .toggle[data-group="StoreInterior"] .dotc { background: #ffcf8a; }
+.panel .toggle[data-group="FacadeStrip"] .dotc { background: #6fa8ff; }
+.panel .toggle[data-group="StreetLamp"] .dotc { background: #ffc46b; }
+.panel .toggle[data-group="CoolerLighting"] .dotc { background: #8fe4ff; }
+.panel .toggle[data-group="VendingLighting"] .dotc { background: #a7c4ff; }
+.panel .toggle[data-group="WarmExterior"] .dotc { background: #ffab6b; }
+.panel .toggle[data-group="VehicleLights"] .dotc { background: #ff8b7a; }
+.panel.collapsed { width: 58px; padding: 4px 8px 10px; overflow: hidden; }
+.panel.collapsed .group, .panel.collapsed .panel-head > span { display: none; }
+.panel.collapsed .panel-head { justify-content: center; }
+.panel.collapsed .collapse-btn::after { content: "+"; }
+.panel.collapsed .collapse-btn { font-size: 0; }
+.panel.collapsed .collapse-btn::after { font-size: 14px; }
+#walk-bar { box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+button:disabled { opacity: .45; cursor: not-allowed; }

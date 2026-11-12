@@ -1,0 +1,100 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "graphics browser without WebGL",
+      "passed": true,
+      "evidence": {
+        "browserActuallyLaunchedWithDisableWebGL": true,
+        "originalNativeRendererFailureDetected": true,
+        "mainReadingAndArchivesUsable": true,
+        "independentLinkNotClaimedToBypassHardware": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: THREE.WebGLRenderer: Error creating WebGL context."
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "Tour scene initialization failed. Error: THREE.WebGLRenderer: Error creating WebGL context.\n    at new Br (http://127.0.0.1:4196/assets/three-renderer-Bo7ttXUR.js:4221:23774)\n    at Nt (http://127.0.0.1:4196/assets/createAnimationController-Cv0VwzcZ.js:454:1367)\n    at http://127.0.0.1:4196/assets/startTourPrototype-WeWohhtn.js:43:13790"
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: Error creating WebGL context."
+    },
+    {
+      "case": "graphics browser without WebGL",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 无法创建 WebGL 渲染器：Error creating WebGL context."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserWebGLDisabled": true,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

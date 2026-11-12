@@ -1,0 +1,1399 @@
+{
+  "passed": true,
+  "acceptedGroups": 49,
+  "groups": [
+    {
+      "report": "boundary-final/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "document wrong HTML",
+      "passed": true,
+      "evidence": {
+        "actualHTTPStatus": 404,
+        "incorrectCompleteDocumentDetected": true
+      }
+    },
+    {
+      "report": "boundary-final/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "graphics child context loss",
+      "passed": true,
+      "evidence": {
+        "realWebGLLoseExtension": true,
+        "staleReadyDoesNotHideLoss": true,
+        "restoredContextNotMistakenForFreshScene": true,
+        "hostRetryRecovered": true
+      }
+    },
+    {
+      "report": "boundary-final/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "layout small error and 200 percent",
+      "passed": true,
+      "evidence": {
+        "targets": [
+          {
+            "text": "体验",
+            "r": {
+              "x": 159.96875,
+              "y": 1,
+              "width": 76.015625,
+              "height": 54,
+              "top": 1,
+              "right": 235.984375,
+              "bottom": 55,
+              "left": 159.96875
+            }
+          },
+          {
+            "text": "档案",
+            "r": {
+              "x": 235.984375,
+              "y": 1,
+              "width": 76.015625,
+              "height": 54,
+              "top": 1,
+              "right": 312,
+              "bottom": 55,
+              "left": 235.984375
+            }
+          },
+          {
+            "text": "↗",
+            "r": {
+              "x": 97.953125,
+              "y": 59,
+              "width": 48.015625,
+              "height": 54,
+              "top": 59,
+              "right": 145.96875,
+              "bottom": 113,
+              "left": 97.953125
+            }
+          },
+          {
+            "text": "重试",
+            "r": {
+              "x": 149.96875,
+              "y": 60,
+              "width": 76.015625,
+              "height": 52,
+              "top": 60,
+              "right": 225.984375,
+              "bottom": 112,
+              "left": 149.96875
+            }
+          },
+          {
+            "text": "返回",
+            "r": {
+              "x": 229.984375,
+              "y": 59,
+              "width": 82.015625,
+              "height": 54,
+              "top": 59,
+              "right": 312,
+              "bottom": 113,
+              "left": 229.984375
+            }
+          }
+        ],
+        "iframe": {
+          "x": 0,
+          "y": 216.59375,
+          "width": 320,
+          "height": 351.40625
+        },
+        "originalInnerFontsUnmodified": true
+      }
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "layout 1440x900",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 9045,
+          "h": "10.0500000",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "layout 1366x768",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1366,
+          768
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 1366,
+          "height": 712
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1366,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 7718,
+          "h": "10.0499047",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "layout 768x1024",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          768,
+          1024
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 768,
+          "height": 968
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 10291,
+          "h": "10.0499643",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "layout 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 4076,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "layout 375x812",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          375,
+          812
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 375,
+          "height": 764
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 4065,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "layout 320x568",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          320,
+          568
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 320,
+          "height": 520
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 4122,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "layout 844x390",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          844,
+          390
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 844,
+          "height": 342
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 844,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 6309,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "layout continuous rotation and return",
+      "passed": true,
+      "evidence": {
+        "realViewportResizes": 3,
+        "frames": [
+          {
+            "x": 0,
+            "y": 48,
+            "width": 844,
+            "height": 342
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 375,
+            "height": 764
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 390,
+            "height": 796
+          }
+        ],
+        "physicalRotation": false,
+        "restoredC2": {
+          "x": 16,
+          "y": 200.953125,
+          "width": 343,
+          "height": 563
+        }
+      }
+    },
+    {
+      "report": "layout-large-recheck/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "layout 1920x1080",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 1920,
+          "height": 1024
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 10854,
+          "h": "10.0500000",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "report": "layout-firefox/browser.json",
+      "build": "build1",
+      "engine": "firefox",
+      "browserVersion": "153.0",
+      "name": "layout 1440x900",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 9045,
+          "h": "10.0500000",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "report": "layout-firefox/browser.json",
+      "build": "build1",
+      "engine": "firefox",
+      "browserVersion": "153.0",
+      "name": "layout 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 4195,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "report": "layout-firefox/browser.json",
+      "build": "build1",
+      "engine": "firefox",
+      "browserVersion": "153.0",
+      "name": "layout continuous rotation and return",
+      "passed": true,
+      "evidence": {
+        "realViewportResizes": 3,
+        "frames": [
+          {
+            "x": 0,
+            "y": 48,
+            "width": 844,
+            "height": 342
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 375,
+            "height": 764
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 390,
+            "height": 796
+          }
+        ],
+        "physicalRotation": false,
+        "restoredC2": {
+          "x": 16,
+          "y": 148.56666564941406,
+          "width": 358,
+          "height": 547.3499603271484
+        }
+      }
+    },
+    {
+      "report": "layout-webkit/browser.json",
+      "build": "build1",
+      "engine": "webkit",
+      "browserVersion": "26.5",
+      "name": "layout 1440x900",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 9045,
+          "h": "10.0500000",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "report": "layout-webkit/browser.json",
+      "build": "build1",
+      "engine": "webkit",
+      "browserVersion": "26.5",
+      "name": "layout 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 795.984375
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 4158,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "report": "layout-webkit/browser.json",
+      "build": "build1",
+      "engine": "webkit",
+      "browserVersion": "26.5",
+      "name": "layout continuous rotation and return",
+      "passed": true,
+      "evidence": {
+        "realViewportResizes": 3,
+        "frames": [
+          {
+            "x": 0,
+            "y": 48,
+            "width": 844,
+            "height": 342
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 375,
+            "height": 764
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 390,
+            "height": 795.984375
+          }
+        ],
+        "physicalRotation": false,
+        "restoredC2": {
+          "x": 16,
+          "y": 147.3125,
+          "width": 358,
+          "height": 549.328125
+        }
+      }
+    },
+    {
+      "report": "network/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "network document 404",
+      "passed": true,
+      "evidence": {
+        "HTTPStatusInjected": 404,
+        "genericDocumentFailureNotGuessedStatus": true,
+        "explicitRetryRecovered": true
+      }
+    },
+    {
+      "report": "network/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "network document 500",
+      "passed": true,
+      "evidence": {
+        "HTTPStatusInjected": 500,
+        "genericDocumentFailureNotGuessedStatus": true,
+        "explicitRetryRecovered": true
+      }
+    },
+    {
+      "report": "network/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "network vendor module failure",
+      "passed": true,
+      "evidence": {
+        "realVendorFetchAborted": true,
+        "slowBeforeOriginalTimeout": true,
+        "originalFatalObserved": true,
+        "retryRecovered": true
+      }
+    },
+    {
+      "report": "network/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "network car model failure",
+      "passed": true,
+      "evidence": {
+        "realCarResourceFailure": true,
+        "nativeRetryRecovered": true
+      }
+    },
+    {
+      "report": "network/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "network cold offline and return",
+      "passed": true,
+      "evidence": {
+        "warmCache": false,
+        "actualOfflineState": "slow",
+        "recovered": true,
+        "offlineDidNotAutomaticallyMeanFailure": true
+      }
+    },
+    {
+      "report": "network/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "network warm offline and return",
+      "passed": true,
+      "evidence": {
+        "warmCache": true,
+        "actualOfflineState": "error",
+        "recovered": true,
+        "offlineDidNotAutomaticallyMeanFailure": true
+      }
+    },
+    {
+      "report": "network/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "network restricted embedding",
+      "passed": true,
+      "evidence": {
+        "realFrameAncestorsDenial": true,
+        "independentOriginalReadyWithSamePolicy": true,
+        "noGuessedFailureCause": true,
+        "retryAfterPolicyRestored": true
+      }
+    },
+    {
+      "report": "interactions/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "touch gestures and panel isolation",
+      "passed": true,
+      "evidence": {
+        "browserTouchInputTrusted": true,
+        "singleFingerRotated": true,
+        "twoFingersZoomed": true,
+        "panelScroll": [
+          0,
+          225
+        ],
+        "nativePresetTapWorked": true,
+        "parentReadingUnchanged": true,
+        "physicalDevice": false
+      }
+    },
+    {
+      "report": "interactions/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "stress ten full and twenty cancelled",
+      "passed": true,
+      "evidence": {
+        "fullyLoadedCycles": 10,
+        "sameTaskCancelledCycles": 20,
+        "retiredDrawCountersFrozen": true,
+        "noOpenModalOrFrameOrScrollLock": true
+      }
+    },
+    {
+      "report": "interactions/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "ownership project media rapid transfer",
+      "passed": true,
+      "evidence": {
+        "forcedOverlapLabelled": true,
+        "bothOwnershipDirections": true,
+        "oneModalAndCorrectFocus": true,
+        "originalReadingSnapshotRestored": true
+      }
+    },
+    {
+      "report": "interactions/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "zoom actual browser two hundred percent",
+      "passed": true,
+      "evidence": {
+        "realX11BrowserZoom": true,
+        "before": {
+          "width": 1440,
+          "height": 913,
+          "dpr": 1,
+          "font": "16px"
+        },
+        "after": {
+          "width": 720,
+          "height": 456,
+          "dpr": 2,
+          "font": "16px"
+        },
+        "fontSizeUnchanged": true,
+        "originalIframeInheritedBrowserZoom": true
+      }
+    },
+    {
+      "report": "focus-safe-recheck/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "keyboard modal traversal and restoration",
+      "passed": true,
+      "evidence": {
+        "nativeTabTraversal": 53,
+        "nativeBrowserUIBoundary": [
+          {
+            "index": 31,
+            "within": false,
+            "body": true,
+            "focused": false,
+            "tag": "BODY"
+          }
+        ],
+        "noBackgroundControlFocused": true,
+        "initialReturnFocus": true,
+        "arrowTabUnloads": true,
+        "escapeRestoresTriggerAndScroll": true
+      }
+    },
+    {
+      "report": "safe-area-final/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "safe area actual env inset emulation",
+      "passed": true,
+      "evidence": {
+        "CDPSafeAreaProtocolSupported": true,
+        "parentPaddingGeometryOnlyIfUnsupported": false,
+        "realEnvInsetsVerified": true,
+        "physicalNotchVerified": false,
+        "frame": {
+          "x": 20,
+          "y": 70,
+          "width": 350,
+          "height": 740
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 70
+        }
+      }
+    },
+    {
+      "report": "lifecycle/browser.json",
+      "build": "build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "accessibility reduced motion semantics",
+      "passed": true,
+      "evidence": {
+        "realMediaQueryEmulation": true,
+        "parentPauseRespected": true,
+        "originalJSStillDrawsAsBaseline": true,
+        "noPauseAllInjected": true,
+        "guideNotRestarted": true
+      }
+    },
+    {
+      "report": "graphics-recheck/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "graphics parent recovery stays covered",
+      "passed": true,
+      "evidence": {
+        "realParentContextLossAndRestore": true,
+        "originalRemainedIndependent": true,
+        "coveredRecoveryDidNotDraw": true,
+        "parentReadyWhenCoverVisibleAgain": true
+      }
+    },
+    {
+      "report": "hmr/browser.json",
+      "build": "isolated Vite copy from build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "HMR module loading",
+      "passed": true,
+      "evidence": {
+        "phaseBeforeUpdate": "loading",
+        "realViteModuleUpdate": true,
+        "oldOriginalUnloadedAndDrawsStopped": true,
+        "oneNewHostCanvas": true,
+        "newExperienceReady": true,
+        "workingRepositoryMutatedForTest": false
+      }
+    },
+    {
+      "report": "hmr/browser.json",
+      "build": "isolated Vite copy from build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "HMR module ready",
+      "passed": true,
+      "evidence": {
+        "phaseBeforeUpdate": "ready",
+        "realViteModuleUpdate": true,
+        "oldOriginalUnloadedAndDrawsStopped": true,
+        "oneNewHostCanvas": true,
+        "newExperienceReady": true,
+        "workingRepositoryMutatedForTest": false
+      }
+    },
+    {
+      "report": "hmr/browser.json",
+      "build": "isolated Vite copy from build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "HMR module error",
+      "passed": true,
+      "evidence": {
+        "phaseBeforeUpdate": "error",
+        "realViteModuleUpdate": true,
+        "oldOriginalUnloadedAndDrawsStopped": true,
+        "oneNewHostCanvas": true,
+        "newExperienceReady": true,
+        "workingRepositoryMutatedForTest": false
+      }
+    },
+    {
+      "report": "hmr/browser.json",
+      "build": "isolated Vite copy from build1",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "HMR stylesheet keeps current instance",
+      "passed": true,
+      "evidence": {
+        "realViteCSSUpdate": true,
+        "liveIframePreserved": true,
+        "hostStillSuspended": true
+      }
+    },
+    {
+      "report": "permissions-final/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "permissions denied fullscreen remains usable",
+      "passed": true,
+      "evidence": {
+        "realPermissionsPolicyDenial": true,
+        "capabilityNoticeShown": true,
+        "nativeOriginalRequestRejected": true,
+        "otherSceneFunctionsRemainReady": true,
+        "hostReturnWorks": true
+      }
+    },
+    {
+      "report": "permissions-final/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "permissions pointer lock without activation",
+      "passed": true,
+      "evidence": {
+        "delayedSyntheticOriginalButtonExplicitlyLabelled": true,
+        "actualBrowserNoActivationDenial": true,
+        "hostNotLocked": true
+      }
+    },
+    {
+      "report": "native-visibility-final/browser.json",
+      "build": "build2 native Chrome no_defaults",
+      "engine": "chromium-native",
+      "browserVersion": "155.0.8059.79",
+      "name": "native visibility loading",
+      "passed": true,
+      "evidence": {
+        "actualHidden": {
+          "state": "hidden",
+          "events": [
+            {
+              "state": "hidden",
+              "time": 1579.1000000000931
+            }
+          ]
+        },
+        "childActuallyHidden": true,
+        "backgroundWaitMS": 13000,
+        "stateWhileHidden": "slow",
+        "returnedEvents": [
+          {
+            "state": "hidden",
+            "time": 1579.1000000000931
+          },
+          {
+            "state": "visible",
+            "time": 14880.100000000093
+          }
+        ],
+        "sameInstanceAcrossTabSwitch": true,
+        "stateUsableAfterReturn": true,
+        "parentCoveredDraws": 0
+      }
+    },
+    {
+      "report": "native-visibility-final/browser.json",
+      "build": "build2 native Chrome no_defaults",
+      "engine": "chromium-native",
+      "browserVersion": "155.0.8059.79",
+      "name": "native visibility ready",
+      "passed": true,
+      "evidence": {
+        "actualHidden": {
+          "state": "hidden",
+          "events": [
+            {
+              "state": "hidden",
+              "time": 4091.2000000001863
+            }
+          ]
+        },
+        "childActuallyHidden": true,
+        "backgroundWaitMS": 500,
+        "stateWhileHidden": "ready",
+        "returnedEvents": [
+          {
+            "state": "hidden",
+            "time": 4091.2000000001863
+          },
+          {
+            "state": "visible",
+            "time": 4623.399999999907
+          }
+        ],
+        "sameInstanceAcrossTabSwitch": true,
+        "stateUsableAfterReturn": true,
+        "parentCoveredDraws": 0
+      }
+    },
+    {
+      "report": "native-visibility-final/browser.json",
+      "build": "build2 native Chrome no_defaults",
+      "engine": "chromium-native",
+      "browserVersion": "155.0.8059.79",
+      "name": "native visibility error",
+      "passed": true,
+      "evidence": {
+        "actualHidden": {
+          "state": "hidden",
+          "events": [
+            {
+              "state": "hidden",
+              "time": 1459
+            }
+          ]
+        },
+        "childActuallyHidden": true,
+        "backgroundWaitMS": 500,
+        "stateWhileHidden": "error",
+        "returnedEvents": [
+          {
+            "state": "hidden",
+            "time": 1459
+          },
+          {
+            "state": "visible",
+            "time": 2133.2999999998137
+          }
+        ],
+        "sameInstanceAcrossTabSwitch": true,
+        "stateUsableAfterReturn": true,
+        "parentCoveredDraws": 0
+      }
+    },
+    {
+      "report": "compat-chromium/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "compat final engine native controls",
+      "passed": true,
+      "evidence": {
+        "realEngine": "chromium",
+        "capabilities": {
+          "fullscreen": true,
+          "pointerLock": true
+        },
+        "capabilityNoticeMatchesActualSupport": true,
+        "nativeLightsControlsWork": true,
+        "parentSuspended": true
+      }
+    },
+    {
+      "report": "compat-chromium/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "compat independent and embedded original mobile",
+      "passed": true,
+      "evidence": {
+        "sameOriginalViewport": [
+          390,
+          796
+        ],
+        "embedded": {
+          "controls": 41,
+          "brand": [
+            14,
+            12,
+            244.21875,
+            32
+          ],
+          "panel": [
+            178,
+            58,
+            200,
+            666
+          ],
+          "topbar": [
+            254,
+            12,
+            124,
+            36
+          ],
+          "time": 18.5,
+          "roof": true,
+          "brandTopbarOverlap": true
+        },
+        "independent": {
+          "controls": 41,
+          "brand": [
+            14,
+            12,
+            244.21875,
+            32
+          ],
+          "panel": [
+            178,
+            58,
+            200,
+            666
+          ],
+          "topbar": [
+            254,
+            12,
+            124,
+            36
+          ],
+          "time": 18.5,
+          "roof": true,
+          "brandTopbarOverlap": true
+        },
+        "knownMobileLayoutPreservedNotReportedAsFixed": true,
+        "physicalDevice": false
+      }
+    },
+    {
+      "report": "compat-firefox/browser.json",
+      "build": "build2",
+      "engine": "firefox",
+      "browserVersion": "153.0",
+      "name": "compat final engine native controls",
+      "passed": true,
+      "evidence": {
+        "realEngine": "firefox",
+        "capabilities": {
+          "fullscreen": true,
+          "pointerLock": true
+        },
+        "capabilityNoticeMatchesActualSupport": true,
+        "nativeLightsControlsWork": true,
+        "parentSuspended": true
+      }
+    },
+    {
+      "report": "compat-webkit/browser.json",
+      "build": "build2",
+      "engine": "webkit",
+      "browserVersion": "26.5",
+      "name": "compat final engine native controls",
+      "passed": true,
+      "evidence": {
+        "realEngine": "webkit",
+        "capabilities": {
+          "fullscreen": true,
+          "pointerLock": true
+        },
+        "capabilityNoticeMatchesActualSupport": true,
+        "nativeLightsControlsWork": true,
+        "parentSuspended": true
+      }
+    },
+    {
+      "report": "permissions-supported/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "permissions supported native path",
+      "passed": true,
+      "evidence": {
+        "nativeOriginalFullscreenAndPointerLock": true,
+        "realX11Escape": true,
+        "sceneDrewInFullscreen": true,
+        "hostStayedOpenUntilReturn": true
+      }
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "graphics browser without WebGL",
+      "passed": true,
+      "evidence": {
+        "browserActuallyLaunchedWithDisableWebGL": true,
+        "originalNativeRendererFailureDetected": true,
+        "mainReadingAndArchivesUsable": true,
+        "independentLinkNotClaimedToBypassHardware": true
+      }
+    },
+    {
+      "report": "history-final/browser.json",
+      "build": "build2",
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "name": "history actual back and recovery",
+      "passed": true,
+      "evidence": {
+        "actualHistoryBack": true,
+        "pageshowEvents": [
+          {
+            "persisted": false,
+            "time": 68.5
+          }
+        ],
+        "BFCacheActuallyUsed": false,
+        "notClaimedIfReloaded": true,
+        "experienceUsableAfterReturn": true
+      }
+    }
+  ],
+  "allAttemptsPreserved": [
+    {
+      "report": "before-fix/browser.json",
+      "passed": false,
+      "failedChecks": [
+        "document wrong HTML",
+        "graphics child context loss"
+      ]
+    },
+    {
+      "report": "boundary-final/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "boundary-fix/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "compat-chromium/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "compat-firefox/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "compat-webkit/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "focus-safe-recheck/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "graphics-recheck/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "history-final/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "hmr/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "interactions/browser.json",
+      "passed": false,
+      "failedChecks": [
+        "keyboard modal traversal and restoration",
+        "safe area browser inset emulation"
+      ]
+    },
+    {
+      "report": "layout-chromium/browser.json",
+      "passed": false,
+      "failedChecks": [
+        "layout 1920x1080"
+      ]
+    },
+    {
+      "report": "layout-firefox/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "layout-large-recheck/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "layout-webkit/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "lifecycle/browser.json",
+      "passed": false,
+      "failedChecks": [
+        "graphics parent recovery stays covered"
+      ]
+    },
+    {
+      "report": "native-visibility/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "native-visibility-final/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "network/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "no-webgl/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "permission-before/browser.json",
+      "passed": false,
+      "failedChecks": [
+        "permissions denied fullscreen remains usable"
+      ]
+    },
+    {
+      "report": "permissions-final/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "permissions-supported/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "real-visibility/browser.json",
+      "passed": true,
+      "failedChecks": []
+    },
+    {
+      "report": "safe-area-final/browser.json",
+      "passed": true,
+      "failedChecks": []
+    }
+  ],
+  "eventAudit": "event-audit.json",
+  "coverageBoundaries": {
+    "physicalIOSAndAndroid": "not verified; desktop engines and touch emulation are separate",
+    "physicalNotchDynamicAddressBarAndOSScaling": "not verified; actual CSS env emulation and desktop browser zoom verified",
+    "BFCacheRestore": "not observed; real history back used full reload and succeeded",
+    "screenReaderHardware": "not verified; native keyboard and semantic DOM checks only",
+    "hardwareGPUPerformance": "not measured; Mesa software GL and original adaptive quality retained",
+    "all41ControlsAnd17Picks": "reserved for step7; count preservation and basic controls verified",
+    "actualVisibility": "verified hidden/visible on parent and child in owned native Chrome default context",
+    "otherBrowserVisibilityAndNativePermissions": "not exhaustively covered; Firefox/WebKit actual scenes, layout, resize and light controls verified"
+  },
+  "finalBuild": "build-2.log",
+  "reuseExplanation": "Build1 and isolated HMR results cover unchanged lifecycle/geometry; build2 only adds actual fullscreen restriction notice, directly verified on all three engines and denied-policy path.",
+  "buildDelta": "build-1-to-2.patch",
+  "physicalDeviceResultsInvented": false,
+  "originalRuntimeOrClockModified": false
+}

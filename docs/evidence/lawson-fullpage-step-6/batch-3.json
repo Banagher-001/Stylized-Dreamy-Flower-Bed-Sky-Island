@@ -1,0 +1,42 @@
+[
+  {
+    "name": "permissions-final",
+    "command": [
+      "verify_permissions.py",
+      "--run",
+      "permissions-final"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "focus-safe-recheck",
+    "command": [
+      "verify_interactions.py",
+      "--run",
+      "focus-safe-recheck",
+      "--only",
+      "keyboard,safe area"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "graphics-recheck",
+    "command": [
+      "verify_lifecycle.py",
+      "--run",
+      "graphics-recheck",
+      "--only",
+      "graphics"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "boundary-final",
+    "command": [
+      "verify_boundaries.py",
+      "--run",
+      "boundary-final"
+    ],
+    "exitCode": 0
+  }
+]

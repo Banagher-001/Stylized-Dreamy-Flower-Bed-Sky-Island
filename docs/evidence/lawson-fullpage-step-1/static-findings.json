@@ -1,0 +1,97 @@
+{
+  "documentationVehicleClick": {
+    "classification": "原页已有问题",
+    "scope": "Static and runtime inventory mismatch, not exhaustive pixel click testing",
+    "help": {
+      "path": "lawson-blender/out/web_final/index.html",
+      "sha256": "ef8eb8d656620e8e0337b24cfc78fa7fe2422f66d165780ae43c50fa23edd888",
+      "line": 207,
+      "excerpt": "<li><b>点击</b> 招牌 / 冷柜 / 咖啡机 / ATM / 车辆 / 自动门 等物件触发现实交互</li>"
+    },
+    "carHandler": {
+      "path": "lawson-blender/out/web_final/js/main.js",
+      "sha256": "401b1f1331fda13472f4f37cef0ca652472afe6311d1d8538067d3f8ad13a134",
+      "line": 197,
+      "excerpt": "    car: (tag) => {\n      traffic.demo(tag);\n      ui.setCameraActive('vehicle');\n      cameraSystem.setPreset('vehicle');\n    },"
+    },
+    "interactionInputs": {
+      "path": "lawson-blender/out/web_final/js/main.js",
+      "sha256": "401b1f1331fda13472f4f37cef0ca652472afe6311d1d8538067d3f8ad13a134",
+      "line": 204,
+      "excerpt": "  const interaction = new InteractionSystem({\n    camera: camera,\n    dom: canvas,\n    scene: sceneManager.scene,\n    interactives: interactives,\n    handlers: handlers,\n  });"
+    },
+    "pickMeshConstruction": {
+      "path": "lawson-blender/out/web_final/js/systems/InteractionSystem.js",
+      "sha256": "6bbd2abba1381dd80a535234643127550fe43114ea322936e3cacf0447dad8cd",
+      "line": 20,
+      "excerpt": "    this.interactives.forEach((entry) => {\n      entry.meshes.forEach((mesh) => {\n        if (!mesh) return;\n        mesh.userData.interaction = entry;\n        this.meshes.push(mesh);\n        this.meshEntries.push(entry);\n      });\n    });\n\n    this.tooltip ="
+    },
+    "actualRuntimePickIds": [
+      "facade",
+      "checkout",
+      "sign",
+      "basket",
+      "door",
+      "vending",
+      "shelf",
+      "alcohol",
+      "oden",
+      "clerkA",
+      "clerkB",
+      "atm",
+      "freezer",
+      "cooler",
+      "microwave",
+      "dining",
+      "coffee"
+    ]
+  },
+  "resetStateSync": {
+    "shortcut": {
+      "path": "lawson-blender/out/web_final/js/main.js",
+      "sha256": "401b1f1331fda13472f4f37cef0ca652472afe6311d1d8538067d3f8ad13a134",
+      "line": 551,
+      "excerpt": "    if (e.code === 'KeyR') { walkActive = false; cameraSystem.reset(); ui.setWalk(false); }\n"
+    },
+    "button": {
+      "path": "lawson-blender/out/web_final/js/main.js",
+      "sha256": "401b1f1331fda13472f4f37cef0ca652472afe6311d1d8538067d3f8ad13a134",
+      "line": 299,
+      "excerpt": "    resetCamera: () => {\n      walkActive = false;\n      cameraSystem.reset();\n      uiState.patch({ cameraMode: 'hero', walk: false });\n      ui.setWalk(false);\n    },"
+    }
+  },
+  "movementCollision": {
+    "mergedBoxes": {
+      "path": "lawson-blender/out/web_final/js/core/AssetManager.js",
+      "sha256": "180ea83606e0b9d5503ef40a238903df1c870bc6cf80821c5e86297738f378ea",
+      "line": 364,
+      "excerpt": "  buildBlockers(root) {\n    const groups = new Map();\n    root.traverse((obj) => {\n      if (!obj.isMesh) return;\n      const name = obj.name || '';\n      for (const rule of BLOCKER_RULES) {\n        if (rule.patterns.some((re) => re.test(name))) {\n          let box = groups.get(rule.label);\n          if (!box) { box = new THREE.Box3(); box.makeEmpty(); groups.set(rule.label, box); }\n          box.union(new THREE.Box3().setFromObject(obj));\n          break;\n        }\n      }\n    });\n    return Array.from(groups.values()).filter((b) => !b.isEmpty());\n  }\n\n  /**"
+    },
+    "walkCollision": {
+      "path": "lawson-blender/out/web_final/js/systems/CameraSystem.js",
+      "sha256": "319087cdd0aa9bf3d3afa96460810962609aff6eca21f704fbc702344c72f23b",
+      "line": 151,
+      "excerpt": "      // blockers (AABB) with a small radius\n      const r = 0.32;\n      for (const box of this.blockers) {\n        const inside = next.x > box.min.x - r && next.x < box.max.x + r && next.z > box.min.z - r && next.z < box.max.z + r;\n        if (!inside) continue;\n        const dxIn = Math.min(Math.abs(next.x - (box.min.x - r)), Math.abs(next.x - (box.max.x + r)));\n        const dzIn = Math.min(Math.abs(next.z - (box.min.z - r)), Math.abs(next.z - (box.max.z + r)));\n        if (dxIn < dzIn) next.x = this.walk.pos.x;\n        else next.z = this.walk.pos.z;\n      }\n      this.walk.pos.copy(next);"
+    }
+  },
+  "presetResidualDamping": {
+    "reset": {
+      "path": "lawson-blender/out/web_final/js/systems/CameraSystem.js",
+      "sha256": "319087cdd0aa9bf3d3afa96460810962609aff6eca21f704fbc702344c72f23b",
+      "line": 95,
+      "excerpt": "  reset() {\n    this.setPreset('hero');\n  }\n\n  focusOn("
+    },
+    "tweenUpdate": {
+      "path": "lawson-blender/out/web_final/js/systems/CameraSystem.js",
+      "sha256": "319087cdd0aa9bf3d3afa96460810962609aff6eca21f704fbc702344c72f23b",
+      "line": 198,
+      "excerpt": "    if (this.tween) {\n      this.tween.t += dt;\n      const raw = Math.min(1, this.tween.t / this.tween.duration);\n      const e = raw < 0.5 ? 4 * raw * raw * raw : 1 - Math.pow(-2 * raw + 2, 3) / 2;\n      this.camera.position.lerpVectors(this.tween.fromPos, this.tween.toPos, e);\n      this.controls.target.lerpVectors(this.tween.fromTarget, this.tween.toTarget, e);\n      this.camera.lookAt(this.controls.target);\n      if (raw >= 1) this.tween = null;\n      this.controls.update();\n      return;\n    }\n    if (this.mode === 'walk')"
+    }
+  },
+  "visibility": {
+    "path": "lawson-blender/out/web_final/js/core/UpdateLoop.js",
+    "sha256": "fb6f999e91d4cfca001c818b578b2c5a01fa357235496025a8356dff945ccfaa",
+    "line": 15,
+    "excerpt": "    document.addEventListener('visibilitychange', () => {\n      // avoid a huge delta after the tab was hidden\n      this.last = performance.now();\n    });"
+  }
+}

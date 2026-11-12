@@ -1,0 +1,97 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "compat final engine native controls",
+      "passed": true,
+      "evidence": {
+        "realEngine": "chromium",
+        "capabilities": {
+          "fullscreen": true,
+          "pointerLock": true
+        },
+        "capabilityNoticeMatchesActualSupport": true,
+        "nativeLightsControlsWork": true,
+        "parentSuspended": true
+      }
+    },
+    {
+      "name": "compat independent and embedded original mobile",
+      "passed": true,
+      "evidence": {
+        "sameOriginalViewport": [
+          390,
+          796
+        ],
+        "embedded": {
+          "controls": 41,
+          "brand": [
+            14,
+            12,
+            244.21875,
+            32
+          ],
+          "panel": [
+            178,
+            58,
+            200,
+            666
+          ],
+          "topbar": [
+            254,
+            12,
+            124,
+            36
+          ],
+          "time": 18.5,
+          "roof": true,
+          "brandTopbarOverlap": true
+        },
+        "independent": {
+          "controls": 41,
+          "brand": [
+            14,
+            12,
+            244.21875,
+            32
+          ],
+          "panel": [
+            178,
+            58,
+            200,
+            666
+          ],
+          "topbar": [
+            254,
+            12,
+            124,
+            36
+          ],
+          "time": 18.5,
+          "roof": true,
+          "brandTopbarOverlap": true
+        },
+        "knownMobileLayoutPreservedNotReportedAsFixed": true,
+        "physicalDevice": false
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "compat final engine native controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "compat independent and embedded original mobile",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

@@ -1,0 +1,40 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "touch gestures and panel isolation",
+      "passed": true,
+      "evidence": {
+        "browserTouchInputTrusted": true,
+        "singleFingerRotated": true,
+        "twoFingersZoomed": true,
+        "panelScroll": [
+          0,
+          225
+        ],
+        "nativePresetTapWorked": true,
+        "parentReadingUnchanged": true,
+        "portraitAndLandscapeWithNativeTap": true,
+        "physicalDevice": false
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "touch gestures and panel isolation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "touch gestures and panel isolation",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

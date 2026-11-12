@@ -1,0 +1,106 @@
+/* Static design prototype only. No iframe, production import, GLB, WebGL or ready API. */
+(() => {
+  'use strict';
+  const $ = selector => document.querySelector(selector);
+  const all = selector => [...document.querySelectorAll(selector)];
+  const projects = {
+    lawson: { title: '罗森便利店', short: '罗森', cover: 'assets/lawson-hero.png', reference: 'assets/lawson-original-ui.png', alt: '蓝色 LAWSON 招牌、微缩店面和方块樱花', summary: '在一家微缩便利店里，切换昼夜，观察店员与车辆。', index: '01 / 02', live: '进入完整网页', headline: '一间店，<br>几个日夜。', intro: '从街角望进灯火，再走近生活的细节。切换昼夜，观察店员与车辆，让微缩世界以自己的节奏运转。', features: [['昼夜与灯光', '观察白天、黄昏与夜晚，以及原页面的灯光控制。'], ['店员与车辆', '看角色自主活动，使用原车辆演示与速度选项。'], ['镜头与场景', '通过原视角、屋顶及物件入口探索这间微缩便利店。']] },
+    courtyard: { title: '庭院习作', short: '庭院', cover: 'assets/courtyard-cover.webp', reference: 'assets/courtyard-cover.webp', alt: '三根深色石柱、小花、水潭与悬浮水球', summary: '一座可以停留、切换和探索的庭院。', index: '02 / 02', live: '现场体验', headline: '停一会儿，<br>看风经过。', intro: '以三根石柱串起介绍、影像与交互。滚动靠近，在柱身之间阅读；也可以暂时停下，观察水面与草花。', features: [['滚动与阅读', '靠近石柱，沿柱身逐段阅读；空间不足时稳定浏览。'], ['水面与风', '观察悬浮水球、落水波纹，以及掠过庭院的云影与飞鸟。'], ['画面与停留', '保留现有庭院的画面模式与环境动效选择。']] },
+  };
+  const dialog = $('#project-dialog'), surface = $('#reading-surface'), notice = $('#announcement');
+  let selectedProjectId = 'lawson', activeProject, status = 'ready', trigger, savedScroll = 0, generation = 0;
+  let readingMode = innerWidth <= 1000 ? 'stable' : 'immersive';
+  let guideStopped = false;
+  const selectProject = id => {
+    selectedProjectId = id;
+    const p = projects[id];
+    $('#entry-title').textContent = p.title;
+    $('#cover-image').src = p.cover;
+    $('#cover-image').alt = p.alt;
+    $('#cover-index').textContent = p.index;
+    $('#entry-summary').textContent = p.summary;
+    $('#open-live').innerHTML = p.live + ' <span aria-hidden="true">↗</span>';
+    $('#open-live').setAttribute('aria-label', id === 'lawson' ? '进入罗森便利店完整网页' : '进入庭院习作现场体验');
+    $('#open-archive').setAttribute('aria-label', '查看' + p.title + '项目档案');
+    $('#project-preview').setAttribute('aria-labelledby', 'select-' + id);
+    for (const b of all('[data-project]')) { const active = b.dataset.project === id;b.setAttribute('aria-selected', String(active));b.tabIndex = active ? 0 : -1; }
+    surface.dataset.selectedProject = id;
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) $('#project-preview').animate([{opacity:.4},{opacity:1}],{duration:120,easing:'ease-out'});
+  };
+  function setReadingMode(mode) {
+    readingMode = mode;surface.dataset.readingMode = mode;
+    $('#reading-toggle').textContent = mode === 'stable' ? '沉浸浏览' : '稳定阅读';
+    $('#reading-toggle').setAttribute('aria-pressed', String(mode === 'stable'));
+  }
+  function renderArchive(p) {
+    $('#archive-panel').innerHTML = `<div class="archive-heading"><div><p class="archive-kicker">${activeProject.id === 'lawson' ? 'LAWSON' : 'COURTYARD'} / INTERACTIVE WORLD</p><h3>${p.headline}</h3></div><p>${p.intro}</p></div><figure class="archive-cover"><img src="${p.cover}" alt="${p.alt}" width="1280" height="720"><figcaption>${p.title} · 原场景画面参考</figcaption></figure><div class="archive-features">${p.features.map((f,i) => `<article><span>0${i+1}</span><h4>${f[0]}</h4><p>${f[1]}</p></article>`).join('')}</div><p class="archive-note">第二步档案布局样稿。真实项目资料和运行入口在后续接入时使用同一个作品身份。</p>`;
+  }
+  function renderStatus(next) {
+    status = next;dialog.dataset.state = next;$('#design-state').value = next;
+    const labels = { ready: '静态参考', loading: '载入中 · 示意', slow: '载入较慢 · 示意', error: '原页错误 · 示意' };
+    $('#viewer-state').textContent = labels[next];
+    $('#host-retry').hidden = next !== 'slow' && next !== 'error';
+    $('#state-card').hidden = next === 'ready' || next === 'slow';
+    $('#original-retry-demo').hidden = next !== 'error';
+    $('#state-kicker').textContent = next === 'error' ? 'ORIGINAL ERROR / 原错误位置示意' : 'OPENING / 状态示意';
+    $('#state-title').textContent = next === 'error' ? '场景加载失败' : '正在打开' + projects[activeProject.id].title;
+    $('#state-copy').textContent = next === 'error' ? '此处示意原页错误与重试的位置。正式接入保留原页面提示，返回仍可操作。' : '这是加载布局样稿。正式接入将保留原页面加载界面，不制造百分比。';
+    notice.textContent = next === 'slow' ? '载入较慢，可继续等待、重新载入或独立打开。此处为状态示意。' : labels[next];
+  }
+  function selectTab(tab) {
+    if (!activeProject || activeProject.tab === tab) return;
+    activeProject.tab = tab;generation++;
+    $('#live-panel').hidden = tab !== 'live';$('#archive-panel').hidden = tab !== 'archive';
+    dialog.dataset.tab = tab;
+    for (const b of all('[data-tab]')) { const active = b.dataset.tab === tab;b.setAttribute('aria-selected', String(active));b.tabIndex = active ? 0 : -1; }
+    if (tab === 'archive') { $('#reference-image').removeAttribute('src');renderArchive(projects[activeProject.id]);$('#host-retry').hidden = true;$('#viewer-state').textContent = '项目档案'; }
+    else { $('#reference-image').src = projects[activeProject.id].reference;renderStatus('ready'); }
+  }
+  function open(tab, source) {
+    if (dialog.open) return;
+    savedScroll = scrollY;trigger = source;guideStopped = true;generation++;
+    activeProject = { id: selectedProjectId, tab: undefined };
+    const p = projects[activeProject.id];
+    dialog.dataset.project = activeProject.id;
+    $('#viewer-title').innerHTML = `<span class="full-label">${p.title}</span><span class="short-label">${p.short}</span>`;
+    $('#reference-image').alt = p.title + '原画面静态参考，非实时网页';
+    $('#open-independent').href = 'design-preview.html?standalone=' + activeProject.id;
+    $('#open-independent').setAttribute('aria-label', '独立打开' + p.title + '的静态设计参考');
+    selectTab(tab);dialog.showModal();$('#return-reading').focus({ preventScroll: true });
+  }
+  function finish() {
+    if (!activeProject) return;
+    generation++;activeProject = undefined;
+    $('#reference-image').removeAttribute('src');$('#archive-panel').replaceChildren();
+    $('.design-controls').open = false;
+    window.scrollTo({ top: savedScroll, behavior: 'instant' });
+    const source = trigger?.isConnected ? trigger : $('#select-' + selectedProjectId);trigger = undefined;
+    source.focus({ preventScroll: true });notice.textContent = '已返回原作品位置。导览等待手动继续。';
+  }
+  function close() { if (dialog.open) dialog.close();finish(); }
+  for (const b of all('[data-project]')) b.addEventListener('click', () => { guideStopped = true;selectProject(b.dataset.project);notice.textContent = '已选择' + projects[selectedProjectId].title; });
+  $('.project-selector').addEventListener('keydown', event => {
+    if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+    event.preventDefault();guideStopped = true;
+    const id = event.key === 'Home' ? 'lawson' : event.key === 'End' ? 'courtyard' : selectedProjectId === 'lawson' ? 'courtyard' : 'lawson';
+    selectProject(id);$('#select-' + id).focus();
+  });
+  $('#open-live').addEventListener('click', event => open('live', event.currentTarget));
+  $('#open-archive').addEventListener('click', event => open('archive', event.currentTarget));
+  $('#return-reading').addEventListener('click', close);dialog.addEventListener('close', finish);
+  dialog.addEventListener('cancel', event => { event.preventDefault();if (!$('#reference-page').contains(document.activeElement)) close(); });
+  for (const b of all('[data-tab]')) b.addEventListener('click', () => selectTab(b.dataset.tab));
+  $('.viewer-tabs').addEventListener('keydown', event => {
+    if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+    event.preventDefault();const tab = event.key === 'Home' ? 'live' : event.key === 'End' ? 'archive' : activeProject.tab === 'live' ? 'archive' : 'live';
+    selectTab(tab);$('#tab-' + tab).focus();
+  });
+  $('#design-state').addEventListener('change', event => { if (activeProject.tab !== 'live') selectTab('live');renderStatus(event.target.value); });
+  for (const id of ['host-retry','original-retry-demo']) $('#' + id).addEventListener('click', () => { generation++;renderStatus('loading'); });
+  $('#design-font').addEventListener('change', event => { document.documentElement.style.fontSize = event.target.value === '200' ? '32px' : '16px'; });
+  $('#reading-toggle').addEventListener('click', () => setReadingMode(readingMode === 'stable' ? 'immersive' : 'stable'));
+  const standalone = new URLSearchParams(location.search).get('standalone');
+  selectProject('lawson');setReadingMode(readingMode);
+  if (projects[standalone]) { surface.hidden = true;$('#standalone-reference').hidden = false;$('#standalone-image').src = projects[standalone].reference; }
+  Object.defineProperty(window, '__STEP2_DESIGN__', { value: { snapshot: () => ({ designOnly: true, selectedProjectId, activeProject: activeProject ? { ...activeProject } : null, status, readingMode, guideStopped, generation, actualIframes: document.querySelectorAll('iframe').length }) } });
+})();

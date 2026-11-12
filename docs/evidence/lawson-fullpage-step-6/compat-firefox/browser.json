@@ -1,0 +1,31 @@
+{
+  "engine": "firefox",
+  "checks": [
+    {
+      "name": "compat final engine native controls",
+      "passed": true,
+      "evidence": {
+        "realEngine": "firefox",
+        "capabilities": {
+          "fullscreen": true,
+          "pointerLock": true
+        },
+        "capabilityNoticeMatchesActualSupport": true,
+        "nativeLightsControlsWork": true,
+        "parentSuspended": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "compat final engine native controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "153.0",
+  "passed": true
+}

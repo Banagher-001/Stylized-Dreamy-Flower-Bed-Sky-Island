@@ -1,0 +1,48 @@
+"""Bind final tests, exact build and immutable source snapshots to the baseline."""
+from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
+import hashlib,json,shutil,subprocess
+ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'docs/evidence/lawson-fullpage-step-7'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+read=lambda p:json.loads(p.read_text())
+def row(p):return {'path':p.relative_to(ROOT).as_posix(),'bytes':p.stat().st_size,'sha256':sha(p)}
+def write(name,data):(OUT/name).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+def git(d,*a):return subprocess.check_output(['git','-C',str(d),*a],text=True).strip()
+b=read(OUT/'baseline.json');assert git(ROOT,'rev-parse','HEAD')==b['hostCommit']
+seals=[]
+for old in b['previousSeals']:
+    p=ROOT/old['path'];assert sha(p)==old['sha256'];data=read(p);assert len(data['files'])==old['fileCount']
+    for f in data['files']:assert row(ROOT/f['path'])==f,f['path']
+    seals.append({**old,'allFilesUnchanged':True})
+for f in b['productionInputs']:assert row(ROOT/f['path'])==f,f['path']
+source=ROOT.parent/'luosen-asset';assert git(source,'rev-parse','HEAD')==b['sourceCommit']and git(source,'status','--short')==''
+manifest=ROOT/b['runtimeManifest'];assert sha(manifest)==b['runtimeManifestSHA256'];runtime=read(manifest)['runtimeFiles'];copies=[]
+for directory in [source/'lawson-blender/out/web_final',ROOT/'public/experiments/lawson',ROOT/'dist/experiments/lawson']:
+    actual=sorted(p.relative_to(directory).as_posix()for p in directory.rglob('*')if p.is_file())
+    expected=sorted(f['path']for f in runtime)
+    if directory==source/'lawson-blender/out/web_final':assert set(expected).issubset(actual)
+    else:assert actual==expected
+    for f in runtime:
+        p=directory/f['path'];assert p.stat().st_size==f['bytes']and sha(p)==f['sha256'],str(p)
+    copies.append({'path':str(directory),'files':len(runtime),'bytes':sum(f['bytes']for f in runtime),'allSHA256Match':True,'nonRuntimeOriginalFilesOutsideClosure':len(set(actual)-set(expected))})
+build=read(OUT/'build-result.json');assert build['exitCode']==0 and build['includesTypecheck']
+for f in build['builtFiles']:assert row(ROOT/f['path'])==f,f['path']
+previousBuild=read(ROOT/'docs/evidence/lawson-fullpage-step-6/build-result.json')
+assert build['builtFiles']==previousBuild['builtFiles'],'Explain new build before reusing step-6 evidence'
+http=read(OUT/'http-integrity.json');assert http['passed']and len(http['finalBuildHTTPFiles'])==130 and len(http['independentOriginalHTTPFiles'])==46
+clean=read(OUT/'clean-install-1.json');assert clean['passed']and clean['lockUnchanged']and clean['builtFilesExactlyMatchFinalBuild']==len(build['builtFiles'])
+parity=read(OUT/'functional-parity.json');assert parity['allOriginalNormalFeaturesPreserved']and not parity['hostNewRegressions']
+accepted=read(OUT/'accepted-browser-results.json');assert accepted['allAcceptedCasesHaveDeterminateResults']
+for c in accepted['cases']:assert sha(OUT/c['report'])==c['reportSHA256']
+subprocess.run(['git','diff','--check'],cwd=ROOT,check=True)
+sourceCopies=[]
+for f in b['productionInputs']+[row(ROOT/'README.md')]:
+    target=OUT/'after'/f['path'];target.parent.mkdir(parents=True,exist_ok=True)
+    if target.exists():assert sha(target)==f['sha256']
+    else:shutil.copyfile(ROOT/f['path'],target)
+    sourceCopies.append(row(target))
+fingerprint=hashlib.sha256(json.dumps({'hostInputs':b['productionInputs'],'runtimeManifestSHA256':b['runtimeManifestSHA256']},sort_keys=True,separators=(',',':')).encode()).hexdigest()
+write('candidate-manifest.json',{'candidateId':'lawson-fullpage-step7-'+fingerprint[:16],'productionFingerprintSHA256':fingerprint,'hostCommit':b['hostCommit'],'sourceCommit':b['sourceCommit'],'uncommittedWorkspaceInputsIncluded':True,'productionInputs':b['productionInputs'],'originalRuntimeManifest':b['runtimeManifest'],'originalRuntimeManifestSHA256':b['runtimeManifestSHA256'],'builtFiles':build['builtFiles'],'immutableSourceCopies':sourceCopies,'committed':False,'pushed':False,'published':False})
+write('integrity.json',{'passed':True,'completedAtShanghai':datetime.now(ZoneInfo('Asia/Shanghai')).isoformat(),'unchangedProductionInputs':len(b['productionInputs']),'modifiedProductionInputs':[],'newProductionFiles':[],'historicalSeals':seals,'runtimeCopies':copies,'finalBuildMatchesStep6Exactly':True,'prior49CoreGroupsReuse':'identical 95 inputs and exact 65 built-file bytes; original files unchanged','cleanInstallAndBuild':True,'finalHTTPBytesVerified':True,'immutableProductionAndReadmeCopies':len(sourceCopies),'gitDiffCheckPassed':True,'originalRepositoryClean':True,'committed':False,'pushed':False,'published':False})
+print(json.dumps({'passed':True,'candidateId':'lawson-fullpage-step7-'+fingerprint[:16],'unchangedProductionInputs':95,'originalFiles':46,'historicalSeals':7,'sourceCopies':len(sourceCopies)},ensure_ascii=False))

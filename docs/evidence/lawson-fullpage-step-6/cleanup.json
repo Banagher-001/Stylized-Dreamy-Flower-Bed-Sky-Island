@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "capturedAtUTC": "2026-11-11T09:48:42.840239+00:00",
+  "onlyOwnedServicesStopped": [
+    {
+      "pid": 6586,
+      "verifiedCommand": [
+        "node",
+        "/tmp/lawson-step6-hmr-w7m7551x/node_modules/.bin/vite",
+        "--host",
+        "0.0.0.0",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "5196",
+        "--strictPort"
+      ],
+      "stopped": true
+    },
+    {
+      "pid": 714,
+      "verifiedCommand": [
+        "python",
+        "-u",
+        "tests/lawson-fullpage-step-3/serve_built.py",
+        "--port",
+        "4196"
+      ],
+      "stopped": true
+    },
+    {
+      "pid": 708,
+      "verifiedCommand": [
+        "/workspace/.cache/browser-deps/root/usr/bin/Xvfb",
+        ":112",
+        "-screen",
+        "0",
+        "1920x1080x24",
+        "-nolisten",
+        "tcp"
+      ],
+      "stopped": true
+    }
+  ],
+  "portsClosed": {
+    "4196": true,
+    "5196": true
+  },
+  "display112SocketRemoved": true,
+  "isolatedHMRCopyRemoved": true,
+  "nativeChromeAndProfileCleaned": true,
+  "otherServicesStopped": false
+}

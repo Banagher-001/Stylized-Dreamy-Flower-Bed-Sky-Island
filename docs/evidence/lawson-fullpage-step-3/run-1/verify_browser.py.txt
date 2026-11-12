@@ -1,0 +1,172 @@
+"""Real original page from built output; native UI and unmodified scene clocks."""
+from pathlib import Path
+import argparse,ast,hashlib,json,os,shutil,time,traceback
+from urllib.parse import urlsplit
+from playwright.sync_api import sync_playwright
+from runtime_files import ROOT,OUT,manifest,now
+
+parser=argparse.ArgumentParser();parser.add_argument('--run',default='run-1');parser.add_argument('--only',default='');args=parser.parse_args()
+folder=OUT/args.run;folder.mkdir(exist_ok=False)
+for name in ['verify_browser.py','runtime_files.py','serve_built.py','verify_http.py']:
+    shutil.copyfile(Path(__file__).parent/name,folder/(name+'.txt'))
+old=ast.parse((ROOT/'tests/lawson-integration/step1_browser.py').read_text())
+PROBE=next(ast.literal_eval(n.value)for n in old.body if isinstance(n,ast.Assign)and any(isinstance(t,ast.Name)and t.id=='PROBE'for t in n.targets))
+report={'createdAtShanghai':now(),'scope':'Independent original page from actual dist, root and subpath; no host UI or iframe integration',
+    'checks':[],'pageErrors':[],'console':[],'httpErrors':[],'failedRequests':[],'requests':[],'clockModified':False,'runtimeFilesModified':False,
+    'environment':{'backend':'Mesa llvmpipe software GL','DISPLAY':os.environ.get('DISPLAY'),'LP_NUM_THREADS':os.environ.get('LP_NUM_THREADS'),'hardwareFPSProof':False}}
+path=folder/'browser.json';m=manifest();expected={f['path']:f for f in m['runtimeFiles']}
+page=None;response_objects=[];root_url=''
+def save():path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+def snapshot():
+    return page.evaluate('''()=>({ready:__LAWSON__.ready,error:__LAWSON__.error,bodyReady:document.body.dataset.ready,
+      state:__LAWSON__.api.getState(),stats:__LAWSON__.api.getStats(),camera:__LAWSON__.debugDoor().cam,
+      projection:[__LAWSON__.api.project([0,0,0]),__LAWSON__.api.project([8,0,0]),__LAWSON__.api.project([0,4,0])],
+      debug:__LAWSON__.debug,clerks:__LAWSON__.api.getClerkStates(),carA:__LAWSON__.api.getVehicleState('A'),
+      panelCollapsed:document.querySelector('#panel').classList.contains('collapsed'),
+      controls:document.querySelectorAll('button,input,.toggle').length,
+      canvas:(()=>{const c=document.querySelector('#viewport');return {width:c.width,height:c.height,rect:c.getBoundingClientRect().toJSON()}})(),
+      probe:{draws:__lawsonAudit.draws,mainFrames:__lawsonAudit.mainFrames,cappedSeconds:__lawsonAudit.observedCappedSeconds}})''')
+def picture(name):page.screenshot(path=str(folder/(name+'.png')))
+def observed(seconds=1.6):
+    begin=page.evaluate('__lawsonAudit.observedCappedSeconds')
+    page.wait_for_function('b=>__lawsonAudit.observedCappedSeconds>=b.start+b.seconds',arg={'start':begin,'seconds':seconds},timeout=90000,polling=100)
+def case(identifier,fn):
+    if args.only and identifier not in args.only.split(',')and not identifier.endswith('.load'):return
+    try:
+        evidence=fn();report['checks'].append({'id':identifier,'passed':True,'evidence':evidence});print('PASS '+identifier,flush=True)
+    except Exception as error:
+        row={'id':identifier,'passed':False,'error':str(error),'traceback':traceback.format_exc()}
+        try:row['snapshot']=snapshot();picture('failure-'+identifier)
+        except Exception:pass
+        report['checks'].append(row);print('FAIL '+identifier+': '+str(error),flush=True)
+    save()
+def install_observer():
+    return page.evaluate('''async()=>{
+      const {LightingSystem}=await import('./js/systems/LightingSystem.js');
+      const a=window.__migrationAudit={lightEvents:[],lighting:null};
+      const signature=(system,id)=>({lights:system.groups.get(id).lights.map(l=>({name:l.name,intensity:l.intensity})),materials:(system.groups.get(id).materials||[]).map(m=>({name:m.name,intensity:m.emissiveIntensity}))});
+      const raw=LightingSystem.prototype.setGroupEnabled;
+      LightingSystem.prototype.setGroupEnabled=function(...args){
+        const before=signature(this,args[0]),result=raw.apply(this,args);a.lighting=this;
+        a.lightEvents.push({args,before,after:signature(this,args[0])});return result;
+      };
+      return {observation:'setGroupEnabled calls original exactly once with original arguments; only read light/material values',publicAPICount:Object.keys(__LAWSON__.api).length};
+    }''')
+
+with sync_playwright()as pw:
+    browser=pw.chromium.launch(executable_path='/usr/bin/chromium',headless=False,args=['--no-sandbox','--use-gl=angle','--use-angle=gl','--ignore-gpu-blocklist'])
+    report['browserVersion']=browser.version
+    for label,prefix in [('root','/'),('project','/Stylized-Dreamy-Flower-Bed-Sky-Island/')]:
+        context=browser.new_context(viewport={'width':1440,'height':900},device_scale_factor=1)
+        context.add_init_script(PROBE);page=context.new_page();response_objects=[]
+        root_url='http://127.0.0.1:4193'+prefix+'experiments/lawson/'
+        page.on('pageerror',lambda e:report['pageErrors'].append({'url':page.url,'text':str(e)}))
+        page.on('console',lambda msg:report['console'].append({'type':msg.type,'text':msg.text,'url':page.url})if msg.type in ['warning','error']else None)
+        page.on('request',lambda req:report['requests'].append(req.url))
+        page.on('requestfailed',lambda req:report['failedRequests'].append({'url':req.url,'failure':req.failure}))
+        def response_listener(response):
+            response_objects.append(response)
+            if response.status>=400:report['httpErrors'].append({'url':response.url,'status':response.status})
+        page.on('response',response_listener)
+        def load():
+            started=time.monotonic();page.goto(root_url+'index.html',wait_until='domcontentloaded')
+            page.wait_for_function('''()=>window.__LAWSON__?.ready||window.__LAWSON__?.error||(()=>{const f=document.querySelector('#fatal');return f&&getComputedStyle(f).display!=='none'})()''',timeout=90000,polling=100)
+            assert page.evaluate('__LAWSON__.ready && !__LAWSON__.error && document.body.dataset.ready==="1"')
+            assert not page.locator('#fatal').is_visible()
+            at_ready=snapshot()
+            page.wait_for_function('document.querySelector("#loader").classList.contains("hide")',timeout=15000,polling=100)
+            current=snapshot();s=current['state']
+            assert s['loaded']and s['timeOfDay']==18.5 and not current['panelCollapsed']
+            assert len(s['lights'])==8 and all(s['lights'].values())
+            assert s['roofVisible']and not s['walk']and s['cameraMode']=='orbit'
+            assert max(abs(a-b)for a,b in zip(current['camera'],[20.5,5.2,28.5]))<.03
+            assert set(current['debug']['cars'])=={'A','B','C'}and set(current['debug']['clerks'])=={'A','B'}
+            assert len(current['debug']['interactives'])==17 and current['controls']==41
+            assert current['canvas']['width']>0 and current['canvas']['height']>0 and current['probe']['draws']>0
+            assert page.locator('#help').is_hidden()
+            page.wait_for_function('__LAWSON__.api.getState().traffic.running && __LAWSON__.api.getVehicleState("A").active',timeout=15000,polling=100)
+            picture(label+'-default-original')
+            gpu=page.evaluate('''()=>{const g=document.querySelector('#viewport').getContext('webgl2'),e=g.getExtension('WEBGL_debug_renderer_info');return {renderer:e?g.getParameter(e.UNMASKED_RENDERER_WEBGL):g.getParameter(g.RENDERER),version:g.getParameter(g.VERSION)}}''')
+            return {'url':page.url,'readySeconds':time.monotonic()-started,'atReady':at_ready,'defaultSnapshot':current,'automaticTraffic':page.evaluate('__LAWSON__.api.getVehicleState("A")'),'graphics':gpu}
+        case(label+'.load',load)
+        if page.evaluate('!!window.__LAWSON__?.ready')and not page.locator('#fatal').is_visible():
+            if label=='root':
+                page.set_viewport_size({'width':960,'height':540});page.wait_for_function('__LAWSON__.api.getStats().renderSize[0]===960',timeout=15000,polling=100)
+                choices=[]
+                while page.evaluate('__LAWSON__.api.getState().quality')!='low'and len(choices)<3:
+                    before=page.evaluate('__LAWSON__.api.getState().quality');page.locator('#btn-settings').click();choices.append({'before':before,'after':page.evaluate('__LAWSON__.api.getState().quality')})
+                report['functionalQualitySetup']={'originalButtonChoices':choices,'defaultCapturedBeforeSelection':True,'viewport':[960,540]};save()
+                def time_controls():
+                    rows=[]
+                    for preset,value in [('night',22),('dusk',18.5)]:
+                        page.locator('[data-preset='+preset+']').click();page.wait_for_function('v=>Math.abs(__LAWSON__.api.getStats().timeOfDay-v)<.02',arg=value,timeout=45000,polling=100)
+                        rows.append({'preset':preset,'snapshot':snapshot()});picture('root-time-'+preset)
+                    return rows
+                case('root.time',time_controls)
+                report['lightObservation']=install_observer();save()
+                def sign_controls():
+                    rows=[]
+                    for value in [False,True]:
+                        page.locator('.toggle[data-group=LawsonSign]').click()
+                        assert page.evaluate('__LAWSON__.api.getState().lights.LawsonSign')is value
+                        event=page.evaluate('__migrationAudit.lightEvents.at(-1)')
+                        assert event['args']==['LawsonSign',value]and event['before']!=event['after']
+                        if not value:assert all(light['intensity']==0 for light in event['after']['lights'])
+                        observed(.15);rows.append(event)
+                    return {'actualOriginalLightAndMaterialEvents':rows}
+                case('root.sign',sign_controls)
+                def camera_controls():
+                    before=snapshot();rows=[]
+                    for preset,target in [('front',[0,5.6,32]),('hero',[20.5,5.2,28.5])]:
+                        page.locator('[data-cam='+preset+']').click();observed()
+                        after=snapshot();assert max(abs(a-b)for a,b in zip(after['camera'],target))<.05
+                        rows.append({'preset':preset,'snapshot':after})
+                    assert rows[0]['snapshot']['projection']!=before['projection']
+                    picture('root-camera-restored');return {'before':before,'originalPresetResults':rows,'noCanvasDragInThisCase':True}
+                case('root.camera',camera_controls)
+                def roof_controls():
+                    rows=[]
+                    for visible in [False,True]:
+                        page.locator('#btn-roof').click()
+                        state=page.evaluate('({ui:__LAWSON__.api.getState().roofVisible,actual:__migrationAudit.lighting.scene.getObjectByName("roofRoot").visible})')
+                        assert state['ui']is visible and state['actual']is visible
+                        observed(.15);rows.append(state)
+                    return rows
+                case('root.roof',roof_controls)
+                def traffic_controls():
+                    page.locator('[data-car=A]').click()
+                    page.wait_for_function('__LAWSON__.api.getVehicleState("A").signedDist>.1',timeout=30000,polling=100)
+                    moving=page.evaluate('__LAWSON__.api.getVehicleState("A")');assert abs(moving['wheelSpinTotal'])>.1
+                    page.locator('#traffic-toggle').click();assert not page.evaluate('__LAWSON__.api.getState().traffic.running')
+                    before=page.evaluate('__LAWSON__.api.getVehicleState("A")');frame_before=page.evaluate('__lawsonAudit.mainFrames');observed(.35)
+                    after=page.evaluate('__LAWSON__.api.getVehicleState("A")');frame_after=page.evaluate('__lawsonAudit.mainFrames')
+                    for key in ['position','signedDist','wheelSpinTotal','phase']:assert before[key]==after[key],key
+                    assert frame_after>frame_before
+                    page.locator('#traffic-toggle').click();page.wait_for_function('v=>__LAWSON__.api.getVehicleState("A").signedDist>v',arg=after['signedDist'],timeout=30000,polling=100)
+                    resumed=page.evaluate('__LAWSON__.api.getVehicleState("A")');assert resumed['wheelSpinTotal']!=after['wheelSpinTotal']
+                    return {'originalCarAButtonUsed':True,'moving':moving,'pausedBefore':before,'pausedAfter':after,'renderFramesWhilePaused':frame_after-frame_before,'resumed':resumed}
+                case('root.traffic',traffic_controls)
+            else:
+                def project_ui():
+                    before=snapshot();page.locator('#panel-collapse').click();assert page.locator('#panel').evaluate('e=>e.classList.contains("collapsed")')
+                    page.locator('#panel-collapse').click();assert not page.locator('#panel').evaluate('e=>e.classList.contains("collapsed")')
+                    return {'before':before,'originalCollapseAndRestore':True,'after':snapshot()}
+                case('project.ui',project_ui)
+            def network_bytes():
+                rows={}
+                for response in response_objects:
+                    assert response.url.startswith(root_url),response.url
+                    relative=response.url[len(root_url):].split('?',1)[0]
+                    assert relative in expected,relative
+                    body=response.body();actual=hashlib.sha256(body).hexdigest()
+                    assert response.status==200 and actual==expected[relative]['sha256']
+                    rows[relative]={'url':response.url,'status':response.status,'bytes':len(body),'sha256':actual,'type':response.headers.get('content-type')}
+                for path in ['index.html','assets/models/lawson_scene.glb','assets/models/car_A.glb','assets/models/car_B.glb','assets/models/car_C.glb']:assert path in rows,path
+                return {'entryRoot':root_url,'actualResponsesMatchingManifest':len(rows),'files':rows,'outsidePrefixResponses':0}
+            case(label+'.network-bytes',network_bytes)
+        context.close()
+    browser.close()
+report['externalRequests']=[u for u in report['requests']if not u.startswith('http://127.0.0.1:4193/')and not u.startswith('data:')]
+report['passed']=all(c['passed']for c in report['checks'])and not any(report[k]for k in ['pageErrors','httpErrors','failedRequests','externalRequests'])
+save();print(json.dumps({'passed':report['passed'],'checks':len(report['checks']),'pageErrors':len(report['pageErrors']),'httpErrors':len(report['httpErrors'])},ensure_ascii=False),flush=True)
+raise SystemExit(0 if report['passed'] else 1)

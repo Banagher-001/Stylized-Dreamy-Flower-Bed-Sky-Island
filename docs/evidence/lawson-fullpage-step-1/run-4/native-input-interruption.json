@@ -1,0 +1,6 @@
+{
+  "reason": "OS-key probe selected an unmapped Chromium auxiliary window, causing X_SetInputFocus BadMatch and terminating that probe. This is test infrastructure, not a webpage failure.",
+  "partialReport": "controls.json",
+  "sourceRuntimeModified": false,
+  "correction": "Select only mapped large Chromium windows and capture X errors without terminating the runner; recheck the two pending cases."
+}

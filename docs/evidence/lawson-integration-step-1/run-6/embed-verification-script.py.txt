@@ -1,0 +1,616 @@
+"""Real-browser standalone baseline; no production code changes or clock mocking."""
+from pathlib import Path
+import argparse, hashlib, json, os, time, traceback
+from playwright.sync_api import sync_playwright
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / 'docs/evidence/lawson-integration-step-1'
+BASE = 'http://127.0.0.1:4190'
+PROBE = r'''(() => {
+ const probe = window.__lawsonAudit = {draws:0, raf:0, mainFrames:0, observedCappedSeconds:0, mainLast:null, mainSamples:[], samples:[], last:0};
+ const raf = window.requestAnimationFrame.bind(window);
+ window.requestAnimationFrame = cb => raf(t => {
+   probe.raf++;
+   if (probe.last && probe.samples.length < 10000) probe.samples.push(t-probe.last);
+   probe.last=t;
+   const main=cb.name==='bound _tick', wall=performance.now();
+   if(main){probe.mainFrames++;if(probe.mainLast!==null)probe.observedCappedSeconds+=Math.max(0,Math.min(.1,(t-probe.mainLast)/1000));probe.mainLast=t;}
+   cb(t);
+   if(main&&probe.mainSamples.length<10000)probe.mainSamples.push({native:t,wall,costMs:performance.now()-wall});
+ });
+ for (const cls of [window.WebGLRenderingContext,window.WebGL2RenderingContext]) {
+  if (!cls) continue;
+  for (const key of ['drawArrays','drawElements','drawArraysInstanced','drawElementsInstanced']) {
+   const raw=cls.prototype[key];if(!raw)continue;
+   cls.prototype[key]=function(...args){probe.draws++;return raw.apply(this,args);};
+  }
+ }
+})()'''
+SNAPSHOT = '''() => ({ready:__LAWSON__.ready,error:__LAWSON__.error,state:__LAWSON__.api.getState(),stats:__LAWSON__.api.getStats(),
+ debug:__LAWSON__.debug,door:__LAWSON__.debugDoor(),clerks:__LAWSON__.api.getClerkStates(),
+ camera:[__LAWSON__.api.project([0,0,0]),__LAWSON__.api.project([8,0,0]),__LAWSON__.api.project([0,4,0])],
+ canvas:(()=>{const c=document.querySelector('canvas');return {width:c.width,height:c.height,rect:c.getBoundingClientRect().toJSON()}})(),
+ probe:{draws:__lawsonAudit.draws,raf:__lawsonAudit.raf,mainFrames:__lawsonAudit.mainFrames}})'''
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--phase', choices=['core', 'embed', 'compat', 'performance'], required=True)
+    parser.add_argument('--run', default='run-1')
+    parser.add_argument('--only', help='Comma-separated case name fragments for targeted rechecks; keep cold/warm loads')
+    parser.add_argument('--backend', choices=['mesa', 'swiftshader'], default='mesa')
+    args = parser.parse_args()
+    folder = OUT / args.run
+    folder.mkdir(parents=True, exist_ok=True)
+    target = folder / f'{args.phase}.json'
+    assert not target.exists(), 'Preserve previous run; choose another --run'
+    report = {'phase': args.phase, 'run': args.run, 'checks': [], 'pageErrors': [], 'console': [], 'responses': [], 'failedRequests': [],
+              'timingPolicy': 'native RAF and performance time, no time acceleration or altered scene code',
+              'scope': 'independent staged scene and temporary harness, not the personal website integration'}
+    report['verificationScriptSHA256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    report['targetedCaseFragments'] = args.only.split(',') if args.only else None
+    (folder / f'{args.phase}-verification-script.py.txt').write_text(Path(__file__).read_text())
+    if args.phase == 'embed':
+        harness = Path('/tmp/lawson-step1-audit/harness.html')
+        report['diagnosticHarnessSHA256'] = hashlib.sha256(harness.read_bytes()).hexdigest()
+        (folder / 'harness.html.txt').write_text(harness.read_text())
+
+    def save():
+        target.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+
+    def check(name, fn):
+        if args.only and not any(fragment.strip() in name for fragment in args.only.split(',')) and name not in ['cold standalone load', 'warm standalone load']:
+            return
+        try:
+            evidence = fn()
+            report['checks'].append({'name': name, 'passed': True, 'evidence': evidence})
+            print('PASS ' + name, flush=True)
+        except Exception as e:
+            report['checks'].append({'name': name, 'passed': False, 'error': str(e), 'traceback': traceback.format_exc()})
+            try:
+                report['checks'][-1]['failureSnapshot'] = page.evaluate('window.__LAWSON__?.ready ? ({state:__LAWSON__.api.getState(),stats:__LAWSON__.api.getStats()}) : null')
+            except Exception:
+                pass
+            print('FAIL ' + name + ': ' + str(e), flush=True)
+        save()
+
+    with sync_playwright() as p:
+        flags = ['--no-sandbox', '--use-gl=angle', '--use-angle=gl', '--ignore-gpu-blocklist'] if args.backend == 'mesa' else ['--no-sandbox', '--enable-webgl', '--use-angle=swiftshader', '--enable-unsafe-swiftshader']
+        browser = p.chromium.launch(executable_path='/usr/bin/chromium', headless=args.backend != 'mesa', args=flags)
+        report['browser'] = browser.version
+        report['browserConfiguration'] = {'backend': args.backend, 'headless': args.backend != 'mesa', 'flags': flags,
+                                          'DISPLAY': os.environ.get('DISPLAY'), 'LP_NUM_THREADS': os.environ.get('LP_NUM_THREADS'),
+                                          'softwareRendering': True, 'hardwareFPSProof': False}
+        viewport = {'width': 1280, 'height': 720} if args.phase == 'performance' else {'width': 960, 'height': 540}
+        context = browser.new_context(viewport=viewport, device_scale_factor=1)
+        report['initialViewport'] = viewport
+        context.add_init_script(PROBE)
+        page = context.new_page()
+
+        def watch(tab):
+            tab.on('pageerror', lambda e: report['pageErrors'].append({'url': tab.url, 'text': str(e)}))
+            tab.on('console', lambda m: report['console'].append({'type': m.type, 'text': m.text, 'url': tab.url}) if m.type in ['warning', 'error'] else None)
+            tab.on('response', lambda r: report['responses'].append({'url': r.url, 'status': r.status}))
+            tab.on('requestfailed', lambda r: report['failedRequests'].append({'url': r.url, 'failure': r.failure}))
+
+        watch(page)
+
+        def load(url, tab=page):
+            started = time.monotonic()
+            tab.goto(url, wait_until='domcontentloaded')
+            tab.wait_for_function('window.__LAWSON__?.ready===true', timeout=90000)
+            tab.wait_for_function('!document.querySelector("#loader") || getComputedStyle(document.querySelector("#loader")).display==="none" || document.querySelector("#loader").classList.contains("hide")', timeout=15000)
+            assert not tab.locator('#fatal').is_visible(), tab.locator('#fatal').inner_text()
+            return {'readySeconds': time.monotonic() - started,
+                    'navigation': tab.evaluate('performance.getEntriesByType("navigation")[0].toJSON()'),
+                    'resources': tab.evaluate('performance.getEntriesByType("resource").map(r=>({name:r.name,duration:r.duration,transferSize:r.transferSize,encodedBodySize:r.encodedBodySize}))')}
+
+        def snap(tab=page):
+            return tab.evaluate(SNAPSHOT)
+
+        def picture(name, tab=page):
+            tab.screenshot(path=str(folder / f'{name}.png'))
+
+        def camera(tab=page):
+            return tab.evaluate('JSON.stringify([__LAWSON__.api.project([0,0,0]),__LAWSON__.api.project([8,0,0]),__LAWSON__.api.project([0,4,0])])')
+
+        def camera_settled(tab=page):
+            # Observe actual scene callbacks; source camera flight uses capped dt.
+            # Wall-clock sleeping alone can finish before the native flight on software GL.
+            start = tab.evaluate('__lawsonAudit.observedCappedSeconds')
+            tab.wait_for_function('n=>__lawsonAudit.observedCappedSeconds>=n+1.6', arg=start, timeout=90000, polling=100)
+            return camera(tab)
+
+        def reset(tab=page):
+            tab.locator('#btn-reset-cam').click()
+            camera_settled(tab)
+
+        def choose_low(tab=page):
+            before = tab.evaluate('__LAWSON__.api.getStats()')
+            clicks = 0
+            while tab.evaluate('__LAWSON__.api.getState().quality') != 'low' and clicks < 3:
+                tab.locator('#btn-settings').click()
+                clicks += 1
+            tab.wait_for_timeout(500)
+            after = tab.evaluate('__LAWSON__.api.getStats()')
+            assert after['quality'] == 'low'
+            return {'before': before, 'after': after, 'originalSettingsButtonClicks': clicks,
+                    'reason': 'Functional verification on cloud software GL; default quality loading is recorded separately.'}
+
+        def load_low(url, tab=page):
+            return {'load': load(url, tab), 'qualitySelection': choose_low(tab)}
+
+        if args.phase == 'core':
+            check('cold standalone load', lambda: load(BASE + '/root/index.html'))
+            if not page.evaluate('!!window.__LAWSON__?.ready'):
+                raise RuntimeError('Cannot continue core checks before scene readiness')
+            report['environment'] = page.evaluate('''() => {const g=document.querySelector('canvas').getContext('webgl2');const e=g.getExtension('WEBGL_debug_renderer_info');return{viewport:[innerWidth,innerHeight],DPR:devicePixelRatio,renderer:e?g.getParameter(e.UNMASKED_RENDERER_WEBGL):g.getParameter(g.RENDERER),version:g.getParameter(g.VERSION)}}''')
+            check('warm standalone load', lambda: load(BASE + '/root/index.html'))
+
+            def complete_scene():
+                state = snap()
+                assert state['debug']['doorAvailable'] and state['debug']['roofTargets'] > 0
+                assert set(state['debug']['cars']) == {'A', 'B', 'C'}
+                assert set(state['debug']['clerks']) == {'A', 'B'}
+                assert state['debug']['interactives'] and state['stats']['drawCalls'] > 0
+                picture('standalone-original')
+                return state
+            check('scene objects and interactive systems present', complete_scene)
+            # Selecting the original UI is part of the documented test setup.
+            # Do this even for a targeted recheck, without suppressing default load evidence.
+            report['functionalQualitySetup'] = choose_low()
+            save()
+
+            def day_night():
+                rows = []
+                for name, value in [('day', 9), ('night', 22), ('dusk', 18.5)]:
+                    page.locator(f'[data-preset={name}]').click()
+                    page.wait_for_function('t=>Math.abs(__LAWSON__.api.getStats().timeOfDay-t)<.02', arg=value, timeout=15000)
+                    rows.append({'preset': name, 'stats': page.evaluate('__LAWSON__.api.getStats()')})
+                    picture('environment-' + name)
+                page.locator('#lights-all-off').click()
+                off = page.evaluate('__LAWSON__.api.getState().lights')
+                assert len(off) == 8 and not any(off.values()), off
+                page.locator('#lights-all-on').click()
+                on = page.evaluate('__LAWSON__.api.getState().lights')
+                assert len(on) == 8 and all(on.values()), on
+                single = page.locator('#light-toggles .toggle').first
+                group = single.get_attribute('data-group')
+                single.click()
+                assert page.evaluate('(g)=>__LAWSON__.api.getState().lights[g]', group) is False
+                single.click()
+                assert page.evaluate('(g)=>__LAWSON__.api.getState().lights[g]', group) is True
+                page.keyboard.press('1')
+                page.wait_for_function('Math.abs(__LAWSON__.api.getStats().timeOfDay-9)<.02')
+                page.keyboard.press('3')
+                page.wait_for_function('Math.abs(__LAWSON__.api.getStats().timeOfDay-22)<.02')
+                page.keyboard.press('2')
+                page.wait_for_function('Math.abs(__LAWSON__.api.getStats().timeOfDay-18.5)<.02')
+                return {'presets': rows, 'allOff': off, 'allOn': on, 'singleGroup': group, 'keyboard123': True}
+            check('day night eight lighting groups and shortcuts', day_night)
+
+            def viewpoints():
+                rows = []
+                for name in ['hero', 'front', 'left', 'rear', 'top', 'interior', 'checkout', 'vehicle']:
+                    page.locator(f'[data-cam={name}]').click()
+                    camera_settled()
+                    assert page.evaluate('__LAWSON__.api.getState().cameraMode') == name
+                    rows.append({'preset': name, 'camera': camera(), 'roof': page.evaluate('__LAWSON__.api.getState().roofVisible')})
+                    if name in ['interior', 'top']:
+                        picture('view-' + name)
+                reset()
+                original = camera()
+                page.locator('#panel-collapse').click()
+                page.mouse.move(500, 390)
+                page.mouse.down()
+                page.mouse.move(640, 440, steps=12)
+                page.mouse.up()
+                page.wait_for_timeout(1000)
+                rotated = camera()
+                assert original != rotated
+                page.mouse.wheel(0, 220)
+                page.wait_for_timeout(800)
+                zoomed = camera()
+                assert zoomed != rotated
+                page.mouse.move(500, 390)
+                page.mouse.down(button='right')
+                page.mouse.move(560, 400, steps=8)
+                page.mouse.up(button='right')
+                page.wait_for_timeout(800)
+                panned = camera()
+                assert panned != zoomed
+                page.locator('#panel-collapse').click()
+                reset()
+                restored = camera()
+                error_px = max(abs(a - b) for before_row, after_row in zip(json.loads(original), json.loads(restored)) for a, b in zip(before_row, after_row))
+                # Public project() rounds to integer CSS pixels and OrbitControls damps.
+                # The agreed criterion is restoration of the full view, not bitwise pixels.
+                assert error_px <= 2, (original, restored, error_px)
+                page.locator('#btn-roof').click()
+                hidden = page.evaluate('__LAWSON__.api.getState().roofVisible')
+                assert hidden is False
+                page.locator('#btn-roof').click()
+                assert page.evaluate('__LAWSON__.api.getState().roofVisible') is True
+                return {'presets': rows, 'orbitBefore': original, 'rotated': rotated, 'zoomed': zoomed, 'panned': panned,
+                        'reset': restored, 'resetMaxProjectionErrorCSSPixels': error_px, 'resetToleranceCSSPixels': 2,
+                        'roofHideAndShow': True}
+            check('eight camera presets orbit zoom pan reset roof', viewpoints)
+
+            def walk():
+                reset()
+                page.locator('#btn-walk').click()
+                page.wait_for_function('__LAWSON__.api.getState().walk===true')
+                page.wait_for_timeout(350)
+                entered = snap()
+                locked = page.evaluate('document.pointerLockElement?.id ?? null')
+                assert locked == 'viewport', locked
+                before = camera()
+                page.keyboard.down('KeyS')
+                page.wait_for_timeout(650)
+                page.keyboard.up('KeyS')
+                moved = camera()
+                assert moved != before
+                page.mouse.move(660, 350)
+                looked = camera()
+                page.keyboard.press('Escape')
+                page.wait_for_function('!__LAWSON__.api.getState().walk && !document.pointerLockElement')
+                assert page.locator('#walk-bar').is_hidden()
+                reset()
+                return {'entered': entered, 'pointerLock': locked, 'before': before, 'moved': moved, 'afterMouse': looked, 'exit': snap()}
+            check('walk keyboard pointer lock and Escape exit', walk)
+
+            def door_and_props():
+                reset()
+                page.evaluate('__LAWSON__.api.setDoorsAutomatic(false)')
+                page.evaluate('__LAWSON__.api.toggleDoor()')
+                page.wait_for_function('__LAWSON__.debugDoor().progress>.999', timeout=20000)
+                opened = page.evaluate('__LAWSON__.debugDoor()')
+                assert opened['leftPos'][0] < opened['leftBase'][0]
+                assert page.evaluate('__LAWSON__.debug.doorRight') is True
+                picture('door-open')
+                page.evaluate('__LAWSON__.api.toggleDoor()')
+                page.wait_for_function('__LAWSON__.debugDoor().progress<.001', timeout=20000)
+                closed = page.evaluate('__LAWSON__.debugDoor()')
+                assert abs(closed['leftPos'][0] - closed['leftBase'][0]) < .001
+                picture('door-closed')
+                targets = page.evaluate('''() => __LAWSON__.debug.interactives.map(id=>__LAWSON__.api.entryInfo(id))''')
+                # Actual pointer clicks: choose a reachable light or door through the same public raycast.
+                page.locator('#panel-collapse').click()
+                candidates = page.evaluate('''() => {
+                  const a=__LAWSON__.api, out=[];
+                  for(const id of __LAWSON__.debug.interactives){const e=a.entryInfo(id);const b=e.box;
+                   const center=b.min.map((v,i)=>(v+b.max[i])/2),p=a.project(center);
+                   if(p[0]>20&&p[0]<innerWidth-70&&p[1]>70&&p[1]<innerHeight-80){const hit=a.pickAt(...p);if(hit)out.push({id,point:p,hit});}}
+                  return out;
+                }''')
+                hit = next((c for c in candidates if c['hit']['action'].split(':')[0] in ['light', 'door']), None)
+                assert hit, candidates
+                before = page.evaluate('__LAWSON__.api.getState()')
+                page.mouse.click(*hit['point'])
+                page.wait_for_timeout(700)
+                after = page.evaluate('__LAWSON__.api.getState()')
+                action = hit['hit']['action']
+                if action.startswith('light:'):
+                    group = action.split(':', 1)[1]
+                    assert before['lights'][group] != after['lights'][group], (group, before, after)
+                else:
+                    assert before['doors'] != after['doors'], (before, after)
+                picture('actual-prop-click')
+                page.locator('#panel-collapse').click()
+                page.evaluate('__LAWSON__.api.setAllLights(true);__LAWSON__.api.setDoorsAutomatic(true)')
+                return {'manualOpen': opened, 'manualClosed': closed, 'rightLeafPresent': True,
+                        'motionObservation': 'public debugDoor exposes left leaf coordinates only; right leaf presence and actual scene screenshots recorded',
+                        'entries': targets, 'actualPointerHit': hit, 'before': before, 'after': after}
+            check('door geometry and actual scene prop click', door_and_props)
+
+            def quality():
+                rows = []
+                for level in ['high', 'medium', 'low']:
+                    returned = page.evaluate('(level)=>__LAWSON__.api.setQuality(level)', level)
+                    page.wait_for_timeout(600)
+                    state = page.evaluate('__LAWSON__.api.getStats()')
+                    assert returned == level and state['quality'] == level
+                    rows.append(state)
+                return {'selectedViaExistingPublicAPI': True, 'levels': rows}
+            check('three original quality levels', quality)
+
+            def traffic_and_clerks():
+                # Work within an explicitly recorded small viewport on software GL.
+                page.set_viewport_size({'width': 960, 'height': 540})
+                page.evaluate('__LAWSON__.api.setQuality("low")')
+                reset()
+                page.locator('#traffic-reset').click()
+                page.locator('[data-speed="1.8"]').click()
+                if not page.evaluate('__LAWSON__.api.getState().traffic.running'):
+                    page.locator('#traffic-toggle').click()
+                start = time.monotonic()
+                timeline = []
+                phases, tasks = set(), {'A': set(), 'B': set()}
+                completed = False
+                while time.monotonic() - start < 360:
+                    data = page.evaluate('({traffic:__LAWSON__.api.getState().traffic,carA:__LAWSON__.api.getVehicleState("A"),clerks:__LAWSON__.api.getClerkStates()})')
+                    timeline.append({'wallSeconds': time.monotonic() - start, **data})
+                    if len(timeline) % 5 == 0:
+                        (folder / 'traffic-progress.json').write_text(json.dumps({'complete': False, 'timeline': timeline}, ensure_ascii=False, indent=2) + '\n')
+                    phases.add(data['carA']['phase'])
+                    for tag in ['A', 'B']:
+                        task = data['clerks']['clerks'][tag]['task']
+                        if task:
+                            tasks[tag].add(task)
+                    if 'DRIVING_OUT' in phases and data['traffic']['current'] != 'A':
+                        completed = True
+                    if completed and all(len(v) >= 2 for v in tasks.values()):
+                        break
+                    page.wait_for_timeout(1000)
+                assert completed, sorted(phases)
+                assert all(len(v) >= 2 for v in tasks.values()), {k: sorted(v) for k, v in tasks.items()}
+                if not page.evaluate('__LAWSON__.api.getState().traffic.running'):
+                    page.locator('#traffic-toggle').click()
+                page.locator('#traffic-toggle').click()
+                before = page.evaluate('__LAWSON__.api.getState().traffic')
+                page.wait_for_timeout(900)
+                after = page.evaluate('__LAWSON__.api.getState().traffic')
+                assert not after['running'] and before['activePosition'] == after['activePosition']
+                page.locator('#traffic-toggle').click()
+                assert page.evaluate('__LAWSON__.api.getState().traffic.running')
+                for tag in ['B', 'C']:
+                    page.locator(f'[data-car={tag}]').click()
+                    page.wait_for_function('(tag)=>__LAWSON__.api.getVehicleState(tag).active', arg=tag)
+                page.locator('#traffic-reset').click()
+                for tag in ['A', 'B']:
+                    page.locator(f'[data-clerk={tag}]').click()
+                    page.wait_for_timeout(500)
+                picture('traffic-clerks-low-960')
+                return {'timeline': timeline, 'carAPhases': sorted(phases), 'clerkTasks': {k: sorted(v) for k, v in tasks.items()}, 'cycleCompleted': completed,
+                        'viewport': [960, 540], 'quality': 'low', 'speedSelectedThroughUI': 1.8, 'nativeClock': True, 'pauseBefore': before, 'pauseAfter': after}
+            check('one full vehicle cycle autonomous clerk transitions pause resume reset', traffic_and_clerks)
+
+            def moving_pause():
+                page.locator('[data-car=B]').click()
+                page.wait_for_function('__LAWSON__.api.getVehicleState("B").signedDist>.1', timeout=30000)
+                page.locator('#traffic-toggle').click()
+                assert not page.evaluate('__LAWSON__.api.getState().traffic.running')
+                before = page.evaluate('__LAWSON__.api.getVehicleState("B")')
+                page.wait_for_timeout(1300)
+                after = page.evaluate('__LAWSON__.api.getVehicleState("B")')
+                for key in ['position', 'signedDist', 'wheelSpinTotal', 'phase']:
+                    assert before[key] == after[key], (key, before, after)
+                page.locator('#traffic-toggle').click()
+                page.wait_for_function('(v)=>__LAWSON__.api.getVehicleState("B").signedDist!==v', arg=after['signedDist'], timeout=30000)
+                resumed = page.evaluate('__LAWSON__.api.getVehicleState("B")')
+                page.locator('#traffic-reset').click()
+                reset_state = page.evaluate('({traffic:__LAWSON__.api.getState().traffic,carB:__LAWSON__.api.getVehicleState("B")})')
+                assert reset_state['traffic']['current'] == 'A' and not reset_state['carB']['active']
+                assert reset_state['carB']['signedDist'] == 0
+                return {'pausedBefore': before, 'pausedAfter': after, 'resumed': resumed, 'reset': reset_state}
+            check('moving car pause resume and UI reset', moving_pause)
+
+            def lifecycle():
+                page.evaluate('__LAWSON__.api.pauseAll(false)')
+                page.wait_for_timeout(500)
+                page.evaluate('__LAWSON__.api.pauseAll(true)')
+                page.wait_for_timeout(100)
+                before = snap()
+                page.wait_for_timeout(900)
+                after = snap()
+                assert after['state']['paused'] is True
+                assert after['probe']['draws'] > before['probe']['draws']
+                page.evaluate('__LAWSON__.api.pauseAll(false)')
+                return {'before': before, 'after': after, 'animationPauseKeepsDrawing': True,
+                        'publicStopExists': page.evaluate('typeof __LAWSON__.api.stop === "function"'),
+                        'publicDisposeExists': page.evaluate('typeof __LAWSON__.api.dispose === "function"'),
+                        'postMessageBridgeExistsInSource': False}
+            check('pause semantics and lifecycle gaps measured', lifecycle)
+
+        elif args.phase == 'embed':
+            check('direct subdirectory load', lambda: load_low(BASE + '/experiments/lawson/index.html'))
+            if page.evaluate('!!window.__LAWSON__?.ready'):
+                picture('direct-subdirectory')
+            page.goto(BASE + '/harness.html')
+
+            def iframe_load():
+                before = len(report['responses'])
+                page.locator('#open').click()
+                frame = page.frame_locator('#lawson')
+                frame.locator('body[data-ready="1"]').wait_for(timeout=90000)
+                concrete = next(f for f in page.frames if '/experiments/lawson/' in f.url)
+                assert not concrete.locator('#fatal').is_visible()
+                quality = choose_low(concrete)
+                picture('iframe-original')
+                return {'state': snap(concrete), 'qualitySelection': quality, 'responsesSinceOpen': report['responses'][before:]}
+            check('same origin iframe actual scene readiness', iframe_load)
+
+            def isolation():
+                frame = next(f for f in page.frames if '/experiments/lawson/' in f.url)
+                page.evaluate('window.__parentKeyEvents=0;window.addEventListener("keydown",()=>window.__parentKeyEvents++)')
+                y = page.evaluate('scrollY')
+                c0 = camera(frame)
+                page.mouse.move(450, 410)
+                page.mouse.wheel(0, 180)
+                page.wait_for_timeout(1000)
+                c1 = camera(frame)
+                assert c1 != c0 and page.evaluate('scrollY') == y
+                frame.locator('#viewport').click(position={'x': 450, 'y': 350})
+                page.keyboard.press('1')
+                frame.wait_for_function('Math.abs(__LAWSON__.api.getStats().timeOfDay-9)<.02')
+                assert page.evaluate('__parentKeyEvents') == 0
+                # Parent retains a reachable close button; child does not modify parent CSS.
+                assert page.locator('#close').is_visible()
+                return {'parentYBefore': y, 'parentYAfter': page.evaluate('scrollY'), 'cameraBefore': c0, 'cameraAfter': c1,
+                        'parentKeyEvents': page.evaluate('__parentKeyEvents'), 'parentBackground': page.evaluate('getComputedStyle(document.body).backgroundColor')}
+            check('iframe wheel keyboard and CSS isolation', isolation)
+
+            def embed_permissions():
+                frame = next(f for f in page.frames if '/experiments/lawson/' in f.url)
+                frame.locator('#btn-walk').click()
+                frame.wait_for_function('!!document.pointerLockElement')
+                assert frame.evaluate('document.pointerLockElement.id') == 'viewport'
+                page.keyboard.press('Escape')
+                frame.wait_for_function('!document.pointerLockElement && !__LAWSON__.api.getState().walk')
+                frame.locator('#btn-fullscreen').click()
+                frame.wait_for_function('!!document.fullscreenElement')
+                in_fullscreen = frame.evaluate('!!document.fullscreenElement')
+                # Exit through the browser API because a second Esc can be browser-reserved.
+                frame.evaluate('document.exitFullscreen()')
+                frame.wait_for_function('!document.fullscreenElement')
+                return {'pointerLockWithRealClick': True, 'EscapeLeavesWalk': True, 'fullscreen': in_fullscreen, 'iframeAllowsFullscreen': True}
+            check('embedded pointer lock and fullscreen permissions', embed_permissions)
+
+            def resize_unload():
+                frame = next(f for f in page.frames if '/experiments/lawson/' in f.url)
+                page.locator('#lawson').evaluate('(e)=>e.style.height="340px"')
+                frame.wait_for_function('Math.abs(document.querySelector("canvas").clientHeight-340)<2')
+                frame.wait_for_function('__LAWSON__.api.getStats().renderSize[1]===340')
+                resized = snap(frame)
+                assert resized['stats']['renderSize'][1] == 340
+                # A parent-side closure survives iframe removal and observes further draw count.
+                page.evaluate('window.__oldAudit=document.querySelector("iframe").contentWindow.__lawsonAudit')
+                page.locator('#close').click()
+                before = page.evaluate('({draws:__oldAudit.draws,raf:__oldAudit.raf})')
+                page.wait_for_timeout(1100)
+                after = page.evaluate('({draws:__oldAudit.draws,raf:__oldAudit.raf})')
+                assert before == after and len(page.frames) == 1
+                page.evaluate('delete window.__oldAudit')
+                picture('iframe-unloaded')
+                return {'resized': resized, 'afterUnloadBefore': before, 'afterUnloadAfter': after,
+                        'note': 'Stopped callbacks after iframe removal verified; GPU-memory reclamation timing is not measured.'}
+            check('container resize and unload stops callbacks', resize_unload)
+
+            def failure_return():
+                context.route('**/experiments/lawson/assets/models/lawson_scene.glb', lambda route: route.abort('failed'))
+                page.locator('#open').click()
+                page.frame_locator('#lawson').locator('#fatal:not(.hidden)').wait_for(timeout=60000)
+                frame = next(f for f in page.frames if '/experiments/lawson/' in f.url)
+                message = frame.locator('#fatal-msg').inner_text()
+                assert '模型加载失败' in message
+                picture('iframe-failed-parent-return')
+                page.locator('#close').click()
+                assert page.locator('#lawson').count() == 0
+                context.unroute('**/experiments/lawson/assets/models/lawson_scene.glb')
+                page.locator('#open').click()
+                page.frame_locator('#lawson').locator('body[data-ready="1"]').wait_for(timeout=90000)
+                frame = next(f for f in page.frames if '/experiments/lawson/' in f.url)
+                page.locator('#close').click()
+                return {'injectedModelAbort': True, 'message': message, 'parentCloseWorks': True, 'reopenAfterRestoringModelWorks': True}
+            check('model failure keeps parent return available and recovery reloads', failure_return)
+
+        elif args.phase == 'compat':
+            mobile = browser.new_context(viewport={'width': 390, 'height': 844}, device_scale_factor=2, is_mobile=True, has_touch=True)
+            mobile.add_init_script(PROBE)
+            tab = mobile.new_page()
+            watch(tab)
+            check('mobile viewport original standalone load', lambda: load_low(BASE + '/experiments/lawson/index.html', tab))
+
+            def mobile_state():
+                data = snap(tab)
+                data['layout'] = tab.evaluate('''() => {const panel=document.querySelector('#panel'),r=panel.getBoundingClientRect(),brand=document.querySelector('.brand').getBoundingClientRect(),bar=document.querySelector('.topbar').getBoundingClientRect();return{inner:[innerWidth,innerHeight],panel:r.toJSON(),panelFraction:r.width/innerWidth,panelScrollHeight:panel.scrollHeight,panelClientHeight:panel.clientHeight,headerOverlap:brand.right>bar.left,noHorizontalOverflow:document.documentElement.scrollWidth<=innerWidth,walkButtons:document.querySelectorAll('[data-walk-direction]').length,touchAction:getComputedStyle(document.querySelector('canvas')).touchAction}}''')
+                data['layout']['controlsSmallerThan44CSSPixels'] = tab.locator('.panel button,.topbar button,.toggle').evaluate_all('''els=>els.map(e=>{const r=e.getBoundingClientRect();return{id:e.id||e.dataset.group||e.textContent.trim(),width:r.width,height:r.height}}).filter(r=>r.width>0&&r.height>0&&(r.width<44||r.height<44))''')
+                picture('mobile-original-expanded', tab)
+                tab.locator('#panel-collapse').tap()
+                collapsed = tab.locator('#panel').bounding_box()
+                before = camera(tab)
+                # Real touch events through Chromium's input protocol.
+                cdp = mobile.new_cdp_session(tab)
+                cdp.send('Input.dispatchTouchEvent', {'type': 'touchStart', 'touchPoints': [{'x': 110, 'y': 420}]})
+                for i in range(1, 9):
+                    cdp.send('Input.dispatchTouchEvent', {'type': 'touchMove', 'touchPoints': [{'x': 110 + i * 12, 'y': 420 + i * 3}]})
+                cdp.send('Input.dispatchTouchEvent', {'type': 'touchEnd', 'touchPoints': []})
+                tab.wait_for_timeout(800)
+                after = camera(tab)
+                assert before != after, (before, after)
+                pinch_before = camera(tab)
+                cdp.send('Input.dispatchTouchEvent', {'type': 'touchStart', 'touchPoints': [{'id': 1, 'x': 110, 'y': 420}, {'id': 2, 'x': 230, 'y': 420}]})
+                for i in range(1, 7):
+                    cdp.send('Input.dispatchTouchEvent', {'type': 'touchMove', 'touchPoints': [{'id': 1, 'x': 110 - i * 5, 'y': 420}, {'id': 2, 'x': 230 + i * 5, 'y': 420}]})
+                cdp.send('Input.dispatchTouchEvent', {'type': 'touchEnd', 'touchPoints': []})
+                tab.wait_for_timeout(800)
+                pinch_after = camera(tab)
+                assert pinch_before != pinch_after, (pinch_before, pinch_after)
+                before_points, after_points = json.loads(pinch_before), json.loads(pinch_after)
+                before_span = sum((a - b) ** 2 for a, b in zip(before_points[0], before_points[1])) ** .5
+                after_span = sum((a - b) ** 2 for a, b in zip(after_points[0], after_points[1])) ** .5
+                assert after_span / before_span > 1.1, (before_span, after_span)
+                picture('mobile-collapsed-touch-orbit', tab)
+                tab.locator('#panel-collapse').tap()
+                tab.locator('[data-preset=night]').tap()
+                tab.wait_for_function('Math.abs(__LAWSON__.api.getStats().timeOfDay-22)<.02', timeout=30000)
+                return {'expanded': data, 'collapsed': collapsed, 'touchOrbitBefore': before, 'touchOrbitAfter': after,
+                        'pinchBefore': pinch_before, 'pinchAfter': pinch_after, 'twoFingerZoomWorks': True,
+                        'pinchWorldAxisProjectedScaleRatio': after_span / before_span,
+                        'nightTapWorks': True, 'deviceScope': 'Chromium mobile/touch emulation, not physical iOS/Android'}
+            check('mobile layout touch orbit and environment tap', mobile_state)
+
+            def mobile_resize():
+                tab.set_viewport_size({'width': 844, 'height': 390})
+                tab.wait_for_function('document.querySelector("canvas").clientWidth===844 && document.querySelector("canvas").clientHeight===390')
+                tab.wait_for_function('__LAWSON__.api.getStats().renderSize[0]===844 && __LAWSON__.api.getStats().renderSize[1]===390')
+                data = snap(tab)
+                assert data['stats']['renderSize'] == [844, 390]
+                picture('mobile-landscape', tab)
+                return data
+            check('mobile landscape canvas resize', mobile_resize)
+            mobile.close()
+
+            reduced = browser.new_context(viewport={'width': 960, 'height': 540}, reduced_motion='reduce')
+            reduced.add_init_script(PROBE)
+            tab = reduced.new_page()
+            watch(tab)
+            check('reduced motion current behavior load', lambda: load_low(BASE + '/root/index.html', tab))
+
+            def reduced_behavior():
+                before = snap(tab)
+                tab.wait_for_timeout(1500)
+                after = snap(tab)
+                return {'mediaMatches': tab.evaluate('matchMedia("(prefers-reduced-motion: reduce)").matches'), 'before': before, 'after': after,
+                        'sceneAutomaticallyPaused': after['state']['paused'], 'note': 'CSS-only reduced motion currently leaves JS scene animation enabled.'}
+            check('reduced motion baseline documented', reduced_behavior)
+            reduced.close()
+
+            failed = browser.new_context(viewport={'width': 960, 'height': 540})
+            failed.add_init_script('''(() => {const raw=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return /^webgl/.test(type)?null:raw.call(this,type,...args)}})()''')
+            tab = failed.new_page()
+            watch(tab)
+
+            def no_gl():
+                tab.goto(BASE + '/root/index.html')
+                tab.locator('#fatal:not(.hidden)').wait_for()
+                text = tab.locator('#fatal-msg').inner_text()
+                assert 'WebGL' in text
+                picture('webgl-unavailable', tab)
+                return {'injectedUnavailableWebGL': True, 'message': text, 'retryVisible': tab.locator('#fatal-retry').is_visible()}
+            check('WebGL unavailable shows explicit failure', no_gl)
+            failed.close()
+
+        elif args.phase == 'performance':
+            check('performance scene load', lambda: load(BASE + '/root/index.html'))
+
+            def sample_view(label, preset):
+                page.evaluate('(name)=>__LAWSON__.api.setCamera(name)', preset)
+                camera_settled()
+                rows = []
+                start_at = page.evaluate('__lawsonAudit.mainSamples=[];performance.now()')
+                started = time.monotonic()
+                while time.monotonic() - started < 12:
+                    rows.append({'wallSeconds': time.monotonic() - started, 'stats': page.evaluate('__LAWSON__.api.getStats()')})
+                    page.wait_for_timeout(750)
+                measured = page.evaluate('(start)=>({durationMs:performance.now()-start,frames:__lawsonAudit.mainSamples})', start_at)
+                count = len(measured['frames'])
+                return {'label': label, 'viewport': page.viewport_size, 'DPR': 1, 'samples': rows,
+                        'sourceHUDFPS': [row['stats']['fps'] for row in rows],
+                        'actualCompletedSceneCallbacks': count, 'actualCallbackRatePerWallSecond': count / (measured['durationMs'] / 1000),
+                        'nativeMeasurement': measured, 'hardwareFPSProof': False,
+                        'scope': 'cloud software GL, default scene quality/adaptation, serial real native callbacks; diagnostic baseline, not hardware benchmark'}
+            check('performance baseline default full overview', lambda: sample_view('default auto-quality', 'hero'))
+            check('performance baseline vehicle view', lambda: sample_view('vehicle follow', 'vehicle'))
+            check('performance baseline interior', lambda: sample_view('interior', 'interior'))
+            report['renderingEnvironment'] = page.evaluate('''() => {const g=document.querySelector('canvas').getContext('webgl2'),e=g.getExtension('WEBGL_debug_renderer_info');return{renderer:g.getParameter(e.UNMASKED_RENDERER_WEBGL),version:g.getParameter(g.VERSION),userAgent:navigator.userAgent}}''')
+
+        report['passed'] = bool(report['checks']) and all(c['passed'] for c in report['checks'])
+        report['httpErrors'] = [r for r in report['responses'] if r['status'] >= 400]
+        save()
+        browser.close()
+        print(json.dumps({'phase': args.phase, 'passed': report['passed'], 'checks': len(report['checks']), 'pageErrors': len(report['pageErrors']), 'httpErrors': len(report['httpErrors'])}), flush=True)
+
+
+if __name__ == '__main__':
+    main()

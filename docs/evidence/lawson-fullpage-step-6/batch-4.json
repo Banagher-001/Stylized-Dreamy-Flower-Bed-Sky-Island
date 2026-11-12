@@ -1,0 +1,37 @@
+[
+  {
+    "name": "compat-chromium",
+    "command": [
+      "verify_compat.py",
+      "--run",
+      "compat-chromium"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "compat-firefox",
+    "command": [
+      "verify_compat.py",
+      "--run",
+      "compat-firefox",
+      "--engine",
+      "firefox",
+      "--only",
+      "compat final"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "compat-webkit",
+    "command": [
+      "verify_compat.py",
+      "--run",
+      "compat-webkit",
+      "--engine",
+      "webkit",
+      "--only",
+      "compat final"
+    ],
+    "exitCode": 0
+  }
+]

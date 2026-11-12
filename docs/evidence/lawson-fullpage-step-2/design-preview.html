@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>罗森 × 创作庭院 · 第二步设计样稿</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2320382f'/%3E%3Ctext x='9' y='24' fill='%23fff1cd' font-size='26'%3Es%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="design-preview.css">
+  <script src="design-preview.js" defer></script>
+</head>
+<body>
+  <main id="reading-surface" data-reading-mode="immersive">
+    <header class="site-header">
+      <a class="brand" href="#project-entry" aria-label="sakan，前往交互作品">sakan<span>.</span><small>CREATIVE COURTYARD</small></a>
+      <div class="site-actions"><span class="design-label">第二步 · 设计样稿</span><button type="button" id="reading-toggle" aria-pressed="false">稳定阅读</button></div>
+    </header>
+    <div class="reading-stage">
+      <section class="chapter-context" aria-label="第三根石柱位置示意">
+        <p class="kicker">03 / INTERACTIVE EXPERIMENTS</p>
+        <h1>让想象，<br>动起来。</h1>
+        <p class="context-copy">从一幅画面，<br>到一个可以进入的世界。</p>
+        <span class="chapter-mark" aria-hidden="true">C2 <i></i> 交互作品</span>
+      </section>
+      <section class="project-entry" id="project-entry" aria-label="交互作品展位">
+        <p class="entry-eyebrow">03 / 交互实验 <span>作品</span></p>
+        <h2 id="entry-title" tabindex="-1">罗森便利店</h2>
+        <div class="project-selector" role="tablist" aria-label="选择交互作品">
+          <button type="button" id="select-lawson" role="tab" aria-controls="project-preview" aria-selected="true" data-project="lawson"><span>LAWSON</span><small>罗森便利店</small></button>
+          <button type="button" id="select-courtyard" role="tab" aria-controls="project-preview" aria-selected="false" tabindex="-1" data-project="courtyard"><span>COURTYARD</span><small>庭院习作</small></button>
+        </div>
+        <div id="project-preview" role="tabpanel" aria-labelledby="select-lawson" tabindex="0">
+          <figure class="entry-cover"><img id="cover-image" width="1280" height="720" alt="罗森便利店、蓝色招牌与方块樱花" decoding="async"><figcaption><span id="cover-index">01 / 02</span><span>INTERACTIVE WEB</span></figcaption></figure>
+          <p class="entry-kind">交互网页场景</p>
+          <p class="entry-summary" id="entry-summary">在一家微缩便利店里，切换昼夜，观察店员与车辆。</p>
+          <div class="entry-actions"><button type="button" class="primary" id="open-live">进入完整网页 <span aria-hidden="true">↗</span></button><button type="button" id="open-archive">项目档案 <span aria-hidden="true">＋</span></button></div>
+        </div>
+      </section>
+    </div>
+    <footer class="reading-footer"><p><span class="footer-dot"></span>原庭院静态背景 · C2 展位设计</p><p>SAKAN / 张辰翰 <span>03 — 交互作品</span></p></footer>
+  </main>
+
+  <dialog id="project-dialog" aria-labelledby="viewer-title" aria-describedby="viewer-description">
+    <div class="viewer-shell">
+      <header class="viewer-toolbar">
+        <div class="viewer-identity"><h2 id="viewer-title"><span class="full-label">罗森便利店</span><span class="short-label">罗森</span></h2><span class="viewer-state" id="viewer-state">静态参考</span></div>
+        <div class="viewer-tabs" role="tablist" aria-label="项目内容">
+          <button type="button" role="tab" id="tab-live" aria-controls="live-panel" aria-selected="true" data-tab="live"><span class="full-label">现场体验</span><span class="short-label">体验</span></button>
+          <button type="button" role="tab" id="tab-archive" aria-controls="archive-panel" aria-selected="false" tabindex="-1" data-tab="archive"><span class="full-label">项目档案</span><span class="short-label">档案</span></button>
+        </div>
+        <div class="viewer-actions"><button type="button" id="host-retry" hidden>重新载入</button><a id="open-independent" target="_blank" rel="noopener noreferrer" aria-label="独立打开罗森完整网页的静态设计参考" title="独立打开：本步展示静态参考"><span class="full-label">独立打开</span><span class="external-arrow" aria-hidden="true">↗</span></a><button type="button" id="return-reading" autofocus aria-label="关闭项目，返回原阅读位置"><span class="full-label">返回阅读</span><span class="short-label">返回</span><span class="return-icon" aria-hidden="true">×</span></button></div>
+      </header>
+      <section id="live-panel" class="live-panel" role="tabpanel" aria-labelledby="tab-live">
+        <div id="reference-page" class="reference-page" tabindex="0" role="img" aria-label="原网页界面的静态截图参考，不提供原页实时交互"><img id="reference-image" alt="罗森原网页完整界面截图，包括原控制台" decoding="async"></div>
+        <div id="state-card" class="state-card" hidden><p class="state-kicker" id="state-kicker">OPENING / 状态示意</p><h3 id="state-title">正在打开罗森便利店</h3><p id="state-copy">保留原页面加载界面，工具栏仍可返回。</p><button type="button" id="original-retry-demo" hidden>原页重试 · 示意</button></div>
+      </section>
+      <section id="archive-panel" class="archive-panel" role="tabpanel" aria-labelledby="tab-archive" tabindex="0" hidden></section>
+    </div>
+    <p id="viewer-description" class="sr-only">这是第二步静态设计样稿。点击页面参考区后，Esc 保留给原页操作的设计优先级；使用顶部返回按钮关闭。真实原网页将在后续步骤接入。</p>
+    <details class="design-controls"><summary>设计样稿 <span aria-hidden="true">＋</span></summary><div class="design-controls-body"><p>样稿控制 · 非原页功能</p><label>状态示意<select id="design-state"><option value="ready">已就绪布局 · 静态截图</option><option value="loading">正在加载</option><option value="slow">载入较慢</option><option value="error">原页错误位置示意</option></select></label><label>文字尺寸<select id="design-font"><option value="100">100%</option><option value="200">200%</option></select></label><p class="control-note">本页没有 iframe、WebGL 或模型请求。图像保持原比例，仅用来检查外层空间。</p></div></details>
+  </dialog>
+
+  <section id="standalone-reference" hidden aria-label="独立打开的静态设计参考"><header><span>独立静态样稿 · 后续接入原网页</span><a href="design-preview.html">查看展位设计 ↗</a></header><img id="standalone-image" alt="独立打开的原网页静态截图参考"></section>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+</body>
+</html>

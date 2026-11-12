@@ -1,0 +1,1969 @@
+{
+  "phase": "embed",
+  "run": "run-6",
+  "checks": [
+    {
+      "name": "direct subdirectory load",
+      "passed": true,
+      "evidence": {
+        "load": {
+          "readySeconds": 2.3715662310005428,
+          "navigation": {
+            "name": "http://127.0.0.1:4190/experiments/lawson/index.html",
+            "entryType": "navigation",
+            "startTime": 0,
+            "duration": 281.7999999988824,
+            "navigationId": 9819,
+            "initiatorType": "navigation",
+            "deliveryType": "",
+            "nextHopProtocol": "http/1.0",
+            "renderBlockingStatus": "non-blocking",
+            "contentType": "text/html",
+            "contentEncoding": "",
+            "workerStart": 0,
+            "workerRouterEvaluationStart": 0,
+            "workerCacheLookupStart": 0,
+            "workerMatchedSourceType": "",
+            "workerFinalSourceType": "",
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1,
+            "domainLookupStart": 1,
+            "domainLookupEnd": 1,
+            "connectStart": 1,
+            "secureConnectionStart": 0,
+            "connectEnd": 1,
+            "requestStart": 3.199999999254942,
+            "responseStart": 3.799999998882413,
+            "firstInterimResponseStart": 0,
+            "finalResponseHeadersStart": 3.799999998882413,
+            "responseEnd": 4.699999999254942,
+            "transferSize": 9121,
+            "encodedBodySize": 8821,
+            "decodedBodySize": 8821,
+            "responseStatus": 200,
+            "serverTiming": [],
+            "unloadEventStart": 0,
+            "unloadEventEnd": 0,
+            "domInteractive": 45.09999999962747,
+            "domContentLoadedEventStart": 279.09999999962747,
+            "domContentLoadedEventEnd": 279.40000000037253,
+            "domComplete": 281.7999999988824,
+            "loadEventStart": 281.7999999988824,
+            "loadEventEnd": 281.7999999988824,
+            "type": "navigate",
+            "redirectCount": 0,
+            "activationStart": 0,
+            "criticalCHRestart": 0,
+            "notRestoredReasons": null,
+            "confidence": {
+              "randomizedTriggerRate": 0.4994798,
+              "value": "low"
+            }
+          },
+          "resources": [
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/css/main.css",
+              "duration": 16,
+              "transferSize": 9746,
+              "encodedBodySize": 9446
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/css/controls.css",
+              "duration": 16.800000000745058,
+              "transferSize": 1616,
+              "encodedBodySize": 1316
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/css/responsive.css",
+              "duration": 15.700000001117587,
+              "transferSize": 1610,
+              "encodedBodySize": 1310
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/main.js",
+              "duration": 16.799999998882413,
+              "transferSize": 22097,
+              "encodedBodySize": 21797
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/three.module.js",
+              "duration": 32.30000000074506,
+              "transferSize": 1273272,
+              "encodedBodySize": 1272972
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/core/Renderer.js",
+              "duration": 10.900000000372529,
+              "transferSize": 6953,
+              "encodedBodySize": 6653
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/core/SceneManager.js",
+              "duration": 15.900000000372529,
+              "transferSize": 3927,
+              "encodedBodySize": 3627
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/core/AssetManager.js",
+              "duration": 13.899999998509884,
+              "transferSize": 20610,
+              "encodedBodySize": 20310
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/core/UpdateLoop.js",
+              "duration": 15.400000000372529,
+              "transferSize": 1659,
+              "encodedBodySize": 1359
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/core/AnimationController.js",
+              "duration": 16,
+              "transferSize": 1219,
+              "encodedBodySize": 919
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/DoorSystem.js",
+              "duration": 17.40000000037253,
+              "transferSize": 3762,
+              "encodedBodySize": 3462
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/DayNightSystem.js",
+              "duration": 23.199999999254942,
+              "transferSize": 3170,
+              "encodedBodySize": 2870
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/LightingSystem.js",
+              "duration": 26.300000000745058,
+              "transferSize": 5632,
+              "encodedBodySize": 5332
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/ClerkSystem.js",
+              "duration": 24,
+              "transferSize": 32977,
+              "encodedBodySize": 32677
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/TrafficSystem.js",
+              "duration": 29.09999999962747,
+              "transferSize": 25916,
+              "encodedBodySize": 25616
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/CameraSystem.js",
+              "duration": 28.5,
+              "transferSize": 8119,
+              "encodedBodySize": 7819
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/InteractionSystem.js",
+              "duration": 30.199999999254942,
+              "transferSize": 4615,
+              "encodedBodySize": 4315
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIState.js",
+              "duration": 38.5,
+              "transferSize": 1184,
+              "encodedBodySize": 884
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/QualitySystem.js",
+              "duration": 41.19999999925494,
+              "transferSize": 2068,
+              "encodedBodySize": 1768
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIController.js",
+              "duration": 39.5,
+              "transferSize": 9861,
+              "encodedBodySize": 9561
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/config/lightConfig.js",
+              "duration": 40.40000000037253,
+              "transferSize": 7382,
+              "encodedBodySize": 7082
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+              "duration": 34.19999999925494,
+              "transferSize": 4951,
+              "encodedBodySize": 4651
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+              "duration": 41.20000000111759,
+              "transferSize": 2215,
+              "encodedBodySize": 1915
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+              "duration": 37.90000000037253,
+              "transferSize": 12706,
+              "encodedBodySize": 12406
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+              "duration": 43.40000000037253,
+              "transferSize": 2698,
+              "encodedBodySize": 2398
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/config/sceneConfig.js",
+              "duration": 45.59999999962747,
+              "transferSize": 3351,
+              "encodedBodySize": 3051
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+              "duration": 44.70000000111759,
+              "transferSize": 108822,
+              "encodedBodySize": 108522
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+              "duration": 44.90000000037253,
+              "transferSize": 32206,
+              "encodedBodySize": 31906
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/config/assetManifest.js",
+              "duration": 48.40000000037253,
+              "transferSize": 1132,
+              "encodedBodySize": 832
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/NavGrid.js",
+              "duration": 41.69999999925494,
+              "transferSize": 6135,
+              "encodedBodySize": 5835
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+              "duration": 42.09999999962747,
+              "transferSize": 8281,
+              "encodedBodySize": 7981
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/TaskManager.js",
+              "duration": 43.69999999925494,
+              "transferSize": 4842,
+              "encodedBodySize": 4542
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/clerkConfig.js",
+              "duration": 51.40000000037253,
+              "transferSize": 8695,
+              "encodedBodySize": 8395
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+              "duration": 40.30000000074506,
+              "transferSize": 30168,
+              "encodedBodySize": 29868
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/js/config/vehiclePaths.js",
+              "duration": 25.199999999254942,
+              "transferSize": 4157,
+              "encodedBodySize": 3857
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+              "duration": 23.90000000037253,
+              "transferSize": 871,
+              "encodedBodySize": 571
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+              "duration": 25.5,
+              "transferSize": 1876,
+              "encodedBodySize": 1576
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+              "duration": 25,
+              "transferSize": 2531,
+              "encodedBodySize": 2231
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+              "duration": 26.59999999962747,
+              "transferSize": 2006,
+              "encodedBodySize": 1706
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+              "duration": 24.799999998882413,
+              "transferSize": 1693,
+              "encodedBodySize": 1393
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+              "duration": 27,
+              "transferSize": 1492,
+              "encodedBodySize": 1192
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/assets/models/lawson_scene.glb",
+              "duration": 71.69999999925494,
+              "transferSize": 17316348,
+              "encodedBodySize": 17316048
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_A.glb",
+              "duration": 7.700000001117587,
+              "transferSize": 396608,
+              "encodedBodySize": 396308
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_B.glb",
+              "duration": 6.799999998882413,
+              "transferSize": 490236,
+              "encodedBodySize": 489936
+            },
+            {
+              "name": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_C.glb",
+              "duration": 8.100000001490116,
+              "transferSize": 446048,
+              "encodedBodySize": 445748
+            }
+          ]
+        },
+        "qualitySelection": {
+          "before": {
+            "fps": 0,
+            "drawCalls": 2193,
+            "triangles": 730990,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "after": {
+            "fps": 17,
+            "drawCalls": 1604,
+            "triangles": 414696,
+            "programs": 27,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "originalSettingsButtonClicks": 2,
+          "reason": "Functional verification on cloud software GL; default quality loading is recorded separately."
+        }
+      }
+    },
+    {
+      "name": "same origin iframe actual scene readiness",
+      "passed": true,
+      "evidence": {
+        "state": {
+          "ready": true,
+          "error": null,
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "low",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 15,
+            "stats": {
+              "drawCalls": 1608,
+              "triangles": 415020,
+              "programs": 27,
+              "geometries": 1209,
+              "textures": 15,
+              "pixelRatio": 1,
+              "resScale": 1,
+              "width": 913,
+              "height": 434
+            }
+          },
+          "stats": {
+            "fps": 15,
+            "drawCalls": 1608,
+            "triangles": 415020,
+            "programs": 27,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              913,
+              434
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "door": {
+            "cam": [
+              20.5,
+              5.2,
+              28.5
+            ],
+            "sensor": false,
+            "progress": 0,
+            "target": 0,
+            "state": "CLOSED",
+            "automatic": true,
+            "leftPos": [
+              -0.6,
+              1.31,
+              7.54
+            ],
+            "leftBase": [
+              -0.6,
+              1.31,
+              7.54
+            ]
+          },
+          "clerks": {
+            "time": 1.3,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "PERFORM_TASK",
+                "task": "tidy_counter",
+                "taskTarget": [
+                  -9.2,
+                  5.1
+                ],
+                "taskArea": "counter",
+                "animation": "Counter_Clean",
+                "remaining": 5.46,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.2,
+                  0,
+                  5.1
+                ],
+                "yaw": 0,
+                "forward": [
+                  0,
+                  1
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "PERFORM_TASK",
+                "task": "idle_observe",
+                "taskTarget": [
+                  2.45,
+                  -0.55
+                ],
+                "taskArea": "home",
+                "animation": "Idle_LookAround",
+                "remaining": 3.04,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  2.45,
+                  0,
+                  -0.55
+                ],
+                "yaw": 3.142,
+                "forward": [
+                  0,
+                  -1
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "camera": [
+            [
+              489,
+              263
+            ],
+            [
+              631,
+              279
+            ],
+            [
+              489,
+              188
+            ]
+          ],
+          "canvas": {
+            "width": 913,
+            "height": 434,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 913,
+              "height": 434,
+              "top": 0,
+              "right": 913,
+              "bottom": 434,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 34637,
+            "raf": 21,
+            "mainFrames": 19
+          }
+        },
+        "qualitySelection": {
+          "before": {
+            "fps": 0,
+            "drawCalls": 1622,
+            "triangles": 415034,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              913,
+              434
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "after": {
+            "fps": 17,
+            "drawCalls": 1608,
+            "triangles": 415020,
+            "programs": 27,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              913,
+              434
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "originalSettingsButtonClicks": 2,
+          "reason": "Functional verification on cloud software GL; default quality loading is recorded separately."
+        },
+        "responsesSinceOpen": [
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/index.html",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/css/main.css",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/css/controls.css",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/css/responsive.css",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/main.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/three.module.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/core/SceneManager.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/core/Renderer.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/core/AssetManager.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/core/AnimationController.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/core/UpdateLoop.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/LightingSystem.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/DayNightSystem.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/DoorSystem.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/TrafficSystem.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/ClerkSystem.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/CameraSystem.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/InteractionSystem.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/QualitySystem.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIState.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIController.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/config/lightConfig.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/config/sceneConfig.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/config/assetManifest.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/config/vehiclePaths.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/NavGrid.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/TaskManager.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/clerkConfig.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/lawson_scene.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_A.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_B.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_C.glb",
+            "status": 200
+          }
+        ]
+      }
+    },
+    {
+      "name": "iframe wheel keyboard and CSS isolation",
+      "passed": true,
+      "evidence": {
+        "parentYBefore": 0,
+        "parentYAfter": 0,
+        "cameraBefore": "[[489,263],[631,279],[489,188]]",
+        "cameraAfter": "[[486,260],[616,274],[487,190]]",
+        "parentKeyEvents": 0,
+        "parentBackground": "rgb(237, 240, 228)"
+      }
+    },
+    {
+      "name": "embedded pointer lock and fullscreen permissions",
+      "passed": true,
+      "evidence": {
+        "pointerLockWithRealClick": true,
+        "EscapeLeavesWalk": true,
+        "fullscreen": true,
+        "iframeAllowsFullscreen": true
+      }
+    },
+    {
+      "name": "container resize and unload stops callbacks",
+      "passed": true,
+      "evidence": {
+        "resized": {
+          "ready": true,
+          "error": null,
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "low",
+            "cameraMode": "orbit",
+            "timeOfDay": 9,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "TURNING_IN",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 11,
+            "stats": {
+              "drawCalls": 1609,
+              "triangles": 415048,
+              "programs": 27,
+              "geometries": 1209,
+              "textures": 2,
+              "pixelRatio": 0.92,
+              "resScale": 0.92,
+              "width": 913,
+              "height": 434
+            }
+          },
+          "stats": {
+            "fps": 11,
+            "drawCalls": 0,
+            "triangles": 0,
+            "programs": 27,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 9,
+            "pixelRatio": 0.92,
+            "renderSize": [
+              913,
+              340
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "door": {
+            "cam": [
+              20.5,
+              5.2,
+              28.5
+            ],
+            "sensor": false,
+            "progress": 0,
+            "target": 0,
+            "state": "CLOSED",
+            "automatic": true,
+            "leftPos": [
+              -0.6,
+              1.31,
+              7.54
+            ],
+            "leftBase": [
+              -0.6,
+              1.31,
+              7.54
+            ]
+          },
+          "clerks": {
+            "time": 4,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "PERFORM_TASK",
+                "task": "tidy_counter",
+                "taskTarget": [
+                  -9.2,
+                  5.1
+                ],
+                "taskArea": "counter",
+                "animation": "Cashier_Scan",
+                "remaining": 2.76,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.2,
+                  0,
+                  5.1
+                ],
+                "yaw": 0,
+                "forward": [
+                  0,
+                  1
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "PERFORM_TASK",
+                "task": "idle_observe",
+                "taskTarget": [
+                  2.45,
+                  -0.55
+                ],
+                "taskArea": "home",
+                "animation": "Idle_ShiftWeight",
+                "remaining": 0.34,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  2.45,
+                  0,
+                  -0.55
+                ],
+                "yaw": 3.142,
+                "forward": [
+                  0,
+                  -1
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "camera": [
+            [
+              505,
+              197
+            ],
+            [
+              619,
+              211
+            ],
+            [
+              506,
+              138
+            ]
+          ],
+          "canvas": {
+            "width": 839,
+            "height": 312,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 913,
+              "height": 340,
+              "top": 0,
+              "right": 913,
+              "bottom": 340,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 82966,
+            "raf": 59,
+            "mainFrames": 49
+          }
+        },
+        "afterUnloadBefore": {
+          "draws": 86316,
+          "raf": 61
+        },
+        "afterUnloadAfter": {
+          "draws": 86316,
+          "raf": 61
+        },
+        "note": "Stopped callbacks after iframe removal verified; GPU-memory reclamation timing is not measured."
+      }
+    },
+    {
+      "name": "model failure keeps parent return available and recovery reloads",
+      "passed": true,
+      "evidence": {
+        "injectedModelAbort": true,
+        "message": "模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch",
+        "parentCloseWorks": true,
+        "reopenAfterRestoringModelWorks": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "console": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "url": "http://127.0.0.1:4190/harness.html"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "url": "http://127.0.0.1:4190/harness.html"
+    },
+    {
+      "type": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch",
+      "url": "http://127.0.0.1:4190/harness.html"
+    }
+  ],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/main.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/controls.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/responsive.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/main.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/Renderer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/AssetManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/UpdateLoop.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/SceneManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/AnimationController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/DoorSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/DayNightSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/ClerkSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/LightingSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/CameraSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/TrafficSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/InteractionSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIState.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/QualitySystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/lightConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/sceneConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/NavGrid.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/assetManifest.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/TaskManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/vehiclePaths.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/clerkConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/three.module.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/lawson_scene.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_A.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_B.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_C.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/harness.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/main.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/controls.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/responsive.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/main.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/three.module.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/SceneManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/Renderer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/AssetManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/AnimationController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/UpdateLoop.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/LightingSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/DayNightSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/DoorSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/TrafficSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/ClerkSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/CameraSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/InteractionSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/QualitySystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIState.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/lightConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/sceneConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/assetManifest.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/vehiclePaths.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/NavGrid.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/TaskManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/clerkConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/lawson_scene.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_A.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_B.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_C.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/main.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/controls.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/responsive.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/main.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/SceneManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/Renderer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/UpdateLoop.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/AssetManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/AnimationController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/LightingSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/DayNightSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/DoorSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/TrafficSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/CameraSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/ClerkSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/InteractionSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/QualitySystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIState.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/lightConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/sceneConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/three.module.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/NavGrid.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/vehiclePaths.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/assetManifest.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/TaskManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/clerkConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/main.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/controls.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/css/responsive.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/main.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/three.module.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/SceneManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/Renderer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/AssetManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/AnimationController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/core/UpdateLoop.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/LightingSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/DayNightSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/DoorSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/TrafficSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/ClerkSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/CameraSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/InteractionSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/QualitySystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIState.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/ui/UIController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/lightConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/sceneConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/assetManifest.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/config/vehiclePaths.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/NavGrid.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/TaskManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/js/systems/clerk/clerkConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/lawson_scene.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_A.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_B.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/car_C.glb",
+      "status": 200
+    }
+  ],
+  "failedRequests": [
+    {
+      "url": "http://127.0.0.1:4190/experiments/lawson/assets/models/lawson_scene.glb",
+      "failure": "net::ERR_FAILED"
+    }
+  ],
+  "timingPolicy": "native RAF and performance time, no time acceleration or altered scene code",
+  "scope": "independent staged scene and temporary harness, not the personal website integration",
+  "verificationScriptSHA256": "6cf283c5447494da9dac7e7a772aaa8aa1e908267065edaea1413492ca32b47d",
+  "targetedCaseFragments": null,
+  "diagnosticHarnessSHA256": "86235533779b1de1e89933d5fb986e3c2b4183d9759b26631cbffcb0f67981ad",
+  "browser": "155.0.8059.79",
+  "browserConfiguration": {
+    "backend": "mesa",
+    "headless": false,
+    "flags": [
+      "--no-sandbox",
+      "--use-gl=angle",
+      "--use-angle=gl",
+      "--ignore-gpu-blocklist"
+    ],
+    "DISPLAY": ":106",
+    "LP_NUM_THREADS": "3",
+    "softwareRendering": true,
+    "hardwareFPSProof": false
+  },
+  "initialViewport": {
+    "width": 960,
+    "height": 540
+  },
+  "passed": true,
+  "httpErrors": []
+}

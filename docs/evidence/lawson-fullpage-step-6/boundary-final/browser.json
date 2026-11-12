@@ -1,0 +1,157 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "document wrong HTML",
+      "passed": true,
+      "evidence": {
+        "actualHTTPStatus": 404,
+        "incorrectCompleteDocumentDetected": true
+      }
+    },
+    {
+      "name": "graphics child context loss",
+      "passed": true,
+      "evidence": {
+        "realWebGLLoseExtension": true,
+        "staleReadyDoesNotHideLoss": true,
+        "restoredContextNotMistakenForFreshScene": true,
+        "hostRetryRecovered": true
+      }
+    },
+    {
+      "name": "layout small error and 200 percent",
+      "passed": true,
+      "evidence": {
+        "targets": [
+          {
+            "text": "体验",
+            "r": {
+              "x": 159.96875,
+              "y": 1,
+              "width": 76.015625,
+              "height": 54,
+              "top": 1,
+              "right": 235.984375,
+              "bottom": 55,
+              "left": 159.96875
+            }
+          },
+          {
+            "text": "档案",
+            "r": {
+              "x": 235.984375,
+              "y": 1,
+              "width": 76.015625,
+              "height": 54,
+              "top": 1,
+              "right": 312,
+              "bottom": 55,
+              "left": 235.984375
+            }
+          },
+          {
+            "text": "↗",
+            "r": {
+              "x": 97.953125,
+              "y": 59,
+              "width": 48.015625,
+              "height": 54,
+              "top": 59,
+              "right": 145.96875,
+              "bottom": 113,
+              "left": 97.953125
+            }
+          },
+          {
+            "text": "重试",
+            "r": {
+              "x": 149.96875,
+              "y": 60,
+              "width": 76.015625,
+              "height": 52,
+              "top": 60,
+              "right": 225.984375,
+              "bottom": 112,
+              "left": 149.96875
+            }
+          },
+          {
+            "text": "返回",
+            "r": {
+              "x": 229.984375,
+              "y": 59,
+              "width": 82.015625,
+              "height": 54,
+              "top": 59,
+              "right": 312,
+              "bottom": 113,
+              "left": 229.984375
+            }
+          }
+        ],
+        "iframe": {
+          "x": 0,
+          "y": 216.59375,
+          "width": 320,
+          "height": 351.40625
+        },
+        "originalInnerFontsUnmodified": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "document wrong HTML",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "document wrong HTML",
+      "kind": "response",
+      "url": "http://127.0.0.1:4196/experiments/lawson/index.html",
+      "status": 404
+    },
+    {
+      "case": "document wrong HTML",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "case": "graphics child context loss",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "layout small error and 200 percent",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "layout small error and 200 percent",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "case": "layout small error and 200 percent",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "case": "layout small error and 200 percent",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "permissions-supported",
+    "command": [
+      "verify_permissions.py",
+      "--run",
+      "permissions-supported",
+      "--only",
+      "permissions supported"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "no-webgl",
+    "command": [
+      "verify_unavailable.py",
+      "--run",
+      "no-webgl",
+      "--no-webgl"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "history-final",
+    "command": [
+      "verify_lifecycle.py",
+      "--run",
+      "history-final",
+      "--only",
+      "history"
+    ],
+    "exitCode": 0
+  }
+]

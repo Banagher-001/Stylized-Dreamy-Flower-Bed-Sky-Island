@@ -1,0 +1,86 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "visibility browser tab loading",
+      "passed": true,
+      "evidence": {
+        "phase": "loading",
+        "actualHiddenObserved": false,
+        "visibilityEvents": [],
+        "automationFocusEmulationDisabled": true,
+        "sameInstancePreservedAcrossTabSwitch": true,
+        "stateRecheckedAndUsable": true,
+        "hiddenPropertyOrEventsFaked": false
+      }
+    },
+    {
+      "name": "visibility browser tab ready",
+      "passed": true,
+      "evidence": {
+        "phase": "ready",
+        "actualHiddenObserved": false,
+        "visibilityEvents": [],
+        "automationFocusEmulationDisabled": true,
+        "sameInstancePreservedAcrossTabSwitch": true,
+        "stateRecheckedAndUsable": true,
+        "hiddenPropertyOrEventsFaked": false
+      }
+    },
+    {
+      "name": "visibility browser tab error",
+      "passed": true,
+      "evidence": {
+        "phase": "error",
+        "actualHiddenObserved": false,
+        "visibilityEvents": [],
+        "automationFocusEmulationDisabled": true,
+        "sameInstancePreservedAcrossTabSwitch": true,
+        "stateRecheckedAndUsable": true,
+        "hiddenPropertyOrEventsFaked": false
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "visibility browser tab loading",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "visibility browser tab ready",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "visibility browser tab error",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "visibility browser tab error",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "case": "visibility browser tab error",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "case": "visibility browser tab error",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

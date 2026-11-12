@@ -1,0 +1,29 @@
+import subprocess
+from playwright.sync_api import sync_playwright
+from harness import Harness,arguments,ROOT
+
+args=arguments()
+with sync_playwright()as pw:
+    h=Harness(pw,args)
+    def denied_fullscreen():
+        c=h.context(viewport={'width':1440,'height':900},device_scale_factor=1)
+        original=(ROOT/'dist/index.html').read_bytes()
+        c.route('http://127.0.0.1:4196/',lambda r:r.fulfill(status=200,content_type='text/html',body=original,headers={'Permissions-Policy':'fullscreen=()'}))
+        c,p=h.setup(context=c);h.c2(p);h.open(p);f=h.ready(p)
+        assert f.evaluate('document.fullscreenEnabled===false')
+        assert '全屏'in p.locator('.tour-project-feedback').inner_text()
+        f.locator('#btn-fullscreen').click();p.wait_for_timeout(500)
+        assert not p.evaluate('!!document.fullscreenElement')and p.locator('.tour-project-dialog').evaluate('e=>e.open')
+        assert f.evaluate('__LAWSON__.ready===true')and h.draws(p,p)==0;h.close(p)
+        return {'realPermissionsPolicyDenial':True,'capabilityNoticeShown':True,'nativeOriginalRequestRejected':True,'otherSceneFunctionsRemainReady':True,'hostReturnWorks':True}
+    h.check('permissions denied fullscreen remains usable',denied_fullscreen)
+    def denied_pointer():
+        c,p=h.setup();h.c2(p);h.open(p);f=h.ready(p)
+        f.evaluate('''()=>{window.__noGestureAttempt=null;setTimeout(()=>{__noGestureAttempt={active:navigator.userActivation.isActive};document.querySelector('#btn-walk').click()},6500)}''')
+        f.wait_for_function('window.__noGestureAttempt!==null',timeout=12000,polling=100);p.wait_for_timeout(500)
+        assert f.evaluate('__noGestureAttempt.active===false&&document.pointerLockElement===null')
+        assert p.locator('.tour-project-dialog').evaluate('e=>e.open');h.close(p)
+        return {'delayedSyntheticOriginalButtonExplicitlyLabelled':True,'actualBrowserNoActivationDenial':True,'hostNotLocked':True}
+    h.check('permissions pointer lock without activation',denied_pointer)
+    passed=h.finish()
+raise SystemExit(0 if passed else 1)

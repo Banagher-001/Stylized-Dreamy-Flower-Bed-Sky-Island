@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "complete": true,
+  "capturedAtShanghai": "2026-11-10T15:45:12.180373+08:00",
+  "counts": {
+    "controls": {
+      "原页正常": 41
+    },
+    "shortcuts": {
+      "原页已有问题": 4,
+      "原页正常": 9
+    },
+    "targets": {
+      "原页正常": 17
+    },
+    "behaviors": {
+      "原页正常": 13,
+      "设备/浏览器限制": 1,
+      "原页已有问题": 4
+    }
+  },
+  "knownIssuesDocument": "docs/lawson-fullpage/original-issues.md",
+  "interpretation": "Baseline is complete with explicitly documented source defects and device limits; not all source features pass.",
+  "productionIntegrationImplemented": false,
+  "productionFilesChanged": false,
+  "gitCommitCreated": false,
+  "pushed": false,
+  "published": false,
+  "acceptedNewCases": [
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#BUTTON.btn-settings",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#BUTTON.help",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#BUTTON.panel-collapse",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#DOC.KeyN",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#INPUT.time-slider",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#KEY.Space",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#LIGHT.CoolerLighting",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#LIGHT.FacadeStrip",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#LIGHT.LawsonSign",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#LIGHT.StoreInterior",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#LIGHT.StreetLamp",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#LIGHT.VehicleLights",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#LIGHT.VendingLighting",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#LIGHT.WarmExterior",
+    "docs/evidence/lawson-fullpage-step-1/run-1/controls.json#TRAFFIC.speeds",
+    "docs/evidence/lawson-fullpage-step-1/run-2/targets.json#TARGET.sign",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.alcohol",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.atm",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.basket",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.checkout",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.clerkA",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.clerkB",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.coffee",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.cooler",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.dining",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.door",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.facade",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.freezer",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.microwave",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.oden",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.shelf",
+    "docs/evidence/lawson-fullpage-step-1/run-3/targets.json#TARGET.vending",
+    "docs/evidence/lawson-fullpage-step-1/run-6/controls.json#BUTTON.btn-fullscreen",
+    "docs/evidence/lawson-fullpage-step-1/run-6b/controls.json#KEY.KeyR",
+    "docs/evidence/lawson-fullpage-step-1/run-7/keyboard.json#BOUNDARY.R-in-walk",
+    "docs/evidence/lawson-fullpage-step-1/run-7/keyboard.json#KEY.KeyA",
+    "docs/evidence/lawson-fullpage-step-1/run-7/keyboard.json#KEY.KeyD",
+    "docs/evidence/lawson-fullpage-step-1/run-7/keyboard.json#POINTER.walk-look",
+    "docs/evidence/lawson-fullpage-step-1/run-7b/keyboard.json#KEY.KeyS",
+    "docs/evidence/lawson-fullpage-step-1/run-7b/keyboard.json#KEY.KeyW",
+    "docs/evidence/lawson-fullpage-step-1/run-7b/keyboard.json#KEY.ShiftLeft",
+    "docs/evidence/lawson-fullpage-step-1/run-7b/keyboard.json#KEY.ShiftRight",
+    "docs/evidence/lawson-fullpage-step-1/run-8/traffic.json#CYCLE.B",
+    "docs/evidence/lawson-fullpage-step-1/run-8/traffic.json#CYCLE.C",
+    "docs/evidence/lawson-fullpage-step-1/run-9/readiness.json#READY.car-A-button",
+    "docs/evidence/lawson-fullpage-step-1/run-9/readiness.json#READY.clerk-buttons",
+    "docs/evidence/lawson-fullpage-step-1/run-9/readiness.json#READY.model-retry",
+    "docs/evidence/lawson-fullpage-step-1/run-9/readiness.json#READY.refresh-defaults",
+    "docs/evidence/lawson-fullpage-step-1/run-9/readiness.json#VIEWPORT.phone-defaults",
+    "docs/evidence/lawson-fullpage-step-1/run-9c/readiness.json#READY.background-return"
+  ],
+  "preservedDiagnostics": {
+    "run-1": "Initial broad controls; fullscreen renderer Esc limitation and R framing assumption superseded by targeted rechecks.",
+    "run-2": "Environment restart after TARGET.sign passed; remaining targets continued in run-3.",
+    "run-4": "Native focus addressed an unmapped Chromium auxiliary window; infrastructure interruption.",
+    "run-5": "Legacy WM_NAME lookup missed visible Chromium window; R convergence assumption timed out.",
+    "run-6": "Fullscreen passed; postflight stability threshold not met, retained as source drift evidence.",
+    "run-7": "W and Shift+W path blocked by original collision; explicit original behavior and Shift+A recheck in run-7b.",
+    "run-9/run-9b": "Automation-created windows and popup tabs did not hide the source document; native Control+t in run-9c confirms return/readiness and explicitly classifies real hidden handling as an environment limit."
+  }
+}

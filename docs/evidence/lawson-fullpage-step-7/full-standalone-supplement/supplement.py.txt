@@ -1,0 +1,109 @@
+"""Real effects for remaining UI controls, input, and source lighting/roof objects."""
+import argparse,math
+from common import Run
+
+a=argparse.ArgumentParser();a.add_argument('--run',required=True);args=a.parse_args()
+r=Run('supplement',args.run);p=r.page
+SYSTEMS=r'''async()=>{
+ const a=__fullpageAudit;
+ for(const [path,name,key,method]of[
+  ['./js/systems/LightingSystem.js','LightingSystem','lighting','refresh'],
+  ['./js/systems/DayNightSystem.js','DayNightSystem','dayNight','apply'],
+  ['./js/systems/CameraSystem.js','CameraSystem','cameraInstance','update']]){
+   const cls=(await import(path))[name],raw=cls.prototype[method];
+   cls.prototype[method]=function(...args){a[key]=this;return raw.apply(this,args)};
+ }
+ const {ClerkSystem}=await import('./js/systems/ClerkSystem.js'),raw=ClerkSystem.prototype.trigger;
+ a.clerkTriggers=[];ClerkSystem.prototype.trigger=function(...args){const value=raw.apply(this,args);a.clerkTriggers.push({args,value});return value};
+ a.lightSignature=g=>({state:__LAWSON__.api.getState().lights[g],
+  lights:a.lighting.lights.filter(l=>l.userData.group===g).map(l=>({name:l.name,intensity:l.intensity,visible:l.visible})),
+  emissives:a.lighting.emissives.filter(e=>e.group===g).map(e=>({name:e.material.name,intensity:e.material.emissiveIntensity}))});
+ a.skySignature=()=>{const d=a.dayNight,m=d.sceneManager;return {time:d.time,sun:m.sun.intensity,sunColor:m.sun.color.toArray(),sunPosition:m.sun.position.toArray(),fog:m.scene.fog.color.toArray(),hemi:m.hemi.intensity,ambient:m.ambient.intensity,exposure:d.renderer.renderer.toneMappingExposure}};
+ a.roofSignature=()=>{const out=[];a.lighting.scene.traverse(o=>{if(/^roof|interiorCeiling|ceilingpanel|ceilling|^ceiling|lightpanel/i.test(o.name))out.push({name:o.name,uuid:o.uuid,visible:o.visible})});return out};
+ return {sourceMethodsObservedExactlyOnceWithOriginalArguments:true,productionFilesUnchanged:true};
+}'''
+def distance(a,b):return sum((x-y)**2 for x,y in zip(a,b))**.5
+try:
+    r.case('SUPPLEMENT.load','真实页面加载',r.load);r.report['functionalSetup']=r.low();p.evaluate(SYSTEMS)
+    def presets():
+        rows=[]
+        for name,value in [('day',9),('night',22),('dusk',18.5)]:
+            p.locator('[data-preset='+name+']').click();p.wait_for_function('v=>Math.abs(__LAWSON__.api.getStats().timeOfDay-v)<.02',arg=value,timeout=60000,polling=100)
+            rows.append({'preset':name,'expected':value,'actualSceneEnvironment':p.evaluate('__fullpageAudit.skySignature()')});r.picture('time-'+name)
+        assert rows[0]['actualSceneEnvironment']['sun']!=rows[1]['actualSceneEnvironment']['sun']
+        assert rows[0]['actualSceneEnvironment']['fog']!=rows[1]['actualSceneEnvironment']['fog']
+        return {'presets':rows}
+    r.case('ENV.presets','三个原时间按钮与实际天空灯光',presets)
+    def all_lights():
+        rows=[]
+        for selector,on in [('#lights-all-off',False),('#lights-all-on',True)]:
+            p.locator(selector).click();states=p.evaluate('__LAWSON__.api.getState().lights');assert len(states)==8 and all(v is on for v in states.values())
+            actual=p.evaluate('Object.keys(__LAWSON__.state.lights).map(g=>({group:g,...__fullpageAudit.lightSignature(g)}))')
+            if not on:assert all(all(l['intensity']==0 for l in g['lights'])and all(e['intensity']==0 for e in g['emissives'])for g in actual)
+            else:assert any(l['intensity']>0 for g in actual for l in g['lights'])
+            rows.append({'selector':selector,'on':on,'actualGroups':actual})
+        return {'allOffAndOn':rows}
+    r.case('LIGHT.all-actual','全开全关的真实灯光材质',all_lights)
+    for group in ['StoreInterior','LawsonSign','FacadeStrip','StreetLamp','CoolerLighting','VendingLighting','WarmExterior','VehicleLights']:
+        def light(group=group):
+            before=p.evaluate('g=>__fullpageAudit.lightSignature(g)',group);assert before['state']is True
+            others=p.evaluate('__LAWSON__.api.getState().lights')
+            p.locator('.toggle[data-group='+group+']').click();off=p.evaluate('g=>__fullpageAudit.lightSignature(g)',group)
+            assert off['state']is False and (off['lights']or off['emissives'])
+            assert all(x['intensity']==0 for x in off['lights']+off['emissives'])
+            after_states=p.evaluate('__LAWSON__.api.getState().lights');assert all(after_states[g]==v for g,v in others.items()if g!=group)
+            p.locator('.toggle[data-group='+group+']').click();on=p.evaluate('g=>__fullpageAudit.lightSignature(g)',group)
+            assert on['state']is True and any(x['intensity']>0 for x in on['lights']+on['emissives'])
+            return {'group':group,'before':before,'off':off,'restored':on,'otherGroupsUnchanged':True}
+        r.case('ACTUAL.LIGHT.'+group,group+'实际光源及发光材质',light)
+    def shortcuts():
+        rows=[];p.mouse.click(10,10)
+        for key,value in [('1',9),('3',22),('2',18.5)]:
+            p.keyboard.press(key);p.wait_for_function('v=>Math.abs(__LAWSON__.api.getStats().timeOfDay-v)<.02',arg=value,timeout=60000,polling=100)
+            rows.append({'nativeKey':key,'actual':p.evaluate('__fullpageAudit.skySignature()')})
+        return {'keys':rows}
+    r.case('KEY.123','1/2/3原快捷键与实际环境',shortcuts)
+    for name in ['hero','front','left','rear','top','interior','checkout','vehicle']:
+        def cam(name=name):
+            before=r.state();p.locator('[data-cam='+name+']').click();r.observed()
+            after=r.state();actual=p.evaluate('({mode:__fullpageAudit.cameraInstance.mode,preset:__fullpageAudit.cameraInstance.currentPreset,tween:!!__fullpageAudit.cameraInstance.tween})')
+            assert after['state']['cameraMode']==name and actual['preset']==name
+            assert all(math.isfinite(x)for x in after['camera'])
+            if name!='hero':assert distance(before['camera'],after['camera'])>.01
+            r.picture('camera-'+name)
+            return {'before':before,'after':after,'actualCameraSystem':actual}
+        r.case('CAMERA.'+name,'原镜头 '+name,cam)
+    def roof():
+        p.locator('[data-cam=hero]').click();r.observed();before=p.evaluate('__fullpageAudit.roofSignature()');assert before and all(n['visible']for n in before)
+        p.locator('#btn-roof').click();hidden=p.evaluate('__fullpageAudit.roofSignature()');assert not p.evaluate('__LAWSON__.state.roofVisible')and all(not n['visible']for n in hidden)
+        p.locator('#btn-roof').click();restored=p.evaluate('__fullpageAudit.roofSignature()');assert p.evaluate('__LAWSON__.state.roofVisible')and all(n['visible']for n in restored)
+        return {'before':before,'hidden':hidden,'restored':restored}
+    r.case('BUTTON.roof-actual','屋顶实际节点隐藏和恢复',roof)
+    def orbit():
+        p.locator('#panel-collapse').click();before=r.state();p.mouse.move(410,320);p.mouse.down();p.mouse.move(540,355,steps=8);p.mouse.up();r.observed(.4);rotated=r.state();assert rotated['projection']!=before['projection']
+        p.mouse.wheel(0,240);r.observed(.4);zoomed=r.state();assert zoomed['projection']!=rotated['projection']
+        p.mouse.move(410,320);p.mouse.down(button='right');p.mouse.move(465,340,steps=8);p.mouse.up(button='right');r.observed(.4);panned=r.state();assert panned['projection']!=zoomed['projection']
+        p.locator('#panel-collapse').click();p.locator('#btn-reset-cam').click();r.observed();reset=r.state();assert reset['state']['cameraMode']=='hero'and not reset['state']['walk']
+        return {'before':before,'rotated':rotated,'zoomed':zoomed,'panned':panned,'resetButton':reset,'exactResetAfterDragCoveredSeparatelyAsOriginalIssue':True}
+    r.case('INPUT.orbit','真实旋转缩放平移与原重置按钮',orbit)
+    for tag in ['A','B']:
+        def clerk(tag=tag):
+            p.locator('#btn-reset-cam').click();r.observed();before=r.state();n=p.evaluate('__fullpageAudit.clerkTriggers.length');p.locator('[data-clerk='+tag+']').click();r.observed();after=r.state()
+            calls=p.evaluate('n=>__fullpageAudit.clerkTriggers.slice(n)',n);assert len(calls)==1 and calls[0]['args']==[tag]
+            assert distance(before['camera'],after['camera'])>.05
+            return {'originalUITrigger':calls,'before':before,'after':after,'actualClerkStates':p.evaluate('__LAWSON__.api.getClerkStates()'),'fixedPositionFocusNotFollowingClerk':True}
+        r.case('BUTTON.clerk-'+tag,'店员'+tag+'原按钮与实际镜头/任务',clerk)
+    def traffic():
+        p.locator('[data-car=A]').click();p.wait_for_function('__LAWSON__.api.getVehicleState("A").active',polling=100)
+        speeds=[]
+        for speed in [.6,1,1.8]:
+            p.locator('[data-speed="'+str(speed)+'"]').click();before=p.evaluate('__LAWSON__.api.getVehicleState("A")');r.observed(.4);after=p.evaluate('__LAWSON__.api.getVehicleState("A")')
+            assert p.evaluate('__LAWSON__.state.traffic.speed')==speed and before['position']!=after['position']
+            speeds.append({'speed':speed,'before':before,'after':after})
+        p.locator('#traffic-toggle').click();assert not p.evaluate('__LAWSON__.state.traffic.running');before=p.evaluate('__LAWSON__.api.getVehicleState("A")');r.observed(.5);paused=p.evaluate('__LAWSON__.api.getVehicleState("A")')
+        assert before['position']==paused['position']and before['wheelSpinTotal']==paused['wheelSpinTotal']
+        p.locator('#traffic-toggle').click();r.observed(.5);resumed=p.evaluate('__LAWSON__.api.getVehicleState("A")');assert p.evaluate('__LAWSON__.state.traffic.running')and resumed['position']!=paused['position']
+        p.locator('#traffic-toggle').click();p.locator('#traffic-reset').click();reset=p.evaluate('["A","B","C"].map(t=>__LAWSON__.api.getVehicleState(t))');assert all(not c['active']and not c['visible']and c['phase']=='OFFSCREEN_WAIT'for c in reset)
+        return {'speedsWithActualMovement':speeds,'paused':paused,'resumed':resumed,'reset':reset,'cacheNotUsedAsMotionProof':True}
+    r.case('TRAFFIC.actual','原速度、暂停恢复和重置的实时运动',traffic)
+finally:r.finish()

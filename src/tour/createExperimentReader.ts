@@ -2,16 +2,18 @@ import { Vector3 } from 'three';
 import type { Camera } from 'three';
 import { experimentStations, sampleExperimentPresentation } from './experimentReading';
 import type { ExperimentReadingFrame } from './experimentReading';
-import { courtyardProject as project, experimentContent as content } from './experimentContent';
-import type { ProjectTab } from './createProjectViewer';
+import { experimentContent as content } from './experimentContent';
+import { projects } from './projectContent';
+import type { ProjectId, ProjectTab } from './projectContent';
 import { createReaderFlow } from './readerFlow';
 
 /** Short pillar inscriptions; extended content lives in the project archive. */
-export function createExperimentReader(app: HTMLElement, host: HTMLElement, anchorFor: (id: string) => Vector3 | undefined, open: (tab: ProjectTab, trigger: HTMLElement) => void) {
+export function createExperimentReader(app: HTMLElement, host: HTMLElement, anchorFor: (id: string) => Vector3 | undefined, open: (id: ProjectId, tab: ProjectTab, trigger: HTMLElement) => void, handover: () => void) {
+  const project = projects.lawson;
   const panel = document.createElement('section');panel.className = 'experiment-reading';panel.setAttribute('aria-label', '交互实验，沿第三根石柱浏览');panel.setAttribute('aria-hidden', 'true');
   const bodies = [
     `<p data-experiment-ink>${content.C1.body}</p><ol class="experiment-process" data-experiment-ink aria-label="从想法到交互">${content.C1.steps.map((s) => `<li>${s}</li>`).join('')}</ol>`,
-    `<div class="experiment-project-summary"><figure class="experiment-cover"><img width="${project.cover.width}" height="${project.cover.height}" alt="${project.cover.alt}" decoding="async"/><span class="experiment-image-state" role="status">封面载入中</span></figure><div><p class="experiment-kind" data-experiment-ink>${project.kind}</p><p data-experiment-ink>${project.summary}</p></div></div><div class="experiment-entry-actions"><button type="button" data-project-tab="live">现场体验 <span aria-hidden="true">↗</span></button><button type="button" data-project-tab="archive">项目档案 <span aria-hidden="true">＋</span></button></div>`,
+    `<div class="experiment-project-selector" role="tablist" aria-label="选择交互作品"><button type="button" role="tab" id="experiment-project-lawson" data-project-select="lawson" aria-controls="experiment-project-preview" aria-selected="true"><span>LAWSON</span>罗森便利店</button><button type="button" role="tab" id="experiment-project-courtyard" data-project-select="courtyard" aria-controls="experiment-project-preview" aria-selected="false" tabindex="-1"><span>COURTYARD</span>庭院习作</button></div><div id="experiment-project-preview" role="tabpanel" aria-labelledby="experiment-project-lawson"><div class="experiment-project-summary"><figure class="experiment-cover"><img width="${project.cover.width}" height="${project.cover.height}" alt="${project.cover.alt}" decoding="async"/><span class="experiment-image-state" role="status">封面载入中</span></figure><div><p class="experiment-kind" data-experiment-ink>${project.kind}</p><p class="experiment-summary" data-experiment-ink>${project.summary}</p></div></div><div class="experiment-entry-actions"><button type="button" data-project-tab="live">进入完整网页 <span aria-hidden="true">↗</span></button><button type="button" data-project-tab="archive">项目档案 <span aria-hidden="true">＋</span></button></div></div>`,
     `<p data-experiment-ink>${content.C3.body}</p><p class="experiment-cue" data-experiment-ink><span aria-hidden="true">↓</span> ${content.C3.cue}</p>`,
   ];
   const titles = [content.C1.title, project.title, content.C3.title];
@@ -20,21 +22,69 @@ export function createExperimentReader(app: HTMLElement, host: HTMLElement, anch
   const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');connector.append(line);app.querySelector('main')!.append(connector, panel);
   const parts = [...panel.querySelectorAll<HTMLElement>('article')].map((article) => ({ article, title: article.querySelector<HTMLElement>('h2')!, eyebrow: article.querySelector<HTMLElement>('.experiment-eyebrow')!, body: article.querySelector<HTMLElement>('.experiment-body')!, buttons: [...article.querySelectorAll<HTMLButtonElement>('button')] }));
   const flow = createReaderFlow(panel);
-  const image = panel.querySelector<HTMLImageElement>('img')!, imageState = panel.querySelector<HTMLElement>('.experiment-image-state')!;
+  let image = panel.querySelector<HTMLImageElement>('img')!;
+  const imageState = panel.querySelector<HTMLElement>('.experiment-image-state')!;
+  let coverListeners: AbortController | undefined;
   const controller = new AbortController(), options = { signal: controller.signal };
   let primed = false, fallback = false, disposed = false, dirty = true, selected = '', signature = '';
+  let projectId: ProjectId = 'lawson', unavailable = false;
   let layoutFrame: number | undefined;
   let reading: ExperimentReadingFrame | undefined, camera: Camera | undefined;
   let bounds = host.getBoundingClientRect(), header = app.querySelector<HTMLElement>('.tour-header')!.getBoundingClientRect(), heading = app.querySelector<HTMLElement>('.tour-heading')!.getBoundingClientRect(), nav = app.querySelector<HTMLElement>('.tour-stops')!.getBoundingClientRect();
   let width = 0, height = 0;
   const point = new Vector3();
-  function prime() { if (!primed && !disposed) { primed = true;image.src = project.cover.src; } }
-  image.addEventListener('load', () => { imageState.hidden = true;panel.dataset.coverState = 'ready'; }, options);
-  image.addEventListener('error', () => { imageState.textContent = '封面暂不可用';panel.dataset.coverState = 'error'; }, options);
+  function prime() {
+    if (primed || disposed) return;
+    primed = true;coverListeners?.abort();coverListeners = new AbortController();
+    const current = image, src = new URL(projects[projectId].cover.src, document.baseURI).href;
+    const ownsCover = () => !disposed && current === image && current.src === src;
+    imageState.hidden = false;imageState.textContent = '封面载入中';panel.dataset.coverState = 'loading';
+    current.addEventListener('load', () => { if (ownsCover()) { imageState.hidden = true;panel.dataset.coverState = 'ready'; } }, { signal: coverListeners.signal });
+    current.addEventListener('error', () => { if (ownsCover()) { imageState.hidden = false;imageState.textContent = '封面暂不可用';panel.dataset.coverState = 'error'; } }, { signal: coverListeners.signal });
+    current.src = src;
+  }
+  function syncButtons() {
+    const active = fallback || flow.active || (reading?.station.id === 'C2' && sampleExperimentPresentation(reading).body >= .999999);
+    for (const button of panel.querySelectorAll<HTMLButtonElement>('[data-project-select],[data-project-tab]')) {
+      button.disabled = !active || (button.dataset.projectTab === 'live' && projectId === 'courtyard' && unavailable);
+      if (button.dataset.projectSelect) {
+        const current = button.dataset.projectSelect === projectId;
+        button.setAttribute('aria-selected', String(current));button.tabIndex = current ? 0 : -1;
+      }
+    }
+    const liveButton = panel.querySelector<HTMLButtonElement>('[data-project-tab="live"]')!;
+    liveButton.title = unavailable && projectId === 'courtyard' ? '庭院场景暂不可用，可查看项目档案。' : '';
+  }
+  function choose(id: ProjectId) {
+    handover();projectId = id;const item = projects[id];primed = false;
+    panel.dataset.projectId = id;
+    panel.querySelector('#experiment-C2-title')!.textContent = item.title;
+    panel.querySelector('.experiment-kind')!.textContent = item.kind;
+    panel.querySelector('.experiment-summary')!.textContent = item.summary;
+    panel.querySelector('#experiment-project-preview')!.setAttribute('aria-labelledby', `experiment-project-${id}`);
+    // Each resource owns its image callbacks; an old response cannot mark the
+    // current project ready or failed. The article and preview stay in place.
+    const nextImage = document.createElement('img');
+    nextImage.width = item.cover.width;nextImage.height = item.cover.height;nextImage.alt = item.cover.alt;nextImage.decoding = 'async';
+    image.replaceWith(nextImage);image = nextImage;
+    const liveButton = panel.querySelector<HTMLButtonElement>('[data-project-tab="live"]')!;
+    liveButton.innerHTML = `${id === 'lawson' ? '进入完整网页' : '现场体验'} <span aria-hidden="true">↗</span>`;
+    liveButton.setAttribute('aria-label', `进入${item.title}${id === 'lawson' ? '完整网页' : '现场体验'}`);
+    panel.querySelector('[data-project-tab="archive"]')!.setAttribute('aria-label', `查看${item.title}项目档案`);
+    signature = '';dirty = true;prime();syncButtons();measure();place();
+  }
   panel.addEventListener('click', (event) => {
+    const selector = event.target instanceof Element ? event.target.closest<HTMLButtonElement>('[data-project-select]') : null;
+    if (selector && !selector.disabled) { choose(selector.dataset.projectSelect as ProjectId);return; }
     const button = event.target instanceof Element ? event.target.closest<HTMLButtonElement>('[data-project-tab]') : null;
-    if (button && !button.disabled) open(button.dataset.projectTab as ProjectTab, button);
+    if (button && !button.disabled) open(projectId, button.dataset.projectTab as ProjectTab, button);
   }, options);
+  panel.querySelector('.experiment-project-selector')!.addEventListener('keydown', event => {
+    const e = event as KeyboardEvent;if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+    e.preventDefault();const id = e.key === 'Home' ? 'lawson' : e.key === 'End' ? 'courtyard' : projectId === 'lawson' ? 'courtyard' : 'lawson';
+    choose(id);panel.querySelector<HTMLButtonElement>(`[data-project-select="${id}"]`)!.focus({ preventScroll: true });
+  }, options);
+  panel.dataset.projectId = projectId;
   function measure() {
     if (flow.active) return;
     bounds = host.getBoundingClientRect();header = app.querySelector<HTMLElement>('.tour-header')!.getBoundingClientRect();heading = app.querySelector<HTMLElement>('.tour-heading')!.getBoundingClientRect();nav = app.querySelector<HTMLElement>('.tour-stops')!.getBoundingClientRect();
@@ -84,19 +134,22 @@ export function createExperimentReader(app: HTMLElement, host: HTMLElement, anch
         body.style.opacity = String(active ? state.body : 0);body.style.visibility = active && state.body > .000001 ? 'inherit' : 'hidden';body.style.transform = `translateY(${state.offset}px)`;body.setAttribute('aria-hidden', String(!active || state.body <= .000001));
         for (const button of buttons) button.disabled = !active || state.body < .999999;
       }
+      syncButtons();
       if (reading) { if (reading.station.id === 'C2' && !measuring) prime();place(); }
       return state;
     },
     showFallback() {
-      fallback = true;prime();panel.classList.add('experiment-fallback');panel.style.visibility = 'visible';panel.setAttribute('aria-hidden', 'false');panel.style.setProperty('--experiment-frame-opacity', '1');connector.style.display = 'none';
+      fallback = true;unavailable = true;prime();panel.classList.add('experiment-fallback');panel.style.visibility = 'visible';panel.setAttribute('aria-hidden', 'false');panel.style.setProperty('--experiment-frame-opacity', '1');connector.style.display = 'none';
       for (const part of parts) {
         part.article.hidden = false;part.article.inert = false;part.article.setAttribute('aria-hidden', 'false');
         for (const element of [part.title, part.eyebrow, part.body]) { element.style.opacity = '1';element.style.visibility = 'visible';element.removeAttribute('aria-hidden');element.style.transform = 'none'; }
         for (const button of part.buttons) { button.disabled = button.dataset.projectTab === 'live';if (button.disabled) button.title = '图形场景暂不可用，可查看项目档案。'; }
       }
+      syncButtons();
     },
-    setFlow(enabled: boolean, unavailable = false) { flow.set(enabled, unavailable);signature = '';dirty = true;if (enabled) prime();else measure(); },
+    setFlow(enabled: boolean, gardenUnavailable = false) { unavailable = gardenUnavailable;flow.set(enabled, unavailable && projectId === 'courtyard');signature = '';dirty = true;syncButtons();if (enabled) prime();else measure(); },
+    get projectId() { return projectId; },
     get element() { return panel; },
-    dispose() { disposed = true;if (layoutFrame !== undefined) cancelAnimationFrame(layoutFrame);controller.abort();observer.disconnect();panel.remove();connector.remove(); },
+    dispose() { disposed = true;if (layoutFrame !== undefined) cancelAnimationFrame(layoutFrame);controller.abort();coverListeners?.abort();observer.disconnect();panel.remove();connector.remove(); },
   };
 }

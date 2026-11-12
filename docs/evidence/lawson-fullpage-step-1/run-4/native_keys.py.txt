@@ -1,0 +1,65 @@
+"""Send a browser-reserved Escape through XTest on this audit's private display."""
+import ctypes as C
+import ctypes.util
+import os
+
+
+def escape():
+    display_name = os.environ.get('DISPLAY', '')
+    assert display_name in [':107', ':108'], 'Never address a shared/user display'
+    x = C.CDLL(ctypes.util.find_library('X11'))
+    test = C.CDLL(ctypes.util.find_library('Xtst'))
+    x.XOpenDisplay.argtypes = [C.c_char_p]
+    x.XOpenDisplay.restype = C.c_void_p
+    x.XDefaultRootWindow.argtypes = [C.c_void_p]
+    x.XDefaultRootWindow.restype = C.c_ulong
+    x.XQueryTree.argtypes = [C.c_void_p, C.c_ulong, C.POINTER(C.c_ulong), C.POINTER(C.c_ulong), C.POINTER(C.POINTER(C.c_ulong)), C.POINTER(C.c_uint)]
+    x.XFetchName.argtypes = [C.c_void_p, C.c_ulong, C.POINTER(C.c_void_p)]
+    x.XFree.argtypes = [C.c_void_p]
+    x.XGetInputFocus.argtypes = [C.c_void_p, C.POINTER(C.c_ulong), C.POINTER(C.c_int)]
+    x.XRaiseWindow.argtypes = [C.c_void_p, C.c_ulong]
+    x.XSetInputFocus.argtypes = [C.c_void_p, C.c_ulong, C.c_int, C.c_ulong]
+    x.XStringToKeysym.argtypes = [C.c_char_p]
+    x.XStringToKeysym.restype = C.c_ulong
+    x.XKeysymToKeycode.argtypes = [C.c_void_p, C.c_ulong]
+    x.XKeysymToKeycode.restype = C.c_ubyte
+    x.XSync.argtypes = [C.c_void_p, C.c_int]
+    x.XCloseDisplay.argtypes = [C.c_void_p]
+    test.XTestFakeKeyEvent.argtypes = [C.c_void_p, C.c_uint, C.c_int, C.c_ulong]
+    d = x.XOpenDisplay(display_name.encode())
+    assert d, display_name
+    try:
+        root = x.XDefaultRootWindow(d)
+        found = []
+
+        def walk(window, depth=0):
+            title = C.c_void_p()
+            if x.XFetchName(d, window, C.byref(title)) and title.value:
+                text = C.string_at(title.value).decode(errors='replace')
+                x.XFree(title)
+                if 'lawson' in text.lower() or 'chromium' in text.lower():
+                    found.append((10 if 'lawson' in text.lower() else 1, window, text))
+            if depth >= 2:
+                return
+            r, parent, children, count = C.c_ulong(), C.c_ulong(), C.POINTER(C.c_ulong)(), C.c_uint()
+            if x.XQueryTree(d, window, C.byref(r), C.byref(parent), C.byref(children), C.byref(count)):
+                for i in range(count.value):
+                    walk(children[i], depth + 1)
+                if children:
+                    x.XFree(children)
+        walk(root)
+        assert found, 'No original-page Chromium window on this private display'
+        _, window, title = sorted(found, key=lambda v: v[0])[-1]
+        before, revert = C.c_ulong(), C.c_int()
+        x.XGetInputFocus(d, C.byref(before), C.byref(revert))
+        x.XRaiseWindow(d, window)
+        x.XSetInputFocus(d, window, 2, 0)
+        keycode = x.XKeysymToKeycode(d, x.XStringToKeysym(b'Escape'))
+        assert keycode
+        test.XTestFakeKeyEvent(d, keycode, 1, 0)
+        test.XTestFakeKeyEvent(d, keycode, 0, 0)
+        x.XSync(d, 0)
+        return {'method': 'OS XTest Escape; no document.exitFullscreen call', 'display': display_name,
+                'windowTitle': title, 'focusedWindow': window, 'previousFocus': before.value, 'keycode': keycode}
+    finally:
+        x.XCloseDisplay(d)

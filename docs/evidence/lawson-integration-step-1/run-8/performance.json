@@ -1,0 +1,2168 @@
+{
+  "phase": "performance",
+  "run": "run-8",
+  "checks": [
+    {
+      "name": "performance scene load",
+      "passed": true,
+      "evidence": {
+        "readySeconds": 2.3237872030003928,
+        "navigation": {
+          "name": "http://127.0.0.1:4190/root/index.html",
+          "entryType": "navigation",
+          "startTime": 0,
+          "duration": 292.90000000037253,
+          "navigationId": 7405,
+          "initiatorType": "navigation",
+          "deliveryType": "",
+          "nextHopProtocol": "http/1.0",
+          "renderBlockingStatus": "non-blocking",
+          "contentType": "text/html",
+          "contentEncoding": "",
+          "workerStart": 0,
+          "workerRouterEvaluationStart": 0,
+          "workerCacheLookupStart": 0,
+          "workerMatchedSourceType": "",
+          "workerFinalSourceType": "",
+          "redirectStart": 0,
+          "redirectEnd": 0,
+          "fetchStart": 1.199999999254942,
+          "domainLookupStart": 1.199999999254942,
+          "domainLookupEnd": 1.199999999254942,
+          "connectStart": 1.199999999254942,
+          "secureConnectionStart": 0,
+          "connectEnd": 1.199999999254942,
+          "requestStart": 2.800000000745058,
+          "responseStart": 5.5,
+          "firstInterimResponseStart": 0,
+          "finalResponseHeadersStart": 5.5,
+          "responseEnd": 6.300000000745058,
+          "transferSize": 9121,
+          "encodedBodySize": 8821,
+          "decodedBodySize": 8821,
+          "responseStatus": 200,
+          "serverTiming": [],
+          "unloadEventStart": 0,
+          "unloadEventEnd": 0,
+          "domInteractive": 43.09999999962747,
+          "domContentLoadedEventStart": 292.19999999925494,
+          "domContentLoadedEventEnd": 292.5,
+          "domComplete": 292.90000000037253,
+          "loadEventStart": 292.90000000037253,
+          "loadEventEnd": 292.90000000037253,
+          "type": "navigate",
+          "redirectCount": 0,
+          "activationStart": 0,
+          "criticalCHRestart": 0,
+          "notRestoredReasons": null,
+          "confidence": {
+            "randomizedTriggerRate": 0.4994798,
+            "value": "low"
+          }
+        },
+        "resources": [
+          {
+            "name": "http://127.0.0.1:4190/root/css/main.css",
+            "duration": 15.300000000745058,
+            "transferSize": 9746,
+            "encodedBodySize": 9446
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/css/controls.css",
+            "duration": 14.5,
+            "transferSize": 1616,
+            "encodedBodySize": 1316
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/css/responsive.css",
+            "duration": 14.900000000372529,
+            "transferSize": 1610,
+            "encodedBodySize": 1310
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/main.js",
+            "duration": 15.199999999254942,
+            "transferSize": 22097,
+            "encodedBodySize": 21797
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+            "duration": 44.19999999925494,
+            "transferSize": 1273272,
+            "encodedBodySize": 1272972
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+            "duration": 14.800000000745058,
+            "transferSize": 3927,
+            "encodedBodySize": 3627
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+            "duration": 16,
+            "transferSize": 20610,
+            "encodedBodySize": 20310
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+            "duration": 16.59999999962747,
+            "transferSize": 6953,
+            "encodedBodySize": 6653
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+            "duration": 13.5,
+            "transferSize": 1219,
+            "encodedBodySize": 919
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+            "duration": 14.899999998509884,
+            "transferSize": 1659,
+            "encodedBodySize": 1359
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+            "duration": 21.299999998882413,
+            "transferSize": 3170,
+            "encodedBodySize": 2870
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+            "duration": 21.799999998882413,
+            "transferSize": 3762,
+            "encodedBodySize": 3462
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+            "duration": 25.5,
+            "transferSize": 25916,
+            "encodedBodySize": 25616
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+            "duration": 26.90000000037253,
+            "transferSize": 5632,
+            "encodedBodySize": 5332
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+            "duration": 26.300000000745058,
+            "transferSize": 32977,
+            "encodedBodySize": 32677
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+            "duration": 36.5,
+            "transferSize": 8119,
+            "encodedBodySize": 7819
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+            "duration": 30.700000001117587,
+            "transferSize": 4615,
+            "encodedBodySize": 4315
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+            "duration": 31.40000000037253,
+            "transferSize": 1184,
+            "encodedBodySize": 884
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+            "duration": 35.80000000074506,
+            "transferSize": 2068,
+            "encodedBodySize": 1768
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+            "duration": 36.69999999925494,
+            "transferSize": 9861,
+            "encodedBodySize": 9561
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+            "duration": 44.79999999888241,
+            "transferSize": 7382,
+            "encodedBodySize": 7082
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+            "duration": 32.69999999925494,
+            "transferSize": 32206,
+            "encodedBodySize": 31906
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+            "duration": 33.59999999962747,
+            "transferSize": 108822,
+            "encodedBodySize": 108522
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+            "duration": 28.199999999254942,
+            "transferSize": 1132,
+            "encodedBodySize": 832
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+            "duration": 28.700000001117587,
+            "transferSize": 3351,
+            "encodedBodySize": 3051
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+            "duration": 30.199999999254942,
+            "transferSize": 4951,
+            "encodedBodySize": 4651
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+            "duration": 37.09999999962747,
+            "transferSize": 12706,
+            "encodedBodySize": 12406
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+            "duration": 37.90000000037253,
+            "transferSize": 2215,
+            "encodedBodySize": 1915
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+            "duration": 36,
+            "transferSize": 2698,
+            "encodedBodySize": 2398
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+            "duration": 30.399999998509884,
+            "transferSize": 4157,
+            "encodedBodySize": 3857
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+            "duration": 32.80000000074506,
+            "transferSize": 6135,
+            "encodedBodySize": 5835
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+            "duration": 38.70000000111759,
+            "transferSize": 8281,
+            "encodedBodySize": 7981
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+            "duration": 39.90000000037253,
+            "transferSize": 4842,
+            "encodedBodySize": 4542
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+            "duration": 40.20000000111759,
+            "transferSize": 8695,
+            "encodedBodySize": 8395
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+            "duration": 26.699999999254942,
+            "transferSize": 30168,
+            "encodedBodySize": 29868
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+            "duration": 7.300000000745058,
+            "transferSize": 871,
+            "encodedBodySize": 571
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+            "duration": 9.099999999627471,
+            "transferSize": 1876,
+            "encodedBodySize": 1576
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+            "duration": 8.699999999254942,
+            "transferSize": 2531,
+            "encodedBodySize": 2231
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+            "duration": 9,
+            "transferSize": 2006,
+            "encodedBodySize": 1706
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+            "duration": 14.5,
+            "transferSize": 1492,
+            "encodedBodySize": 1192
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+            "duration": 13.300000000745058,
+            "transferSize": 1693,
+            "encodedBodySize": 1393
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/lawson_scene.glb",
+            "duration": 81.20000000111759,
+            "transferSize": 17316348,
+            "encodedBodySize": 17316048
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_A.glb",
+            "duration": 6.400000000372529,
+            "transferSize": 396608,
+            "encodedBodySize": 396308
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_B.glb",
+            "duration": 9.599999999627471,
+            "transferSize": 490236,
+            "encodedBodySize": 489936
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_C.glb",
+            "duration": 7.099999999627471,
+            "transferSize": 446048,
+            "encodedBodySize": 445748
+          }
+        ]
+      }
+    },
+    {
+      "name": "performance baseline default full overview",
+      "passed": true,
+      "evidence": {
+        "label": "default auto-quality",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "DPR": 1,
+        "samples": [
+          {
+            "wallSeconds": 1.0109997674589977e-06,
+            "stats": {
+              "fps": 15,
+              "drawCalls": 2193,
+              "triangles": 730990,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 0.7535299200008012,
+            "stats": {
+              "fps": 15,
+              "drawCalls": 1618,
+              "triangles": 414710,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 1.5121233970003232,
+            "stats": {
+              "fps": 15,
+              "drawCalls": 1618,
+              "triangles": 414710,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 2.269749356999455,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1618,
+              "triangles": 414710,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 3.028618254000321,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1618,
+              "triangles": 414710,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 3.8685087190006016,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1618,
+              "triangles": 414710,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 4.7701397399996495,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1618,
+              "triangles": 414710,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 5.666410465999434,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1618,
+              "triangles": 414710,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 6.620841039999505,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 2193,
+              "triangles": 730990,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 7.375311957001031,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 2193,
+              "triangles": 730990,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 8.131613601000936,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 2193,
+              "triangles": 730990,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 8.970189567000489,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1618,
+              "triangles": 414710,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 9.725086516000374,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1618,
+              "triangles": 414710,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 10.478231048000453,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1618,
+              "triangles": 414710,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 11.367124137001156,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 0,
+              "triangles": 0,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          }
+        ],
+        "cameraPlacement": {
+          "preset": "hero",
+          "pose": {
+            "pos": [
+              20.5,
+              5.2,
+              28.5
+            ],
+            "target": [
+              2.2,
+              2.9,
+              5.5
+            ]
+          },
+          "projectedTarget": [
+            640,
+            360
+          ],
+          "method": "existing source setFreeCamera API holds the original preset pose; native callbacks, no animated flight or clock changes"
+        },
+        "sourceHUDFPS": [
+          15,
+          15,
+          15,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "actualCompletedSceneCallbacks": 28,
+        "actualCallbackRatePerWallSecond": 2.090269794108367,
+        "nativeMeasurement": {
+          "durationMs": 13395.400000000373,
+          "frames": [
+            {
+              "native": 3739.5,
+              "wall": 3743.800000000745,
+              "costMs": 188.7999999988824
+            },
+            {
+              "native": 4256.2,
+              "wall": 4257.199999999255,
+              "costMs": 154.2000000011176
+            },
+            {
+              "native": 4622.9,
+              "wall": 4624.699999999255,
+              "costMs": 202.10000000149012
+            },
+            {
+              "native": 5106.1,
+              "wall": 5118,
+              "costMs": 116
+            },
+            {
+              "native": 5539.5,
+              "wall": 5548,
+              "costMs": 175
+            },
+            {
+              "native": 6006.1,
+              "wall": 6012.699999999255,
+              "costMs": 145.30000000074506
+            },
+            {
+              "native": 6372.8,
+              "wall": 6378.5999999996275,
+              "costMs": 185.59999999962747
+            },
+            {
+              "native": 6856.1,
+              "wall": 6866,
+              "costMs": 150.19999999925494
+            },
+            {
+              "native": 7272.7,
+              "wall": 7283.0999999996275,
+              "costMs": 182.7000000011176
+            },
+            {
+              "native": 7722.7,
+              "wall": 7731.4000000003725,
+              "costMs": 127.90000000037253
+            },
+            {
+              "native": 8156.1,
+              "wall": 8169.9000000003725,
+              "costMs": 191.7999999988824
+            },
+            {
+              "native": 8622.7,
+              "wall": 8657.099999999627,
+              "costMs": 147.59999999962747
+            },
+            {
+              "native": 9089.3,
+              "wall": 9100.199999999255,
+              "costMs": 209.60000000149012
+            },
+            {
+              "native": 9606,
+              "wall": 9615.900000000373,
+              "costMs": 139.2999999988824
+            },
+            {
+              "native": 10072.7,
+              "wall": 10085.599999999627,
+              "costMs": 222.09999999962747
+            },
+            {
+              "native": 10606,
+              "wall": 10618.699999999255,
+              "costMs": 145.2000000011176
+            },
+            {
+              "native": 11006,
+              "wall": 11009.199999999255,
+              "costMs": 195
+            },
+            {
+              "native": 11505.9,
+              "wall": 11515.300000000745,
+              "costMs": 149.39999999850988
+            },
+            {
+              "native": 12005.9,
+              "wall": 12013.699999999255,
+              "costMs": 227.10000000149012
+            },
+            {
+              "native": 12522.6,
+              "wall": 12534.900000000373,
+              "costMs": 171.40000000037253
+            },
+            {
+              "native": 12955.8,
+              "wall": 12963.800000000745,
+              "costMs": 200
+            },
+            {
+              "native": 13439.1,
+              "wall": 13444.5,
+              "costMs": 147.19999999925494
+            },
+            {
+              "native": 13855.8,
+              "wall": 13861.800000000745,
+              "costMs": 200.39999999850988
+            },
+            {
+              "native": 14355.9,
+              "wall": 14366.400000000373,
+              "costMs": 1718.199999999255
+            },
+            {
+              "native": 16072.4,
+              "wall": 16087.400000000373,
+              "costMs": 14.699999999254942
+            },
+            {
+              "native": 16089,
+              "wall": 16102.599999999627,
+              "costMs": 16.90000000037253
+            },
+            {
+              "native": 16105.7,
+              "wall": 16119.800000000745,
+              "costMs": 12.899999998509884
+            },
+            {
+              "native": 16455.7,
+              "wall": 16460,
+              "costMs": 15.5
+            }
+          ]
+        },
+        "hardwareFPSProof": false,
+        "scope": "cloud software GL, default scene quality/adaptation, serial real native callbacks; diagnostic baseline, not hardware benchmark"
+      }
+    },
+    {
+      "name": "performance baseline vehicle view",
+      "passed": true,
+      "evidence": {
+        "label": "vehicle area, original preset fixed pose",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "DPR": 1,
+        "samples": [
+          {
+            "wallSeconds": 8.919996616896242e-07,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 2138,
+              "triangles": 723250,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 0.7541147909996653,
+            "stats": {
+              "fps": 13,
+              "drawCalls": 2138,
+              "triangles": 723250,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 1.5123780889989575,
+            "stats": {
+              "fps": 13,
+              "drawCalls": 1563,
+              "triangles": 406970,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 2.2683006429997477,
+            "stats": {
+              "fps": 13,
+              "drawCalls": 1563,
+              "triangles": 406970,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 3.022545750998688,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1563,
+              "triangles": 406970,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 3.7762801899989427,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1563,
+              "triangles": 406970,
+              "programs": 21,
+              "lights": 34,
+              "quality": "high",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 4.535421205999228,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 0,
+              "triangles": 0,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 6.102915506999125,
+            "stats": {
+              "fps": 13,
+              "drawCalls": 2145,
+              "triangles": 725258,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 6.8582721809998475,
+            "stats": {
+              "fps": 13,
+              "drawCalls": 2152,
+              "triangles": 726722,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 7.615148234999651,
+            "stats": {
+              "fps": 13,
+              "drawCalls": 2158,
+              "triangles": 727482,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 8.374965035998684,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 2166,
+              "triangles": 728346,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 9.12919782499921,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 2176,
+              "triangles": 730546,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 9.898729827998977,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1563,
+              "triangles": 406970,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 10.653645578999203,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1563,
+              "triangles": 406970,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 11.414708360000077,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 0,
+              "triangles": 0,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          }
+        ],
+        "cameraPlacement": {
+          "preset": "vehicle",
+          "pose": {
+            "pos": [
+              0,
+              9,
+              26
+            ],
+            "target": [
+              0,
+              1.2,
+              8
+            ]
+          },
+          "projectedTarget": [
+            640,
+            360
+          ],
+          "method": "existing source setFreeCamera API holds the original preset pose; native callbacks, no animated flight or clock changes"
+        },
+        "sourceHUDFPS": [
+          10,
+          13,
+          13,
+          13,
+          10,
+          10,
+          10,
+          13,
+          13,
+          13,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "actualCompletedSceneCallbacks": 30,
+        "actualCallbackRatePerWallSecond": 2.316334015365016,
+        "nativeMeasurement": {
+          "durationMs": 12951.5,
+          "frames": [
+            {
+              "native": 17555.7,
+              "wall": 17560.099999999627,
+              "costMs": 13.300000000745058
+            },
+            {
+              "native": 17939,
+              "wall": 17949.599999999627,
+              "costMs": 16.40000000037253
+            },
+            {
+              "native": 18405.7,
+              "wall": 18414.900000000373,
+              "costMs": 17
+            },
+            {
+              "native": 18772.3,
+              "wall": 18775.099999999627,
+              "costMs": 19
+            },
+            {
+              "native": 19272.3,
+              "wall": 19276.199999999255,
+              "costMs": 13.5
+            },
+            {
+              "native": 19638.9,
+              "wall": 19644.400000000373,
+              "costMs": 23.699999999254942
+            },
+            {
+              "native": 20088.9,
+              "wall": 20097.599999999627,
+              "costMs": 15.200000001117587
+            },
+            {
+              "native": 20455.6,
+              "wall": 20457.900000000373,
+              "costMs": 17.699999999254942
+            },
+            {
+              "native": 20905.5,
+              "wall": 20914.400000000373,
+              "costMs": 20.40000000037253
+            },
+            {
+              "native": 21272.2,
+              "wall": 21282.5,
+              "costMs": 1313.9000000003725
+            },
+            {
+              "native": 22588.8,
+              "wall": 22598.699999999255,
+              "costMs": 17.5
+            },
+            {
+              "native": 22605.5,
+              "wall": 22616.5,
+              "costMs": 19.40000000037253
+            },
+            {
+              "native": 22638.8,
+              "wall": 22639.699999999255,
+              "costMs": 13.700000001117587
+            },
+            {
+              "native": 23105.5,
+              "wall": 23109.599999999627,
+              "costMs": 17.90000000037253
+            },
+            {
+              "native": 23538.8,
+              "wall": 23546.900000000373,
+              "costMs": 15.900000000372529
+            },
+            {
+              "native": 23888.7,
+              "wall": 23890,
+              "costMs": 14.699999999254942
+            },
+            {
+              "native": 24338.7,
+              "wall": 24354.300000000745,
+              "costMs": 12.199999999254942
+            },
+            {
+              "native": 24738.7,
+              "wall": 24742.800000000745,
+              "costMs": 23.899999998509884
+            },
+            {
+              "native": 25188.7,
+              "wall": 25192.699999999255,
+              "costMs": 17.5
+            },
+            {
+              "native": 25572,
+              "wall": 25575,
+              "costMs": 23.800000000745058
+            },
+            {
+              "native": 25988.7,
+              "wall": 26004.099999999627,
+              "costMs": 11.900000000372529
+            },
+            {
+              "native": 26372,
+              "wall": 26380.800000000745,
+              "costMs": 18.899999998509884
+            },
+            {
+              "native": 26822,
+              "wall": 26823.099999999627,
+              "costMs": 19.09999999962747
+            },
+            {
+              "native": 27255.3,
+              "wall": 27259.800000000745,
+              "costMs": 18.799999998882413
+            },
+            {
+              "native": 27722,
+              "wall": 27727.099999999627,
+              "costMs": 17.90000000037253
+            },
+            {
+              "native": 28088.6,
+              "wall": 28097.699999999255,
+              "costMs": 1349.4000000003725
+            },
+            {
+              "native": 29438.5,
+              "wall": 29448.599999999627,
+              "costMs": 16.5
+            },
+            {
+              "native": 29455.2,
+              "wall": 29465.699999999255,
+              "costMs": 16
+            },
+            {
+              "native": 29471.9,
+              "wall": 29482.599999999627,
+              "costMs": 12.200000001117587
+            },
+            {
+              "native": 29821.9,
+              "wall": 29832.199999999255,
+              "costMs": 27.800000000745058
+            }
+          ]
+        },
+        "hardwareFPSProof": false,
+        "scope": "cloud software GL, default scene quality/adaptation, serial real native callbacks; diagnostic baseline, not hardware benchmark"
+      }
+    },
+    {
+      "name": "performance baseline interior",
+      "passed": true,
+      "evidence": {
+        "label": "interior",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "DPR": 1,
+        "samples": [
+          {
+            "wallSeconds": 6.110003596404567e-07,
+            "stats": {
+              "fps": 13,
+              "drawCalls": 1106,
+              "triangles": 607018,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 0.753060851000555,
+            "stats": {
+              "fps": 13,
+              "drawCalls": 1106,
+              "triangles": 607018,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 1.5065819760002341,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1106,
+              "triangles": 607018,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 2.263372976000028,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1106,
+              "triangles": 607018,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 3.0179165090012248,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1106,
+              "triangles": 607018,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 3.774118311001075,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1106,
+              "triangles": 607018,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 4.535127883000314,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 474,
+              "triangles": 281094,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 5.2954438449996815,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 474,
+              "triangles": 281094,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 6.052318407000712,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 474,
+              "triangles": 281094,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 6.808554991001074,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 474,
+              "triangles": 281094,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 7.563563162000719,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 474,
+              "triangles": 281094,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 8.323394914001256,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1106,
+              "triangles": 607018,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 9.079444371000136,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1106,
+              "triangles": 607018,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 9.839246514000479,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1106,
+              "triangles": 607018,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.84,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "wallSeconds": 10.594064847000482,
+            "stats": {
+              "fps": 10,
+              "drawCalls": 0,
+              "triangles": 0,
+              "programs": 21,
+              "lights": 34,
+              "quality": "medium",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.76,
+              "renderSize": [
+                1280,
+                720
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          }
+        ],
+        "cameraPlacement": {
+          "preset": "interior",
+          "pose": {
+            "pos": [
+              0.6,
+              1.75,
+              6.4
+            ],
+            "target": [
+              0,
+              1.45,
+              -2.8
+            ]
+          },
+          "projectedTarget": [
+            640,
+            360
+          ],
+          "method": "existing source setFreeCamera API holds the original preset pose; native callbacks, no animated flight or clock changes"
+        },
+        "sourceHUDFPS": [
+          13,
+          13,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "actualCompletedSceneCallbacks": 29,
+        "actualCallbackRatePerWallSecond": 2.4028701870095124,
+        "nativeMeasurement": {
+          "durationMs": 12068.900000000373,
+          "frames": [
+            {
+              "native": 31038.5,
+              "wall": 31042.5,
+              "costMs": 14
+            },
+            {
+              "native": 31371.8,
+              "wall": 31375.900000000373,
+              "costMs": 9.099999999627471
+            },
+            {
+              "native": 31788.4,
+              "wall": 31804.300000000745,
+              "costMs": 6.5
+            },
+            {
+              "native": 32155.1,
+              "wall": 32166,
+              "costMs": 8.800000000745058
+            },
+            {
+              "native": 32571.7,
+              "wall": 32572.800000000745,
+              "costMs": 7
+            },
+            {
+              "native": 32938.4,
+              "wall": 32943.40000000037,
+              "costMs": 17.90000000037253
+            },
+            {
+              "native": 33355,
+              "wall": 33356.40000000037,
+              "costMs": 6.199999999254942
+            },
+            {
+              "native": 33705.1,
+              "wall": 33714.90000000037,
+              "costMs": 13.799999998882413
+            },
+            {
+              "native": 34138.4,
+              "wall": 34142.800000000745,
+              "costMs": 6.5
+            },
+            {
+              "native": 34455,
+              "wall": 34460.5,
+              "costMs": 13
+            },
+            {
+              "native": 34888.3,
+              "wall": 34894.40000000037,
+              "costMs": 8.5
+            },
+            {
+              "native": 35288.3,
+              "wall": 35292.800000000745,
+              "costMs": 10.299999998882413
+            },
+            {
+              "native": 35754.9,
+              "wall": 35763.300000000745,
+              "costMs": 5
+            },
+            {
+              "native": 36138.2,
+              "wall": 36143.699999999255,
+              "costMs": 10.600000001490116
+            },
+            {
+              "native": 36554.9,
+              "wall": 36569.90000000037,
+              "costMs": 5.699999999254942
+            },
+            {
+              "native": 36938.3,
+              "wall": 36939.300000000745,
+              "costMs": 13.5
+            },
+            {
+              "native": 37371.6,
+              "wall": 37372.5,
+              "costMs": 8.400000000372529
+            },
+            {
+              "native": 37771.5,
+              "wall": 37773.699999999255,
+              "costMs": 7.400000000372529
+            },
+            {
+              "native": 38254.8,
+              "wall": 38256.699999999255,
+              "costMs": 10.600000001490116
+            },
+            {
+              "native": 38671.5,
+              "wall": 38675.09999999963,
+              "costMs": 21.200000001117587
+            },
+            {
+              "native": 39154.8,
+              "wall": 39164,
+              "costMs": 20.699999999254942
+            },
+            {
+              "native": 39521.5,
+              "wall": 39522.300000000745,
+              "costMs": 11.099999999627471
+            },
+            {
+              "native": 39988.1,
+              "wall": 39991.90000000037,
+              "costMs": 4.5
+            },
+            {
+              "native": 40338.1,
+              "wall": 40341.699999999255,
+              "costMs": 9.800000000745058
+            },
+            {
+              "native": 40804.8,
+              "wall": 40808.59999999963,
+              "costMs": 1244.5999999996275
+            },
+            {
+              "native": 42054.7,
+              "wall": 42056.59999999963,
+              "costMs": 18.90000000037253
+            },
+            {
+              "native": 42071.4,
+              "wall": 42076.199999999255,
+              "costMs": 4.700000001117587
+            },
+            {
+              "native": 42104.7,
+              "wall": 42106.90000000037,
+              "costMs": 10
+            },
+            {
+              "native": 42488,
+              "wall": 42503.40000000037,
+              "costMs": 5.299999998882413
+            }
+          ]
+        },
+        "hardwareFPSProof": false,
+        "scope": "cloud software GL, default scene quality/adaptation, serial real native callbacks; diagnostic baseline, not hardware benchmark"
+      }
+    }
+  ],
+  "pageErrors": [],
+  "console": [
+    {
+      "type": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium",
+      "url": "http://127.0.0.1:4190/root/index.html"
+    }
+  ],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:4190/root/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/controls.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/main.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/responsive.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/main.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/lawson_scene.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_A.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_B.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_C.glb",
+      "status": 200
+    }
+  ],
+  "failedRequests": [],
+  "timingPolicy": "native RAF and performance time, no time acceleration or altered scene code",
+  "scope": "independent staged scene and temporary harness, not the personal website integration",
+  "verificationScriptSHA256": "1f18eac58c404f555a974e30258bbf6166d4465d0be60e02531f137a95d70f91",
+  "targetedCaseFragments": null,
+  "browser": "155.0.8059.79",
+  "browserConfiguration": {
+    "backend": "mesa",
+    "headless": false,
+    "flags": [
+      "--no-sandbox",
+      "--use-gl=angle",
+      "--use-angle=gl",
+      "--ignore-gpu-blocklist"
+    ],
+    "DISPLAY": ":106",
+    "LP_NUM_THREADS": "3",
+    "softwareRendering": true,
+    "hardwareFPSProof": false
+  },
+  "initialViewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "renderingEnvironment": {
+    "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+  },
+  "passed": true,
+  "httpErrors": []
+}

@@ -1,0 +1,1322 @@
+{
+  "phase": "core",
+  "run": "run-1",
+  "checks": [
+    {
+      "name": "cold standalone load",
+      "passed": true,
+      "evidence": {
+        "readySeconds": 16.878140001999782,
+        "navigation": {
+          "name": "http://127.0.0.1:4190/root/index.html",
+          "entryType": "navigation",
+          "startTime": 0,
+          "duration": 418.7000000011176,
+          "navigationId": 7915,
+          "initiatorType": "navigation",
+          "deliveryType": "",
+          "nextHopProtocol": "http/1.0",
+          "renderBlockingStatus": "non-blocking",
+          "contentType": "text/html",
+          "contentEncoding": "",
+          "workerStart": 0,
+          "workerRouterEvaluationStart": 0,
+          "workerCacheLookupStart": 0,
+          "workerMatchedSourceType": "",
+          "workerFinalSourceType": "",
+          "redirectStart": 0,
+          "redirectEnd": 0,
+          "fetchStart": 1.300000000745058,
+          "domainLookupStart": 1.300000000745058,
+          "domainLookupEnd": 1.300000000745058,
+          "connectStart": 1.300000000745058,
+          "secureConnectionStart": 0,
+          "connectEnd": 1.300000000745058,
+          "requestStart": 2.700000001117587,
+          "responseStart": 4.099999999627471,
+          "firstInterimResponseStart": 0,
+          "finalResponseHeadersStart": 4.099999999627471,
+          "responseEnd": 4.700000001117587,
+          "transferSize": 9121,
+          "encodedBodySize": 8821,
+          "decodedBodySize": 8821,
+          "responseStatus": 200,
+          "serverTiming": [],
+          "unloadEventStart": 0,
+          "unloadEventEnd": 0,
+          "domInteractive": 48.30000000074506,
+          "domContentLoadedEventStart": 416.09999999962747,
+          "domContentLoadedEventEnd": 416.40000000037253,
+          "domComplete": 418.5,
+          "loadEventStart": 418.7000000011176,
+          "loadEventEnd": 418.7000000011176,
+          "type": "navigate",
+          "redirectCount": 0,
+          "activationStart": 0,
+          "criticalCHRestart": 0,
+          "notRestoredReasons": null,
+          "confidence": {
+            "randomizedTriggerRate": 0.4994798,
+            "value": "low"
+          }
+        },
+        "resources": [
+          {
+            "name": "http://127.0.0.1:4190/root/css/main.css",
+            "duration": 20.799999998882413,
+            "transferSize": 9746,
+            "encodedBodySize": 9446
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/css/responsive.css",
+            "duration": 22.59999999962747,
+            "transferSize": 1610,
+            "encodedBodySize": 1310
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/css/controls.css",
+            "duration": 22.899999998509884,
+            "transferSize": 1616,
+            "encodedBodySize": 1316
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/main.js",
+            "duration": 23.40000000037253,
+            "transferSize": 22097,
+            "encodedBodySize": 21797
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+            "duration": 13.900000000372529,
+            "transferSize": 3927,
+            "encodedBodySize": 3627
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+            "duration": 45.09999999962747,
+            "transferSize": 1273272,
+            "encodedBodySize": 1272972
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+            "duration": 12.5,
+            "transferSize": 20610,
+            "encodedBodySize": 20310
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+            "duration": 13.100000001490116,
+            "transferSize": 1219,
+            "encodedBodySize": 919
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+            "duration": 14.200000001117587,
+            "transferSize": 6953,
+            "encodedBodySize": 6653
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+            "duration": 14.799999998882413,
+            "transferSize": 1659,
+            "encodedBodySize": 1359
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+            "duration": 30.399999998509884,
+            "transferSize": 5632,
+            "encodedBodySize": 5332
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+            "duration": 24.699999999254942,
+            "transferSize": 3170,
+            "encodedBodySize": 2870
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+            "duration": 14.5,
+            "transferSize": 3762,
+            "encodedBodySize": 3462
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+            "duration": 25.199999999254942,
+            "transferSize": 32977,
+            "encodedBodySize": 32677
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+            "duration": 26.800000000745058,
+            "transferSize": 25916,
+            "encodedBodySize": 25616
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+            "duration": 30.40000000037253,
+            "transferSize": 8119,
+            "encodedBodySize": 7819
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+            "duration": 34.70000000111759,
+            "transferSize": 4615,
+            "encodedBodySize": 4315
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+            "duration": 33.90000000037253,
+            "transferSize": 1184,
+            "encodedBodySize": 884
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+            "duration": 33.5,
+            "transferSize": 2068,
+            "encodedBodySize": 1768
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+            "duration": 40.90000000037253,
+            "transferSize": 7382,
+            "encodedBodySize": 7082
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+            "duration": 42.90000000037253,
+            "transferSize": 9861,
+            "encodedBodySize": 9561
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+            "duration": 26.59999999962747,
+            "transferSize": 108822,
+            "encodedBodySize": 108522
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+            "duration": 22.299999998882413,
+            "transferSize": 32206,
+            "encodedBodySize": 31906
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+            "duration": 26.09999999962747,
+            "transferSize": 1132,
+            "encodedBodySize": 832
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+            "duration": 31.799999998882413,
+            "transferSize": 3351,
+            "encodedBodySize": 3051
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+            "duration": 29.59999999962747,
+            "transferSize": 4951,
+            "encodedBodySize": 4651
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+            "duration": 30.5,
+            "transferSize": 12706,
+            "encodedBodySize": 12406
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+            "duration": 30.09999999962747,
+            "transferSize": 2215,
+            "encodedBodySize": 1915
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+            "duration": 43.59999999962747,
+            "transferSize": 2698,
+            "encodedBodySize": 2398
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+            "duration": 39.09999999962747,
+            "transferSize": 6135,
+            "encodedBodySize": 5835
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+            "duration": 37.30000000074506,
+            "transferSize": 8281,
+            "encodedBodySize": 7981
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+            "duration": 41.59999999962747,
+            "transferSize": 4842,
+            "encodedBodySize": 4542
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+            "duration": 42.09999999962747,
+            "transferSize": 8695,
+            "encodedBodySize": 8395
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+            "duration": 39.80000000074506,
+            "transferSize": 4157,
+            "encodedBodySize": 3857
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+            "duration": 32.59999999962747,
+            "transferSize": 30168,
+            "encodedBodySize": 29868
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+            "duration": 11.400000000372529,
+            "transferSize": 871,
+            "encodedBodySize": 571
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+            "duration": 8.300000000745058,
+            "transferSize": 1876,
+            "encodedBodySize": 1576
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+            "duration": 10,
+            "transferSize": 2531,
+            "encodedBodySize": 2231
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+            "duration": 11,
+            "transferSize": 1492,
+            "encodedBodySize": 1192
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+            "duration": 13.100000001490116,
+            "transferSize": 2006,
+            "encodedBodySize": 1706
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+            "duration": 7.900000000372529,
+            "transferSize": 1693,
+            "encodedBodySize": 1393
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/lawson_scene.glb",
+            "duration": 84.79999999888241,
+            "transferSize": 17316348,
+            "encodedBodySize": 17316048
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_A.glb",
+            "duration": 4.800000000745058,
+            "transferSize": 396608,
+            "encodedBodySize": 396308
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_B.glb",
+            "duration": 3.199999999254942,
+            "transferSize": 490236,
+            "encodedBodySize": 489936
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_C.glb",
+            "duration": 3.199999999254942,
+            "transferSize": 446048,
+            "encodedBodySize": 445748
+          }
+        ]
+      }
+    },
+    {
+      "name": "warm standalone load",
+      "passed": true,
+      "evidence": {
+        "readySeconds": 20.759117332998358,
+        "navigation": {
+          "name": "http://127.0.0.1:4190/root/index.html",
+          "entryType": "navigation",
+          "startTime": 0,
+          "duration": 4605.5,
+          "navigationId": 4049,
+          "initiatorType": "navigation",
+          "deliveryType": "cache",
+          "nextHopProtocol": "",
+          "renderBlockingStatus": "non-blocking",
+          "contentType": "text/html",
+          "contentEncoding": "",
+          "workerStart": 0,
+          "workerRouterEvaluationStart": 0,
+          "workerCacheLookupStart": 0,
+          "workerMatchedSourceType": "",
+          "workerFinalSourceType": "",
+          "redirectStart": 0,
+          "redirectEnd": 0,
+          "fetchStart": 0.5,
+          "domainLookupStart": 0.5,
+          "domainLookupEnd": 0.5,
+          "connectStart": 0.5,
+          "secureConnectionStart": 0,
+          "connectEnd": 0.5,
+          "requestStart": 1.800000000745058,
+          "responseStart": 1.800000000745058,
+          "firstInterimResponseStart": 1.800000000745058,
+          "finalResponseHeadersStart": 0,
+          "responseEnd": 2.200000001117587,
+          "transferSize": 0,
+          "encodedBodySize": 8821,
+          "decodedBodySize": 8821,
+          "responseStatus": 200,
+          "serverTiming": [],
+          "unloadEventStart": 34.80000000074506,
+          "unloadEventEnd": 34.80000000074506,
+          "domInteractive": 4285.9000000003725,
+          "domContentLoadedEventStart": 4605.200000001118,
+          "domContentLoadedEventEnd": 4605.300000000745,
+          "domComplete": 4605.5,
+          "loadEventStart": 4605.5,
+          "loadEventEnd": 4605.5,
+          "type": "navigate",
+          "redirectCount": 0,
+          "activationStart": 0,
+          "criticalCHRestart": 0,
+          "notRestoredReasons": null,
+          "confidence": {
+            "randomizedTriggerRate": 0.4994798,
+            "value": "low"
+          }
+        },
+        "resources": [
+          {
+            "name": "http://127.0.0.1:4190/root/css/main.css",
+            "duration": 7,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/css/controls.css",
+            "duration": 7.5,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/css/responsive.css",
+            "duration": 10.099999999627471,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/main.js",
+            "duration": 11.200000001117587,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+            "duration": 6.300000000745058,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+            "duration": 13.799999998882413,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+            "duration": 11.599999999627471,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+            "duration": 12.699999999254942,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+            "duration": 13,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+            "duration": 13.400000000372529,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+            "duration": 12.300000000745058,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+            "duration": 17.59999999962747,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+            "duration": 18.09999999962747,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+            "duration": 25.300000000745058,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+            "duration": 25.699999999254942,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+            "duration": 29.90000000037253,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+            "duration": 30.700000001117587,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+            "duration": 25.699999999254942,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+            "duration": 26.399999998509884,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+            "duration": 34.19999999925494,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+            "duration": 35,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+            "duration": 21.5,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+            "duration": 22.09999999962747,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+            "duration": 22.700000001117587,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+            "duration": 23.09999999962747,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+            "duration": 17.5,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+            "duration": 22,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+            "duration": 17,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+            "duration": 16.5,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+            "duration": 11,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+            "duration": 14.700000001117587,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+            "duration": 16,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+            "duration": 16.799999998882413,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+            "duration": 17.5,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+            "duration": 13.599999999627471,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+            "duration": 7.5,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+            "duration": 8.900000000372529,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+            "duration": 6.900000000372529,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+            "duration": 8.900000000372529,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+            "duration": 7.599999999627471,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+            "duration": 9,
+            "transferSize": 300,
+            "encodedBodySize": 0
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/lawson_scene.glb",
+            "duration": 60.40000000037253,
+            "transferSize": 17316348,
+            "encodedBodySize": 17316048
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_A.glb",
+            "duration": 3,
+            "transferSize": 300,
+            "encodedBodySize": 396308
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_B.glb",
+            "duration": 4.300000000745058,
+            "transferSize": 300,
+            "encodedBodySize": 489936
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_C.glb",
+            "duration": 2.5,
+            "transferSize": 300,
+            "encodedBodySize": 445748
+          }
+        ]
+      }
+    },
+    {
+      "name": "scene objects and interactive systems present",
+      "passed": true,
+      "evidence": {
+        "ready": true,
+        "error": null,
+        "state": {
+          "loaded": true,
+          "paused": false,
+          "quality": "high",
+          "cameraMode": "orbit",
+          "timeOfDay": 18.5,
+          "roofVisible": true,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "A",
+            "phase": "APPROACHING",
+            "speed": 1,
+            "activePosition": [
+              -41,
+              -0.18,
+              23.4
+            ],
+            "reverseLamp": false,
+            "brake": false
+          },
+          "doors": {
+            "state": "CLOSED",
+            "isOpen": false,
+            "progress": 0,
+            "automatic": true
+          },
+          "walk": false,
+          "fps": 0,
+          "stats": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        },
+        "stats": {
+          "fps": 0,
+          "drawCalls": 1618,
+          "triangles": 414710,
+          "programs": 21,
+          "lights": 34,
+          "quality": "high",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            1280,
+            720
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "debug": {
+          "doorLeft": true,
+          "doorRight": true,
+          "doorAvailable": true,
+          "roofTargets": 146,
+          "interactives": [
+            "facade",
+            "checkout",
+            "sign",
+            "basket",
+            "door",
+            "vending",
+            "shelf",
+            "alcohol",
+            "oden",
+            "clerkA",
+            "clerkB",
+            "atm",
+            "freezer",
+            "cooler",
+            "microwave",
+            "dining",
+            "coffee"
+          ],
+          "blockers": 11,
+          "steamNodes": 39,
+          "atmMaterials": 15,
+          "coffeeMaterials": 22,
+          "clerks": [
+            "A",
+            "B"
+          ],
+          "cars": [
+            "A",
+            "B",
+            "C"
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "door": {
+          "cam": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "sensor": false,
+          "progress": 0,
+          "target": 0,
+          "state": "CLOSED",
+          "automatic": true,
+          "leftPos": [
+            -0.6,
+            1.31,
+            7.54
+          ],
+          "leftBase": [
+            -0.6,
+            1.31,
+            7.54
+          ]
+        },
+        "clerks": {
+          "time": 0.4,
+          "queue": 0,
+          "clerks": {
+            "A": {
+              "state": "WALK_TO_TARGET",
+              "task": "impulse_tidy",
+              "taskTarget": [
+                -6.9,
+                4.4
+              ],
+              "taskArea": "frontShelf",
+              "animation": "Walk_Normal",
+              "remaining": 7.1,
+              "customer": null,
+              "interrupted": false,
+              "position": [
+                -9.18,
+                0,
+                5.09
+              ],
+              "yaw": 0.468,
+              "forward": [
+                0.45,
+                0.89
+              ],
+              "speed": 0.24,
+              "pathLeft": 1,
+              "carry": false,
+              "boxVisible": false,
+              "tool": null,
+              "navOk": true,
+              "customersServed": 0
+            },
+            "B": {
+              "state": "WALK_TO_TARGET",
+              "task": "shelf_inspect",
+              "taskTarget": [
+                6.2,
+                3.55
+              ],
+              "taskArea": "aisleFront",
+              "animation": "Walk_Normal",
+              "remaining": 9.57,
+              "customer": null,
+              "interrupted": false,
+              "position": [
+                2.45,
+                0,
+                -0.53
+              ],
+              "yaw": 3.61,
+              "forward": [
+                -0.45,
+                -0.89
+              ],
+              "speed": 0.24,
+              "pathLeft": 2,
+              "carry": false,
+              "boxVisible": false,
+              "tool": null,
+              "navOk": true,
+              "customersServed": 0
+            }
+          },
+          "stats": {
+            "A": {
+              "tasksDone": 0,
+              "distance": 0.023999999999999123,
+              "interruptions": 0
+            },
+            "B": {
+              "tasksDone": 0,
+              "distance": 0.02400000000000005,
+              "interruptions": 0
+            }
+          },
+          "taskCounts": {
+            "A": {},
+            "B": {}
+          },
+          "history": {
+            "A": [],
+            "B": []
+          },
+          "events": {
+            "enter": 0,
+            "checkout": 0,
+            "help": 0,
+            "queue": 0
+          },
+          "customersServed": 0
+        },
+        "camera": [
+          [
+            693,
+            437
+          ],
+          [
+            930,
+            463
+          ],
+          [
+            694,
+            311
+          ]
+        ],
+        "canvas": {
+          "width": 1280,
+          "height": 720,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 720,
+            "top": 0,
+            "right": 1280,
+            "bottom": 720,
+            "left": 0
+          }
+        },
+        "probe": {
+          "draws": 9735,
+          "raf": 14
+        }
+      }
+    },
+    {
+      "name": "day night eight lighting groups and shortcuts",
+      "passed": false,
+      "error": "Page.wait_for_function: Timeout 15000ms exceeded.",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-integration/step1_browser.py\", line 50, in check\n    if args.only and args.only not in name and name not in ['cold standalone load', 'warm standalone load']:\n                   ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-integration/step1_browser.py\", line 118, in day_night\n    rows = []\n        ^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 12761, in wait_for_function\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 1151, in wait_for_function\n    return await self._main_frame.wait_for_function(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 940, in wait_for_function\n    await self._channel.send(\"waitForFunction\", self._timeout, params)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 15000ms exceeded.\n"
+    }
+  ],
+  "pageErrors": [],
+  "console": [],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:4190/root/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/main.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/responsive.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/controls.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/main.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/lawson_scene.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_A.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_B.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_C.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/main.css",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/controls.css",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/responsive.css",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/main.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/lawson_scene.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_A.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_B.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_C.glb",
+      "status": 200
+    }
+  ],
+  "failedRequests": [],
+  "timingPolicy": "native RAF and performance time, no time acceleration or altered scene code",
+  "scope": "independent staged scene and temporary harness, not the personal website integration",
+  "browser": "155.0.8059.79",
+  "environment": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "DPR": 1,
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  }
+}

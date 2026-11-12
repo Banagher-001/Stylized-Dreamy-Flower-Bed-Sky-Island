@@ -1,0 +1,1483 @@
+{
+  "scope": "Actual built portfolio host; original iframe deferred to step5",
+  "checks": [
+    {
+      "name": "main lifecycle and original courtyard",
+      "passed": false,
+      "error": "Locator.scroll_into_view_if_needed: Error: strict mode violation: locator(\"[data-experiment-station=C2]\") resolved to 2 elements:\n    1) <div id=\"tour-host\" data-stage=\"C2\" data-film-station=\"\" data-film-phase=\"off\" data-guide-station=\"O\" data-guide-ready-at=\"\" data-guide-deadline=\"\" data-orb-style=\"lively\" data-aspect=\"1.0000000\" data-reading-station=\"\" data-guide-target-h=\"0\" data-reading-phase=\"off\" data-render-state=\"ready\" data-magic-status=\"ready\" data-visibility=\"visible\" data-guide-phase=\"manual\" data-chapter=\"experiments\" data-target-h=\"10.0500000\" data-motion-state=\"paused\" data-guide-state=\"blocked\" data-scene-time=\"3.799…>…</div> aka locator(\"#tour-host\")\n    2) <article aria-hidden=\"false\" data-flow-anchor=\"C2\" data-experiment-station=\"C2\" aria-labelledby=\"experiment-C2-title\">…</article> aka get_by_role(\"article\", name=\"罗森便利店\")\n\nCall log:\n  - waiting for locator(\"[data-experiment-station=C2]\")\n",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-4/verify_host.py\", line 14, in case\n    try:report['checks'].append({'name':name,'passed':True,'evidence':fn()});print('PASS '+name,flush=True)\n                                                                      ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-4/verify_host.py\", line 76, in lifecycle\n    c2(p);assert p.locator('.experiment-reading').get_attribute('data-project-id')=='lawson'\n    ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-4/verify_host.py\", line 32, in c2\n    if p.locator('main').get_attribute('data-reading-mode')=='stable':p.locator('[data-experiment-station=C2]').scroll_into_view_if_needed()\n                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 19985, in scroll_into_view_if_needed\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_locator.py\", line 617, in scroll_into_view_if_needed\n    return await self._with_element(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_locator.py\", line 114, in _with_element\n    handle = await self.element_handle(timeout=timeout)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_locator.py\", line 325, in element_handle\n    handle = await self._frame.wait_for_selector(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 394, in wait_for_selector\n    await self._channel.send(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Locator.scroll_into_view_if_needed: Error: strict mode violation: locator(\"[data-experiment-station=C2]\") resolved to 2 elements:\n    1) <div id=\"tour-host\" data-stage=\"C2\" data-film-station=\"\" data-film-phase=\"off\" data-guide-station=\"O\" data-guide-ready-at=\"\" data-guide-deadline=\"\" data-orb-style=\"lively\" data-aspect=\"1.0000000\" data-reading-station=\"\" data-guide-target-h=\"0\" data-reading-phase=\"off\" data-render-state=\"ready\" data-magic-status=\"ready\" data-visibility=\"visible\" data-guide-phase=\"manual\" data-chapter=\"experiments\" data-target-h=\"10.0500000\" data-motion-state=\"paused\" data-guide-state=\"blocked\" data-scene-time=\"3.799…>…</div> aka locator(\"#tour-host\")\n    2) <article aria-hidden=\"false\" data-flow-anchor=\"C2\" data-experiment-station=\"C2\" aria-labelledby=\"experiment-C2-title\">…</article> aka get_by_role(\"article\", name=\"罗森便利店\")\n\nCall log:\n  - waiting for locator(\"[data-experiment-station=C2]\")\n\n"
+    },
+    {
+      "name": "layout 1440x900",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 56
+          },
+          "live": {
+            "x": 0,
+            "y": 56,
+            "width": 1440,
+            "height": 844
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 1004,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1086,
+                "bottom": 49.5,
+                "left": 1004
+              },
+              "text": "现场体验"
+            },
+            {
+              "rect": {
+                "x": 1090,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1172,
+                "bottom": 49.5,
+                "left": 1090
+              },
+              "text": "项目档案"
+            },
+            {
+              "rect": {
+                "x": 1184,
+                "y": 5.5,
+                "width": 108,
+                "height": 44,
+                "top": 5.5,
+                "right": 1292,
+                "bottom": 49.5,
+                "left": 1184
+              },
+              "text": "独立打开\n↗"
+            },
+            {
+              "rect": {
+                "x": 1300,
+                "y": 5.5,
+                "width": 124,
+                "height": 44,
+                "top": 5.5,
+                "right": 1424,
+                "bottom": 49.5,
+                "left": 1300
+              },
+              "text": "返回阅读×"
+            }
+          ]
+        },
+        "returnReadingMode": "immersive"
+      }
+    },
+    {
+      "name": "layout 1366x768",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1366,
+          768
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 1366,
+            "height": 56
+          },
+          "live": {
+            "x": 0,
+            "y": 56,
+            "width": 1366,
+            "height": 712
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 930,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1012,
+                "bottom": 49.5,
+                "left": 930
+              },
+              "text": "现场体验"
+            },
+            {
+              "rect": {
+                "x": 1016,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1098,
+                "bottom": 49.5,
+                "left": 1016
+              },
+              "text": "项目档案"
+            },
+            {
+              "rect": {
+                "x": 1110,
+                "y": 5.5,
+                "width": 108,
+                "height": 44,
+                "top": 5.5,
+                "right": 1218,
+                "bottom": 49.5,
+                "left": 1110
+              },
+              "text": "独立打开\n↗"
+            },
+            {
+              "rect": {
+                "x": 1226,
+                "y": 5.5,
+                "width": 124,
+                "height": 44,
+                "top": 5.5,
+                "right": 1350,
+                "bottom": 49.5,
+                "left": 1226
+              },
+              "text": "返回阅读×"
+            }
+          ]
+        },
+        "returnReadingMode": "immersive"
+      }
+    },
+    {
+      "name": "layout 768x1024",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          768,
+          1024
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 768,
+            "height": 56
+          },
+          "live": {
+            "x": 0,
+            "y": 56,
+            "width": 768,
+            "height": 968
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 348,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 430,
+                "bottom": 49.5,
+                "left": 348
+              },
+              "text": "现场体验"
+            },
+            {
+              "rect": {
+                "x": 434,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 516,
+                "bottom": 49.5,
+                "left": 434
+              },
+              "text": "项目档案"
+            },
+            {
+              "rect": {
+                "x": 528,
+                "y": 5.5,
+                "width": 108,
+                "height": 44,
+                "top": 5.5,
+                "right": 636,
+                "bottom": 49.5,
+                "left": 528
+              },
+              "text": "独立打开\n↗"
+            },
+            {
+              "rect": {
+                "x": 644,
+                "y": 5.5,
+                "width": 108,
+                "height": 44,
+                "top": 5.5,
+                "right": 752,
+                "bottom": 49.5,
+                "left": 644
+              },
+              "text": "返回阅读×"
+            }
+          ]
+        },
+        "returnReadingMode": "immersive"
+      }
+    },
+    {
+      "name": "layout 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 48
+          },
+          "live": {
+            "x": 0,
+            "y": 48,
+            "width": 390,
+            "height": 796
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 180,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 228,
+                "bottom": 45.5,
+                "left": 180
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 228,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 276,
+                "bottom": 45.5,
+                "left": 228
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 280,
+                "y": 1.5,
+                "width": 44,
+                "height": 44,
+                "top": 1.5,
+                "right": 324,
+                "bottom": 45.5,
+                "left": 280
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 328,
+                "y": 1.5,
+                "width": 54,
+                "height": 44,
+                "top": 1.5,
+                "right": 382,
+                "bottom": 45.5,
+                "left": 328
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "layout 320x568",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          320,
+          568
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 48
+          },
+          "live": {
+            "x": 0,
+            "y": 48,
+            "width": 320,
+            "height": 520
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 110,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 158,
+                "bottom": 45.5,
+                "left": 110
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 158,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 206,
+                "bottom": 45.5,
+                "left": 158
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 210,
+                "y": 1.5,
+                "width": 44,
+                "height": 44,
+                "top": 1.5,
+                "right": 254,
+                "bottom": 45.5,
+                "left": 210
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 258,
+                "y": 1.5,
+                "width": 54,
+                "height": 44,
+                "top": 1.5,
+                "right": 312,
+                "bottom": 45.5,
+                "left": 258
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "layout 844x390",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          844,
+          390
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 844,
+            "height": 48
+          },
+          "live": {
+            "x": 0,
+            "y": 48,
+            "width": 844,
+            "height": 342
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 634,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 682,
+                "bottom": 45.5,
+                "left": 634
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 682,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 730,
+                "bottom": 45.5,
+                "left": 682
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 734,
+                "y": 1.5,
+                "width": 44,
+                "height": 44,
+                "top": 1.5,
+                "right": 778,
+                "bottom": 45.5,
+                "left": 734
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 782,
+                "y": 1.5,
+                "width": 54,
+                "height": 44,
+                "top": 1.5,
+                "right": 836,
+                "bottom": 45.5,
+                "left": 782
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "large text 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "largeText": true,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 57
+          },
+          "live": {
+            "x": 0,
+            "y": 57,
+            "width": 390,
+            "height": 787
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 91.9375,
+                "y": 1,
+                "width": 76.015625,
+                "height": 54,
+                "top": 1,
+                "right": 167.953125,
+                "bottom": 55,
+                "left": 91.9375
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 167.953125,
+                "y": 1,
+                "width": 76.015625,
+                "height": 54,
+                "top": 1,
+                "right": 243.96875,
+                "bottom": 55,
+                "left": 167.953125
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 247.96875,
+                "y": 1,
+                "width": 48.015625,
+                "height": 54,
+                "top": 1,
+                "right": 295.984375,
+                "bottom": 55,
+                "left": 247.96875
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 299.984375,
+                "y": 1,
+                "width": 82.015625,
+                "height": 54,
+                "top": 1,
+                "right": 382,
+                "bottom": 55,
+                "left": 299.984375
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "large text 320x568",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          320,
+          568
+        ],
+        "largeText": true,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 115
+          },
+          "live": {
+            "x": 0,
+            "y": 115,
+            "width": 320,
+            "height": 453
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 159.96875,
+                "y": 1,
+                "width": 76.015625,
+                "height": 54,
+                "top": 1,
+                "right": 235.984375,
+                "bottom": 55,
+                "left": 159.96875
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 235.984375,
+                "y": 1,
+                "width": 76.015625,
+                "height": 54,
+                "top": 1,
+                "right": 312,
+                "bottom": 55,
+                "left": 235.984375
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 177.96875,
+                "y": 59,
+                "width": 48.015625,
+                "height": 54,
+                "top": 59,
+                "right": 225.984375,
+                "bottom": 113,
+                "left": 177.96875
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 229.984375,
+                "y": 59,
+                "width": 82.015625,
+                "height": 54,
+                "top": 59,
+                "right": 312,
+                "bottom": 113,
+                "left": 229.984375
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "reduced motion",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "largeText": false,
+        "reduced": true,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 48
+          },
+          "live": {
+            "x": 0,
+            "y": 48,
+            "width": 390,
+            "height": 796
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 180,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 228,
+                "bottom": 45.5,
+                "left": 180
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 228,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 276,
+                "bottom": 45.5,
+                "left": 228
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 280,
+                "y": 1.5,
+                "width": 44,
+                "height": 44,
+                "top": 1.5,
+                "right": 324,
+                "bottom": 45.5,
+                "left": 280
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 328,
+                "y": 1.5,
+                "width": 54,
+                "height": 44,
+                "top": 1.5,
+                "right": 382,
+                "bottom": 45.5,
+                "left": 328
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "fault no-gl",
+      "passed": true,
+      "evidence": {
+        "injectedFault": "no-gl",
+        "lawsonAndArchivesRemainAccessible": true,
+        "gardenAvailabilityIndependent": true
+      }
+    },
+    {
+      "name": "fault cover",
+      "passed": true,
+      "evidence": {
+        "injectedFault": "cover",
+        "lawsonAndArchivesRemainAccessible": true,
+        "gardenAvailabilityIndependent": true
+      }
+    },
+    {
+      "name": "independent /",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4194/experiments/lawson/index.html",
+        "realOriginalPageReady": true,
+        "openerNull": true
+      }
+    },
+    {
+      "name": "independent /Stylized-Dreamy-Flower-Bed-Sky-Island/",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/index.html",
+        "realOriginalPageReady": true,
+        "openerNull": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "httpErrors": [],
+  "failedRequests": [
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png",
+      "failure": "net::ERR_FAILED"
+    }
+  ],
+  "requests": [
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/courtyard-orb-cover-CFKlnXYs.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-00-Dnvt_afN.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-03-BpIvPl5V.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/courtyard-motion-7fR7fsF8.mp4"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/courtyard-orb-cover-CFKlnXYs.webp"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-00-Dnvt_afN.png"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-03-BpIvPl5V.png"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/courtyard-orb-cover-CFKlnXYs.webp"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-00-Dnvt_afN.png"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-03-BpIvPl5V.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/index-DzmYNmDT.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/startTourPrototype-DZlwpQhd.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/lawson-cover-DsynKw5x.png"
+    }
+  ],
+  "browser": "155.0.8059.79",
+  "unexpectedFailedRequests": [],
+  "mainRuntimeRequests": [],
+  "passed": false
+}

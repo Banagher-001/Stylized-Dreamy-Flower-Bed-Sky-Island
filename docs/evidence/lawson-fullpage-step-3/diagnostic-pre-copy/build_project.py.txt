@@ -1,0 +1,14 @@
+"""Run the existing build once and preserve its actual result."""
+from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
+import json,subprocess,time
+ROOT=Path(__file__).resolve().parents[2]
+OUT=ROOT/'docs/evidence/lawson-fullpage-step-3'
+assert not (OUT/'build-result.json').exists(),'Keep previous build evidence'
+start=datetime.now(ZoneInfo('Asia/Shanghai')).isoformat();clock=time.monotonic()
+with (OUT/'build.log').open('w')as log:
+    result=subprocess.run(['npm','run','build'],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT)
+record={'command':['npm','run','build'],'startedAtShanghai':start,'finishedAtShanghai':datetime.now(ZoneInfo('Asia/Shanghai')).isoformat(),'wallSeconds':time.monotonic()-clock,'exitCode':result.returncode,'typecheckIncluded':True,'packageOrConfigModified':False}
+(OUT/'build-result.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(record,ensure_ascii=False));raise SystemExit(result.returncode)

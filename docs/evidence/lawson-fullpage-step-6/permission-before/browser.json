@@ -1,0 +1,52 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "permissions denied fullscreen remains usable",
+      "passed": false,
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-6/harness.py\", line 23, in check\n    evidence=fn();entry={'name':name,'passed':True,'evidence':evidence};print('PASS '+name,flush=True)\n             ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-6/verify_permissions.py\", line 14, in denied_fullscreen\n    assert '全屏'in p.locator('.tour-project-feedback').inner_text()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "parent": {
+        "state": {
+          "projectId": "lawson",
+          "embeddedState": "ready",
+          "tab": "live"
+        },
+        "mode": "immersive",
+        "active": "<button type=\"button\" class=\"tour-project-close\" aria-label=\"关闭项目，返回阅读\" autofocus=\"\"><span class=\"project-label-full\">返回阅读</span><span class=\"project-label-short\">返回</span><span class=\"project-close-icon\" aria-hidden=\"true\">×</span></button>"
+      }
+    },
+    {
+      "name": "permissions pointer lock without activation",
+      "passed": true,
+      "evidence": {
+        "delayedSyntheticOriginalButtonExplicitlyLabelled": true,
+        "actualBrowserNoActivationDenial": true,
+        "hostNotLocked": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "permissions denied fullscreen remains usable",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "permissions pointer lock without activation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "permissions pointer lock without activation",
+      "kind": "pageerror",
+      "text": "A user gesture is required to request Pointer Lock."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": false
+}

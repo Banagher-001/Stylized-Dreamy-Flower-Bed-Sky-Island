@@ -1,0 +1,27 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "permissions supported native path",
+      "passed": true,
+      "evidence": {
+        "nativeOriginalFullscreenAndPointerLock": true,
+        "realX11Escape": true,
+        "sceneDrewInFullscreen": true,
+        "hostStayedOpenUntilReturn": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "permissions supported native path",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

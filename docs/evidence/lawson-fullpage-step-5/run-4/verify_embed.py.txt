@@ -1,0 +1,299 @@
+"""Exercise the real built host and original child document in Chromium."""
+from pathlib import Path
+import argparse,json,shutil,traceback,subprocess
+from PIL import Image
+from playwright.sync_api import sync_playwright
+
+ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'docs/evidence/lawson-fullpage-step-5'
+args_parser=argparse.ArgumentParser();args_parser.add_argument('--run',required=True);args_parser.add_argument('--only-prefix',default='');args_parser.add_argument('--exclude-prefix',default='');args=args_parser.parse_args()
+FOLDER=OUT/args.run;FOLDER.mkdir(exist_ok=False);shutil.copyfile(__file__,FOLDER/'verify_embed.py.txt')
+report={'checks':[],'pageErrors':[],'httpErrors':[],'requests':[],'failedRequests':[],'consoleErrors':[]}
+AUDIT='''(()=>{const a=window.__frameAudit={draws:0};for(const cls of [window.WebGLRenderingContext,window.WebGL2RenderingContext])if(cls)for(const key of ['drawArrays','drawElements','drawArraysInstanced','drawElementsInstanced']){const raw=cls.prototype[key];if(raw)cls.prototype[key]=function(...args){a.draws++;return raw.apply(this,args)}}})()'''
+def save():(FOLDER/'browser.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+def case(name,fn):
+    if args.only_prefix and not any(name.startswith(prefix)for prefix in args.only_prefix.split(',')):return
+    if args.exclude_prefix and name.startswith(args.exclude_prefix):return
+    try:report['checks'].append({'name':name,'passed':True,'evidence':fn()});print('PASS '+name,flush=True)
+    except Exception as e:report['checks'].append({'name':name,'passed':False,'error':str(e),'traceback':traceback.format_exc()});print('FAIL '+name+': '+str(e),flush=True)
+    save()
+
+with sync_playwright()as pw:
+    browser=pw.chromium.launch(executable_path='/usr/bin/chromium',headless=False,args=['--no-sandbox','--use-gl=angle','--use-angle=gl','--ignore-gpu-blocklist']);report['browser']=browser.version
+    def setup(w=1440,h=900,prefix='/',fault=None):
+        context=browser.new_context(viewport={'width':w,'height':h},device_scale_factor=1);context.add_init_script(AUDIT)
+        if fault=='parent-no-gl':context.add_init_script("if(window===top){const raw=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return ['webgl','webgl2','experimental-webgl'].includes(type)?null:raw.call(this,type,...args)}}")
+        page=context.new_page();page.set_default_timeout(20000)
+        page.on('pageerror',lambda e:report['pageErrors'].append({'fault':fault,'text':str(e)}))
+        page.on('response',lambda r:report['httpErrors'].append({'fault':fault,'url':r.url,'status':r.status})if r.status>=400 else None)
+        page.on('request',lambda r:report['requests'].append({'fault':fault,'url':r.url}))
+        page.on('requestfailed',lambda r:report['failedRequests'].append({'fault':fault,'url':r.url,'failure':r.failure}))
+        page.on('console',lambda m:report['consoleErrors'].append({'fault':fault,'text':m.text})if m.type=='error'else None)
+        page.goto('http://127.0.0.1:4195'+prefix,wait_until='domcontentloaded');page.wait_for_function('document.querySelector("main")?.dataset.layoutReady==="true"',timeout=60000,polling=100)
+        return context,page
+    def c2(p):
+        if p.locator('main').get_attribute('data-reading-mode')=='stable':p.locator('article[data-experiment-station=C2]').scroll_into_view_if_needed()
+        else:
+            p.evaluate('scrollTo({top:(document.documentElement.scrollHeight-innerHeight)*10.05/12.3,behavior:"instant"})')
+            p.wait_for_function('Math.abs(Number(document.querySelector("#tour-host").dataset.displayH)-10.05)<.005',timeout=20000,polling=100)
+        p.wait_for_function('!document.querySelector("[data-project-tab=live]").disabled',polling=100)
+    def open_view(p,tab='live'):
+        button=p.locator('[data-project-tab='+tab+']');button.scroll_into_view_if_needed();before=p.evaluate('({y:scrollY,h:document.querySelector("#tour-host").dataset.displayH,mode:document.querySelector("main").dataset.readingMode})');button.click();p.wait_for_function('document.querySelector(".tour-project-dialog").open');return before
+    def close_view(p):p.locator('.tour-project-close').click();p.wait_for_function('!document.querySelector(".tour-project-dialog").open');p.wait_for_timeout(250)
+    def state(p,value,timeout=90000):p.wait_for_function('v=>document.querySelector(".tour-project-dialog").dataset.embeddedState===v',arg=value,timeout=timeout,polling=100)
+    def child(p):
+        p.wait_for_selector('.tour-project-embed-mount > iframe',state='attached')
+        return p.locator('.tour-project-embed-mount > iframe').element_handle().content_frame()
+    def ready(p):
+        state(p,'ready');f=child(p);f.wait_for_function('window.__LAWSON__?.ready===true');f.locator('#loader').wait_for(state='hidden',timeout=20000);return f
+    def draws(target,p,seconds=1):
+        start=target.evaluate('__frameAudit.draws');p.wait_for_timeout(seconds*1000);return target.evaluate('__frameAudit.draws')-start
+    def screenshot(p,name):p.screenshot(path=str(FOLDER/(name+'.png')))
+
+    def normal():
+        c,p=setup()
+        try:
+            c2(p);assert not any('/experiments/lawson/'in r['url']for r in report['requests'])
+            open_view(p,'archive');assert p.locator('iframe').count()==0;close_view(p)
+            before=open_view(p);f=ready(p)
+            assert p.locator('iframe').count()==1;assert not p.locator('iframe').get_attribute('sandbox')
+            assert f.url=='http://127.0.0.1:4195/experiments/lawson/index.html'
+            parent_draws=draws(p,p);child_draws=draws(f,p);assert parent_draws==0 and child_draws>0
+            assert f.locator('#panel').is_visible()and f.locator('#light-toggles .toggle').count()==8
+            g=p.locator('iframe').bounding_box();header=p.locator('.tour-project-header').bounding_box()
+            assert abs(g['width']-1440)<1 and abs(g['height']-(900-header['height']))<1
+            screenshot(p,'desktop-ready')
+            f.locator('[data-preset=day]').click();assert f.locator('[data-preset=day]').evaluate('e=>e.classList.contains("active")')
+            f.locator('#lights-all-off').click();assert all(v is False for v in f.evaluate('__LAWSON__.api.getState().lights').values())
+            f.locator('#lights-all-on').click();assert all(v is True for v in f.evaluate('__LAWSON__.api.getState().lights').values())
+            f.locator('[data-cam=top]').click();f.wait_for_function('__LAWSON__.api.getState().cameraMode==="top"')
+            f.locator('#btn-roof').click();f.wait_for_function('__LAWSON__.api.getState().roofVisible===false')
+            f.locator('#clerk-buttons [data-clerk=A]').click()
+            f.locator('#traffic-speed [data-speed="1.8"]').click();f.locator('#car-demo [data-car=A]').click()
+            native_state=f.evaluate('__LAWSON__.api.getState()')
+            p.locator('#project-tab-archive').click();assert p.locator('iframe').count()==0;assert draws(p,p)==0
+            p.locator('#project-tab-live').click();again=ready(p);assert again!=f
+            assert again.evaluate('__LAWSON__.api.getState().roofVisible')is True
+            close_view(p);assert p.locator('iframe').count()==0;assert abs(p.evaluate('scrollY')-before['y'])<=3
+            assert p.evaluate('document.activeElement.dataset.projectTab')=='live'
+            assert p.locator('#tour-guide').get_attribute('aria-pressed')=='false'
+            assert draws(p,p,.4)>0
+            return {'parentDrawsDuringOriginal':parent_draws,'originalDraws':child_draws,'geometry':g,'header':header,'originalStateAfterNativeControls':native_state,'archiveUnloads':True,'reentryOriginalDefaults':True,'readingAndFocusRestored':True}
+        finally:c.close()
+    case('normal embedded original and lifecycle',normal)
+
+    def retry_paths():
+        c,p=setup(fault='model')
+        try:
+            blocked=[True]
+            c.route('**/experiments/lawson/assets/models/lawson_scene.glb',lambda r:r.abort('failed')if blocked[0]else r.continue_())
+            c2(p);open_view(p);state(p,'error');f=child(p)
+            assert f.locator('#fatal').is_visible();assert p.locator('.tour-project-feedback').is_visible();assert p.locator('.tour-project-retry').is_visible()
+            assert draws(p,p)==0;screenshot(p,'model-error')
+            p.evaluate('window.__firstIframe=document.querySelector("iframe")')
+            blocked[0]=False;f.locator('#fatal-retry').click();f=ready(p)
+            assert p.evaluate('document.querySelector("iframe")===__firstIframe')
+            p.evaluate('window.__oldReadyAPI=document.querySelector("iframe").contentWindow.__LAWSON__')
+            blocked[0]=True;f.evaluate('location.reload()');state(p,'error')
+            assert p.evaluate('__oldReadyAPI.ready===true')
+            assert child(p).locator('#fatal').is_visible()
+            blocked[0]=False;p.locator('.tour-project-retry').click();ready(p)
+            assert p.evaluate('document.querySelector("iframe")!==__firstIframe')
+            p.evaluate('__firstIframe.dispatchEvent(new Event("load"))');p.wait_for_timeout(600);state(p,'ready',3000)
+            assert p.locator('iframe').count()==1
+            close_view(p)
+            return {'realModelFailureObserved':True,'nativeRetryKeepsIframeAndReplacesDocument':True,'oldReadyAPIIgnoredAfterReloadFailure':True,'hostRetryReplacesIframe':True,'retiredFrameInjectedLoadIgnored':True}
+        finally:c.close()
+    case('state model failure and both retries',retry_paths)
+
+    def slow_path():
+        c,p=setup(320,568,fault='slow')
+        pending=[]
+        try:
+            c.route('**/experiments/lawson/js/main.js',lambda r:pending.append(r))
+            c2(p);open_view(p);state(p,'loading');child(p)
+            state(p,'slow',20000);assert pending
+            f=child(p);assert f.evaluate('!window.__LAWSON__')
+            assert p.locator('.tour-project-feedback').is_visible()and p.locator('.tour-project-retry').is_visible()
+            for selector in ['.tour-project-close','.tour-project-retry','.tour-project-header [data-project-independent]']:
+                r=p.locator(selector).bounding_box();assert r and r['x']>=0 and r['x']+r['width']<=320.5 and r['width']>=44 and r['height']>=44,r
+            assert draws(p,p)==0;screenshot(p,'mobile-slow')
+            for route in pending:route.continue_()
+            assert p.locator('.tour-project-feedback').evaluate('e=>parseFloat(getComputedStyle(e).fontSize)')>=14
+            ready(p);assert not p.locator('.tour-project-feedback').is_visible();assert not p.locator('.tour-project-retry').is_visible()
+            assert abs(p.locator('.tour-project-header').bounding_box()['height']-48)<1
+            screenshot(p,'mobile-slow-recovered');close_view(p)
+            return {'heldRealModuleUntilAfter12Seconds':True,'HTMLDidNotBecomeReady':True,'slowNotError':True,'mobileExitAndRetryFit':True,'lateRealLoadRecovered':True,'parentDraws':0}
+        finally:
+            c.close()
+    case('state slow original then recovery',slow_path)
+
+    def quick_exit():
+        c,p=setup(fault='quick-close');pending=[]
+        try:
+            c2(p)
+            before=len([r for r in report['requests']if '/experiments/lawson/'in r['url']])
+            p.locator('[data-project-tab=live]').evaluate('e=>{e.click();document.querySelector(".tour-project-close").click()}')
+            p.wait_for_timeout(400);assert p.locator('iframe').count()==0
+            assert len([r for r in report['requests']if '/experiments/lawson/'in r['url']])==before
+            c.route('**/experiments/lawson/js/main.js',lambda r:pending.append(r))
+            open_view(p);child(p);p.wait_for_function('document.querySelector("iframe").contentDocument?.getElementById("loader")')
+            close_view(p);assert p.locator('iframe').count()==0
+            for r in pending:
+                try:r.continue_()
+                except Exception:pass
+            c.unroute_all(behavior='ignoreErrors')
+            p.wait_for_timeout(1300)
+            assert p.locator('iframe').count()==0 and p.locator('dialog[open]').count()==0
+            assert draws(p,p,.3)>0
+            return {'sameTaskOpenCloseCancelledMount':True,'noOriginalRequestBeforeCancelledMount':True,'loadingCloseIgnoresLateModule':True,'gardenResumed':True}
+        finally:c.close()
+    case('state rapid exit and late response',quick_exit)
+
+    def original_timeout():
+        c,p=setup(fault='original-timeout');pending=[];block=[True]
+        try:
+            c.route('**/experiments/lawson/assets/models/lawson_scene.glb',lambda r:pending.append(r)if block[0]else r.continue_())
+            c2(p);open_view(p);state(p,'slow',20000);state(p,'error',30000);f=child(p)
+            assert f.locator('#fatal').is_visible()and f.evaluate('__LAWSON__.error===null&&__LAWSON__.ready===false')
+            assert '加载超时' in f.locator('#fatal h2').inner_text()
+            screenshot(p,'original-timeout-fatal')
+            block[0]=False
+            for route in pending:route.continue_()
+            f.wait_for_function('__LAWSON__.ready===true',timeout=90000,polling=100)
+            assert f.locator('#fatal').is_visible();p.wait_for_timeout(600);state(p,'error',2000)
+            f.locator('#fatal-retry').click();ready(p);close_view(p)
+            return {'original30SecondGuardObserved':True,'fatalWithoutAPIErrorDetected':True,'visibleFatalOverridesLaterReady':True,'nativeRetryAfterTimeoutRecovered':True,'sourceOrClockModified':False}
+        finally:c.close()
+    case('state original timeout fatal precedence',original_timeout)
+
+    def native_escape(p):
+        # Real X11 key for browser-owned fullscreen/pointer lock exit, rather
+        # than substituting DOM key events for the browser's escape gesture.
+        subprocess.run(['/workspace/.cache/browser-deps/root/usr/bin/xdotool','key','Escape'],check=True)
+        p.wait_for_timeout(500)
+    def input_permissions():
+        c,p=setup()
+        try:
+            c2(p);before=open_view(p);f=ready(p);f.locator('#panel-collapse').click()
+            r=p.locator('iframe').bounding_box();x=r['x']+r['width']*.36;y=r['y']+r['height']*.5
+            camera=f.evaluate('__LAWSON__.debugDoor().cam');p.mouse.move(x,y);p.mouse.wheel(0,260);p.wait_for_timeout(700)
+            zoomed=f.evaluate('__LAWSON__.debugDoor().cam');assert zoomed!=camera
+            p.mouse.move(x,y);p.mouse.down();p.mouse.move(x+110,y+35,steps=8);p.mouse.up();p.wait_for_timeout(700)
+            dragged=f.evaluate('__LAWSON__.debugDoor().cam');assert dragged!=zoomed
+            p.mouse.click(x,y);p.keyboard.press('3');f.wait_for_function('__LAWSON__.api.getState().timeOfDay>21',timeout=10000)
+            assert abs(p.evaluate('scrollY')-before['y'])<3
+            assert abs(float(p.locator('#tour-host').get_attribute('data-display-h'))-float(before['h']))<.005
+            f.locator('#btn-fullscreen').click();p.wait_for_function('document.fullscreenElement?.tagName==="IFRAME"')
+            assert f.evaluate('!!document.fullscreenElement');screenshot(p,'native-fullscreen')
+            native_escape(p);p.wait_for_function('document.fullscreenElement===null')
+            assert p.locator('.tour-project-dialog').evaluate('e=>e.open')
+            f.locator('#panel-collapse').click();f.locator('#btn-walk').click()
+            f.wait_for_function('document.pointerLockElement?.id==="viewport"')
+            locked_parent=p.evaluate('document.pointerLockElement?.tagName??null')
+            native_escape(p);f.wait_for_function('document.pointerLockElement===null');assert p.locator('.tour-project-dialog').evaluate('e=>e.open')
+            if f.evaluate('__LAWSON__.api.getState().walk'):f.locator('#btn-walk').click()
+            p.wait_for_timeout(1200);f.locator('#btn-walk').click();f.wait_for_function('document.pointerLockElement?.id==="viewport"')
+            p.evaluate('window.__lockedDocument=document.querySelector("iframe").contentDocument')
+            p.locator('.tour-project-close').evaluate('e=>e.click()');p.wait_for_timeout(400)
+            assert p.locator('iframe').count()==0 and p.evaluate('__lockedDocument.pointerLockElement===null&&document.fullscreenElement===null')
+            c2(p);open_view(p);f=ready(p);f.locator('#btn-fullscreen').click();p.wait_for_function('document.fullscreenElement?.tagName==="IFRAME"')
+            p.locator('.tour-project-close').evaluate('e=>e.click()');p.wait_for_timeout(500)
+            assert p.evaluate('document.fullscreenElement===null')and p.locator('iframe').count()==0
+            c2(p);open_view(p);ready(p);p.locator('.tour-project-close').focus();p.keyboard.press('Escape');p.wait_for_timeout(250)
+            assert p.locator('dialog[open]').count()==0
+            return {'nativeWheelChangesOriginalCamera':True,'nativeDragChangesOriginalCamera':True,'originalKeyboardPresetWorks':True,'parentReadingUnchanged':True,'nativeFullscreenAndX11Escape':True,'nativePointerLockAndX11Escape':True,'parentPointerLockGetterDuringChildLock':locked_parent,'childEscapeKeepsHostOpen':True,'forcedCloseReleasesOwnedLockAndFullscreen':True,'hostFocusedEscapeCloses':True}
+        finally:c.close()
+    case('input fullscreen pointer lock and escape',input_permissions)
+
+    def fullscreen_paint():
+        c,p=setup()
+        try:
+            c2(p);open_view(p);f=ready(p)
+            f.locator('#btn-fullscreen').click();p.wait_for_function('document.fullscreenElement?.tagName==="IFRAME"')
+            start=f.evaluate('__frameAudit.draws')
+            f.wait_for_function('n=>__frameAudit.draws>=n+5000',arg=start,timeout=15000,polling=100)
+            p.wait_for_timeout(350);screenshot(p,'fullscreen-steady-scene')
+            im=Image.open(FOLDER/'fullscreen-steady-scene.png').convert('RGB');w,h=im.size
+            region=im.crop((int(w*.1),int(h*.25),int(w*.7),int(h*.8)))
+            colors=len(region.getcolors(region.width*region.height)or[])
+            assert colors>100,{'sceneRegionColors':colors,'childState':f.evaluate('({hidden:document.hidden,stats:__LAWSON__.api.getStats(),camera:__LAWSON__.debugDoor().cam})')}
+            native_escape(p);assert p.locator('.tour-project-dialog').evaluate('e=>e.open');assert draws(p,p)==0
+            close_view(p)
+            return {'originalDrawsContinueInFullscreen':True,'steadySceneRegionUniqueColors':colors,'stableSceneScreenshot':'fullscreen-steady-scene.png','transientResizeFrameNotUsedAsFinalEvidence':True}
+        finally:c.close()
+    case('fullscreen stable scene paint',fullscreen_paint)
+
+    def layout(w,h,prefix='/',large=False):
+        c,p=setup(w,h,prefix)
+        try:
+            c2(p);open_view(p);f=ready(p)
+            if large:p.evaluate('document.documentElement.style.fontSize="32px"');p.wait_for_timeout(400)
+            g=p.locator('iframe').bounding_box();header=p.locator('.tour-project-header').bounding_box()
+            assert abs(g['width']-w)<1 and abs(g['height']-(h-header['height']))<1
+            assert f.evaluate('innerWidth')==w and abs(f.evaluate('innerHeight')-g['height'])<1
+            assert f.locator('#panel').is_visible()and p.locator('.tour-project-close').is_visible()
+            assert draws(p,p)==0;screenshot(p,f'layout-{w}x{h}'+('-200'if large else''))
+            if prefix!='/':
+                assert f.url=='http://127.0.0.1:4195'+prefix+'experiments/lawson/index.html'
+                with c.expect_page()as opened:p.locator('.tour-project-header [data-project-independent]').click()
+                independent=opened.value;independent.wait_for_function('window.__LAWSON__?.ready===true',timeout=90000)
+                assert independent.evaluate('window.opener===null');independent.close()
+                assert p.locator('iframe').count()==1
+            close_view(p);assert p.evaluate('document.documentElement.scrollWidth<=innerWidth')
+            return {'viewport':[w,h],'prefix':prefix,'largeParentFont':large,'frameGeometry':g,'header':header,'originalViewportMatchesContainer':True,'independentReady':prefix!='/'}
+        finally:c.close()
+    for w,h in [(390,844),(320,568),(844,390)]:case(f'layout {w}x{h}',lambda w=w,h=h:layout(w,h))
+    case('layout 320x568 parent 200%',lambda:layout(320,568,large=True))
+    case('layout project prefix and independent',lambda:layout(1366,768,'/Stylized-Dreamy-Flower-Bed-Sky-Island/'))
+
+    def repeat_and_restore():
+        c,p=setup()
+        try:
+            c2(p);p.locator('#tour-motion').click();p.wait_for_timeout(200)
+            assert p.locator('#tour-host').get_attribute('data-motion-state')=='paused'
+            for i in range(5):
+                open_view(p);ready(p)
+                p.evaluate('window.__retiredAudit=document.querySelector("iframe").contentWindow.__frameAudit')
+                close_view(p);n=p.evaluate('__retiredAudit.draws');p.wait_for_timeout(500)
+                assert p.evaluate('__retiredAudit.draws')==n
+                assert p.locator('iframe').count()==0 and p.locator('dialog[open]').count()==0
+                assert p.locator('#tour-host').get_attribute('data-motion-state')=='paused'
+            open_view(p);ready(p);p.set_viewport_size({'width':390,'height':844});p.wait_for_timeout(500)
+            assert draws(p,p)==0;assert child(p).evaluate('innerWidth')==390
+            close_view(p);p.wait_for_function('document.querySelector("main").dataset.readingMode==="stable"')
+            r=p.locator('article[data-experiment-station=C2]').bounding_box();assert r['y']<844 and r['y']+r['height']>0
+            assert p.locator('#tour-guide').get_attribute('aria-pressed')=='false'
+            return {'successfulOpenCloseCycles':5,'detachedOriginalDrawsRemainFrozen':True,'pausedSettingPreserved':True,'liveResizeKeepsGardenSuspended':True,'resizeReturnsToStableC2':r,'guideRemainsStopped':True}
+        finally:c.close()
+    case('cycles paused original unload and resize',repeat_and_restore)
+
+    def courtyard():
+        c,p=setup()
+        try:
+            c2(p);p.locator('[data-project-select=courtyard]').click();open_view(p,'archive')
+            assert p.locator('iframe').count()==0 and p.locator('.tour-project-frame-pair img').count()==2
+            p.locator('.tour-project-play').click();p.wait_for_function('document.querySelector("video")?.currentTime>.1',timeout=20000)
+            p.locator('#project-tab-live').click();assert p.locator('video').count()==0 and p.locator('iframe').count()==0
+            for mode in ['native','pixel']:
+                p.locator('[data-project-mode='+mode+']').click();p.wait_for_function('m=>document.querySelector("#tour-host canvas").dataset.renderMode===m',arg=mode)
+            assert draws(p,p,.4)>0;close_view(p)
+            return {'originalArchiveVideoAndFrames':True,'originalCourtyardLiveModes':True,'noLawsonInstanceForCourtyard':True}
+        finally:c.close()
+    case('courtyard original functions retained',courtyard)
+
+    def parent_failure():
+        c,p=setup(390,844,fault='parent-no-gl')
+        try:
+            c2(p);open_view(p);f=ready(p);assert draws(f,p,.5)>0 and draws(p,p)==0
+            close_view(p);p.locator('[data-project-select=courtyard]').click()
+            assert p.locator('[data-project-tab=live]').is_disabled()and p.locator('[data-project-tab=archive]').is_enabled()
+            return {'parentWebGLDisabledOnly':True,'originalIframeStillRuns':True,'courtyardAvailabilityRemainsIndependent':True}
+        finally:c.close()
+    case('independence original runs despite parent failure',parent_failure)
+    browser.close()
+
+report['unexpectedFailedRequests']=[r for r in report['failedRequests']if not('ERR_ABORTED'in r['failure']or(r['fault']=='model'and'/assets/models/lawson_scene.glb'in r['url']))]
+report['unexpectedConsoleErrors']=[r for r in report['consoleErrors']if not((r['fault']=='model'and('ERR_FAILED'in r['text']or'[Lawson] fatal:'in r['text']))or(r['fault']=='parent-no-gl'and('THREE.WebGLRenderer:'in r['text']or'Tour scene initialization failed.'in r['text'])))]
+report['passed']=all(c['passed']for c in report['checks'])and not any(report[k]for k in ['pageErrors','httpErrors','unexpectedFailedRequests','unexpectedConsoleErrors'])
+save();print(json.dumps({'passed':report['passed'],'checks':len(report['checks']),'pageErrors':report['pageErrors'],'httpErrors':report['httpErrors']},ensure_ascii=False),flush=True)
+raise SystemExit(0 if report['passed']else 1)

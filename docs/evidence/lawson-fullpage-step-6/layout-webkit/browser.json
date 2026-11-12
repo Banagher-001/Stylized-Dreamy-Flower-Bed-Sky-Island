@@ -1,0 +1,123 @@
+{
+  "engine": "webkit",
+  "checks": [
+    {
+      "name": "layout 1440x900",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 9045,
+          "h": "10.0500000",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "name": "layout 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 795.984375
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 4158,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "name": "layout continuous rotation and return",
+      "passed": true,
+      "evidence": {
+        "realViewportResizes": 3,
+        "frames": [
+          {
+            "x": 0,
+            "y": 48,
+            "width": 844,
+            "height": 342
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 375,
+            "height": 764
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 390,
+            "height": 795.984375
+          }
+        ],
+        "physicalRotation": false,
+        "restoredC2": {
+          "x": 16,
+          "y": 147.3125,
+          "width": 358,
+          "height": 549.328125
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "layout 1440x900",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "case": "layout 390x844",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "case": "layout continuous rotation and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "26.5",
+  "passed": true
+}

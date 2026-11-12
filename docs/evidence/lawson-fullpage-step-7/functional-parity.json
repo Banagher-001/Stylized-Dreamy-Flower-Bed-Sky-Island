@@ -1,0 +1,1814 @@
+{
+  "schema": 1,
+  "completedAtShanghai": "2026-11-12T12:04:20.135900+08:00",
+  "pairedControlCount": 41,
+  "controls": [
+    {
+      "label": "原错误重试",
+      "selector": "#fatal-retry",
+      "original": {
+        "report": "standalone-native-retry/readiness.json",
+        "case": "READINESS.retry",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "bcc8dee04c852c138a3f0eb4bf14edfbd5777987377cc4be54e0d0f57570c154",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "recovery-chromium/browser.json",
+        "case": "recovery original fatal retry and host retry",
+        "caseField": "name",
+        "status": "通过",
+        "reportSHA256": "7fa13afee17f2b0ce6c203b3dc773b3610379ba734c4f907ea693adac3f29a1b",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "全屏",
+      "selector": "#btn-fullscreen",
+      "original": {
+        "report": "standalone-controls/controls.json",
+        "case": "BUTTON.btn-fullscreen",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "f0bddf0a7f30349d26b9b32d3287080adbd7986f17eacd49da536c562b2019af",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "recheck-embedded-controls/controls.json",
+        "case": "BUTTON.btn-fullscreen",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "992628e5614ea92f24cbdb02e342b708d2ee4e1f98c011509bfb40c92cb1601d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "画质",
+      "selector": "#btn-settings",
+      "original": {
+        "report": "standalone-controls/controls.json",
+        "case": "BUTTON.btn-settings",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "f0bddf0a7f30349d26b9b32d3287080adbd7986f17eacd49da536c562b2019af",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "recheck-embedded-controls/controls.json",
+        "case": "BUTTON.btn-settings",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "992628e5614ea92f24cbdb02e342b708d2ee4e1f98c011509bfb40c92cb1601d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "帮助打开",
+      "selector": "#btn-help",
+      "original": {
+        "report": "standalone-controls/controls.json",
+        "case": "BUTTON.help",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "f0bddf0a7f30349d26b9b32d3287080adbd7986f17eacd49da536c562b2019af",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "recheck-embedded-controls/controls.json",
+        "case": "BUTTON.help",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "992628e5614ea92f24cbdb02e342b708d2ee4e1f98c011509bfb40c92cb1601d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "帮助关闭",
+      "selector": "#help-close",
+      "original": {
+        "report": "standalone-controls/controls.json",
+        "case": "BUTTON.help",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "f0bddf0a7f30349d26b9b32d3287080adbd7986f17eacd49da536c562b2019af",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "recheck-embedded-controls/controls.json",
+        "case": "BUTTON.help",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "992628e5614ea92f24cbdb02e342b708d2ee4e1f98c011509bfb40c92cb1601d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "面板折叠",
+      "selector": "#panel-collapse",
+      "original": {
+        "report": "standalone-controls/controls.json",
+        "case": "BUTTON.panel-collapse",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "f0bddf0a7f30349d26b9b32d3287080adbd7986f17eacd49da536c562b2019af",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "recheck-embedded-controls/controls.json",
+        "case": "BUTTON.panel-collapse",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "992628e5614ea92f24cbdb02e342b708d2ee4e1f98c011509bfb40c92cb1601d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "白天",
+      "selector": "[data-preset=day]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ENV.presets",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ENV.presets",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "黄昏",
+      "selector": "[data-preset=dusk]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ENV.presets",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ENV.presets",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "夜晚",
+      "selector": "[data-preset=night]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ENV.presets",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ENV.presets",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "时间滑杆",
+      "selector": "#time-slider",
+      "original": {
+        "report": "standalone-controls/controls.json",
+        "case": "INPUT.time-slider",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "f0bddf0a7f30349d26b9b32d3287080adbd7986f17eacd49da536c562b2019af",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "recheck-embedded-controls/controls.json",
+        "case": "INPUT.time-slider",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "992628e5614ea92f24cbdb02e342b708d2ee4e1f98c011509bfb40c92cb1601d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "灯光全开",
+      "selector": "#lights-all-on",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "LIGHT.all-actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "LIGHT.all-actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "灯光全关",
+      "selector": "#lights-all-off",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "LIGHT.all-actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "LIGHT.all-actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "店内灯光",
+      "selector": ".toggle[data-group=StoreInterior]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.StoreInterior",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.StoreInterior",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "LAWSON 招牌",
+      "selector": ".toggle[data-group=LawsonSign]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.LawsonSign",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.LawsonSign",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "外墙灯带",
+      "selector": ".toggle[data-group=FacadeStrip]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.FacadeStrip",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.FacadeStrip",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "路灯",
+      "selector": ".toggle[data-group=StreetLamp]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.StreetLamp",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.StreetLamp",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "冷柜灯光",
+      "selector": ".toggle[data-group=CoolerLighting]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.CoolerLighting",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.CoolerLighting",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "售货机灯光",
+      "selector": ".toggle[data-group=VendingLighting]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.VendingLighting",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.VendingLighting",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "墙面暖光",
+      "selector": ".toggle[data-group=WarmExterior]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.WarmExterior",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.WarmExterior",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "车辆灯光",
+      "selector": ".toggle[data-group=VehicleLights]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.VehicleLights",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "ACTUAL.LIGHT.VehicleLights",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "车流暂停与恢复",
+      "selector": "#traffic-toggle",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "TRAFFIC.actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "TRAFFIC.actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "车流重置",
+      "selector": "#traffic-reset",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "TRAFFIC.actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "TRAFFIC.actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "慢速",
+      "selector": "[data-speed=\"0.6\"]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "TRAFFIC.actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "TRAFFIC.actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "正常速度",
+      "selector": "[data-speed=\"1\"]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "TRAFFIC.actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "TRAFFIC.actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "快速",
+      "selector": "[data-speed=\"1.8\"]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "TRAFFIC.actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "TRAFFIC.actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "车辆 A",
+      "selector": "[data-car=A]",
+      "original": {
+        "report": "full-standalone-traffic/traffic.json",
+        "case": "CYCLE.A",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "aeca8b4b84d8724b0377573426e132de894c95dd8d35a030f3c97760fb07acc0",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-traffic/traffic.json",
+        "case": "CYCLE.A",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ccd23d3c0fe748f322f8fd90c47d645891af8194f3cdabf51e37daa336cd2a1e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "车辆 B",
+      "selector": "[data-car=B]",
+      "original": {
+        "report": "full-standalone-traffic/traffic.json",
+        "case": "CYCLE.B",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "aeca8b4b84d8724b0377573426e132de894c95dd8d35a030f3c97760fb07acc0",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-traffic/traffic.json",
+        "case": "CYCLE.B",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ccd23d3c0fe748f322f8fd90c47d645891af8194f3cdabf51e37daa336cd2a1e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "车辆 C",
+      "selector": "[data-car=C]",
+      "original": {
+        "report": "full-standalone-traffic/traffic.json",
+        "case": "CYCLE.C",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "aeca8b4b84d8724b0377573426e132de894c95dd8d35a030f3c97760fb07acc0",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-traffic/traffic.json",
+        "case": "CYCLE.C",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ccd23d3c0fe748f322f8fd90c47d645891af8194f3cdabf51e37daa336cd2a1e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "店员 A",
+      "selector": "[data-clerk=A]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "BUTTON.clerk-A",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "BUTTON.clerk-A",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "店员 B",
+      "selector": "[data-clerk=B]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "BUTTON.clerk-B",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "BUTTON.clerk-B",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "全景",
+      "selector": "[data-cam=hero]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "CAMERA.hero",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "CAMERA.hero",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "正面",
+      "selector": "[data-cam=front]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "CAMERA.front",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "CAMERA.front",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "左侧",
+      "selector": "[data-cam=left]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "CAMERA.left",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "CAMERA.left",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "后侧",
+      "selector": "[data-cam=rear]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "CAMERA.rear",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "CAMERA.rear",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "俯视",
+      "selector": "[data-cam=top]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "CAMERA.top",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "CAMERA.top",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "室内",
+      "selector": "[data-cam=interior]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "CAMERA.interior",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "CAMERA.interior",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "收银区",
+      "selector": "[data-cam=checkout]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "CAMERA.checkout",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "CAMERA.checkout",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "车辆镜头",
+      "selector": "[data-cam=vehicle]",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "CAMERA.vehicle",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "CAMERA.vehicle",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "屋顶",
+      "selector": "#btn-roof",
+      "original": {
+        "report": "roof-final-standalone/supplement.json",
+        "case": "BUTTON.roof-actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "1da890f714376685c8aed3a72a34d10007fb91429968a5ba367a9f6a2e0e0e0d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "roof-final-embedded/supplement.json",
+        "case": "BUTTON.roof-actual",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "70f8bd3d484a5336d1f576875ad601f029646476781f3ad5f783d716b604adc2",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "漫游",
+      "selector": "#btn-walk",
+      "original": {
+        "report": "full-standalone-keyboard/keyboard.json",
+        "case": "POINTER.walk-look",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "edf6e129d876b719efd6dcef79b14711d6c9c68e0c76a472b4b068abf144e111",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-keyboard/keyboard.json",
+        "case": "POINTER.walk-look",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "62750e459ad7a710908f70f72f81e9e2346e2a17849cbffcaaf7df9efc157a0e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "重置视角",
+      "selector": "#btn-reset-cam",
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "INPUT.orbit",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "INPUT.orbit",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    }
+  ],
+  "keyboardRecordCount": 13,
+  "keyboard": [
+    {
+      "label": "R",
+      "selector": null,
+      "original": {
+        "report": "standalone-controls/controls.json",
+        "case": "KEY.KeyR",
+        "caseField": "id",
+        "status": "原页已有问题",
+        "reportSHA256": "f0bddf0a7f30349d26b9b32d3287080adbd7986f17eacd49da536c562b2019af",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "recheck-embedded-controls/controls.json",
+        "case": "KEY.KeyR",
+        "caseField": "id",
+        "status": "原页已有问题",
+        "reportSHA256": "992628e5614ea92f24cbdb02e342b708d2ee4e1f98c011509bfb40c92cb1601d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "原页已有问题",
+      "newHostRegression": false
+    },
+    {
+      "label": "1",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "KEY.123",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "KEY.123",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "2",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "KEY.123",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "KEY.123",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "3",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-supplement/supplement.json",
+        "case": "KEY.123",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "6ebaf0440b4ccaf245c7a2052fd0381651d24614e86142f80fe9d5918a574ccc",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-supplement/supplement.json",
+        "case": "KEY.123",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ee10665ccd49b20cc9dc8e2f06d73e47b1f69b4ec4572aa7e2952729e2dc7b8d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "Space",
+      "selector": null,
+      "original": {
+        "report": "standalone-controls/controls.json",
+        "case": "KEY.Space",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "f0bddf0a7f30349d26b9b32d3287080adbd7986f17eacd49da536c562b2019af",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "recheck-embedded-controls/controls.json",
+        "case": "KEY.Space",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "992628e5614ea92f24cbdb02e342b708d2ee4e1f98c011509bfb40c92cb1601d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "Escape",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-keyboard/keyboard.json",
+        "case": "POINTER.walk-look",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "edf6e129d876b719efd6dcef79b14711d6c9c68e0c76a472b4b068abf144e111",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-keyboard/keyboard.json",
+        "case": "POINTER.walk-look",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "62750e459ad7a710908f70f72f81e9e2346e2a17849cbffcaaf7df9efc157a0e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "W",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-keyboard/keyboard.json",
+        "case": "KEY.KeyW",
+        "caseField": "id",
+        "status": "原页已有问题",
+        "reportSHA256": "edf6e129d876b719efd6dcef79b14711d6c9c68e0c76a472b4b068abf144e111",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-keyboard/keyboard.json",
+        "case": "KEY.KeyW",
+        "caseField": "id",
+        "status": "原页已有问题",
+        "reportSHA256": "62750e459ad7a710908f70f72f81e9e2346e2a17849cbffcaaf7df9efc157a0e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "原页已有问题",
+      "newHostRegression": false
+    },
+    {
+      "label": "A",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-keyboard/keyboard.json",
+        "case": "KEY.KeyA",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "edf6e129d876b719efd6dcef79b14711d6c9c68e0c76a472b4b068abf144e111",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-keyboard/keyboard.json",
+        "case": "KEY.KeyA",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "62750e459ad7a710908f70f72f81e9e2346e2a17849cbffcaaf7df9efc157a0e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "S",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-keyboard/keyboard.json",
+        "case": "KEY.KeyS",
+        "caseField": "id",
+        "status": "原页已有问题",
+        "reportSHA256": "edf6e129d876b719efd6dcef79b14711d6c9c68e0c76a472b4b068abf144e111",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-keyboard/keyboard.json",
+        "case": "KEY.KeyS",
+        "caseField": "id",
+        "status": "原页已有问题",
+        "reportSHA256": "62750e459ad7a710908f70f72f81e9e2346e2a17849cbffcaaf7df9efc157a0e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "原页已有问题",
+      "newHostRegression": false
+    },
+    {
+      "label": "D",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-keyboard/keyboard.json",
+        "case": "KEY.KeyD",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "edf6e129d876b719efd6dcef79b14711d6c9c68e0c76a472b4b068abf144e111",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-keyboard/keyboard.json",
+        "case": "KEY.KeyD",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "62750e459ad7a710908f70f72f81e9e2346e2a17849cbffcaaf7df9efc157a0e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "左 Shift",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-keyboard/keyboard.json",
+        "case": "KEY.ShiftLeft",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "edf6e129d876b719efd6dcef79b14711d6c9c68e0c76a472b4b068abf144e111",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-keyboard/keyboard.json",
+        "case": "KEY.ShiftLeft",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "62750e459ad7a710908f70f72f81e9e2346e2a17849cbffcaaf7df9efc157a0e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "右 Shift",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-keyboard/keyboard.json",
+        "case": "KEY.ShiftRight",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "edf6e129d876b719efd6dcef79b14711d6c9c68e0c76a472b4b068abf144e111",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-keyboard/keyboard.json",
+        "case": "KEY.ShiftRight",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "62750e459ad7a710908f70f72f81e9e2346e2a17849cbffcaaf7df9efc157a0e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "N（原说明提及、实际未绑定）",
+      "selector": null,
+      "original": {
+        "report": "standalone-controls/controls.json",
+        "case": "DOC.KeyN",
+        "caseField": "id",
+        "status": "原页已有问题",
+        "reportSHA256": "f0bddf0a7f30349d26b9b32d3287080adbd7986f17eacd49da536c562b2019af",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "recheck-embedded-controls/controls.json",
+        "case": "DOC.KeyN",
+        "caseField": "id",
+        "status": "原页已有问题",
+        "reportSHA256": "992628e5614ea92f24cbdb02e342b708d2ee4e1f98c011509bfb40c92cb1601d",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "原页已有问题",
+      "newHostRegression": false
+    }
+  ],
+  "pairedPickCount": 17,
+  "picks": [
+    {
+      "label": "招牌",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.sign",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.sign",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "外墙灯带",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.facade",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.facade",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "门",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.door",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.door",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "售货机",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.vending",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.vending",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "购物篮：原绑定冷柜灯",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.basket",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.basket",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "收银台",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.checkout",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.checkout",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "货架",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.shelf",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.shelf",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "酒类区",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.alcohol",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.alcohol",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "关东煮蒸汽",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.oden",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.oden",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "店员 A 固定岗位",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.clerkA",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.clerkA",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "店员 B 固定岗位",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.clerkB",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.clerkB",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "ATM",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.atm",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.atm",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "卧式冰柜",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.freezer",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.freezer",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "饮料冷藏柜",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.cooler",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.cooler",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "微波炉",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.microwave",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.microwave",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "用餐区",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.dining",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.dining",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    },
+    {
+      "label": "咖啡机",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-targets/targets.json",
+        "case": "TARGET.coffee",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "b4c68a5d8e58b2da6e4996982bb1d265c004adef9dafa8c8e44a1fa85a17f648",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-targets/targets.json",
+        "case": "TARGET.coffee",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "d75a1763c66ca4dae6399b2e07566308500e044a71ad144ac8fdf0299e01dd91",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false
+    }
+  ],
+  "vehicleCycles": [
+    {
+      "label": "车辆 A 完整流程",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-traffic/traffic.json",
+        "case": "CYCLE.A",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "aeca8b4b84d8724b0377573426e132de894c95dd8d35a030f3c97760fb07acc0",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-traffic/traffic.json",
+        "case": "CYCLE.A",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ccd23d3c0fe748f322f8fd90c47d645891af8194f3cdabf51e37daa336cd2a1e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false,
+      "standaloneSummary": {
+        "wallSeconds": 131.06868469799883,
+        "phasesObserved": [
+          "ALIGNING_TO_EXIT",
+          "APPROACHING",
+          "DRIVING_OUT",
+          "OFFSCREEN_RESET",
+          "OFFSCREEN_WAIT",
+          "PARKED",
+          "PARKING",
+          "REVERSE_PREPARE",
+          "REVERSE_STOP",
+          "REVERSING_OUT",
+          "SHIFT_TO_DRIVE",
+          "TURNING_IN"
+        ],
+        "sampleCount": 169,
+        "originalUISpeed": 1.8
+      },
+      "embeddedSummary": {
+        "wallSeconds": 129.77048153099895,
+        "phasesObserved": [
+          "ALIGNING_TO_EXIT",
+          "APPROACHING",
+          "DRIVING_OUT",
+          "OFFSCREEN_RESET",
+          "OFFSCREEN_WAIT",
+          "PARKED",
+          "PARKING",
+          "REVERSE_PREPARE",
+          "REVERSE_STOP",
+          "REVERSING_OUT",
+          "SHIFT_TO_DRIVE",
+          "TURNING_IN"
+        ],
+        "sampleCount": 170,
+        "originalUISpeed": 1.8
+      }
+    },
+    {
+      "label": "车辆 B 完整流程",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-traffic/traffic.json",
+        "case": "CYCLE.B",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "aeca8b4b84d8724b0377573426e132de894c95dd8d35a030f3c97760fb07acc0",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-traffic/traffic.json",
+        "case": "CYCLE.B",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ccd23d3c0fe748f322f8fd90c47d645891af8194f3cdabf51e37daa336cd2a1e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false,
+      "standaloneSummary": {
+        "wallSeconds": 114.31140036899887,
+        "phasesObserved": [
+          "ALIGNING_TO_EXIT",
+          "APPROACHING",
+          "DRIVING_OUT",
+          "OFFSCREEN_RESET",
+          "OFFSCREEN_WAIT",
+          "PARKED",
+          "PARKING",
+          "REVERSE_PREPARE",
+          "REVERSE_STOP",
+          "REVERSING_OUT",
+          "SHIFT_TO_DRIVE",
+          "TURNING_IN"
+        ],
+        "sampleCount": 162,
+        "originalUISpeed": 1.8
+      },
+      "embeddedSummary": {
+        "wallSeconds": 115.13605527599975,
+        "phasesObserved": [
+          "ALIGNING_TO_EXIT",
+          "APPROACHING",
+          "DRIVING_OUT",
+          "OFFSCREEN_RESET",
+          "OFFSCREEN_WAIT",
+          "PARKED",
+          "PARKING",
+          "REVERSE_PREPARE",
+          "REVERSE_STOP",
+          "REVERSING_OUT",
+          "SHIFT_TO_DRIVE",
+          "TURNING_IN"
+        ],
+        "sampleCount": 163,
+        "originalUISpeed": 1.8
+      }
+    },
+    {
+      "label": "车辆 C 完整流程",
+      "selector": null,
+      "original": {
+        "report": "full-standalone-traffic/traffic.json",
+        "case": "CYCLE.C",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "aeca8b4b84d8724b0377573426e132de894c95dd8d35a030f3c97760fb07acc0",
+        "browserVersion": "155.0.8059.79"
+      },
+      "embedded": {
+        "report": "full-embedded-traffic/traffic.json",
+        "case": "CYCLE.C",
+        "caseField": "id",
+        "status": "原页正常",
+        "reportSHA256": "ccd23d3c0fe748f322f8fd90c47d645891af8194f3cdabf51e37daa336cd2a1e",
+        "browserVersion": "155.0.8059.79"
+      },
+      "result": "通过",
+      "newHostRegression": false,
+      "standaloneSummary": {
+        "wallSeconds": 100.06666859399957,
+        "phasesObserved": [
+          "ALIGNING_TO_EXIT",
+          "APPROACHING",
+          "DRIVING_OUT",
+          "OFFSCREEN_RESET",
+          "OFFSCREEN_WAIT",
+          "PARKED",
+          "PARKING",
+          "REVERSE_PREPARE",
+          "REVERSE_STOP",
+          "REVERSING_OUT",
+          "SHIFT_TO_DRIVE",
+          "TURNING_IN"
+        ],
+        "sampleCount": 142,
+        "originalUISpeed": 1.8
+      },
+      "embeddedSummary": {
+        "wallSeconds": 102.26538858999993,
+        "phasesObserved": [
+          "ALIGNING_TO_EXIT",
+          "APPROACHING",
+          "DRIVING_OUT",
+          "OFFSCREEN_RESET",
+          "OFFSCREEN_WAIT",
+          "PARKED",
+          "PARKING",
+          "REVERSE_PREPARE",
+          "REVERSE_STOP",
+          "REVERSING_OUT",
+          "SHIFT_TO_DRIVE",
+          "TURNING_IN"
+        ],
+        "sampleCount": 145,
+        "originalUISpeed": 1.8
+      }
+    }
+  ],
+  "autonomousClerkTasksActuallyObserved": {
+    "standalone": {
+      "A": [
+        "check_display",
+        "impulse_tidy",
+        "nearby_shelf",
+        "short_wait"
+      ],
+      "B": [
+        "floor_clean",
+        "restock",
+        "shelf_inspect"
+      ]
+    },
+    "embedded": {
+      "A": [
+        "bag_check",
+        "impulse_tidy",
+        "look_around",
+        "nearby_shelf",
+        "observe_entrance",
+        "short_wait",
+        "tidy_counter"
+      ],
+      "B": [
+        "dining_tidy",
+        "hotfood_check",
+        "shelf_inspect"
+      ]
+    }
+  },
+  "randomBranchesExhaustive": false,
+  "additionalOriginalBoundary": {
+    "label": "漫游中 R 后再触发 UI 同步",
+    "selector": null,
+    "original": {
+      "report": "full-standalone-keyboard/keyboard.json",
+      "case": "BOUNDARY.R-in-walk",
+      "caseField": "id",
+      "status": "原页已有问题",
+      "reportSHA256": "edf6e129d876b719efd6dcef79b14711d6c9c68e0c76a472b4b068abf144e111",
+      "browserVersion": "155.0.8059.79"
+    },
+    "embedded": {
+      "report": "full-embedded-keyboard/keyboard.json",
+      "case": "BOUNDARY.R-in-walk",
+      "caseField": "id",
+      "status": "原页已有问题",
+      "reportSHA256": "62750e459ad7a710908f70f72f81e9e2346e2a17849cbffcaaf7df9efc157a0e",
+      "browserVersion": "155.0.8059.79"
+    },
+    "result": "原页已有问题",
+    "newHostRegression": false
+  },
+  "allOriginalNormalFeaturesPreserved": true,
+  "hostNewRegressions": [],
+  "originalRuntimeModified": false
+}

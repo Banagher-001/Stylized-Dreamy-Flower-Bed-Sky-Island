@@ -1,0 +1,75 @@
+"""Actual-browser helpers; original application clocks and files stay untouched."""
+from pathlib import Path
+import argparse,json,shutil,traceback
+
+ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'docs/evidence/lawson-fullpage-step-6'
+AUDIT='''(()=>{const a=window.__audit={draws:0,visibility:[],pageshow:[]};document.addEventListener('visibilitychange',()=>a.visibility.push({state:document.visibilityState,time:performance.now()}));addEventListener('pageshow',e=>a.pageshow.push({persisted:e.persisted,time:performance.now()}));for(const cls of [window.WebGLRenderingContext,window.WebGL2RenderingContext])if(cls)for(const key of ['drawArrays','drawElements','drawArraysInstanced','drawElementsInstanced']){const raw=cls.prototype[key];if(raw)cls.prototype[key]=function(...args){a.draws++;return raw.apply(this,args)}}})()'''
+def arguments():
+    p=argparse.ArgumentParser();p.add_argument('--run',required=True);p.add_argument('--only',default='');p.add_argument('--engine',default='chromium');p.add_argument('--no-webgl',action='store_true');return p.parse_args()
+class Harness:
+    def __init__(self,pw,args):
+        self.args=args;self.folder=OUT/args.run;self.folder.mkdir(exist_ok=False)
+        for p in Path(__file__).parent.glob('*.py'):shutil.copyfile(p,self.folder/(p.name+'.txt'))
+        self.report={'engine':args.engine,'checks':[],'events':[],'physicalDevice':False,'clockModified':False};self.contexts=[];self.page=None;self.case_name=''
+        options={'headless':False}
+        if args.engine=='chromium':options.update(executable_path='/usr/bin/chromium',args=['--no-sandbox','--use-gl=angle','--use-angle=gl','--ignore-gpu-blocklist'])
+        elif args.engine=='webkit':options.update(executable_path=str(OUT/'webkit-run.sh'))
+        if args.no_webgl:options['args'].append('--disable-webgl');self.report['browserWebGLDisabled']=True
+        self.browser=getattr(pw,args.engine).launch(**options);self.report['browserVersion']=self.browser.version
+    def save(self):(self.folder/'browser.json').write_text(json.dumps(self.report,ensure_ascii=False,indent=2)+'\n')
+    def check(self,name,fn):
+        if self.args.only and not any(name.startswith(x)for x in self.args.only.split(',')):return
+        self.case_name=name;self.page=None
+        try:
+            evidence=fn();entry={'name':name,'passed':True,'evidence':evidence};print('PASS '+name,flush=True)
+        except Exception as e:
+            entry={'name':name,'passed':False,'error':str(e),'traceback':traceback.format_exc()}
+            if self.page and not self.page.is_closed():
+                try:
+                    self.picture('failure-'+name.replace(' ','-'));entry['parent']=self.page.evaluate('({state:document.querySelector(".tour-project-dialog")?.dataset,mode:document.querySelector("main")?.dataset.readingMode,active:document.activeElement?.outerHTML.slice(0,300)})')
+                except Exception:pass
+            print('FAIL '+name+': '+str(e),flush=True)
+        finally:
+            for c in self.contexts:
+                try:c.unroute_all(behavior='ignoreErrors');c.close()
+                except Exception:pass
+            self.contexts=[]
+        self.report['checks'].append(entry);self.save()
+    def context(self,**options):
+        c=self.browser.new_context(**options);c.add_init_script(AUDIT);self.contexts.append(c);return c
+    def setup(self,w=1440,h=900,prefix='/',context=None,url=None,**options):
+        c=context or self.context(viewport={'width':w,'height':h},device_scale_factor=1,**options)
+        p=c.new_page();self.page=p;p.set_default_timeout(20000)
+        for event in ['pageerror','requestfailed','console','response']:
+            def record(value,kind=event):
+                if kind=='console'and value.type not in ['error','warning']:return
+                if kind=='response'and value.status<400:return
+                data={'case':self.case_name,'kind':kind}
+                if kind=='pageerror':data['text']=str(value)
+                elif kind=='requestfailed':data.update(url=value.url,text=value.failure)
+                elif kind=='console':data.update(level=value.type,text=value.text)
+                else:data.update(url=value.url,status=value.status)
+                self.report['events'].append(data)
+            p.on(event,record)
+        p.goto(url or 'http://127.0.0.1:4196'+prefix,wait_until='domcontentloaded');p.wait_for_function('document.querySelector("main")?.dataset.layoutReady==="true"',timeout=60000,polling=100)
+        return c,p
+    def c2(self,p):
+        if p.locator('main').get_attribute('data-reading-mode')=='stable':p.locator('article[data-experiment-station=C2]').scroll_into_view_if_needed()
+        else:
+            p.evaluate('scrollTo({top:(document.documentElement.scrollHeight-innerHeight)*10.05/12.3,behavior:"instant"})')
+            p.wait_for_function('Math.abs(Number(document.querySelector("#tour-host").dataset.displayH)-10.05)<.005',timeout=20000,polling=100)
+        p.wait_for_function('!document.querySelector("[data-project-tab=archive]").disabled',polling=100)
+    def open(self,p,tab='live'):
+        b=p.locator('[data-project-tab='+tab+']');b.scroll_into_view_if_needed();before=p.evaluate('({y:scrollY,h:document.querySelector("#tour-host").dataset.displayH,mode:document.querySelector("main").dataset.readingMode})');b.click();p.wait_for_function('document.querySelector(".tour-project-dialog").open');return before
+    def close(self,p):p.locator('.tour-project-close').click();p.wait_for_function('!document.querySelector(".tour-project-dialog").open');p.wait_for_timeout(200)
+    def child(self,p):
+        p.wait_for_selector('.tour-project-embed-mount > iframe',state='attached')
+        return p.locator('.tour-project-embed-mount > iframe').element_handle().content_frame()
+    def state(self,p,value,timeout=90000):p.wait_for_function('s=>document.querySelector(".tour-project-dialog").dataset.embeddedState===s',arg=value,timeout=timeout,polling=100)
+    def ready(self,p):
+        self.state(p,'ready');f=self.child(p);f.wait_for_function('window.__LAWSON__?.ready===true',timeout=90000,polling=100);f.locator('#loader').wait_for(state='hidden');return f
+    def draws(self,target,p,ms=1000):
+        n=target.evaluate('__audit.draws');p.wait_for_timeout(ms);return target.evaluate('__audit.draws')-n
+    def picture(self,name):self.page.screenshot(path=str(self.folder/(name+'.png')))
+    def finish(self):
+        self.browser.close();self.report['passed']=all(c['passed']for c in self.report['checks']);self.save();print(json.dumps({'passed':self.report['passed'],'checks':len(self.report['checks'])}),flush=True);return self.report['passed']

@@ -1,0 +1,209 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "network document 404",
+      "passed": true,
+      "evidence": {
+        "HTTPStatusInjected": 404,
+        "genericDocumentFailureNotGuessedStatus": true,
+        "explicitRetryRecovered": true
+      }
+    },
+    {
+      "name": "network document 500",
+      "passed": true,
+      "evidence": {
+        "HTTPStatusInjected": 500,
+        "genericDocumentFailureNotGuessedStatus": true,
+        "explicitRetryRecovered": true
+      }
+    },
+    {
+      "name": "network vendor module failure",
+      "passed": true,
+      "evidence": {
+        "realVendorFetchAborted": true,
+        "slowBeforeOriginalTimeout": true,
+        "originalFatalObserved": true,
+        "retryRecovered": true
+      }
+    },
+    {
+      "name": "network car model failure",
+      "passed": true,
+      "evidence": {
+        "realCarResourceFailure": true,
+        "nativeRetryRecovered": true
+      }
+    },
+    {
+      "name": "network cold offline and return",
+      "passed": true,
+      "evidence": {
+        "warmCache": false,
+        "actualOfflineState": "slow",
+        "recovered": true,
+        "offlineDidNotAutomaticallyMeanFailure": true
+      }
+    },
+    {
+      "name": "network warm offline and return",
+      "passed": true,
+      "evidence": {
+        "warmCache": true,
+        "actualOfflineState": "error",
+        "recovered": true,
+        "offlineDidNotAutomaticallyMeanFailure": true
+      }
+    },
+    {
+      "name": "network restricted embedding",
+      "passed": true,
+      "evidence": {
+        "realFrameAncestorsDenial": true,
+        "independentOriginalReadyWithSamePolicy": true,
+        "noGuessedFailureCause": true,
+        "retryAfterPolicyRestored": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "network document 404",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "network document 404",
+      "kind": "response",
+      "url": "http://127.0.0.1:4196/experiments/lawson/index.html",
+      "status": 404
+    },
+    {
+      "case": "network document 404",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "case": "network document 500",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "network document 500",
+      "kind": "response",
+      "url": "http://127.0.0.1:4196/experiments/lawson/index.html",
+      "status": 500
+    },
+    {
+      "case": "network document 500",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "case": "network vendor module failure",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "network vendor module failure",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/vendor/three/three.module.js",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "case": "network vendor module failure",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "case": "network car model failure",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "network car model failure",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/assets/models/car_B.glb",
+      "text": "net::ERR_FAILED"
+    },
+    {
+      "case": "network car model failure",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "case": "network car model failure",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/car_B.glb — Failed to fetch"
+    },
+    {
+      "case": "network cold offline and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "network cold offline and return",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/index.html",
+      "text": "net::ERR_INTERNET_DISCONNECTED"
+    },
+    {
+      "case": "network warm offline and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "network warm offline and return",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/assets/models/lawson_scene.glb",
+      "text": "net::ERR_INTERNET_DISCONNECTED"
+    },
+    {
+      "case": "network warm offline and return",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_INTERNET_DISCONNECTED"
+    },
+    {
+      "case": "network warm offline and return",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    },
+    {
+      "case": "network restricted embedding",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "network restricted embedding",
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:4196/experiments/lawson/index.html",
+      "text": "net::ERR_BLOCKED_BY_RESPONSE"
+    },
+    {
+      "case": "network restricted embedding",
+      "kind": "console",
+      "level": "error",
+      "text": "Framing 'http://127.0.0.1:4196/' violates the following Content Security Policy directive: \"frame-ancestors 'none'\". The request has been blocked.\n"
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

@@ -1,0 +1,31 @@
+{
+  "engine": "webkit",
+  "checks": [
+    {
+      "name": "compat final engine native controls",
+      "passed": true,
+      "evidence": {
+        "realEngine": "webkit",
+        "capabilities": {
+          "fullscreen": true,
+          "pointerLock": true
+        },
+        "capabilityNoticeMatchesActualSupport": true,
+        "nativeLightsControlsWork": true,
+        "parentSuspended": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "compat final engine native controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "26.5",
+  "passed": true
+}

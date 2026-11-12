@@ -1,0 +1,35 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "journey /",
+      "passed": false,
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/host_harness.py\", line 24, in check\n    evidence=fn();entry={'name':name,'passed':True,'evidence':evidence};print('PASS '+name,flush=True)\n             ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/verify_journey.py\", line 51, in <lambda>\n    for prefix in ['/','/Stylized-Dreamy-Flower-Bed-Sky-Island/']:h.check('journey '+prefix,lambda prefix=prefix:journey(prefix))\n                                                                                                                 ^^^^^^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/verify_journey.py\", line 42, in journey\n    p.locator('.tour-project-motion').click();p.wait_for_function('document.querySelector(\"#tour-host\").dataset.motionState===\"paused\"');assert h.draws(p,p)==0\n                                                                                                                                                ^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "name": "journey /Stylized-Dreamy-Flower-Bed-Sky-Island/",
+      "passed": false,
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/host_harness.py\", line 24, in check\n    evidence=fn();entry={'name':name,'passed':True,'evidence':evidence};print('PASS '+name,flush=True)\n             ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/verify_journey.py\", line 51, in <lambda>\n    for prefix in ['/','/Stylized-Dreamy-Flower-Bed-Sky-Island/']:h.check('journey '+prefix,lambda prefix=prefix:journey(prefix))\n                                                                                                                 ^^^^^^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/verify_journey.py\", line 42, in journey\n    p.locator('.tour-project-motion').click();p.wait_for_function('document.querySelector(\"#tour-host\").dataset.motionState===\"paused\"');assert h.draws(p,p)==0\n                                                                                                                                                ^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ],
+  "events": [
+    {
+      "case": "journey /",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "journey /Stylized-Dreamy-Flower-Bed-Sky-Island/",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": false
+}

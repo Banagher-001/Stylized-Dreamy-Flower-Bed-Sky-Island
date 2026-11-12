@@ -1,0 +1,33 @@
+from playwright.sync_api import sync_playwright
+from harness import Harness,arguments
+
+args=arguments()
+with sync_playwright()as pw:
+    h=Harness(pw,args)
+    def wrong_document():
+        c,p=h.setup();c.route('**/experiments/lawson/index.html',lambda r:r.fulfill(status=404,content_type='text/html',body='<!doctype html><title>Not found</title><p>Not found</p>'))
+        h.c2(p);h.open(p);f=h.child(p);f.wait_for_function('document.readyState==="complete"');p.wait_for_timeout(700)
+        observed=p.locator('.tour-project-dialog').get_attribute('data-embedded-state');assert observed=='error',observed
+        assert p.locator('.tour-project-retry').is_visible();h.close(p)
+        return {'actualHTTPStatus':404,'incorrectCompleteDocumentDetected':True}
+    h.check('document wrong HTML',wrong_document)
+    def child_loss():
+        c,p=h.setup();h.c2(p);h.open(p);f=h.ready(p)
+        available=f.evaluate('''()=>{const gl=document.querySelector('#viewport').getContext('webgl2');const ext=gl.getExtension('WEBGL_lose_context');if(!ext)return false;window.__testLostGL=gl;window.__testLose=ext;ext.loseContext();return true}''')
+        assert available;f.wait_for_function('__testLostGL.isContextLost()');p.wait_for_timeout(900)
+        actual=p.locator('.tour-project-dialog').get_attribute('data-embedded-state');assert actual!='ready',{'host':actual,'originalReady':f.evaluate('__LAWSON__.ready')}
+        assert p.locator('.tour-project-retry').is_visible();p.locator('.tour-project-retry').click();h.ready(p);assert h.draws(p,p)==0;h.close(p)
+        return {'realWebGLLoseExtension':True,'staleReadyDoesNotHideLoss':True,'hostRetryRecovered':True}
+    h.check('graphics child context loss',child_loss)
+    def small_error():
+        c,p=h.setup(320,568);c.route('**/experiments/lawson/assets/models/lawson_scene.glb',lambda r:r.abort('failed'))
+        h.c2(p);h.open(p);h.state(p,'error');p.evaluate('document.documentElement.style.fontSize="32px"');p.wait_for_timeout(400)
+        rows=p.locator('.tour-project-header button,.tour-project-header a').evaluate_all('es=>es.filter(e=>e.getClientRects().length).map(e=>({text:e.innerText,r:e.getBoundingClientRect().toJSON()}))')
+        for e in rows:
+            r=e['r'];assert r['left']>=-.5 and r['right']<=320.5 and r['bottom']<=568 and r['width']>=44 and r['height']>=44,e
+        frame=p.locator('iframe').bounding_box();assert frame['height']>0,frame
+        h.picture('small-error-200');h.close(p);assert p.evaluate('document.documentElement.scrollWidth<=innerWidth')
+        return {'targets':rows,'iframe':frame,'originalInnerFontsUnmodified':True}
+    h.check('layout small error and 200 percent',small_error)
+    passed=h.finish()
+raise SystemExit(0 if passed else 1)

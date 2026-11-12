@@ -1,6 +1,7 @@
 import './tour.css';
 import './film.css';
 import './experiment.css';
+import './projectHost.css';
 import './readingLayout.css';
 import './autoGuide.css';
 import { Vector3 } from 'three';
@@ -27,7 +28,8 @@ import { filmAvailability } from './filmContent';
 import { experimentStations } from './experimentReading';
 import { createExperimentReader } from './createExperimentReader';
 import { createProjectViewer } from './createProjectViewer';
-import type { ProjectTab } from './createProjectViewer';
+import { createLawsonExperience } from './createLawsonExperience';
+import { resolveProjectEntry } from './projectContent';
 import { chapterLabels, createTourPresentation } from './presentation';
 import { createReadingLayout } from './createReadingLayout';
 import type { ReadingCapacity, ReadingPosition } from './createReadingLayout';
@@ -97,9 +99,10 @@ let filmMagic: ReturnType<typeof createPillarMagic>;
 let experimentMagic: ReturnType<typeof createPillarMagic>;
 let mediaViewer: ReturnType<typeof createMediaViewer>;
 let projectViewer: ReturnType<typeof createProjectViewer>;
+let lawsonExperience: ReturnType<typeof createLawsonExperience> | undefined;
 const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id));
 const filmReader = createFilmReader(app, host, (id) => filmMagic?.getAnchor(id), (media, trigger) => mediaViewer.open(media, trigger));
-const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), (tab, trigger) => projectViewer.open(tab, trigger));
+const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), (id, tab, trigger) => projectViewer.open(id, tab, trigger), () => { guide?.stop('已切换作品，可从当前位置继续导览。');readingLayout?.resize(); });
 const world = createScene(resolveEnvironmentOptions(query), query.get('pool') === 'legacy' ? 'legacy' : 'refined', query.get('orb') === 'legacy' ? 'legacy' : 'lively', query.get('clouds') !== 'off', query.get('birds') !== 'off');
 host.dataset.fountainStyle = world.fountainStyle;
 host.dataset.fountainResources = JSON.stringify(world.fountainMetadata ?? null);
@@ -136,7 +139,6 @@ let layoutLock = false;
 let mediaOpen = false;
 let mediaProgress = 0;
 let overlayOwner: 'media' | 'project' | undefined;
-let projectTab: ProjectTab | undefined;
 let contextLost = false;
 let restoreFrame: number | undefined;
 let recoveryTimer: number | undefined;
@@ -152,12 +154,15 @@ const focusPoint = new Vector3();
 const rounded = (values: number[]) => values.map((value) => Number(value.toFixed(7)));
 let birdVisibility: ReturnType<typeof createBirdVisibility> | undefined;
 const cameraMoving = () => !readingLayout?.stable && Math.abs(targetH - displayH) > 0.0000001;
-const covered = () => mediaOpen || projectTab === 'archive';
-const offscreen = () => !!readingLayout?.stable && !readingLayout.coverVisible && projectTab !== 'live';
+const activeProject = () => projectViewer?.active;
+const projectOpen = () => !!activeProject();
+const courtyardLive = () => activeProject()?.id === 'courtyard' && activeProject()?.tab === 'live';
+const covered = () => mediaOpen || (projectOpen() && !courtyardLive());
+const offscreen = () => !!readingLayout?.stable && !readingLayout.coverVisible && !courtyardLive();
 
 function syncLoop() {
   if (!view || disposed || failed) return;
-  const wanted = !animation.state.hidden && !covered() && !offscreen() && (animation.state.playing || (!projectTab && (cameraMoving() || !!guide?.needsFrames)));
+  const wanted = !animation.state.hidden && !covered() && !offscreen() && (animation.state.playing || (!projectOpen() && (cameraMoving() || !!guide?.needsFrames)));
   if (wanted !== loopRequested) {
     loopRequested = wanted;
     cameraTimestamp = null;
@@ -191,7 +196,7 @@ function beginOverlay(owner: 'media' | 'project') {
 }
 function closeOverlay(owner: 'media' | 'project') {
   if (overlayOwner !== owner) return;
-  overlayOwner = undefined;mediaOpen = false;projectTab = undefined;
+  overlayOwner = undefined;mediaOpen = false;delete host.dataset.projectId;
   document.documentElement.classList.remove('tour-media-open', 'tour-project-open');host.dataset.projectView = 'closed';host.dataset.overlayState = 'closed';
   presentation.setCovered(false);
   if (disposed) return;
@@ -203,21 +208,34 @@ function closeOverlay(owner: 'media' | 'project') {
 }
 mediaViewer = createMediaViewer(app, {
   open() {
-    projectViewer?.close();projectTab = undefined;beginOverlay('media');
+    projectViewer?.close();beginOverlay('media');
     animation.resetTimestamp();syncAnimation(animation.state);
   },
   close() { closeOverlay('media'); },
 });
-function setProjectTab(tab: ProjectTab) {
-  projectTab = tab;host.dataset.projectView = tab;animation.resetTimestamp();
+function syncProject() {
+  const current = activeProject();host.dataset.projectView = current?.tab ?? 'closed';
+  host.dataset.projectId = current?.id ?? '';animation.resetTimestamp();
   if (!failed) applyCamera();syncAnimation(animation.state);
 }
+function syncLawson() {
+  const current = activeProject();
+  if (current?.id === 'lawson' && current.tab === 'live') lawsonExperience?.mount();
+  else lawsonExperience?.unmount();
+}
 projectViewer = createProjectViewer(app, {
-  open(tab) { mediaViewer.close();beginOverlay('project');setProjectTab(tab); },
-  change: setProjectTab,
-  close() { closeOverlay('project'); },
+  open() { mediaViewer.close();beginOverlay('project');syncProject();syncLawson(); },
+  change() { syncLawson();syncProject(); },
+  close() { lawsonExperience?.unmount();closeOverlay('project'); },
   mode: setMode,
   motion() { animation.toggle(); },
+  retry() { lawsonExperience?.retry(); },
+});
+lawsonExperience = createLawsonExperience({
+  container: projectViewer.embeddedMount,
+  entry: resolveProjectEntry('lawson')!,
+  wanted: () => !disposed && activeProject()?.id === 'lawson' && activeProject()?.tab === 'live',
+  status: (state, message) => projectViewer.setEmbeddedStatus(state, message),
 });
 
 function experiencePose() {
@@ -237,7 +255,7 @@ function experiencePose() {
 
 function applyCamera() {
   const frame = sampleTour(displayH);
-  const pose = projectTab === 'live' ? experiencePose() : resolveTourPose(readingLayout?.stable ? tourPoses.O : frame.pose, lastAspect);
+  const pose = courtyardLive() ? experiencePose() : resolveTourPose(readingLayout?.stable ? tourPoses.O : frame.pose, lastAspect);
   world.setViewHeight(pose.viewHeight);
   world.camera.position.set(...pose.position);
   world.camera.up.set(0, 1, 0);
@@ -255,15 +273,15 @@ function applyCamera() {
   host.dataset.aspect = lastAspect.toFixed(7);
   host.dataset.readingStation = frame.reading?.station.id ?? '';
   host.dataset.readingPhase = frame.reading?.phase ?? 'off';
-  const lettering = reader.update(projectTab ? undefined : frame.reading, world.camera, animation.state.reducedMotion);
+  const lettering = reader.update(projectOpen() ? undefined : frame.reading, world.camera, animation.state.reducedMotion);
   host.dataset.readingOpacity = lettering.body.toFixed(7);
   host.dataset.readingTitleOpacity = lettering.title.toFixed(7);
-  const exhibition = filmReader.update(projectTab ? undefined : frame.filmReading, world.camera, animation.state.reducedMotion);
+  const exhibition = filmReader.update(projectOpen() ? undefined : frame.filmReading, world.camera, animation.state.reducedMotion);
   host.dataset.filmStation = frame.filmReading?.station.id ?? '';
   host.dataset.filmPhase = frame.filmReading?.phase ?? 'off';
   host.dataset.filmPresentation = JSON.stringify(exhibition);
   if (displayH >= 3.7 && displayH < 8) filmReader.prime();
-  const experiment = experimentReader.update(projectTab ? undefined : frame.experimentReading, world.camera, animation.state.reducedMotion);
+  const experiment = experimentReader.update(projectOpen() ? undefined : frame.experimentReading, world.camera, animation.state.reducedMotion);
   host.dataset.experimentStation = frame.experimentReading?.station.id ?? '';host.dataset.experimentPhase = frame.experimentReading?.phase ?? 'off';host.dataset.experimentPresentation = JSON.stringify(experiment);
   if (displayH >= 8 && displayH < 11.1) experimentReader.prime();
   if (navigationH !== undefined && !cameraMoving()) {
@@ -287,7 +305,7 @@ function update(timestamp: number) {
   if (disposed || failed || covered() || offscreen()) return;
   guide?.tick(timestamp);
   const now = performance.now();
-  if (!projectTab && cameraMoving()) {
+  if (!projectOpen() && cameraMoving()) {
     const elapsed = cameraTimestamp === null ? 1 / 60 : Math.max(0, Math.min(0.05, (timestamp - cameraTimestamp) / 1000));
     if (animation.state.reducedMotion || now - lastScrollAt >= 140) displayH = targetH;
     else displayH += (targetH - displayH) * (1 - Math.exp(-elapsed / 0.012));
@@ -300,13 +318,13 @@ function update(timestamp: number) {
   world.update(sceneTime);
   if (world.birds) {
     birdVisibility ??= createBirdVisibility(app!, host, () => { if (!disposed && !failed && !loopRequested && !covered() && !offscreen() && !animation.state.hidden) view?.renderOnce(); });
-    const layout = `${routeWidth}/${routeHeight}/${routeFooter}/${main.dataset.readingMode}/${projectTab ?? ''}`;
+    const layout = `${routeWidth}/${routeHeight}/${routeFooter}/${main.dataset.readingMode}/${activeProject()?.id ?? ''}/${activeProject()?.tab ?? ''}`;
     const pose = `${host.dataset.cameraPosition}/${host.dataset.cameraTarget}/${host.dataset.viewHeight}/${host.dataset.stage}/${host.dataset.displayH}`;
-    const glyph = projectTab ? undefined : frame.reading ? magic?.getAnchor(frame.reading.station.id) : frame.filmReading ? filmMagic?.getAnchor(frame.filmReading.station.id) : frame.experimentReading ? experimentMagic?.getAnchor(frame.experimentReading.station.id) : undefined;
-    world.birds.present(world.camera, birdVisibility.measure(layout, pose, projectTab === 'live', world.camera, glyph));
+    const glyph = projectOpen() ? undefined : frame.reading ? magic?.getAnchor(frame.reading.station.id) : frame.filmReading ? filmMagic?.getAnchor(frame.filmReading.station.id) : frame.experimentReading ? experimentMagic?.getAnchor(frame.experimentReading.station.id) : undefined;
+    world.birds.present(world.camera, birdVisibility.measure(layout, pose, courtyardLive(), world.camera, glyph));
     if (inspectBirds) host.dataset.birdState = JSON.stringify(world.birds.snapshot());
   }
-  const inscriptions = !projectTab && !readingLayout?.stable;
+  const inscriptions = !projectOpen() && !readingLayout?.stable;
   const magicFrame = magic?.update(inscriptions ? frame.reading : undefined, world.camera, sceneTime, animation.state.reducedMotion, mode);
   const filmMagicFrame = filmMagic?.update(inscriptions ? frame.filmReading : undefined, world.camera, sceneTime, animation.state.reducedMotion, mode);
   const experimentMagicFrame = experimentMagic?.update(inscriptions ? frame.experimentReading : undefined, world.camera, sceneTime, animation.state.reducedMotion, mode);
@@ -431,14 +449,14 @@ readingLayout = createReadingLayout(app, host, [reader.element, filmReader.eleme
   unavailable: () => failed || contextLost, overlay: () => !!overlayOwner,
   refresh() { resizeLayout();if (!failed) applyCamera();animation.resetTimestamp();syncAnimation(animation.state); },
   visible() { animation.resetTimestamp();syncAnimation(animation.state); },
-  live: trigger => projectViewer.open('live', trigger),
+  live: trigger => projectViewer.open('courtyard', 'live', trigger),
 });
 
 resizeLayout();
 window.scrollTo({ top: 0, behavior: 'instant' });
 try {
   view = createRenderer(host, mode, (aspect) => { lastAspect = aspect;world.setAspect(aspect);applyCamera(); }, resolveVisualOptions(query), rendererState);
-  view.canvas.setAttribute('aria-label', '滚动庭院：第一柱介绍，第二柱AI影像设计样片，第三柱交互实验与真实庭院体验，随后回到水潭。');
+  view.canvas.setAttribute('aria-label', '滚动庭院：第一柱介绍，第二柱AI影像设计样片，第三柱交互实验与罗森、庭院体验，随后回到水潭。');
   view.start(world.scene, world.camera, update);
   syncAnimation(animation.state);
 } catch (error) {
@@ -468,7 +486,7 @@ function guideBlocked() {
   if (main.dataset.layoutReady !== 'true' || main.dataset.immersiveAvailable !== 'true') return '正在核对阅读空间，请稍候。';
   return '';
 }
-const decodedGuideImages = new WeakSet<HTMLImageElement>(), pendingGuideImages = new WeakSet<HTMLImageElement>(), failedGuideImages = new WeakSet<HTMLImageElement>();
+const decodedGuideImages = new WeakMap<HTMLImageElement, string>(), pendingGuideImages = new WeakMap<HTMLImageElement, string>(), failedGuideImages = new WeakMap<HTMLImageElement, string>();
 function guideReady(stop: GuideStop) {
   const unread = { ready: false, text: '' };
   if (cameraMoving() || Math.abs(targetH - displayH) >= .000001) return unread;
@@ -483,11 +501,12 @@ function guideReady(stop: GuideStop) {
     if (!image.currentSrc || !image.complete) return unread;
     // Existing error placeholders remain usable; successful images must decode.
     if (image.naturalWidth === 0) continue;
-    if (failedGuideImages.has(image)) return unread;
-    if (!decodedGuideImages.has(image)) {
-      if (!pendingGuideImages.has(image)) {
-        pendingGuideImages.add(image);
-        void image.decode().then(() => { decodedGuideImages.add(image);if (!disposed) guide?.poke(); }).catch(() => { failedGuideImages.add(image);if (!disposed) guide?.poke(); });
+    const src = image.currentSrc;
+    if (failedGuideImages.get(image) === src) return unread;
+    if (decodedGuideImages.get(image) !== src) {
+      if (pendingGuideImages.get(image) !== src) {
+        pendingGuideImages.set(image, src);
+        void image.decode().then(() => { if (image.currentSrc === src) decodedGuideImages.set(image, src);if (!disposed) guide?.poke(); }).catch(() => { if (image.currentSrc === src) failedGuideImages.set(image, src);if (!disposed) guide?.poke(); });
       }
       return unread;
     }
@@ -623,10 +642,10 @@ window.addEventListener('resize', () => { resizeLayout();readingLayout?.resize()
 window.visualViewport?.addEventListener('resize', () => readingLayout?.resize(), { passive: true, signal: listenerController.signal });
 let experienceLayoutFrame: number | undefined;
 function queueExperienceLayout() {
-  if (disposed || failed || projectTab !== 'live' || experienceLayoutFrame !== undefined) return;
+  if (disposed || failed || !courtyardLive() || experienceLayoutFrame !== undefined) return;
   experienceLayoutFrame = requestAnimationFrame(() => {
     experienceLayoutFrame = undefined;
-    if (!disposed && !failed && projectTab === 'live') { applyCamera();if (!animation.state.hidden) view?.renderOnce(); }
+    if (!disposed && !failed && courtyardLive()) { applyCamera();if (!animation.state.hidden) view?.renderOnce(); }
   });
 }
 const experienceResize = new ResizeObserver(queueExperienceLayout);
@@ -636,6 +655,7 @@ projectViewer.element.addEventListener('scroll', queueExperienceLayout, { passiv
 function dispose() {
   if (disposed) return;
   disposed = true;
+  lawsonExperience?.dispose();
   listenerController.abort();
   guide?.dispose();guideLayoutObserver.disconnect();
   if (restoreFrame !== undefined) cancelAnimationFrame(restoreFrame);

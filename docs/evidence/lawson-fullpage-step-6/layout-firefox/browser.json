@@ -1,0 +1,129 @@
+{
+  "engine": "firefox",
+  "checks": [
+    {
+      "name": "layout 1440x900",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 844
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "immersive",
+        "before": {
+          "y": 9045,
+          "h": "10.0500000",
+          "mode": "immersive"
+        }
+      }
+    },
+    {
+      "name": "layout 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "frame": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 48
+        },
+        "parentDraws": 0,
+        "originalRendered": true,
+        "returnMode": "stable",
+        "before": {
+          "y": 4195,
+          "h": "0.0000000",
+          "mode": "stable"
+        }
+      }
+    },
+    {
+      "name": "layout continuous rotation and return",
+      "passed": true,
+      "evidence": {
+        "realViewportResizes": 3,
+        "frames": [
+          {
+            "x": 0,
+            "y": 48,
+            "width": 844,
+            "height": 342
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 375,
+            "height": 764
+          },
+          {
+            "x": 0,
+            "y": 48,
+            "width": 390,
+            "height": 796
+          }
+        ],
+        "physicalRotation": false,
+        "restoredC2": {
+          "x": 16,
+          "y": 148.56666564941406,
+          "width": 358,
+          "height": 547.3499603271484
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "layout 1440x900",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "case": "layout 390x844",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "case": "layout continuous rotation and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "case": "layout continuous rotation and return",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content.\" {file: \"http://127.0.0.1:4196/experiments/lawson/index.html\" line: 0}]"
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "153.0",
+  "passed": true
+}

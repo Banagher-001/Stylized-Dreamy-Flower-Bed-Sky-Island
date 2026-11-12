@@ -1,0 +1,39 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "safe area actual env inset emulation",
+      "passed": true,
+      "evidence": {
+        "CDPSafeAreaProtocolSupported": true,
+        "parentPaddingGeometryOnlyIfUnsupported": false,
+        "realEnvInsetsVerified": true,
+        "physicalNotchVerified": false,
+        "frame": {
+          "x": 20,
+          "y": 70,
+          "width": 350,
+          "height": 740
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 70
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "safe area actual env inset emulation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

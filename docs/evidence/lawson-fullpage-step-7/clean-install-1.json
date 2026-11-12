@@ -1,0 +1,37 @@
+{
+  "startedAtUTC": "2026-11-12T03:14:55.413591+00:00",
+  "temporaryCopy": "/tmp/lawson-step7-clean-4_d1jqn1",
+  "productionPathsCopied": 141,
+  "originalLockSHA256": "b7690d5c81fdb8c33d2723b89bd82d46eec5c8fe12aaf1c70695b0df754367de",
+  "commands": [
+    {
+      "cwd": "/tmp/lawson-step7-clean-4_d1jqn1",
+      "command": [
+        "npm",
+        "ci",
+        "--cache",
+        "/workspace/.cache/npm",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 2.3387650450004003,
+      "log": "clean-install-1-install.log"
+    },
+    {
+      "cwd": "/tmp/lawson-step7-clean-4_d1jqn1",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 0.9150242280002203,
+      "log": "clean-install-1-build.log"
+    }
+  ],
+  "passed": true,
+  "lockUnchanged": true,
+  "builtFilesExactlyMatchFinalBuild": 65,
+  "newDependencyVersionsIntroduced": false
+}

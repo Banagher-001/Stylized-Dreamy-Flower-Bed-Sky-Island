@@ -1,0 +1,1872 @@
+{
+  "scope": "Actual built portfolio host; original iframe deferred to step5",
+  "checks": [
+    {
+      "name": "main lifecycle and original courtyard",
+      "passed": true,
+      "evidence": {
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 56
+          },
+          "live": {
+            "x": 0,
+            "y": 56,
+            "width": 1440,
+            "height": 844
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 1004,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1086,
+                "bottom": 49.5,
+                "left": 1004
+              },
+              "text": "现场体验"
+            },
+            {
+              "rect": {
+                "x": 1090,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1172,
+                "bottom": 49.5,
+                "left": 1090
+              },
+              "text": "项目档案"
+            },
+            {
+              "rect": {
+                "x": 1184,
+                "y": 5.5,
+                "width": 108,
+                "height": 44,
+                "top": 5.5,
+                "right": 1292,
+                "bottom": 49.5,
+                "left": 1184
+              },
+              "text": "独立打开\n↗"
+            },
+            {
+              "rect": {
+                "x": 1300,
+                "y": 5.5,
+                "width": 124,
+                "height": 44,
+                "top": 5.5,
+                "right": 1424,
+                "bottom": 49.5,
+                "left": 1300
+              },
+              "text": "返回阅读×"
+            }
+          ]
+        },
+        "webGLDrawsWhileLawsonCovered": 0,
+        "courtyardVideoPlayed": {
+          "paused": false,
+          "time": 0.155363,
+          "duration": 12
+        },
+        "originalModesAndMotion": true,
+        "pausedStateRestored": true,
+        "waterEntryPinnedToCourtyard": true,
+        "repeatedCycles": 5,
+        "scrollAndFocusRestored": true
+      }
+    },
+    {
+      "name": "guide resize and playing restoration",
+      "passed": false,
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-4/verify_host.py\", line 14, in case\n    try:report['checks'].append({'name':name,'passed':True,'evidence':fn()});print('PASS '+name,flush=True)\n                                                                      ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-4/verify_host.py\", line 102, in guide_resize\n    assert host_state(p)['motionState']=='playing'and draws(p,.4)>0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "name": "late cover callback ownership",
+      "passed": true,
+      "evidence": {
+        "oldImageSyntheticErrorAndLoadIgnored": true,
+        "HomeEndSelectionWorks": true,
+        "note": "Old events deliberately injected on retired image; native loads also awaited."
+      }
+    },
+    {
+      "name": "media mutual exclusion and keyboard",
+      "passed": true,
+      "evidence": {
+        "forcedRapidHandoverBothDirections": true,
+        "oneModalOwner": true,
+        "newOwnerRetainsFocus": true,
+        "nativeTabTraversal": 14,
+        "scrollLocksReleased": true,
+        "note": "Synthetic source clicks force lifecycle overlap; Tab/Escape are native keyboard actions."
+      }
+    },
+    {
+      "name": "layout 1920x1080",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 1920,
+            "height": 56
+          },
+          "live": {
+            "x": 0,
+            "y": 56,
+            "width": 1920,
+            "height": 1024
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 1484,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1566,
+                "bottom": 49.5,
+                "left": 1484
+              },
+              "text": "现场体验"
+            },
+            {
+              "rect": {
+                "x": 1570,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1652,
+                "bottom": 49.5,
+                "left": 1570
+              },
+              "text": "项目档案"
+            },
+            {
+              "rect": {
+                "x": 1664,
+                "y": 5.5,
+                "width": 108,
+                "height": 44,
+                "top": 5.5,
+                "right": 1772,
+                "bottom": 49.5,
+                "left": 1664
+              },
+              "text": "独立打开\n↗"
+            },
+            {
+              "rect": {
+                "x": 1780,
+                "y": 5.5,
+                "width": 124,
+                "height": 44,
+                "top": 5.5,
+                "right": 1904,
+                "bottom": 49.5,
+                "left": 1780
+              },
+              "text": "返回阅读×"
+            }
+          ]
+        },
+        "archiveScrollRestored": 0,
+        "returnReadingMode": "immersive"
+      }
+    },
+    {
+      "name": "layout 1440x900",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 56
+          },
+          "live": {
+            "x": 0,
+            "y": 56,
+            "width": 1440,
+            "height": 844
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 1004,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1086,
+                "bottom": 49.5,
+                "left": 1004
+              },
+              "text": "现场体验"
+            },
+            {
+              "rect": {
+                "x": 1090,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1172,
+                "bottom": 49.5,
+                "left": 1090
+              },
+              "text": "项目档案"
+            },
+            {
+              "rect": {
+                "x": 1184,
+                "y": 5.5,
+                "width": 108,
+                "height": 44,
+                "top": 5.5,
+                "right": 1292,
+                "bottom": 49.5,
+                "left": 1184
+              },
+              "text": "独立打开\n↗"
+            },
+            {
+              "rect": {
+                "x": 1300,
+                "y": 5.5,
+                "width": 124,
+                "height": 44,
+                "top": 5.5,
+                "right": 1424,
+                "bottom": 49.5,
+                "left": 1300
+              },
+              "text": "返回阅读×"
+            }
+          ]
+        },
+        "archiveScrollRestored": 152,
+        "returnReadingMode": "immersive"
+      }
+    },
+    {
+      "name": "layout 1366x768",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1366,
+          768
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 1366,
+            "height": 56
+          },
+          "live": {
+            "x": 0,
+            "y": 56,
+            "width": 1366,
+            "height": 712
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 930,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1012,
+                "bottom": 49.5,
+                "left": 930
+              },
+              "text": "现场体验"
+            },
+            {
+              "rect": {
+                "x": 1016,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 1098,
+                "bottom": 49.5,
+                "left": 1016
+              },
+              "text": "项目档案"
+            },
+            {
+              "rect": {
+                "x": 1110,
+                "y": 5.5,
+                "width": 108,
+                "height": 44,
+                "top": 5.5,
+                "right": 1218,
+                "bottom": 49.5,
+                "left": 1110
+              },
+              "text": "独立打开\n↗"
+            },
+            {
+              "rect": {
+                "x": 1226,
+                "y": 5.5,
+                "width": 124,
+                "height": 44,
+                "top": 5.5,
+                "right": 1350,
+                "bottom": 49.5,
+                "left": 1226
+              },
+              "text": "返回阅读×"
+            }
+          ]
+        },
+        "archiveScrollRestored": 200,
+        "returnReadingMode": "immersive"
+      }
+    },
+    {
+      "name": "layout 768x1024",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          768,
+          1024
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 768,
+            "height": 56
+          },
+          "live": {
+            "x": 0,
+            "y": 56,
+            "width": 768,
+            "height": 968
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 348,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 430,
+                "bottom": 49.5,
+                "left": 348
+              },
+              "text": "现场体验"
+            },
+            {
+              "rect": {
+                "x": 434,
+                "y": 5.5,
+                "width": 82,
+                "height": 44,
+                "top": 5.5,
+                "right": 516,
+                "bottom": 49.5,
+                "left": 434
+              },
+              "text": "项目档案"
+            },
+            {
+              "rect": {
+                "x": 528,
+                "y": 5.5,
+                "width": 108,
+                "height": 44,
+                "top": 5.5,
+                "right": 636,
+                "bottom": 49.5,
+                "left": 528
+              },
+              "text": "独立打开\n↗"
+            },
+            {
+              "rect": {
+                "x": 644,
+                "y": 5.5,
+                "width": 108,
+                "height": 44,
+                "top": 5.5,
+                "right": 752,
+                "bottom": 49.5,
+                "left": 644
+              },
+              "text": "返回阅读×"
+            }
+          ]
+        },
+        "archiveScrollRestored": 0,
+        "returnReadingMode": "immersive"
+      }
+    },
+    {
+      "name": "layout 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 48
+          },
+          "live": {
+            "x": 0,
+            "y": 48,
+            "width": 390,
+            "height": 796
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 180,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 228,
+                "bottom": 45.5,
+                "left": 180
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 228,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 276,
+                "bottom": 45.5,
+                "left": 228
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 280,
+                "y": 1.5,
+                "width": 44,
+                "height": 44,
+                "top": 1.5,
+                "right": 324,
+                "bottom": 45.5,
+                "left": 280
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 328,
+                "y": 1.5,
+                "width": 54,
+                "height": 44,
+                "top": 1.5,
+                "right": 382,
+                "bottom": 45.5,
+                "left": 328
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "archiveScrollRestored": 164,
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "layout 320x568",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          320,
+          568
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 48
+          },
+          "live": {
+            "x": 0,
+            "y": 48,
+            "width": 320,
+            "height": 520
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 110,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 158,
+                "bottom": 45.5,
+                "left": 110
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 158,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 206,
+                "bottom": 45.5,
+                "left": 158
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 210,
+                "y": 1.5,
+                "width": 44,
+                "height": 44,
+                "top": 1.5,
+                "right": 254,
+                "bottom": 45.5,
+                "left": 210
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 258,
+                "y": 1.5,
+                "width": 54,
+                "height": 44,
+                "top": 1.5,
+                "right": 312,
+                "bottom": 45.5,
+                "left": 258
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "archiveScrollRestored": 200,
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "layout 844x390",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          844,
+          390
+        ],
+        "largeText": false,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 844,
+            "height": 48
+          },
+          "live": {
+            "x": 0,
+            "y": 48,
+            "width": 844,
+            "height": 342
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 634,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 682,
+                "bottom": 45.5,
+                "left": 634
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 682,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 730,
+                "bottom": 45.5,
+                "left": 682
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 734,
+                "y": 1.5,
+                "width": 44,
+                "height": 44,
+                "top": 1.5,
+                "right": 778,
+                "bottom": 45.5,
+                "left": 734
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 782,
+                "y": 1.5,
+                "width": 54,
+                "height": 44,
+                "top": 1.5,
+                "right": 836,
+                "bottom": 45.5,
+                "left": 782
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "archiveScrollRestored": 200,
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "large text 390x844",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "largeText": true,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 57
+          },
+          "live": {
+            "x": 0,
+            "y": 57,
+            "width": 390,
+            "height": 787
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 91.9375,
+                "y": 1,
+                "width": 76.015625,
+                "height": 54,
+                "top": 1,
+                "right": 167.953125,
+                "bottom": 55,
+                "left": 91.9375
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 167.953125,
+                "y": 1,
+                "width": 76.015625,
+                "height": 54,
+                "top": 1,
+                "right": 243.96875,
+                "bottom": 55,
+                "left": 167.953125
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 247.96875,
+                "y": 1,
+                "width": 48.015625,
+                "height": 54,
+                "top": 1,
+                "right": 295.984375,
+                "bottom": 55,
+                "left": 247.96875
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 299.984375,
+                "y": 1,
+                "width": 82.015625,
+                "height": 54,
+                "top": 1,
+                "right": 382,
+                "bottom": 55,
+                "left": 299.984375
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "archiveScrollRestored": 200,
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "large text 320x568",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          320,
+          568
+        ],
+        "largeText": true,
+        "reduced": false,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 115
+          },
+          "live": {
+            "x": 0,
+            "y": 115,
+            "width": 320,
+            "height": 453
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 159.96875,
+                "y": 1,
+                "width": 76.015625,
+                "height": 54,
+                "top": 1,
+                "right": 235.984375,
+                "bottom": 55,
+                "left": 159.96875
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 235.984375,
+                "y": 1,
+                "width": 76.015625,
+                "height": 54,
+                "top": 1,
+                "right": 312,
+                "bottom": 55,
+                "left": 235.984375
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 177.96875,
+                "y": 59,
+                "width": 48.015625,
+                "height": 54,
+                "top": 59,
+                "right": 225.984375,
+                "bottom": 113,
+                "left": 177.96875
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 229.984375,
+                "y": 59,
+                "width": 82.015625,
+                "height": 54,
+                "top": 59,
+                "right": 312,
+                "bottom": 113,
+                "left": 229.984375
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "archiveScrollRestored": 200,
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "reduced motion",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "largeText": false,
+        "reduced": true,
+        "geometry": {
+          "header": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 48
+          },
+          "live": {
+            "x": 0,
+            "y": 48,
+            "width": 390,
+            "height": 796
+          },
+          "targets": [
+            {
+              "rect": {
+                "x": 180,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 228,
+                "bottom": 45.5,
+                "left": 180
+              },
+              "text": "体验"
+            },
+            {
+              "rect": {
+                "x": 228,
+                "y": 1.5,
+                "width": 48,
+                "height": 44,
+                "top": 1.5,
+                "right": 276,
+                "bottom": 45.5,
+                "left": 228
+              },
+              "text": "档案"
+            },
+            {
+              "rect": {
+                "x": 280,
+                "y": 1.5,
+                "width": 44,
+                "height": 44,
+                "top": 1.5,
+                "right": 324,
+                "bottom": 45.5,
+                "left": 280
+              },
+              "text": "↗"
+            },
+            {
+              "rect": {
+                "x": 328,
+                "y": 1.5,
+                "width": 54,
+                "height": 44,
+                "top": 1.5,
+                "right": 382,
+                "bottom": 45.5,
+                "left": 328
+              },
+              "text": "返回"
+            }
+          ]
+        },
+        "archiveScrollRestored": 164,
+        "returnReadingMode": "stable"
+      }
+    },
+    {
+      "name": "fault no-gl",
+      "passed": true,
+      "evidence": {
+        "injectedFault": "no-gl",
+        "lawsonAndArchivesRemainAccessible": true,
+        "gardenAvailabilityIndependent": true
+      }
+    },
+    {
+      "name": "fault cover",
+      "passed": true,
+      "evidence": {
+        "injectedFault": "cover",
+        "lawsonAndArchivesRemainAccessible": true,
+        "gardenAvailabilityIndependent": true
+      }
+    },
+    {
+      "name": "independent /",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4194/experiments/lawson/index.html",
+        "realOriginalPageReady": true,
+        "openerNull": true
+      }
+    },
+    {
+      "name": "independent /Stylized-Dreamy-Flower-Bed-Sky-Island/",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/index.html",
+        "realOriginalPageReady": true,
+        "openerNull": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "httpErrors": [],
+  "failedRequests": [
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png",
+      "failure": "net::ERR_FAILED"
+    }
+  ],
+  "requests": [
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/courtyard-orb-cover-CFKlnXYs.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-00-Dnvt_afN.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-03-BpIvPl5V.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/courtyard-motion-7fR7fsF8.mp4"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/courtyard-orb-cover-CFKlnXYs.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/courtyard-orb-cover-CFKlnXYs.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/courtyard-orb-cover-CFKlnXYs.webp"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-00-Dnvt_afN.png"
+    },
+    {
+      "fault": "no-gl",
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-03-BpIvPl5V.png"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/liquid-form-Yl5oqdSL.webp"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/courtyard-orb-cover-CFKlnXYs.webp"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-00-Dnvt_afN.png"
+    },
+    {
+      "fault": "cover",
+      "url": "http://127.0.0.1:4194/assets/courtyard-keyframe-03-BpIvPl5V.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/assets/lawson-cover-DsynKw5x.png"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/index-qT3fULtH.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/index-B5-UwPAe.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/startTourPrototype-DwKvpyWn.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/three-core-Nz4Rm5ga.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/createAnimationController-Cv0VwzcZ.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/three-renderer-Bo7ttXUR.js"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/startTourPrototype-nbhBaLFq.css"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/favicon.svg"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/signal-garden-CbiDrnMk.webp"
+    },
+    {
+      "fault": null,
+      "url": "http://127.0.0.1:4194/Stylized-Dreamy-Flower-Bed-Sky-Island/assets/lawson-cover-DsynKw5x.png"
+    }
+  ],
+  "browser": "155.0.8059.79",
+  "unexpectedFailedRequests": [],
+  "mainRuntimeRequests": [],
+  "passed": false
+}

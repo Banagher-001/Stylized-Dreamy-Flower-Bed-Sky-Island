@@ -2,7 +2,7 @@ import { sampleMagic } from './magicStyle';
 
 export const experimentStations = [
   { id: 'C1', start: 8.7, end: 9.5, y: 2.75, label: '创作', stop: 9.14 },
-  { id: 'C2', start: 9.5, end: 10.5, y: 1.8, label: '庭院习作', stop: 10.05 },
+  { id: 'C2', start: 9.5, end: 10.5, y: 1.8, label: '交互作品', stop: 10.05 },
   { id: 'C3', start: 10.5, end: 11.1, y: .85, label: '继续', stop: 10.83 },
 ] as const;
 export interface ExperimentReadingFrame {

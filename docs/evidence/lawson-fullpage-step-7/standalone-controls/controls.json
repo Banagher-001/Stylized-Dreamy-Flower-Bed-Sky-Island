@@ -1,0 +1,5460 @@
+{
+  "phase": "controls",
+  "run": "standalone-controls",
+  "mode": "standalone",
+  "checks": [
+    {
+      "id": "LOAD.original",
+      "name": "原默认页面加载",
+      "status": "原页正常",
+      "evidence": {
+        "readySeconds": 2.999316868999813,
+        "stateAtReady": {
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 0,
+            "stats": {
+              "drawCalls": 0,
+              "triangles": 0
+            }
+          },
+          "stats": {
+            "fps": 0,
+            "drawCalls": 1612,
+            "triangles": 414346,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              1440,
+              900
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "viewport": [
+            1440,
+            900
+          ],
+          "controls": 41
+        },
+        "observationsInstalled": {
+          "publicAPI": [
+            "setTimeOfDay",
+            "setPreset",
+            "setLight",
+            "setAllLights",
+            "setCamera",
+            "toggleRoof",
+            "setRoof",
+            "trafficStart",
+            "getClerkStates",
+            "setClerkDebug",
+            "notifyCustomer",
+            "clerkTrigger",
+            "clerkNav",
+            "clerkForceTask",
+            "clerkCamera",
+            "getVehicleState",
+            "setVehicleDebug",
+            "toggleVehicleDebug",
+            "trafficPause",
+            "trafficReset",
+            "trafficSpeed",
+            "demoCar",
+            "pauseAll",
+            "setQuality",
+            "hideUI",
+            "getStats",
+            "getState",
+            "toggleDoor",
+            "setDoorsAutomatic",
+            "toggleWalk",
+            "triggerClerk",
+            "focusOn",
+            "focusPoint",
+            "setFreeCamera",
+            "clearFreeCamera",
+            "followClerk",
+            "project",
+            "pickAt",
+            "pickAll",
+            "entryInfo",
+            "clickAt"
+          ],
+          "shortcutsObserver": "read-only DOM event listener",
+          "interactionObserver": "original _pick/activate called exactly once with original arguments; observations only"
+        }
+      }
+    },
+    {
+      "id": "UI.inventory",
+      "name": "默认界面、全部41个控件与两种桌面尺寸",
+      "status": "原页正常",
+      "evidence": {
+        "state": {
+          "loaded": true,
+          "paused": false,
+          "quality": "high",
+          "cameraMode": "orbit",
+          "timeOfDay": 18.5,
+          "roofVisible": true,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "A",
+            "phase": "APPROACHING",
+            "speed": 1,
+            "activePosition": [
+              -41,
+              -0.18,
+              23.4
+            ],
+            "reverseLamp": false,
+            "brake": false
+          },
+          "doors": {
+            "state": "CLOSED",
+            "isOpen": false,
+            "progress": 0,
+            "automatic": true
+          },
+          "walk": false,
+          "fps": 0,
+          "stats": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        },
+        "stats": {
+          "fps": 0,
+          "drawCalls": 1612,
+          "triangles": 414346,
+          "programs": 21,
+          "lights": 34,
+          "quality": "high",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            1440,
+            900
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "camera": [
+          20.5,
+          5.2,
+          28.5
+        ],
+        "projection": [
+          [
+            787,
+            546
+          ],
+          [
+            1083,
+            579
+          ],
+          [
+            787,
+            389
+          ]
+        ],
+        "pointerLock": null,
+        "fullscreen": false,
+        "panelCollapsed": false,
+        "focus": "BODY",
+        "controls": [
+          {
+            "tag": "BUTTON",
+            "id": "fatal-retry",
+            "text": "重试",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": false,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "btn-fullscreen",
+            "text": "全屏",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1296,
+              "y": 18,
+              "width": 36,
+              "height": 36,
+              "top": 18,
+              "right": 1332,
+              "bottom": 54,
+              "left": 1296
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "btn-settings",
+            "text": "画质",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1340,
+              "y": 18,
+              "width": 36,
+              "height": 36,
+              "top": 18,
+              "right": 1376,
+              "bottom": 54,
+              "left": 1340
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "btn-help",
+            "text": "操作说明",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1384,
+              "y": 18,
+              "width": 36,
+              "height": 36,
+              "top": 18,
+              "right": 1420,
+              "bottom": 54,
+              "left": 1384
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "panel-collapse",
+            "text": "–",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1371,
+              "y": 83,
+              "width": 22,
+              "height": 22,
+              "top": 83,
+              "right": 1393,
+              "bottom": 105,
+              "left": 1371
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "白天",
+            "data": {
+              "preset": "day"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 148,
+              "width": 76.65625,
+              "height": 34,
+              "top": 148,
+              "right": 1229.65625,
+              "bottom": 182,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "黄昏",
+            "data": {
+              "preset": "dusk"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1235.65625,
+              "y": 148,
+              "width": 76.671875,
+              "height": 34,
+              "top": 148,
+              "right": 1312.328125,
+              "bottom": 182,
+              "left": 1235.65625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "夜晚",
+            "data": {
+              "preset": "night"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1318.328125,
+              "y": 148,
+              "width": 76.671875,
+              "height": 34,
+              "top": 148,
+              "right": 1395,
+              "bottom": 182,
+              "left": 1318.328125
+            }
+          },
+          {
+            "tag": "INPUT",
+            "id": "time-slider",
+            "text": "",
+            "data": {},
+            "type": "range",
+            "value": "18.5",
+            "visible": true,
+            "rect": {
+              "x": 1155,
+              "y": 224,
+              "width": 242,
+              "height": 4,
+              "top": 224,
+              "right": 1397,
+              "bottom": 228,
+              "left": 1155
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "lights-all-on",
+            "text": "全开",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 279,
+              "width": 118,
+              "height": 30,
+              "top": 279,
+              "right": 1271,
+              "bottom": 309,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "lights-all-off",
+            "text": "全关",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1277,
+              "y": 279,
+              "width": 118,
+              "height": 30,
+              "top": 279,
+              "right": 1395,
+              "bottom": 309,
+              "left": 1277
+            }
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "text": "店内灯光",
+            "data": {
+              "group": "StoreInterior"
+            },
+            "type": null,
+            "value": null,
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 317,
+              "width": 242,
+              "height": 32,
+              "top": 317,
+              "right": 1395,
+              "bottom": 349,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "text": "LAWSON 招牌",
+            "data": {
+              "group": "LawsonSign"
+            },
+            "type": null,
+            "value": null,
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 354,
+              "width": 242,
+              "height": 32,
+              "top": 354,
+              "right": 1395,
+              "bottom": 386,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "text": "外墙灯带",
+            "data": {
+              "group": "FacadeStrip"
+            },
+            "type": null,
+            "value": null,
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 391,
+              "width": 242,
+              "height": 32,
+              "top": 391,
+              "right": 1395,
+              "bottom": 423,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "text": "路灯",
+            "data": {
+              "group": "StreetLamp"
+            },
+            "type": null,
+            "value": null,
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 428,
+              "width": 242,
+              "height": 32,
+              "top": 428,
+              "right": 1395,
+              "bottom": 460,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "text": "冷柜灯光",
+            "data": {
+              "group": "CoolerLighting"
+            },
+            "type": null,
+            "value": null,
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 465,
+              "width": 242,
+              "height": 32,
+              "top": 465,
+              "right": 1395,
+              "bottom": 497,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "text": "售货机灯光",
+            "data": {
+              "group": "VendingLighting"
+            },
+            "type": null,
+            "value": null,
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 502,
+              "width": 242,
+              "height": 32,
+              "top": 502,
+              "right": 1395,
+              "bottom": 534,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "text": "墙面暖光",
+            "data": {
+              "group": "WarmExterior"
+            },
+            "type": null,
+            "value": null,
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 539,
+              "width": 242,
+              "height": 32,
+              "top": 539,
+              "right": 1395,
+              "bottom": 571,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "text": "车辆灯光",
+            "data": {
+              "group": "VehicleLights"
+            },
+            "type": null,
+            "value": null,
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 576,
+              "width": 242,
+              "height": 32,
+              "top": 576,
+              "right": 1395,
+              "bottom": 608,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "traffic-toggle",
+            "text": "暂停车辆",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 648,
+              "width": 118,
+              "height": 34,
+              "top": 648,
+              "right": 1271,
+              "bottom": 682,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "traffic-reset",
+            "text": "重置",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1277,
+              "y": 648,
+              "width": 118,
+              "height": 34,
+              "top": 648,
+              "right": 1395,
+              "bottom": 682,
+              "left": 1277
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "慢速",
+            "data": {
+              "speed": "0.6"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 690,
+              "width": 76.65625,
+              "height": 34,
+              "top": 690,
+              "right": 1229.65625,
+              "bottom": 724,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "正常",
+            "data": {
+              "speed": "1"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1235.65625,
+              "y": 690,
+              "width": 76.671875,
+              "height": 34,
+              "top": 690,
+              "right": 1312.328125,
+              "bottom": 724,
+              "left": 1235.65625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "快速",
+            "data": {
+              "speed": "1.8"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1318.328125,
+              "y": 690,
+              "width": 76.671875,
+              "height": 34,
+              "top": 690,
+              "right": 1395,
+              "bottom": 724,
+              "left": 1318.328125
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "车 A",
+            "data": {
+              "car": "A"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 732,
+              "width": 76.65625,
+              "height": 34,
+              "top": 732,
+              "right": 1229.65625,
+              "bottom": 766,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "车 B",
+            "data": {
+              "car": "B"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1235.65625,
+              "y": 732,
+              "width": 76.671875,
+              "height": 34,
+              "top": 732,
+              "right": 1312.328125,
+              "bottom": 766,
+              "left": 1235.65625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "车 C",
+            "data": {
+              "car": "C"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1318.328125,
+              "y": 732,
+              "width": 76.671875,
+              "height": 34,
+              "top": 732,
+              "right": 1395,
+              "bottom": 766,
+              "left": 1318.328125
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "店员 A",
+            "data": {
+              "clerk": "A"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 814,
+              "width": 118,
+              "height": 34,
+              "top": 814,
+              "right": 1271,
+              "bottom": 848,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "店员 B",
+            "data": {
+              "clerk": "B"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1277,
+              "y": 814,
+              "width": 118,
+              "height": 34,
+              "top": 814,
+              "right": 1395,
+              "bottom": 848,
+              "left": 1277
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "全景",
+            "data": {
+              "cam": "hero"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 896,
+              "width": 46.015625,
+              "height": 34,
+              "top": 896,
+              "right": 1199.015625,
+              "bottom": 930,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "正面",
+            "data": {
+              "cam": "front"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1205.015625,
+              "y": 896,
+              "width": 46.015625,
+              "height": 34,
+              "top": 896,
+              "right": 1251.03125,
+              "bottom": 930,
+              "left": 1205.015625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "左侧",
+            "data": {
+              "cam": "left"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1257.03125,
+              "y": 896,
+              "width": 46.015625,
+              "height": 34,
+              "top": 896,
+              "right": 1303.046875,
+              "bottom": 930,
+              "left": 1257.03125
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "后侧",
+            "data": {
+              "cam": "rear"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1309.046875,
+              "y": 896,
+              "width": 46.015625,
+              "height": 34,
+              "top": 896,
+              "right": 1355.0625,
+              "bottom": 930,
+              "left": 1309.046875
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "俯视",
+            "data": {
+              "cam": "top"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 936,
+              "width": 46.015625,
+              "height": 34,
+              "top": 936,
+              "right": 1199.015625,
+              "bottom": 970,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "室内",
+            "data": {
+              "cam": "interior"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1205.015625,
+              "y": 936,
+              "width": 46.015625,
+              "height": 34,
+              "top": 936,
+              "right": 1251.03125,
+              "bottom": 970,
+              "left": 1205.015625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "收银区",
+            "data": {
+              "cam": "checkout"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1257.03125,
+              "y": 936,
+              "width": 58.015625,
+              "height": 34,
+              "top": 936,
+              "right": 1315.046875,
+              "bottom": 970,
+              "left": 1257.03125
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "车辆",
+            "data": {
+              "cam": "vehicle"
+            },
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1321.046875,
+              "y": 936,
+              "width": 46.015625,
+              "height": 34,
+              "top": 936,
+              "right": 1367.0625,
+              "bottom": 970,
+              "left": 1321.046875
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "btn-roof",
+            "text": "隐藏屋顶",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 978,
+              "width": 118,
+              "height": 34,
+              "top": 978,
+              "right": 1271,
+              "bottom": 1012,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "btn-walk",
+            "text": "室内漫游",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1277,
+              "y": 978,
+              "width": 118,
+              "height": 34,
+              "top": 978,
+              "right": 1395,
+              "bottom": 1012,
+              "left": 1277
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "btn-reset-cam",
+            "text": "重置视角",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": true,
+            "rect": {
+              "x": 1153,
+              "y": 1020,
+              "width": 242,
+              "height": 34,
+              "top": 1020,
+              "right": 1395,
+              "bottom": 1054,
+              "left": 1153
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "help-close",
+            "text": "知道了",
+            "data": {},
+            "type": "submit",
+            "value": "",
+            "visible": false,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          }
+        ],
+        "displayAreas": [
+          {
+            "selector": "brand",
+            "text": "L\nLAWSON / MINIATURE WORLD\n\nINTERACTIVE 3D EXPERIENCE",
+            "visible": true
+          },
+          {
+            "selector": "topbar",
+            "text": "",
+            "visible": true
+          },
+          {
+            "selector": "panel",
+            "text": "控制台\n–\n环境\n白天\n黄昏\n夜晚\n时间\n18:30\n灯光\n全开\n全关\n店内灯光\nLAWSON 招牌\n外墙灯带\n路灯\n冷柜灯光\n售货机灯光\n墙面暖光\n车辆灯光\n车辆\n暂停车辆\n重置\n慢速\n正常\n快速\n车 A\n车 B\n车 C\n角色\n店员 A\n店员 B\n相机\n全景\n正面\n左侧\n后侧\n俯视\n室内\n收银区\n车辆\n隐藏屋顶\n室内漫游\n重置视角",
+            "visible": true
+          },
+          {
+            "selector": "hints",
+            "text": "拖动旋转\n滚轮缩放\n点击物件交互",
+            "visible": true
+          },
+          {
+            "selector": "walk-bar",
+            "text": "\n    室内漫游 · W A S D 移动 · Shift 加速 · 鼠标 观察 · Esc 退出\n  ",
+            "visible": false
+          },
+          {
+            "selector": "tooltip",
+            "text": "",
+            "visible": false
+          },
+          {
+            "selector": "perf",
+            "text": "0 FPS414k tris",
+            "visible": true
+          },
+          {
+            "selector": "help",
+            "text": "\n    \n      操作说明\n      \n        左键拖动 旋转视角 · 右键拖动 平移 · 滚轮 缩放\n        点击 招牌 / 冷柜 / 咖啡机 / ATM / 车辆 / 自动门 等物件触发现实交互\n        屋顶 按钮可剖切查看店内；室内漫游 用 WASD 走进便利店\n        快捷键：R 重置视角 · 1/2/3 白天/黄昏/夜晚 · 空格 暂停车辆 · Esc 退出漫游\n      \n      知道了\n    \n  ",
+            "visible": false
+          }
+        ],
+        "secondViewportState": {
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 10,
+            "stats": {
+              "drawCalls": 1619,
+              "triangles": 414934,
+              "programs": 21,
+              "geometries": 1207,
+              "textures": 16,
+              "pixelRatio": 1,
+              "resScale": 1,
+              "width": 1366,
+              "height": 768
+            }
+          },
+          "stats": {
+            "fps": 10,
+            "drawCalls": 2194,
+            "triangles": 731214,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              1366,
+              768
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              740,
+              466
+            ],
+            [
+              993,
+              494
+            ],
+            [
+              740,
+              332
+            ]
+          ],
+          "pointerLock": null,
+          "fullscreen": false,
+          "panelCollapsed": false,
+          "focus": "BODY"
+        }
+      }
+    },
+    {
+      "id": "INPUT.time-slider",
+      "name": "原时间滑杆起点、终点、中间与步进",
+      "status": "原页正常",
+      "evidence": {
+        "operations": [
+          {
+            "input": "Home",
+            "value": 0.0,
+            "state": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 0,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "APPROACHING",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 13,
+                "stats": {
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 27,
+                  "geometries": 1207,
+                  "textures": 15,
+                  "pixelRatio": 1,
+                  "resScale": 1,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 13,
+                "drawCalls": 1604,
+                "triangles": 414696,
+                "programs": 32,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 0,
+                "pixelRatio": 1,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "time-slider"
+            }
+          },
+          {
+            "input": "End",
+            "value": 24.0,
+            "state": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 24,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "TURNING_IN",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 14,
+                "stats": {
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 32,
+                  "geometries": 1207,
+                  "textures": 2,
+                  "pixelRatio": 0.92,
+                  "resScale": 0.92,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 13,
+                "drawCalls": 1604,
+                "triangles": 414696,
+                "programs": 32,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 24,
+                "pixelRatio": 0.92,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "time-slider"
+            }
+          },
+          {
+            "input": "actual pointer at slider middle",
+            "value": 12.0,
+            "state": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 12,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "TURNING_IN",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 13,
+                "stats": {
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 32,
+                  "geometries": 1207,
+                  "textures": 2,
+                  "pixelRatio": 0.92,
+                  "resScale": 0.92,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 11,
+                "drawCalls": 1604,
+                "triangles": 414696,
+                "programs": 32,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 12,
+                "pixelRatio": 0.92,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "time-slider"
+            }
+          },
+          {
+            "input": "ArrowRight",
+            "value": 12.1
+          }
+        ],
+        "step": 0.1,
+        "originalInputEvents": [
+          {
+            "kind": "input",
+            "id": "time-slider",
+            "value": "0",
+            "time": 12432,
+            "snapshot": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 18.5,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "APPROACHING",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 15,
+                "stats": {
+                  "drawCalls": 2193,
+                  "triangles": 730990,
+                  "programs": 21,
+                  "geometries": 1207,
+                  "textures": 16,
+                  "pixelRatio": 1,
+                  "resScale": 1,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 15,
+                "drawCalls": 0,
+                "triangles": 0,
+                "programs": 21,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 18.5,
+                "pixelRatio": 1,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "time-slider"
+            }
+          },
+          {
+            "kind": "input",
+            "id": "time-slider",
+            "value": "24",
+            "time": 19039.299999999814,
+            "snapshot": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 0,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "APPROACHING",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 13,
+                "stats": {
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 27,
+                  "geometries": 1207,
+                  "textures": 15,
+                  "pixelRatio": 1,
+                  "resScale": 1,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 13,
+                "drawCalls": 1604,
+                "triangles": 414696,
+                "programs": 32,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 0,
+                "pixelRatio": 1,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "time-slider"
+            }
+          },
+          {
+            "kind": "input",
+            "id": "time-slider",
+            "value": "12",
+            "time": 28352.400000000373,
+            "snapshot": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 24,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "TURNING_IN",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 14,
+                "stats": {
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 32,
+                  "geometries": 1207,
+                  "textures": 2,
+                  "pixelRatio": 0.92,
+                  "resScale": 0.92,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 13,
+                "drawCalls": 1604,
+                "triangles": 414696,
+                "programs": 32,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 24,
+                "pixelRatio": 0.92,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "time-slider"
+            }
+          },
+          {
+            "kind": "input",
+            "id": "time-slider",
+            "value": "12.1",
+            "time": 31768.799999999814,
+            "snapshot": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 12,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "TURNING_IN",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 13,
+                "stats": {
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 32,
+                  "geometries": 1207,
+                  "textures": 2,
+                  "pixelRatio": 0.92,
+                  "resScale": 0.92,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 11,
+                "drawCalls": 1604,
+                "triangles": 414696,
+                "programs": 32,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 12,
+                "pixelRatio": 0.92,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "time-slider"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "LIGHT.StoreInterior",
+      "name": "店内灯光分别开关",
+      "status": "原页正常",
+      "evidence": {
+        "label": "店内灯光",
+        "toggles": [
+          {
+            "before": true,
+            "after": false,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "StoreInterior"
+              },
+              "text": "店内灯光",
+              "title": "",
+              "time": 37695.90000000037,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": false,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "TURNING_IN",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 11,
+                  "stats": {
+                    "drawCalls": 1604,
+                    "triangles": 414696,
+                    "programs": 32,
+                    "geometries": 1207,
+                    "textures": 2,
+                    "pixelRatio": 0.92,
+                    "resScale": 0.92,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 11,
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 32,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.92,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          },
+          {
+            "before": false,
+            "after": true,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "StoreInterior"
+              },
+              "text": "店内灯光",
+              "title": "",
+              "time": 42234.200000000186,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "TURNING_IN",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 11,
+                  "stats": {
+                    "drawCalls": 1604,
+                    "triangles": 414696,
+                    "programs": 32,
+                    "geometries": 1207,
+                    "textures": 2,
+                    "pixelRatio": 0.92,
+                    "resScale": 0.92,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 10,
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 37,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.92,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "LIGHT.LawsonSign",
+      "name": "LAWSON 招牌分别开关",
+      "status": "原页正常",
+      "evidence": {
+        "label": "LAWSON 招牌",
+        "toggles": [
+          {
+            "before": true,
+            "after": false,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "LawsonSign"
+              },
+              "text": "LAWSON 招牌",
+              "title": "",
+              "time": 42691.5,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": false,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "TURNING_IN",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 10,
+                  "stats": {
+                    "drawCalls": 1604,
+                    "triangles": 414696,
+                    "programs": 37,
+                    "geometries": 1207,
+                    "textures": 2,
+                    "pixelRatio": 0.92,
+                    "resScale": 0.92,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 10,
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 37,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.92,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          },
+          {
+            "before": false,
+            "after": true,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "LawsonSign"
+              },
+              "text": "LAWSON 招牌",
+              "title": "",
+              "time": 45296,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "TURNING_IN",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 10,
+                  "stats": {
+                    "drawCalls": 1604,
+                    "triangles": 414696,
+                    "programs": 37,
+                    "geometries": 1207,
+                    "textures": 2,
+                    "pixelRatio": 0.92,
+                    "resScale": 0.92,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 10,
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 42,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.92,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "LIGHT.FacadeStrip",
+      "name": "外墙灯带分别开关",
+      "status": "原页正常",
+      "evidence": {
+        "label": "外墙灯带",
+        "toggles": [
+          {
+            "before": true,
+            "after": false,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "FacadeStrip"
+              },
+              "text": "外墙灯带",
+              "title": "",
+              "time": 46684.700000000186,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": false,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "TURNING_IN",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 10,
+                  "stats": {
+                    "drawCalls": 1604,
+                    "triangles": 414696,
+                    "programs": 37,
+                    "geometries": 1207,
+                    "textures": 2,
+                    "pixelRatio": 0.92,
+                    "resScale": 0.92,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 12,
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 42,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.92,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          },
+          {
+            "before": false,
+            "after": true,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "FacadeStrip"
+              },
+              "text": "外墙灯带",
+              "title": "",
+              "time": 50032.09999999963,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "TURNING_IN",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 12,
+                  "stats": {
+                    "drawCalls": 1604,
+                    "triangles": 414696,
+                    "programs": 42,
+                    "geometries": 1207,
+                    "textures": 2,
+                    "pixelRatio": 0.92,
+                    "resScale": 0.92,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 12,
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 42,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.84,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "LIGHT.StreetLamp",
+      "name": "路灯分别开关",
+      "status": "原页正常",
+      "evidence": {
+        "label": "路灯",
+        "toggles": [
+          {
+            "before": true,
+            "after": false,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "StreetLamp"
+              },
+              "text": "路灯",
+              "title": "",
+              "time": 51522,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": false,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 12,
+                  "stats": {
+                    "drawCalls": 1604,
+                    "triangles": 414696,
+                    "programs": 42,
+                    "geometries": 1207,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 17,
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 42,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.84,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          },
+          {
+            "before": false,
+            "after": true,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "StreetLamp"
+              },
+              "text": "路灯",
+              "title": "",
+              "time": 55576.90000000037,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 12,
+                  "stats": {
+                    "drawCalls": 1604,
+                    "triangles": 414696,
+                    "programs": 42,
+                    "geometries": 1207,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 17,
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 47,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.84,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "LIGHT.CoolerLighting",
+      "name": "冷柜灯光分别开关",
+      "status": "原页正常",
+      "evidence": {
+        "label": "冷柜灯光",
+        "toggles": [
+          {
+            "before": true,
+            "after": false,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "CoolerLighting"
+              },
+              "text": "冷柜灯光",
+              "title": "",
+              "time": 57358.799999999814,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": false,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 17,
+                  "stats": {
+                    "drawCalls": 1604,
+                    "triangles": 414696,
+                    "programs": 47,
+                    "geometries": 1207,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 13,
+                  "drawCalls": 1604,
+                  "triangles": 414696,
+                  "programs": 47,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.84,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          },
+          {
+            "before": false,
+            "after": true,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "CoolerLighting"
+              },
+              "text": "冷柜灯光",
+              "title": "",
+              "time": 61218.40000000037,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 13,
+                  "stats": {
+                    "drawCalls": 1611,
+                    "triangles": 415820,
+                    "programs": 52,
+                    "geometries": 1208,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 13,
+                  "drawCalls": 1619,
+                  "triangles": 417568,
+                  "programs": 52,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.84,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "LIGHT.VendingLighting",
+      "name": "售货机灯光分别开关",
+      "status": "原页正常",
+      "evidence": {
+        "label": "售货机灯光",
+        "toggles": [
+          {
+            "before": true,
+            "after": false,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "VendingLighting"
+              },
+              "text": "售货机灯光",
+              "title": "",
+              "time": 62528.200000000186,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": false,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 13,
+                  "stats": {
+                    "drawCalls": 1611,
+                    "triangles": 415820,
+                    "programs": 52,
+                    "geometries": 1208,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 12,
+                  "drawCalls": 1628,
+                  "triangles": 419376,
+                  "programs": 52,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.84,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          },
+          {
+            "before": false,
+            "after": true,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "VendingLighting"
+              },
+              "text": "售货机灯光",
+              "title": "",
+              "time": 66311.70000000019,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 12,
+                  "stats": {
+                    "drawCalls": 1640,
+                    "triangles": 420616,
+                    "programs": 57,
+                    "geometries": 1214,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 12,
+                  "drawCalls": 1646,
+                  "triangles": 421264,
+                  "programs": 57,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.84,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "LIGHT.WarmExterior",
+      "name": "墙面暖光分别开关",
+      "status": "原页正常",
+      "evidence": {
+        "label": "墙面暖光",
+        "toggles": [
+          {
+            "before": true,
+            "after": false,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "WarmExterior"
+              },
+              "text": "墙面暖光",
+              "title": "",
+              "time": 67093.59999999963,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": false,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 12,
+                  "stats": {
+                    "drawCalls": 1640,
+                    "triangles": 420616,
+                    "programs": 57,
+                    "geometries": 1214,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 12,
+                  "drawCalls": 1663,
+                  "triangles": 423100,
+                  "programs": 57,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.84,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          },
+          {
+            "before": false,
+            "after": true,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "WarmExterior"
+              },
+              "text": "墙面暖光",
+              "title": "",
+              "time": 70312.79999999981,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 13,
+                  "stats": {
+                    "drawCalls": 1666,
+                    "triangles": 423424,
+                    "programs": 62,
+                    "geometries": 1216,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 13,
+                  "drawCalls": 1668,
+                  "triangles": 423640,
+                  "programs": 62,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.84,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "LIGHT.VehicleLights",
+      "name": "车辆灯光分别开关",
+      "status": "原页正常",
+      "evidence": {
+        "label": "车辆灯光",
+        "toggles": [
+          {
+            "before": true,
+            "after": false,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "VehicleLights"
+              },
+              "text": "车辆灯光",
+              "title": "",
+              "time": 70793.59999999963,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": false
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 13,
+                  "stats": {
+                    "drawCalls": 1666,
+                    "triangles": 423424,
+                    "programs": 62,
+                    "geometries": 1216,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 13,
+                  "drawCalls": 1671,
+                  "triangles": 424672,
+                  "programs": 62,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.84,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          },
+          {
+            "before": false,
+            "after": true,
+            "originalClick": {
+              "kind": "click",
+              "id": "",
+              "data": {
+                "group": "VehicleLights"
+              },
+              "text": "车辆灯光",
+              "title": "",
+              "time": 74432.70000000019,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 13,
+                  "stats": {
+                    "drawCalls": 1679,
+                    "triangles": 426076,
+                    "programs": 67,
+                    "geometries": 1216,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 12,
+                  "drawCalls": 1681,
+                  "triangles": 426440,
+                  "programs": 67,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.76,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "BODY"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "BUTTON.btn-settings",
+      "name": "原画质按钮实际切换三档",
+      "status": "原页正常",
+      "evidence": {
+        "cycles": [
+          {
+            "before": "low",
+            "expected": "high",
+            "originalClick": {
+              "kind": "click",
+              "id": "btn-settings",
+              "data": {},
+              "text": "",
+              "title": "画质",
+              "time": 77698,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "high",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 13,
+                  "stats": {
+                    "drawCalls": 1679,
+                    "triangles": 426076,
+                    "programs": 67,
+                    "geometries": 1216,
+                    "textures": 2,
+                    "pixelRatio": 0.84,
+                    "resScale": 0.84,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 12,
+                  "drawCalls": 0,
+                  "triangles": 0,
+                  "programs": 67,
+                  "lights": 34,
+                  "quality": "high",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.76,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "btn-settings"
+              }
+            }
+          },
+          {
+            "before": "high",
+            "expected": "medium",
+            "originalClick": {
+              "kind": "click",
+              "id": "btn-settings",
+              "data": {},
+              "text": "",
+              "title": "画质",
+              "time": 79140.59999999963,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "medium",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 12,
+                  "stats": {
+                    "drawCalls": 2341,
+                    "triangles": 753758,
+                    "programs": 68,
+                    "geometries": 1223,
+                    "textures": 15,
+                    "pixelRatio": 0.76,
+                    "resScale": 0.76,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 15,
+                  "drawCalls": 0,
+                  "triangles": 0,
+                  "programs": 68,
+                  "lights": 34,
+                  "quality": "medium",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.76,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "btn-settings"
+              }
+            }
+          },
+          {
+            "before": "medium",
+            "expected": "low",
+            "originalClick": {
+              "kind": "click",
+              "id": "btn-settings",
+              "data": {},
+              "text": "",
+              "title": "画质",
+              "time": 80272.5,
+              "snapshot": {
+                "state": {
+                  "loaded": true,
+                  "paused": false,
+                  "quality": "low",
+                  "cameraMode": "orbit",
+                  "timeOfDay": 18.5,
+                  "roofVisible": true,
+                  "lights": {
+                    "StoreInterior": true,
+                    "LawsonSign": true,
+                    "FacadeStrip": true,
+                    "StreetLamp": true,
+                    "CoolerLighting": true,
+                    "VendingLighting": true,
+                    "WarmExterior": true,
+                    "VehicleLights": true
+                  },
+                  "traffic": {
+                    "enabled": true,
+                    "running": true,
+                    "current": "A",
+                    "phase": "PARKING",
+                    "speed": 1,
+                    "activePosition": [
+                      -41,
+                      -0.18,
+                      23.4
+                    ],
+                    "reverseLamp": false,
+                    "brake": false
+                  },
+                  "doors": {
+                    "state": "CLOSED",
+                    "isOpen": false,
+                    "progress": 0,
+                    "automatic": true
+                  },
+                  "walk": false,
+                  "fps": 15,
+                  "stats": {
+                    "drawCalls": 2347,
+                    "triangles": 754406,
+                    "programs": 68,
+                    "geometries": 1223,
+                    "textures": 15,
+                    "pixelRatio": 0.76,
+                    "resScale": 0.76,
+                    "width": 960,
+                    "height": 540
+                  }
+                },
+                "stats": {
+                  "fps": 15,
+                  "drawCalls": 0,
+                  "triangles": 0,
+                  "programs": 68,
+                  "lights": 34,
+                  "quality": "low",
+                  "timeOfDay": 18.5,
+                  "pixelRatio": 0.76,
+                  "renderSize": [
+                    960,
+                    540
+                  ],
+                  "batch": {
+                    "removedMeshes": 2289,
+                    "batches": 355,
+                    "groups": 355
+                  }
+                },
+                "camera": [
+                  20.5,
+                  5.2,
+                  28.5
+                ],
+                "projection": [
+                  [
+                    520,
+                    328
+                  ],
+                  [
+                    698,
+                    348
+                  ],
+                  [
+                    520,
+                    234
+                  ]
+                ],
+                "pointerLock": null,
+                "fullscreen": false,
+                "panelCollapsed": false,
+                "focus": "btn-settings"
+              }
+            }
+          }
+        ],
+        "method": "all quality transitions through original icon, observed after its original handler"
+      }
+    },
+    {
+      "id": "BUTTON.help",
+      "name": "操作说明打开、知道了及遮罩关闭",
+      "status": "原页正常",
+      "evidence": {
+        "text": "操作说明\n左键拖动 旋转视角 · 右键拖动 平移 · 滚轮 缩放\n点击 招牌 / 冷柜 / 咖啡机 / ATM / 车辆 / 自动门 等物件触发现实交互\n屋顶 按钮可剖切查看店内；室内漫游 用 WASD 走进便利店\n快捷键：R 重置视角 · 1/2/3 白天/黄昏/夜晚 · 空格 暂停车辆 · Esc 退出漫游\n知道了",
+        "openCloseButton": true,
+        "clickOutsideCloses": true
+      }
+    },
+    {
+      "id": "BUTTON.panel-collapse",
+      "name": "原控制台收起与重新展开",
+      "status": "原页正常",
+      "evidence": {
+        "expanded": {
+          "x": 682,
+          "y": 66,
+          "width": 258,
+          "height": 444
+        },
+        "collapsed": {
+          "x": 882,
+          "y": 66,
+          "width": 58,
+          "height": 58
+        },
+        "restored": {
+          "x": 682,
+          "y": 66,
+          "width": 258,
+          "height": 444
+        }
+      }
+    },
+    {
+      "id": "BUTTON.btn-fullscreen",
+      "name": "原全屏按钮进出及真实Esc退出",
+      "status": "原页正常",
+      "evidence": {
+        "cycles": [
+          {
+            "entered": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 18.5,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "PARKING",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 12,
+                "stats": {
+                  "drawCalls": 1701,
+                  "triangles": 428468,
+                  "programs": 68,
+                  "geometries": 1223,
+                  "textures": 2,
+                  "pixelRatio": 0.7,
+                  "resScale": 0.7,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 12,
+                "drawCalls": 1701,
+                "triangles": 428468,
+                "programs": 68,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 18.5,
+                "pixelRatio": 0.7,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": true,
+              "panelCollapsed": false,
+              "focus": "btn-fullscreen"
+            },
+            "exitMethod": "original button",
+            "exited": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 18.5,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "PARKING",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 12,
+                "stats": {
+                  "drawCalls": 1701,
+                  "triangles": 428468,
+                  "programs": 68,
+                  "geometries": 1223,
+                  "textures": 2,
+                  "pixelRatio": 0.7,
+                  "resScale": 0.7,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 12,
+                "drawCalls": 1701,
+                "triangles": 428468,
+                "programs": 68,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 18.5,
+                "pixelRatio": 0.7,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "btn-fullscreen"
+            }
+          },
+          {
+            "entered": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 18.5,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "PARKING",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 12,
+                "stats": {
+                  "drawCalls": 1701,
+                  "triangles": 428468,
+                  "programs": 68,
+                  "geometries": 1223,
+                  "textures": 2,
+                  "pixelRatio": 0.7,
+                  "resScale": 0.7,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 10,
+                "drawCalls": 0,
+                "triangles": 0,
+                "programs": 68,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 18.5,
+                "pixelRatio": 0.7,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": true,
+              "panelCollapsed": false,
+              "focus": "btn-fullscreen"
+            },
+            "exitMethod": "Escape",
+            "nativeEscape": {
+              "method": "OS XTest Escape; no document.exitFullscreen call",
+              "display": ":117",
+              "windowTitle": " chromium (/tmp/playwright_chromiumdev_profile-0LLUTt) Chromium",
+              "focusedWindow": 2097155,
+              "windowSize": [
+                968,
+                625
+              ],
+              "previousFocus": 2097155,
+              "keycode": 9
+            },
+            "exited": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 18.5,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "PARKING",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 12,
+                "stats": {
+                  "drawCalls": 1701,
+                  "triangles": 428468,
+                  "programs": 68,
+                  "geometries": 1223,
+                  "textures": 2,
+                  "pixelRatio": 0.7,
+                  "resScale": 0.7,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 10,
+                "drawCalls": 0,
+                "triangles": 0,
+                "programs": 68,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 18.5,
+                "pixelRatio": 0.7,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "btn-fullscreen"
+            }
+          }
+        ],
+        "noProgrammaticExitFullscreenUsed": true
+      }
+    },
+    {
+      "id": "TRAFFIC.speeds",
+      "name": "慢速、正常和快速按钮分别操作",
+      "status": "原页正常",
+      "evidence": {
+        "originalSpeedButtonClicks": [
+          {
+            "kind": "click",
+            "id": "",
+            "data": {
+              "speed": "0.6"
+            },
+            "text": "慢速",
+            "title": "",
+            "time": 97867.79999999981,
+            "snapshot": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 18.5,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "PARKING",
+                  "speed": 0.6,
+                  "activePosition": [
+                    -10.5,
+                    -0.13999989093318807,
+                    12.506692223779249
+                  ],
+                  "reverseLamp": false,
+                  "brake": true
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 10,
+                "stats": {
+                  "drawCalls": 1701,
+                  "triangles": 428468,
+                  "programs": 68,
+                  "geometries": 1223,
+                  "textures": 2,
+                  "pixelRatio": 0.7,
+                  "resScale": 0.7,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 10,
+                "drawCalls": 1701,
+                "triangles": 428468,
+                "programs": 68,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 18.5,
+                "pixelRatio": 0.7,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "BUTTON"
+            }
+          },
+          {
+            "kind": "click",
+            "id": "",
+            "data": {
+              "speed": "1"
+            },
+            "text": "正常",
+            "title": "",
+            "time": 98505,
+            "snapshot": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 18.5,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "PARKING",
+                  "speed": 1,
+                  "activePosition": [
+                    -10.5,
+                    -0.1399999489207252,
+                    12.504577373796838
+                  ],
+                  "reverseLamp": false,
+                  "brake": true
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 10,
+                "stats": {
+                  "drawCalls": 1701,
+                  "triangles": 428468,
+                  "programs": 68,
+                  "geometries": 1223,
+                  "textures": 2,
+                  "pixelRatio": 0.7,
+                  "resScale": 0.7,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 10,
+                "drawCalls": 1701,
+                "triangles": 428468,
+                "programs": 68,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 18.5,
+                "pixelRatio": 0.7,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "BUTTON"
+            }
+          },
+          {
+            "kind": "click",
+            "id": "",
+            "data": {
+              "speed": "1.8"
+            },
+            "text": "快速",
+            "title": "",
+            "time": 99744.29999999981,
+            "snapshot": {
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "orbit",
+                "timeOfDay": 18.5,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "PARKING",
+                  "speed": 1.8,
+                  "activePosition": [
+                    -10.5,
+                    -0.13999999725382048,
+                    12.501060415818523
+                  ],
+                  "reverseLamp": false,
+                  "brake": true
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 10,
+                "stats": {
+                  "drawCalls": 1701,
+                  "triangles": 428468,
+                  "programs": 68,
+                  "geometries": 1223,
+                  "textures": 2,
+                  "pixelRatio": 0.7,
+                  "resScale": 0.7,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 10,
+                "drawCalls": 1701,
+                "triangles": 428468,
+                "programs": 68,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 18.5,
+                "pixelRatio": 0.7,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "pointerLock": null,
+              "fullscreen": false,
+              "panelCollapsed": false,
+              "focus": "BUTTON"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KEY.Space",
+      "name": "空格暂停与恢复车流",
+      "status": "原页正常",
+      "evidence": {
+        "before": true,
+        "after": false,
+        "restored": true,
+        "focus": "BODY"
+      }
+    },
+    {
+      "id": "KEY.KeyR",
+      "name": "实际R键恢复全景",
+      "status": "原页已有问题",
+      "evidence": {
+        "original": {
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "low",
+            "cameraMode": "hero",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "PARKED",
+              "speed": 1.8,
+              "activePosition": [
+                -10.5,
+                -0.14,
+                12.500000000000002
+              ],
+              "reverseLamp": false,
+              "brake": true
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 10,
+            "stats": {
+              "drawCalls": 1701,
+              "triangles": 428468,
+              "programs": 68,
+              "geometries": 1223,
+              "textures": 2,
+              "pixelRatio": 0.7,
+              "resScale": 0.7,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 10,
+            "drawCalls": 1701,
+            "triangles": 428468,
+            "programs": 68,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              520,
+              328
+            ],
+            [
+              698,
+              348
+            ],
+            [
+              520,
+              234
+            ]
+          ],
+          "pointerLock": null,
+          "fullscreen": false,
+          "panelCollapsed": false,
+          "focus": "BUTTON"
+        },
+        "afterDrag": {
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "low",
+            "cameraMode": "hero",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "PARKED",
+              "speed": 1.8,
+              "activePosition": [
+                -10.5,
+                -0.14,
+                12.500000000000002
+              ],
+              "reverseLamp": false,
+              "brake": true
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 13,
+            "stats": {
+              "drawCalls": 1697,
+              "triangles": 428140,
+              "programs": 69,
+              "geometries": 1224,
+              "textures": 2,
+              "pixelRatio": 0.7,
+              "resScale": 0.7,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 13,
+            "drawCalls": 1672,
+            "triangles": 424788,
+            "programs": 69,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            7.94,
+            8.39,
+            33.89
+          ],
+          "projection": [
+            [
+              455,
+              311
+            ],
+            [
+              645,
+              320
+            ],
+            [
+              455,
+              219
+            ]
+          ],
+          "pointerLock": null,
+          "fullscreen": false,
+          "panelCollapsed": false,
+          "focus": "BODY"
+        },
+        "atOriginalFlightEnd": {
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "low",
+            "cameraMode": "hero",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "PARKED",
+              "speed": 1.8,
+              "activePosition": [
+                -10.5,
+                -0.14,
+                12.500000000000002
+              ],
+              "reverseLamp": false,
+              "brake": true
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 10,
+            "stats": {
+              "drawCalls": 1700,
+              "triangles": 428388,
+              "programs": 69,
+              "geometries": 1225,
+              "textures": 2,
+              "pixelRatio": 0.7,
+              "resScale": 0.7,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 10,
+            "drawCalls": 1694,
+            "triangles": 428016,
+            "programs": 69,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            17,
+            6.16,
+            30.79
+          ],
+          "projection": [
+            [
+              501,
+              322
+            ],
+            [
+              685,
+              340
+            ],
+            [
+              501,
+              229
+            ]
+          ],
+          "pointerLock": null,
+          "fullscreen": false,
+          "panelCollapsed": false,
+          "focus": "BODY"
+        },
+        "settledAfterFlight": {
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "low",
+            "cameraMode": "hero",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "REVERSING_OUT",
+              "speed": 1.8,
+              "activePosition": [
+                -10.5,
+                -0.14,
+                12.500000000000002
+              ],
+              "reverseLamp": true,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 10,
+            "stats": {
+              "drawCalls": 1692,
+              "triangles": 427636,
+              "programs": 69,
+              "geometries": 1225,
+              "textures": 2,
+              "pixelRatio": 0.7,
+              "resScale": 0.7,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 10,
+            "drawCalls": 1684,
+            "triangles": 426744,
+            "programs": 69,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            12.69,
+            7.26,
+            32.71
+          ],
+          "projection": [
+            [
+              478,
+              316
+            ],
+            [
+              667,
+              331
+            ],
+            [
+              478,
+              224
+            ]
+          ],
+          "pointerLock": null,
+          "fullscreen": false,
+          "panelCollapsed": false,
+          "focus": "BODY"
+        },
+        "afterKeyR": {
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "low",
+            "cameraMode": "hero",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "REVERSING_OUT",
+              "speed": 1.8,
+              "activePosition": [
+                -10.5,
+                -0.14,
+                12.500000000000002
+              ],
+              "reverseLamp": true,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 10,
+            "stats": {
+              "drawCalls": 1664,
+              "triangles": 424016,
+              "programs": 69,
+              "geometries": 1225,
+              "textures": 2,
+              "pixelRatio": 0.7,
+              "resScale": 0.7,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 10,
+            "drawCalls": 1664,
+            "triangles": 424016,
+            "programs": 69,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            11.27,
+            7.6,
+            33.16
+          ],
+          "projection": [
+            [
+              471,
+              315
+            ],
+            [
+              660,
+              328
+            ],
+            [
+              471,
+              222
+            ]
+          ],
+          "pointerLock": null,
+          "fullscreen": false,
+          "panelCollapsed": false,
+          "focus": "BODY"
+        },
+        "maxProjectionErrorCSSPixels": 49,
+        "stableProjectionErrorCSSPixels": 7,
+        "actualTweenEnded": true,
+        "method": "observe original flight and damping; do not reset camera via API or modify clocks",
+        "conclusion": "R switches to hero and completes its flight, but original OrbitControls residual drag changes the subsequent framing; post-flight samples document continuing drift instead of assuming a settled pose."
+      }
+    },
+    {
+      "id": "DOC.KeyN",
+      "name": "核对原说明中的N调试快捷键",
+      "status": "原页已有问题",
+      "evidence": {
+        "kind": "documentation-runtime-mismatch",
+        "documented": "Original README claims N opens clerk debug HUD",
+        "runtimeSourceHasKeyNBinding": false,
+        "before": [],
+        "after": [],
+        "conclusion": "N is not wired in this source version; do not misclassify this as a future iframe regression. Existing debug API remains inventoried."
+      }
+    }
+  ],
+  "pageErrors": [],
+  "console": [],
+  "requestsFailed": [],
+  "httpErrors": [],
+  "scope": "untouched independent original",
+  "sourceFilesModified": false,
+  "clockModified": false,
+  "physicalDevice": false,
+  "environment": {
+    "DISPLAY": ":117",
+    "backend": "Mesa llvmpipe software GL",
+    "hardwareFPSProof": false
+  },
+  "browserVersion": "155.0.8059.79",
+  "matchedOriginalViewport": [
+    1440,
+    900
+  ],
+  "functionalSetup": {
+    "qualitySelectedWithOriginalUI": [
+      {
+        "before": {
+          "fps": 15,
+          "drawCalls": 1618,
+          "triangles": 414710,
+          "programs": 21,
+          "lights": 34,
+          "quality": "high",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "after": {
+          "fps": 15,
+          "drawCalls": 0,
+          "triangles": 0,
+          "programs": 21,
+          "lights": 34,
+          "quality": "medium",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        }
+      },
+      {
+        "before": {
+          "fps": 15,
+          "drawCalls": 0,
+          "triangles": 0,
+          "programs": 21,
+          "lights": 34,
+          "quality": "medium",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "after": {
+          "fps": 15,
+          "drawCalls": 0,
+          "triangles": 0,
+          "programs": 21,
+          "lights": 34,
+          "quality": "low",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        }
+      }
+    ],
+    "reason": "cloud software GL functional checks after original default evidence"
+  },
+  "complete": true,
+  "knownOriginalIssues": [
+    "KEY.KeyR",
+    "DOC.KeyN"
+  ]
+}

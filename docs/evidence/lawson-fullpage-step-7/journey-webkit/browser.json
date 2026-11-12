@@ -1,0 +1,135 @@
+{
+  "engine": "webkit",
+  "checks": [
+    {
+      "name": "engine representative original controls",
+      "passed": true,
+      "evidence": {
+        "actualEngine": "webkit",
+        "timePresets": [
+          {
+            "preset": "day",
+            "time": 9
+          },
+          {
+            "preset": "night",
+            "time": 22
+          },
+          {
+            "preset": "dusk",
+            "time": 18.5
+          }
+        ],
+        "allLightsNativeButtons": true,
+        "cameraActualMotion": [
+          {
+            "preset": "front",
+            "actualCamera": [
+              13.76,
+              5.33,
+              29.65
+            ]
+          },
+          {
+            "preset": "interior",
+            "actualCamera": [
+              0.2,
+              4.33,
+              23.58
+            ]
+          },
+          {
+            "preset": "hero",
+            "actualCamera": [
+              7.14,
+              2.88,
+              13.67
+            ]
+          }
+        ],
+        "roofHelpAndPanel": true,
+        "capabilities": {
+          "fullscreen": true,
+          "pointerLock": true
+        },
+        "parentDraws": 0,
+        "full41And17NotClaimedOnThisEngine": true
+      }
+    },
+    {
+      "name": "mobile independent embedded default parity",
+      "passed": true,
+      "evidence": {
+        "embedded": {
+          "viewport": [
+            390,
+            796
+          ],
+          "controls": 41,
+          "brand": [
+            14,
+            12,
+            243.453125,
+            32
+          ],
+          "panel": [
+            178,
+            58,
+            200,
+            666
+          ],
+          "topbar": [
+            254,
+            12,
+            124,
+            36
+          ],
+          "time": 18.5,
+          "roof": true
+        },
+        "independent": {
+          "viewport": [
+            390,
+            796
+          ],
+          "controls": 41,
+          "brand": [
+            14,
+            12,
+            243.453125,
+            32
+          ],
+          "panel": [
+            178,
+            58,
+            200,
+            666
+          ],
+          "topbar": [
+            254,
+            12,
+            124,
+            36
+          ],
+          "time": 18.5,
+          "roof": true
+        },
+        "originalSameViewportAndGeometry": true,
+        "knownOriginalMobileLayoutNotReportedAsFixed": true,
+        "physicalDevice": false
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "engine representative original controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "26.5",
+  "passed": true
+}

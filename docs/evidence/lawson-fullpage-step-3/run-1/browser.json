@@ -1,0 +1,4305 @@
+{
+  "createdAtShanghai": "2026-11-10T18:29:49.957075+08:00",
+  "scope": "Independent original page from actual dist, root and subpath; no host UI or iframe integration",
+  "checks": [
+    {
+      "id": "root.load",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4193/experiments/lawson/index.html",
+        "readySeconds": 6.547567861998687,
+        "atReady": {
+          "ready": true,
+          "error": null,
+          "bodyReady": "1",
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 0,
+            "stats": {
+              "drawCalls": 0,
+              "triangles": 0
+            }
+          },
+          "stats": {
+            "fps": 0,
+            "drawCalls": 1612,
+            "triangles": 414346,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              1440,
+              900
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              787,
+              546
+            ],
+            [
+              1083,
+              579
+            ],
+            [
+              787,
+              389
+            ]
+          ],
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "clerks": {
+            "time": 0.2,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "WALK_TO_TARGET",
+                "task": "impulse_tidy",
+                "taskTarget": [
+                  -6.9,
+                  4.4
+                ],
+                "taskArea": "frontShelf",
+                "animation": "Walk_Normal",
+                "remaining": 5.59,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.2,
+                  0,
+                  5.1
+                ],
+                "yaw": 0,
+                "forward": [
+                  0,
+                  1
+                ],
+                "speed": 0,
+                "pathLeft": 1,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "WALK_TO_TARGET",
+                "task": "shelf_inspect",
+                "taskTarget": [
+                  4.82,
+                  0.2
+                ],
+                "taskArea": "aisleE",
+                "animation": "Walk_Normal",
+                "remaining": 7,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  2.45,
+                  0,
+                  -0.55
+                ],
+                "yaw": 3.142,
+                "forward": [
+                  0,
+                  -1
+                ],
+                "speed": 0,
+                "pathLeft": 3,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "carA": {
+            "tag": "A",
+            "phase": "APPROACHING",
+            "visible": true,
+            "position": [
+              -40.316,
+              -0.18,
+              23.4
+            ],
+            "yaw": -1.5708,
+            "v": 8.199,
+            "vForward": 8.199,
+            "signedDist": 0.684,
+            "steer": 0,
+            "wheelSpinTotal": -9.1364,
+            "wheels": [
+              {
+                "name": "carA_wheelFL",
+                "radius": 0.2994,
+                "angle": -2.2841,
+                "deg": -130.87
+              },
+              {
+                "name": "carA_wheelFR",
+                "radius": 0.2994,
+                "angle": -2.2841,
+                "deg": -130.87
+              },
+              {
+                "name": "carA_wheelRL",
+                "radius": 0.2994,
+                "angle": -2.2841,
+                "deg": -130.87
+              },
+              {
+                "name": "carA_wheelRR",
+                "radius": 0.2994,
+                "angle": -2.2841,
+                "deg": -130.87
+              }
+            ],
+            "wheelbase": 2.42,
+            "track": 1.44,
+            "reverseLamp": false,
+            "reverseMaterials": 2,
+            "reverseEmissive": 0,
+            "brake": false,
+            "turn": "none",
+            "active": true
+          },
+          "panelCollapsed": false,
+          "controls": 41,
+          "canvas": {
+            "width": 1440,
+            "height": 900,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "top": 0,
+              "right": 1440,
+              "bottom": 900,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 5906,
+            "mainFrames": 3,
+            "cappedSeconds": 0.18339999999999987
+          }
+        },
+        "defaultSnapshot": {
+          "ready": true,
+          "error": null,
+          "bodyReady": "1",
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 0,
+            "stats": {
+              "drawCalls": 0,
+              "triangles": 0
+            }
+          },
+          "stats": {
+            "fps": 0,
+            "drawCalls": 1612,
+            "triangles": 414346,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              1440,
+              900
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              787,
+              546
+            ],
+            [
+              1083,
+              579
+            ],
+            [
+              787,
+              389
+            ]
+          ],
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "clerks": {
+            "time": 0.3,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "WALK_TO_TARGET",
+                "task": "impulse_tidy",
+                "taskTarget": [
+                  -6.9,
+                  4.4
+                ],
+                "taskArea": "frontShelf",
+                "animation": "Walk_Normal",
+                "remaining": 5.59,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.17,
+                  0,
+                  5.09
+                ],
+                "yaw": 0.624,
+                "forward": [
+                  0.58,
+                  0.81
+                ],
+                "speed": 0.32,
+                "pathLeft": 1,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "WALK_TO_TARGET",
+                "task": "shelf_inspect",
+                "taskTarget": [
+                  4.82,
+                  0.2
+                ],
+                "taskArea": "aisleE",
+                "animation": "Walk_Normal",
+                "remaining": 7,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  2.45,
+                  0,
+                  -0.52
+                ],
+                "yaw": 3.765,
+                "forward": [
+                  -0.58,
+                  -0.81
+                ],
+                "speed": 0.32,
+                "pathLeft": 3,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 0.03465333599999858,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 0.034653335999999924,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "carA": {
+            "tag": "A",
+            "phase": "APPROACHING",
+            "visible": true,
+            "position": [
+              -39.223,
+              -0.18,
+              23.4
+            ],
+            "yaw": -1.5708,
+            "v": 8.199,
+            "vForward": 8.199,
+            "signedDist": 1.777,
+            "steer": 0,
+            "wheelSpinTotal": -23.7405,
+            "wheels": [
+              {
+                "name": "carA_wheelFL",
+                "radius": 0.2994,
+                "angle": -5.9351,
+                "deg": -340.06
+              },
+              {
+                "name": "carA_wheelFR",
+                "radius": 0.2994,
+                "angle": -5.9351,
+                "deg": -340.06
+              },
+              {
+                "name": "carA_wheelRL",
+                "radius": 0.2994,
+                "angle": -5.9351,
+                "deg": -340.06
+              },
+              {
+                "name": "carA_wheelRR",
+                "radius": 0.2994,
+                "angle": -5.9351,
+                "deg": -340.06
+              }
+            ],
+            "wheelbase": 2.42,
+            "track": 1.44,
+            "reverseLamp": false,
+            "reverseMaterials": 2,
+            "reverseEmissive": 0,
+            "brake": false,
+            "turn": "none",
+            "active": true
+          },
+          "panelCollapsed": false,
+          "controls": 41,
+          "canvas": {
+            "width": 1440,
+            "height": 900,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "top": 0,
+              "right": 1440,
+              "bottom": 900,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 9705,
+            "mainFrames": 5,
+            "cappedSeconds": 0.3166999999999996
+          }
+        },
+        "automaticTraffic": {
+          "tag": "A",
+          "phase": "APPROACHING",
+          "visible": true,
+          "position": [
+            -35.943,
+            -0.18,
+            23.4
+          ],
+          "yaw": -1.5708,
+          "v": 8.2,
+          "vForward": 8.2,
+          "signedDist": 5.057,
+          "steer": 0,
+          "wheelSpinTotal": -67.5636,
+          "wheels": [
+            {
+              "name": "carA_wheelFL",
+              "radius": 0.2994,
+              "angle": -16.8909,
+              "deg": -967.78
+            },
+            {
+              "name": "carA_wheelFR",
+              "radius": 0.2994,
+              "angle": -16.8909,
+              "deg": -967.78
+            },
+            {
+              "name": "carA_wheelRL",
+              "radius": 0.2994,
+              "angle": -16.8909,
+              "deg": -967.78
+            },
+            {
+              "name": "carA_wheelRR",
+              "radius": 0.2994,
+              "angle": -16.8909,
+              "deg": -967.78
+            }
+          ],
+          "wheelbase": 2.42,
+          "track": 1.44,
+          "reverseLamp": false,
+          "reverseMaterials": 2,
+          "reverseEmissive": 0,
+          "brake": false,
+          "turn": "none",
+          "active": true
+        },
+        "graphics": {
+          "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      }
+    },
+    {
+      "id": "root.time",
+      "passed": true,
+      "evidence": [
+        {
+          "preset": "night",
+          "snapshot": {
+            "ready": true,
+            "error": null,
+            "bodyReady": "1",
+            "state": {
+              "loaded": true,
+              "paused": false,
+              "quality": "low",
+              "cameraMode": "orbit",
+              "timeOfDay": 22,
+              "roofVisible": true,
+              "lights": {
+                "StoreInterior": true,
+                "LawsonSign": true,
+                "FacadeStrip": true,
+                "StreetLamp": true,
+                "CoolerLighting": true,
+                "VendingLighting": true,
+                "WarmExterior": true,
+                "VehicleLights": true
+              },
+              "traffic": {
+                "enabled": true,
+                "running": true,
+                "current": "A",
+                "phase": "APPROACHING",
+                "speed": 1,
+                "activePosition": [
+                  -41,
+                  -0.18,
+                  23.4
+                ],
+                "reverseLamp": false,
+                "brake": false
+              },
+              "doors": {
+                "state": "CLOSED",
+                "isOpen": false,
+                "progress": 0,
+                "automatic": true
+              },
+              "walk": false,
+              "fps": 14,
+              "stats": {
+                "drawCalls": 1604,
+                "triangles": 414696,
+                "programs": 32,
+                "geometries": 1206,
+                "textures": 15,
+                "pixelRatio": 1,
+                "resScale": 1,
+                "width": 960,
+                "height": 540
+              }
+            },
+            "stats": {
+              "fps": 14,
+              "drawCalls": 1604,
+              "triangles": 414696,
+              "programs": 32,
+              "lights": 34,
+              "quality": "low",
+              "timeOfDay": 22,
+              "pixelRatio": 1,
+              "renderSize": [
+                960,
+                540
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            },
+            "camera": [
+              20.5,
+              5.2,
+              28.5
+            ],
+            "projection": [
+              [
+                520,
+                328
+              ],
+              [
+                698,
+                348
+              ],
+              [
+                520,
+                234
+              ]
+            ],
+            "debug": {
+              "doorLeft": true,
+              "doorRight": true,
+              "doorAvailable": true,
+              "roofTargets": 146,
+              "interactives": [
+                "facade",
+                "checkout",
+                "sign",
+                "basket",
+                "door",
+                "vending",
+                "shelf",
+                "alcohol",
+                "oden",
+                "clerkA",
+                "clerkB",
+                "atm",
+                "freezer",
+                "cooler",
+                "microwave",
+                "dining",
+                "coffee"
+              ],
+              "blockers": 11,
+              "steamNodes": 39,
+              "atmMaterials": 15,
+              "coffeeMaterials": 22,
+              "clerks": [
+                "A",
+                "B"
+              ],
+              "cars": [
+                "A",
+                "B",
+                "C"
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            },
+            "clerks": {
+              "time": 1.8,
+              "queue": 0,
+              "clerks": {
+                "A": {
+                  "state": "WALK_TO_TARGET",
+                  "task": "impulse_tidy",
+                  "taskTarget": [
+                    -6.9,
+                    4.4
+                  ],
+                  "taskArea": "frontShelf",
+                  "animation": "Walk_Normal",
+                  "remaining": 5.59,
+                  "customer": null,
+                  "interrupted": false,
+                  "position": [
+                    -7.83,
+                    0,
+                    4.68
+                  ],
+                  "yaw": 1.866,
+                  "forward": [
+                    0.96,
+                    -0.29
+                  ],
+                  "speed": 1,
+                  "pathLeft": 1,
+                  "carry": false,
+                  "boxVisible": false,
+                  "tool": null,
+                  "navOk": true,
+                  "customersServed": 0
+                },
+                "B": {
+                  "state": "WALK_TO_TARGET",
+                  "task": "shelf_inspect",
+                  "taskTarget": [
+                    4.82,
+                    0.2
+                  ],
+                  "taskArea": "aisleE",
+                  "animation": "Walk_Normal",
+                  "remaining": 7,
+                  "customer": null,
+                  "interrupted": false,
+                  "position": [
+                    2.41,
+                    0,
+                    0.94
+                  ],
+                  "yaw": 6.258,
+                  "forward": [
+                    -0.02,
+                    1
+                  ],
+                  "speed": 1.05,
+                  "pathLeft": 3,
+                  "carry": false,
+                  "boxVisible": false,
+                  "tool": null,
+                  "navOk": true,
+                  "customersServed": 0
+                }
+              },
+              "stats": {
+                "A": {
+                  "tasksDone": 0,
+                  "distance": 1.4322066719999937,
+                  "interruptions": 0
+                },
+                "B": {
+                  "tasksDone": 0,
+                  "distance": 1.494543672,
+                  "interruptions": 0
+                }
+              },
+              "taskCounts": {
+                "A": {},
+                "B": {}
+              },
+              "history": {
+                "A": [],
+                "B": []
+              },
+              "events": {
+                "enter": 0,
+                "checkout": 0,
+                "help": 0,
+                "queue": 0
+              },
+              "customersServed": 0
+            },
+            "carA": {
+              "tag": "A",
+              "phase": "APPROACHING",
+              "visible": true,
+              "position": [
+                -27.194,
+                -0.18,
+                23.4
+              ],
+              "yaw": -1.5708,
+              "v": 8.2,
+              "vForward": 8.2,
+              "signedDist": 13.806,
+              "steer": 0,
+              "wheelSpinTotal": -184.45,
+              "wheels": [
+                {
+                  "name": "carA_wheelFL",
+                  "radius": 0.2994,
+                  "angle": -46.1125,
+                  "deg": -2642.05
+                },
+                {
+                  "name": "carA_wheelFR",
+                  "radius": 0.2994,
+                  "angle": -46.1125,
+                  "deg": -2642.05
+                },
+                {
+                  "name": "carA_wheelRL",
+                  "radius": 0.2994,
+                  "angle": -46.1125,
+                  "deg": -2642.05
+                },
+                {
+                  "name": "carA_wheelRR",
+                  "radius": 0.2994,
+                  "angle": -46.1125,
+                  "deg": -2642.05
+                }
+              ],
+              "wheelbase": 2.42,
+              "track": 1.44,
+              "reverseLamp": false,
+              "reverseMaterials": 2,
+              "reverseEmissive": 0,
+              "brake": false,
+              "turn": "none",
+              "active": true
+            },
+            "panelCollapsed": false,
+            "controls": 41,
+            "canvas": {
+              "width": 960,
+              "height": 540,
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 960,
+                "height": 540,
+                "top": 0,
+                "right": 960,
+                "bottom": 540,
+                "left": 0
+              }
+            },
+            "probe": {
+              "draws": 44915,
+              "mainFrames": 24,
+              "cappedSeconds": 1.7836000000000005
+            }
+          }
+        },
+        {
+          "preset": "dusk",
+          "snapshot": {
+            "ready": true,
+            "error": null,
+            "bodyReady": "1",
+            "state": {
+              "loaded": true,
+              "paused": false,
+              "quality": "low",
+              "cameraMode": "orbit",
+              "timeOfDay": 18.5,
+              "roofVisible": true,
+              "lights": {
+                "StoreInterior": true,
+                "LawsonSign": true,
+                "FacadeStrip": true,
+                "StreetLamp": true,
+                "CoolerLighting": true,
+                "VendingLighting": true,
+                "WarmExterior": true,
+                "VehicleLights": true
+              },
+              "traffic": {
+                "enabled": true,
+                "running": true,
+                "current": "A",
+                "phase": "APPROACHING",
+                "speed": 1,
+                "activePosition": [
+                  -41,
+                  -0.18,
+                  23.4
+                ],
+                "reverseLamp": false,
+                "brake": false
+              },
+              "doors": {
+                "state": "CLOSED",
+                "isOpen": false,
+                "progress": 0,
+                "automatic": true
+              },
+              "walk": false,
+              "fps": 12,
+              "stats": {
+                "drawCalls": 1604,
+                "triangles": 414696,
+                "programs": 32,
+                "geometries": 1206,
+                "textures": 15,
+                "pixelRatio": 1,
+                "resScale": 1,
+                "width": 960,
+                "height": 540
+              }
+            },
+            "stats": {
+              "fps": 11,
+              "drawCalls": 1604,
+              "triangles": 414696,
+              "programs": 32,
+              "lights": 34,
+              "quality": "low",
+              "timeOfDay": 18.5,
+              "pixelRatio": 1,
+              "renderSize": [
+                960,
+                540
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            },
+            "camera": [
+              20.5,
+              5.2,
+              28.5
+            ],
+            "projection": [
+              [
+                520,
+                328
+              ],
+              [
+                698,
+                348
+              ],
+              [
+                520,
+                234
+              ]
+            ],
+            "debug": {
+              "doorLeft": true,
+              "doorRight": true,
+              "doorAvailable": true,
+              "roofTargets": 146,
+              "interactives": [
+                "facade",
+                "checkout",
+                "sign",
+                "basket",
+                "door",
+                "vending",
+                "shelf",
+                "alcohol",
+                "oden",
+                "clerkA",
+                "clerkB",
+                "atm",
+                "freezer",
+                "cooler",
+                "microwave",
+                "dining",
+                "coffee"
+              ],
+              "blockers": 11,
+              "steamNodes": 39,
+              "atmMaterials": 15,
+              "coffeeMaterials": 22,
+              "clerks": [
+                "A",
+                "B"
+              ],
+              "cars": [
+                "A",
+                "B",
+                "C"
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            },
+            "clerks": {
+              "time": 2.6,
+              "queue": 0,
+              "clerks": {
+                "A": {
+                  "state": "WALK_TO_TARGET",
+                  "task": "impulse_tidy",
+                  "taskTarget": [
+                    -6.9,
+                    4.4
+                  ],
+                  "taskArea": "frontShelf",
+                  "animation": "Walk_Normal",
+                  "remaining": 5.59,
+                  "customer": null,
+                  "interrupted": false,
+                  "position": [
+                    -7.31,
+                    0,
+                    4.53
+                  ],
+                  "yaw": 1.866,
+                  "forward": [
+                    0.96,
+                    -0.29
+                  ],
+                  "speed": 0.45,
+                  "pathLeft": 1,
+                  "carry": false,
+                  "boxVisible": false,
+                  "tool": null,
+                  "navOk": true,
+                  "customersServed": 0
+                },
+                "B": {
+                  "state": "WALK_TO_TARGET",
+                  "task": "shelf_inspect",
+                  "taskTarget": [
+                    4.82,
+                    0.2
+                  ],
+                  "taskArea": "aisleE",
+                  "animation": "Walk_Normal",
+                  "remaining": 7,
+                  "customer": null,
+                  "interrupted": false,
+                  "position": [
+                    2.39,
+                    0,
+                    1.8
+                  ],
+                  "yaw": 6.258,
+                  "forward": [
+                    -0.02,
+                    1
+                  ],
+                  "speed": 1.05,
+                  "pathLeft": 3,
+                  "carry": false,
+                  "boxVisible": false,
+                  "tool": null,
+                  "navOk": true,
+                  "customersServed": 0
+                }
+              },
+              "stats": {
+                "A": {
+                  "tasksDone": 0,
+                  "distance": 1.9734613343999934,
+                  "interruptions": 0
+                },
+                "B": {
+                  "tasksDone": 0,
+                  "distance": 2.352078672000003,
+                  "interruptions": 0
+                }
+              },
+              "taskCounts": {
+                "A": {},
+                "B": {}
+              },
+              "history": {
+                "A": [],
+                "B": []
+              },
+              "events": {
+                "enter": 0,
+                "checkout": 0,
+                "help": 0,
+                "queue": 0
+              },
+              "customersServed": 0
+            },
+            "carA": {
+              "tag": "A",
+              "phase": "TURNING_IN",
+              "visible": true,
+              "position": [
+                -22.053,
+                -0.18,
+                23.401
+              ],
+              "yaw": -1.5778,
+              "v": 3.4,
+              "vForward": 3.4,
+              "signedDist": 18.947,
+              "steer": -0.045,
+              "wheelSpinTotal": -253.1363,
+              "wheels": [
+                {
+                  "name": "carA_wheelFL",
+                  "radius": 0.2994,
+                  "angle": -63.2841,
+                  "deg": -3625.91
+                },
+                {
+                  "name": "carA_wheelFR",
+                  "radius": 0.2994,
+                  "angle": -63.2841,
+                  "deg": -3625.91
+                },
+                {
+                  "name": "carA_wheelRL",
+                  "radius": 0.2994,
+                  "angle": -63.2841,
+                  "deg": -3625.91
+                },
+                {
+                  "name": "carA_wheelRR",
+                  "radius": 0.2994,
+                  "angle": -63.2841,
+                  "deg": -3625.91
+                }
+              ],
+              "wheelbase": 2.42,
+              "track": 1.44,
+              "reverseLamp": false,
+              "reverseMaterials": 2,
+              "reverseEmissive": 0,
+              "brake": false,
+              "turn": "left",
+              "active": true
+            },
+            "panelCollapsed": false,
+            "controls": 41,
+            "canvas": {
+              "width": 960,
+              "height": 540,
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 960,
+                "height": 540,
+                "top": 0,
+                "right": 960,
+                "bottom": 540,
+                "left": 0
+              }
+            },
+            "probe": {
+              "draws": 59351,
+              "mainFrames": 33,
+              "cappedSeconds": 2.6003000000000034
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "root.sign",
+      "passed": true,
+      "evidence": {
+        "actualOriginalLightAndMaterialEvents": [
+          {
+            "args": [
+              "LawsonSign",
+              false
+            ],
+            "before": {
+              "lights": [
+                {
+                  "name": "group_LawsonSign_8",
+                  "intensity": 20
+                },
+                {
+                  "name": "group_LawsonSign_9",
+                  "intensity": 20
+                }
+              ],
+              "materials": [
+                {
+                  "name": "mat_lawson_blue",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_07_signband",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_07_shieldblue",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_emit_sign_blue",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_lawson_blue_lt",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_lawson_blue_dk",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_06_atm_sign",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_04_sign_white",
+                  "intensity": 0.16
+                },
+                {
+                  "name": "mat_04_sign_brown",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_08_logo_blue",
+                  "intensity": 0.34
+                }
+              ]
+            },
+            "after": {
+              "lights": [
+                {
+                  "name": "group_LawsonSign_8",
+                  "intensity": 0
+                },
+                {
+                  "name": "group_LawsonSign_9",
+                  "intensity": 0
+                }
+              ],
+              "materials": [
+                {
+                  "name": "mat_lawson_blue",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_07_signband",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_07_shieldblue",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_emit_sign_blue",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_lawson_blue_lt",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_lawson_blue_dk",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_06_atm_sign",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_04_sign_white",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_04_sign_brown",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_08_logo_blue",
+                  "intensity": 0
+                }
+              ]
+            }
+          },
+          {
+            "args": [
+              "LawsonSign",
+              true
+            ],
+            "before": {
+              "lights": [
+                {
+                  "name": "group_LawsonSign_8",
+                  "intensity": 0
+                },
+                {
+                  "name": "group_LawsonSign_9",
+                  "intensity": 0
+                }
+              ],
+              "materials": [
+                {
+                  "name": "mat_lawson_blue",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_07_signband",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_07_shieldblue",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_emit_sign_blue",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_lawson_blue_lt",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_lawson_blue_dk",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_06_atm_sign",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_04_sign_white",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_04_sign_brown",
+                  "intensity": 0
+                },
+                {
+                  "name": "mat_08_logo_blue",
+                  "intensity": 0
+                }
+              ]
+            },
+            "after": {
+              "lights": [
+                {
+                  "name": "group_LawsonSign_8",
+                  "intensity": 20
+                },
+                {
+                  "name": "group_LawsonSign_9",
+                  "intensity": 20
+                }
+              ],
+              "materials": [
+                {
+                  "name": "mat_lawson_blue",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_07_signband",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_07_shieldblue",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_emit_sign_blue",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_lawson_blue_lt",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_lawson_blue_dk",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_06_atm_sign",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_04_sign_white",
+                  "intensity": 0.16
+                },
+                {
+                  "name": "mat_04_sign_brown",
+                  "intensity": 0.34
+                },
+                {
+                  "name": "mat_08_logo_blue",
+                  "intensity": 0.34
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "root.camera",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "ready": true,
+          "error": null,
+          "bodyReady": "1",
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "low",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "TURNING_IN",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 15,
+            "stats": {
+              "drawCalls": 1604,
+              "triangles": 414696,
+              "programs": 37,
+              "geometries": 1206,
+              "textures": 2,
+              "pixelRatio": 0.92,
+              "resScale": 0.92,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 13,
+            "drawCalls": 1604,
+            "triangles": 414696,
+            "programs": 37,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.92,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              520,
+              328
+            ],
+            [
+              698,
+              348
+            ],
+            [
+              520,
+              234
+            ]
+          ],
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "clerks": {
+            "time": 3.8,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "TURN_TO_TARGET",
+                "task": "impulse_tidy",
+                "taskTarget": [
+                  -6.9,
+                  4.4
+                ],
+                "taskArea": "frontShelf",
+                "animation": "Idle_Stand",
+                "remaining": 5.59,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -6.94,
+                  0,
+                  4.41
+                ],
+                "yaw": 0.74,
+                "forward": [
+                  0.67,
+                  0.74
+                ],
+                "speed": 0.45,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "WALK_TO_TARGET",
+                "task": "shelf_inspect",
+                "taskTarget": [
+                  4.82,
+                  0.2
+                ],
+                "taskArea": "aisleE",
+                "animation": "Walk_Normal",
+                "remaining": 7,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  2.36,
+                  0,
+                  3.06
+                ],
+                "yaw": 6.258,
+                "forward": [
+                  -0.02,
+                  1
+                ],
+                "speed": 1.05,
+                "pathLeft": 3,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 2.3634313343999933,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 3.6119736720000013,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "carA": {
+            "tag": "A",
+            "phase": "TURNING_IN",
+            "visible": true,
+            "position": [
+              -17.975,
+              -0.18,
+              23.497
+            ],
+            "yaw": -1.5714,
+            "v": 3.4,
+            "vForward": 3.4,
+            "signedDist": 23.026,
+            "steer": 0.0725,
+            "wheelSpinTotal": -307.6437,
+            "wheels": [
+              {
+                "name": "carA_wheelFL",
+                "radius": 0.2994,
+                "angle": -76.9109,
+                "deg": -4406.67
+              },
+              {
+                "name": "carA_wheelFR",
+                "radius": 0.2994,
+                "angle": -76.9109,
+                "deg": -4406.67
+              },
+              {
+                "name": "carA_wheelRL",
+                "radius": 0.2994,
+                "angle": -76.9109,
+                "deg": -4406.67
+              },
+              {
+                "name": "carA_wheelRR",
+                "radius": 0.2994,
+                "angle": -76.9109,
+                "deg": -4406.67
+              }
+            ],
+            "wheelbase": 2.42,
+            "track": 1.44,
+            "reverseLamp": false,
+            "reverseMaterials": 2,
+            "reverseEmissive": 0,
+            "brake": false,
+            "turn": "left",
+            "active": true
+          },
+          "panelCollapsed": false,
+          "controls": 41,
+          "canvas": {
+            "width": 883,
+            "height": 496,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 960,
+              "height": 540,
+              "top": 0,
+              "right": 960,
+              "bottom": 540,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 86619,
+            "mainFrames": 50,
+            "cappedSeconds": 3.800200000000002
+          }
+        },
+        "originalPresetResults": [
+          {
+            "preset": "front",
+            "snapshot": {
+              "ready": true,
+              "error": null,
+              "bodyReady": "1",
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "front",
+                "timeOfDay": 18.5,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "TURNING_IN",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 10,
+                "stats": {
+                  "drawCalls": 1583,
+                  "triangles": 412004,
+                  "programs": 37,
+                  "geometries": 1206,
+                  "textures": 2,
+                  "pixelRatio": 0.92,
+                  "resScale": 0.92,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 13,
+                "drawCalls": 1583,
+                "triangles": 412004,
+                "programs": 37,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 18.5,
+                "pixelRatio": 0.84,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                0,
+                5.6,
+                32
+              ],
+              "projection": [
+                [
+                  480,
+                  319
+                ],
+                [
+                  685,
+                  319
+                ],
+                [
+                  480,
+                  216
+                ]
+              ],
+              "debug": {
+                "doorLeft": true,
+                "doorRight": true,
+                "doorAvailable": true,
+                "roofTargets": 146,
+                "interactives": [
+                  "facade",
+                  "checkout",
+                  "sign",
+                  "basket",
+                  "door",
+                  "vending",
+                  "shelf",
+                  "alcohol",
+                  "oden",
+                  "clerkA",
+                  "clerkB",
+                  "atm",
+                  "freezer",
+                  "cooler",
+                  "microwave",
+                  "dining",
+                  "coffee"
+                ],
+                "blockers": 11,
+                "steamNodes": 39,
+                "atmMaterials": 15,
+                "coffeeMaterials": 22,
+                "clerks": [
+                  "A",
+                  "B"
+                ],
+                "cars": [
+                  "A",
+                  "B",
+                  "C"
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "clerks": {
+                "time": 5.7,
+                "queue": 0,
+                "clerks": {
+                  "A": {
+                    "state": "PERFORM_TASK",
+                    "task": "impulse_tidy",
+                    "taskTarget": [
+                      -6.9,
+                      4.4
+                    ],
+                    "taskArea": "frontShelf",
+                    "animation": "Shelf_Reach_Low",
+                    "remaining": 3.96,
+                    "customer": null,
+                    "interrupted": false,
+                    "position": [
+                      -6.94,
+                      0,
+                      4.41
+                    ],
+                    "yaw": 0,
+                    "forward": [
+                      0,
+                      1
+                    ],
+                    "speed": 0,
+                    "pathLeft": 0,
+                    "carry": false,
+                    "boxVisible": false,
+                    "tool": null,
+                    "navOk": true,
+                    "customersServed": 0
+                  },
+                  "B": {
+                    "state": "WALK_TO_TARGET",
+                    "task": "shelf_inspect",
+                    "taskTarget": [
+                      4.82,
+                      0.2
+                    ],
+                    "taskArea": "aisleE",
+                    "animation": "Walk_Normal",
+                    "remaining": 7,
+                    "customer": null,
+                    "interrupted": false,
+                    "position": [
+                      3.81,
+                      0,
+                      3.48
+                    ],
+                    "yaw": 7.827,
+                    "forward": [
+                      1,
+                      0.03
+                    ],
+                    "speed": 1.05,
+                    "pathLeft": 2,
+                    "carry": false,
+                    "boxVisible": false,
+                    "tool": null,
+                    "navOk": true,
+                    "customersServed": 0
+                  }
+                },
+                "stats": {
+                  "A": {
+                    "tasksDone": 0,
+                    "distance": 2.3634313343999933,
+                    "interruptions": 0
+                  },
+                  "B": {
+                    "tasksDone": 0,
+                    "distance": 5.455038671999999,
+                    "interruptions": 0
+                  }
+                },
+                "taskCounts": {
+                  "A": {},
+                  "B": {}
+                },
+                "history": {
+                  "A": [],
+                  "B": []
+                },
+                "events": {
+                  "enter": 0,
+                  "checkout": 0,
+                  "help": 0,
+                  "queue": 0
+                },
+                "customersServed": 0
+              },
+              "carA": {
+                "tag": "A",
+                "phase": "PARKING",
+                "visible": true,
+                "position": [
+                  -12.061,
+                  -0.169,
+                  21.643
+                ],
+                "yaw": -0.759,
+                "v": 4.387,
+                "vForward": 4.387,
+                "signedDist": 29.424,
+                "steer": 0.3434,
+                "wheelSpinTotal": -393.1186,
+                "wheels": [
+                  {
+                    "name": "carA_wheelFL",
+                    "radius": 0.2994,
+                    "angle": -98.2797,
+                    "deg": -5631.01
+                  },
+                  {
+                    "name": "carA_wheelFR",
+                    "radius": 0.2994,
+                    "angle": -98.2797,
+                    "deg": -5631.01
+                  },
+                  {
+                    "name": "carA_wheelRL",
+                    "radius": 0.2994,
+                    "angle": -98.2797,
+                    "deg": -5631.01
+                  },
+                  {
+                    "name": "carA_wheelRR",
+                    "radius": 0.2994,
+                    "angle": -98.2797,
+                    "deg": -5631.01
+                  }
+                ],
+                "wheelbase": 2.42,
+                "track": 1.44,
+                "reverseLamp": false,
+                "reverseMaterials": 2,
+                "reverseEmissive": 0,
+                "brake": false,
+                "turn": "left",
+                "active": true
+              },
+              "panelCollapsed": false,
+              "controls": 41,
+              "canvas": {
+                "width": 806,
+                "height": 453,
+                "rect": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 960,
+                  "height": 540,
+                  "top": 0,
+                  "right": 960,
+                  "bottom": 540,
+                  "left": 0
+                }
+              },
+              "probe": {
+                "draws": 120005,
+                "mainFrames": 71,
+                "cappedSeconds": 5.733499999999999
+              }
+            }
+          },
+          {
+            "preset": "hero",
+            "snapshot": {
+              "ready": true,
+              "error": null,
+              "bodyReady": "1",
+              "state": {
+                "loaded": true,
+                "paused": false,
+                "quality": "low",
+                "cameraMode": "hero",
+                "timeOfDay": 18.5,
+                "roofVisible": true,
+                "lights": {
+                  "StoreInterior": true,
+                  "LawsonSign": true,
+                  "FacadeStrip": true,
+                  "StreetLamp": true,
+                  "CoolerLighting": true,
+                  "VendingLighting": true,
+                  "WarmExterior": true,
+                  "VehicleLights": true
+                },
+                "traffic": {
+                  "enabled": true,
+                  "running": true,
+                  "current": "A",
+                  "phase": "PARKING",
+                  "speed": 1,
+                  "activePosition": [
+                    -41,
+                    -0.18,
+                    23.4
+                  ],
+                  "reverseLamp": false,
+                  "brake": false
+                },
+                "doors": {
+                  "state": "CLOSED",
+                  "isOpen": false,
+                  "progress": 0,
+                  "automatic": true
+                },
+                "walk": false,
+                "fps": 10,
+                "stats": {
+                  "drawCalls": 1663,
+                  "triangles": 423100,
+                  "programs": 37,
+                  "geometries": 1215,
+                  "textures": 2,
+                  "pixelRatio": 0.84,
+                  "resScale": 0.84,
+                  "width": 960,
+                  "height": 540
+                }
+              },
+              "stats": {
+                "fps": 10,
+                "drawCalls": 1668,
+                "triangles": 423640,
+                "programs": 37,
+                "lights": 34,
+                "quality": "low",
+                "timeOfDay": 18.5,
+                "pixelRatio": 0.84,
+                "renderSize": [
+                  960,
+                  540
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "camera": [
+                20.5,
+                5.2,
+                28.5
+              ],
+              "projection": [
+                [
+                  520,
+                  328
+                ],
+                [
+                  698,
+                  348
+                ],
+                [
+                  520,
+                  234
+                ]
+              ],
+              "debug": {
+                "doorLeft": true,
+                "doorRight": true,
+                "doorAvailable": true,
+                "roofTargets": 146,
+                "interactives": [
+                  "facade",
+                  "checkout",
+                  "sign",
+                  "basket",
+                  "door",
+                  "vending",
+                  "shelf",
+                  "alcohol",
+                  "oden",
+                  "clerkA",
+                  "clerkB",
+                  "atm",
+                  "freezer",
+                  "cooler",
+                  "microwave",
+                  "dining",
+                  "coffee"
+                ],
+                "blockers": 11,
+                "steamNodes": 39,
+                "atmMaterials": 15,
+                "coffeeMaterials": 22,
+                "clerks": [
+                  "A",
+                  "B"
+                ],
+                "cars": [
+                  "A",
+                  "B",
+                  "C"
+                ],
+                "batch": {
+                  "removedMeshes": 2289,
+                  "batches": 355,
+                  "groups": 355
+                }
+              },
+              "clerks": {
+                "time": 7.6,
+                "queue": 0,
+                "clerks": {
+                  "A": {
+                    "state": "PERFORM_TASK",
+                    "task": "impulse_tidy",
+                    "taskTarget": [
+                      -6.9,
+                      4.4
+                    ],
+                    "taskArea": "frontShelf",
+                    "animation": "Shelf_Inspect",
+                    "remaining": 2.06,
+                    "customer": null,
+                    "interrupted": false,
+                    "position": [
+                      -6.94,
+                      0,
+                      4.41
+                    ],
+                    "yaw": 0,
+                    "forward": [
+                      0,
+                      1
+                    ],
+                    "speed": 0,
+                    "pathLeft": 0,
+                    "carry": false,
+                    "boxVisible": false,
+                    "tool": null,
+                    "navOk": true,
+                    "customersServed": 0
+                  },
+                  "B": {
+                    "state": "WALK_TO_TARGET",
+                    "task": "shelf_inspect",
+                    "taskTarget": [
+                      4.82,
+                      0.2
+                    ],
+                    "taskArea": "aisleE",
+                    "animation": "Walk_Normal",
+                    "remaining": 7,
+                    "customer": null,
+                    "interrupted": false,
+                    "position": [
+                      4.52,
+                      0,
+                      2.71
+                    ],
+                    "yaw": 9.304,
+                    "forward": [
+                      0.12,
+                      -0.99
+                    ],
+                    "speed": 1.05,
+                    "pathLeft": 1,
+                    "carry": false,
+                    "boxVisible": false,
+                    "tool": null,
+                    "navOk": true,
+                    "customersServed": 0
+                  }
+                },
+                "stats": {
+                  "A": {
+                    "tasksDone": 0,
+                    "distance": 2.3634313343999933,
+                    "interruptions": 0
+                  },
+                  "B": {
+                    "tasksDone": 0,
+                    "distance": 6.858888672000001,
+                    "interruptions": 0
+                  }
+                },
+                "taskCounts": {
+                  "A": {},
+                  "B": {}
+                },
+                "history": {
+                  "A": [],
+                  "B": []
+                },
+                "events": {
+                  "enter": 0,
+                  "checkout": 0,
+                  "help": 0,
+                  "queue": 0
+                },
+                "customersServed": 0
+              },
+              "carA": {
+                "tag": "A",
+                "phase": "PARKING",
+                "visible": true,
+                "position": [
+                  -10.5,
+                  -0.155,
+                  15.96
+                ],
+                "yaw": 0,
+                "v": 2.246,
+                "vForward": 2.246,
+                "signedDist": 35.504,
+                "steer": -0.0009,
+                "wheelSpinTotal": -474.3553,
+                "wheels": [
+                  {
+                    "name": "carA_wheelFL",
+                    "radius": 0.2994,
+                    "angle": -118.5888,
+                    "deg": -6794.64
+                  },
+                  {
+                    "name": "carA_wheelFR",
+                    "radius": 0.2994,
+                    "angle": -118.5888,
+                    "deg": -6794.64
+                  },
+                  {
+                    "name": "carA_wheelRL",
+                    "radius": 0.2994,
+                    "angle": -118.5888,
+                    "deg": -6794.64
+                  },
+                  {
+                    "name": "carA_wheelRR",
+                    "radius": 0.2994,
+                    "angle": -118.5888,
+                    "deg": -6794.64
+                  }
+                ],
+                "wheelbase": 2.42,
+                "track": 1.44,
+                "reverseLamp": false,
+                "reverseMaterials": 2,
+                "reverseEmissive": 0,
+                "brake": false,
+                "turn": "left",
+                "active": true
+              },
+              "panelCollapsed": false,
+              "controls": 41,
+              "canvas": {
+                "width": 806,
+                "height": 453,
+                "rect": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 960,
+                  "height": 540,
+                  "top": 0,
+                  "right": 960,
+                  "bottom": 540,
+                  "left": 0
+                }
+              },
+              "probe": {
+                "draws": 150687,
+                "mainFrames": 90,
+                "cappedSeconds": 7.633499999999993
+              }
+            }
+          }
+        ],
+        "noCanvasDragInThisCase": true
+      }
+    },
+    {
+      "id": "root.roof",
+      "passed": true,
+      "evidence": [
+        {
+          "ui": false,
+          "actual": false
+        },
+        {
+          "ui": true,
+          "actual": true
+        }
+      ]
+    },
+    {
+      "id": "root.traffic",
+      "passed": true,
+      "evidence": {
+        "originalCarAButtonUsed": true,
+        "moving": {
+          "tag": "A",
+          "phase": "APPROACHING",
+          "visible": true,
+          "position": [
+            -40.18,
+            -0.18,
+            23.4
+          ],
+          "yaw": -1.5708,
+          "v": 8.199,
+          "vForward": 8.199,
+          "signedDist": 0.82,
+          "steer": -0.495,
+          "wheelSpinTotal": -10.955,
+          "wheels": [
+            {
+              "name": "carA_wheelFL",
+              "radius": 0.2994,
+              "angle": -2.7387,
+              "deg": -156.92
+            },
+            {
+              "name": "carA_wheelFR",
+              "radius": 0.2994,
+              "angle": -2.7387,
+              "deg": -156.92
+            },
+            {
+              "name": "carA_wheelRL",
+              "radius": 0.2994,
+              "angle": -2.7387,
+              "deg": -156.92
+            },
+            {
+              "name": "carA_wheelRR",
+              "radius": 0.2994,
+              "angle": -2.7387,
+              "deg": -156.92
+            }
+          ],
+          "wheelbase": 2.42,
+          "track": 1.44,
+          "reverseLamp": false,
+          "reverseMaterials": 2,
+          "reverseEmissive": 0,
+          "brake": false,
+          "turn": "none",
+          "active": true
+        },
+        "pausedBefore": {
+          "tag": "A",
+          "phase": "APPROACHING",
+          "visible": true,
+          "position": [
+            -36.9,
+            -0.18,
+            23.4
+          ],
+          "yaw": -1.5708,
+          "v": 8.2,
+          "vForward": 8.2,
+          "signedDist": 4.1,
+          "steer": -0.0,
+          "wheelSpinTotal": -54.7784,
+          "wheels": [
+            {
+              "name": "carA_wheelFL",
+              "radius": 0.2994,
+              "angle": -13.6946,
+              "deg": -784.64
+            },
+            {
+              "name": "carA_wheelFR",
+              "radius": 0.2994,
+              "angle": -13.6946,
+              "deg": -784.64
+            },
+            {
+              "name": "carA_wheelRL",
+              "radius": 0.2994,
+              "angle": -13.6946,
+              "deg": -784.64
+            },
+            {
+              "name": "carA_wheelRR",
+              "radius": 0.2994,
+              "angle": -13.6946,
+              "deg": -784.64
+            }
+          ],
+          "wheelbase": 2.42,
+          "track": 1.44,
+          "reverseLamp": false,
+          "reverseMaterials": 2,
+          "reverseEmissive": 0,
+          "brake": false,
+          "turn": "none",
+          "active": true
+        },
+        "pausedAfter": {
+          "tag": "A",
+          "phase": "APPROACHING",
+          "visible": true,
+          "position": [
+            -36.9,
+            -0.18,
+            23.4
+          ],
+          "yaw": -1.5708,
+          "v": 8.2,
+          "vForward": 8.2,
+          "signedDist": 4.1,
+          "steer": -0.0,
+          "wheelSpinTotal": -54.7784,
+          "wheels": [
+            {
+              "name": "carA_wheelFL",
+              "radius": 0.2994,
+              "angle": -13.6946,
+              "deg": -784.64
+            },
+            {
+              "name": "carA_wheelFR",
+              "radius": 0.2994,
+              "angle": -13.6946,
+              "deg": -784.64
+            },
+            {
+              "name": "carA_wheelRL",
+              "radius": 0.2994,
+              "angle": -13.6946,
+              "deg": -784.64
+            },
+            {
+              "name": "carA_wheelRR",
+              "radius": 0.2994,
+              "angle": -13.6946,
+              "deg": -784.64
+            }
+          ],
+          "wheelbase": 2.42,
+          "track": 1.44,
+          "reverseLamp": false,
+          "reverseMaterials": 2,
+          "reverseEmissive": 0,
+          "brake": false,
+          "turn": "none",
+          "active": true
+        },
+        "renderFramesWhilePaused": 4,
+        "resumed": {
+          "tag": "A",
+          "phase": "APPROACHING",
+          "visible": true,
+          "position": [
+            -36.08,
+            -0.18,
+            23.4
+          ],
+          "yaw": -1.5708,
+          "v": 8.2,
+          "vForward": 8.2,
+          "signedDist": 4.92,
+          "steer": -0.0,
+          "wheelSpinTotal": -65.7342,
+          "wheels": [
+            {
+              "name": "carA_wheelFL",
+              "radius": 0.2994,
+              "angle": -16.4336,
+              "deg": -941.57
+            },
+            {
+              "name": "carA_wheelFR",
+              "radius": 0.2994,
+              "angle": -16.4336,
+              "deg": -941.57
+            },
+            {
+              "name": "carA_wheelRL",
+              "radius": 0.2994,
+              "angle": -16.4336,
+              "deg": -941.57
+            },
+            {
+              "name": "carA_wheelRR",
+              "radius": 0.2994,
+              "angle": -16.4336,
+              "deg": -941.57
+            }
+          ],
+          "wheelbase": 2.42,
+          "track": 1.44,
+          "reverseLamp": false,
+          "reverseMaterials": 2,
+          "reverseEmissive": 0,
+          "brake": false,
+          "turn": "none",
+          "active": true
+        }
+      }
+    },
+    {
+      "id": "root.network-bytes",
+      "passed": false,
+      "error": "Response.body: Protocol error (Network.getResponseBody): Request content was evicted from inspector cache\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-3/verify_browser.py\", line 36, in case\n    evidence=fn();report['checks'].append({'id':identifier,'passed':True,'evidence':evidence});print('PASS '+identifier,flush=True)\n             ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-3/verify_browser.py\", line 161, in network_bytes\n    body=response.body();actual=hashlib.sha256(body).hexdigest()\n         ^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 660, in body\n    return mapping.from_maybe_impl(self._sync(self._impl_obj.body()))\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_network.py\", line 882, in body\n    binary = await self._channel.send(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Response.body: Protocol error (Network.getResponseBody): Request content was evicted from inspector cache\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.\n",
+      "snapshot": {
+        "ready": true,
+        "error": null,
+        "bodyReady": "1",
+        "state": {
+          "loaded": true,
+          "paused": false,
+          "quality": "low",
+          "cameraMode": "hero",
+          "timeOfDay": 18.5,
+          "roofVisible": true,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "A",
+            "phase": "APPROACHING",
+            "speed": 1,
+            "activePosition": [
+              -36.89999821249786,
+              -0.18,
+              23.4
+            ],
+            "reverseLamp": false,
+            "brake": false
+          },
+          "doors": {
+            "state": "CLOSED",
+            "isOpen": false,
+            "progress": 0,
+            "automatic": true
+          },
+          "walk": false,
+          "fps": 10,
+          "stats": {
+            "drawCalls": 781,
+            "triangles": 279040,
+            "programs": 37,
+            "geometries": 1223,
+            "textures": 2,
+            "pixelRatio": 0.76,
+            "resScale": 0.76,
+            "width": 960,
+            "height": 540
+          }
+        },
+        "stats": {
+          "fps": 10,
+          "drawCalls": 490,
+          "triangles": 226856,
+          "programs": 37,
+          "lights": 34,
+          "quality": "low",
+          "timeOfDay": 18.5,
+          "pixelRatio": 0.76,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "camera": [
+          -12.06,
+          4.84,
+          27.72
+        ],
+        "projection": [
+          [
+            1567,
+            304
+          ],
+          [
+            2249,
+            363
+          ],
+          [
+            1622,
+            122
+          ]
+        ],
+        "debug": {
+          "doorLeft": true,
+          "doorRight": true,
+          "doorAvailable": true,
+          "roofTargets": 146,
+          "interactives": [
+            "facade",
+            "checkout",
+            "sign",
+            "basket",
+            "door",
+            "vending",
+            "shelf",
+            "alcohol",
+            "oden",
+            "clerkA",
+            "clerkB",
+            "atm",
+            "freezer",
+            "cooler",
+            "microwave",
+            "dining",
+            "coffee"
+          ],
+          "blockers": 11,
+          "steamNodes": 39,
+          "atmMaterials": 15,
+          "coffeeMaterials": 22,
+          "clerks": [
+            "A",
+            "B"
+          ],
+          "cars": [
+            "A",
+            "B",
+            "C"
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "clerks": {
+          "time": 10.1,
+          "queue": 0,
+          "clerks": {
+            "A": {
+              "state": "SELECT_TASK",
+              "task": null,
+              "taskTarget": null,
+              "taskArea": null,
+              "animation": "Shelf_Inspect",
+              "remaining": 0,
+              "customer": null,
+              "interrupted": false,
+              "position": [
+                -6.94,
+                0,
+                4.41
+              ],
+              "yaw": 0,
+              "forward": [
+                0,
+                1
+              ],
+              "speed": 0,
+              "pathLeft": 0,
+              "carry": false,
+              "boxVisible": false,
+              "tool": null,
+              "navOk": true,
+              "customersServed": 0
+            },
+            "B": {
+              "state": "WALK_TO_TARGET",
+              "task": "shelf_inspect",
+              "taskTarget": [
+                4.82,
+                0.2
+              ],
+              "taskArea": "aisleE",
+              "animation": "Walk_Normal",
+              "remaining": 7,
+              "customer": null,
+              "interrupted": false,
+              "position": [
+                4.78,
+                0,
+                0.54
+              ],
+              "yaw": 9.304,
+              "forward": [
+                0.12,
+                -0.99
+              ],
+              "speed": 0.47,
+              "pathLeft": 1,
+              "carry": false,
+              "boxVisible": false,
+              "tool": null,
+              "navOk": true,
+              "customersServed": 0
+            }
+          },
+          "stats": {
+            "A": {
+              "tasksDone": 1,
+              "distance": 2.3634313343999933,
+              "interruptions": 0
+            },
+            "B": {
+              "tasksDone": 0,
+              "distance": 9.046383672000017,
+              "interruptions": 0
+            }
+          },
+          "taskCounts": {
+            "A": {
+              "impulse_tidy": 1
+            },
+            "B": {}
+          },
+          "history": {
+            "A": [
+              "impulse_tidy"
+            ],
+            "B": []
+          },
+          "events": {
+            "enter": 0,
+            "checkout": 0,
+            "help": 0,
+            "queue": 0
+          },
+          "customersServed": 0
+        },
+        "carA": {
+          "tag": "A",
+          "phase": "APPROACHING",
+          "visible": true,
+          "position": [
+            -36.08,
+            -0.18,
+            23.4
+          ],
+          "yaw": -1.5708,
+          "v": 8.2,
+          "vForward": 8.2,
+          "signedDist": 4.92,
+          "steer": -0.0,
+          "wheelSpinTotal": -65.7342,
+          "wheels": [
+            {
+              "name": "carA_wheelFL",
+              "radius": 0.2994,
+              "angle": -16.4336,
+              "deg": -941.57
+            },
+            {
+              "name": "carA_wheelFR",
+              "radius": 0.2994,
+              "angle": -16.4336,
+              "deg": -941.57
+            },
+            {
+              "name": "carA_wheelRL",
+              "radius": 0.2994,
+              "angle": -16.4336,
+              "deg": -941.57
+            },
+            {
+              "name": "carA_wheelRR",
+              "radius": 0.2994,
+              "angle": -16.4336,
+              "deg": -941.57
+            }
+          ],
+          "wheelbase": 2.42,
+          "track": 1.44,
+          "reverseLamp": false,
+          "reverseMaterials": 2,
+          "reverseEmissive": 0,
+          "brake": false,
+          "turn": "none",
+          "active": true
+        },
+        "panelCollapsed": false,
+        "controls": 41,
+        "canvas": {
+          "width": 729,
+          "height": 410,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 960,
+            "height": 540,
+            "top": 0,
+            "right": 960,
+            "bottom": 540,
+            "left": 0
+          }
+        },
+        "probe": {
+          "draws": 187521,
+          "mainFrames": 117,
+          "cappedSeconds": 10.083399999999992
+        }
+      }
+    },
+    {
+      "id": "project.load",
+      "passed": false,
+      "error": "Page.wait_for_function: TypeError: Cannot read properties of null (reading 'classList')\n    at eval (eval at predicate (eval at evaluate (:311:30)), <anonymous>:1:34)\n    at eval (<anonymous>)\n    at predicate (eval at evaluate (:311:30), <anonymous>:4:60)\n    at next (eval at evaluate (:311:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:311:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-3/verify_browser.py\", line 36, in case\n    evidence=fn();report['checks'].append({'id':identifier,'passed':True,'evidence':evidence});print('PASS '+identifier,flush=True)\n             ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-3/verify_browser.py\", line 77, in load\n    page.wait_for_function('document.querySelector(\"#loader\").classList.contains(\"hide\")',timeout=15000,polling=100)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 12761, in wait_for_function\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 1151, in wait_for_function\n    return await self._main_frame.wait_for_function(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 940, in wait_for_function\n    await self._channel.send(\"waitForFunction\", self._timeout, params)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.wait_for_function: TypeError: Cannot read properties of null (reading 'classList')\n    at eval (eval at predicate (eval at evaluate (:311:30)), <anonymous>:1:34)\n    at eval (<anonymous>)\n    at predicate (eval at evaluate (:311:30), <anonymous>:4:60)\n    at next (eval at evaluate (:311:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:311:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n",
+      "snapshot": {
+        "ready": true,
+        "error": null,
+        "bodyReady": "1",
+        "state": {
+          "loaded": true,
+          "paused": false,
+          "quality": "high",
+          "cameraMode": "orbit",
+          "timeOfDay": 18.5,
+          "roofVisible": true,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "A",
+            "phase": "APPROACHING",
+            "speed": 1,
+            "activePosition": [
+              -41,
+              -0.18,
+              23.4
+            ],
+            "reverseLamp": false,
+            "brake": false
+          },
+          "doors": {
+            "state": "CLOSED",
+            "isOpen": false,
+            "progress": 0,
+            "automatic": true
+          },
+          "walk": false,
+          "fps": 0,
+          "stats": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        },
+        "stats": {
+          "fps": 0,
+          "drawCalls": 1612,
+          "triangles": 414346,
+          "programs": 21,
+          "lights": 34,
+          "quality": "high",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            1440,
+            900
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "camera": [
+          20.5,
+          5.2,
+          28.5
+        ],
+        "projection": [
+          [
+            787,
+            546
+          ],
+          [
+            1083,
+            579
+          ],
+          [
+            787,
+            389
+          ]
+        ],
+        "debug": {
+          "doorLeft": true,
+          "doorRight": true,
+          "doorAvailable": true,
+          "roofTargets": 146,
+          "interactives": [
+            "facade",
+            "checkout",
+            "sign",
+            "basket",
+            "door",
+            "vending",
+            "shelf",
+            "alcohol",
+            "oden",
+            "clerkA",
+            "clerkB",
+            "atm",
+            "freezer",
+            "cooler",
+            "microwave",
+            "dining",
+            "coffee"
+          ],
+          "blockers": 11,
+          "steamNodes": 39,
+          "atmMaterials": 15,
+          "coffeeMaterials": 22,
+          "clerks": [
+            "A",
+            "B"
+          ],
+          "cars": [
+            "A",
+            "B",
+            "C"
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "clerks": {
+          "time": 0.4,
+          "queue": 0,
+          "clerks": {
+            "A": {
+              "state": "TURN_TO_TARGET",
+              "task": "tidy_counter",
+              "taskTarget": [
+                -9.2,
+                5.1
+              ],
+              "taskArea": "counter",
+              "animation": "Walk_Normal",
+              "remaining": 8.77,
+              "customer": null,
+              "interrupted": false,
+              "position": [
+                -9.2,
+                0,
+                5.1
+              ],
+              "yaw": 0,
+              "forward": [
+                0,
+                1
+              ],
+              "speed": 0.24,
+              "pathLeft": 0,
+              "carry": false,
+              "boxVisible": false,
+              "tool": null,
+              "navOk": true,
+              "customersServed": 0
+            },
+            "B": {
+              "state": "WALK_TO_TARGET",
+              "task": "shelf_inspect",
+              "taskTarget": [
+                -8.75,
+                3.55
+              ],
+              "taskArea": "aisleFront",
+              "animation": "Walk_Normal",
+              "remaining": 6.66,
+              "customer": null,
+              "interrupted": false,
+              "position": [
+                2.43,
+                0,
+                -0.54
+              ],
+              "yaw": 3.61,
+              "forward": [
+                -0.45,
+                -0.89
+              ],
+              "speed": 0.24,
+              "pathLeft": 2,
+              "carry": false,
+              "boxVisible": false,
+              "tool": null,
+              "navOk": true,
+              "customersServed": 0
+            }
+          },
+          "stats": {
+            "A": {
+              "tasksDone": 0,
+              "distance": 0,
+              "interruptions": 0
+            },
+            "B": {
+              "tasksDone": 0,
+              "distance": 0.023999999999999865,
+              "interruptions": 0
+            }
+          },
+          "taskCounts": {
+            "A": {},
+            "B": {}
+          },
+          "history": {
+            "A": [],
+            "B": []
+          },
+          "events": {
+            "enter": 0,
+            "checkout": 0,
+            "help": 0,
+            "queue": 0
+          },
+          "customersServed": 0
+        },
+        "carA": {
+          "tag": "A",
+          "phase": "APPROACHING",
+          "visible": true,
+          "position": [
+            -39.36,
+            -0.18,
+            23.4
+          ],
+          "yaw": -1.5708,
+          "v": 8.2,
+          "vForward": 8.2,
+          "signedDist": 1.64,
+          "steer": 0,
+          "wheelSpinTotal": -21.9111,
+          "wheels": [
+            {
+              "name": "carA_wheelFL",
+              "radius": 0.2994,
+              "angle": -5.4778,
+              "deg": -313.85
+            },
+            {
+              "name": "carA_wheelFR",
+              "radius": 0.2994,
+              "angle": -5.4778,
+              "deg": -313.85
+            },
+            {
+              "name": "carA_wheelRL",
+              "radius": 0.2994,
+              "angle": -5.4778,
+              "deg": -313.85
+            },
+            {
+              "name": "carA_wheelRR",
+              "radius": 0.2994,
+              "angle": -5.4778,
+              "deg": -313.85
+            }
+          ],
+          "wheelbase": 2.42,
+          "track": 1.44,
+          "reverseLamp": false,
+          "reverseMaterials": 2,
+          "reverseEmissive": 0,
+          "brake": false,
+          "turn": "none",
+          "active": true
+        },
+        "panelCollapsed": false,
+        "controls": 41,
+        "canvas": {
+          "width": 1440,
+          "height": 900,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "right": 1440,
+            "bottom": 900,
+            "left": 0
+          }
+        },
+        "probe": {
+          "draws": 9705,
+          "mainFrames": 5,
+          "cappedSeconds": 0.3667
+        }
+      }
+    },
+    {
+      "id": "project.ui",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "ready": true,
+          "error": null,
+          "bodyReady": "1",
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 0,
+            "stats": {
+              "drawCalls": 2187,
+              "triangles": 730626,
+              "programs": 21,
+              "geometries": 1203,
+              "textures": 16,
+              "pixelRatio": 1,
+              "resScale": 1,
+              "width": 1440,
+              "height": 900
+            }
+          },
+          "stats": {
+            "fps": 14,
+            "drawCalls": 1612,
+            "triangles": 414346,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              1440,
+              900
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              787,
+              546
+            ],
+            [
+              1083,
+              579
+            ],
+            [
+              787,
+              389
+            ]
+          ],
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "clerks": {
+            "time": 0.6,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "PERFORM_TASK",
+                "task": "tidy_counter",
+                "taskTarget": [
+                  -9.2,
+                  5.1
+                ],
+                "taskArea": "counter",
+                "animation": "Counter_Clean",
+                "remaining": 8.55,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.2,
+                  0,
+                  5.1
+                ],
+                "yaw": 0,
+                "forward": [
+                  0,
+                  1
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "WALK_TO_TARGET",
+                "task": "shelf_inspect",
+                "taskTarget": [
+                  -8.75,
+                  3.55
+                ],
+                "taskArea": "aisleFront",
+                "animation": "Walk_Normal",
+                "remaining": 6.66,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  2.3,
+                  0,
+                  -0.44
+                ],
+                "yaw": 4.78,
+                "forward": [
+                  -1,
+                  0.07
+                ],
+                "speed": 0.84,
+                "pathLeft": 2,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 0.1846653359999998,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "carA": {
+            "tag": "A",
+            "phase": "APPROACHING",
+            "visible": true,
+            "position": [
+              -37.31,
+              -0.18,
+              23.4
+            ],
+            "yaw": -1.5708,
+            "v": 8.2,
+            "vForward": 8.2,
+            "signedDist": 3.69,
+            "steer": 0,
+            "wheelSpinTotal": -49.3005,
+            "wheels": [
+              {
+                "name": "carA_wheelFL",
+                "radius": 0.2994,
+                "angle": -12.3251,
+                "deg": -706.18
+              },
+              {
+                "name": "carA_wheelFR",
+                "radius": 0.2994,
+                "angle": -12.3251,
+                "deg": -706.18
+              },
+              {
+                "name": "carA_wheelRL",
+                "radius": 0.2994,
+                "angle": -12.3251,
+                "deg": -706.18
+              },
+              {
+                "name": "carA_wheelRR",
+                "radius": 0.2994,
+                "angle": -12.3251,
+                "deg": -706.18
+              }
+            ],
+            "wheelbase": 2.42,
+            "track": 1.44,
+            "reverseLamp": false,
+            "reverseMaterials": 2,
+            "reverseEmissive": 0,
+            "brake": false,
+            "turn": "none",
+            "active": true
+          },
+          "panelCollapsed": false,
+          "controls": 41,
+          "canvas": {
+            "width": 1440,
+            "height": 900,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "top": 0,
+              "right": 1440,
+              "bottom": 900,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 17303,
+            "mainFrames": 9,
+            "cappedSeconds": 0.6167
+          }
+        },
+        "originalCollapseAndRestore": true,
+        "after": {
+          "ready": true,
+          "error": null,
+          "bodyReady": "1",
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "high",
+            "cameraMode": "orbit",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "APPROACHING",
+              "speed": 1,
+              "activePosition": [
+                -41,
+                -0.18,
+                23.4
+              ],
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 14,
+            "stats": {
+              "drawCalls": 1612,
+              "triangles": 414346,
+              "programs": 21,
+              "geometries": 1203,
+              "textures": 16,
+              "pixelRatio": 1,
+              "resScale": 1,
+              "width": 1440,
+              "height": 900
+            }
+          },
+          "stats": {
+            "fps": 12,
+            "drawCalls": 1612,
+            "triangles": 414346,
+            "programs": 21,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 1,
+            "renderSize": [
+              1440,
+              900
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "camera": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "projection": [
+            [
+              787,
+              546
+            ],
+            [
+              1083,
+              579
+            ],
+            [
+              787,
+              389
+            ]
+          ],
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "clerks": {
+            "time": 1,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "PERFORM_TASK",
+                "task": "tidy_counter",
+                "taskTarget": [
+                  -9.2,
+                  5.1
+                ],
+                "taskArea": "counter",
+                "animation": "Counter_Clean",
+                "remaining": 8.15,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.2,
+                  0,
+                  5.1
+                ],
+                "yaw": 0,
+                "forward": [
+                  0,
+                  1
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "WALK_TO_TARGET",
+                "task": "shelf_inspect",
+                "taskTarget": [
+                  -8.75,
+                  3.55
+                ],
+                "taskArea": "aisleFront",
+                "animation": "Walk_Normal",
+                "remaining": 6.66,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  1.97,
+                  0,
+                  -0.18
+                ],
+                "yaw": 5.374,
+                "forward": [
+                  -0.79,
+                  0.61
+                ],
+                "speed": 1.05,
+                "pathLeft": 2,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 0,
+                "distance": 0,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 0,
+                "distance": 0.6046653359999998,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {},
+              "B": {}
+            },
+            "history": {
+              "A": [],
+              "B": []
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "carA": {
+            "tag": "A",
+            "phase": "APPROACHING",
+            "visible": true,
+            "position": [
+              -34.03,
+              -0.18,
+              23.4
+            ],
+            "yaw": -1.5708,
+            "v": 8.2,
+            "vForward": 8.2,
+            "signedDist": 6.97,
+            "steer": 0,
+            "wheelSpinTotal": -93.1238,
+            "wheels": [
+              {
+                "name": "carA_wheelFL",
+                "radius": 0.2994,
+                "angle": -23.2809,
+                "deg": -1333.9
+              },
+              {
+                "name": "carA_wheelFR",
+                "radius": 0.2994,
+                "angle": -23.2809,
+                "deg": -1333.9
+              },
+              {
+                "name": "carA_wheelRL",
+                "radius": 0.2994,
+                "angle": -23.2809,
+                "deg": -1333.9
+              },
+              {
+                "name": "carA_wheelRR",
+                "radius": 0.2994,
+                "angle": -23.2809,
+                "deg": -1333.9
+              }
+            ],
+            "wheelbase": 2.42,
+            "track": 1.44,
+            "reverseLamp": false,
+            "reverseMaterials": 2,
+            "reverseEmissive": 0,
+            "brake": false,
+            "turn": "none",
+            "active": true
+          },
+          "panelCollapsed": false,
+          "controls": 41,
+          "canvas": {
+            "width": 1440,
+            "height": 900,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "top": 0,
+              "right": 1440,
+              "bottom": 900,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 24901,
+            "mainFrames": 13,
+            "cappedSeconds": 1.0167
+          }
+        }
+      }
+    },
+    {
+      "id": "project.network-bytes",
+      "passed": false,
+      "error": "Response.body: Protocol error (Network.getResponseBody): Request content was evicted from inspector cache\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-3/verify_browser.py\", line 36, in case\n    evidence=fn();report['checks'].append({'id':identifier,'passed':True,'evidence':evidence});print('PASS '+identifier,flush=True)\n             ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-3/verify_browser.py\", line 161, in network_bytes\n    body=response.body();actual=hashlib.sha256(body).hexdigest()\n         ^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 660, in body\n    return mapping.from_maybe_impl(self._sync(self._impl_obj.body()))\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_network.py\", line 882, in body\n    binary = await self._channel.send(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Response.body: Protocol error (Network.getResponseBody): Request content was evicted from inspector cache\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.\n",
+      "snapshot": {
+        "ready": true,
+        "error": null,
+        "bodyReady": "1",
+        "state": {
+          "loaded": true,
+          "paused": false,
+          "quality": "high",
+          "cameraMode": "orbit",
+          "timeOfDay": 18.5,
+          "roofVisible": true,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "A",
+            "phase": "APPROACHING",
+            "speed": 1,
+            "activePosition": [
+              -41,
+              -0.18,
+              23.4
+            ],
+            "reverseLamp": false,
+            "brake": false
+          },
+          "doors": {
+            "state": "CLOSED",
+            "isOpen": false,
+            "progress": 0,
+            "automatic": true
+          },
+          "walk": false,
+          "fps": 14,
+          "stats": {
+            "drawCalls": 1612,
+            "triangles": 414346,
+            "programs": 21,
+            "geometries": 1203,
+            "textures": 16,
+            "pixelRatio": 1,
+            "resScale": 1,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "stats": {
+          "fps": 12,
+          "drawCalls": 1612,
+          "triangles": 414346,
+          "programs": 21,
+          "lights": 34,
+          "quality": "high",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            1440,
+            900
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "camera": [
+          20.5,
+          5.2,
+          28.5
+        ],
+        "projection": [
+          [
+            787,
+            546
+          ],
+          [
+            1083,
+            579
+          ],
+          [
+            787,
+            389
+          ]
+        ],
+        "debug": {
+          "doorLeft": true,
+          "doorRight": true,
+          "doorAvailable": true,
+          "roofTargets": 146,
+          "interactives": [
+            "facade",
+            "checkout",
+            "sign",
+            "basket",
+            "door",
+            "vending",
+            "shelf",
+            "alcohol",
+            "oden",
+            "clerkA",
+            "clerkB",
+            "atm",
+            "freezer",
+            "cooler",
+            "microwave",
+            "dining",
+            "coffee"
+          ],
+          "blockers": 11,
+          "steamNodes": 39,
+          "atmMaterials": 15,
+          "coffeeMaterials": 22,
+          "clerks": [
+            "A",
+            "B"
+          ],
+          "cars": [
+            "A",
+            "B",
+            "C"
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "clerks": {
+          "time": 1,
+          "queue": 0,
+          "clerks": {
+            "A": {
+              "state": "PERFORM_TASK",
+              "task": "tidy_counter",
+              "taskTarget": [
+                -9.2,
+                5.1
+              ],
+              "taskArea": "counter",
+              "animation": "Counter_Clean",
+              "remaining": 8.15,
+              "customer": null,
+              "interrupted": false,
+              "position": [
+                -9.2,
+                0,
+                5.1
+              ],
+              "yaw": 0,
+              "forward": [
+                0,
+                1
+              ],
+              "speed": 0,
+              "pathLeft": 0,
+              "carry": false,
+              "boxVisible": false,
+              "tool": null,
+              "navOk": true,
+              "customersServed": 0
+            },
+            "B": {
+              "state": "WALK_TO_TARGET",
+              "task": "shelf_inspect",
+              "taskTarget": [
+                -8.75,
+                3.55
+              ],
+              "taskArea": "aisleFront",
+              "animation": "Walk_Normal",
+              "remaining": 6.66,
+              "customer": null,
+              "interrupted": false,
+              "position": [
+                1.97,
+                0,
+                -0.18
+              ],
+              "yaw": 5.374,
+              "forward": [
+                -0.79,
+                0.61
+              ],
+              "speed": 1.05,
+              "pathLeft": 2,
+              "carry": false,
+              "boxVisible": false,
+              "tool": null,
+              "navOk": true,
+              "customersServed": 0
+            }
+          },
+          "stats": {
+            "A": {
+              "tasksDone": 0,
+              "distance": 0,
+              "interruptions": 0
+            },
+            "B": {
+              "tasksDone": 0,
+              "distance": 0.6046653359999998,
+              "interruptions": 0
+            }
+          },
+          "taskCounts": {
+            "A": {},
+            "B": {}
+          },
+          "history": {
+            "A": [],
+            "B": []
+          },
+          "events": {
+            "enter": 0,
+            "checkout": 0,
+            "help": 0,
+            "queue": 0
+          },
+          "customersServed": 0
+        },
+        "carA": {
+          "tag": "A",
+          "phase": "APPROACHING",
+          "visible": true,
+          "position": [
+            -34.03,
+            -0.18,
+            23.4
+          ],
+          "yaw": -1.5708,
+          "v": 8.2,
+          "vForward": 8.2,
+          "signedDist": 6.97,
+          "steer": 0,
+          "wheelSpinTotal": -93.1238,
+          "wheels": [
+            {
+              "name": "carA_wheelFL",
+              "radius": 0.2994,
+              "angle": -23.2809,
+              "deg": -1333.9
+            },
+            {
+              "name": "carA_wheelFR",
+              "radius": 0.2994,
+              "angle": -23.2809,
+              "deg": -1333.9
+            },
+            {
+              "name": "carA_wheelRL",
+              "radius": 0.2994,
+              "angle": -23.2809,
+              "deg": -1333.9
+            },
+            {
+              "name": "carA_wheelRR",
+              "radius": 0.2994,
+              "angle": -23.2809,
+              "deg": -1333.9
+            }
+          ],
+          "wheelbase": 2.42,
+          "track": 1.44,
+          "reverseLamp": false,
+          "reverseMaterials": 2,
+          "reverseEmissive": 0,
+          "brake": false,
+          "turn": "none",
+          "active": true
+        },
+        "panelCollapsed": false,
+        "controls": 41,
+        "canvas": {
+          "width": 1440,
+          "height": 900,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "right": 1440,
+            "bottom": 900,
+            "left": 0
+          }
+        },
+        "probe": {
+          "draws": 24901,
+          "mainFrames": 13,
+          "cappedSeconds": 1.0167
+        }
+      }
+    }
+  ],
+  "pageErrors": [
+    {
+      "url": "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/index.html",
+      "text": "Cannot read properties of null (reading 'classList')"
+    }
+  ],
+  "console": [],
+  "httpErrors": [],
+  "failedRequests": [],
+  "requests": [
+    "http://127.0.0.1:4193/experiments/lawson/index.html",
+    "http://127.0.0.1:4193/experiments/lawson/css/main.css",
+    "http://127.0.0.1:4193/experiments/lawson/css/controls.css",
+    "http://127.0.0.1:4193/experiments/lawson/css/responsive.css",
+    "http://127.0.0.1:4193/experiments/lawson/js/main.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/three.module.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/core/SceneManager.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/core/Renderer.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/core/AssetManager.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/core/AnimationController.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/core/UpdateLoop.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/LightingSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/DayNightSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/DoorSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/TrafficSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/ClerkSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/CameraSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/InteractionSystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/QualitySystem.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/ui/UIState.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/ui/UIController.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/config/lightConfig.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/config/sceneConfig.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/config/assetManifest.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/NavGrid.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/TaskManager.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/systems/clerk/clerkConfig.js",
+    "http://127.0.0.1:4193/experiments/lawson/js/config/vehiclePaths.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+    "http://127.0.0.1:4193/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+    "http://127.0.0.1:4193/experiments/lawson/assets/models/lawson_scene.glb",
+    "http://127.0.0.1:4193/experiments/lawson/assets/models/car_A.glb",
+    "http://127.0.0.1:4193/experiments/lawson/assets/models/car_B.glb",
+    "http://127.0.0.1:4193/experiments/lawson/assets/models/car_C.glb",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/index.html",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/css/main.css",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/css/controls.css",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/css/responsive.css",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/main.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/three.module.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/SceneManager.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/Renderer.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/AssetManager.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/AnimationController.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/core/UpdateLoop.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/LightingSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/DayNightSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/DoorSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/TrafficSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/ClerkSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/CameraSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/InteractionSystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/QualitySystem.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/ui/UIState.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/ui/UIController.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/lightConfig.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/sceneConfig.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/assetManifest.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/config/vehiclePaths.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/NavGrid.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/TaskManager.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/js/systems/clerk/clerkConfig.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/lawson_scene.glb",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/car_A.glb",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/car_B.glb",
+    "http://127.0.0.1:4193/Stylized-Dreamy-Flower-Bed-Sky-Island/experiments/lawson/assets/models/car_C.glb"
+  ],
+  "clockModified": false,
+  "runtimeFilesModified": false,
+  "environment": {
+    "backend": "Mesa llvmpipe software GL",
+    "DISPLAY": ":109",
+    "LP_NUM_THREADS": "3",
+    "hardwareFPSProof": false
+  },
+  "browserVersion": "155.0.8059.79",
+  "functionalQualitySetup": {
+    "originalButtonChoices": [
+      {
+        "before": "high",
+        "after": "medium"
+      },
+      {
+        "before": "medium",
+        "after": "low"
+      }
+    ],
+    "defaultCapturedBeforeSelection": true,
+    "viewport": [
+      960,
+      540
+    ]
+  },
+  "lightObservation": {
+    "observation": "setGroupEnabled calls original exactly once with original arguments; only read light/material values",
+    "publicAPICount": 41
+  },
+  "externalRequests": [],
+  "passed": false
+}

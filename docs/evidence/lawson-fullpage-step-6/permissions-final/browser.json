@@ -1,0 +1,59 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "permissions denied fullscreen remains usable",
+      "passed": true,
+      "evidence": {
+        "realPermissionsPolicyDenial": true,
+        "capabilityNoticeShown": true,
+        "nativeOriginalRequestRejected": true,
+        "otherSceneFunctionsRemainReady": true,
+        "hostReturnWorks": true
+      }
+    },
+    {
+      "name": "permissions pointer lock without activation",
+      "passed": true,
+      "evidence": {
+        "delayedSyntheticOriginalButtonExplicitlyLabelled": true,
+        "actualBrowserNoActivationDenial": true,
+        "hostNotLocked": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "permissions denied fullscreen remains usable",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "permissions denied fullscreen remains usable",
+      "kind": "console",
+      "level": "error",
+      "text": "Permissions policy violation: fullscreen is not allowed in this document."
+    },
+    {
+      "case": "permissions denied fullscreen remains usable",
+      "kind": "pageerror",
+      "text": "Disallowed by permissions policy"
+    },
+    {
+      "case": "permissions pointer lock without activation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "permissions pointer lock without activation",
+      "kind": "pageerror",
+      "text": "A user gesture is required to request Pointer Lock."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

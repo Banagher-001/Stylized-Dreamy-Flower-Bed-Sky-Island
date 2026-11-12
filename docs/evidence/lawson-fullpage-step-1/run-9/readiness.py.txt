@@ -1,0 +1,150 @@
+"""Original refresh/retry/visibility boundaries and unforced phone default layout."""
+import argparse, time
+from common import Run, INSTALL, PROBE, BASE
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--run', default='run-9')
+args = parser.parse_args()
+r = Run('readiness', args.run)
+p = r.page
+try:
+    r.case('READY.load', '原页就绪信号与默认状态', r.load)
+
+    def refresh_defaults():
+        p.locator('[data-preset=night]').click()
+        p.wait_for_function('Math.abs(__LAWSON__.api.getStats().timeOfDay-22)<.02',timeout=45000,polling=100)
+        p.locator('[data-cam=top]').click()
+        p.locator('.toggle[data-group=LawsonSign]').click()
+        p.locator('#panel-collapse').click()
+        before = r.state()
+        assert abs(before['state']['timeOfDay']-22)<.02 and before['panelCollapsed']
+        p.reload(wait_until='domcontentloaded')
+        p.wait_for_function('__LAWSON__?.ready===true', timeout=90000, polling=100)
+        p.wait_for_function('__LAWSON__.api.getState().traffic.running', timeout=15000, polling=100)
+        p.evaluate(INSTALL)
+        after = r.state()
+        assert after['state']['timeOfDay'] == 18.5 and not after['panelCollapsed']
+        assert all(after['state']['lights'].values()) and len(after['state']['lights']) == 8
+        assert max(abs(a-b) for a,b in zip(after['camera'], [20.5,5.2,28.5])) < .03
+        assert after['state']['traffic']['running']
+        r.picture('refresh-defaults-original')
+        return {'beforeReload':before,'afterReload':after,'boundary':'Original page reload creates its default state; no persisted previous visit state.'}
+    r.case('READY.refresh-defaults', '修改后刷新恢复原默认状态', refresh_defaults)
+
+    def background_return():
+        r.low()
+        before = r.state()
+        other = r.context.new_page()
+        other.set_content('<title>Baseline visibility observation</title>')
+        other.bring_to_front()
+        p.wait_for_function('document.hidden', timeout=15000, polling=100)
+        hidden = p.evaluate('({hidden:document.hidden,state:__LAWSON__.api.getState(),ready:__LAWSON__.ready,error:__LAWSON__.error})')
+        other.wait_for_timeout(1000)
+        p.bring_to_front()
+        p.wait_for_function('!document.hidden', timeout=15000, polling=100)
+        other.close()
+        r.observed(.3)
+        after = r.state()
+        assert p.evaluate('__LAWSON__.ready && !__LAWSON__.error')
+        assert before['camera'] == after['camera']
+        return {'before':before,'whileHidden':hidden,'afterReturn':after,
+                'limitation':'Playwright Chromium launch changes background throttling flags; this verifies visibility and return, not real-browser background FPS or power use.',
+                'sourceBehavior':'Original visibilitychange resets UpdateLoop.last; it does not stop or dispose the renderer.'}
+    r.case('READY.background-return', '切换标签后返回与原页生命周期边界', background_return)
+
+    def car_a_button():
+        p.evaluate('''async()=>{
+          const {TrafficSystem}=await import('./js/systems/TrafficSystem.js');
+          const raw=TrafficSystem.prototype.demo,a=__fullpageAudit;
+          a.carDemos=[];
+          TrafficSystem.prototype.demo=function(...args){
+            const value=raw.apply(this,args);a.carDemos.push({args,after:this.getVehicleState(args[0])});return value;
+          };
+        }''')
+        before=p.evaluate('__LAWSON__.api.getVehicleState("A")')
+        p.locator('[data-car=A]').click()
+        calls=p.evaluate('__fullpageAudit.carDemos')
+        assert len(calls)==1 and calls[0]['args']==['A']
+        p.wait_for_function('__LAWSON__.api.getVehicleState("A").active && __LAWSON__.api.getVehicleState("A").signedDist>.1',timeout=45000,polling=100)
+        after=p.evaluate('__LAWSON__.api.getVehicleState("A")')
+        assert after['visible'] and abs(after['wheelSpinTotal'])>.1
+        return {'beforeOriginalButton':before,'originalDemoInvocation':calls,'movingAfterClick':after,'forcedDemoAPIUsedByTest':False}
+    r.case('READY.car-A-button','原车A按钮调用与实际行驶反馈',car_a_button)
+
+    def clerk_buttons():
+        p.evaluate('''async()=>{
+          const {ClerkSystem}=await import('./js/systems/ClerkSystem.js');
+          const raw=ClerkSystem.prototype.trigger,a=__fullpageAudit;
+          a.clerkTriggers=[];
+          ClerkSystem.prototype.trigger=function(...args){
+            const before=__LAWSON__.api.getClerkStates();
+            const value=raw.apply(this,args);
+            a.clerkTriggers.push({args,before,after:__LAWSON__.api.getClerkStates()});return value;
+          };
+        }''')
+        rows=[]
+        for tag in ['A','B']:
+            before=r.state()
+            count=p.evaluate('__fullpageAudit.clerkTriggers.length')
+            p.locator(f'[data-clerk={tag}]').click()
+            r.observed()
+            after=r.state()
+            calls=p.evaluate('(n)=>__fullpageAudit.clerkTriggers.slice(n)',count)
+            assert any(row['args'][0]==tag for row in calls)
+            assert after['camera']!=before['camera']
+            rows.append({'tag':tag,'before':before,'after':after,'originalTriggerCalls':calls})
+        return {'originalButtonClicks':rows,'observation':'Original trigger invoked exactly once per intercepted invocation with original arguments; no forced task API.'}
+    r.case('READY.clerk-buttons','两位店员按钮的镜头反馈与原触发调用',clerk_buttons)
+    p.close()
+
+    def retry_model_failure():
+        c = r.browser.new_context(viewport={'width':960,'height':540})
+        c.add_init_script(PROBE)
+        page = c.new_page()
+        r.watch(page)
+        blocked = []
+        def fail_once(route):
+            blocked.append(route.request.url)
+            route.abort('failed')
+        c.route('**/assets/models/lawson_scene.glb', fail_once, times=1)
+        page.goto(BASE+'/index.html', wait_until='domcontentloaded')
+        page.wait_for_function('__LAWSON__?.error && document.body.dataset.ready==="error"', timeout=90000, polling=100)
+        assert page.locator('#fatal').is_visible()
+        failure = page.evaluate('({ready:__LAWSON__.ready,error:__LAWSON__.error,bodyReady:document.body.dataset.ready,message:document.querySelector("#fatal-msg").innerText})')
+        assert not failure['ready'] and blocked
+        r.picture('model-failure-original-retry', page)
+        with page.expect_navigation(wait_until='domcontentloaded', timeout=30000):
+            page.locator('#fatal-retry').click()
+        page.wait_for_function('__LAWSON__?.ready===true', timeout=90000, polling=100)
+        assert not page.locator('#fatal').is_visible() and page.evaluate('__LAWSON__.error') is None
+        page.evaluate(INSTALL)
+        recovered = r.state(page)
+        r.picture('original-retry-recovered', page)
+        c.close()
+        return {'deliberateFault':blocked,'failure':failure,'recoveredAfterOriginalRetryClick':recovered,
+                'expectedConsoleErrors':'The deliberately aborted model request and original fatal error are expected only in this case.',
+                'clockOrRuntimeFilesChanged':False}
+    r.case('READY.model-retry', '模型失败、错误信号与原重试按钮恢复', retry_model_failure)
+
+    def phone_defaults():
+        c = r.browser.new_context(viewport={'width':390,'height':844},device_scale_factor=2,is_mobile=True,has_touch=True)
+        c.add_init_script(PROBE)
+        page = c.new_page()
+        r.watch(page)
+        loaded = r.load(page)
+        portrait = r.state(page)
+        layout = page.locator('.brand,.topbar,#panel').evaluate_all('els=>els.map(e=>({selector:e.id||e.className,rect:e.getBoundingClientRect().toJSON()}))')
+        small = page.locator('button,input,.toggle').evaluate_all('els=>els.filter(e=>{const r=e.getBoundingClientRect();return r.width&&r.height&&(r.width<44||r.height<44)}).map(e=>({id:e.id,data:{...e.dataset},width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height}))')
+        r.picture('default-phone-390x844-dpr2',page)
+        page.set_viewport_size({'width':844,'height':390})
+        page.wait_for_function('__LAWSON__.api.getStats().renderSize[0]===844', timeout=30000, polling=100)
+        landscape = r.state(page)
+        r.picture('default-phone-landscape-844x390-dpr2',page)
+        c.close()
+        return {'_status':'原页已有问题','load':loaded,'portrait':portrait,'landscape':landscape,'portraitLayout':layout,
+                'visibleControlsBelow44CSSPixels':small,'qualityForcedByTest':False,
+                'scope':'Chromium mobile/touch emulation only; no real iOS/Android or hardware GPU claim.',
+                'conclusion':'Original phone layout has a large expanded control panel and small targets; keyboard-only walk controls remain a source limitation. Preserve original UI in this step.'}
+    r.case('VIEWPORT.phone-defaults', '原默认手机竖屏、横屏与触控区域', phone_defaults)
+finally:
+    r.finish()

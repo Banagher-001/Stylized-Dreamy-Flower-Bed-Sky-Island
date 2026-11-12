@@ -1,0 +1,206 @@
+"""Real built host checks. No iframe is created in step 4."""
+from pathlib import Path
+import argparse,json,shutil,time,traceback
+from playwright.sync_api import sync_playwright
+
+ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'docs/evidence/lawson-fullpage-step-4'
+parser=argparse.ArgumentParser();parser.add_argument('--run',default='run-1');parser.add_argument('--only-prefix',default='');args=parser.parse_args()
+folder=OUT/args.run;folder.mkdir(exist_ok=False);shutil.copyfile(__file__,folder/'verify_host.py.txt')
+report={'scope':'Actual built portfolio host; original iframe deferred to step5','checks':[],'pageErrors':[],'httpErrors':[],'failedRequests':[],'requests':[]}
+AUDIT='''(()=>{const a=window.__hostAudit={draws:0};for(const cls of [window.WebGLRenderingContext,window.WebGL2RenderingContext])if(cls)for(const key of ['drawArrays','drawElements','drawArraysInstanced','drawElementsInstanced']){const raw=cls.prototype[key];if(raw)cls.prototype[key]=function(...args){a.draws++;return raw.apply(this,args)}}})()'''
+def save():(folder/'host.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+def case(name,fn):
+    if args.only_prefix and not name.startswith(args.only_prefix):return
+    try:report['checks'].append({'name':name,'passed':True,'evidence':fn()});print('PASS '+name,flush=True)
+    except Exception as e:report['checks'].append({'name':name,'passed':False,'error':str(e),'traceback':traceback.format_exc()});print('FAIL '+name+': '+str(e),flush=True)
+    save()
+
+with sync_playwright()as pw:
+    browser=pw.chromium.launch(executable_path='/usr/bin/chromium',headless=False,args=['--no-sandbox','--use-gl=angle','--use-angle=gl','--ignore-gpu-blocklist']);report['browser']=browser.version
+    def setup(w=1440,h=900,prefix='/',fault=None,reduced=False):
+        c=browser.new_context(viewport={'width':w,'height':h},device_scale_factor=1,reduced_motion='reduce'if reduced else 'no-preference');c.add_init_script(AUDIT)
+        if fault=='no-gl':c.add_init_script("(()=>{const raw=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return ['webgl','webgl2','experimental-webgl'].includes(type)?null:raw.call(this,type,...args)}})()")
+        if fault=='cover':c.route('**/assets/lawson-cover-*.png',lambda route:route.abort('failed'))
+        p=c.new_page();p.set_default_timeout(15000)
+        p.on('pageerror',lambda e:report['pageErrors'].append({'fault':fault,'text':str(e)}))
+        p.on('response',lambda r:report['httpErrors'].append({'fault':fault,'url':r.url,'status':r.status})if r.status>=400 else None)
+        p.on('requestfailed',lambda r:report['failedRequests'].append({'fault':fault,'url':r.url,'failure':r.failure}))
+        p.on('request',lambda r:report['requests'].append({'fault':fault,'url':r.url}))
+        p.goto('http://127.0.0.1:4194'+prefix,wait_until='domcontentloaded');p.wait_for_function('document.querySelector("main")?.dataset.layoutReady==="true"',timeout=60000,polling=100)
+        return c,p
+    def c2(p):
+        if p.locator('main').get_attribute('data-reading-mode')=='stable':p.locator('article[data-experiment-station=C2]').scroll_into_view_if_needed()
+        else:
+            p.evaluate('scrollTo({top:(document.documentElement.scrollHeight-innerHeight)*10.05/12.3,behavior:"instant"})')
+            p.wait_for_function('Math.abs(Number(document.querySelector("#tour-host").dataset.displayH)-10.05)<.005',timeout=20000,polling=100)
+        p.wait_for_function('!document.querySelector("[data-project-tab=archive]").disabled',timeout=15000,polling=100)
+    def open_view(p,tab='live'):
+        target=p.locator('[data-project-tab='+tab+']');target.scroll_into_view_if_needed();before=p.evaluate('({y:scrollY,h:document.querySelector("#tour-host").dataset.displayH,mode:document.querySelector("main").dataset.readingMode})');target.click();p.wait_for_function('document.querySelector(".tour-project-dialog").open');p.wait_for_timeout(220);return before
+    def close_view(p):p.locator('.tour-project-close').click();p.wait_for_function('!document.querySelector(".tour-project-dialog").open');p.wait_for_timeout(200)
+    def draws(p,seconds=1):
+        start=p.evaluate('__hostAudit.draws');p.wait_for_timeout(seconds*1000);return p.evaluate('__hostAudit.draws')-start
+    def host_state(p):return p.locator('#tour-host').evaluate('e=>({...e.dataset})')
+    def screenshot(p,name):p.screenshot(path=str(folder/(name+'.png')))
+    def bounds(p):
+        header=p.locator('.tour-project-header').bounding_box();live=p.locator('.tour-project-embedded-live').bounding_box();w=p.viewport_size['width'];h=p.viewport_size['height']
+        assert abs(live['width']-w)<1 and abs(live['height']-(h-header['height']))<1,(header,live)
+        assert abs(live['y']-header['height'])<1
+        rows=p.locator('.tour-project-header button,.tour-project-header a').evaluate_all('els=>els.filter(e=>e.getClientRects().length).map(e=>({rect:e.getBoundingClientRect().toJSON(),text:e.innerText}))')
+        for row in rows:
+            r=row['rect'];assert r['width']>=43.9 and r['height']>=43.9,row
+            assert r['left']>=-.5 and r['right']<=w+.5 and r['bottom']<=h+.5,row
+        return {'header':header,'live':live,'targets':rows}
+
+    def lifecycle():
+        c,p=setup()
+        try:
+            c2(p);assert p.locator('.experiment-reading').get_attribute('data-project-id')=='lawson';screenshot(p,'desktop-C2')
+            before=open_view(p);assert p.locator('.tour-project-dialog').get_attribute('data-project-id')=='lawson';assert p.locator('iframe').count()==0
+            geometry=bounds(p);frozen=draws(p);assert frozen==0
+            screenshot(p,'desktop-lawson-host');p.locator('#project-tab-archive').click();assert p.locator('#tour-project-archive').get_attribute('data-project-id')=='lawson';assert draws(p)==0;screenshot(p,'desktop-lawson-archive')
+            p.locator('.tour-project-close').focus();p.keyboard.press('Escape');p.wait_for_timeout(250)
+            assert not p.locator('.tour-project-dialog').evaluate('e=>e.open');assert abs(p.evaluate('scrollY')-before['y'])<=3
+            assert p.evaluate('document.activeElement.dataset.projectTab')=='live'
+            p.locator('[data-project-select=lawson]').focus();p.keyboard.press('ArrowRight');assert p.locator('.experiment-reading').get_attribute('data-project-id')=='courtyard'
+            open_view(p,'archive');assert p.locator('#tour-project-archive').get_attribute('data-project-id')=='courtyard';assert p.locator('.tour-project-frame-pair img').count()==2
+            p.locator('.tour-project-play').click();p.wait_for_function('document.querySelector(".tour-project-video-viewport video")?.currentTime>.1',timeout=20000,polling=100)
+            playing=p.locator('video').evaluate('v=>({paused:v.paused,time:v.currentTime,duration:v.duration})');assert not playing['paused']
+            p.locator('#project-tab-live').click();assert p.locator('.tour-project-video-viewport video').count()==0;assert draws(p,.4)>0
+            for mode in ['native','pixel']:
+                p.locator('[data-project-mode='+mode+']').click();p.wait_for_function('m=>document.querySelector("#tour-host canvas").dataset.renderMode===m',arg=mode)
+            p.locator('.tour-project-motion').click();p.wait_for_timeout(300);assert host_state(p)['motionState']=='paused';assert draws(p)==0
+            close_view(p);assert host_state(p)['motionState']=='paused';assert p.locator('.experiment-reading').get_attribute('data-project-id')=='courtyard'
+            p.locator('[data-project-select=lawson]').click()
+            if p.locator('main').get_attribute('data-reading-mode')!='stable':p.locator('#tour-layout-toggle').click()
+            p.locator('[data-flow-live]').click();assert p.locator('.tour-project-dialog').get_attribute('data-project-id')=='courtyard';close_view(p)
+            c2(p);assert p.locator('.experiment-reading').get_attribute('data-project-id')=='lawson'
+            for i in range(5):
+                p.locator('[data-project-select='+('lawson'if i%2==0 else'courtyard')+']').click();open_view(p,'live'if i%2==0 else'archive');assert p.locator('dialog[open]').count()==1;close_view(p);assert p.locator('dialog[open]').count()==0 and p.locator('video').count()==0
+            assert p.locator('iframe').count()==0
+            return {'geometry':geometry,'webGLDrawsWhileLawsonCovered':frozen,'courtyardVideoPlayed':playing,'originalModesAndMotion':True,'pausedStateRestored':True,'waterEntryPinnedToCourtyard':True,'repeatedCycles':5,'scrollAndFocusRestored':True}
+        finally:c.close()
+    case('main lifecycle and original courtyard',lifecycle)
+
+    def guide_resize():
+        c,p=setup()
+        try:
+            c2(p)
+            p.locator('[data-project-select=lawson]').focus()
+            # Keep focus in the tablist to exercise its key handler, which the
+            # global guide keyboard handler deliberately excludes.
+            p.locator('#tour-guide').evaluate('e=>e.click()')
+            assert p.locator('#tour-guide').get_attribute('aria-pressed')=='true'
+            p.keyboard.press('ArrowRight')
+            assert p.locator('.experiment-reading').get_attribute('data-project-id')=='courtyard'
+            assert p.locator('#tour-guide').get_attribute('aria-pressed')=='false'
+            p.locator('[data-project-select=lawson]').click();p.locator('#tour-guide').click()
+            assert p.locator('#tour-guide').get_attribute('aria-pressed')=='true'
+            open_view(p);assert p.locator('#tour-guide').get_attribute('aria-pressed')=='false'
+            assert draws(p)==0
+            p.set_viewport_size({'width':1366,'height':768});p.wait_for_timeout(350);assert draws(p)==0;g=bounds(p)
+            close_view(p);assert p.locator('#tour-guide').get_attribute('aria-pressed')=='false'
+            assert host_state(p)['motionState']=='playing'and draws(p,.4)>0
+            c2(p);open_view(p);p.set_viewport_size({'width':390,'height':844});p.wait_for_timeout(350);assert draws(p)==0
+            close_view(p);p.wait_for_function('document.querySelector("main").dataset.readingMode==="stable"')
+            r=p.locator('article[data-experiment-station=C2]').bounding_box()
+            assert r and r['y']<844 and r['y']+r['height']>0,r
+            assert p.locator('.experiment-reading').get_attribute('data-project-id')=='lawson'
+            assert p.locator('#tour-guide').get_attribute('aria-pressed')=='false'
+            screenshot(p,'resize-return-C2')
+            return {'tablistKeyStopsRunningGuide':True,'openStopsRunningGuide':True,'guideNotAutoResumed':True,'playingSettingRestored':True,'resizeCoveredDraws':0,'resizedGeometry':g,'resizeToStableReturnsToC2':r}
+        finally:c.close()
+    case('guide resize and playing restoration',guide_resize)
+
+    def stale_cover():
+        c,p=setup()
+        try:
+            c2(p);p.wait_for_function('document.querySelector(".experiment-reading").dataset.coverState==="ready"')
+            p.evaluate('window.__retiredCover=document.querySelector(".experiment-cover img")')
+            p.locator('[data-project-select=courtyard]').click();p.wait_for_function('document.querySelector(".experiment-reading").dataset.coverState==="ready"')
+            p.evaluate('__retiredCover.dispatchEvent(new Event("error"));__retiredCover.dispatchEvent(new Event("load"))')
+            assert p.locator('.experiment-reading').get_attribute('data-cover-state')=='ready'
+            assert p.locator('#experiment-C2-title').inner_text()=='庭院习作'
+            p.locator('[data-project-select=courtyard]').focus();p.keyboard.press('Home')
+            assert p.locator('.experiment-reading').get_attribute('data-project-id')=='lawson'
+            p.keyboard.press('End');assert p.locator('.experiment-reading').get_attribute('data-project-id')=='courtyard'
+            return {'oldImageSyntheticErrorAndLoadIgnored':True,'HomeEndSelectionWorks':True,'note':'Old events deliberately injected on retired image; native loads also awaited.'}
+        finally:c.close()
+    case('late cover callback ownership',stale_cover)
+
+    def media_transfer():
+        c,p=setup()
+        try:
+            # Use the stable real page so both source entry nodes exist. The
+            # programmatic clicks deliberately force otherwise inert owners to
+            # overlap, exercising rapid lifecycle handover in both directions.
+            p.locator('#tour-layout-toggle').click();c2(p);open_view(p)
+            p.locator('.film-image-button').first.evaluate('e=>e.click()');p.wait_for_timeout(250)
+            assert p.locator('dialog[open]').count()==1 and p.locator('.film-dialog').evaluate('e=>e.open')
+            assert p.evaluate('document.activeElement.closest(".film-dialog")!==null')
+            p.locator('[data-project-tab=live]').evaluate('e=>e.click()');p.wait_for_timeout(250)
+            assert p.locator('dialog[open]').count()==1 and p.locator('.tour-project-dialog').evaluate('e=>e.open')
+            assert p.evaluate('document.activeElement.closest(".tour-project-dialog")!==null')
+            assert draws(p)==0
+            # Native Tab and Shift+Tab stay within the active dialog.
+            for key in ['Tab']*7+['Shift+Tab']*7:
+                p.keyboard.press(key);assert p.evaluate('document.activeElement===document.body||document.activeElement.closest(".tour-project-dialog")!==null')
+            p.locator('.tour-project-close').focus();p.keyboard.press('Escape');p.wait_for_timeout(250)
+            assert p.locator('dialog[open]').count()==0
+            assert p.evaluate('!document.documentElement.classList.contains("tour-project-open")&&!document.documentElement.classList.contains("tour-media-open")')
+            return {'forcedRapidHandoverBothDirections':True,'oneModalOwner':True,'newOwnerRetainsFocus':True,'nativeTabTraversal':14,'scrollLocksReleased':True,'note':'Synthetic source clicks force lifecycle overlap; Tab/Escape are native keyboard actions.'}
+        finally:c.close()
+    case('media mutual exclusion and keyboard',media_transfer)
+
+    def layout(w,h,large=False,reduced=False):
+        c,p=setup(w,h,reduced=reduced)
+        try:
+            c2(p);open_view(p)
+            if large:p.evaluate('document.documentElement.style.fontSize="32px"');p.wait_for_timeout(350)
+            g=bounds(p)
+            if not large:assert abs(g['header']['height']-(48 if w<=767 or h<=480 else 56))<1,g
+            assert draws(p,.3)==0
+            screenshot(p,f'host-{w}x{h}'+('-200'if large else''))
+            p.locator('#project-tab-archive').click();assert p.locator('#tour-project-archive').is_visible();screenshot(p,f'archive-{w}x{h}'+('-200'if large else''))
+            archive_y=p.locator('#tour-project-archive').evaluate('e=>{e.scrollTop=200;return e.scrollTop}')
+            p.locator('#project-tab-live').click();p.locator('#project-tab-archive').click()
+            assert abs(p.locator('#tour-project-archive').evaluate('e=>e.scrollTop')-archive_y)<2
+            close_view(p);assert p.evaluate('document.documentElement.scrollWidth<=innerWidth')
+            c2(p);assert p.locator('[data-project-tab=live]').is_enabled()
+            return {'viewport':[w,h],'largeText':large,'reduced':reduced,'geometry':g,'archiveScrollRestored':archive_y,'returnReadingMode':p.locator('main').get_attribute('data-reading-mode')}
+        finally:c.close()
+    for w,h in [(1920,1080),(1440,900),(1366,768),(768,1024),(390,844),(320,568),(844,390)]:case(f'layout {w}x{h}',lambda w=w,h=h:layout(w,h))
+    for w,h in [(390,844),(320,568)]:case(f'large text {w}x{h}',lambda w=w,h=h:layout(w,h,True))
+    case('reduced motion',lambda:layout(390,844,False,True))
+
+    def faults(kind):
+        c,p=setup(390,844,fault=kind)
+        try:
+            c2(p)
+            if kind=='cover':p.wait_for_function('document.querySelector(".experiment-reading").dataset.coverState==="error"',timeout=15000)
+            open_view(p);assert p.locator('.tour-project-dialog').get_attribute('data-project-id')=='lawson';assert p.locator('.tour-project-header [data-project-independent]').get_attribute('href').endswith('/experiments/lawson/index.html');close_view(p)
+            p.locator('[data-project-select=courtyard]').click();assert p.locator('[data-project-tab=archive]').is_enabled()
+            if kind=='no-gl':assert p.locator('[data-project-tab=live]').is_disabled()
+            open_view(p,'archive');assert p.locator('#tour-project-archive').get_attribute('data-project-id')=='courtyard';close_view(p)
+            return {'injectedFault':kind,'lawsonAndArchivesRemainAccessible':True,'gardenAvailabilityIndependent':True}
+        finally:c.close()
+    for kind in ['no-gl','cover']:case('fault '+kind,lambda kind=kind:faults(kind))
+
+    def independent(prefix):
+        c,p=setup(1366,768,prefix)
+        try:
+            c2(p);open_view(p);link=p.locator('.tour-project-header [data-project-independent]');url=link.get_attribute('href')
+            assert url=='http://127.0.0.1:4194'+prefix+'experiments/lawson/index.html',url
+            with c.expect_page()as opened:link.click()
+            other=opened.value;other.wait_for_function('window.__LAWSON__?.ready===true',timeout=90000,polling=100)
+            assert not other.locator('#fatal').is_visible()and other.evaluate('__LAWSON__.error')is None
+            assert other.evaluate('window.opener===null');other.close();assert draws(p,.3)==0
+            return {'url':url,'realOriginalPageReady':True,'openerNull':True}
+        finally:c.close()
+    for prefix in ['/','/Stylized-Dreamy-Flower-Bed-Sky-Island/']:case('independent '+prefix,lambda prefix=prefix:independent(prefix))
+    browser.close()
+
+report['unexpectedFailedRequests']=[r for r in report['failedRequests']if not(r['fault']=='cover'and'lawson-cover-'in r['url'])]
+report['mainRuntimeRequests']=[r for r in report['requests']if '/experiments/lawson/'in r['url']]
+report['passed']=all(c['passed']for c in report['checks'])and not any(report[k]for k in ['pageErrors','httpErrors','unexpectedFailedRequests','mainRuntimeRequests'])
+save();print(json.dumps({'passed':report['passed'],'checks':len(report['checks']),'pageErrors':report['pageErrors'],'httpErrors':report['httpErrors'],'mainRuntimeRequests':len(report['mainRuntimeRequests'])},ensure_ascii=False),flush=True)
+raise SystemExit(0 if report['passed']else 1)

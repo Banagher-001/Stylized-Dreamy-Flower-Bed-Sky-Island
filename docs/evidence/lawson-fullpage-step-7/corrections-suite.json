@@ -1,0 +1,51 @@
+{
+  "complete": true,
+  "allExitCodesZero": false,
+  "results": [
+    {
+      "name": "roof-final-standalone",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/supplement.py",
+        "--run",
+        "roof-final-standalone",
+        "--only",
+        "BUTTON.roof-actual"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 33.2912754379995,
+      "log": "roof-final-standalone.log"
+    },
+    {
+      "name": "roof-final-embedded",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/supplement.py",
+        "--run",
+        "roof-final-embedded",
+        "--only",
+        "BUTTON.roof-actual"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 38.453297217998625,
+      "log": "roof-final-embedded.log"
+    },
+    {
+      "name": "journey-final",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-fullpage-step-7/verify_journey.py",
+        "--run",
+        "journey-final",
+        "--only",
+        "journey"
+      ],
+      "exitCode": 1,
+      "wallSeconds": 47.27090171600139,
+      "log": "journey-final.log"
+    }
+  ]
+}

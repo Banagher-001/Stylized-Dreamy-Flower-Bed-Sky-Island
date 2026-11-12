@@ -1,0 +1,65 @@
+{
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "keyboard modal traversal and restoration",
+      "passed": true,
+      "evidence": {
+        "nativeTabTraversal": 53,
+        "nativeBrowserUIBoundary": [
+          {
+            "index": 31,
+            "within": false,
+            "body": true,
+            "focused": false,
+            "tag": "BODY"
+          }
+        ],
+        "noBackgroundControlFocused": true,
+        "initialReturnFocus": true,
+        "arrowTabUnloads": true,
+        "escapeRestoresTriggerAndScroll": true
+      }
+    },
+    {
+      "name": "safe area bounded padding simulation",
+      "passed": true,
+      "evidence": {
+        "CDPSafeAreaProtocolSupported": false,
+        "parentPaddingGeometryOnlyIfUnsupported": true,
+        "realEnvInsetsVerified": false,
+        "physicalNotchVerified": false,
+        "frame": {
+          "x": 20,
+          "y": 70,
+          "width": 350,
+          "height": 740
+        },
+        "toolbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 70
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "keyboard modal traversal and restoration",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "safe area bounded padding simulation",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "passed": true
+}

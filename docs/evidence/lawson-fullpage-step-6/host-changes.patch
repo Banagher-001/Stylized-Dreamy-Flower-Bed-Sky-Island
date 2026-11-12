@@ -1,0 +1,131 @@
+--- before/src/tour/createLawsonExperience.ts
++++ after/src/tour/createLawsonExperience.ts
+@@ -5,7 +5,7 @@
+   container: HTMLElement;
+   entry: string;
+   wanted(): boolean;
+-  status(state: EmbeddedProjectState): void;
++  status(state: EmbeddedProjectState, message?: string): void;
+ }
+ 
+ /** Own one original, unmodified document. Never reuse its API across reloads. */
+@@ -13,10 +13,12 @@
+   let disposed = false, generation = 0;
+   let frame: HTMLIFrameElement | undefined, layoutFrame: number | undefined, timer: number | undefined;
+   let listeners: AbortController | undefined;
++  let documentListeners: AbortController | undefined;
+   function unmount() {
+     generation++;
+     if (layoutFrame !== undefined) cancelAnimationFrame(layoutFrame);
+     layoutFrame = undefined;clearTimeout(timer);timer = undefined;listeners?.abort();listeners = undefined;
++    documentListeners?.abort();documentListeners = undefined;
+     const previous = frame;frame = undefined;
+     if (!previous) return;
+     try {
+@@ -41,28 +43,55 @@
+       listeners = new AbortController();
+       let currentDocument: Document | undefined, documentGeneration = 0;
+       let startedAt = performance.now(), state: EmbeddedProjectState = 'loading';
++      let observedCanvas: HTMLCanvasElement | undefined, graphicsLost = false, graphicsRestored = false;
++      let message: string | undefined;
+       const owns = () => !disposed && generation === token && frame === item && options.wanted();
+-      function publish(next: EmbeddedProjectState) { if (owns() && next !== state) { state = next;options.status(next); } }
++      function publish(next: EmbeddedProjectState, reason?: string) {
++        if (owns() && (next !== state || reason !== message)) { state = next;message = reason;options.status(next, reason); }
++      }
+       function observe() {
+         if (!owns()) return;
+         clearTimeout(timer);timer = undefined;
+         let next: EmbeddedProjectState = performance.now() - startedAt >= 12000 ? 'slow' : 'loading';
++        let reason: string | undefined;
+         try {
+           const doc = item.contentDocument;
+           if (doc && doc.URL !== 'about:blank') {
+             if (doc !== currentDocument) {
+               currentDocument = doc;documentGeneration++;startedAt = performance.now();next = 'loading';
++              documentListeners?.abort();documentListeners = new AbortController();
++              observedCanvas = undefined;graphicsLost = false;graphicsRestored = false;
+               publish('loading');
++            }
++            const canvas = doc.querySelector<HTMLCanvasElement>('canvas#viewport');
++            if (canvas && canvas !== observedCanvas) {
++              observedCanvas = canvas;
++              canvas.addEventListener('webglcontextlost', () => {
++                if (!owns() || currentDocument !== doc || observedCanvas !== canvas) return;
++                graphicsLost = true;graphicsRestored = false;observe();
++              }, { signal: documentListeners!.signal });
++              canvas.addEventListener('webglcontextrestored', () => {
++                if (!owns() || currentDocument !== doc || observedCanvas !== canvas) return;
++                // The original ready flag predates this GPU generation. A
++                // fresh document is the reliable recovery boundary available.
++                graphicsRestored = true;observe();
++              }, { signal: documentListeners!.signal });
+             }
+             const api = (item.contentWindow as LawsonWindow | null)?.__LAWSON__;
+             const fatal = doc.getElementById('fatal');
+             const style = fatal ? item.contentWindow!.getComputedStyle(fatal) : undefined;
+             const visibleFatal = !!fatal && !!fatal.getClientRects().length && style?.display !== 'none' && style?.visibility !== 'hidden' && style?.opacity !== '0';
+-            if (visibleFatal || api?.error || doc.body?.dataset.ready === 'error') next = 'error';
+-            else if (api?.ready === true) next = 'ready';
++            const wrongDocument = doc.readyState === 'complete' && (!doc.getElementById('app') || !canvas);
++            if (wrongDocument) { next = 'error';reason = '页面未能正常打开'; }
++            else if (visibleFatal || api?.error || doc.body?.dataset.ready === 'error') next = 'error';
++            else if (graphicsLost) { next = 'error';reason = graphicsRestored ? '图形连接已恢复，请重新载入场景' : '图形连接已中断'; }
++            else if (api?.ready === true) {
++              next = 'ready';
++              if (doc.fullscreenEnabled === false) reason = '此浏览器未开放全屏，仍可在当前窗口操作场景';
++            }
+           }
+         } catch { /* No trustworthy signal yet: retain loading/slow and exits. */ }
+-        publish(next);
++        publish(next, reason);
+         const docToken = documentGeneration;
+         const scheduled = window.setTimeout(() => {
+           if (!owns() || timer !== scheduled || docToken !== documentGeneration) return;
+@@ -71,6 +100,8 @@
+         timer = scheduled;
+       }
+       item.addEventListener('load', observe, { signal: listeners.signal });
++      document.addEventListener('visibilitychange', () => { if (!document.hidden) observe(); }, { signal: listeners.signal });
++      window.addEventListener('pageshow', observe, { signal: listeners.signal });
+       item.src = options.entry;options.container.append(item);observe();
+     });
+   }
+--- before/src/tour/createProjectViewer.ts
++++ after/src/tour/createProjectViewer.ts
+@@ -34,18 +34,20 @@
+   let video: HTMLVideoElement | undefined, loadListeners: AbortController | undefined, loadTimer: number | undefined;
+   let archiveListeners: AbortController | undefined;
+   let generation = 0, archiveScroll = 0;
++  let embeddedMessage: string | undefined;
+   let viewport: HTMLElement | undefined, mediaStatus: HTMLElement | undefined, retry: HTMLButtonElement | undefined;
+   const archiveScroller = () => getComputedStyle(archive).overflowY === 'visible' ? shell : archive;
+   const active = (): ActiveProject => ({ id: projectId, tab: selected });
+   function refreshEmbeddedFeedback() {
+     const state = dialog.dataset.embeddedState;
+-    const show = engaged && projectId === 'lawson' && selected === 'live' && (state === 'slow' || state === 'error');
+-    feedback.hidden = !show;embeddedRetry.hidden = !show;
+-    feedback.textContent = state === 'error' ? '暂时无法完成载入，可在原页面重试，也可重新载入或独立打开。' : '载入时间较长，可继续等待、重新载入或独立打开。';
++    const activeLive = engaged && projectId === 'lawson' && selected === 'live';
++    const retryable = state === 'slow' || state === 'error', capability = state === 'ready' && !!embeddedMessage;
++    feedback.hidden = !(activeLive && (retryable || capability));embeddedRetry.hidden = !(activeLive && retryable);
++    feedback.textContent = capability ? embeddedMessage! : state === 'error' ? `${embeddedMessage ?? '暂时无法完成载入'}，可重新载入或独立打开。` : '载入时间较长，可继续等待、重新载入或独立打开。';
+   }
+   function setEmbeddedStatus(state: EmbeddedProjectState, message?: string) {
+     if (!engaged || projectId !== 'lawson') return;
+-    dialog.dataset.embeddedState = state;prepared.hidden = state !== 'prepared';
++    dialog.dataset.embeddedState = state;prepared.hidden = state !== 'prepared';embeddedMessage = message;
+     dialog.querySelector<HTMLElement>('.tour-project-embed-status')!.textContent = message ?? ({ prepared: '独立打开可体验', loading: '正在载入', slow: '载入较慢', error: '暂未就绪', ready: '' }[state]);
+     embeddedMount.setAttribute('aria-busy', String(state === 'loading' || state === 'slow'));
+     refreshEmbeddedFeedback();
+--- before/src/tour/startTourPrototype.ts
++++ after/src/tour/startTourPrototype.ts
+@@ -235,7 +235,7 @@
+   container: projectViewer.embeddedMount,
+   entry: resolveProjectEntry('lawson')!,
+   wanted: () => !disposed && activeProject()?.id === 'lawson' && activeProject()?.tab === 'live',
+-  status: state => projectViewer.setEmbeddedStatus(state),
++  status: (state, message) => projectViewer.setEmbeddedStatus(state, message),
+ });
+ 
+ function experiencePose() {

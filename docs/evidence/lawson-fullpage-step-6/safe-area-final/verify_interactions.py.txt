@@ -1,0 +1,97 @@
+import subprocess
+from playwright.sync_api import sync_playwright
+from harness import Harness,arguments
+
+args=arguments()
+def keys(*sequence):subprocess.run(['/workspace/.cache/browser-deps/root/usr/bin/xdotool','key','--clearmodifiers',*sequence],check=True)
+with sync_playwright()as pw:
+    h=Harness(pw,args)
+    def touch():
+        c,p=h.setup(390,844,has_touch=True,is_mobile=True);c.add_init_script("addEventListener('touchstart',e=>{window.__trustedTouches=(window.__trustedTouches||[]).concat(e.isTrusted)},{passive:true})")
+        h.c2(p);before=h.open(p);f=h.ready(p);session=c.new_cdp_session(p)
+        def send(kind,points):session.send('Input.dispatchTouchEvent',{'type':kind,'touchPoints':[{'id':i,'x':x,'y':y}for i,(x,y)in enumerate(points)]})
+        start=f.evaluate('__LAWSON__.debugDoor().cam');send('touchStart',[(60,450)])
+        for x in [75,90,110,130]:send('touchMove',[(x,465)]);p.wait_for_timeout(60)
+        send('touchEnd',[]);p.wait_for_timeout(700);rotated=f.evaluate('__LAWSON__.debugDoor().cam');assert rotated!=start
+        send('touchStart',[(60,450),(130,450)])
+        for delta in [5,10,15,20]:send('touchMove',[(60-delta,450),(130+delta,450)]);p.wait_for_timeout(70)
+        send('touchEnd',[]);p.wait_for_timeout(700);zoomed=f.evaluate('__LAWSON__.debugDoor().cam');assert zoomed!=rotated
+        panel_before=f.locator('#panel').evaluate('e=>e.scrollTop');send('touchStart',[(300,640)])
+        for y in [600,550,500,450,400]:send('touchMove',[(300,y)]);p.wait_for_timeout(70)
+        send('touchEnd',[]);p.wait_for_timeout(400);panel_after=f.locator('#panel').evaluate('e=>e.scrollTop');assert panel_after>panel_before
+        f.locator('[data-preset=night]').tap();f.wait_for_function('__LAWSON__.api.getState().timeOfDay>21',timeout=15000)
+        assert abs(p.evaluate('scrollY')-before['y'])<3
+        assert f.evaluate('__trustedTouches.length>0&&__trustedTouches.every(Boolean)')
+        p.locator('.tour-project-close').tap();p.wait_for_timeout(300);assert p.locator('iframe').count()==0
+        return {'browserTouchInputTrusted':True,'singleFingerRotated':True,'twoFingersZoomed':True,'panelScroll':[panel_before,panel_after],'nativePresetTapWorked':True,'parentReadingUnchanged':True,'physicalDevice':False}
+    h.check('touch gestures and panel isolation',touch)
+    def focus():
+        c,p=h.setup();h.c2(p);before=h.open(p);f=h.ready(p)
+        assert p.evaluate('document.activeElement.classList.contains("tour-project-close")')
+        browser_ui=[]
+        for i,key in enumerate(['Tab']*45+['Shift+Tab']*8):
+            p.keyboard.press(key)
+            location=p.evaluate('({within:document.querySelector(".tour-project-dialog").contains(document.activeElement),body:document.activeElement===document.body,focused:document.hasFocus(),tag:document.activeElement.tagName})')
+            if not location['within']:
+                assert location['body']and not location['focused'],location
+                browser_ui.append({'index':i,**location})
+        p.locator('#project-tab-live').focus();p.keyboard.press('ArrowRight');assert p.locator('#tour-project-archive').is_visible()and p.locator('iframe').count()==0
+        p.locator('.tour-project-close').focus();p.keyboard.press('Escape');p.wait_for_timeout(250)
+        assert p.evaluate('document.activeElement.dataset.projectTab')=='live'and abs(p.evaluate('scrollY')-before['y'])<3
+        return {'nativeTabTraversal':53,'nativeBrowserUIBoundary':browser_ui,'noBackgroundControlFocused':True,'initialReturnFocus':True,'arrowTabUnloads':True,'escapeRestoresTriggerAndScroll':True}
+    h.check('keyboard modal traversal and restoration',focus)
+    def stress():
+        c,p=h.setup();h.c2(p)
+        for i in range(10):
+            h.open(p);f=h.ready(p);p.evaluate('window.__oldDraws=document.querySelector("iframe").contentWindow.__audit')
+            if i%2==0:p.locator('#project-tab-archive').click();assert p.locator('iframe').count()==0
+            h.close(p);n=p.evaluate('__oldDraws.draws');p.wait_for_timeout(200);assert p.evaluate('__oldDraws.draws')==n
+            assert p.locator('dialog[open]').count()==0
+        for _ in range(20):
+            p.locator('[data-project-tab=live]').evaluate('e=>{e.click();document.querySelector(".tour-project-close").click()}')
+            assert p.locator('iframe').count()==0 and p.locator('dialog[open]').count()==0
+        assert p.evaluate('!document.documentElement.classList.contains("tour-project-open")')
+        return {'fullyLoadedCycles':10,'sameTaskCancelledCycles':20,'retiredDrawCountersFrozen':True,'noOpenModalOrFrameOrScrollLock':True}
+    h.check('stress ten full and twenty cancelled',stress)
+    def handover():
+        c,p=h.setup();h.c2(p)
+        if p.locator('main').get_attribute('data-reading-mode')!='stable':p.locator('#tour-layout-toggle').click()
+        h.c2(p);before=h.open(p);h.ready(p)
+        p.locator('.film-image-button').first.evaluate('e=>e.click()');p.wait_for_timeout(300)
+        assert p.locator('iframe').count()==0 and p.locator('dialog[open]').count()==1 and p.locator('.film-dialog').evaluate('e=>e.open')
+        assert p.evaluate('document.querySelector(".film-dialog").contains(document.activeElement)')
+        p.locator('[data-project-tab=live]').evaluate('e=>e.click()');h.ready(p);p.wait_for_timeout(250)
+        assert p.locator('dialog[open]').count()==1 and p.evaluate('document.querySelector(".tour-project-dialog").contains(document.activeElement)')
+        h.close(p);assert abs(p.evaluate('scrollY')-before['y'])<3
+        return {'forcedOverlapLabelled':True,'bothOwnershipDirections':True,'oneModalAndCorrectFocus':True,'originalReadingSnapshotRestored':True}
+    h.check('ownership project media rapid transfer',handover)
+    def native_zoom():
+        c=h.context(no_viewport=True);c,p=h.setup(context=c)
+        session=c.new_cdp_session(p);window=session.send('Browser.getWindowForTarget');session.send('Browser.setWindowBounds',{'windowId':window['windowId'],'bounds':{'windowState':'normal','width':1440,'height':1000}})
+        keys('ctrl+0');p.wait_for_timeout(400);h.c2(p);h.open(p);f=h.ready(p)
+        before=p.evaluate('({width:innerWidth,height:innerHeight,dpr:devicePixelRatio,font:getComputedStyle(document.documentElement).fontSize})')
+        keys(*(['ctrl+plus']*5));p.wait_for_timeout(800)
+        after=p.evaluate('({width:innerWidth,height:innerHeight,dpr:devicePixelRatio,font:getComputedStyle(document.documentElement).fontSize})')
+        assert after['dpr']/before['dpr']>1.9 and after['width']<before['width']*.55,(before,after)
+        assert h.draws(p,p)==0 and f.evaluate('devicePixelRatio')>1.9
+        h.picture('native-browser-200');h.close(p);assert p.evaluate('document.documentElement.scrollWidth<=innerWidth');keys('ctrl+0')
+        return {'realX11BrowserZoom':True,'before':before,'after':after,'fontSizeUnchanged':before['font']==after['font'],'originalIframeInheritedBrowserZoom':True}
+    h.check('zoom actual browser two hundred percent',native_zoom)
+    def safe_area():
+        c,p=h.setup(390,844);h.c2(p);h.open(p);h.ready(p);session=c.new_cdp_session(p)
+        supported=True
+        try:session.send('Emulation.setSafeAreaInsetsOverride',{'insets':{'top':24,'left':20,'right':20,'bottom':34}})
+        except Exception as e:
+            supported=False
+            assert "wasn't found"in str(e),str(e)
+            # Exercise the resulting parent box geometry only. This fallback
+            # does not claim to set env() or reproduce a physical notch.
+            p.add_style_tag(content='.tour-project-dialog[data-project-id="lawson"] .tour-project-header {padding-top:24px;padding-inline:20px}.tour-project-dialog[data-project-id="lawson"] .tour-project-live {padding:0 20px 34px}')
+        p.wait_for_timeout(500)
+        frame=p.locator('iframe').bounding_box();bar=p.locator('.tour-project-header').bounding_box()
+        assert frame['x']>=19.5 and frame['x']+frame['width']<=370.5 and frame['y']+frame['height']<=810.5,(frame,bar)
+        h.picture('emulated-safe-area');h.close(p)
+        return {'CDPSafeAreaProtocolSupported':supported,'parentPaddingGeometryOnlyIfUnsupported':not supported,'realEnvInsetsVerified':supported,'physicalNotchVerified':False,'frame':frame,'toolbar':bar}
+    h.check('safe area actual env inset emulation',safe_area)
+    passed=h.finish()
+raise SystemExit(0 if passed else 1)

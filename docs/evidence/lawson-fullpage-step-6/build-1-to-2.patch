@@ -1,0 +1,30 @@
+--- build1/src/tour/createLawsonExperience.ts
++++ build2/src/tour/createLawsonExperience.ts
+@@ -85,7 +85,10 @@
+             if (wrongDocument) { next = 'error';reason = '页面未能正常打开'; }
+             else if (visibleFatal || api?.error || doc.body?.dataset.ready === 'error') next = 'error';
+             else if (graphicsLost) { next = 'error';reason = graphicsRestored ? '图形连接已恢复，请重新载入场景' : '图形连接已中断'; }
+-            else if (api?.ready === true) next = 'ready';
++            else if (api?.ready === true) {
++              next = 'ready';
++              if (doc.fullscreenEnabled === false) reason = '此浏览器未开放全屏，仍可在当前窗口操作场景';
++            }
+           }
+         } catch { /* No trustworthy signal yet: retain loading/slow and exits. */ }
+         publish(next, reason);
+--- build1/src/tour/createProjectViewer.ts
++++ build2/src/tour/createProjectViewer.ts
+@@ -40,9 +40,10 @@
+   const active = (): ActiveProject => ({ id: projectId, tab: selected });
+   function refreshEmbeddedFeedback() {
+     const state = dialog.dataset.embeddedState;
+-    const show = engaged && projectId === 'lawson' && selected === 'live' && (state === 'slow' || state === 'error');
+-    feedback.hidden = !show;embeddedRetry.hidden = !show;
+-    feedback.textContent = state === 'error' ? `${embeddedMessage ?? '暂时无法完成载入'}，可重新载入或独立打开。` : '载入时间较长，可继续等待、重新载入或独立打开。';
++    const activeLive = engaged && projectId === 'lawson' && selected === 'live';
++    const retryable = state === 'slow' || state === 'error', capability = state === 'ready' && !!embeddedMessage;
++    feedback.hidden = !(activeLive && (retryable || capability));embeddedRetry.hidden = !(activeLive && retryable);
++    feedback.textContent = capability ? embeddedMessage! : state === 'error' ? `${embeddedMessage ?? '暂时无法完成载入'}，可重新载入或独立打开。` : '载入时间较长，可继续等待、重新载入或独立打开。';
+   }
+   function setEmbeddedStatus(state: EmbeddedProjectState, message?: string) {
+     if (!engaged || projectId !== 'lawson') return;

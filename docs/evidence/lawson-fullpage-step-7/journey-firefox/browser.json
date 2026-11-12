@@ -1,0 +1,147 @@
+{
+  "engine": "firefox",
+  "checks": [
+    {
+      "name": "engine representative original controls",
+      "passed": true,
+      "evidence": {
+        "actualEngine": "firefox",
+        "timePresets": [
+          {
+            "preset": "day",
+            "time": 9
+          },
+          {
+            "preset": "night",
+            "time": 22
+          },
+          {
+            "preset": "dusk",
+            "time": 18.5
+          }
+        ],
+        "allLightsNativeButtons": true,
+        "cameraActualMotion": [
+          {
+            "preset": "front",
+            "actualCamera": [
+              20.45,
+              5.2,
+              28.51
+            ]
+          },
+          {
+            "preset": "interior",
+            "actualCamera": [
+              17.05,
+              5.27,
+              29.09
+            ]
+          },
+          {
+            "preset": "hero",
+            "actualCamera": [
+              15.88,
+              5.02,
+              27.48
+            ]
+          }
+        ],
+        "roofHelpAndPanel": true,
+        "capabilities": {
+          "fullscreen": true,
+          "pointerLock": true
+        },
+        "parentDraws": 0,
+        "full41And17NotClaimedOnThisEngine": true
+      }
+    },
+    {
+      "name": "mobile independent embedded default parity",
+      "passed": true,
+      "evidence": {
+        "embedded": {
+          "viewport": [
+            390,
+            796
+          ],
+          "controls": 41,
+          "brand": [
+            14,
+            12,
+            243.1999969482422,
+            32
+          ],
+          "panel": [
+            178,
+            58,
+            200,
+            666
+          ],
+          "topbar": [
+            254,
+            12,
+            124,
+            36
+          ],
+          "time": 18.5,
+          "roof": true
+        },
+        "independent": {
+          "viewport": [
+            390,
+            796
+          ],
+          "controls": 41,
+          "brand": [
+            14,
+            12,
+            243.1999969482422,
+            32
+          ],
+          "panel": [
+            178,
+            58,
+            200,
+            666
+          ],
+          "topbar": [
+            254,
+            12,
+            124,
+            36
+          ],
+          "time": 18.5,
+          "roof": true
+        },
+        "originalSameViewportAndGeometry": true,
+        "knownOriginalMobileLayoutNotReportedAsFixed": true,
+        "physicalDevice": false
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "engine representative original controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "case": "engine representative original controls",
+      "kind": "console",
+      "level": "warning",
+      "text": "[Quality] low fps (10), downgraded to medium"
+    },
+    {
+      "case": "mobile independent embedded default parity",
+      "kind": "console",
+      "level": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    }
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "browserVersion": "153.0",
+  "passed": true
+}

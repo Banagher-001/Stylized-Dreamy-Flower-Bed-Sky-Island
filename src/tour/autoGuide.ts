@@ -8,7 +8,7 @@ export interface GuideStop { id: string; h: number; label: string; seconds: numb
 const timing: Record<string, [string, number, number]> = {
   A1: ['关于我 · 身份', 10, 8], A2: ['关于我 · 经历', 14, 4], A3: ['关于我 · 创作', 14, 4],
   B1: ['AI影像 · 展映', 12, 7], B2: ['AI影像 · 切片', 10, 5], B3: ['AI影像 · 探索', 10, 4.5], B4: ['AI影像 · 余韵', 8, 4],
-  C1: ['交互实验 · 想法', 10, 7], C2: ['交互实验 · 庭院', 12, 4.5], C3: ['交互实验 · 继续', 12, 4],
+  C1: ['交互实验 · 想法', 10, 7], C2: ['交互实验 · 交互作品', 12, 4.5], C3: ['交互实验 · 继续', 12, 4],
 };
 export const autoGuideStops: readonly GuideStop[] = [
   { id: 'O', h: 0, label: '庭院全景', seconds: 4, travel: 0 },

@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "status": "design-finalized-not-production-implemented",
+  "projectIds": [
+    "lawson",
+    "courtyard"
+  ],
+  "defaultProjectId": "lawson",
+  "station": {
+    "id": "C2",
+    "start": 9.5,
+    "end": 10.5,
+    "stop": 10.05,
+    "label": "交互作品"
+  },
+  "openSignature": "open(projectId, tab, trigger?)",
+  "projectTabs": [
+    "live",
+    "archive"
+  ],
+  "experience": {
+    "lawson": {
+      "kind": "embedded-page",
+      "entryPath": "experiments/lawson/index.html"
+    },
+    "courtyard": {
+      "kind": "host-scene"
+    }
+  },
+  "toolbar": {
+    "regularHeight": 56,
+    "compactHeight": 48,
+    "compactWhen": "width <= 767 or height <= 480",
+    "textEnlargement": "Allow natural wrapping; use measured height",
+    "controls": [
+      "project name",
+      "live/archive",
+      "independent open",
+      "return"
+    ]
+  },
+  "body": {
+    "width": "100% of available viewport",
+    "height": "remaining dynamic viewport after actual toolbar and safe areas",
+    "productionIframeScaling": false,
+    "productionIframeAspectLock": false
+  },
+  "lifecycle": {
+    "mountWhen": "lawson live only",
+    "maximumIframes": 1,
+    "unmountOn": [
+      "archive",
+      "close",
+      "dispose"
+    ],
+    "stopGardenDuringLawson": true,
+    "stopGuideOnOpenOrProjectSelection": true,
+    "resumeGuideAutomatically": false,
+    "restorePriorEnvironmentPlayback": true,
+    "preserveUnloadedChildState": false
+  },
+  "availability": {
+    "hostFailureDisablesLawsonAttempt": false,
+    "archiveAndReturnAlwaysAvailable": true
+  },
+  "readySignals": {
+    "mode": "same-origin readonly observation",
+    "errorHasPriority": true,
+    "signals": [
+      "original fatal visibility",
+      "__LAWSON__.error",
+      "body.dataset.ready",
+      "__LAWSON__.ready"
+    ],
+    "iframeLoadMeansReady": false,
+    "slowAfterSeconds": 12,
+    "injectBridge": false,
+    "guardStaleInstancesAndDocuments": true
+  },
+  "escape": "Preserve source Escape while focus is inside frame; host cancel must not close that interaction. Host-focused Escape may close.",
+  "prototypeOnly": [
+    "static reference image object-fit",
+    "design status menu",
+    "standalone query route",
+    "__STEP2_DESIGN__",
+    "fake background context"
+  ],
+  "productionImplementationSteps": {
+    "copy": 3,
+    "host": 4,
+    "iframe": 5,
+    "deviceCases": 6,
+    "parityRegression": 7
+  }
+}

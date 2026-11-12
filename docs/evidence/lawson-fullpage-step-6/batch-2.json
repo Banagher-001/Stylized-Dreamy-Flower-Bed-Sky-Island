@@ -1,0 +1,38 @@
+[
+  {
+    "name": "permission-before",
+    "command": [
+      "verify_permissions.py",
+      "--run",
+      "permission-before"
+    ],
+    "exitCode": 1
+  },
+  {
+    "name": "interactions",
+    "command": [
+      "verify_interactions.py",
+      "--run",
+      "interactions"
+    ],
+    "exitCode": 1
+  },
+  {
+    "name": "lifecycle",
+    "command": [
+      "verify_lifecycle.py",
+      "--run",
+      "lifecycle"
+    ],
+    "exitCode": 1
+  },
+  {
+    "name": "hmr",
+    "command": [
+      "verify_hmr.py",
+      "--run",
+      "hmr"
+    ],
+    "exitCode": 0
+  }
+]

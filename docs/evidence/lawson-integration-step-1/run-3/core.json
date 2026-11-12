@@ -1,0 +1,2892 @@
+{
+  "phase": "core",
+  "run": "run-3",
+  "checks": [
+    {
+      "name": "cold standalone load",
+      "passed": true,
+      "evidence": {
+        "readySeconds": 2.349119126000005,
+        "navigation": {
+          "name": "http://127.0.0.1:4190/root/index.html",
+          "entryType": "navigation",
+          "startTime": 0,
+          "duration": 236.19999999925494,
+          "navigationId": 7953,
+          "initiatorType": "navigation",
+          "deliveryType": "",
+          "nextHopProtocol": "http/1.0",
+          "renderBlockingStatus": "non-blocking",
+          "contentType": "text/html",
+          "contentEncoding": "",
+          "workerStart": 0,
+          "workerRouterEvaluationStart": 0,
+          "workerCacheLookupStart": 0,
+          "workerMatchedSourceType": "",
+          "workerFinalSourceType": "",
+          "redirectStart": 0,
+          "redirectEnd": 0,
+          "fetchStart": 1,
+          "domainLookupStart": 1,
+          "domainLookupEnd": 1,
+          "connectStart": 1,
+          "secureConnectionStart": 0,
+          "connectEnd": 1,
+          "requestStart": 2.099999999627471,
+          "responseStart": 7.199999999254942,
+          "firstInterimResponseStart": 0,
+          "finalResponseHeadersStart": 7.199999999254942,
+          "responseEnd": 8.299999998882413,
+          "transferSize": 9121,
+          "encodedBodySize": 8821,
+          "decodedBodySize": 8821,
+          "responseStatus": 200,
+          "serverTiming": [],
+          "unloadEventStart": 0,
+          "unloadEventEnd": 0,
+          "domInteractive": 38.79999999888241,
+          "domContentLoadedEventStart": 232.5,
+          "domContentLoadedEventEnd": 235.59999999962747,
+          "domComplete": 236.19999999925494,
+          "loadEventStart": 236.19999999925494,
+          "loadEventEnd": 236.19999999925494,
+          "type": "navigate",
+          "redirectCount": 0,
+          "activationStart": 0,
+          "criticalCHRestart": 0,
+          "notRestoredReasons": null,
+          "confidence": {
+            "randomizedTriggerRate": 0.4994798,
+            "value": "high"
+          }
+        },
+        "resources": [
+          {
+            "name": "http://127.0.0.1:4190/root/css/main.css",
+            "duration": 20.800000000745058,
+            "transferSize": 9746,
+            "encodedBodySize": 9446
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/css/controls.css",
+            "duration": 18.09999999962747,
+            "transferSize": 1616,
+            "encodedBodySize": 1316
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/css/responsive.css",
+            "duration": 20.09999999962747,
+            "transferSize": 1610,
+            "encodedBodySize": 1310
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/main.js",
+            "duration": 20.699999999254942,
+            "transferSize": 22097,
+            "encodedBodySize": 21797
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+            "duration": 12.5,
+            "transferSize": 3927,
+            "encodedBodySize": 3627
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+            "duration": 26.40000000037253,
+            "transferSize": 1273272,
+            "encodedBodySize": 1272972
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+            "duration": 11.5,
+            "transferSize": 1219,
+            "encodedBodySize": 919
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+            "duration": 13.700000001117587,
+            "transferSize": 6953,
+            "encodedBodySize": 6653
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+            "duration": 13,
+            "transferSize": 20610,
+            "encodedBodySize": 20310
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+            "duration": 16.40000000037253,
+            "transferSize": 1659,
+            "encodedBodySize": 1359
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+            "duration": 17.700000001117587,
+            "transferSize": 5632,
+            "encodedBodySize": 5332
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+            "duration": 18.100000001490116,
+            "transferSize": 3762,
+            "encodedBodySize": 3462
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+            "duration": 17.600000001490116,
+            "transferSize": 3170,
+            "encodedBodySize": 2870
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+            "duration": 19,
+            "transferSize": 32977,
+            "encodedBodySize": 32677
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+            "duration": 19.40000000037253,
+            "transferSize": 25916,
+            "encodedBodySize": 25616
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+            "duration": 25,
+            "transferSize": 8119,
+            "encodedBodySize": 7819
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+            "duration": 25.299999998882413,
+            "transferSize": 4615,
+            "encodedBodySize": 4315
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+            "duration": 24,
+            "transferSize": 2068,
+            "encodedBodySize": 1768
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+            "duration": 24.59999999962747,
+            "transferSize": 1184,
+            "encodedBodySize": 884
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+            "duration": 25.59999999962747,
+            "transferSize": 9861,
+            "encodedBodySize": 9561
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+            "duration": 30.09999999962747,
+            "transferSize": 7382,
+            "encodedBodySize": 7082
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+            "duration": 8.199999999254942,
+            "transferSize": 4951,
+            "encodedBodySize": 4651
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+            "duration": 9.900000000372529,
+            "transferSize": 2215,
+            "encodedBodySize": 1915
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+            "duration": 10.400000000372529,
+            "transferSize": 12706,
+            "encodedBodySize": 12406
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+            "duration": 9.599999999627471,
+            "transferSize": 2698,
+            "encodedBodySize": 2398
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+            "duration": 10.099999999627471,
+            "transferSize": 3351,
+            "encodedBodySize": 3051
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+            "duration": 15.700000001117587,
+            "transferSize": 108822,
+            "encodedBodySize": 108522
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+            "duration": 21.699999999254942,
+            "transferSize": 1132,
+            "encodedBodySize": 832
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+            "duration": 19.299999998882413,
+            "transferSize": 32206,
+            "encodedBodySize": 31906
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+            "duration": 20.799999998882413,
+            "transferSize": 6135,
+            "encodedBodySize": 5835
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+            "duration": 21.399999998509884,
+            "transferSize": 8281,
+            "encodedBodySize": 7981
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+            "duration": 21.5,
+            "transferSize": 4842,
+            "encodedBodySize": 4542
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+            "duration": 22.300000000745058,
+            "transferSize": 8695,
+            "encodedBodySize": 8395
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+            "duration": 20.09999999962747,
+            "transferSize": 4157,
+            "encodedBodySize": 3857
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+            "duration": 23.200000001117587,
+            "transferSize": 30168,
+            "encodedBodySize": 29868
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+            "duration": 12.900000000372529,
+            "transferSize": 871,
+            "encodedBodySize": 571
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+            "duration": 13.300000000745058,
+            "transferSize": 1876,
+            "encodedBodySize": 1576
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+            "duration": 14.099999999627471,
+            "transferSize": 2531,
+            "encodedBodySize": 2231
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+            "duration": 13.699999999254942,
+            "transferSize": 2006,
+            "encodedBodySize": 1706
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+            "duration": 13.600000001490116,
+            "transferSize": 1492,
+            "encodedBodySize": 1192
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+            "duration": 10.700000001117587,
+            "transferSize": 1693,
+            "encodedBodySize": 1393
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/lawson_scene.glb",
+            "duration": 61,
+            "transferSize": 17316348,
+            "encodedBodySize": 17316048
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_A.glb",
+            "duration": 6.599999999627471,
+            "transferSize": 396608,
+            "encodedBodySize": 396308
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_B.glb",
+            "duration": 3.800000000745058,
+            "transferSize": 490236,
+            "encodedBodySize": 489936
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_C.glb",
+            "duration": 12.399999998509884,
+            "transferSize": 446048,
+            "encodedBodySize": 445748
+          }
+        ]
+      }
+    },
+    {
+      "name": "warm standalone load",
+      "passed": true,
+      "evidence": {
+        "readySeconds": 2.228224787999352,
+        "navigation": {
+          "name": "http://127.0.0.1:4190/root/index.html",
+          "entryType": "navigation",
+          "startTime": 0,
+          "duration": 367.6000000014901,
+          "navigationId": 9902,
+          "initiatorType": "navigation",
+          "deliveryType": "cache",
+          "nextHopProtocol": "",
+          "renderBlockingStatus": "non-blocking",
+          "contentType": "text/html",
+          "contentEncoding": "",
+          "workerStart": 0,
+          "workerRouterEvaluationStart": 0,
+          "workerCacheLookupStart": 0,
+          "workerMatchedSourceType": "",
+          "workerFinalSourceType": "",
+          "redirectStart": 0,
+          "redirectEnd": 0,
+          "fetchStart": 0.5,
+          "domainLookupStart": 0.5,
+          "domainLookupEnd": 0.5,
+          "connectStart": 0.5,
+          "secureConnectionStart": 0,
+          "connectEnd": 0.5,
+          "requestStart": 1.700000001117587,
+          "responseStart": 1.700000001117587,
+          "firstInterimResponseStart": 1.700000001117587,
+          "finalResponseHeadersStart": 0,
+          "responseEnd": 2,
+          "transferSize": 0,
+          "encodedBodySize": 8821,
+          "decodedBodySize": 8821,
+          "responseStatus": 200,
+          "serverTiming": [],
+          "unloadEventStart": 13.900000000372529,
+          "unloadEventEnd": 13.900000000372529,
+          "domInteractive": 305.6000000014901,
+          "domContentLoadedEventStart": 367.30000000074506,
+          "domContentLoadedEventEnd": 367.5,
+          "domComplete": 367.6000000014901,
+          "loadEventStart": 367.6000000014901,
+          "loadEventEnd": 367.6000000014901,
+          "type": "navigate",
+          "redirectCount": 0,
+          "activationStart": 0,
+          "criticalCHRestart": 0,
+          "notRestoredReasons": null,
+          "confidence": {
+            "randomizedTriggerRate": 0.4994798,
+            "value": "high"
+          }
+        },
+        "resources": [
+          {
+            "name": "http://127.0.0.1:4190/root/css/main.css",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 9446
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/css/controls.css",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 1316
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/css/responsive.css",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 1310
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/main.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 21797
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 1272972
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 3627
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 6653
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 20310
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 919
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 1359
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 5332
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 2870
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 3462
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 25616
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 32677
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 7819
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 4315
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 1768
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 884
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 9561
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 7082
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 4651
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 1915
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 12406
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 2398
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 3051
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 108522
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 31906
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 832
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 3857
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 5835
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 7981
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 4542
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 8395
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 29868
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 571
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 1576
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 2231
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 1706
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 1192
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+            "duration": 0,
+            "transferSize": 0,
+            "encodedBodySize": 1393
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/lawson_scene.glb",
+            "duration": 55.19999999925494,
+            "transferSize": 17316348,
+            "encodedBodySize": 17316048
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_A.glb",
+            "duration": 1.300000000745058,
+            "transferSize": 0,
+            "encodedBodySize": 396308
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_B.glb",
+            "duration": 1.700000001117587,
+            "transferSize": 0,
+            "encodedBodySize": 489936
+          },
+          {
+            "name": "http://127.0.0.1:4190/root/assets/models/car_C.glb",
+            "duration": 0.900000000372529,
+            "transferSize": 0,
+            "encodedBodySize": 445748
+          }
+        ]
+      }
+    },
+    {
+      "name": "scene objects and interactive systems present",
+      "passed": true,
+      "evidence": {
+        "ready": true,
+        "error": null,
+        "state": {
+          "loaded": true,
+          "paused": false,
+          "quality": "high",
+          "cameraMode": "orbit",
+          "timeOfDay": 18.5,
+          "roofVisible": true,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "A",
+            "phase": "APPROACHING",
+            "speed": 1,
+            "activePosition": [
+              -41,
+              -0.18,
+              23.4
+            ],
+            "reverseLamp": false,
+            "brake": false
+          },
+          "doors": {
+            "state": "CLOSED",
+            "isOpen": false,
+            "progress": 0,
+            "automatic": true
+          },
+          "walk": false,
+          "fps": 0,
+          "stats": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        },
+        "stats": {
+          "fps": 0,
+          "drawCalls": 1618,
+          "triangles": 414710,
+          "programs": 21,
+          "lights": 34,
+          "quality": "high",
+          "timeOfDay": 18.5,
+          "pixelRatio": 1,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "debug": {
+          "doorLeft": true,
+          "doorRight": true,
+          "doorAvailable": true,
+          "roofTargets": 146,
+          "interactives": [
+            "facade",
+            "checkout",
+            "sign",
+            "basket",
+            "door",
+            "vending",
+            "shelf",
+            "alcohol",
+            "oden",
+            "clerkA",
+            "clerkB",
+            "atm",
+            "freezer",
+            "cooler",
+            "microwave",
+            "dining",
+            "coffee"
+          ],
+          "blockers": 11,
+          "steamNodes": 39,
+          "atmMaterials": 15,
+          "coffeeMaterials": 22,
+          "clerks": [
+            "A",
+            "B"
+          ],
+          "cars": [
+            "A",
+            "B",
+            "C"
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        },
+        "door": {
+          "cam": [
+            20.5,
+            5.2,
+            28.5
+          ],
+          "sensor": false,
+          "progress": 0,
+          "target": 0,
+          "state": "CLOSED",
+          "automatic": true,
+          "leftPos": [
+            -0.6,
+            1.31,
+            7.54
+          ],
+          "leftBase": [
+            -0.6,
+            1.31,
+            7.54
+          ]
+        },
+        "clerks": {
+          "time": 0.4,
+          "queue": 0,
+          "clerks": {
+            "A": {
+              "state": "PERFORM_TASK",
+              "task": "tidy_counter",
+              "taskTarget": [
+                -9.2,
+                5.1
+              ],
+              "taskArea": "counter",
+              "animation": "Counter_Clean",
+              "remaining": 5.34,
+              "customer": null,
+              "interrupted": false,
+              "position": [
+                -9.2,
+                0,
+                5.1
+              ],
+              "yaw": 0,
+              "forward": [
+                0,
+                1
+              ],
+              "speed": 0,
+              "pathLeft": 0,
+              "carry": false,
+              "boxVisible": false,
+              "tool": null,
+              "navOk": true,
+              "customersServed": 0
+            },
+            "B": {
+              "state": "WALK_TO_TARGET",
+              "task": "shelf_inspect",
+              "taskTarget": [
+                -8.75,
+                3.55
+              ],
+              "taskArea": "aisleFront",
+              "animation": "Walk_Normal",
+              "remaining": 9.74,
+              "customer": null,
+              "interrupted": false,
+              "position": [
+                2.37,
+                0,
+                -0.49
+              ],
+              "yaw": 4.312,
+              "forward": [
+                -0.92,
+                -0.39
+              ],
+              "speed": 0.6,
+              "pathLeft": 2,
+              "carry": false,
+              "boxVisible": false,
+              "tool": null,
+              "navOk": true,
+              "customersServed": 0
+            }
+          },
+          "stats": {
+            "A": {
+              "tasksDone": 0,
+              "distance": 0,
+              "interruptions": 0
+            },
+            "B": {
+              "tasksDone": 0,
+              "distance": 0.10066934399999988,
+              "interruptions": 0
+            }
+          },
+          "taskCounts": {
+            "A": {},
+            "B": {}
+          },
+          "history": {
+            "A": [],
+            "B": []
+          },
+          "events": {
+            "enter": 0,
+            "checkout": 0,
+            "help": 0,
+            "queue": 0
+          },
+          "customersServed": 0
+        },
+        "camera": [
+          [
+            520,
+            328
+          ],
+          [
+            698,
+            348
+          ],
+          [
+            520,
+            234
+          ]
+        ],
+        "canvas": {
+          "width": 960,
+          "height": 540,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 960,
+            "height": 540,
+            "top": 0,
+            "right": 960,
+            "bottom": 540,
+            "left": 0
+          }
+        },
+        "probe": {
+          "draws": 13546,
+          "raf": 16,
+          "mainFrames": 7
+        }
+      }
+    },
+    {
+      "name": "day night eight lighting groups and shortcuts",
+      "passed": true,
+      "evidence": {
+        "presets": [
+          {
+            "preset": "day",
+            "stats": {
+              "fps": 13,
+              "drawCalls": 1604,
+              "triangles": 414696,
+              "programs": 27,
+              "lights": 34,
+              "quality": "low",
+              "timeOfDay": 9,
+              "pixelRatio": 1,
+              "renderSize": [
+                960,
+                540
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "preset": "night",
+            "stats": {
+              "fps": 10,
+              "drawCalls": 1604,
+              "triangles": 414696,
+              "programs": 32,
+              "lights": 34,
+              "quality": "low",
+              "timeOfDay": 22,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                960,
+                540
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          },
+          {
+            "preset": "dusk",
+            "stats": {
+              "fps": 14,
+              "drawCalls": 1604,
+              "triangles": 414696,
+              "programs": 32,
+              "lights": 34,
+              "quality": "low",
+              "timeOfDay": 18.5,
+              "pixelRatio": 0.92,
+              "renderSize": [
+                960,
+                540
+              ],
+              "batch": {
+                "removedMeshes": 2289,
+                "batches": 355,
+                "groups": 355
+              }
+            }
+          }
+        ],
+        "allOff": {
+          "StoreInterior": false,
+          "LawsonSign": false,
+          "FacadeStrip": false,
+          "StreetLamp": false,
+          "CoolerLighting": false,
+          "VendingLighting": false,
+          "WarmExterior": false,
+          "VehicleLights": false
+        },
+        "allOn": {
+          "StoreInterior": true,
+          "LawsonSign": true,
+          "FacadeStrip": true,
+          "StreetLamp": true,
+          "CoolerLighting": true,
+          "VendingLighting": true,
+          "WarmExterior": true,
+          "VehicleLights": true
+        },
+        "singleGroup": "StoreInterior",
+        "keyboard123": true
+      }
+    },
+    {
+      "name": "eight camera presets orbit zoom pan reset roof",
+      "passed": false,
+      "error": "('[[520,328],[698,348],[520,234]]', '[[519,328],[698,348],[519,233]]')",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-integration/step1_browser.py\", line 60, in check\n    evidence = fn()\n               ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-integration/step1_browser.py\", line 219, in viewpoints\n    assert camera() == original, (original, camera())\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('[[520,328],[698,348],[520,234]]', '[[519,328],[698,348],[519,233]]')\n",
+      "failureSnapshot": {
+        "state": {
+          "loaded": true,
+          "paused": false,
+          "quality": "low",
+          "cameraMode": "hero",
+          "timeOfDay": 18.5,
+          "roofVisible": true,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "A",
+            "phase": "ALIGNING_TO_EXIT",
+            "speed": 1,
+            "activePosition": [
+              -10.5,
+              -0.16,
+              17.9
+            ],
+            "reverseLamp": false,
+            "brake": true
+          },
+          "doors": {
+            "state": "CLOSED",
+            "isOpen": false,
+            "progress": 0,
+            "automatic": true
+          },
+          "walk": false,
+          "fps": 10,
+          "stats": {
+            "drawCalls": 1700,
+            "triangles": 428360,
+            "programs": 42,
+            "geometries": 1229,
+            "textures": 2,
+            "pixelRatio": 0.7,
+            "resScale": 0.7,
+            "width": 960,
+            "height": 540
+          }
+        },
+        "stats": {
+          "fps": 10,
+          "drawCalls": 1700,
+          "triangles": 428432,
+          "programs": 42,
+          "lights": 34,
+          "quality": "low",
+          "timeOfDay": 18.5,
+          "pixelRatio": 0.7,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        }
+      }
+    },
+    {
+      "name": "walk keyboard pointer lock and Escape exit",
+      "passed": true,
+      "evidence": {
+        "entered": {
+          "ready": true,
+          "error": null,
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "low",
+            "cameraMode": "walk",
+            "timeOfDay": 18.5,
+            "roofVisible": false,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "DRIVING_OUT",
+              "speed": 1,
+              "activePosition": [
+                -10.5,
+                -0.16,
+                17.9
+              ],
+              "reverseLamp": false,
+              "brake": true
+            },
+            "doors": {
+              "state": "CLOSED",
+              "isOpen": false,
+              "progress": 0,
+              "automatic": true
+            },
+            "walk": true,
+            "fps": 10,
+            "stats": {
+              "drawCalls": 1701,
+              "triangles": 428468,
+              "programs": 42,
+              "geometries": 1229,
+              "textures": 2,
+              "pixelRatio": 0.7,
+              "resScale": 0.7,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 10,
+            "drawCalls": 1701,
+            "triangles": 428468,
+            "programs": 42,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "door": {
+            "cam": [
+              0.4,
+              1.62,
+              5.6
+            ],
+            "sensor": true,
+            "progress": 0,
+            "target": 0,
+            "state": "CLOSED",
+            "automatic": true,
+            "leftPos": [
+              -0.6,
+              1.31,
+              7.54
+            ],
+            "leftBase": [
+              -0.6,
+              1.31,
+              7.54
+            ]
+          },
+          "clerks": {
+            "time": 30.4,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "TASK_COMPLETE",
+                "task": null,
+                "taskTarget": null,
+                "taskArea": null,
+                "animation": "Shelf_Reach_High",
+                "remaining": 0,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -3.12,
+                  0,
+                  3.59
+                ],
+                "yaw": -1.571,
+                "forward": [
+                  -1,
+                  0
+                ],
+                "speed": 0,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "WALK_TO_TARGET",
+                "task": "restock",
+                "taskTarget": [
+                  -4.7,
+                  1.1
+                ],
+                "taskArea": "aisleB",
+                "animation": "Walk_Normal",
+                "remaining": 6.57,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -7.29,
+                  0,
+                  -1.4
+                ],
+                "yaw": 3.026,
+                "forward": [
+                  0.12,
+                  -0.99
+                ],
+                "speed": 1.05,
+                "pathLeft": 3,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 4,
+                "distance": 6.398599999999986,
+                "interruptions": 0
+              },
+              "B": {
+                "tasksDone": 1,
+                "distance": 18.365177688000056,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {
+                "tidy_counter": 1,
+                "short_wait": 1,
+                "look_around": 1,
+                "nearby_shelf": 1
+              },
+              "B": {
+                "shelf_inspect": 1
+              }
+            },
+            "history": {
+              "A": [
+                "tidy_counter",
+                "short_wait",
+                "look_around",
+                "nearby_shelf"
+              ],
+              "B": [
+                "shelf_inspect"
+              ]
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 0,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 0
+          },
+          "camera": [
+            [
+              520,
+              328
+            ],
+            [
+              698,
+              348
+            ],
+            [
+              520,
+              233
+            ]
+          ],
+          "canvas": {
+            "width": 672,
+            "height": 378,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 960,
+              "height": 540,
+              "top": 0,
+              "right": 960,
+              "bottom": 540,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 486913,
+            "raf": 356,
+            "mainFrames": 325
+          }
+        },
+        "pointerLock": "viewport",
+        "before": "[[520,328],[698,348],[520,233]]",
+        "moved": "[[420,-17],[1626,-17],[422,574]]",
+        "afterMouse": "[[874,103],[6922,-755],[911,784]]",
+        "exit": {
+          "ready": true,
+          "error": null,
+          "state": {
+            "loaded": true,
+            "paused": false,
+            "quality": "low",
+            "cameraMode": "hero",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "A",
+              "phase": "DRIVING_OUT",
+              "speed": 1,
+              "activePosition": [
+                -10.5,
+                -0.16,
+                17.9
+              ],
+              "reverseLamp": false,
+              "brake": true
+            },
+            "doors": {
+              "state": "OPEN",
+              "isOpen": true,
+              "progress": 1,
+              "automatic": true
+            },
+            "walk": false,
+            "fps": 10,
+            "stats": {
+              "drawCalls": 1633,
+              "triangles": 418484,
+              "programs": 42,
+              "geometries": 1232,
+              "textures": 2,
+              "pixelRatio": 0.7,
+              "resScale": 0.7,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 10,
+            "drawCalls": 1609,
+            "triangles": 415928,
+            "programs": 42,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "door": {
+            "cam": [
+              20.49,
+              5.21,
+              28.5
+            ],
+            "sensor": false,
+            "progress": 1,
+            "target": 1,
+            "state": "OPEN",
+            "automatic": true,
+            "leftPos": [
+              -1.52,
+              1.31,
+              7.54
+            ],
+            "leftBase": [
+              -0.6,
+              1.31,
+              7.54
+            ]
+          },
+          "clerks": {
+            "time": 32.5,
+            "queue": 1,
+            "clerks": {
+              "A": {
+                "state": "WALK_TO_TARGET",
+                "task": null,
+                "taskTarget": null,
+                "taskArea": null,
+                "animation": "Walk_Normal",
+                "remaining": 0,
+                "customer": "checkout",
+                "interrupted": true,
+                "position": [
+                  -3.83,
+                  0,
+                  3.55
+                ],
+                "yaw": -1.594,
+                "forward": [
+                  -1,
+                  -0.02
+                ],
+                "speed": 1,
+                "pathLeft": 2,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              },
+              "B": {
+                "state": "WALK_TO_TARGET",
+                "task": "restock",
+                "taskTarget": [
+                  -4.7,
+                  1.1
+                ],
+                "taskArea": "aisleB",
+                "animation": "Walk_Normal",
+                "remaining": 6.57,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -7.03,
+                  0,
+                  -3.59
+                ],
+                "yaw": 3.026,
+                "forward": [
+                  0.12,
+                  -0.99
+                ],
+                "speed": 1.05,
+                "pathLeft": 3,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 4,
+                "distance": 7.127253360744481,
+                "interruptions": 1
+              },
+              "B": {
+                "tasksDone": 1,
+                "distance": 20.570177688000065,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {
+                "tidy_counter": 1,
+                "short_wait": 1,
+                "look_around": 1,
+                "nearby_shelf": 1
+              },
+              "B": {
+                "shelf_inspect": 1
+              }
+            },
+            "history": {
+              "A": [
+                "tidy_counter",
+                "short_wait",
+                "look_around",
+                "nearby_shelf"
+              ],
+              "B": [
+                "shelf_inspect"
+              ]
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 1,
+              "help": 0,
+              "queue": 1
+            },
+            "customersServed": 0
+          },
+          "camera": [
+            [
+              520,
+              328
+            ],
+            [
+              698,
+              348
+            ],
+            [
+              520,
+              234
+            ]
+          ],
+          "canvas": {
+            "width": 672,
+            "height": 378,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 960,
+              "height": 540,
+              "top": 0,
+              "right": 960,
+              "bottom": 540,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 519226,
+            "raf": 377,
+            "mainFrames": 346
+          }
+        }
+      }
+    },
+    {
+      "name": "door geometry and actual scene prop click",
+      "passed": false,
+      "error": "'rightPos'",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-integration/step1_browser.py\", line 60, in check\n    evidence = fn()\n               ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-integration/step1_browser.py\", line 257, in door_and_props\n    def door_and_props():\n                          \nKeyError: 'rightPos'\n",
+      "failureSnapshot": {
+        "state": {
+          "loaded": true,
+          "paused": false,
+          "quality": "low",
+          "cameraMode": "hero",
+          "timeOfDay": 18.5,
+          "roofVisible": true,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "A",
+            "phase": "DRIVING_OUT",
+            "speed": 1,
+            "activePosition": [
+              -10.5,
+              -0.16,
+              17.9
+            ],
+            "reverseLamp": false,
+            "brake": true
+          },
+          "doors": {
+            "state": "OPENING",
+            "isOpen": true,
+            "progress": 1,
+            "automatic": false
+          },
+          "walk": false,
+          "fps": 10,
+          "stats": {
+            "drawCalls": 1604,
+            "triangles": 414696,
+            "programs": 42,
+            "geometries": 1232,
+            "textures": 2,
+            "pixelRatio": 0.7,
+            "resScale": 0.7,
+            "width": 960,
+            "height": 540
+          }
+        },
+        "stats": {
+          "fps": 10,
+          "drawCalls": 1604,
+          "triangles": 414696,
+          "programs": 42,
+          "lights": 34,
+          "quality": "low",
+          "timeOfDay": 18.5,
+          "pixelRatio": 0.7,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        }
+      }
+    },
+    {
+      "name": "three original quality levels",
+      "passed": true,
+      "evidence": {
+        "selectedViaExistingPublicAPI": true,
+        "levels": [
+          {
+            "fps": 10,
+            "drawCalls": 2136,
+            "triangles": 721346,
+            "programs": 43,
+            "lights": 34,
+            "quality": "high",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          {
+            "fps": 11,
+            "drawCalls": 1618,
+            "triangles": 414710,
+            "programs": 43,
+            "lights": 34,
+            "quality": "medium",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          {
+            "fps": 12,
+            "drawCalls": 1604,
+            "triangles": 414696,
+            "programs": 43,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "one full vehicle cycle autonomous clerk transitions pause resume reset",
+      "passed": false,
+      "error": "{'A': ['impulse_tidy'], 'B': ['restock']}",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-integration/step1_browser.py\", line 60, in check\n    evidence = fn()\n               ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/lawson-integration/step1_browser.py\", line 326, in traffic_and_clerks\n    data = page.evaluate('({traffic:__LAWSON__.api.getState().traffic,carA:__LAWSON__.api.getVehicleState(\"A\"),clerks:__LAWSON__.api.getClerkStates()})')\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'A': ['impulse_tidy'], 'B': ['restock']}\n",
+      "failureSnapshot": {
+        "state": {
+          "loaded": true,
+          "paused": false,
+          "quality": "low",
+          "cameraMode": "hero",
+          "timeOfDay": 18.5,
+          "roofVisible": true,
+          "lights": {
+            "StoreInterior": true,
+            "LawsonSign": true,
+            "FacadeStrip": true,
+            "StreetLamp": true,
+            "CoolerLighting": true,
+            "VendingLighting": true,
+            "WarmExterior": true,
+            "VehicleLights": true
+          },
+          "traffic": {
+            "enabled": true,
+            "running": true,
+            "current": "B",
+            "phase": "OFFSCREEN_WAIT",
+            "speed": 1.8,
+            "activePosition": null,
+            "reverseLamp": false,
+            "brake": false
+          },
+          "doors": {
+            "state": "OPEN",
+            "isOpen": true,
+            "progress": 1,
+            "automatic": false
+          },
+          "walk": false,
+          "fps": 10,
+          "stats": {
+            "drawCalls": 1604,
+            "triangles": 414696,
+            "programs": 49,
+            "geometries": 1234,
+            "textures": 2,
+            "pixelRatio": 0.7,
+            "resScale": 0.7,
+            "width": 960,
+            "height": 540
+          }
+        },
+        "stats": {
+          "fps": 10,
+          "drawCalls": 1604,
+          "triangles": 414696,
+          "programs": 49,
+          "lights": 34,
+          "quality": "low",
+          "timeOfDay": 18.5,
+          "pixelRatio": 0.7,
+          "renderSize": [
+            960,
+            540
+          ],
+          "batch": {
+            "removedMeshes": 2289,
+            "batches": 355,
+            "groups": 355
+          }
+        }
+      }
+    },
+    {
+      "name": "pause semantics and lifecycle gaps measured",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "ready": true,
+          "error": null,
+          "state": {
+            "loaded": true,
+            "paused": true,
+            "quality": "low",
+            "cameraMode": "hero",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "B",
+              "phase": "OFFSCREEN_WAIT",
+              "speed": 1.8,
+              "activePosition": null,
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "OPEN",
+              "isOpen": true,
+              "progress": 1,
+              "automatic": false
+            },
+            "walk": false,
+            "fps": 10,
+            "stats": {
+              "drawCalls": 1604,
+              "triangles": 414696,
+              "programs": 49,
+              "geometries": 1234,
+              "textures": 2,
+              "pixelRatio": 0.7,
+              "resScale": 0.7,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 10,
+            "drawCalls": 1604,
+            "triangles": 414696,
+            "programs": 49,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "door": {
+            "cam": [
+              20.5,
+              5.2,
+              28.5
+            ],
+            "sensor": false,
+            "progress": 1,
+            "target": 1,
+            "state": "OPEN",
+            "automatic": false,
+            "leftPos": [
+              -1.52,
+              1.31,
+              7.54
+            ],
+            "leftBase": [
+              -0.6,
+              1.31,
+              7.54
+            ]
+          },
+          "clerks": {
+            "time": 59.3,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "WALK_TO_TARGET",
+                "task": null,
+                "taskTarget": null,
+                "taskArea": null,
+                "animation": "Walk_Normal",
+                "remaining": 0,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.13,
+                  0,
+                  5.08
+                ],
+                "yaw": -1.275,
+                "forward": [
+                  -0.96,
+                  0.29
+                ],
+                "speed": 0.45,
+                "pathLeft": 1,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 1
+              },
+              "B": {
+                "state": "RESTOCK_SHELF",
+                "task": "restock",
+                "taskTarget": [
+                  -4.7,
+                  1.1
+                ],
+                "taskArea": "aisleB",
+                "animation": "Shelf_Restock",
+                "remaining": 5,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -4.7,
+                  0,
+                  1.09
+                ],
+                "yaw": -1.571,
+                "forward": [
+                  -1,
+                  0
+                ],
+                "speed": 0.47,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 5,
+                "distance": 17.47242646986839,
+                "interruptions": 1,
+                "customersServed": 1
+              },
+              "B": {
+                "tasksDone": 1,
+                "distance": 31.450479673200096,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {
+                "tidy_counter": 1,
+                "short_wait": 1,
+                "look_around": 1,
+                "nearby_shelf": 1,
+                "impulse_tidy": 1
+              },
+              "B": {
+                "shelf_inspect": 1
+              }
+            },
+            "history": {
+              "A": [
+                "short_wait",
+                "look_around",
+                "nearby_shelf",
+                "impulse_tidy"
+              ],
+              "B": [
+                "shelf_inspect"
+              ]
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 1,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 1
+          },
+          "camera": [
+            [
+              520,
+              328
+            ],
+            [
+              698,
+              348
+            ],
+            [
+              520,
+              234
+            ]
+          ],
+          "canvas": {
+            "width": 672,
+            "height": 378,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 960,
+              "height": 540,
+              "top": 0,
+              "right": 960,
+              "bottom": 540,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 972039,
+            "raf": 658,
+            "mainFrames": 619
+          }
+        },
+        "after": {
+          "ready": true,
+          "error": null,
+          "state": {
+            "loaded": true,
+            "paused": true,
+            "quality": "low",
+            "cameraMode": "hero",
+            "timeOfDay": 18.5,
+            "roofVisible": true,
+            "lights": {
+              "StoreInterior": true,
+              "LawsonSign": true,
+              "FacadeStrip": true,
+              "StreetLamp": true,
+              "CoolerLighting": true,
+              "VendingLighting": true,
+              "WarmExterior": true,
+              "VehicleLights": true
+            },
+            "traffic": {
+              "enabled": true,
+              "running": true,
+              "current": "B",
+              "phase": "OFFSCREEN_WAIT",
+              "speed": 1.8,
+              "activePosition": null,
+              "reverseLamp": false,
+              "brake": false
+            },
+            "doors": {
+              "state": "OPEN",
+              "isOpen": true,
+              "progress": 1,
+              "automatic": false
+            },
+            "walk": false,
+            "fps": 10,
+            "stats": {
+              "drawCalls": 1604,
+              "triangles": 414696,
+              "programs": 49,
+              "geometries": 1234,
+              "textures": 2,
+              "pixelRatio": 0.7,
+              "resScale": 0.7,
+              "width": 960,
+              "height": 540
+            }
+          },
+          "stats": {
+            "fps": 10,
+            "drawCalls": 1604,
+            "triangles": 414696,
+            "programs": 49,
+            "lights": 34,
+            "quality": "low",
+            "timeOfDay": 18.5,
+            "pixelRatio": 0.7,
+            "renderSize": [
+              960,
+              540
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "debug": {
+            "doorLeft": true,
+            "doorRight": true,
+            "doorAvailable": true,
+            "roofTargets": 146,
+            "interactives": [
+              "facade",
+              "checkout",
+              "sign",
+              "basket",
+              "door",
+              "vending",
+              "shelf",
+              "alcohol",
+              "oden",
+              "clerkA",
+              "clerkB",
+              "atm",
+              "freezer",
+              "cooler",
+              "microwave",
+              "dining",
+              "coffee"
+            ],
+            "blockers": 11,
+            "steamNodes": 39,
+            "atmMaterials": 15,
+            "coffeeMaterials": 22,
+            "clerks": [
+              "A",
+              "B"
+            ],
+            "cars": [
+              "A",
+              "B",
+              "C"
+            ],
+            "batch": {
+              "removedMeshes": 2289,
+              "batches": 355,
+              "groups": 355
+            }
+          },
+          "door": {
+            "cam": [
+              20.5,
+              5.2,
+              28.5
+            ],
+            "sensor": false,
+            "progress": 1,
+            "target": 1,
+            "state": "OPEN",
+            "automatic": false,
+            "leftPos": [
+              -1.52,
+              1.31,
+              7.54
+            ],
+            "leftBase": [
+              -0.6,
+              1.31,
+              7.54
+            ]
+          },
+          "clerks": {
+            "time": 59.3,
+            "queue": 0,
+            "clerks": {
+              "A": {
+                "state": "WALK_TO_TARGET",
+                "task": null,
+                "taskTarget": null,
+                "taskArea": null,
+                "animation": "Walk_Normal",
+                "remaining": 0,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -9.13,
+                  0,
+                  5.08
+                ],
+                "yaw": -1.275,
+                "forward": [
+                  -0.96,
+                  0.29
+                ],
+                "speed": 0.45,
+                "pathLeft": 1,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 1
+              },
+              "B": {
+                "state": "RESTOCK_SHELF",
+                "task": "restock",
+                "taskTarget": [
+                  -4.7,
+                  1.1
+                ],
+                "taskArea": "aisleB",
+                "animation": "Shelf_Restock",
+                "remaining": 5,
+                "customer": null,
+                "interrupted": false,
+                "position": [
+                  -4.7,
+                  0,
+                  1.09
+                ],
+                "yaw": -1.571,
+                "forward": [
+                  -1,
+                  0
+                ],
+                "speed": 0.47,
+                "pathLeft": 0,
+                "carry": false,
+                "boxVisible": false,
+                "tool": null,
+                "navOk": true,
+                "customersServed": 0
+              }
+            },
+            "stats": {
+              "A": {
+                "tasksDone": 5,
+                "distance": 17.47242646986839,
+                "interruptions": 1,
+                "customersServed": 1
+              },
+              "B": {
+                "tasksDone": 1,
+                "distance": 31.450479673200096,
+                "interruptions": 0
+              }
+            },
+            "taskCounts": {
+              "A": {
+                "tidy_counter": 1,
+                "short_wait": 1,
+                "look_around": 1,
+                "nearby_shelf": 1,
+                "impulse_tidy": 1
+              },
+              "B": {
+                "shelf_inspect": 1
+              }
+            },
+            "history": {
+              "A": [
+                "short_wait",
+                "look_around",
+                "nearby_shelf",
+                "impulse_tidy"
+              ],
+              "B": [
+                "shelf_inspect"
+              ]
+            },
+            "events": {
+              "enter": 0,
+              "checkout": 1,
+              "help": 0,
+              "queue": 0
+            },
+            "customersServed": 1
+          },
+          "camera": [
+            [
+              520,
+              328
+            ],
+            [
+              698,
+              348
+            ],
+            [
+              520,
+              234
+            ]
+          ],
+          "canvas": {
+            "width": 672,
+            "height": 378,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 960,
+              "height": 540,
+              "top": 0,
+              "right": 960,
+              "bottom": 540,
+              "left": 0
+            }
+          },
+          "probe": {
+            "draws": 973643,
+            "raf": 659,
+            "mainFrames": 620
+          }
+        },
+        "animationPauseKeepsDrawing": true,
+        "publicStopExists": false,
+        "publicDisposeExists": false,
+        "postMessageBridgeExistsInSource": false
+      }
+    }
+  ],
+  "pageErrors": [],
+  "console": [],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:4190/root/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/controls.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/responsive.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/main.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/main.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/lawson_scene.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_A.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_B.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_C.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/main.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/controls.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/responsive.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/main.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/lawson_scene.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_A.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_B.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/assets/models/car_C.glb",
+      "status": 200
+    }
+  ],
+  "failedRequests": [],
+  "timingPolicy": "native RAF and performance time, no time acceleration or altered scene code",
+  "scope": "independent staged scene and temporary harness, not the personal website integration",
+  "verificationScriptSHA256": "30441c4bb78bc70283953d68db139dad1ed7a20d6ec9a821ab7045ec1597520b",
+  "browser": "155.0.8059.79",
+  "browserConfiguration": {
+    "backend": "mesa",
+    "headless": false,
+    "flags": [
+      "--no-sandbox",
+      "--use-gl=angle",
+      "--use-angle=gl",
+      "--ignore-gpu-blocklist"
+    ],
+    "DISPLAY": ":106",
+    "LP_NUM_THREADS": "3",
+    "softwareRendering": true,
+    "hardwareFPSProof": false
+  },
+  "initialViewport": {
+    "width": 960,
+    "height": 540
+  },
+  "environment": {
+    "viewport": [
+      960,
+      540
+    ],
+    "DPR": 1,
+    "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  },
+  "functionalQualitySetup": {
+    "before": {
+      "fps": 17,
+      "drawCalls": 2193,
+      "triangles": 730990,
+      "programs": 21,
+      "lights": 34,
+      "quality": "high",
+      "timeOfDay": 18.5,
+      "pixelRatio": 1,
+      "renderSize": [
+        960,
+        540
+      ],
+      "batch": {
+        "removedMeshes": 2289,
+        "batches": 355,
+        "groups": 355
+      }
+    },
+    "after": {
+      "fps": 12,
+      "drawCalls": 1604,
+      "triangles": 414696,
+      "programs": 27,
+      "lights": 34,
+      "quality": "low",
+      "timeOfDay": 18.5,
+      "pixelRatio": 1,
+      "renderSize": [
+        960,
+        540
+      ],
+      "batch": {
+        "removedMeshes": 2289,
+        "batches": 355,
+        "groups": 355
+      }
+    },
+    "originalSettingsButtonClicks": 2,
+    "reason": "Functional verification on cloud software GL; default quality loading is recorded separately."
+  },
+  "passed": false,
+  "httpErrors": []
+}

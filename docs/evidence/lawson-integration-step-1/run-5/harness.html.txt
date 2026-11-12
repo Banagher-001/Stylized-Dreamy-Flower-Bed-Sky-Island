@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>罗森独立嵌入核查 · 临时页面</title>
+<style>body{margin:0;background:#edf0e4;color:#17332c;font:16px system-ui}header{padding:16px;position:relative;z-index:1}button,a{font:inherit;margin-right:12px;padding:10px}iframe{display:block;width:calc(100% - 32px);height:700px;margin:0 16px;border:0}footer{height:1000px;padding:24px}</style>
+<header><button id="open">加载场景</button><button id="close">卸载场景</button><span id="state" role="status">等待加载</span></header>
+<main id="mount"></main><footer>仅用于检查嵌入、滚轮和资源路径，不是个人网站的新界面。</footer>
+<script>const mount=document.querySelector('#mount'),state=document.querySelector('#state');
+document.querySelector('#open').onclick=()=>{if(mount.firstChild)return;const frame=document.createElement('iframe');frame.id='lawson';frame.title='罗森场景核查';frame.allow='fullscreen';frame.src='./experiments/lawson/index.html';mount.append(frame);state.textContent='容器已建立，场景加载中';};
+document.querySelector('#close').onclick=()=>{mount.replaceChildren();state.textContent='已卸载';};</script></html>

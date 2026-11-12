@@ -1,0 +1,32 @@
+@media (max-width: 1180px) {
+  .panel { width: 258px; }
+  .brand-text h1 { font-size: 13.5px; }
+}
+@media (max-width: 900px) {
+  .brand { left: 14px; top: 12px; gap: 9px; }
+  .brand-mark { width: 32px; height: 32px; font-size: 18px; border-radius: 9px; }
+  .brand-text h1 { font-size: 11.5px; letter-spacing: .1em; }
+  .brand-text p { font-size: 8.5px; letter-spacing: .22em; }
+  .topbar { right: 12px; top: 12px; }
+  .panel { right: 12px; top: 58px; width: 232px; max-height: calc(100vh - 130px); padding: 2px 11px 12px; }
+  .panel button { padding: 6px 8px; font-size: 11.5px; }
+  .hints { left: 14px; bottom: 12px; font-size: 10px; gap: 6px; }
+  .hints span:nth-child(n+4) { display: none; }
+  .perf { right: 14px; bottom: 12px; font-size: 10px; }
+  .walk-bar { font-size: 10.5px; bottom: 44px; padding: 7px 12px; }
+}
+@media (max-width: 620px) {
+  .panel { width: 200px; }
+  .panel.collapsed { width: 46px; }
+  .loader-bar, .loader-meta { width: 220px; }
+  .loader-sign { font-size: 26px; }
+  .overlay-card { padding: 18px; }
+  .overlay-card ul { font-size: 12px; }
+}
+@media (max-height: 620px) {
+  .panel { max-height: calc(100vh - 96px); }
+  .brand-text p { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001s !important; transition-duration: .001s !important; }
+}

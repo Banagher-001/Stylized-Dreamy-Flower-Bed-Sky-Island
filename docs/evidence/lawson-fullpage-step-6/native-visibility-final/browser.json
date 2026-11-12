@@ -1,0 +1,144 @@
+{
+  "checks": [
+    {
+      "name": "native visibility loading",
+      "passed": true,
+      "evidence": {
+        "actualHidden": {
+          "state": "hidden",
+          "events": [
+            {
+              "state": "hidden",
+              "time": 1579.1000000000931
+            }
+          ]
+        },
+        "childActuallyHidden": true,
+        "backgroundWaitMS": 13000,
+        "stateWhileHidden": "slow",
+        "returnedEvents": [
+          {
+            "state": "hidden",
+            "time": 1579.1000000000931
+          },
+          {
+            "state": "visible",
+            "time": 14880.100000000093
+          }
+        ],
+        "sameInstanceAcrossTabSwitch": true,
+        "stateUsableAfterReturn": true,
+        "parentCoveredDraws": 0
+      }
+    },
+    {
+      "name": "native visibility ready",
+      "passed": true,
+      "evidence": {
+        "actualHidden": {
+          "state": "hidden",
+          "events": [
+            {
+              "state": "hidden",
+              "time": 4091.2000000001863
+            }
+          ]
+        },
+        "childActuallyHidden": true,
+        "backgroundWaitMS": 500,
+        "stateWhileHidden": "ready",
+        "returnedEvents": [
+          {
+            "state": "hidden",
+            "time": 4091.2000000001863
+          },
+          {
+            "state": "visible",
+            "time": 4623.399999999907
+          }
+        ],
+        "sameInstanceAcrossTabSwitch": true,
+        "stateUsableAfterReturn": true,
+        "parentCoveredDraws": 0
+      }
+    },
+    {
+      "name": "native visibility error",
+      "passed": true,
+      "evidence": {
+        "actualHidden": {
+          "state": "hidden",
+          "events": [
+            {
+              "state": "hidden",
+              "time": 1459
+            }
+          ]
+        },
+        "childActuallyHidden": true,
+        "backgroundWaitMS": 500,
+        "stateWhileHidden": "error",
+        "returnedEvents": [
+          {
+            "state": "hidden",
+            "time": 1459
+          },
+          {
+            "state": "visible",
+            "time": 2133.2999999998137
+          }
+        ],
+        "sameInstanceAcrossTabSwitch": true,
+        "stateUsableAfterReturn": true,
+        "parentCoveredDraws": 0
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "native visibility loading",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "native visibility ready",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "native visibility error",
+      "kind": "console",
+      "level": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "native visibility error",
+      "kind": "requestfailed",
+      "text": "net::ERR_FAILED",
+      "url": "http://127.0.0.1:4196/experiments/lawson/assets/models/lawson_scene.glb"
+    },
+    {
+      "case": "native visibility error",
+      "kind": "console",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "case": "native visibility error",
+      "kind": "console",
+      "level": "error",
+      "text": "[Lawson] fatal: 模型加载失败：加载失败: ./assets/models/lawson_scene.glb — Failed to fetch"
+    }
+  ],
+  "noDefaultsCDP": true,
+  "documentPropertiesOrEventsFaked": false,
+  "physicalDevice": false,
+  "ownedChromePID": 14082,
+  "browserDebugPort": 33959,
+  "browserVersion": "155.0.8059.79",
+  "ownedChromeStopped": true,
+  "temporaryProfileRemoved": true,
+  "passed": true
+}

@@ -1,0 +1,249 @@
+{
+  "phase": "compat",
+  "run": "run-9",
+  "checks": [
+    {
+      "name": "WebGL unavailable shows explicit failure",
+      "passed": true,
+      "evidence": {
+        "injectedUnavailableWebGL": true,
+        "message": "无法创建 WebGL 渲染器：Error creating WebGL context.",
+        "retryVisible": true,
+        "deniedContextTypes": [
+          "webgl2",
+          "webgl",
+          "experimental-webgl",
+          "webgl2",
+          "webgl",
+          "experimental-webgl"
+        ],
+        "appReady": false
+      }
+    }
+  ],
+  "pageErrors": [],
+  "console": [
+    {
+      "type": "error",
+      "text": "THREE.WebGLRenderer: Error creating WebGL context.",
+      "url": "http://127.0.0.1:4190/root/index.html",
+      "location": {
+        "url": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+        "line": 28699,
+        "column": 11,
+        "lineNumber": 28699,
+        "columnNumber": 11
+      }
+    },
+    {
+      "type": "error",
+      "text": "[Lawson] fatal: 无法创建 WebGL 渲染器：Error creating WebGL context.",
+      "url": "http://127.0.0.1:4190/root/index.html",
+      "location": {
+        "url": "http://127.0.0.1:4190/root/js/main.js",
+        "line": 43,
+        "column": 10,
+        "lineNumber": 43,
+        "columnNumber": 10
+      }
+    }
+  ],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:4190/root/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/responsive.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/controls.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/css/main.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/main.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/Renderer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AssetManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/SceneManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DoorSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/UpdateLoop.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/core/AnimationController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/TrafficSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/DayNightSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/LightingSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/CameraSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/ClerkSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/InteractionSystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/QualitySystem.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIState.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/ui/UIController.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/lightConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/RenderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/OutputPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/sceneConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/assetManifest.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/config/vehiclePaths.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/AnimLibrary.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/NavGrid.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/Pass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/TaskManager.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/three.module.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/postprocessing/MaskPass.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/CopyShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/js/systems/clerk/clerkConfig.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/shaders/OutputShader.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4190/root/vendor/three/jsm/controls/OrbitControls.js",
+      "status": 200
+    }
+  ],
+  "failedRequests": [],
+  "timingPolicy": "native RAF and performance time, no time acceleration or altered scene code",
+  "scope": "independent staged scene and temporary harness, not the personal website integration",
+  "verificationScriptSHA256": "aafd613ed7dacf5cfcb175689b2ca99689222b0376b6d689475847c14e2f385c",
+  "targetedCaseFragments": [
+    "WebGL unavailable"
+  ],
+  "browser": "155.0.8059.79",
+  "browserConfiguration": {
+    "backend": "mesa",
+    "headless": false,
+    "flags": [
+      "--no-sandbox",
+      "--use-gl=angle",
+      "--use-angle=gl",
+      "--ignore-gpu-blocklist"
+    ],
+    "DISPLAY": ":106",
+    "LP_NUM_THREADS": "3",
+    "softwareRendering": true,
+    "hardwareFPSProof": false
+  },
+  "initialViewport": {
+    "width": 960,
+    "height": 540
+  },
+  "passed": true,
+  "httpErrors": []
+}

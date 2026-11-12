@@ -1,0 +1,115 @@
+{
+  "complete": true,
+  "allExitCodesZero": false,
+  "results": [
+    {
+      "name": "controls-recheck",
+      "script": "controls.py",
+      "arguments": [
+        "--run",
+        "recheck-embedded-controls"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 148.76293728400015,
+      "log": "controls-recheck.log"
+    },
+    {
+      "name": "roof-standalone",
+      "script": "supplement.py",
+      "arguments": [
+        "--run",
+        "recheck-standalone-roof",
+        "--only",
+        "BUTTON.roof-actual"
+      ],
+      "exitCode": 1,
+      "wallSeconds": 31.98226125600013,
+      "log": "roof-standalone.log"
+    },
+    {
+      "name": "roof-embedded",
+      "script": "supplement.py",
+      "arguments": [
+        "--run",
+        "recheck-embedded-roof",
+        "--only",
+        "BUTTON.roof-actual"
+      ],
+      "exitCode": 1,
+      "wallSeconds": 40.3231123759997,
+      "log": "roof-embedded.log"
+    },
+    {
+      "name": "retry-standalone",
+      "script": "verify_standalone_retry.py",
+      "arguments": [
+        "--run",
+        "standalone-native-retry"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 9.21207803300058,
+      "log": "retry-standalone.log"
+    },
+    {
+      "name": "journey-chromium",
+      "script": "verify_journey.py",
+      "arguments": [
+        "--run",
+        "journey-chromium"
+      ],
+      "exitCode": 1,
+      "wallSeconds": 130.74729528100033,
+      "log": "journey-chromium.log"
+    },
+    {
+      "name": "recovery-chromium",
+      "script": "verify_recovery.py",
+      "arguments": [
+        "--run",
+        "recovery-chromium"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 74.72310315899995,
+      "log": "recovery-chromium.log"
+    },
+    {
+      "name": "touch-chromium",
+      "script": "verify_touch.py",
+      "arguments": [
+        "--run",
+        "touch-chromium",
+        "--only",
+        "touch"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 22.26302440299878,
+      "log": "touch-chromium.log"
+    },
+    {
+      "name": "compat-firefox",
+      "script": "verify_journey.py",
+      "arguments": [
+        "--run",
+        "journey-firefox",
+        "--engine",
+        "firefox"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 41.03765620200102,
+      "log": "compat-firefox.log"
+    },
+    {
+      "name": "compat-webkit",
+      "script": "verify_journey.py",
+      "arguments": [
+        "--run",
+        "journey-webkit",
+        "--engine",
+        "webkit"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 143.87512724800035,
+      "log": "compat-webkit.log"
+    }
+  ]
+}
