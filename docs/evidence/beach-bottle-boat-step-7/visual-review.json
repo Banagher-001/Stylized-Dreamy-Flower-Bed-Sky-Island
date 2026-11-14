@@ -1,0 +1,75 @@
+{
+  "reviewedAtShanghai": "2026-11-14T16:27:11.469460+08:00",
+  "method": "Assistant opened each named actual local image with view_image; no image editing, recapture substitution or pixel-equality claim.",
+  "complete": true,
+  "images": [
+    {
+      "file": {
+        "path": "docs/evidence/beach-bottle-boat-step-7/chromium-controls/default-original-scene-reference.png",
+        "bytes": 743857,
+        "sha256": "afa0d64d8e069f071f84de5e4bc01d78b8b4f4e3f468fe36ce5e297e03ca5c8a"
+      },
+      "observation": "原页默认桌面：瓶体、帆船、灯塔、像素纹理和原控制台可见。"
+    },
+    {
+      "file": {
+        "path": "docs/evidence/beach-bottle-boat-step-7/chromium-controls/default-original-scene-embedded.png",
+        "bytes": 752815,
+        "sha256": "bac6077da2c87e337e33756dd99109e511e42b98f58a73893b7c888c70b59f41"
+      },
+      "observation": "内嵌默认桌面：同一子视口画面，宿主栏在原画布外；原面板/场景完整可操作。"
+    },
+    {
+      "file": {
+        "path": "docs/evidence/beach-bottle-boat-step-7/chromium-narrow-retest/small-screen-narrow-embedded.png",
+        "bytes": 419614,
+        "sha256": "5743e4e3ab195ab940e3479c31654b1990349bc79736654d88eae251b31d036f"
+      },
+      "observation": "窄屏模拟：宿主返回/独立入口可达；原展开控制台能滚动至透明度/底栏。取景裁切和字体为原行为。"
+    },
+    {
+      "file": {
+        "path": "docs/evidence/beach-bottle-boat-step-7/chromium-dynamics/trajectory-strong-water-100-embedded.png",
+        "bytes": 510439,
+        "sha256": "6a8e6347408965ba4f4e02fa83d521bc9678b3c3315ae756deca25227e54d617"
+      },
+      "observation": "强浪/大风/高水位代表帧：船体和波场可见，无明显新增画面破损；不作为所有时间/所有组合无穿模证明。"
+    },
+    {
+      "file": {
+        "path": "docs/evidence/beach-bottle-boat-step-7/chromium-export-retest/EXPORT-desktop-original-button-export-reference.png",
+        "bytes": 351495,
+        "sha256": "6cc23871730667d7a7c8f9175a507e63f1a651d02c8f9adf174ceb7db50952f6"
+      },
+      "observation": "已实际查看原按钮下载 desktop / reference：PNG 为 WebGL 场景，不含 DOM/宿主栏。桌面1440×844，手机780×1592；窄画幅裁去瓶体两侧，保留原取景；自然相位不同。"
+    },
+    {
+      "file": {
+        "path": "docs/evidence/beach-bottle-boat-step-7/chromium-export-retest/EXPORT-phone-original-button-export-reference.png",
+        "bytes": 227530,
+        "sha256": "9ab35039fc67f437f34211e58b619d7b758deb6a1a3a82f250828a270f7cd863"
+      },
+      "observation": "已实际查看原按钮下载 phone / reference：PNG 为 WebGL 场景，不含 DOM/宿主栏。桌面1440×844，手机780×1592；窄画幅裁去瓶体两侧，保留原取景；自然相位不同。"
+    },
+    {
+      "file": {
+        "path": "docs/evidence/beach-bottle-boat-step-7/chromium-export-retest/EXPORT-desktop-original-button-export-embedded.png",
+        "bytes": 351812,
+        "sha256": "7b6d439a4f12817b7d93223c775b6c1929c34010c2b0af2a22e8edb621116f1c"
+      },
+      "observation": "已实际查看原按钮下载 desktop / embedded：PNG 为 WebGL 场景，不含 DOM/宿主栏。桌面1440×844，手机780×1592；窄画幅裁去瓶体两侧，保留原取景；自然相位不同。"
+    },
+    {
+      "file": {
+        "path": "docs/evidence/beach-bottle-boat-step-7/chromium-export-retest/EXPORT-phone-original-button-export-embedded.png",
+        "bytes": 227718,
+        "sha256": "69d5a83eb0746e99b6859f6b54c9c66df2752220ca1a56dfc57687330f132178"
+      },
+      "observation": "已实际查看原按钮下载 phone / embedded：PNG 为 WebGL 场景，不含 DOM/宿主栏。桌面1440×844，手机780×1592；窄画幅裁去瓶体两侧，保留原取景；自然相位不同。"
+    }
+  ],
+  "limits": [
+    "Sampled still images only; continuous motion evaluated from real trajectories",
+    "Software graphics and phone emulation, no physical-device visual claim"
+  ]
+}

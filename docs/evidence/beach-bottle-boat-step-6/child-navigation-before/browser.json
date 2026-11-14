@@ -1,0 +1,185 @@
+{
+  "startedAtShanghai": "2026-11-14T14:00:27.033465+08:00",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "NAV.child-blank",
+      "name": "子页发起的同源空白导航不继续等待原场景",
+      "status": "待补核",
+      "error": "Page.wait_for_function: Timeout 3500ms exceeded.",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/beach-bottle-boat-step-6/browser.py\", line 20, in check\n    e=fn();status=e.pop('_status','通过')if isinstance(e,dict)else'通过';entry={'id':id,'name':name,'status':status,'evidence':e};print(status+' '+id,flush=True)\n      ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/beach-bottle-boat-step-6/browser.py\", line 126, in child_blank\n    p.wait_for_timeout(700);snapshot={'before':before,'currentDocumentURL':f.url,'parentCanAccessDocument':p.locator('iframe').evaluate('e=>!!e.contentDocument'),'hostAfterNavigation':state()};write(folder/'child-blank-navigation.json',snapshot);wait_status('error',3500);p.locator('.tour-project-retry').click();f=ready_frame();return {'navigation':snapshot,'recoveredOriginal':original_control(f),'returned':exit_record(f)}\n                                                                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/beach-bottle-boat-step-6/browser.py\", line 107, in wait_status\n    def wait_status(value,timeout=15000):p.wait_for_function('s=>document.querySelector(\".tour-project-dialog\").dataset.embeddedState===s',arg=value,timeout=timeout,polling=100)\n                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 12761, in wait_for_function\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 1151, in wait_for_function\n    return await self._main_frame.wait_for_function(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 940, in wait_for_function\n    await self._channel.send(\"waitForFunction\", self._timeout, params)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 3500ms exceeded.\n",
+      "state": {
+        "url": "http://127.0.0.1:44457/",
+        "viewport": [
+          1440,
+          900
+        ],
+        "dpr": 1,
+        "scrollY": 5604,
+        "anchor": "C1",
+        "layout": "stable",
+        "work": "bottle-ocean",
+        "selected": [
+          {
+            "id": "lawson",
+            "selected": "false",
+            "tab": -1,
+            "disabled": false
+          },
+          {
+            "id": "bottle-ocean",
+            "selected": "true",
+            "tab": 0,
+            "disabled": false
+          },
+          {
+            "id": "courtyard",
+            "selected": "false",
+            "tab": -1,
+            "disabled": false
+          }
+        ],
+        "previewLabel": "experiment-project-bottle-ocean",
+        "focus": "BUTTON",
+        "dialog": {
+          "projectId": "bottle-ocean",
+          "tab": "live",
+          "embeddedState": "loading"
+        },
+        "open": true,
+        "frames": [
+          "http://127.0.0.1:44457/experiments/bottle-ocean/index.html"
+        ],
+        "guide": {
+          "pressed": "false",
+          "state": "blocked"
+        },
+        "host": {
+          "motionState": "covered",
+          "renderState": "ready",
+          "progressH": null,
+          "targetH": "0.0000000",
+          "sceneTime": "2.449900",
+          "cameraPosition": "[4.5,23,16]",
+          "cameraTarget": "[0,0.45,0]",
+          "overlayState": "open"
+        },
+        "overflow": false
+      }
+    }
+  ],
+  "requests": [
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/",
+      "type": "document"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/index-C13u_He4.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-Dl0putm4.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    }
+  ],
+  "pageErrors": [
+    {
+      "case": "NAV.child-blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.child-blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.child-blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.child-blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    }
+  ],
+  "console": [
+    {
+      "case": "NAV.child-blank",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "failedRequests": [],
+  "externalAttempts": [],
+  "routesDisableCache": true,
+  "physicalDevice": false,
+  "baseKind": "production",
+  "headless": false,
+  "activeBuildAtStart": {
+    "run": "initial",
+    "record": "build-initial.json",
+    "buildRoot": "/tmp/bottle-ocean-step-6-8x7h8zn4/production-initial",
+    "switchedAtShanghai": "2026-11-14T13:57:32.344560+08:00"
+  },
+  "bottleIframeAdded": true,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "finishedAtShanghai": "2026-11-14T14:00:38.022547+08:00",
+  "complete": false
+}

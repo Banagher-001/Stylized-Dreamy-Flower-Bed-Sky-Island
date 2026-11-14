@@ -1,0 +1,57 @@
+"""Observe genuine rendered-frame trajectories without changing the original clock."""
+import json,math,time
+from common import Run,arguments
+args=arguments();r=Run(args,'physics');c,p=r.new(1024,768);r.ready();r.quality('retro')
+def wait_sim(seconds):
+ start=p.evaluate('__bottleOcean.getDiagnostics().simTime');deadline=time.monotonic()+180
+ while p.evaluate('__bottleOcean.getDiagnostics().simTime')<start+seconds:
+  assert time.monotonic()<deadline,'Natural simulation settling timed out';p.wait_for_timeout(500)
+def sample(label,seconds,settling=2):
+ wait_sim(settling);initial=r.snapshot();wall=time.monotonic()
+ p.evaluate('''seconds=>{const box=__baseline.observation={done:false,samples:[],start:null};function observe(){const d=__bottleOcean.getDiagnostics(),b=__bottleOcean;if(box.start===null)box.start=d.simTime;box.samples.push({frame:__baseline.frames,wall:performance.now(),simTime:d.simTime,boat:d.boat,water:d.water,gpuWaveTime:b.waterField.uniforms.uTime.value,sailPivots:b.boat.masts.map(m=>m.sails.map(s=>({x:s.pivot.rotation.x,z:s.pivot.rotation.z,pz:s.pivot.position.z})))});if(d.simTime-box.start>=seconds&&box.samples.length>=40)box.done=true;else requestAnimationFrame(observe)}requestAnimationFrame(observe)}''',seconds)
+ deadline=time.monotonic()+300
+ while not p.evaluate('__baseline.observation.done'):
+  assert time.monotonic()<deadline,'Natural trajectory window timed out';p.wait_for_timeout(2000)
+  data=p.evaluate('__baseline.observation');(r.folder/(label+'-partial.json')).write_text(json.dumps(data,ensure_ascii=False));print(label+' '+str(round(data['samples'][-1]['simTime']-data['start'],2))+' sim seconds',flush=True)
+ data=p.evaluate('__baseline.observation');rows=data['samples'];end=r.snapshot();window=rows[-1]['simTime']-rows[0]['simTime'];assert window>=seconds and len(set(x['frame']for x in rows))>=40
+ for a in rows:
+  assert abs(a['gpuWaveTime']-a['simTime'])<1e-8
+  for value in a['boat']['position']+[a['boat']['pitch'],a['boat']['roll'],a['water']['heightAtBoat']]:assert math.isfinite(value)
+ ranges={name:max(row['boat'][name]for row in rows)-min(row['boat'][name]for row in rows)for name in['rootY','pitch','roll']};ranges['surface']=max(row['water']['heightAtBoat']for row in rows)-min(row['water']['heightAtBoat']for row in rows)
+ result={'label':label,'initial':initial,'end':end,'wallSeconds':time.monotonic()-wall,'simSeconds':window,'distinctRenderedFrames':len(set(x['frame']for x in rows)),'range':ranges,'allReportedInsideBottle':all(row['boat']['safety']['withinBottle']for row in rows),'rows':rows}
+ (r.folder/(label+'.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');r.picture(label);return {k:v for k,v in result.items()if k!='rows'}
+try:
+ heights=[]
+ for height in[0,50,100]:
+  def height_case(height=height):
+   r.reset();r.slider('waveHeight',height);result=sample('height-'+str(height),8,4);heights.append(result)
+   if height==0:assert result['range']['surface']<1e-8 and result['range']['pitch']<.001 and result['range']['roll']<.001
+   else:assert result['range']['surface']>.01 and result['range']['rootY']>.005 and max(result['range']['pitch'],result['range']['roll'])>.005
+   if not result['allReportedInsideBottle']:result['_status']='原页已有问题'
+   return result
+  r.check('MOTION.height-'+str(height),'波高'+str(height)+'连续8模拟秒与至少40真实帧',height_case)
+ def directions():
+  rows=[]
+  for value in[0,90,180,270]:
+   r.reset();r.slider('waveHeight',50);r.slider('waveDirection',value);rows.append(sample('direction-'+str(value),2,1.5))
+  assert len({round(x['initial']['actual']['waves'][0]['dx'],4)for x in rows})>=3
+  return {'runs':rows,'interpretation':'Actual direction vectors and boat trajectories; no monotonic amplitude assumption'}
+ r.check('MOTION.directions','四个方向的实际波场及姿态',directions)
+ for name in['boatResponse','boatDamping','wind']:
+  def dynamics(name=name):
+   rows=[]
+   for value in[0,100]:
+    r.reset();r.slider('waveHeight',50);r.slider(name,value);rows.append(sample(name+'-'+str(value),3,2))
+   if name=='boatResponse':assert rows[0]['range']['pitch']<.001 and rows[1]['range']['pitch']>.005
+   if name=='wind':
+    calm=math.hypot(*rows[0]['end']['diagnostics']['boat']['drift']);windy=math.hypot(*rows[1]['end']['diagnostics']['boat']['drift'])
+    assert calm<.002 and windy>.01 and windy>calm
+   return {'runs':rows,'phaseMatchedComparisonClaimed':False,'dampingNote':'Source uses 0.82→0.26 vertical damping ratio as slider increases; observed trajectories retained, higher label does not mean more damping'}
+  r.check('MOTION.'+name,name+'实际连续轨迹与过渡',dynamics)
+ def safety():
+  rows=[]
+  for level in[0,100]:
+   r.reset();r.slider('waveHeight',100);r.slider('waterLevel',level);r.slider('wind',100);result=sample('strong-wave-level-'+str(level),2,2);rows.append(result)
+  return {'_status':'通过'if all(x['allReportedInsideBottle']for x in rows)else'原页已有问题','representativeRuns':rows,'notExhaustive':'Telemetry and screenshots cover these combinations only; no all-parameter no-clipping claim'}
+ r.check('MOTION.strong-water-safety','强浪、极端水位的有限数值及原瓶腔检查',safety)
+finally:r.finish()

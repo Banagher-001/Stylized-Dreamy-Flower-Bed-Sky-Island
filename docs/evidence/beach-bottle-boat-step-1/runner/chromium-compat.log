@@ -1,0 +1,88 @@
+通过 ENGINE.representative
+待补核 LOAD.file-cold: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/Beach-Bottle-Boat/index.html
+Call log:
+  - navigating to "file:///workspace/Beach-Bottle-Boat/index.html", waiting until "domcontentloaded"
+
+待补核 VIEW.mobile-touch: Locator.click: Timeout 25000ms exceeded.
+Call log:
+  - waiting for locator("[data-quality=retro]")
+    - locator resolved to <button type="button" data-quality="retro">复古</button>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="panel-footer">…</div> intercepts pointer events
+  - retrying click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="panel-head">…</div> intercepts pointer events
+  - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="panel-footer">…</div> intercepts pointer events
+  2 × retrying click action
+      - waiting 100ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <button type="button" title="恢复默认镜头" aria-label="恢复默认镜头" class="transport-icon" data-action="resetCamera">…</button> from <div class="panel-footer">…</div> subtree intercepts pointer events
+  10 × retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="panel-head">…</div> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="panel-footer">…</div> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <button type="button" title="恢复默认镜头" aria-label="恢复默认镜头" class="transport-icon" data-action="resetCamera">…</button> from <div class="panel-footer">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <button type="button" title="恢复默认镜头" aria-label="恢复默认镜头" class="transport-icon" data-action="resetCamera">…</button> from <div class="panel-footer">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="panel-head">…</div> intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="panel-footer">…</div> intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <button type="button" title="恢复默认镜头" aria-label="恢复默认镜头" class="transport-icon" data-action="resetCamera">…</button> from <div class="panel-footer">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+
+{"complete": false, "checks": 3, "knownIssues": [], "externalAttempts": 0}

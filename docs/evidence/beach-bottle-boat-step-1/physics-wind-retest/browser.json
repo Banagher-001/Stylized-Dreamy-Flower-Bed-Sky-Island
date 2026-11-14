@@ -1,0 +1,1484 @@
+{
+  "phase": "physics",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "MOTION.wind",
+      "name": "wind实际连续轨迹与过渡",
+      "status": "通过",
+      "evidence": {
+        "runs": [
+          {
+            "label": "wind-0",
+            "initial": {
+              "diagnostics": {
+                "ready": true,
+                "simTime": 3.3823999999999987,
+                "paused": false,
+                "state": {
+                  "waveHeight": 50,
+                  "waveSpeed": 1,
+                  "waveDensity": 1.25,
+                  "waveDirection": 28,
+                  "waterLevel": 42,
+                  "boatResponse": 72,
+                  "boatDamping": 48,
+                  "wind": 0,
+                  "pixelScale": 3.8,
+                  "sunset": 45,
+                  "brightness": 0.82,
+                  "glassOpacity": 0.15,
+                  "lighthouse": true,
+                  "spray": true,
+                  "dust": true,
+                  "quality": "retro",
+                  "paused": false,
+                  "editMode": null
+                },
+                "camera": {
+                  "position": [
+                    0.5503801579587017,
+                    2.34138507530666,
+                    6.490267956257238
+                  ],
+                  "target": [
+                    0.8,
+                    1.92,
+                    0.1
+                  ],
+                  "fov": 42,
+                  "preset": "cinema",
+                  "distance": 6.409009283812904
+                },
+                "boat": {
+                  "position": [
+                    -0.31905119589119263,
+                    0.7596788777466172,
+                    0.03971590545389912
+                  ],
+                  "quaternion": [
+                    -0.047199382960584346,
+                    0.05561017701916045,
+                    0.03828702028715152,
+                    0.9966011391412158
+                  ],
+                  "pitch": 0.07112419422911793,
+                  "roll": -0.09874585928822172,
+                  "yaw": 0.115,
+                  "rootY": 0.7596788777466172,
+                  "surfaceAtBoat": 0.7256081924144085,
+                  "waterLevel": 0.7564,
+                  "waveAmplitude": 0.08693878900208464,
+                  "sampleHeights": {
+                    "bow": 0.7963057038145246,
+                    "stern": 0.7814065423595635,
+                    "port": 0.7510395458428626,
+                    "starboard": 0.7463778931411624,
+                    "center": 0.7256081924144085
+                  },
+                  "mastTip": [
+                    -0.3624869865628184,
+                    1.6521843473183235,
+                    -0.044285992580126096
+                  ],
+                  "mastTips": [
+                    [
+                      -0.7111698518643781,
+                      1.4075157952217883,
+                      0.01782325842227616
+                    ],
+                    [
+                      -0.3624869865628184,
+                      1.6521843473183235,
+                      -0.044285992580126096
+                    ],
+                    [
+                      -0.01090529473931956,
+                      1.49767591423487,
+                      -0.06703369753298186
+                    ]
+                  ],
+                  "forward": [
+                    0.9908832245788578,
+                    0.07106424398172961,
+                    -0.11445657899618579
+                  ],
+                  "drift": [
+                    0.0009488041088073913,
+                    -0.0002840945461008774
+                  ],
+                  "safety": {
+                    "withinBottle": true,
+                    "worst": null,
+                    "checks": {
+                      "mastTips": [
+                        true,
+                        true,
+                        true
+                      ],
+                      "hull": true
+                    }
+                  }
+                },
+                "water": {
+                  "baseLevel": 0.7564,
+                  "amplitude": 0.08693878900208464,
+                  "heightAtBoat": 0.7256081924144085,
+                  "samples": {
+                    "bow": 0.7963057038145246,
+                    "stern": 0.7814065423595635,
+                    "port": 0.7510395458428626,
+                    "starboard": 0.7463778931411624,
+                    "center": 0.7256081924144085
+                  }
+                },
+                "renderer": {
+                  "calls": 74,
+                  "triangles": 193219,
+                  "points": 774,
+                  "lines": 29,
+                  "pixelWidth": 269,
+                  "pixelHeight": 202,
+                  "scale": 3.8,
+                  "levels": 12
+                },
+                "fps": 22,
+                "cameraInsideBottle": false,
+                "editMode": null
+              },
+              "post": {
+                "quality": "retro",
+                "scale": 3.8,
+                "levels": 12,
+                "dither": 1.2,
+                "pixelWidth": 269,
+                "pixelHeight": 202,
+                "exposure": 0.82
+              },
+              "actual": {
+                "waveParams": {
+                  "height": 50,
+                  "speed": 1,
+                  "density": 1.25,
+                  "direction": 28,
+                  "waterLevel": 42
+                },
+                "amplitude": 0.08693878900208464,
+                "baseLevel": 0.7564,
+                "waves": [
+                  {
+                    "dx": 0.9995884073383324,
+                    "dz": 0.028688253952025754,
+                    "k": 4.487989505128276,
+                    "omega": 1.6275000000000002,
+                    "amplitude": 0.03129796404075047
+                  },
+                  {
+                    "dx": 0.8087973061583119,
+                    "dz": 0.5880875084127004,
+                    "k": 6.95042622475618,
+                    "omega": 2.4335,
+                    "amplitude": 0.0243428609205837
+                  },
+                  {
+                    "dx": 0.5073476843913445,
+                    "dz": 0.8617414502869992,
+                    "k": 10.06920722304421,
+                    "omega": 3.2395,
+                    "amplitude": 0.018691839635448196
+                  },
+                  {
+                    "dx": 0.9464653209006031,
+                    "dz": 0.32280550852257534,
+                    "k": 15.103810834566312,
+                    "omega": 4.0455000000000005,
+                    "amplitude": 0.012606124405302272
+                  }
+                ],
+                "glassOpacity": 0.15,
+                "sunIntensity": 2.05,
+                "sunColor": [
+                  1,
+                  0.46207699964472876,
+                  0.14126329113044456
+                ],
+                "sunPosition": [
+                  11.863751277631795,
+                  8.214844548519872,
+                  -74.16547657549474
+                ],
+                "wind": 0,
+                "lighthouse": true,
+                "spray": true,
+                "dust": true,
+                "sails": [
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      0.005715359540731209,
+                      0.014739483994289643
+                    ]
+                  },
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      0.03852319849178855,
+                      -0.02192355223389493
+                    ]
+                  },
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      -0.01564236359737242,
+                      -0.009090025992814206
+                    ]
+                  }
+                ]
+              },
+              "ui": {
+                "hidden": false,
+                "collapsed": false,
+                "edit": false,
+                "pauseLabel": "暂停模拟",
+                "sliders": [
+                  {
+                    "id": "waveHeight",
+                    "value": "50",
+                    "output": "50%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "waveSpeed",
+                    "value": "1",
+                    "output": "1.00×",
+                    "min": "0.2",
+                    "max": "3",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "waveDensity",
+                    "value": "1.25",
+                    "output": "1.25×",
+                    "min": "0.5",
+                    "max": "3",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "waveDirection",
+                    "value": "28",
+                    "output": "28°",
+                    "min": "0",
+                    "max": "360",
+                    "step": "1"
+                  },
+                  {
+                    "id": "waterLevel",
+                    "value": "42",
+                    "output": "42%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "boatResponse",
+                    "value": "72",
+                    "output": "72%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "boatDamping",
+                    "value": "48",
+                    "output": "48%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "wind",
+                    "value": "0",
+                    "output": "0%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "pixelScale",
+                    "value": "3.8",
+                    "output": "3.8×",
+                    "min": "1",
+                    "max": "5",
+                    "step": "0.1"
+                  },
+                  {
+                    "id": "sunset",
+                    "value": "45",
+                    "output": "45%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "brightness",
+                    "value": "0.8",
+                    "output": "0.82×",
+                    "min": "0.6",
+                    "max": "1.6",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "glassOpacity",
+                    "value": "0.15",
+                    "output": "15%",
+                    "min": "0.04",
+                    "max": "0.4",
+                    "step": "0.01"
+                  }
+                ]
+              },
+              "viewport": [
+                1024,
+                768
+              ],
+              "dpr": 1,
+              "frames": 98,
+              "draws": 7588,
+              "canvas": {
+                "x": 0,
+                "y": 0,
+                "width": 1024,
+                "height": 768,
+                "top": 0,
+                "right": 1024,
+                "bottom": 768,
+                "left": 0
+              },
+              "loader": {
+                "hidden": "hidden",
+                "display": "none",
+                "error": ""
+              },
+              "error": null
+            },
+            "end": {
+              "diagnostics": {
+                "ready": true,
+                "simTime": 7.448099999999995,
+                "paused": false,
+                "state": {
+                  "waveHeight": 50,
+                  "waveSpeed": 1,
+                  "waveDensity": 1.25,
+                  "waveDirection": 28,
+                  "waterLevel": 42,
+                  "boatResponse": 72,
+                  "boatDamping": 48,
+                  "wind": 0,
+                  "pixelScale": 3.8,
+                  "sunset": 45,
+                  "brightness": 0.82,
+                  "glassOpacity": 0.15,
+                  "lighthouse": true,
+                  "spray": true,
+                  "dust": true,
+                  "quality": "retro",
+                  "paused": false,
+                  "editMode": null
+                },
+                "camera": {
+                  "position": [
+                    0.5503801579587017,
+                    2.34138507530666,
+                    6.490267956257238
+                  ],
+                  "target": [
+                    0.8,
+                    1.92,
+                    0.1
+                  ],
+                  "fov": 42,
+                  "preset": "cinema",
+                  "distance": 6.409009283812904
+                },
+                "boat": {
+                  "position": [
+                    -0.3199656065411127,
+                    0.7792798050713101,
+                    0.03998429640366724
+                  ],
+                  "quaternion": [
+                    -0.014144231299003326,
+                    0.055924385751660664,
+                    0.07534882515379304,
+                    0.9954872969290984
+                  ],
+                  "pitch": 0.1489861412821768,
+                  "roll": -0.03700678966032496,
+                  "yaw": 0.115,
+                  "rootY": 0.7792798050713101,
+                  "surfaceAtBoat": 0.7428066152883223,
+                  "waterLevel": 0.7564,
+                  "waveAmplitude": 0.08693878900208464,
+                  "sampleHeights": {
+                    "bow": 0.7621685309849586,
+                    "stern": 0.7607312986244201,
+                    "port": 0.753025432966792,
+                    "starboard": 0.7660932068624042,
+                    "center": 0.7428066152883223
+                  },
+                  "mastTip": [
+                    -0.42647875695680537,
+                    1.6701886290336314,
+                    0.01887941131518737
+                  ],
+                  "mastTips": [
+                    [
+                      -0.756611155480583,
+                      1.3978535658997768,
+                      0.06520664771902716
+                    ],
+                    [
+                      -0.42647875695680537,
+                      1.6701886290336314,
+                      0.01887941131518737
+                    ],
+                    [
+                      -0.06517821490943526,
+                      1.5427726285024546,
+                      -0.016150306424407262
+                    ]
+                  ],
+                  "forward": [
+                    0.9823900352524851,
+                    0.14843558166361304,
+                    -0.11347553363084854
+                  ],
+                  "drift": [
+                    3.4393458887297296e-05,
+                    -1.5703596332761497e-05
+                  ],
+                  "safety": {
+                    "withinBottle": true,
+                    "worst": null,
+                    "checks": {
+                      "mastTips": [
+                        true,
+                        true,
+                        true
+                      ],
+                      "hull": true
+                    }
+                  }
+                },
+                "water": {
+                  "baseLevel": 0.7564,
+                  "amplitude": 0.08693878900208464,
+                  "heightAtBoat": 0.7428066152883223,
+                  "samples": {
+                    "bow": 0.7621685309849586,
+                    "stern": 0.7607312986244201,
+                    "port": 0.753025432966792,
+                    "starboard": 0.7660932068624042,
+                    "center": 0.7428066152883223
+                  }
+                },
+                "renderer": {
+                  "calls": 74,
+                  "triangles": 193219,
+                  "points": 774,
+                  "lines": 29,
+                  "pixelWidth": 269,
+                  "pixelHeight": 202,
+                  "scale": 3.8,
+                  "levels": 12
+                },
+                "fps": 19,
+                "cameraInsideBottle": false,
+                "editMode": null
+              },
+              "post": {
+                "quality": "retro",
+                "scale": 3.8,
+                "levels": 12,
+                "dither": 1.2,
+                "pixelWidth": 269,
+                "pixelHeight": 202,
+                "exposure": 0.82
+              },
+              "actual": {
+                "waveParams": {
+                  "height": 50,
+                  "speed": 1,
+                  "density": 1.25,
+                  "direction": 28,
+                  "waterLevel": 42
+                },
+                "amplitude": 0.08693878900208464,
+                "baseLevel": 0.7564,
+                "waves": [
+                  {
+                    "dx": 0.9995884073383324,
+                    "dz": 0.028688253952025754,
+                    "k": 4.487989505128276,
+                    "omega": 1.6275000000000002,
+                    "amplitude": 0.03129796404075047
+                  },
+                  {
+                    "dx": 0.8087973061583119,
+                    "dz": 0.5880875084127004,
+                    "k": 6.95042622475618,
+                    "omega": 2.4335,
+                    "amplitude": 0.0243428609205837
+                  },
+                  {
+                    "dx": 0.5073476843913445,
+                    "dz": 0.8617414502869992,
+                    "k": 10.06920722304421,
+                    "omega": 3.2395,
+                    "amplitude": 0.018691839635448196
+                  },
+                  {
+                    "dx": 0.9464653209006031,
+                    "dz": 0.32280550852257534,
+                    "k": 15.103810834566312,
+                    "omega": 4.0455000000000005,
+                    "amplitude": 0.012606124405302272
+                  }
+                ],
+                "glassOpacity": 0.15,
+                "sunIntensity": 2.05,
+                "sunColor": [
+                  1,
+                  0.46207699964472876,
+                  0.14126329113044456
+                ],
+                "sunPosition": [
+                  11.863751277631795,
+                  8.214844548519872,
+                  -74.16547657549474
+                ],
+                "wind": 0,
+                "lighthouse": true,
+                "spray": true,
+                "dust": true,
+                "sails": [
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      0.03999595416014657,
+                      0.012324337056461479
+                    ]
+                  },
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      -0.005717419744157101,
+                      0.019981885801428012
+                    ]
+                  },
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      -0.03852263804892422,
+                      -0.017473448998773285
+                    ]
+                  }
+                ]
+              },
+              "ui": {
+                "hidden": false,
+                "collapsed": false,
+                "edit": false,
+                "pauseLabel": "暂停模拟",
+                "sliders": [
+                  {
+                    "id": "waveHeight",
+                    "value": "50",
+                    "output": "50%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "waveSpeed",
+                    "value": "1",
+                    "output": "1.00×",
+                    "min": "0.2",
+                    "max": "3",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "waveDensity",
+                    "value": "1.25",
+                    "output": "1.25×",
+                    "min": "0.5",
+                    "max": "3",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "waveDirection",
+                    "value": "28",
+                    "output": "28°",
+                    "min": "0",
+                    "max": "360",
+                    "step": "1"
+                  },
+                  {
+                    "id": "waterLevel",
+                    "value": "42",
+                    "output": "42%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "boatResponse",
+                    "value": "72",
+                    "output": "72%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "boatDamping",
+                    "value": "48",
+                    "output": "48%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "wind",
+                    "value": "0",
+                    "output": "0%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "pixelScale",
+                    "value": "3.8",
+                    "output": "3.8×",
+                    "min": "1",
+                    "max": "5",
+                    "step": "0.1"
+                  },
+                  {
+                    "id": "sunset",
+                    "value": "45",
+                    "output": "45%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "brightness",
+                    "value": "0.8",
+                    "output": "0.82×",
+                    "min": "0.6",
+                    "max": "1.6",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "glassOpacity",
+                    "value": "0.15",
+                    "output": "15%",
+                    "min": "0.04",
+                    "max": "0.4",
+                    "step": "0.01"
+                  }
+                ]
+              },
+              "viewport": [
+                1024,
+                768
+              ],
+              "dpr": 1,
+              "frames": 183,
+              "draws": 13963,
+              "canvas": {
+                "x": 0,
+                "y": 0,
+                "width": 1024,
+                "height": 768,
+                "top": 0,
+                "right": 1024,
+                "bottom": 768,
+                "left": 0
+              },
+              "loader": {
+                "hidden": "hidden",
+                "display": "none",
+                "error": ""
+              },
+              "error": null
+            },
+            "wallSeconds": 4.217650571999911,
+            "simSeconds": 3.049199999999995,
+            "distinctRenderedFrames": 65,
+            "range": {
+              "rootY": 0.07515863993856453,
+              "pitch": 0.178077263986128,
+              "roll": 0.1794014484693068,
+              "surface": 0.08103825763747574
+            },
+            "allReportedInsideBottle": true
+          },
+          {
+            "label": "wind-100",
+            "initial": {
+              "diagnostics": {
+                "ready": true,
+                "simTime": 2.882699999999999,
+                "paused": false,
+                "state": {
+                  "waveHeight": 50,
+                  "waveSpeed": 1,
+                  "waveDensity": 1.25,
+                  "waveDirection": 28,
+                  "waterLevel": 42,
+                  "boatResponse": 72,
+                  "boatDamping": 48,
+                  "wind": 100,
+                  "pixelScale": 3.8,
+                  "sunset": 45,
+                  "brightness": 0.82,
+                  "glassOpacity": 0.15,
+                  "lighthouse": true,
+                  "spray": true,
+                  "dust": true,
+                  "quality": "retro",
+                  "paused": false,
+                  "editMode": null
+                },
+                "camera": {
+                  "position": [
+                    0.5503801579587017,
+                    2.34138507530666,
+                    6.490267956257238
+                  ],
+                  "target": [
+                    0.8,
+                    1.92,
+                    0.1
+                  ],
+                  "fov": 42,
+                  "preset": "cinema",
+                  "distance": 6.409009283812904
+                },
+                "boat": {
+                  "position": [
+                    -0.2428404199752559,
+                    0.8527491427325508,
+                    0.01087568745991795
+                  ],
+                  "quaternion": [
+                    -0.03608735330452167,
+                    0.056535472043177326,
+                    0.02551361019919612,
+                    0.9974219262814173
+                  ],
+                  "pitch": 0.04683235480646091,
+                  "roll": -0.0750260327873582,
+                  "yaw": 0.115,
+                  "rootY": 0.8527491427325508,
+                  "surfaceAtBoat": 0.7790173823692705,
+                  "waterLevel": 0.7564,
+                  "waveAmplitude": 0.08693878900208464,
+                  "sampleHeights": {
+                    "bow": 0.7479100241378526,
+                    "stern": 0.7142431875773576,
+                    "port": 0.8233987427961695,
+                    "starboard": 0.7414974144414364,
+                    "center": 0.7790173823692705
+                  },
+                  "mastTip": [
+                    -0.2623848135240614,
+                    1.74764948482838,
+                    -0.05454903567726897
+                  ],
+                  "mastTips": [
+                    [
+                      -0.6174431407292411,
+                      1.5111872732116183,
+                      0.0030635216307459334
+                    ],
+                    [
+                      -0.2623848135240614,
+                      1.74764948482838,
+                      -0.05454903567726897
+                    ],
+                    [
+                      0.08489478574349923,
+                      1.5842698324236342,
+                      -0.08108145193864631
+                    ]
+                  ],
+                  "forward": [
+                    0.9923055921909172,
+                    0.04681523735483073,
+                    -0.11462087618773477
+                  ],
+                  "drift": [
+                    0.0771595800247441,
+                    -0.02912431254008205
+                  ],
+                  "safety": {
+                    "withinBottle": true,
+                    "worst": null,
+                    "checks": {
+                      "mastTips": [
+                        true,
+                        true,
+                        true
+                      ],
+                      "hull": true
+                    }
+                  }
+                },
+                "water": {
+                  "baseLevel": 0.7564,
+                  "amplitude": 0.08693878900208464,
+                  "heightAtBoat": 0.7790173823692705,
+                  "samples": {
+                    "bow": 0.7479100241378526,
+                    "stern": 0.7142431875773576,
+                    "port": 0.8233987427961695,
+                    "starboard": 0.7414974144414364,
+                    "center": 0.7790173823692705
+                  }
+                },
+                "renderer": {
+                  "calls": 74,
+                  "triangles": 193219,
+                  "points": 774,
+                  "lines": 29,
+                  "pixelWidth": 269,
+                  "pixelHeight": 202,
+                  "scale": 3.8,
+                  "levels": 12
+                },
+                "fps": 21,
+                "cameraInsideBottle": false,
+                "editMode": null
+              },
+              "post": {
+                "quality": "retro",
+                "scale": 3.8,
+                "levels": 12,
+                "dither": 1.2,
+                "pixelWidth": 269,
+                "pixelHeight": 202,
+                "exposure": 0.82
+              },
+              "actual": {
+                "waveParams": {
+                  "height": 50,
+                  "speed": 1,
+                  "density": 1.25,
+                  "direction": 28,
+                  "waterLevel": 42
+                },
+                "amplitude": 0.08693878900208464,
+                "baseLevel": 0.7564,
+                "waves": [
+                  {
+                    "dx": 0.9995884073383324,
+                    "dz": 0.028688253952025754,
+                    "k": 4.487989505128276,
+                    "omega": 1.6275000000000002,
+                    "amplitude": 0.03129796404075047
+                  },
+                  {
+                    "dx": 0.8087973061583119,
+                    "dz": 0.5880875084127004,
+                    "k": 6.95042622475618,
+                    "omega": 2.4335,
+                    "amplitude": 0.0243428609205837
+                  },
+                  {
+                    "dx": 0.5073476843913445,
+                    "dz": 0.8617414502869992,
+                    "k": 10.06920722304421,
+                    "omega": 3.2395,
+                    "amplitude": 0.018691839635448196
+                  },
+                  {
+                    "dx": 0.9464653209006031,
+                    "dz": 0.32280550852257534,
+                    "k": 15.103810834566312,
+                    "omega": 4.0455000000000005,
+                    "amplitude": 0.012606124405302272
+                  }
+                ],
+                "glassOpacity": 0.15,
+                "sunIntensity": 2.05,
+                "sunColor": [
+                  1,
+                  0.46207699964472876,
+                  0.14126329113044456
+                ],
+                "sunPosition": [
+                  11.863751277631795,
+                  8.214844548519872,
+                  -74.16547657549474
+                ],
+                "wind": 1,
+                "lighthouse": true,
+                "spray": true,
+                "dust": true,
+                "sails": [
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      -0.15874357108302936,
+                      0.1357580057562646
+                    ]
+                  },
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      0.17150067711612482,
+                      0.03302256845221139
+                    ]
+                  },
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      0.11454973505429512,
+                      -0.14426755802139363
+                    ]
+                  }
+                ]
+              },
+              "ui": {
+                "hidden": false,
+                "collapsed": false,
+                "edit": false,
+                "pauseLabel": "暂停模拟",
+                "sliders": [
+                  {
+                    "id": "waveHeight",
+                    "value": "50",
+                    "output": "50%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "waveSpeed",
+                    "value": "1",
+                    "output": "1.00×",
+                    "min": "0.2",
+                    "max": "3",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "waveDensity",
+                    "value": "1.25",
+                    "output": "1.25×",
+                    "min": "0.5",
+                    "max": "3",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "waveDirection",
+                    "value": "28",
+                    "output": "28°",
+                    "min": "0",
+                    "max": "360",
+                    "step": "1"
+                  },
+                  {
+                    "id": "waterLevel",
+                    "value": "42",
+                    "output": "42%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "boatResponse",
+                    "value": "72",
+                    "output": "72%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "boatDamping",
+                    "value": "48",
+                    "output": "48%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "wind",
+                    "value": "100",
+                    "output": "100%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "pixelScale",
+                    "value": "3.8",
+                    "output": "3.8×",
+                    "min": "1",
+                    "max": "5",
+                    "step": "0.1"
+                  },
+                  {
+                    "id": "sunset",
+                    "value": "45",
+                    "output": "45%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "brightness",
+                    "value": "0.8",
+                    "output": "0.82×",
+                    "min": "0.6",
+                    "max": "1.6",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "glassOpacity",
+                    "value": "0.15",
+                    "output": "15%",
+                    "min": "0.04",
+                    "max": "0.4",
+                    "step": "0.01"
+                  }
+                ]
+              },
+              "viewport": [
+                1024,
+                768
+              ],
+              "dpr": 1,
+              "frames": 253,
+              "draws": 19286,
+              "canvas": {
+                "x": 0,
+                "y": 0,
+                "width": 1024,
+                "height": 768,
+                "top": 0,
+                "right": 1024,
+                "bottom": 768,
+                "left": 0
+              },
+              "loader": {
+                "hidden": "hidden",
+                "display": "none",
+                "error": ""
+              },
+              "error": null
+            },
+            "end": {
+              "diagnostics": {
+                "ready": true,
+                "simTime": 6.914999999999993,
+                "paused": false,
+                "state": {
+                  "waveHeight": 50,
+                  "waveSpeed": 1,
+                  "waveDensity": 1.25,
+                  "waveDirection": 28,
+                  "waterLevel": 42,
+                  "boatResponse": 72,
+                  "boatDamping": 48,
+                  "wind": 100,
+                  "pixelScale": 3.8,
+                  "sunset": 45,
+                  "brightness": 0.82,
+                  "glassOpacity": 0.15,
+                  "lighthouse": true,
+                  "spray": true,
+                  "dust": true,
+                  "quality": "retro",
+                  "paused": false,
+                  "editMode": null
+                },
+                "camera": {
+                  "position": [
+                    0.5503801579587017,
+                    2.34138507530666,
+                    6.490267956257238
+                  ],
+                  "target": [
+                    0.8,
+                    1.92,
+                    0.1
+                  ],
+                  "fov": 42,
+                  "preset": "cinema",
+                  "distance": 6.409009283812904
+                },
+                "boat": {
+                  "position": [
+                    -0.2800087321378819,
+                    0.8280805256153322,
+                    -0.008124002646491768
+                  ],
+                  "quaternion": [
+                    0.015256260201464563,
+                    0.0577517584814701,
+                    0.020730718983943443,
+                    0.9979991073179235
+                  ],
+                  "pitch": 0.04315402261315138,
+                  "roll": 0.028086834972548852,
+                  "yaw": 0.115,
+                  "rootY": 0.8280805256153322,
+                  "surfaceAtBoat": 0.7834239075319778,
+                  "waterLevel": 0.7564,
+                  "waveAmplitude": 0.08693878900208464,
+                  "sampleHeights": {
+                    "bow": 0.7582317318121203,
+                    "stern": 0.7048383687040667,
+                    "port": 0.7992092330989535,
+                    "starboard": 0.7778447725017197,
+                    "center": 0.7834239075319778
+                  },
+                  "mastTip": [
+                    -0.2857704785917941,
+                    1.725186190473246,
+                    0.017899608894589605
+                  ],
+                  "mastTips": [
+                    [
+                      -0.6442687658353556,
+                      1.489515664572669,
+                      0.05309025062187672
+                    ],
+                    [
+                      -0.2857704785917941,
+                      1.725186190473246,
+                      0.017899608894589605
+                    ],
+                    [
+                      0.05880024089924396,
+                      1.5600925104280932,
+                      -0.026990212653027222
+                    ]
+                  ],
+                  "forward": [
+                    0.9924699433654135,
+                    0.043140629789039465,
+                    -0.11463986033512999
+                  ],
+                  "drift": [
+                    0.039991267862118075,
+                    -0.04812400264649177
+                  ],
+                  "safety": {
+                    "withinBottle": true,
+                    "worst": null,
+                    "checks": {
+                      "mastTips": [
+                        true,
+                        true,
+                        true
+                      ],
+                      "hull": true
+                    }
+                  }
+                },
+                "water": {
+                  "baseLevel": 0.7564,
+                  "amplitude": 0.08693878900208464,
+                  "heightAtBoat": 0.7834239075319778,
+                  "samples": {
+                    "bow": 0.7582317318121203,
+                    "stern": 0.7048383687040667,
+                    "port": 0.7992092330989535,
+                    "starboard": 0.7778447725017197,
+                    "center": 0.7834239075319778
+                  }
+                },
+                "renderer": {
+                  "calls": 74,
+                  "triangles": 193219,
+                  "points": 774,
+                  "lines": 29,
+                  "pixelWidth": 269,
+                  "pixelHeight": 202,
+                  "scale": 3.8,
+                  "levels": 12
+                },
+                "fps": 18,
+                "cameraInsideBottle": false,
+                "editMode": null
+              },
+              "post": {
+                "quality": "retro",
+                "scale": 3.8,
+                "levels": 12,
+                "dither": 1.2,
+                "pixelWidth": 269,
+                "pixelHeight": 202,
+                "exposure": 0.82
+              },
+              "actual": {
+                "waveParams": {
+                  "height": 50,
+                  "speed": 1,
+                  "density": 1.25,
+                  "direction": 28,
+                  "waterLevel": 42
+                },
+                "amplitude": 0.08693878900208464,
+                "baseLevel": 0.7564,
+                "waves": [
+                  {
+                    "dx": 0.9995884073383324,
+                    "dz": 0.028688253952025754,
+                    "k": 4.487989505128276,
+                    "omega": 1.6275000000000002,
+                    "amplitude": 0.03129796404075047
+                  },
+                  {
+                    "dx": 0.8087973061583119,
+                    "dz": 0.5880875084127004,
+                    "k": 6.95042622475618,
+                    "omega": 2.4335,
+                    "amplitude": 0.0243428609205837
+                  },
+                  {
+                    "dx": 0.5073476843913445,
+                    "dz": 0.8617414502869992,
+                    "k": 10.06920722304421,
+                    "omega": 3.2395,
+                    "amplitude": 0.018691839635448196
+                  },
+                  {
+                    "dx": 0.9464653209006031,
+                    "dz": 0.32280550852257534,
+                    "k": 15.103810834566312,
+                    "omega": 4.0455000000000005,
+                    "amplitude": 0.012606124405302272
+                  }
+                ],
+                "glassOpacity": 0.15,
+                "sunIntensity": 2.05,
+                "sunColor": [
+                  1,
+                  0.46207699964472876,
+                  0.14126329113044456
+                ],
+                "sunPosition": [
+                  11.863751277631795,
+                  8.214844548519872,
+                  -74.16547657549474
+                ],
+                "wind": 1,
+                "lighthouse": true,
+                "spray": true,
+                "dust": true,
+                "sails": [
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      0.11911318227707106,
+                      -0.11087965732056657
+                    ]
+                  },
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      0.16807620013193647,
+                      0.10694563147383267
+                    ]
+                  },
+                  {
+                    "name": "",
+                    "rotation": [
+                      0,
+                      -0.1624245682952963,
+                      0.08332094571184369
+                    ]
+                  }
+                ]
+              },
+              "ui": {
+                "hidden": false,
+                "collapsed": false,
+                "edit": false,
+                "pauseLabel": "暂停模拟",
+                "sliders": [
+                  {
+                    "id": "waveHeight",
+                    "value": "50",
+                    "output": "50%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "waveSpeed",
+                    "value": "1",
+                    "output": "1.00×",
+                    "min": "0.2",
+                    "max": "3",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "waveDensity",
+                    "value": "1.25",
+                    "output": "1.25×",
+                    "min": "0.5",
+                    "max": "3",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "waveDirection",
+                    "value": "28",
+                    "output": "28°",
+                    "min": "0",
+                    "max": "360",
+                    "step": "1"
+                  },
+                  {
+                    "id": "waterLevel",
+                    "value": "42",
+                    "output": "42%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "boatResponse",
+                    "value": "72",
+                    "output": "72%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "boatDamping",
+                    "value": "48",
+                    "output": "48%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "wind",
+                    "value": "100",
+                    "output": "100%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "pixelScale",
+                    "value": "3.8",
+                    "output": "3.8×",
+                    "min": "1",
+                    "max": "5",
+                    "step": "0.1"
+                  },
+                  {
+                    "id": "sunset",
+                    "value": "45",
+                    "output": "45%",
+                    "min": "0",
+                    "max": "100",
+                    "step": "1"
+                  },
+                  {
+                    "id": "brightness",
+                    "value": "0.8",
+                    "output": "0.82×",
+                    "min": "0.6",
+                    "max": "1.6",
+                    "step": "0.05"
+                  },
+                  {
+                    "id": "glassOpacity",
+                    "value": "0.15",
+                    "output": "15%",
+                    "min": "0.04",
+                    "max": "0.4",
+                    "step": "0.01"
+                  }
+                ]
+              },
+              "viewport": [
+                1024,
+                768
+              ],
+              "dpr": 1,
+              "frames": 339,
+              "draws": 25736,
+              "canvas": {
+                "x": 0,
+                "y": 0,
+                "width": 1024,
+                "height": 768,
+                "top": 0,
+                "right": 1024,
+                "bottom": 768,
+                "left": 0
+              },
+              "loader": {
+                "hidden": "hidden",
+                "display": "none",
+                "error": ""
+              },
+              "error": null
+            },
+            "wallSeconds": 4.222959548999825,
+            "simSeconds": 3.049499999999992,
+            "distinctRenderedFrames": 67,
+            "range": {
+              "rootY": 0.10213592970741692,
+              "pitch": 0.17897570870373902,
+              "roll": 0.21457586324774733,
+              "surface": 0.043713722393938226
+            },
+            "allReportedInsideBottle": true
+          }
+        ],
+        "phaseMatchedComparisonClaimed": false,
+        "dampingNote": "Source uses 0.82→0.26 vertical damping ratio as slider increases; observed trajectories retained, higher label does not mean more damping"
+      }
+    }
+  ],
+  "events": [],
+  "requests": [
+    {
+      "case": "setup",
+      "url": "http://127.0.0.1:4201/index.html",
+      "type": "document"
+    }
+  ],
+  "externalAttempts": [],
+  "sourceFilesModified": false,
+  "clockModified": false,
+  "scope": "standalone original only; no host integration",
+  "physicalDevice": false,
+  "DISPLAY": ":121",
+  "browserVersion": "155.0.8059.79",
+  "complete": true,
+  "externalRequestsAttempted": 0
+}

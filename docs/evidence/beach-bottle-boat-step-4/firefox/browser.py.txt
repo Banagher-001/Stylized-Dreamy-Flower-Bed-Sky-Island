@@ -1,0 +1,129 @@
+"""Native three-work selection, archives, real popups, faults and regression."""
+import argparse,math,os,shutil,time,traceback
+from playwright.sync_api import sync_playwright,Error
+from common import *
+parser=argparse.ArgumentParser();parser.add_argument('--run',required=True);parser.add_argument('--engine',default='chromium');parser.add_argument('--only',default='');args=parser.parse_args();folder=OUT/args.run;folder.mkdir(exist_ok=False)
+for f in TEST.glob('*.py'):shutil.copyfile(f,folder/(f.name+'.txt'))
+services=read(OUT/'services-started.json');os.environ.update(services['browserEnvironment']);base=services['productionOrigin'];dev=services['devOrigin'];case='setup';ctx=None;p=None
+ORDER=['lawson','bottle-ocean','courtyard'];SELECT='[data-project-select]';PANEL='article[data-experiment-station=C2]';DIALOG='.tour-project-dialog'
+report={'startedAtShanghai':now(),'engine':args.engine,'checks':[],'requests':[],'pageErrors':[],'console':[],'failedRequests':[],'externalAttempts':[],'routesDisableCache':True,'physicalDevice':False,'bottleIframeAdded':False,'clockModified':False}
+def save():write(folder/'browser.json',report)
+def picked():return p.locator(SELECT+'[aria-selected=true]').get_attribute('data-project-select')
+def state():return p.evaluate('''()=>({url:location.href,viewport:[innerWidth,innerHeight],dpr:devicePixelRatio,scrollY,layout:document.querySelector('main')?.dataset.readingMode,work:document.querySelector('.experiment-reading')?.dataset.projectId,coverState:document.querySelector('.experiment-reading')?.dataset.coverState,cover:[...document.querySelectorAll('.experiment-cover img')].map(i=>({src:i.currentSrc,alt:i.alt,complete:i.complete,width:i.naturalWidth,rect:i.getBoundingClientRect().toJSON(),fit:getComputedStyle(i).objectFit})),selected:[...document.querySelectorAll('[data-project-select]')].map(b=>({id:b.dataset.projectSelect,selected:b.getAttribute('aria-selected'),tab:b.tabIndex,disabled:b.disabled,rect:b.getBoundingClientRect().toJSON()})),previewLabel:document.querySelector('#experiment-project-preview')?.getAttribute('aria-labelledby'),focus:document.activeElement?.id||document.activeElement?.getAttribute('data-project-tab'),dialog:document.querySelector('.tour-project-dialog')?.dataset,open:!!document.querySelector('dialog[open]'),frames:[...document.querySelectorAll('iframe')].map(f=>f.src),guide:{pressed:document.querySelector('#tour-guide')?.getAttribute('aria-pressed'),phase:document.querySelector('main')?.dataset.guidePhase},host:document.querySelector('#tour-host')?.dataset,overflow:document.documentElement.scrollWidth>innerWidth+1})''')
+def picture(name,page=None):(page or p).screenshot(path=str(folder/(name+'.png')))
+def selected_case(id):return not args.only or any(id.startswith(x)for x in args.only.split(','))
+def check(id,name,fn):
+ global case
+ if not selected_case(id):return
+ case=id
+ try:
+  e=fn();status=e.pop('_status','通过')if isinstance(e,dict)else'通过';entry={'id':id,'name':name,'status':status,'evidence':e};print(status+' '+id,flush=True)
+ except Exception as ex:
+  entry={'id':id,'name':name,'status':'待补核','error':str(ex),'traceback':traceback.format_exc()}
+  if p and not p.is_closed():
+   try:entry['state']=state();picture('failure-'+id.replace('.','-'))
+   except Exception:pass
+  print('待补核 '+id+': '+str(ex),flush=True)
+ report['checks'].append(entry);save()
+def watch(page):
+ page.set_default_timeout(25000);page.on('request',lambda r:report['requests'].append({'case':case,'url':r.url,'type':r.resource_type}))
+ page.on('pageerror',lambda e:report['pageErrors'].append({'case':case,'text':str(e)}));page.on('console',lambda m:report['console'].append({'case':case,'type':m.type,'text':m.text})if m.type in['warning','error']else None)
+ page.on('requestfailed',lambda r:report['failedRequests'].append({'case':case,'url':r.url,'failure':r.failure}))
+def host(url=None,w=1440,h=900,touch=False,init=None):
+ global ctx,p
+ if ctx:ctx.unroute_all(behavior='ignoreErrors');ctx.close()
+ opts={'viewport':{'width':w,'height':h},'device_scale_factor':1,'accept_downloads':True,'service_workers':'block'}
+ if touch:opts.update(has_touch=True,is_mobile=True,device_scale_factor=2)
+ ctx=browser.new_context(**opts)
+ def route(r):
+  if r.request.url.startswith(('http:','https:'))and not any(r.request.url.startswith(o+'/')for o in[base,dev]):report['externalAttempts'].append({'case':case,'url':r.request.url});r.abort('blockedbyclient')
+  else:r.continue_()
+ ctx.route('**/*',route)
+ if init:ctx.add_init_script(init)
+ ctx.on('page',watch);p=ctx.new_page();p.goto(url or base+'/',wait_until='domcontentloaded');p.wait_for_function('document.querySelector("main")?.dataset.layoutReady==="true"',timeout=90000,polling=100)
+ if p.locator('main').get_attribute('data-reading-mode')!='stable':p.locator('#tour-layout-toggle').click();p.wait_for_function('document.querySelector("main").dataset.readingMode==="stable"',timeout=15000)
+ p.locator(PANEL).scroll_into_view_if_needed();p.wait_for_timeout(400);assert p.locator(SELECT).count()==3;return state()
+def choose(id,touch=False):
+ button=p.locator('[data-project-select="'+id+'"]');button.tap()if touch else button.click();p.wait_for_function('id=>document.querySelector(".experiment-reading").dataset.projectId===id',arg=id)
+ p.wait_for_function('document.querySelector(".experiment-reading").dataset.coverState==="ready"',timeout=20000);assert picked()==id
+ s=state();assert sum(x['selected']=='true'for x in s['selected'])==1 and sum(x['tab']==0 for x in s['selected'])==1;assert s['previewLabel']=='experiment-project-'+id;return s
+def open_view(tab):
+ p.locator('[data-project-tab='+tab+']').click();p.wait_for_function('document.querySelector(".tour-project-dialog").open');assert p.locator(DIALOG).get_attribute('data-project-id')==picked();p.wait_for_timeout(180)
+def close_view():
+ p.locator(DIALOG+' .tour-project-close').click();p.wait_for_function('!document.querySelector(".tour-project-dialog").open');p.wait_for_timeout(300);assert p.locator('iframe').count()==0
+def no_bottle_requests():return[r for r in report['requests']if r['case']==case and'/experiments/bottle-ocean/'in r['url']]
+def independent(label):
+ expected=p.locator(DIALOG+' .tour-project-header [data-project-independent]').get_attribute('href');assert expected and expected.endswith('/experiments/bottle-ocean/index.html')
+ with p.expect_popup(timeout=30000)as event:p.locator(DIALOG+' .tour-project-header [data-project-independent]').click()
+ pop=event.value
+ try:
+  pop.wait_for_function('window.__bottleOcean?.ready===true&&getComputedStyle(document.querySelector("#loader")).display==="none"',timeout=120000,polling=100);assert pop.url==expected
+  response=pop.request.get(pop.url);assert response.status==200;digest=hashlib.sha256(response.body()).hexdigest();assert digest==ENTRY_SHA
+  before=pop.evaluate('__bottleOcean.getDiagnostics()');assert before['renderer']['triangles']>1000;pop.locator('#waveHeight').press('End');pop.locator('[data-preset=top]').click();pop.wait_for_timeout(1500);pop.wait_for_function('__bottleOcean.state.waveHeight===100&&__bottleOcean.cameraRig.getState().preset==="top"');after=pop.evaluate('__bottleOcean.getDiagnostics()');assert after['simTime']>before['simTime']and math.dist(before['camera']['position'],after['camera']['position'])>.1;picture(label+'-original',pop)
+  return {'url':pop.url,'expected':expected,'bodySHA256':digest,'before':before,'after':after,'openedByNativeLink':True}
+ finally:pop.close()
+pw=sync_playwright().start();opts={'headless':False}
+if args.engine=='chromium':opts.update(executable_path='/usr/bin/chromium',args=['--no-sandbox','--use-gl=angle','--use-angle=gl','--ignore-gpu-blocklist'])
+elif args.engine=='webkit':opts['executable_path']=str(ROOT/'docs/evidence/lawson-fullpage-step-7/webkit-run.sh')
+browser=getattr(pw,args.engine).launch(**opts);report['browserVersion']=browser.version
+try:
+ def selection():
+  initial=host();assert picked()=='lawson';assert[x['id']for x in initial['selected']]==ORDER;rows=[choose(id)for id in ORDER];picture('three-works-preview');assert not no_bottle_requests()and not state()['frames'];return {'initial':initial,'nativeSelections':rows,'runtimeNotRequested':True}
+ check('SELECT.three','三作品默认、实际点选与身份',selection)
+ def keyboard():
+  host();rows=[];p.locator('[data-project-select=lawson]').click()
+  for key,id in[('ArrowRight','bottle-ocean'),('ArrowRight','courtyard'),('ArrowRight','lawson'),('ArrowLeft','courtyard'),('Home','lawson'),('End','courtyard')]:
+   p.keyboard.press(key);assert picked()==id and p.evaluate('document.activeElement.dataset.projectSelect')==id;rows.append({'key':key,'state':state()})
+  y=p.evaluate('scrollY');p.keyboard.press('Space');p.keyboard.press('Enter');assert not p.locator('dialog[open]').count();assert abs(p.evaluate('scrollY')-y)<1;p.keyboard.press('Tab');assert p.evaluate('document.activeElement.dataset.projectTab')=='live';p.keyboard.press('Shift+Tab');assert p.evaluate('document.activeElement.dataset.projectSelect')=='courtyard';return {'nativeKeySequence':rows,'spaceAndEnterDidNotOpen':True,'tabAndShiftTab':True}
+ check('KEYBOARD.cycle','方向键循环、首尾、Tab与原生激活',keyboard)
+ def archive_prepared():
+  host();choose('bottle-ocean');before=state();open_view('archive');assert p.locator(DIALOG+' .lawson-archive-features section').count()==3;assert '让一片海'in p.locator(DIALOG+' .lawson-archive-intro h3').inner_text();assert p.locator(DIALOG+' .project-current-cover img').get_attribute('alt').startswith('黄昏海岸');picture('bottle-archive');archive=p.locator('#tour-project-archive').inner_text();assert '固定视角动效片段'not in archive
+  p.locator('[data-project-view=live]').click();p.wait_for_timeout(350);prepared=state();assert prepared['dialog']['embeddedState']=='prepared'and not prepared['frames'];assert p.locator('.tour-project-embed-mount').get_attribute('aria-busy')=='false';assert p.locator('.tour-project-retry').is_hidden();assert p.locator('.tour-project-prepared').is_visible();assert not no_bottle_requests();picture('bottle-prepared');close_view();after=state();assert abs(after['scrollY']-before['scrollY'])<1;assert after['focus']=='archive';assert after['guide']['pressed']=='false';return {'before':before,'archive':archive,'prepared':prepared,'afterClose':after}
+ check('ARCHIVE.prepared','瓶中海洋档案、准确准备态与阅读返回',archive_prepared)
+ def popup_root():
+  host();choose('bottle-ocean');open_view('live');e=independent('root');close_view();return e
+ check('OPEN.root','真实独立打开完整原网页并操作',popup_root)
+ def prefix():
+  host(base+'/portfolio-check/');choose('bottle-ocean');open_view('archive');assert '/portfolio-check/experiments/'in p.locator(DIALOG+' .tour-project-header [data-project-independent]').get_attribute('href');e=independent('prefix');close_view();p.reload(wait_until='domcontentloaded');p.wait_for_function('document.querySelector("main")?.dataset.layoutReady==="true"',timeout=60000);return {'nativePopup':e,'hostReloadURL':p.url}
+ check('OPEN.prefix','真实生产子路径图片、档案、独立打开和刷新',prefix)
+ def delay():
+  host();held=[];pattern='**/*bottle-ocean-cover*'
+  def hold(route):held.append(route)
+  ctx.route(pattern,hold);p.locator('[data-project-select="bottle-ocean"]').click();deadline=time.monotonic()+10
+  while not held:assert time.monotonic()<deadline;p.wait_for_timeout(100)
+  loading=state();assert loading['coverState']=='loading';choose('courtyard');outcome='late response delivered'
+  try:held[0].fulfill(path=str(ROOT/'src/assets/bottle-ocean-cover.png'),content_type='image/png')
+  except Error as e:outcome='request already cancelled: '+str(e)
+  p.wait_for_timeout(500);after=state();assert after['work']=='courtyard'and after['coverState']=='ready'and after['cover'][0]['width']>0;ctx.unroute(pattern,hold);return {'fault':'Held actual image request, switched works, then fulfilled with exact saved PNG','loading':loading,'after':after,'lateRequestOutcome':outcome}
+ check('FAULT.delayed-cover','真实图片请求延迟后的作品归属',delay)
+ def failed_cover():
+  host();pattern='**/*bottle-ocean-cover*'
+  def fail(route):route.abort('failed')
+  ctx.route(pattern,fail);p.locator('[data-project-select="bottle-ocean"]').click();p.wait_for_function('document.querySelector(".experiment-reading").dataset.coverState==="error"');failed=state();assert p.locator('[data-project-tab=live]').is_enabled();open_view('archive');p.locator('.tour-project-image-error').wait_for();picture('cover-failure-archive');assert p.locator(DIALOG+' .tour-project-header [data-project-independent]').is_visible();ctx.unroute(pattern,fail);p.locator('.tour-project-image-error button').click();p.wait_for_function('!document.querySelector(".tour-project-image-error")');close_view();choose('courtyard');choose('bottle-ocean');return {'injection':'Native image HTTP request aborted by browser route; no product mutation','failedPreview':failed,'recovered':state()}
+ check('FAULT.failed-cover','封面失败、档案可用、原按钮重试与恢复',failed_cover)
+ if args.engine=='chromium':
+  def lawson():
+   host();choose('lawson');open_view('live');p.wait_for_selector('.tour-project-embed-mount > iframe');f=p.locator('iframe').element_handle().content_frame();f.wait_for_function('window.__LAWSON__?.ready===true',timeout=120000,polling=100);p.wait_for_function('document.querySelector(".tour-project-dialog").dataset.embeddedState==="ready"',timeout=30000);assert not f.locator('#fatal').is_visible();s=f.evaluate('({ready:__LAWSON__.ready,viewport:[innerWidth,innerHeight],canvas:!!document.querySelector("#viewport")})');picture('lawson-still-live');close_view();choose('bottle-ocean');open_view('live');p.wait_for_timeout(1000);after=state();assert not after['frames']and after['dialog']['embeddedState']=='prepared';close_view();return {'lawson':s,'bottleAfterLawson':after}
+  check('REGRESS.lawson','罗森完整现场与切回新作品无遗留',lawson)
+  def courtyard():
+   host();choose('courtyard');open_view('live');assert p.locator('.tour-project-live-space').is_visible();p.locator('[data-project-mode=pixel]').click();assert p.locator('[data-project-mode=pixel]').get_attribute('aria-pressed')=='true';p.locator('[data-project-mode=native]').click();p.locator('.tour-project-motion').click();motion=p.locator('.tour-project-motion').inner_text();p.locator('.tour-project-motion').click();p.locator('[data-project-view=archive]').click();p.locator('.tour-project-play').click();p.wait_for_function('document.querySelector(".tour-project-archive video")?.currentTime>0',timeout=30000);video=p.locator('video').evaluate('v=>({time:v.currentTime,ready:v.readyState,src:v.currentSrc})');close_view();assert not p.locator('video').count();choose('bottle-ocean');water=p.locator('[data-flow-live]');water.scroll_into_view_if_needed();water.click();p.wait_for_function('document.querySelector(".tour-project-dialog").open');assert p.locator(DIALOG).get_attribute('data-project-id')=='courtyard';close_view();return {'nativeModeAndMotion':motion,'archiveVideo':video,'waterStillTargetsCourtyard':True}
+  check('REGRESS.courtyard-water','庭院画面、动效片段和水潭入口',courtyard)
+  def garden_failure():
+   host(init='''(()=>{if(!location.pathname.includes('/experiments/')){const raw=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){return /webgl/.test(kind)?null:raw.call(this,kind,...args)}}})()''');choose('bottle-ocean');assert p.locator('[data-project-tab=live]').is_enabled();open_view('live');assert p.locator('.tour-project-prepared').is_visible();assert p.locator('.tour-project-header [data-project-independent]').is_visible();close_view();choose('courtyard');assert p.locator('[data-project-tab=live]').is_disabled();assert p.locator('[data-project-tab=archive]').is_enabled();return {'injection':'Actual WebGL creation disabled for host document through getContext wrapper; original child documents untouched','afterFailure':state(),'independentPageNotDisabled':True,'courtyardOnlyLiveDisabled':True}
+  check('FAULT.host-graphics','庭院初始化失败不禁用完整网页入口',garden_failure)
+  def layouts():
+   rows=[]
+   for w,h in[(1920,1080),(1440,900),(1280,720),(390,844),(844,390),(320,740)]:
+    host(w=w,h=h,touch=w in[390,320]);s=choose('bottle-ocean',touch=w in[390,320]);assert not s['overflow'];assert all(x['rect']['width']>=44 and x['rect']['height']>=44 for x in s['selected']);open_view('archive');p.locator('.lawson-archive-features').scroll_into_view_if_needed();assert p.locator('.tour-project-close').is_visible();picture('layout-'+str(w)+'x'+str(h));close_view();rows.append(s)
+   host(w=800,h=600);p.add_style_tag(content='html { font-size: 200% !important; }');p.locator(PANEL).scroll_into_view_if_needed();choose('bottle-ocean');s=state();assert not s['overflow'];open_view('archive');p.locator('.lawson-archive-features').scroll_into_view_if_needed();picture('large-root-font');close_view();rows.append({'enlargedRootFont':'200% via test style, not browser zoom','state':s});return {'viewports':rows,'touchProtocol':'Playwright touchscreen.tap in mobile contexts','truePhone':False}
+  check('LAYOUT.sizes','桌面、手机点按、横竖屏、320px及放大文字',layouts)
+  def other_sections():
+   host(dev+'/');choose('bottle-ocean');open_view('archive');close_view();rows=[]
+   for sel in['article[data-reading-station=A1]','article[data-film-station=B1]']:
+    item=p.locator(sel);item.scroll_into_view_if_needed();assert item.is_visible();rows.append({'selector':sel,'heading':item.locator('h2').inner_text()})
+   return {'sections':rows,'mainBodyError':p.locator('.render-error').count(),'guideAfterReturn':state()['guide']}
+  check('REGRESS.reading','开发服务关于我与AI影像代表阅读',other_sections)
+finally:
+ if ctx:ctx.unroute_all(behavior='ignoreErrors');ctx.close()
+ browser.close();pw.stop();report['complete']=bool(report['checks'])and all(c['status']=='通过'for c in report['checks']);report['finishedAtShanghai']=now();save();print(json.dumps({'engine':args.engine,'complete':report['complete'],'checks':len(report['checks']),'externalAttempts':len(report['externalAttempts'])},ensure_ascii=False),flush=True)
+if not report['complete']:raise SystemExit(1)

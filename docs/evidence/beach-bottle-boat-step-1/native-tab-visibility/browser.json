@@ -1,0 +1,55 @@
+{
+  "phase": "native-tab-visibility",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "LIFECYCLE.native-tab-visibility",
+      "name": "真实浏览器新标签、隐藏及返回",
+      "status": "设备/浏览器限制",
+      "evidence": {
+        "actualOSInput": "xdotool on private DISPLAY :121, focus verified Bottle Ocean window, Ctrl+T then Ctrl+W",
+        "window": "6291459",
+        "title": "Bottle Ocean · 瓶中海洋像素沙盒 - Chromium",
+        "before": {
+          "visibility": "visible",
+          "hidden": false,
+          "events": [],
+          "sim": 1.299700000000001,
+          "frames": 28
+        },
+        "background": {
+          "visibility": "visible",
+          "hidden": false,
+          "events": [],
+          "sim": 1.7663000000000009,
+          "frames": 46
+        },
+        "returned": {
+          "visibility": "visible",
+          "hidden": false,
+          "events": [],
+          "sim": 2.2829000000000006,
+          "frames": 58
+        },
+        "visibilityOverridden": false
+      }
+    }
+  ],
+  "events": [],
+  "requests": [
+    {
+      "case": "setup",
+      "url": "http://127.0.0.1:4201/index.html",
+      "type": "document"
+    }
+  ],
+  "externalAttempts": [],
+  "sourceFilesModified": false,
+  "clockModified": false,
+  "scope": "standalone original only; no host integration",
+  "physicalDevice": false,
+  "DISPLAY": ":121",
+  "browserVersion": "155.0.8059.79",
+  "complete": true,
+  "externalRequestsAttempted": 0
+}

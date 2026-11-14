@@ -1,0 +1,98 @@
+"""Assemble verifiable results, then seal only independent evidence and snapshots."""
+import argparse,ast,difflib,shutil
+from common import *
+parser=argparse.ArgumentParser();parser.add_argument('--verify-only',action='store_true');parser.add_argument('--seal',action='store_true');args=parser.parse_args()
+if args.verify_only:
+ m=read(OUT/'evidence-manifest.json')
+ for f in m['files']:assert row(ROOT/f['path'])==f,f['path']
+ print(json.dumps({'step6EvidenceIntact':True,'sealedFiles':len(m['files']),'historicalSeals':len(history()['seals'])}));raise SystemExit
+assert not(OUT/'evidence-manifest.json').exists()
+baseline=read(OUT/'baseline.json');protection=protect_current();active=read(OUT/'active-build.json');build=read(OUT/active['record']);cleanup=read(OUT/'services-cleanup.json')
+assert build['exitCode']==0 and cleanup['scratchRemoved']and not cleanup['ownedBrowsersRemaining']and len(cleanup['services'])==4 and all(s['stopped']for s in cleanup['services'])
+assert not Path(baseline['scratch']).exists()
+inputs=[row(ROOT/f['path'])for f in baseline['productionInputsBefore']];assert inputs==build['productionInputs']
+assert len(inputs)==97 and len(protection['changedProductionInputs'])==1
+assert protection['changedProductionInputs'][0]['before']['path']=='src/tour/createEmbeddedPageExperience.ts'
+for name in ALLOWED:assert sha(ROOT/name)==sha(OUT/('build-'+active['run']+'-sources')/name)
+subprocess.run(['git','diff','--check'],cwd=ROOT,check=True)
+plan=read(OUT/'adoption-plan.json');runs={p.parent.name:read(p)for p in sorted(OUT.glob('*/browser.json'))};adopted=[];observations=[];normalErrors=[];expectedLogs=[];cancelled=[]
+for selection in plan:
+ name=selection['run'];data=runs[name];assert data.get('finishedAtShanghai')and not data['externalAttempts'];assert data['activeBuildAtStart']['record']==active['record'],name
+ ids=selection.get('ids');selected=[(i,c)for i,c in enumerate(data['checks'])if ids is None or c['id']in ids]
+ if ids:assert len(selected)==len(ids)
+ for i,c in selected:
+  assert c['status']=='通过'or(c['id']in['VISIBILITY.return','CAP.native']and c['status']=='环境限制'),(name,c['id'],c['status'])
+  adopted.append({'run':name,'engine':data['engine'],'version':data['browserVersion'],'id':c['id'],'status':c['status'],'record':name+'/browser.json#/checks/'+str(i)})
+ selectedIds={c['id']for _,c in selected}
+ for kind,items in[('pageerror',data['pageErrors']),('console.error',[e for e in data['console']if e['type']=='error'])]:
+  for e in items:
+   if e['case']not in selectedIds:continue
+   assert 'intermediate value'not in e['text'],(name,e)
+   if e['case'].startswith(('FAULT.','NAV.'))or e['case']=='CAP.denied':expectedLogs.append({'run':name,'kind':kind,**e})
+   else:normalErrors.append({'run':name,'kind':kind,**e})
+ cancelled.extend({'run':name,**e}for e in data['failedRequests']if e['case']in selectedIds)
+ observations.append({'run':name,'engine':data['engine'],'version':data['browserVersion'],'selectedPassed':sum(c['status']=='通过'for _,c in selected),'selectedLimits':sum(c['status']=='环境限制'for _,c in selected),'rawReportComplete':data['complete']})
+assert not normalErrors,normalErrors
+for engine in['chromium','firefox','webkit']:
+ for id in['LIFE.cycles','INPUT.native','FAULT.responses','LAYOUT.sizes','NAV.child-blank']:
+  assert any(c['engine']==engine and c['id']==id and c['status']=='通过'for c in adopted),(engine,id)
+ cycle=next(c for s in plan for c in runs[s['run']]['checks']if runs[s['run']]['engine']==engine and c['id']=='LIFE.cycles'and c['status']=='通过'and any(a['run']==s['run']and a['id']==c['id']for a in adopted))
+ assert len(cycle['evidence']['rounds'])>=(10 if engine=='chromium'else 3)and cycle['evidence']['monitor']['peak']<=1
+assert all(any(c['engine']=='chromium'and c['id']==id for c in adopted)for id in['NAV.blank','NAV.paths','LIFE.pending','FAULT.slow','FAULT.child-init','FAULT.host-init','FAULT.child-graphics','FAULT.parent-graphics','RESOURCE.return','REGRESS.courtyard','REGRESS.reading','VISIBILITY.return','LAYOUT.resize','PREF.reduced','CAP.native','CAP.denied','PATH.prefix','ISOLATION.documents'])
+retained=[];probeAffected=[]
+for name,data in runs.items():
+ count=sum('intermediate value'in e['text']for e in data['pageErrors'])
+ if count:probeAffected.append({'run':name,'observerInitializationErrors':count,'adopted':False,'reason':'Two test IIFEs were concatenated without a semicolon; all required cases rerun with a clean observer'})
+ for c in data['checks']:
+  if c['status']!='待补核':continue
+  replacement=next((a for a in adopted if a['id']==c['id']and a['engine']==data['engine']and a['status']=='通过'),None);assert replacement,(name,c['id'])
+  classification='fixed-host-document-boundary'if c['id']=='NAV.child-blank'else'test-fixture'
+  retained.append({'run':name,'id':c['id'],'classification':classification,'error':c.get('error'),'adoptedRetest':replacement['record'],'productIssue':c['id']=='NAV.child-blank'})
+issue=read(OUT/'confirmed-product-issue.json');assert issue['beforeProbeErrors']==0
+
+mapping={
+ 'S6-01':['baseline.json','candidate-manifest.json'],
+ 'S6-02':['ISOLATION.documents','INPUT.native'],
+ 'S6-03':['INPUT.native'],
+ 'S6-04':['INPUT.native','LAYOUT.sizes','PREF.reduced'],
+ 'S6-05':['LIFE.cycles'],
+ 'S6-06':['LIFE.pending','LIFE.cycles'],
+ 'S6-07':['FAULT.slow'],
+ 'S6-08':['FAULT.responses'],
+ 'S6-09':['NAV.blank','NAV.child-blank','NAV.paths'],
+ 'S6-10':['FAULT.child-init','FAULT.child-graphics'],
+ 'S6-11':['FAULT.host-init','FAULT.parent-graphics'],
+ 'S6-12':['CAP.native','CAP.denied','INPUT.native','LAYOUT.sizes','visual-review.json'],
+ 'S6-13':['LAYOUT.sizes','FAULT.slow'],
+ 'S6-14':['LAYOUT.resize'],
+ 'S6-15':['RESOURCE.return'],
+ 'S6-16':['VISIBILITY.return'],
+ 'S6-17':['REGRESS.courtyard','REGRESS.reading','LIFE.cycles','CAP.native'],
+ 'S6-18':['RESOURCE.return'],
+ 'S6-19':['adoption-plan.json'],
+ 'S6-20':[active['record'],'PATH.prefix','services-cleanup.json','step-6.diff'],
+}
+summary={'completedAtShanghai':now(),'conclusion':'第六步完成：主站隔离、异常、生命周期与兼容代表范围验收；修复子页发起空白导航及异常文档替换的宿主识别/监听清理','standardChecks':[{'id':id,'status':'通过（条件范围见记录）'if id=='S6-16'else'通过','records':records}for id,records in mapping.items()],'adoptedChecks':adopted,'browserRuns':observations,'fixedHostIssue':issue,'retainedEarlierFailures':retained,'observerAffectedRunsNotAdopted':probeAffected,'expectedFaultLogs':expectedLogs,'failedRequestsRetained':cancelled,'normalUnexpectedErrors':normalErrors,'protection':protection,'cleanup':cleanup,'scope':{'stage6Complete':True,'originalHTMLModified':False,'stage2Executed':False,'stage7Executed':False,'committed':False,'pushed':False,'deployed':False},'limits':['Real hidden was not observed; visible native tab return preserves the original instance and changed parameters','Pending-network exits were actually exercised; pre-creation-RAF exit timing was audited but not observed, not counted as a runtime pass','Touch/mobile and root-font 200% tests are emulation/enlargement conditions, not physical-phone/OS zoom evidence','Linux WebKit is not iOS/macOS Safari; Windows, physical mobile and hardware-GPU performance are unverified','Full 34-control original-vs-embedded parity belongs to Stage 7; original known issues remain unchanged']}
+
+if not args.seal:
+ for name in ALLOWED:
+  dest=OUT/'after'/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,dest)
+ parts=[]
+ for name in ALLOWED:parts.extend(difflib.unified_diff((OUT/'before'/name).read_text().splitlines(keepends=True),(OUT/'after'/name).read_text().splitlines(keepends=True),fromfile='before/'+name,tofile='after/'+name))
+ (OUT/'step-6.diff').write_text(''.join(parts))
+ write(OUT/'candidate-manifest.json',{'capturedAtShanghai':now(),'baseCommit':baseline['hostCommit'],'productionInputsAfter':inputs,'authorizedChanges':protection['changedProductionInputs'],'sourceSnapshots':[row(OUT/'after'/n)for n in ALLOWED],'runtimeEntrySHA256':ENTRY_SHA,'coverSourceSHA256':sha(ROOT/'src/assets/bottle-ocean-cover.png'),'buildRecord':active['record'],'buildManifest':build['productionManifest'],'mutableSourcePathsAreRecordedNotHistoricalSealTargets':True})
+ write(OUT/'final-summary.json',summary)
+ print(json.dumps({'assembled':True,'passed':sum(c['status']=='通过'for c in adopted),'limits':sum(c['status']=='环境限制'for c in adopted),'retainedEarlierFailures':len(retained),'changedProductInputs':len(protection['changedProductionInputs']),'readyForDocumentReviewAndSeal':True},ensure_ascii=False));raise SystemExit
+
+assert(OUT/'final-summary.json').exists()and sha(ROOT/'src/tour/createEmbeddedPageExperience.ts')==sha(OUT/'after/src/tour/createEmbeddedPageExperience.ts')
+visual=read(OUT/'visual-review.json');assert visual['imagesEdited']is False
+for f in visual['files']:assert row(ROOT/f['path'])==f
+for p in TEST.glob('*.py'):ast.parse(p.read_text(),filename=str(p))
+for p in(TEST/'__pycache__').glob('*'):p.unlink()
+if(TEST/'__pycache__').exists():(TEST/'__pycache__').rmdir()
+docs=['step-6-standard.md','step-6-verification.md','step-6-compatibility.md','step-6-handoff.md']
+assert '第六步已执行完成'in(DOC/'step-6-standard.md').read_text()
+files=[row(DOC/n)for n in docs]+[row(p)for p in sorted(OUT.rglob('*'))if p.is_file()]+[row(p)for p in sorted(TEST.glob('*.py'))]
+assert len(files)==len({f['path']for f in files})and all(not f['path'].startswith('src/')for f in files)
+write(OUT/'evidence-manifest.json',{'schema':1,'createdAtShanghai':now(),'scope':'Step-6 independent evidence/docs/scripts/before-after; current mutable source paths are only candidate records','files':sorted(files,key=lambda f:f['path'])})
+print(json.dumps({'stage6Sealed':True,'sealedFiles':len(files),'historicalSeals':len(protection['history']['seals']),'passed':sum(c['status']=='通过'for c in adopted),'limits':sum(c['status']=='环境限制'for c in adopted),'pushed':False},ensure_ascii=False))

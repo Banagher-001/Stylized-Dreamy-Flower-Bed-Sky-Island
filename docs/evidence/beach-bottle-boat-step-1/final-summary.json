@@ -1,0 +1,674 @@
+{
+  "completedAtShanghai": "2026-11-13T10:56:49.996682+08:00",
+  "conclusion": "第一步独立原版基线完成，含原有问题及明确的环境限制；不表示全部兼容路径通过或主站接入完成",
+  "adoptedCounts": {
+    "通过": 46,
+    "原页已有问题": 3,
+    "设备/浏览器限制": 2
+  },
+  "adoptedCases": [
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "LOAD.http-cold",
+      "name": "HTTP新上下文完整原页",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "UI.default-inventory",
+      "name": "34控件、完整场景、声明值和浏览器实际值",
+      "status": "原页已有问题",
+      "record": "controls/browser.json#/checks/1",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "LOAD.http-again",
+      "name": "再次加载回到原默认状态",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/2",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "VIEW.default-1440",
+      "name": "第二桌面尺寸原默认画面",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/3",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.waveHeight",
+      "name": "waveHeight低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/4",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.waveSpeed",
+      "name": "waveSpeed低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/5",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.waveDensity",
+      "name": "waveDensity低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/6",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.waveDirection",
+      "name": "waveDirection低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/7",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.waterLevel",
+      "name": "waterLevel低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/8",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.boatResponse",
+      "name": "boatResponse低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/9",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.boatDamping",
+      "name": "boatDamping低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/10",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.wind",
+      "name": "wind低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/11",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.pixelScale",
+      "name": "pixelScale低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/12",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.sunset",
+      "name": "sunset低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/13",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.brightness",
+      "name": "brightness低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/14",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SLIDER.glassOpacity",
+      "name": "glassOpacity低中高、真实步进与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/15",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "BUTTON.quality",
+      "name": "三档画质的实际分辨率与色阶",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/16",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "BUTTON.toggle-lighthouse",
+      "name": "lighthouse原对象关闭与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/17",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "BUTTON.toggle-spray",
+      "name": "spray原对象关闭与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/18",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "BUTTON.toggle-dust",
+      "name": "dust原对象关闭与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/19",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "BUTTON.panel",
+      "name": "控制台折叠与恢复",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/20",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "BUTTON.ui-hide-restore",
+      "name": "原按钮隐藏并恢复UI",
+      "status": "通过",
+      "record": "controls/browser.json#/checks/21",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "CAMERA.five-presets",
+      "name": "五个真实镜头按钮及补间结果",
+      "status": "通过",
+      "record": "interactions/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "CAMERA.pointer-reset",
+      "name": "左旋右移、滚轮和原恢复镜头",
+      "status": "通过",
+      "record": "interactions/browser.json#/checks/1",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "KEYBOARD.original",
+      "name": "H、空格、Escape及输入/按钮焦点",
+      "status": "通过",
+      "record": "interactions/browser.json#/checks/3",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "PLAYBACK.freeze-resume",
+      "name": "真实暂停冻结模拟、仍绘制且相机可用",
+      "status": "通过",
+      "record": "interactions/browser.json#/checks/4",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SANDBOX.real-props",
+      "name": "石头、贝壳、真实新增对象、撤销、拖动与恢复",
+      "status": "通过",
+      "record": "interactions/browser.json#/checks/5",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "PLAYBACK.full-reset",
+      "name": "参数、画质、机位、编辑、装饰及播放状态一起恢复",
+      "status": "通过",
+      "record": "interactions/browser.json#/checks/6",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "EXPORT.native-download",
+      "name": "原按钮真实PNG下载、尺寸和DPR上限",
+      "status": "通过",
+      "record": "interactions/browser.json#/checks/7",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "POINTER.scene-picking",
+      "name": "双击瓶子/地面、点击/双击灯塔",
+      "status": "通过",
+      "record": "interactions-picking-retest/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "MOTION.height-0",
+      "name": "波高0连续8模拟秒与至少40真实帧",
+      "status": "通过",
+      "record": "physics/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "MOTION.height-50",
+      "name": "波高50连续8模拟秒与至少40真实帧",
+      "status": "通过",
+      "record": "physics/browser.json#/checks/1",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "MOTION.height-100",
+      "name": "波高100连续8模拟秒与至少40真实帧",
+      "status": "通过",
+      "record": "physics/browser.json#/checks/2",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "MOTION.directions",
+      "name": "四个方向的实际波场及姿态",
+      "status": "通过",
+      "record": "physics/browser.json#/checks/3",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "MOTION.boatResponse",
+      "name": "boatResponse实际连续轨迹与过渡",
+      "status": "通过",
+      "record": "physics/browser.json#/checks/4",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "MOTION.boatDamping",
+      "name": "boatDamping实际连续轨迹与过渡",
+      "status": "通过",
+      "record": "physics/browser.json#/checks/5",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "MOTION.strong-water-safety",
+      "name": "强浪、极端水位的有限数值及原瓶腔检查",
+      "status": "通过",
+      "record": "physics/browser.json#/checks/7",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "MOTION.wind",
+      "name": "wind实际连续轨迹与过渡",
+      "status": "通过",
+      "record": "physics-wind-retest/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "ENGINE.representative",
+      "name": "chromium独立加载及关键操作",
+      "status": "通过",
+      "record": "chromium-compat/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "LOAD.file-cold",
+      "name": "file直开原单文件成品",
+      "status": "设备/浏览器限制",
+      "record": "chromium-mobile-file-retest/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "VIEW.mobile-touch",
+      "name": "手机横竖屏、原生触摸点按旋转和双指缩放",
+      "status": "通过",
+      "record": "chromium-mobile-file-retest/browser.json#/checks/1",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "firefox",
+      "browserVersion": "153.0",
+      "id": "ENGINE.representative",
+      "name": "firefox独立加载及关键操作",
+      "status": "通过",
+      "record": "firefox-compat/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "webkit",
+      "browserVersion": "26.5",
+      "id": "ENGINE.representative",
+      "name": "webkit独立加载及关键操作",
+      "status": "通过",
+      "record": "webkit-compat/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "firefox",
+      "browserVersion": "153.0",
+      "id": "LOAD.file-cold",
+      "name": "file直开原单文件成品",
+      "status": "通过",
+      "record": "firefox-file/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "FAILURE.webgl-disabled",
+      "name": "真实禁用WebGL的原初始化失败界面",
+      "status": "通过",
+      "record": "webgl-disabled/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "LIFECYCLE.reduced-motion",
+      "name": "实际减少动态偏好的原语义",
+      "status": "通过",
+      "record": "failures/browser.json#/checks/1",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "FAILURE.context-loss-reload",
+      "name": "图形丢失、陈旧ready、错误可见性与刷新恢复",
+      "status": "原页已有问题",
+      "record": "failures/browser.json#/checks/2",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "CAMERA.reset-inertia",
+      "name": "原恢复镜头后的残余惯性",
+      "status": "原页已有问题",
+      "record": "boundaries/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "SANDBOX.representative-rules",
+      "name": "瓶中、外海和天空代表点的真实编辑射线",
+      "status": "通过",
+      "record": "boundaries/browser.json#/checks/1",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "EXPORT.hidden-ui-keyboard",
+      "name": "隐藏UI后原截图按钮的真实键盘导出",
+      "status": "通过",
+      "record": "boundaries/browser.json#/checks/2",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "engine": "chromium",
+      "browserVersion": "155.0.8059.79",
+      "id": "LIFECYCLE.native-tab-visibility",
+      "name": "真实浏览器新标签、隐藏及返回",
+      "status": "设备/浏览器限制",
+      "record": "native-tab-visibility/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    }
+  ],
+  "rawRuns": [
+    {
+      "run": "boundaries",
+      "rawComplete": true,
+      "rawStatuses": {
+        "原页已有问题": 1,
+        "通过": 2
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "chromium-compat",
+      "rawComplete": false,
+      "rawStatuses": {
+        "通过": 1,
+        "待补核": 2
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "chromium-mobile-file-retest",
+      "rawComplete": true,
+      "rawStatuses": {
+        "设备/浏览器限制": 1,
+        "通过": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "controls",
+      "rawComplete": true,
+      "rawStatuses": {
+        "通过": 21,
+        "原页已有问题": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "failures",
+      "rawComplete": true,
+      "rawStatuses": {
+        "设备/浏览器限制": 1,
+        "通过": 1,
+        "原页已有问题": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "firefox-compat",
+      "rawComplete": true,
+      "rawStatuses": {
+        "通过": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "firefox-file",
+      "rawComplete": true,
+      "rawStatuses": {
+        "通过": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "interactions",
+      "rawComplete": false,
+      "rawStatuses": {
+        "通过": 7,
+        "待补核": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "interactions-picking-retest",
+      "rawComplete": true,
+      "rawStatuses": {
+        "通过": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "native-tab-visibility",
+      "rawComplete": true,
+      "rawStatuses": {
+        "设备/浏览器限制": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "physics",
+      "rawComplete": false,
+      "rawStatuses": {
+        "通过": 7,
+        "待补核": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "physics-wind-retest",
+      "rawComplete": true,
+      "rawStatuses": {
+        "通过": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    },
+    {
+      "run": "webgl-disabled",
+      "rawComplete": true,
+      "rawStatuses": {
+        "通过": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 4
+    },
+    {
+      "run": "webkit-compat",
+      "rawComplete": true,
+      "rawStatuses": {
+        "通过": 1
+      },
+      "externalAttempts": 0,
+      "expectedFaultInjectionConsoleErrors": 0
+    }
+  ],
+  "protection": {
+    "sourceFilesVerified": 44,
+    "sourceClean": true,
+    "hostProductionInputsVerified": 95,
+    "lawsonRuntimeFilesVerified": 46,
+    "oldSealsVerified": [
+      {
+        "path": "docs/evidence/lawson-integration-step-1/evidence-manifest.json",
+        "sha256": "095ac6a75c182118bf1fd6c9edc8223149f24960ee7ba6b24569f89c006ece66",
+        "filesVerified": 77
+      },
+      {
+        "path": "docs/evidence/lawson-fullpage-step-1/evidence-manifest.json",
+        "sha256": "dda03a5ab980ee9e2c5db2854e32ee04775a8598f6e4da6283c3cc8bbefbbd1a",
+        "filesVerified": 109
+      },
+      {
+        "path": "docs/evidence/lawson-fullpage-step-2/evidence-manifest.json",
+        "sha256": "d8a62def72d2b46fb070a6ec6935d96633f339e4d762ed7e4aff0e1f7cae448f",
+        "filesVerified": 115
+      },
+      {
+        "path": "docs/evidence/lawson-fullpage-step-3/evidence-manifest.json",
+        "sha256": "a4421b7596c1df520c6dc1c43173c4b2edb8c34b883f7bd72c3c0f696fb8e35a",
+        "filesVerified": 95
+      },
+      {
+        "path": "docs/evidence/lawson-fullpage-step-4/evidence-manifest.json",
+        "sha256": "6b8ee7e2e28ba6d79e99290ed3259d0ed7a0c2f26c404dbd641bb8bb6c176e69",
+        "filesVerified": 95
+      },
+      {
+        "path": "docs/evidence/lawson-fullpage-step-5/evidence-manifest.json",
+        "sha256": "91e43e57678aadd968e378af1549c20d5fc27a61d52cc27db97c8d0a75f7ee2f",
+        "filesVerified": 51
+      },
+      {
+        "path": "docs/evidence/lawson-fullpage-step-6/evidence-manifest.json",
+        "sha256": "fa5a9557e129cabe1f9e893ea4a6b00937caff6b039e87669808d1d478515474",
+        "filesVerified": 315
+      },
+      {
+        "path": "docs/evidence/lawson-fullpage-step-7/evidence-manifest.json",
+        "sha256": "edcc84f6400e7442ffce47734d3352ddda2c4b834fa95d18c21b2fb17118682d",
+        "filesVerified": 750
+      }
+    ],
+    "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+    "trackedHostChanges": "",
+    "sourceCommit": "d94c1f911a39143fd8f5efe152b99a87fdc53184",
+    "hostCommit": "eae15c040aa1527833d844d1bbf81eb551843386",
+    "hostStatus": "?? docs/beach-bottle-boat/\n?? docs/evidence/beach-bottle-boat-step-1/\n?? tests/beach-bottle-boat-step-1/"
+  },
+  "scope": {
+    "originalRebuilt": false,
+    "productModified": false,
+    "codingIntegrated": false,
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "remainingBoundaries": [
+    "Managed Chromium file URL policy; Firefox file load passed",
+    "No actual hidden state observed; background resume/throttling not validated",
+    "Physical devices, non-Linux platforms and hardware performance unverified",
+    "All terrain pixels, prop cap, all parameter combinations and actual cavity rejection hit not exhaustively tested",
+    "Host iframe isolation, lifecycle and regression belong to later steps"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "issue": "Child-initiated accessible about:blank kept loading after a previously valid document",
+  "beforeRun": "child-navigation-clean-before",
+  "fixedRun": "chromium-core-clean",
+  "beforeActiveBuild": "initial",
+  "afterActiveBuild": "candidate",
+  "beforeProbeErrors": 0,
+  "productFilesChanged": [
+    "src/tour/createEmbeddedPageExperience.ts"
+  ],
+  "originalHTMLChanged": false
+}

@@ -1,0 +1,545 @@
+{
+  "startedAtShanghai": "2026-11-13T21:03:44.401117+08:00",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "INPUT.focus",
+      "name": "原右键平移与Tab往返宿主工具栏和原页",
+      "status": "通过",
+      "evidence": {
+        "rightDrag": {
+          "before": {
+            "position": [
+              0.5503801579587017,
+              2.34138507530666,
+              6.490267956257238
+            ],
+            "target": [
+              0.8,
+              1.92,
+              0.1
+            ],
+            "fov": 42,
+            "preset": "cinema",
+            "distance": 6.409009283812904
+          },
+          "after": {
+            "position": [
+              0.346240290870245,
+              2.42301033099959,
+              6.476911235306208
+            ],
+            "target": [
+              0.5958601329115434,
+              2.00162525569293,
+              0.08664327904896912
+            ],
+            "fov": 42,
+            "preset": null,
+            "distance": 6.409009283812904
+          }
+        },
+        "nativeTabEnteredChild": true,
+        "childFocus": {
+          "tag": "BUTTON",
+          "id": "panel-toggle"
+        },
+        "nativeShiftTabReturnedToToolbar": true
+      }
+    },
+    {
+      "id": "FAULT.host-graphics",
+      "name": "宿主图形失败仍可运行完整瓶中海洋",
+      "status": "通过",
+      "evidence": {
+        "injection": "Host document WebGL creation disabled; real child WebGL remains available",
+        "childReadyDespiteHostFailure": {
+          "url": "http://127.0.0.1:49359/experiments/bottle-ocean/index.html",
+          "timeOrigin": 1794575034328.1,
+          "diagnostics": {
+            "ready": true,
+            "simTime": 0.9500000000000003,
+            "paused": false,
+            "state": {
+              "waveHeight": 35,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 2,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "fine",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.3112725606821904,
+                0.7542703592529264,
+                0.037917313698830384
+              ],
+              "quaternion": [
+                -0.029513173665371283,
+                0.05699368829381892,
+                0.0162775127961068,
+                0.997805459321624
+              ],
+              "pitch": 0.029123569864963336,
+              "roll": -0.06081549719358055,
+              "yaw": 0.115,
+              "rootY": 0.7542703592529264,
+              "surfaceAtBoat": 0.71594021519614,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.06351844560433681,
+              "sampleHeights": {
+                "bow": 0.8012754163087944,
+                "stern": 0.784949628734731,
+                "port": 0.7428270136268352,
+                "starboard": 0.7098005675475538,
+                "center": 0.71594021519614
+              },
+              "mastTip": [
+                -0.3136387521780058,
+                1.6501059860359497,
+                -0.01668974558907412
+              ],
+              "mastTips": [
+                [
+                  -0.6731524595800327,
+                  1.4198316217480582,
+                  0.03829762879684538
+                ],
+                [
+                  -0.3136387521780058,
+                  1.6501059860359497,
+                  -0.01668974558907412
+                ],
+                [
+                  0.03042483410177338,
+                  1.480415554607244,
+                  -0.045419626859915525
+                ]
+              ],
+              "forward": [
+                0.9929735241436792,
+                0.02911945302337488,
+                -0.11469802877687851
+              ],
+              "drift": [
+                0.00872743931780963,
+                -0.0020826863011696177
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.06351844560433681,
+              "heightAtBoat": 0.71594021519614,
+              "samples": {
+                "bow": 0.8012754163087944,
+                "stern": 0.784949628734731,
+                "port": 0.7428270136268352,
+                "starboard": 0.7098005675475538,
+                "center": 0.71594021519614
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 720,
+              "pixelHeight": 422,
+              "scale": 2,
+              "levels": 48
+            },
+            "fps": 12,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            1440,
+            844
+          ],
+          "dpr": 1,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 844,
+            "top": 0,
+            "right": 1440,
+            "bottom": 844,
+            "left": 0
+          },
+          "pixels": [
+            720,
+            422
+          ],
+          "contextLost": false,
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "draws": 1637,
+          "contextEvents": [],
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "edit": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "actual": {
+            "amplitude": 0.06351844560433681,
+            "gpuTime": 0.9500000000000003,
+            "opacity": 0.15,
+            "exposure": 0.82,
+            "lighthouse": true,
+            "spray": true,
+            "dust": true
+          }
+        },
+        "hostAfterReturn": {
+          "url": "http://127.0.0.1:49359/",
+          "viewport": [
+            1440,
+            900
+          ],
+          "dpr": 1,
+          "scrollY": 5604,
+          "layout": "stable",
+          "work": "courtyard",
+          "coverState": "ready",
+          "cover": [
+            {
+              "src": "http://127.0.0.1:49359/assets/courtyard-orb-cover-CFKlnXYs.webp",
+              "alt": "深色石柱与粉紫小花环绕蓝白水潭，中央浅蓝水球轻悬于石台上方",
+              "complete": true,
+              "width": 1440,
+              "rect": {
+                "x": 202.5,
+                "y": 462.03125,
+                "width": 374.1875,
+                "height": 206.984375,
+                "top": 462.03125,
+                "right": 576.6875,
+                "bottom": 669.015625,
+                "left": 202.5
+              },
+              "fit": "contain"
+            }
+          ],
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false,
+              "rect": {
+                "x": 205.5,
+                "y": 386.640625,
+                "width": 281.328125,
+                "height": 56.390625,
+                "top": 386.640625,
+                "right": 486.828125,
+                "bottom": 443.03125,
+                "left": 205.5
+              }
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false,
+              "rect": {
+                "x": 490.828125,
+                "y": 386.640625,
+                "width": 281.328125,
+                "height": 56.390625,
+                "top": 386.640625,
+                "right": 772.15625,
+                "bottom": 443.03125,
+                "left": 490.828125
+              }
+            },
+            {
+              "id": "courtyard",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false,
+              "rect": {
+                "x": 776.15625,
+                "y": 386.640625,
+                "width": 281.34375,
+                "height": 56.390625,
+                "top": 386.640625,
+                "right": 1057.5,
+                "bottom": 443.03125,
+                "left": 776.15625
+              }
+            }
+          ],
+          "previewLabel": "experiment-project-courtyard",
+          "focus": "experiment-project-courtyard",
+          "dialog": {
+            "projectId": "bottle-ocean",
+            "experienceKind": "embedded-page",
+            "embeddedState": "ready",
+            "tab": "live",
+            "mediaState": "idle"
+          },
+          "open": false,
+          "frames": [],
+          "guide": {
+            "pressed": "false",
+            "phase": null
+          },
+          "host": {
+            "renderState": "error",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.0464079999999998,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"flow\":\"curved-rest-sphere-v2\",\"vertices\":117,\"triangles\":168,\"restAttributeBytes\":1404,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "cloudShadows": "{\"enabled\":true,\"active\":1,\"time\":2,\"drift\":0.4399999999999977,\"repeatSeconds\":145.45454545454547,\"failures\":[],\"materials\":[{\"name\":\"courtyard-ground\",\"surface\":\"ground\",\"strength\":0.18},{\"name\":\"courtyard-pool-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-refined-surface\",\"surface\":\"water\",\"strength\":0.075},{\"name\":\"courtyard-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-jet\",\"surface\":\"water\",\"strength\":0.045},{\"name\":\"courtyard-living-orb\",\"surface\":\"water\",\"strength\":0.05},{\"name\":\"courtyard-foliage\",\"surface\":\"foliage\",\"strength\":0.13},{\"name\":\"courtyard-flower\",\"surface\":\"flower\",\"strength\":0.1},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0,\"extraDrawCalls\":0}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "birdResources": "{\"birds\":3,\"newGeometries\":1,\"newTextures\":0,\"maximumColorDrawCalls\":1,\"extraPasses\":0,\"castsShadows\":false,\"trianglesPerBird\":60}",
+            "overlayState": "closed",
+            "motionState": "running",
+            "visibility": "visible",
+            "guideState": "blocked",
+            "guidePhase": "manual",
+            "guideStation": "O",
+            "guideTargetH": "0",
+            "guideReadSeconds": "0",
+            "guideReadyAt": "",
+            "guideDeadline": "",
+            "guideReason": "图形暂不可用，请使用稳定阅读。",
+            "projectView": "closed"
+          },
+          "overflow": false
+        }
+      }
+    }
+  ],
+  "requests": [
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/",
+      "type": "document"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/index-C13u_He4.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/startTourPrototype-Dl0putm4.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/",
+      "type": "document"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/index-C13u_He4.js",
+      "type": "script"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/startTourPrototype-Dl0putm4.js",
+      "type": "script"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "url": "http://127.0.0.1:49359/assets/courtyard-orb-cover-CFKlnXYs.webp",
+      "type": "image"
+    }
+  ],
+  "pageErrors": [],
+  "console": [
+    {
+      "case": "INPUT.focus",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "type": "error",
+      "text": "THREE.WebGLRenderer: THREE.WebGLRenderer: Error creating WebGL context."
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "type": "error",
+      "text": "Tour scene initialization failed. Error: THREE.WebGLRenderer: Error creating WebGL context.\n    at new Br (http://127.0.0.1:49359/assets/three-renderer-Bo7ttXUR.js:4221:23774)\n    at Nt (http://127.0.0.1:49359/assets/createAnimationController-Cv0VwzcZ.js:454:1367)\n    at http://127.0.0.1:49359/assets/startTourPrototype-Dl0putm4.js:43:14150"
+    },
+    {
+      "case": "FAULT.host-graphics",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "failedRequests": [],
+  "externalAttempts": [],
+  "routesDisableCache": true,
+  "physicalDevice": false,
+  "bottleIframeAdded": true,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "complete": true,
+  "finishedAtShanghai": "2026-11-13T21:03:58.071510+08:00"
+}

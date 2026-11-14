@@ -1,0 +1,41 @@
+[
+  {
+    "run": "chromium-core-clean",
+    "ids": null
+  },
+  {
+    "run": "chromium-faults-clean",
+    "ids": null
+  },
+  {
+    "run": "chromium-layout",
+    "ids": [
+      "LAYOUT.sizes"
+    ]
+  },
+  {
+    "run": "chromium-resize-final",
+    "ids": null
+  },
+  {
+    "run": "chromium-regression",
+    "ids": null
+  },
+  {
+    "run": "firefox",
+    "ids": [
+      "NAV.child-blank",
+      "LIFE.cycles",
+      "FAULT.responses",
+      "LAYOUT.sizes"
+    ]
+  },
+  {
+    "run": "firefox-native-final",
+    "ids": null
+  },
+  {
+    "run": "webkit",
+    "ids": null
+  }
+]

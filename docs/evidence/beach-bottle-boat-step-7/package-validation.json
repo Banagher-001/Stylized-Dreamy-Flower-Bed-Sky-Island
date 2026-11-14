@@ -1,0 +1,57 @@
+{
+  "startedAtShanghai": "2026-11-14T16:27:53.336901+08:00",
+  "freshExtraction": true,
+  "unicodeAndSpacesInPaths": true,
+  "archives": {
+    "site": {
+      "path": "/tmp/bottle-ocean-step-7-v_4ap9fa/独立 解压验证/成品 网站",
+      "filesVerified": 73,
+      "archiveSHA256": "deab7323b2572b244558a7fa49d6ba978b56e4cf7feb822ea2e742954a09b522"
+    },
+    "source": {
+      "path": "/tmp/bottle-ocean-step-7-v_4ap9fa/独立 解压验证/源码 项目",
+      "filesVerified": 156,
+      "archiveSHA256": "3431d977b59fc56eb13ed98116ec76b551e87a4daa92fd3f02c967060febd438"
+    }
+  },
+  "commands": [
+    {
+      "label": "npm-ci",
+      "argv": [
+        "npm",
+        "ci",
+        "--cache",
+        "/workspace/.cache/npm",
+        "--prefer-offline",
+        "--no-audit",
+        "--fund=false"
+      ],
+      "cwd": "/tmp/bottle-ocean-step-7-v_4ap9fa/独立 解压验证/源码 项目",
+      "startedAtShanghai": "2026-11-14T16:27:53.815723+08:00",
+      "exitCode": 0,
+      "wallSeconds": 1.9857729619980091
+    },
+    {
+      "label": "source-build",
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/tmp/bottle-ocean-step-7-v_4ap9fa/独立 解压验证/源码 项目",
+      "startedAtShanghai": "2026-11-14T16:27:55.801880+08:00",
+      "exitCode": 0,
+      "wallSeconds": 0.9243533129920252
+    }
+  ],
+  "sourceHadNoNodeModulesOrDist": true,
+  "finishedAtShanghai": "2026-11-14T16:27:56.756911+08:00",
+  "sourceBuildByteIdentical": true,
+  "rebuiltFilesVerified": 69,
+  "runtimeInputsVerifiedAfterInstallAndBuild": 97,
+  "nodeVersion": "v24.22.1",
+  "npmVersion": "11.9.0",
+  "windowsLauncherStaticCheck": true,
+  "windowsActuallyExecuted": false,
+  "complete": true
+}

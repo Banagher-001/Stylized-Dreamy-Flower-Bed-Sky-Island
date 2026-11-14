@@ -1,0 +1,455 @@
+diff --git a/src/tour/createLawsonExperience.ts b/src/tour/createLawsonExperience.ts
+index 416d2fc..4878cd2 100644
+--- a/src/tour/createLawsonExperience.ts
++++ b/src/tour/createLawsonExperience.ts
+@@ -1,114 +1,21 @@
+-import type { EmbeddedProjectState } from './projectContent';
++import { createEmbeddedPageExperience } from './createEmbeddedPageExperience';
++import type { EmbeddedPageOptions } from './createEmbeddedPageExperience';
+ 
+ interface LawsonWindow extends Window { __LAWSON__?: { ready?: boolean; error?: unknown } }
+-interface LawsonExperienceOptions {
+-  container: HTMLElement;
+-  entry: string;
+-  wanted(): boolean;
+-  status(state: EmbeddedProjectState, message?: string): void;
+-}
+ 
+-/** Own one original, unmodified document. Never reuse its API across reloads. */
+-export function createLawsonExperience(options: LawsonExperienceOptions) {
+-  let disposed = false, generation = 0;
+-  let frame: HTMLIFrameElement | undefined, layoutFrame: number | undefined, timer: number | undefined;
+-  let listeners: AbortController | undefined;
+-  let documentListeners: AbortController | undefined;
+-  function unmount() {
+-    generation++;
+-    if (layoutFrame !== undefined) cancelAnimationFrame(layoutFrame);
+-    layoutFrame = undefined;clearTimeout(timer);timer = undefined;listeners?.abort();listeners = undefined;
+-    documentListeners?.abort();documentListeners = undefined;
+-    const previous = frame;frame = undefined;
+-    if (!previous) return;
+-    try {
+-      const doc = previous.contentDocument;
+-      if (doc?.pointerLockElement) doc.exitPointerLock();
+-      if (document.fullscreenElement === previous) void document.exitFullscreen().catch(() => {});
+-      else if (doc?.fullscreenElement) void doc.exitFullscreen().catch(() => {});
+-    } catch { /* Removal still releases an inaccessible or navigating document. */ }
+-    previous.remove();
+-  }
+-  function mount() {
+-    if (disposed || !options.wanted() || frame || layoutFrame !== undefined) return;
+-    const token = ++generation;
+-    options.status('loading');
+-    // The viewer's open callback precedes showModal. Size the original document
+-    // only after that synchronous open has completed, and cancel fast exits.
+-    layoutFrame = requestAnimationFrame(() => {
+-      layoutFrame = undefined;
+-      if (disposed || generation !== token || !options.wanted() || !options.container.getClientRects().length) return;
+-      const item = document.createElement('iframe');frame = item;
+-      item.title = '罗森便利店 · 完整交互网页';item.allow = 'fullscreen';item.allowFullscreen = true;
+-      listeners = new AbortController();
+-      let currentDocument: Document | undefined, documentGeneration = 0;
+-      let startedAt = performance.now(), state: EmbeddedProjectState = 'loading';
+-      let observedCanvas: HTMLCanvasElement | undefined, graphicsLost = false, graphicsRestored = false;
+-      let message: string | undefined;
+-      const owns = () => !disposed && generation === token && frame === item && options.wanted();
+-      function publish(next: EmbeddedProjectState, reason?: string) {
+-        if (owns() && (next !== state || reason !== message)) { state = next;message = reason;options.status(next, reason); }
+-      }
+-      function observe() {
+-        if (!owns()) return;
+-        clearTimeout(timer);timer = undefined;
+-        let next: EmbeddedProjectState = performance.now() - startedAt >= 12000 ? 'slow' : 'loading';
+-        let reason: string | undefined;
+-        try {
+-          const doc = item.contentDocument;
+-          if (doc && doc.URL !== 'about:blank') {
+-            if (doc !== currentDocument) {
+-              currentDocument = doc;documentGeneration++;startedAt = performance.now();next = 'loading';
+-              documentListeners?.abort();documentListeners = new AbortController();
+-              observedCanvas = undefined;graphicsLost = false;graphicsRestored = false;
+-              publish('loading');
+-            }
+-            const canvas = doc.querySelector<HTMLCanvasElement>('canvas#viewport');
+-            if (canvas && canvas !== observedCanvas) {
+-              observedCanvas = canvas;
+-              canvas.addEventListener('webglcontextlost', () => {
+-                if (!owns() || currentDocument !== doc || observedCanvas !== canvas) return;
+-                graphicsLost = true;graphicsRestored = false;observe();
+-              }, { signal: documentListeners!.signal });
+-              canvas.addEventListener('webglcontextrestored', () => {
+-                if (!owns() || currentDocument !== doc || observedCanvas !== canvas) return;
+-                // The original ready flag predates this GPU generation. A
+-                // fresh document is the reliable recovery boundary available.
+-                graphicsRestored = true;observe();
+-              }, { signal: documentListeners!.signal });
+-            }
+-            const api = (item.contentWindow as LawsonWindow | null)?.__LAWSON__;
+-            const fatal = doc.getElementById('fatal');
+-            const style = fatal ? item.contentWindow!.getComputedStyle(fatal) : undefined;
+-            const visibleFatal = !!fatal && !!fatal.getClientRects().length && style?.display !== 'none' && style?.visibility !== 'hidden' && style?.opacity !== '0';
+-            const wrongDocument = doc.readyState === 'complete' && (!doc.getElementById('app') || !canvas);
+-            if (wrongDocument) { next = 'error';reason = '页面未能正常打开'; }
+-            else if (visibleFatal || api?.error || doc.body?.dataset.ready === 'error') next = 'error';
+-            else if (graphicsLost) { next = 'error';reason = graphicsRestored ? '图形连接已恢复，请重新载入场景' : '图形连接已中断'; }
+-            else if (api?.ready === true) {
+-              next = 'ready';
+-              if (doc.fullscreenEnabled === false) reason = '此浏览器未开放全屏，仍可在当前窗口操作场景';
+-            }
+-          }
+-        } catch { /* No trustworthy signal yet: retain loading/slow and exits. */ }
+-        publish(next, reason);
+-        const docToken = documentGeneration;
+-        const scheduled = window.setTimeout(() => {
+-          if (!owns() || timer !== scheduled || docToken !== documentGeneration) return;
+-          timer = undefined;observe();
+-        }, state === 'ready' ? 500 : 200);
+-        timer = scheduled;
+-      }
+-      item.addEventListener('load', observe, { signal: listeners.signal });
+-      document.addEventListener('visibilitychange', () => { if (!document.hidden) observe(); }, { signal: listeners.signal });
+-      window.addEventListener('pageshow', observe, { signal: listeners.signal });
+-      item.src = options.entry;options.container.append(item);observe();
+-    });
+-  }
+-  return {
+-    mount,
+-    retry() { if (!disposed && options.wanted()) { unmount();mount(); } },
+-    unmount,
+-    dispose() { if (!disposed) { disposed = true;unmount(); } },
+-  };
++/** Preserve LAWSON's existing signals and public lifecycle. */
++export function createLawsonExperience(options: EmbeddedPageOptions) {
++  return createEmbeddedPageExperience(options, {
++    title: '罗森便利店 · 完整交互网页',
++    canvasSelector: 'canvas#viewport',
++    inspect(doc, win, canvas) {
++      const api = (win as LawsonWindow).__LAWSON__, fatal = doc.getElementById('fatal');
++      const style = fatal ? win.getComputedStyle(fatal) : undefined;
++      const visibleFatal = !!fatal && !!fatal.getClientRects().length && style?.display !== 'none' && style?.visibility !== 'hidden' && style?.opacity !== '0';
++      if (doc.readyState === 'complete' && (!doc.getElementById('app') || !canvas)) return { state: 'error', message: '页面未能正常打开' };
++      if (visibleFatal || api?.error || doc.body?.dataset.ready === 'error') return { state: 'error' };
++      if (api?.ready === true) return { state: 'ready', message: doc.fullscreenEnabled === false ? '此浏览器未开放全屏，仍可在当前窗口操作场景' : undefined };
++      return { state: 'loading' };
++    },
++  });
+ }
+diff --git a/src/tour/createProjectViewer.ts b/src/tour/createProjectViewer.ts
+index e3e933e..2d9bf58 100644
+--- a/src/tour/createProjectViewer.ts
++++ b/src/tour/createProjectViewer.ts
+@@ -1,6 +1,6 @@
+ import type { RenderMode } from '../config/scene';
+ import { courtyardProject as project } from './experimentContent';
+-import { projects, resolveProjectEntry } from './projectContent';
++import { isPageProject, projects, resolveProjectEntry } from './projectContent';
+ import type { ActiveProject, EmbeddedProjectState, ProjectId, ProjectTab } from './projectContent';
+ 
+ interface ProjectLifecycle {
+@@ -15,7 +15,7 @@ interface ProjectLifecycle {
+ /** One modal owner for a live view of the existing canvas and its media archive. */
+ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecycle) {
+   const dialog = document.createElement('dialog');dialog.className = 'tour-project-dialog';dialog.setAttribute('aria-labelledby', 'project-title');
+-  dialog.innerHTML = `<div class="tour-project-shell"><header class="tour-project-header"><div class="tour-project-identity"><p>03 / 交互实验 <span>交互网页场景</span></p><h2 id="project-title"><span data-project-title></span><span data-project-short-title></span></h2><span class="tour-project-embed-status" role="status"></span></div><div class="tour-project-tabs" role="tablist" aria-label="项目内容"><button type="button" role="tab" id="project-tab-live" aria-controls="tour-project-live" data-project-view="live"><span class="project-label-full">现场体验</span><span class="project-label-short">体验</span></button><button type="button" role="tab" id="project-tab-archive" aria-controls="tour-project-archive" data-project-view="archive"><span class="project-label-full">项目档案</span><span class="project-label-short">档案</span></button></div><div class="tour-project-header-actions"><a class="tour-project-independent" data-project-independent target="_blank" rel="noopener noreferrer" aria-label="独立打开完整网页"><span class="project-label-full">独立打开</span><span aria-hidden="true">↗</span></a><button type="button" class="tour-project-retry" aria-label="重新载入罗森便利店完整网页" hidden><span class="project-label-full">重新载入</span><span class="project-label-short">重试</span></button><button type="button" class="tour-project-close" aria-label="关闭项目，返回阅读" autofocus><span class="project-label-full">返回阅读</span><span class="project-label-short">返回</span><span class="project-close-icon" aria-hidden="true">×</span></button></div><p class="tour-project-feedback" role="status" hidden></p></header><section id="tour-project-live" class="tour-project-live" role="tabpanel" aria-labelledby="project-tab-live"><div class="tour-project-live-space" role="img" aria-label="庭院全景：三根深色石柱与小花围绕蓝白水潭"><p class="tour-project-scene-status" role="status" hidden></p></div><div class="tour-project-live-controls"><p>停一会儿，看风经过。</p><div><div role="group" aria-label="体验画面模式"><button type="button" data-project-mode="native">正常画面</button><button type="button" data-project-mode="pixel">像素画面</button></div><button type="button" class="tour-project-motion">播放动效</button></div></div><div class="tour-project-embedded-live" hidden><div class="tour-project-embed-mount" aria-label="罗森便利店完整网页挂载区域"></div><section class="tour-project-prepared"><p class="tour-project-section-label">LAWSON / INTERACTIVE WORLD</p><h3>一间店，<br>几个日夜。</h3><p>打开后载入完整罗森网页，也可独立打开。</p><a data-project-independent target="_blank" rel="noopener noreferrer">独立打开完整网页 <span aria-hidden="true">↗</span></a></section></div></section><section id="tour-project-archive" class="tour-project-archive" role="tabpanel" aria-labelledby="project-tab-archive" tabindex="0" hidden></section></div>`;
++  dialog.innerHTML = `<div class="tour-project-shell"><header class="tour-project-header"><div class="tour-project-identity"><p>03 / 交互实验 <span>交互网页场景</span></p><h2 id="project-title"><span data-project-title></span><span data-project-short-title></span></h2><span class="tour-project-embed-status" role="status"></span></div><div class="tour-project-tabs" role="tablist" aria-label="项目内容"><button type="button" role="tab" id="project-tab-live" aria-controls="tour-project-live" data-project-view="live"><span class="project-label-full">现场体验</span><span class="project-label-short">体验</span></button><button type="button" role="tab" id="project-tab-archive" aria-controls="tour-project-archive" data-project-view="archive"><span class="project-label-full">项目档案</span><span class="project-label-short">档案</span></button></div><div class="tour-project-header-actions"><a class="tour-project-independent" data-project-independent target="_blank" rel="noopener noreferrer" aria-label="独立打开完整网页"><span class="project-label-full">独立打开</span><span aria-hidden="true">↗</span></a><button type="button" class="tour-project-retry" aria-label="重新载入罗森便利店完整网页" hidden><span class="project-label-full">重新载入</span><span class="project-label-short">重试</span></button><button type="button" class="tour-project-close" aria-label="关闭项目，返回阅读" autofocus><span class="project-label-full">返回阅读</span><span class="project-label-short">返回</span><span class="project-close-icon" aria-hidden="true">×</span></button></div><p class="tour-project-feedback" role="status" hidden></p></header><section id="tour-project-live" class="tour-project-live" role="tabpanel" aria-labelledby="project-tab-live"><div class="tour-project-live-space" role="img" aria-label="庭院全景：三根深色石柱与小花围绕蓝白水潭"><p class="tour-project-scene-status" role="status" hidden></p></div><div class="tour-project-live-controls"><p>停一会儿，看风经过。</p><div><div role="group" aria-label="体验画面模式"><button type="button" data-project-mode="native">正常画面</button><button type="button" data-project-mode="pixel">像素画面</button></div><button type="button" class="tour-project-motion">播放动效</button></div></div><div class="tour-project-embedded-live" hidden><div class="tour-project-embed-mount" aria-label="罗森便利店完整网页挂载区域"></div><section class="tour-project-prepared"><p class="tour-project-section-label">LAWSON / INTERACTIVE WORLD</p><h3>一间店，<br>几个日夜。</h3><img data-prepared-cover hidden decoding="async"/><p data-prepared-description>打开后载入完整罗森网页，也可独立打开。</p><a data-project-independent target="_blank" rel="noopener noreferrer">独立打开完整网页 <span aria-hidden="true">↗</span></a></section></div></section><section id="tour-project-archive" class="tour-project-archive" role="tabpanel" aria-labelledby="project-tab-archive" tabindex="0" hidden></section></div>`;
+   root.append(dialog);
+   const listeners = new AbortController(), options = { signal: listeners.signal };
+   const tabs = [...dialog.querySelectorAll<HTMLButtonElement>('[data-project-view]')], closeButton = dialog.querySelector<HTMLButtonElement>('.tour-project-close')!;
+@@ -40,29 +40,41 @@ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecyc
+   const active = (): ActiveProject => ({ id: projectId, tab: selected });
+   function refreshEmbeddedFeedback() {
+     const state = dialog.dataset.embeddedState;
+-    const activeLive = engaged && projectId === 'lawson' && selected === 'live';
++    const activeLive = engaged && isPageProject(projects[projectId]) && selected === 'live';
+     const retryable = state === 'slow' || state === 'error', capability = state === 'ready' && !!embeddedMessage;
+     feedback.hidden = !(activeLive && (retryable || capability));embeddedRetry.hidden = !(activeLive && retryable);
+     feedback.textContent = capability ? embeddedMessage! : state === 'error' ? `${embeddedMessage ?? '暂时无法完成载入'}，可重新载入或独立打开。` : '载入时间较长，可继续等待、重新载入或独立打开。';
+   }
+-  function setEmbeddedStatus(state: EmbeddedProjectState, message?: string) {
+-    if (!engaged || projectId !== 'lawson') return;
++  function setEmbeddedStatus(owner: ProjectId, state: EmbeddedProjectState, message?: string) {
++    if (!engaged || projectId !== owner || !isPageProject(projects[projectId]) || (state !== 'prepared' && selected !== 'live')) return;
+     dialog.dataset.embeddedState = state;prepared.hidden = state !== 'prepared';embeddedMessage = message;
+-    dialog.querySelector<HTMLElement>('.tour-project-embed-status')!.textContent = message ?? ({ prepared: '独立打开可体验', loading: '正在载入', slow: '载入较慢', error: '暂未就绪', ready: '' }[state]);
++    dialog.querySelector<HTMLElement>('.tour-project-embed-status')!.textContent = message ?? ({ prepared: '可独立体验', loading: '正在载入', slow: '载入较慢', error: '暂未就绪', ready: '' }[state]);
+     embeddedMount.setAttribute('aria-busy', String(state === 'loading' || state === 'slow'));
+     refreshEmbeddedFeedback();
+   }
+   function configure() {
+-    const item = projects[projectId], lawson = projectId === 'lawson';dialog.dataset.projectId = projectId;
++    const item = projects[projectId], page = isPageProject(item);dialog.dataset.projectId = projectId;dialog.dataset.experienceKind = item.experience.kind;
+     dialog.querySelector('[data-project-title]')!.textContent = item.title;
+     dialog.querySelector('[data-project-short-title]')!.textContent = item.shortTitle;
+-    liveSpace.hidden = lawson;liveControls.hidden = lawson;embeddedLive.hidden = !lawson;
++    liveSpace.hidden = page;liveControls.hidden = page;embeddedLive.hidden = !page;
++    embeddedMount.setAttribute('aria-label', `${item.title}完整网页挂载区域`);
++    embeddedRetry.setAttribute('aria-label', `重新载入${item.title}完整网页`);
+     for (const link of dialog.querySelectorAll<HTMLAnchorElement>('[data-project-independent]')) {
+-      link.hidden = !lawson;link.href = resolveProjectEntry(projectId) ?? '';link.setAttribute('aria-label', `独立打开${item.title}完整网页`);
++      link.hidden = !page;
++      if (page) link.href = resolveProjectEntry(projectId)!;else link.removeAttribute('href');
++      link.setAttribute('aria-label', `独立打开${item.title}完整网页`);
+     }
+-    tabs[0]!.disabled = !lawson && gardenUnavailable === 'failed';
+-    if (lawson) setEmbeddedStatus('prepared');
+-    else refreshEmbeddedFeedback();
++    tabs[0]!.disabled = !page && gardenUnavailable === 'failed';
++    if (page) {
++      prepared.querySelector('.tour-project-section-label')!.textContent = item.archive.kicker;
++      prepared.querySelector('h3')!.replaceChildren(document.createTextNode(item.archive.headline[0]), document.createElement('br'), document.createTextNode(item.archive.headline[1]));
++      prepared.querySelector('[data-prepared-description]')!.textContent = item.prepared.description;
++      const visual = prepared.querySelector<HTMLImageElement>('[data-prepared-cover]')!;
++      visual.hidden = projectId !== 'bottle-ocean';
++      if (projectId === 'bottle-ocean') { visual.src = item.cover.src;visual.width = item.cover.width;visual.height = item.cover.height;visual.alt = item.cover.alt; }
++      else visual.removeAttribute('src');
++      setEmbeddedStatus(projectId, 'prepared');
++    } else { delete dialog.dataset.embeddedState;embeddedMessage = undefined;prepared.hidden = true;refreshEmbeddedFeedback(); }
+   }
+ 
+   function releaseVideo() {
+@@ -93,9 +105,9 @@ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecyc
+     if (initialized === projectId) return;
+     releaseVideo();archiveListeners?.abort();archiveListeners = new AbortController();const archiveOptions = { signal: archiveListeners.signal };
+     viewport = undefined;mediaStatus = undefined;retry = undefined;archive.replaceChildren();initialized = projectId;archive.dataset.projectId = projectId;
+-    if (projectId === 'lawson') {
+-      const item = projects.lawson;
+-      archive.innerHTML = `<div class="lawson-archive-intro"><div><p class="tour-project-section-label">LAWSON / INTERACTIVE WORLD</p><h3>一间店，<br>几个日夜。</h3></div><p>${item.introduction}</p></div><figure class="project-current-cover"><img src="${item.cover.src}" width="${item.cover.width}" height="${item.cover.height}" alt="${item.cover.alt}" decoding="async"/><figcaption>罗森便利店 · 场景画面</figcaption></figure><div class="lawson-archive-features">${item.features.map((f, i) => `<section><span>0${i + 1}</span><h3>${f.title}</h3><p>${f.body}</p></section>`).join('')}</div>`;
++    const item = projects[projectId];
++    if (isPageProject(item)) {
++      archive.innerHTML = `<div class="lawson-archive-intro"><div><p class="tour-project-section-label">${item.archive.kicker}</p><h3>${item.archive.headline.join('<br>')}</h3></div><p>${item.introduction}</p></div><figure class="project-current-cover"><img src="${item.cover.src}" width="${item.cover.width}" height="${item.cover.height}" alt="${item.cover.alt}" decoding="async"/><figcaption>${item.archive.caption}</figcaption></figure><div class="lawson-archive-features">${item.features.map((f, i) => `<section><span>0${i + 1}</span><h3>${f.title}</h3><p>${f.body}</p></section>`).join('')}</div>`;
+     } else {
+     archive.innerHTML = `<div class="project-archive-intro"><p class="tour-project-section-label">PROJECT / 庭院习作</p><p class="tour-project-introduction">${project.introduction}</p></div><figure class="project-current-cover"><img src="${project.cover.src}" width="${project.cover.width}" height="${project.cover.height}" alt="${project.cover.alt}" decoding="async"/><figcaption>当前庭院 · 全景</figcaption></figure><section class="tour-project-features"><h3>当前可体验</h3><ol>${project.features.map((f) => `<li>${f}</li>`).join('')}</ol></section><section class="tour-project-clip"><div><p class="tour-project-section-label">EARLIER STUDY / 早期习作</p><h3>${project.clip.label}</h3><p>${project.clip.note}</p><p>记录最初的水面与悬浮球，也保留庭院逐渐生长的痕迹。</p></div><div><div class="tour-project-video-viewport"></div><p class="tour-project-media-status" role="status" aria-live="polite"></p><button type="button" class="tour-project-media-retry" hidden>重新载入片段</button></div></section><div class="tour-project-frame-pair">${project.frames.map((f) => `<figure><img src="${f.src}" width="680" height="680" alt="${f.alt}" loading="lazy" decoding="async"/><figcaption>${f.label}</figcaption></figure>`).join('')}</div>`;
+     viewport = archive.querySelector<HTMLElement>('.tour-project-video-viewport')!;mediaStatus = archive.querySelector<HTMLElement>('.tour-project-media-status')!;retry = archive.querySelector<HTMLButtonElement>('.tour-project-media-retry')!;
+diff --git a/src/tour/projectContent.ts b/src/tour/projectContent.ts
+index d5367fa..638d0ee 100644
+--- a/src/tour/projectContent.ts
++++ b/src/tour/projectContent.ts
+@@ -1,27 +1,49 @@
+ import lawsonCover from '../assets/lawson-cover.png';
++import bottleOceanCover from '../assets/bottle-ocean-cover.png';
+ import { courtyardProject } from './experimentContent';
+ 
+-export type ProjectId = 'lawson' | 'courtyard';
++export const projectOrder = ['lawson', 'bottle-ocean', 'courtyard'] as const;
++export type ProjectId = typeof projectOrder[number];
+ export type ProjectTab = 'live' | 'archive';
+ export interface ActiveProject { readonly id: ProjectId; readonly tab: ProjectTab }
+ export type EmbeddedProjectState = 'prepared' | 'loading' | 'slow' | 'error' | 'ready';
+ 
+ export const projects = {
+   lawson: {
+-    id: 'lawson', title: '罗森便利店', shortTitle: '罗森', kind: '交互网页场景',
++    id: 'lawson', label: 'LAWSON', title: '罗森便利店', shortTitle: '罗森', kind: '交互网页场景', primaryAction: '进入完整网页',
+     summary: '在一家微缩便利店里，切换昼夜，观察店员与车辆。',
+     cover: { src: lawsonCover, width: 1280, height: 720, alt: '蓝色 LAWSON 招牌与方块樱花环绕的微缩便利店' },
+     experience: { kind: 'embedded-page', entryPath: 'experiments/lawson/index.html' },
+     introduction: '从街角望进灯火，再走近生活的细节。切换昼夜，观察店员与车辆，让微缩世界以自己的节奏运转。',
++    archive: { kicker: 'LAWSON / INTERACTIVE WORLD', headline: ['一间店，', '几个日夜。'], caption: '罗森便利店 · 场景画面' },
++    prepared: { description: '打开后载入完整罗森网页，也可独立打开。' },
+     features: [
+       { title: '昼夜与灯光', body: '观察白天、黄昏与夜晚，使用原页面的灯光控制。' },
+       { title: '店员与车辆', body: '看角色自主活动，切换车辆演示与行驶速度。' },
+       { title: '镜头与场景', body: '通过原视角、屋顶及物件入口探索这间便利店。' },
+     ],
+   },
+-  courtyard: { ...courtyardProject, id: 'courtyard', shortTitle: '庭院', experience: { kind: 'host-scene' } },
++  'bottle-ocean': {
++    id: 'bottle-ocean', label: 'BOTTLE OCEAN', title: '瓶中海洋', shortTitle: '瓶中海洋', kind: '交互网页 · 像素场景', primaryAction: '进入完整网页',
++    summary: '黄昏海岸的一只玻璃瓶，装着起伏的海浪与随波浮沉的三桅帆船。',
++    cover: { src: bottleOceanCover, width: 1920, height: 1080, alt: '黄昏海岸的玻璃瓶中，三桅帆船随微型海浪起伏' },
++    experience: { kind: 'embedded-page', entryPath: 'experiments/bottle-ocean/index.html' },
++    introduction: '拖动镜头绕过玻璃，看浪头托起船身；调整风、浪与水位，再在沙地留下自己的布置。',
++    archive: { kicker: 'BOTTLE OCEAN / INTERACTIVE WORLD', headline: ['让一片海，', '托起一艘船。'], caption: '瓶中海洋 · 黄昏海岸' },
++    prepared: { description: '调整海浪、切换镜头、布置沙滩，也可在新窗口独立体验。' },
++    features: [
++      { title: '海浪与船体', body: '波高、速度、方向与水位变化，带动船体浮沉、俯仰和横摇。' },
++      { title: '黄昏像素海岸', body: '玻璃瓶、外海与灯塔组成微缩海岸，可以调节夕阳、亮度和像素强度。' },
++      { title: '镜头与沙盒', body: '切换五个镜头，在沙地放置石头和贝壳，撤销或恢复布置，并保存当前场景。' },
++    ],
++  },
++  courtyard: { ...courtyardProject, id: 'courtyard', label: 'COURTYARD', shortTitle: '庭院', primaryAction: '现场体验', experience: { kind: 'host-scene' } },
+ } as const;
+ 
++type Project = typeof projects[ProjectId];
++type PageProject = typeof projects.lawson | typeof projects['bottle-ocean'];
++export function isPageProject(item: Project): item is PageProject { return item.experience.kind === 'embedded-page'; }
++
+ /** The same entry is used by independent opening and the future iframe adapter. */
+ export function resolveProjectEntry(id: ProjectId): string | undefined {
+   const experience = projects[id].experience;
+diff --git a/src/tour/projectHost.css b/src/tour/projectHost.css
+index 3508f61..4b327cc 100644
+--- a/src/tour/projectHost.css
++++ b/src/tour/projectHost.css
+@@ -1,5 +1,5 @@
+-/* Host styles only. Original LAWSON document remains isolated and unchanged. */
+-.experiment-project-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 14px; padding: 3px; border: 1px solid #819789; }
++/* Host styles only. Each complete original document keeps its own styles. */
++.experiment-project-selector { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; margin-bottom: 14px; padding: 3px; border: 1px solid #819789; }
+ .experiment-project-selector button { display: flex; flex-direction: column; gap: 3px; justify-content: center; min-width: 44px; min-height: 44px; padding: 6px; font-size: .8125rem; color: #edf4e6; border: 0; background: transparent; }
+ .experiment-project-selector button span { font-size: .625rem; letter-spacing: .1em; }
+ .experiment-project-selector [aria-selected="true"] { color: #20382f; background: #dcebdc; box-shadow: inset 0 -2px #8db8ed; }
+@@ -17,23 +17,23 @@
+ .tour-project-embed-mount > iframe { display: block; width: 100%; height: 100%; border: 0; }
+ .tour-project-retry { min-width: 44px; min-height: 44px; border: 1px solid #a0b29e; color: #fff1cd; background: #20382f; }
+ .tour-project-retry:focus-visible { outline: 2px solid #fff1cd; outline-offset: 3px; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-feedback { flex: 1 0 100%; margin: 0; padding: 4px 0; color: #fff1cd; font-size: .875rem; line-height: 1.6; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-feedback { flex: 1 0 100%; margin: 0; padding: 4px 0; color: #fff1cd; font-size: .875rem; line-height: 1.6; }
+ .tour-project-prepared { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(500px, calc(100% - 40px)); max-height: calc(100% - 32px); overflow: auto; padding: 32px; border: 1px solid #839889; color: #edf4e6; background: #20382f; }
+ .tour-project-prepared h3 { margin: 18px 0; color: #fff1cd; font: 400 2.25rem/1.45 var(--serif); }
+ .tour-project-prepared > p:not(.tour-project-section-label) { font-size: 1.125rem; line-height: 1.8; }
+ .tour-project-prepared a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; padding: 10px 14px; color: #20382f; background: #fff1cd; font-size: 1rem; text-decoration: none; }
+-.tour-project-dialog[data-project-id="lawson"] { height: 100vh; height: 100svh; height: 100dvh; background: #182c27; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-shell { display: grid; overflow: hidden; grid-template-rows: auto minmax(0, 1fr); padding: 0; gap: 0; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-header { min-height: 56px; display: flex; flex-wrap: wrap; gap: 12px; padding: 5px 16px; padding-top: max(5px, env(safe-area-inset-top)); padding-inline: max(16px, env(safe-area-inset-left)) max(16px, env(safe-area-inset-right)); border: 0; border-bottom: 1px solid #788f7f; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-identity { display: flex; align-items: center; flex: 1 1 140px; min-width: 0; gap: 12px; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-identity > p { display: none; }
+-.tour-project-dialog[data-project-id="lawson"] h2 { font-size: 1rem; white-space: nowrap; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-embed-status { display: inline; color: #bdcfc7; font-size: .625rem; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-tabs { flex: 0 0 auto; padding: 0; border: 0; gap: 4px; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-tabs button { padding: 6px 12px; font-size: .875rem; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-header-actions { margin-left: auto; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-header-actions > * { padding: 6px 12px; font-size: .875rem; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-live { display: block; min-width: 0; min-height: 0; padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
++.tour-project-dialog[data-experience-kind="embedded-page"] { height: 100vh; height: 100svh; height: 100dvh; background: #182c27; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-shell { display: grid; overflow: hidden; grid-template-rows: auto minmax(0, 1fr); padding: 0; gap: 0; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-header { min-height: 56px; display: flex; flex-wrap: wrap; gap: 12px; padding: 5px 16px; padding-top: max(5px, env(safe-area-inset-top)); padding-inline: max(16px, env(safe-area-inset-left)) max(16px, env(safe-area-inset-right)); border: 0; border-bottom: 1px solid #788f7f; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-identity { display: flex; align-items: center; flex: 1 1 140px; min-width: 0; gap: 12px; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-identity > p { display: none; }
++.tour-project-dialog[data-experience-kind="embedded-page"] h2 { font-size: 1rem; white-space: nowrap; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-embed-status { display: inline; color: #bdcfc7; font-size: .625rem; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-tabs { flex: 0 0 auto; padding: 0; border: 0; gap: 4px; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-tabs button { padding: 6px 12px; font-size: .875rem; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-header-actions { margin-left: auto; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-header-actions > * { padding: 6px 12px; font-size: .875rem; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-live { display: block; min-width: 0; min-height: 0; padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+ .lawson-archive-intro { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: end; margin-bottom: 32px; }
+ .lawson-archive-intro h3 { font-size: 2.5rem; line-height: 1.45; }
+ .lawson-archive-intro > p { margin: 0; }
+@@ -47,13 +47,13 @@
+   .experiment-cover { height: 84px; }
+ }
+ @media (max-width: 767px), (max-height: 480px) {
+-  .tour-project-dialog[data-project-id="lawson"] .tour-project-header { min-height: 48px; gap: 4px; padding: 1px 8px; padding-top: max(1px, env(safe-area-inset-top)); padding-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right)); }
+-  .tour-project-dialog[data-project-id="lawson"] .tour-project-identity { flex: 1 1 auto; gap: 0; }
+-  .tour-project-dialog[data-project-id="lawson"] .project-label-full, .tour-project-dialog[data-project-id="lawson"] [data-project-title], .tour-project-dialog[data-project-id="lawson"] .project-close-icon, .tour-project-dialog[data-project-id="lawson"] .tour-project-embed-status { display: none; }
+-  .tour-project-dialog[data-project-id="lawson"] .project-label-short, .tour-project-dialog[data-project-id="lawson"] [data-project-short-title] { display: inline; }
+-  .tour-project-dialog[data-project-id="lawson"] .tour-project-tabs { gap: 0; }
+-  .tour-project-dialog[data-project-id="lawson"] .tour-project-header-actions { gap: 4px; }
+-  .tour-project-dialog[data-project-id="lawson"] .tour-project-header-actions > *, .tour-project-dialog[data-project-id="lawson"] .tour-project-tabs button { padding: 5px 9px; font-size: .875rem; }
++  .tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-header { min-height: 48px; gap: 4px; padding: 1px 8px; padding-top: max(1px, env(safe-area-inset-top)); padding-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right)); }
++  .tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-identity { flex: 1 1 auto; gap: 0; }
++  .tour-project-dialog[data-experience-kind="embedded-page"] .project-label-full, .tour-project-dialog[data-experience-kind="embedded-page"] [data-project-title], .tour-project-dialog[data-experience-kind="embedded-page"] .project-close-icon, .tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-embed-status { display: none; }
++  .tour-project-dialog[data-experience-kind="embedded-page"] .project-label-short, .tour-project-dialog[data-experience-kind="embedded-page"] [data-project-short-title] { display: inline; }
++  .tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-tabs { gap: 0; }
++  .tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-header-actions { gap: 4px; }
++  .tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-header-actions > *, .tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-tabs button { padding: 5px 9px; font-size: .875rem; }
+   .tour-project-prepared { padding: 20px; }
+   .tour-project-prepared h3 { font-size: 1.75rem; }
+   .lawson-archive-intro { grid-template-columns: 1fr; gap: 16px; }
+@@ -61,9 +61,25 @@
+   .lawson-archive-features { grid-template-columns: 1fr; gap: 20px; }
+ }
+ @media (prefers-reduced-motion: no-preference) {
+-  .tour-project-dialog[data-project-id="lawson"][open] { animation: project-host-reveal 160ms ease-out; }
++  .tour-project-dialog[data-experience-kind="embedded-page"][open] { animation: project-host-reveal 160ms ease-out; }
+   @keyframes project-host-reveal { from { opacity: 0; } to { opacity: 1; } }
+ }
+ 
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-tabs { margin-block: 0; }
+-.tour-project-dialog[data-project-id="lawson"] .tour-project-archive { overflow: auto; min-height: 0; padding-bottom: 32px; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-tabs { margin-block: 0; }
++.tour-project-dialog[data-experience-kind="embedded-page"] .tour-project-archive { overflow: auto; min-height: 0; padding-bottom: 32px; }
++
++.experiment-project-selector button { overflow-wrap: anywhere; }
++.experiment-project-selector button span { letter-spacing: .06em; }
++.experiment-reading[data-project-id="bottle-ocean"] .experiment-cover { border-color: #c2a47c; }
++.tour-project-prepared [data-prepared-cover] { display: block; width: 100%; height: auto; margin-bottom: 24px; border: 1px solid #a78963; }
++.tour-project-dialog[data-project-id="bottle-ocean"] .tour-project-prepared { width: min(620px, calc(100% - 32px)); }
++.tour-project-dialog[data-project-id="bottle-ocean"] .tour-project-prepared h3 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
++.tour-project-dialog[data-project-id="bottle-ocean"] .tour-project-archive { padding-top: clamp(24px, 5vh, 56px); }
++.tour-project-dialog[data-project-id="bottle-ocean"] .lawson-archive-intro { gap: clamp(20px, 4vw, 56px); }
++.tour-project-dialog[data-project-id="bottle-ocean"] .lawson-archive-intro h3 { font-size: clamp(1.75rem, 4vw, 3rem); }
++.tour-project-dialog[data-project-id="bottle-ocean"] .project-current-cover { border: 1px solid #9e8666; padding: 8px; background: #20382f; }
++.tour-project-dialog[data-project-id="bottle-ocean"] .lawson-archive-features > section { border-top: 1px solid #9e8666; padding-top: 16px; }
++.tour-project-dialog[data-project-id="bottle-ocean"] .lawson-archive-features section > span { color: #e6c594; }
++@media (max-width: 359px) {
++  .experiment-project-selector { grid-template-columns: repeat(auto-fit, minmax(88px, 1fr)); }
++}
+diff --git a/src/tour/startTourPrototype.ts b/src/tour/startTourPrototype.ts
+index 4d61cb1..7dee2ff 100644
+--- a/src/tour/startTourPrototype.ts
++++ b/src/tour/startTourPrototype.ts
+@@ -29,6 +29,7 @@ import { experimentStations } from './experimentReading';
+ import { createExperimentReader } from './createExperimentReader';
+ import { createProjectViewer } from './createProjectViewer';
+ import { createLawsonExperience } from './createLawsonExperience';
++import { createBottleOceanExperience } from './createBottleOceanExperience';
+ import { resolveProjectEntry } from './projectContent';
+ import { chapterLabels, createTourPresentation } from './presentation';
+ import { createReadingLayout } from './createReadingLayout';
+@@ -100,6 +101,7 @@ let experimentMagic: ReturnType<typeof createPillarMagic>;
+ let mediaViewer: ReturnType<typeof createMediaViewer>;
+ let projectViewer: ReturnType<typeof createProjectViewer>;
+ let lawsonExperience: ReturnType<typeof createLawsonExperience> | undefined;
++let bottleOceanExperience: ReturnType<typeof createBottleOceanExperience> | undefined;
+ const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id));
+ const filmReader = createFilmReader(app, host, (id) => filmMagic?.getAnchor(id), (media, trigger) => mediaViewer.open(media, trigger));
+ const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), (id, tab, trigger) => projectViewer.open(id, tab, trigger), () => { guide?.stop('已切换作品，可从当前位置继续导览。');readingLayout?.resize(); });
+@@ -218,24 +220,39 @@ function syncProject() {
+   host.dataset.projectId = current?.id ?? '';animation.resetTimestamp();
+   if (!failed) applyCamera();syncAnimation(animation.state);
+ }
+-function syncLawson() {
++function syncEmbeddedExperience() {
+   const current = activeProject();
+-  if (current?.id === 'lawson' && current.tab === 'live') lawsonExperience?.mount();
+-  else lawsonExperience?.unmount();
++  const lawson = current?.id === 'lawson' && current.tab === 'live';
++  const bottle = current?.id === 'bottle-ocean' && current.tab === 'live';
++  if (!lawson) lawsonExperience?.unmount();
++  if (!bottle) bottleOceanExperience?.unmount();
++  if (lawson) lawsonExperience?.mount();
++  else if (bottle) bottleOceanExperience?.mount();
+ }
+ projectViewer = createProjectViewer(app, {
+-  open() { mediaViewer.close();beginOverlay('project');syncProject();syncLawson(); },
+-  change() { syncLawson();syncProject(); },
+-  close() { lawsonExperience?.unmount();closeOverlay('project'); },
++  open() { mediaViewer.close();beginOverlay('project');syncProject();syncEmbeddedExperience(); },
++  change() { syncEmbeddedExperience();syncProject(); },
++  close() { lawsonExperience?.unmount();bottleOceanExperience?.unmount();closeOverlay('project'); },
+   mode: setMode,
+   motion() { animation.toggle(); },
+-  retry() { lawsonExperience?.retry(); },
++  retry() {
++    const current = activeProject();
++    if (current?.tab !== 'live') return;
++    if (current.id === 'lawson') lawsonExperience?.retry();
++    else if (current.id === 'bottle-ocean') bottleOceanExperience?.retry();
++  },
+ });
+ lawsonExperience = createLawsonExperience({
+   container: projectViewer.embeddedMount,
+   entry: resolveProjectEntry('lawson')!,
+   wanted: () => !disposed && activeProject()?.id === 'lawson' && activeProject()?.tab === 'live',
+-  status: (state, message) => projectViewer.setEmbeddedStatus(state, message),
++  status: (state, message) => projectViewer.setEmbeddedStatus('lawson', state, message),
++});
++bottleOceanExperience = createBottleOceanExperience({
++  container: projectViewer.embeddedMount,
++  entry: resolveProjectEntry('bottle-ocean')!,
++  wanted: () => !disposed && activeProject()?.id === 'bottle-ocean' && activeProject()?.tab === 'live',
++  status: (state, message) => projectViewer.setEmbeddedStatus('bottle-ocean', state, message),
+ });
+ 
+ function experiencePose() {
+@@ -655,7 +672,7 @@ projectViewer.element.addEventListener('scroll', queueExperienceLayout, { passiv
+ function dispose() {
+   if (disposed) return;
+   disposed = true;
+-  lawsonExperience?.dispose();
++  lawsonExperience?.dispose();bottleOceanExperience?.dispose();
+   listenerController.abort();
+   guide?.dispose();guideLayoutObserver.disconnect();
+   if (restoreFrame !== undefined) cancelAnimationFrame(restoreFrame);

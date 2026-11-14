@@ -29,6 +29,7 @@ import { experimentStations } from './experimentReading';
 import { createExperimentReader } from './createExperimentReader';
 import { createProjectViewer } from './createProjectViewer';
 import { createLawsonExperience } from './createLawsonExperience';
+import { createBottleOceanExperience } from './createBottleOceanExperience';
 import { resolveProjectEntry } from './projectContent';
 import { chapterLabels, createTourPresentation } from './presentation';
 import { createReadingLayout } from './createReadingLayout';
@@ -100,6 +101,7 @@ let experimentMagic: ReturnType<typeof createPillarMagic>;
 let mediaViewer: ReturnType<typeof createMediaViewer>;
 let projectViewer: ReturnType<typeof createProjectViewer>;
 let lawsonExperience: ReturnType<typeof createLawsonExperience> | undefined;
+let bottleOceanExperience: ReturnType<typeof createBottleOceanExperience> | undefined;
 const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id));
 const filmReader = createFilmReader(app, host, (id) => filmMagic?.getAnchor(id), (media, trigger) => mediaViewer.open(media, trigger));
 const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), (id, tab, trigger) => projectViewer.open(id, tab, trigger), () => { guide?.stop('已切换作品，可从当前位置继续导览。');readingLayout?.resize(); });
@@ -218,24 +220,39 @@ function syncProject() {
   host.dataset.projectId = current?.id ?? '';animation.resetTimestamp();
   if (!failed) applyCamera();syncAnimation(animation.state);
 }
-function syncLawson() {
+function syncEmbeddedExperience() {
   const current = activeProject();
-  if (current?.id === 'lawson' && current.tab === 'live') lawsonExperience?.mount();
-  else lawsonExperience?.unmount();
+  const lawson = current?.id === 'lawson' && current.tab === 'live';
+  const bottle = current?.id === 'bottle-ocean' && current.tab === 'live';
+  if (!lawson) lawsonExperience?.unmount();
+  if (!bottle) bottleOceanExperience?.unmount();
+  if (lawson) lawsonExperience?.mount();
+  else if (bottle) bottleOceanExperience?.mount();
 }
 projectViewer = createProjectViewer(app, {
-  open() { mediaViewer.close();beginOverlay('project');syncProject();syncLawson(); },
-  change() { syncLawson();syncProject(); },
-  close() { lawsonExperience?.unmount();closeOverlay('project'); },
+  open() { mediaViewer.close();beginOverlay('project');syncProject();syncEmbeddedExperience(); },
+  change() { syncEmbeddedExperience();syncProject(); },
+  close() { lawsonExperience?.unmount();bottleOceanExperience?.unmount();closeOverlay('project'); },
   mode: setMode,
   motion() { animation.toggle(); },
-  retry() { lawsonExperience?.retry(); },
+  retry() {
+    const current = activeProject();
+    if (current?.tab !== 'live') return;
+    if (current.id === 'lawson') lawsonExperience?.retry();
+    else if (current.id === 'bottle-ocean') bottleOceanExperience?.retry();
+  },
 });
 lawsonExperience = createLawsonExperience({
   container: projectViewer.embeddedMount,
   entry: resolveProjectEntry('lawson')!,
   wanted: () => !disposed && activeProject()?.id === 'lawson' && activeProject()?.tab === 'live',
-  status: (state, message) => projectViewer.setEmbeddedStatus(state, message),
+  status: (state, message) => projectViewer.setEmbeddedStatus('lawson', state, message),
+});
+bottleOceanExperience = createBottleOceanExperience({
+  container: projectViewer.embeddedMount,
+  entry: resolveProjectEntry('bottle-ocean')!,
+  wanted: () => !disposed && activeProject()?.id === 'bottle-ocean' && activeProject()?.tab === 'live',
+  status: (state, message) => projectViewer.setEmbeddedStatus('bottle-ocean', state, message),
 });
 
 function experiencePose() {
@@ -655,7 +672,7 @@ projectViewer.element.addEventListener('scroll', queueExperienceLayout, { passiv
 function dispose() {
   if (disposed) return;
   disposed = true;
-  lawsonExperience?.dispose();
+  lawsonExperience?.dispose();bottleOceanExperience?.dispose();
   listenerController.abort();
   guide?.dispose();guideLayoutObserver.disconnect();
   if (restoreFrame !== undefined) cancelAnimationFrame(restoreFrame);

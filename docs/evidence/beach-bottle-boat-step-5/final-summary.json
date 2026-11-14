@@ -1,0 +1,955 @@
+{
+  "completedAtShanghai": "2026-11-13T21:12:47.603960+08:00",
+  "conclusion": "第五步完成：Coding 内大尺寸完整瓶中海洋、原生代表功能、真实下载、状态/故障/新文档重试与退出可用；不是整套七步的最终验收",
+  "standardChecks": [
+    {
+      "id": "S5-01",
+      "status": "通过",
+      "records": [
+        "baseline.json",
+        "candidate-manifest.json"
+      ]
+    },
+    {
+      "id": "S5-02",
+      "status": "通过",
+      "records": [
+        "LIVE.lazy",
+        "LIVE.ready"
+      ]
+    },
+    {
+      "id": "S5-03",
+      "status": "通过",
+      "records": [
+        "LIVE.ready",
+        "FAULT.error-retry",
+        "FAULT.initialization",
+        "FAULT.graphics"
+      ]
+    },
+    {
+      "id": "S5-04",
+      "status": "通过",
+      "records": [
+        "CORE.controls"
+      ]
+    },
+    {
+      "id": "S5-05",
+      "status": "通过",
+      "records": [
+        "CORE.sandbox-pause"
+      ]
+    },
+    {
+      "id": "S5-06",
+      "status": "通过",
+      "records": [
+        "INPUT.keys-download",
+        "INPUT.focus"
+      ]
+    },
+    {
+      "id": "S5-07",
+      "status": "通过",
+      "records": [
+        "INPUT.keys-download",
+        "PATH.prefix",
+        "visual-review.json"
+      ]
+    },
+    {
+      "id": "S5-08",
+      "status": "通过",
+      "records": [
+        "FAULT.slow"
+      ]
+    },
+    {
+      "id": "S5-09",
+      "status": "通过",
+      "records": [
+        "FAULT.error-retry",
+        "FAULT.initialization"
+      ]
+    },
+    {
+      "id": "S5-10",
+      "status": "通过",
+      "records": [
+        "FAULT.graphics"
+      ]
+    },
+    {
+      "id": "S5-11",
+      "status": "通过",
+      "records": [
+        "FAULT.error-retry",
+        "LIFE.pending-exit"
+      ]
+    },
+    {
+      "id": "S5-12",
+      "status": "通过",
+      "records": [
+        "LIFE.pending-exit"
+      ]
+    },
+    {
+      "id": "S5-13",
+      "status": "通过",
+      "records": [
+        "LIFE.navigation"
+      ]
+    },
+    {
+      "id": "S5-14",
+      "status": "通过",
+      "records": [
+        "REGRESS.lawson"
+      ]
+    },
+    {
+      "id": "S5-15",
+      "status": "通过",
+      "records": [
+        "REGRESS.courtyard",
+        "FAULT.host-graphics"
+      ]
+    },
+    {
+      "id": "S5-16",
+      "status": "通过",
+      "records": [
+        "RESOURCE.return",
+        "LAYOUT.resize",
+        "LIFECYCLE.visibility"
+      ],
+      "limitation": "Actual hidden was not observed; visible tab return and instance preservation passed without synthetic visibility events"
+    },
+    {
+      "id": "S5-17",
+      "status": "通过",
+      "records": [
+        "LAYOUT.sizes",
+        "LAYOUT.resize"
+      ]
+    },
+    {
+      "id": "S5-18",
+      "status": "通过",
+      "records": [
+        "build.json",
+        "PATH.prefix"
+      ]
+    },
+    {
+      "id": "S5-19",
+      "status": "通过",
+      "records": [
+        "firefox/browser.json",
+        "firefox-focus-retest/browser.json",
+        "webkit/browser.json"
+      ]
+    },
+    {
+      "id": "S5-20",
+      "status": "通过",
+      "records": [
+        "final-summary.json",
+        "services-cleanup.json",
+        "step-5.diff"
+      ]
+    }
+  ],
+  "adoptedChecks": [
+    {
+      "run": "chromium-core",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LIVE.lazy",
+      "status": "通过",
+      "record": "chromium-core/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium-core",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LIVE.ready",
+      "status": "通过",
+      "record": "chromium-core/browser.json#/checks/1"
+    },
+    {
+      "run": "chromium-core",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "CORE.controls",
+      "status": "通过",
+      "record": "chromium-core/browser.json#/checks/2"
+    },
+    {
+      "run": "chromium-core",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "CORE.sandbox-pause",
+      "status": "通过",
+      "record": "chromium-core/browser.json#/checks/3"
+    },
+    {
+      "run": "chromium-core",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "INPUT.keys-download",
+      "status": "通过",
+      "record": "chromium-core/browser.json#/checks/4"
+    },
+    {
+      "run": "chromium-core",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "PATH.prefix",
+      "status": "通过",
+      "record": "chromium-core/browser.json#/checks/5"
+    },
+    {
+      "run": "chromium-fault-final",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.initialization",
+      "status": "通过",
+      "record": "chromium-fault-final/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium-fault-final",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.graphics",
+      "status": "通过",
+      "record": "chromium-fault-final/browser.json#/checks/1"
+    },
+    {
+      "run": "chromium-faults",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.slow",
+      "status": "通过",
+      "record": "chromium-faults/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium-faults",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.error-retry",
+      "status": "通过",
+      "record": "chromium-faults/browser.json#/checks/1"
+    },
+    {
+      "run": "chromium-faults",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LIFE.pending-exit",
+      "status": "通过",
+      "record": "chromium-faults/browser.json#/checks/4"
+    },
+    {
+      "run": "chromium-faults",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LIFE.navigation",
+      "status": "通过",
+      "record": "chromium-faults/browser.json#/checks/5"
+    },
+    {
+      "run": "chromium-faults",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "REGRESS.lawson",
+      "status": "通过",
+      "record": "chromium-faults/browser.json#/checks/6"
+    },
+    {
+      "run": "chromium-input-host-retest",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "INPUT.focus",
+      "status": "通过",
+      "record": "chromium-input-host-retest/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium-input-host-retest",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.host-graphics",
+      "status": "通过",
+      "record": "chromium-input-host-retest/browser.json#/checks/1"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "REGRESS.courtyard",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "RESOURCE.return",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/2"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LAYOUT.sizes",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/3"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LIFECYCLE.visibility",
+      "status": "环境限制",
+      "record": "chromium-regression/browser.json#/checks/4"
+    },
+    {
+      "run": "chromium-resize",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LAYOUT.resize",
+      "status": "通过",
+      "record": "chromium-resize/browser.json#/checks/0"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "LIVE.ready",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/0"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "CORE.controls",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/1"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "INPUT.keys-download",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/2"
+    },
+    {
+      "run": "firefox-focus-retest",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "INPUT.focus",
+      "status": "通过",
+      "record": "firefox-focus-retest/browser.json#/checks/0"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "LIVE.ready",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/0"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "CORE.controls",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/1"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "INPUT.keys-download",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/2"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "INPUT.focus",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/3"
+    }
+  ],
+  "browserRuns": [
+    {
+      "run": "chromium-core",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "rawPassed": 6,
+      "rawPending": 0,
+      "limits": 0,
+      "adopted": 6,
+      "reportComplete": true
+    },
+    {
+      "run": "chromium-fault-final",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "rawPassed": 2,
+      "rawPending": 0,
+      "limits": 0,
+      "adopted": 2,
+      "reportComplete": true
+    },
+    {
+      "run": "chromium-fault-retest",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "rawPassed": 0,
+      "rawPending": 2,
+      "limits": 0,
+      "adopted": 0,
+      "reportComplete": false
+    },
+    {
+      "run": "chromium-faults",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "rawPassed": 5,
+      "rawPending": 2,
+      "limits": 0,
+      "adopted": 5,
+      "reportComplete": false
+    },
+    {
+      "run": "chromium-input-host-retest",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "rawPassed": 2,
+      "rawPending": 0,
+      "limits": 0,
+      "adopted": 2,
+      "reportComplete": true
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "rawPassed": 3,
+      "rawPending": 1,
+      "limits": 1,
+      "adopted": 4,
+      "reportComplete": false
+    },
+    {
+      "run": "chromium-resize",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "rawPassed": 1,
+      "rawPending": 0,
+      "limits": 0,
+      "adopted": 1,
+      "reportComplete": true
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "rawPassed": 3,
+      "rawPending": 1,
+      "limits": 0,
+      "adopted": 3,
+      "reportComplete": false
+    },
+    {
+      "run": "firefox-focus-retest",
+      "engine": "firefox",
+      "version": "153.0",
+      "rawPassed": 1,
+      "rawPending": 0,
+      "limits": 0,
+      "adopted": 1,
+      "reportComplete": true
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "rawPassed": 4,
+      "rawPending": 0,
+      "limits": 0,
+      "adopted": 4,
+      "reportComplete": true
+    }
+  ],
+  "retainedEarlierFailures": [
+    {
+      "run": "chromium-fault-retest",
+      "id": "FAULT.initialization",
+      "originalStatus": "待补核",
+      "error": "Page.wait_for_function: Timeout 25000ms exceeded.",
+      "adoptedRetest": "chromium-fault-final",
+      "reason": "Same initial-about:blank path assumption. The original scene actually loaded normally; it was never a successful initialization fault.",
+      "productChangedForRetest": false
+    },
+    {
+      "run": "chromium-fault-retest",
+      "id": "FAULT.graphics",
+      "originalStatus": "待补核",
+      "error": "Frame.wait_for_function: Timeout 30000ms exceeded.",
+      "adoptedRetest": "chromium-fault-final",
+      "reason": "Read-only snapshots prove isContextLost changed true to false and rendering resumed, but the old Document event probe recorded no events. Direct-canvas retest captured both trusted events.",
+      "productChangedForRetest": false
+    },
+    {
+      "run": "chromium-faults",
+      "id": "FAULT.initialization",
+      "originalStatus": "待补核",
+      "error": "Page.wait_for_function: Timeout 25000ms exceeded.",
+      "adoptedRetest": "chromium-fault-final",
+      "reason": "Child init script ran with initial pathname blank; path condition skipped the intended failure. Final fixture selects child by window !== top and records blocked native WebGL requests.",
+      "productChangedForRetest": false
+    },
+    {
+      "run": "chromium-faults",
+      "id": "FAULT.graphics",
+      "originalStatus": "待补核",
+      "error": "Frame.wait_for_function: Timeout 30000ms exceeded.",
+      "adoptedRetest": "chromium-fault-final",
+      "reason": "Document event probe did not survive the initial child document replacement. Final probe listens directly to the connected original canvas before actual lose/restore.",
+      "productChangedForRetest": false
+    },
+    {
+      "run": "chromium-regression",
+      "id": "FAULT.host-graphics",
+      "originalStatus": "待补核",
+      "error": "Frame.wait_for_function: Timeout 120000ms exceeded.",
+      "adoptedRetest": "chromium-input-host-retest",
+      "reason": "Path-based initialization fixture accidentally disabled child WebGL too. Final fixture uses window === top and verifies real child rendering despite host creation failure.",
+      "productChangedForRetest": false
+    },
+    {
+      "run": "firefox",
+      "id": "INPUT.focus",
+      "originalStatus": "待补核",
+      "error": "",
+      "adoptedRetest": "firefox-focus-retest",
+      "reason": "Firefox native Tab visits the child Document before its first control. Final fixture records bounded actual Tab/Shift+Tab sequences instead of assuming one press in every browser.",
+      "productChangedForRetest": false
+    }
+  ],
+  "protection": {
+    "checkedAtShanghai": "2026-11-13T21:12:47.553137+08:00",
+    "history": {
+      "seals": [
+        {
+          "path": "docs/evidence/lawson-integration-step-1/evidence-manifest.json",
+          "sha256": "095ac6a75c182118bf1fd6c9edc8223149f24960ee7ba6b24569f89c006ece66",
+          "filesVerified": 77
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-1/evidence-manifest.json",
+          "sha256": "dda03a5ab980ee9e2c5db2854e32ee04775a8598f6e4da6283c3cc8bbefbbd1a",
+          "filesVerified": 109
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-2/evidence-manifest.json",
+          "sha256": "d8a62def72d2b46fb070a6ec6935d96633f339e4d762ed7e4aff0e1f7cae448f",
+          "filesVerified": 115
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-3/evidence-manifest.json",
+          "sha256": "a4421b7596c1df520c6dc1c43173c4b2edb8c34b883f7bd72c3c0f696fb8e35a",
+          "filesVerified": 95
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-4/evidence-manifest.json",
+          "sha256": "6b8ee7e2e28ba6d79e99290ed3259d0ed7a0c2f26c404dbd641bb8bb6c176e69",
+          "filesVerified": 95
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-5/evidence-manifest.json",
+          "sha256": "91e43e57678aadd968e378af1549c20d5fc27a61d52cc27db97c8d0a75f7ee2f",
+          "filesVerified": 51
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-6/evidence-manifest.json",
+          "sha256": "fa5a9557e129cabe1f9e893ea4a6b00937caff6b039e87669808d1d478515474",
+          "filesVerified": 315
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-7/evidence-manifest.json",
+          "sha256": "edcc84f6400e7442ffce47734d3352ddda2c4b834fa95d18c21b2fb17118682d",
+          "filesVerified": 750
+        },
+        {
+          "path": "docs/evidence/beach-bottle-boat-step-1/evidence-manifest.json",
+          "sha256": "cc033a75a5f09c7f5a8876bb15d0ef5d6902ff9907b96cfa24eb0d3abfda5633",
+          "filesVerified": 253
+        },
+        {
+          "path": "docs/evidence/beach-bottle-boat-step-3/evidence-manifest.json",
+          "sha256": "5a9ecb9086711cfc1b862cafe83d2ded3024de56c944949412e2fd6f9b533533",
+          "filesVerified": 55
+        },
+        {
+          "path": "docs/evidence/beach-bottle-boat-step-4/evidence-manifest.json",
+          "sha256": "b22e97127b219597a429bf77a1c53db3fb53fe88927aeb6adc0e8dc2605d78e1",
+          "filesVerified": 87
+        }
+      ],
+      "originalFilesVerified": 44,
+      "sourceClean": true
+    },
+    "changedProductionInputs": [
+      {
+        "before": {
+          "path": "src/tour/createLawsonExperience.ts",
+          "bytes": 6501,
+          "sha256": "0417c3e1438001fa1cc2d94787e7702c606f1bbbc7edc9e7d2cb1cebfd59d98a"
+        },
+        "after": {
+          "path": "src/tour/createLawsonExperience.ts",
+          "bytes": 1355,
+          "sha256": "d012740257711dc0db5118726846048181c7732d3c576b02216599d5da0164ea"
+        }
+      },
+      {
+        "before": {
+          "path": "src/tour/createProjectViewer.ts",
+          "bytes": 20148,
+          "sha256": "4655f1dea05d07abe03cd6843f0e91730bf90315ee34a9a7d0714a7214e342c0"
+        },
+        "after": {
+          "path": "src/tour/createProjectViewer.ts",
+          "bytes": 20209,
+          "sha256": "d2b46cbad0159b5b10d85ec89c32af16a08bc9474fe80ecd6141b1688a2af851"
+        }
+      },
+      {
+        "before": {
+          "path": "src/tour/projectContent.ts",
+          "bytes": 3912,
+          "sha256": "7ea09aca9415d6ddc5771ef10764ed88da431b27c96e16b4b92b0c12ffc26644"
+        },
+        "after": {
+          "path": "src/tour/projectContent.ts",
+          "bytes": 3912,
+          "sha256": "61213bf2de4f1ae1ab3200cf8a44c7fe15dc396edaa04ad0f2cb0d4121cfe4e4"
+        }
+      },
+      {
+        "before": {
+          "path": "src/tour/startTourPrototype.ts",
+          "bytes": 47631,
+          "sha256": "08a94f61b1e417f216dfaf150c82406450d0b7635b80eb6c8e9219329384c3df"
+        },
+        "after": {
+          "path": "src/tour/startTourPrototype.ts",
+          "bytes": 48640,
+          "sha256": "a4aee180abf9a0a4e442369da28ddf91d01e769795809a56523c26e127535c75"
+        }
+      }
+    ],
+    "unchangedProductionInputs": 91,
+    "existingDistFilesUnchanged": 65,
+    "trackedChanges": [
+      "src/tour/createExperimentReader.ts",
+      "src/tour/createLawsonExperience.ts",
+      "src/tour/createProjectViewer.ts",
+      "src/tour/projectContent.ts",
+      "src/tour/projectHost.css",
+      "src/tour/startTourPrototype.ts"
+    ]
+  },
+  "cleanup": {
+    "finishedAtShanghai": "2026-11-13T21:11:58.907501+08:00",
+    "startupCompleted": true,
+    "services": [
+      {
+        "name": "dev",
+        "pid": 58207,
+        "identityChecked": true,
+        "stopped": true
+      },
+      {
+        "name": "production",
+        "pid": 58215,
+        "identityChecked": true,
+        "stopped": true
+      },
+      {
+        "name": "display",
+        "pid": 58231,
+        "identityChecked": true,
+        "stopped": true
+      }
+    ],
+    "ownedBrowsersRemaining": [],
+    "productionManifestVerifiedBeforeCleanup": 69,
+    "scratch": "/tmp/bottle-ocean-step-5-u2uk5y4y",
+    "scratchRemoved": true,
+    "otherServicesStopped": false
+  },
+  "expectedTeardownAborts": [
+    {
+      "run": "chromium-faults",
+      "case": "LIFE.pending-exit",
+      "url": "http://127.0.0.1:49359/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Delayed original document request intentionally cancelled by close/archive/retry"
+    },
+    {
+      "run": "chromium-faults",
+      "case": "LIFE.pending-exit",
+      "url": "http://127.0.0.1:49359/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Delayed original document request intentionally cancelled by close/archive/retry"
+    },
+    {
+      "run": "chromium-faults",
+      "case": "LIFE.pending-exit",
+      "url": "http://127.0.0.1:49359/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Delayed original document request intentionally cancelled by close/archive/retry"
+    }
+  ],
+  "softwareWarnings": [
+    {
+      "run": "chromium-core",
+      "case": "LIVE.ready",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-core",
+      "case": "CORE.controls",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-core",
+      "case": "CORE.sandbox-pause",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-core",
+      "case": "INPUT.keys-download",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-core",
+      "case": "PATH.prefix",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-fault-final",
+      "case": "FAULT.initialization",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-fault-final",
+      "case": "FAULT.graphics",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-fault-retest",
+      "case": "FAULT.initialization",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-fault-retest",
+      "case": "FAULT.graphics",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-faults",
+      "case": "FAULT.slow",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-faults",
+      "case": "FAULT.error-retry",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-faults",
+      "case": "FAULT.initialization",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-faults",
+      "case": "FAULT.graphics",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-faults",
+      "case": "LIFE.pending-exit",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-faults",
+      "case": "LIFE.pending-exit",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-faults",
+      "case": "LIFE.pending-exit",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-faults",
+      "case": "LIFE.navigation",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-faults",
+      "case": "REGRESS.lawson",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-input-host-retest",
+      "case": "INPUT.focus",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-input-host-retest",
+      "case": "FAULT.host-graphics",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-regression",
+      "case": "FAULT.host-graphics",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-regression",
+      "case": "RESOURCE.return",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-regression",
+      "case": "LAYOUT.sizes",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-regression",
+      "case": "LAYOUT.sizes",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-regression",
+      "case": "LAYOUT.sizes",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-regression",
+      "case": "LAYOUT.sizes",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-regression",
+      "case": "LAYOUT.sizes",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-regression",
+      "case": "LIFECYCLE.visibility",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "chromium-resize",
+      "case": "LAYOUT.resize",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "firefox",
+      "case": "LIVE.ready",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "run": "firefox",
+      "case": "CORE.controls",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "run": "firefox",
+      "case": "CORE.controls",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content.\" {file: \"http://127.0.0.1:49359/experiments/bottle-ocean/index.html\" line: 0}]"
+    },
+    {
+      "run": "firefox",
+      "case": "INPUT.keys-download",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "run": "firefox",
+      "case": "INPUT.focus",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "run": "firefox-focus-retest",
+      "case": "INPUT.focus",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    }
+  ],
+  "scope": {
+    "bottleIframeAdded": true,
+    "originalHTMLModified": false,
+    "step2Executed": false,
+    "steps6and7Executed": false,
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "limits": [
+    "Actual document.hidden and hidden-state recovery/background throttling could not be verified in this Xvfb environment",
+    "Mobile/touch emulation and Linux WebKit are not physical-phone or Safari validation",
+    "Font enlargement is root font-size 200%, not browser/OS zoom",
+    "Native representative operations are verified in three engines; all 34 controls and complete original-vs-embedded parity remain Stage 7",
+    "No hardware-GPU performance or synchronous GPU-memory-release claim; known original issues are preserved"
+  ],
+  "runtimeEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+}

@@ -1,0 +1,69 @@
+{
+  "phase": "failures",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "FAILURE.webgl-disabled",
+      "name": "真实禁用WebGL的原初始化失败界面",
+      "status": "通过",
+      "evidence": {
+        "injection": "Actual Chromium --disable-webgl launch flag",
+        "actual": {
+          "ready": false,
+          "error": "Error: Error creating WebGL context.\n    at new WebGLRenderer (http://127.0.0.1:4201/index.html:41451:21)\n    at boot (http://127.0.0.1:4201/index.html:48939:18)",
+          "frames": 0,
+          "draws": 0,
+          "loaderClass": "",
+          "loaderDisplay": "flex",
+          "errorDisplay": "block",
+          "errorText": "场景初始化失败：\nError creating WebGL context.",
+          "contextEvents": []
+        },
+        "readyEvents": [],
+        "expectedConsoleErrors": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "case": "setup",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "case": "setup",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch"
+    },
+    {
+      "case": "setup",
+      "kind": "console",
+      "level": "error",
+      "text": "THREE.WebGLRenderer: Error creating WebGL context."
+    },
+    {
+      "case": "setup",
+      "kind": "console",
+      "level": "error",
+      "text": "Error: Error creating WebGL context.\n    at new WebGLRenderer (http://127.0.0.1:4201/index.html:41451:21)\n    at boot (http://127.0.0.1:4201/index.html:48939:18)"
+    }
+  ],
+  "requests": [
+    {
+      "case": "setup",
+      "url": "http://127.0.0.1:4201/index.html",
+      "type": "document"
+    }
+  ],
+  "externalAttempts": [],
+  "sourceFilesModified": false,
+  "clockModified": false,
+  "scope": "standalone original only; no host integration",
+  "physicalDevice": false,
+  "DISPLAY": ":121",
+  "browserVersion": "155.0.8059.79",
+  "complete": true,
+  "externalRequestsAttempted": 0
+}

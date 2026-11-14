@@ -1,0 +1,32 @@
+--- before/README.md
++++ after/README.md
+@@ -2,13 +2,15 @@
+ 
+ 默认首页为三柱滚动作品集：滚轮/触摸控制运镜，沿柱身阅读个人介绍、AI影像与交互作品。小屏、短横屏、大字或减少动态时使用同一正文的稳定阅读。三柱、魔法文字、水潭和悬浮水球保持现有风格；当前包含介绍背景羽化、球面流纹、可接管自动导览、移动云影和三只飞鸟。
+ 
+-当前工作区已接入罗森便利店完整网页：Coding 区提供 LAWSON / COURTYARD 双作品入口，罗森以大尺寸独立文档运行，保留原页面和控制台，支持档案、独立打开及返回阅读。罗森原资源随项目保存在 `public/experiments/lawson/`，运行时无需访问私有仓库。本次完整嵌入已完成当前环境验收，候选 **lawson-fullpage-step7-882322e9045fcdba**。[逐项功能对照](docs/lawson-fullpage/step-7-parity.md) · [最终验收](docs/lawson-fullpage/step-7-verification.md) · [运行与交付](docs/lawson-fullpage/step-7-handoff.md)。本次仓库保存见 [GitHub 保存说明](docs/github-lawson-handoff.md)；封存报告保留验收当时的状态，网站尚未部署上线。
++当前 Coding 区按 **LAWSON → BOTTLE OCEAN → COURTYARD** 展示三个作品，默认罗森。罗森便利店与瓶中海洋通过大尺寸独立文档运行，保留各自的原网页、控制台、交互及原下载能力，支持档案、独立打开与返回阅读；庭院继续使用主站场景。完整原文件分别保存在 `public/experiments/lawson/` 和 `public/experiments/bottle-ocean/`，运行时无需访问 GitHub 或私有仓库。[本轮运行指南](docs/beach-bottle-boat/step-7-run-guide.md)说明当前源码与成品的启动方式、版本和交付范围；完整验收与原始记录位于 `docs/beach-bottle-boat/`、`docs/evidence/beach-bottle-boat-step-*/`。本轮工作区变更与包的交付不等于已上传仓库或公开上线。
++
++此前罗森接入阶段的候选为 **lawson-fullpage-step7-882322e9045fcdba**，当时提供 LAWSON / COURTYARD 双作品入口。[该阶段逐项对照](docs/lawson-fullpage/step-7-parity.md) · [该阶段验收](docs/lawson-fullpage/step-7-verification.md) · [该阶段交付](docs/lawson-fullpage/step-7-handoff.md)。此前仓库保存见 [GitHub 保存说明](docs/github-lawson-handoff.md)；封存报告保留验收当时的事实。
+ 
+ 此前庭院七步增强的验收候选为 **garden-enhancement-step7-487410d10d8ad600**。该阶段三浏览器、十分钟持续运行、20轮反复操作、独立解压与源码重建均通过。[庭院快速上手](docs/garden-enhancement/quickstart.md) · [维护与作品替换](docs/garden-enhancement/maintenance.md) · [该阶段验收](docs/garden-enhancement/step-7-verification.md)。
+ 
+-姓名张辰翰，化名sakan（萨坎），现于枫叶互动制作AI动画，此前在游族网络。真实个人AI影片、分镜/职责及联系方式仍待提供；第二柱明确标记网页设计样片，第三柱展示罗森交互网页、庭院习作与注明版本的早期片段。
++姓名张辰翰，化名sakan（萨坎），现于枫叶互动制作AI动画，此前在游族网络。真实个人AI影片、分镜/职责及联系方式仍待提供；第二柱明确标记网页设计样片，第三柱展示罗森交互网页、瓶中海洋沙盒、庭院习作与注明版本的早期片段。
+ 
+-通过HTTP预览站点目录即可进入庭院。`?tour=prototype`兼容旧链接，`?tour=reference`进入旧参考作品集。`debug=1`仅供明确工程检查。源码、启动工具、测试、文档、原始验收记录及源码/成品ZIP随仓库保存；约432MB的完整验收ZIP通过Git LFS保存在仓库原路径，获取方式与SHA256见[本轮GitHub保存说明](docs/github-enhancement-handoff.md)。已封存ZIP和报告中的“未提交/推送”保留封包当时的事实，后续仓库保存单列记录。网站尚未部署上线。
++通过HTTP预览站点目录即可进入庭院。`?tour=prototype`兼容旧链接，`?tour=reference`进入旧参考作品集。`debug=1`仅供明确工程检查。此前庭院版本的源码、启动工具、测试、文档、原始验收记录及源码/成品ZIP已随仓库保存；该阶段约432MB的完整验收ZIP通过Git LFS保存在仓库原路径，获取方式与SHA256见[此前GitHub保存说明](docs/github-enhancement-handoff.md)。当前瓶中海洋接入的工作区与交付包尚未上传；历史封存与后续仓库保存分别记录。网站尚未部署上线。
+ 
+ ## 环境
+ 
+@@ -61,7 +63,9 @@
+ 
+ ## 当前交付文件
+ 
+-下列压缩包是此前庭院增强阶段的归档。当前罗森集成请使用本次提交后的仓库源码重新构建；版本范围与启动方法见[本次运行与交付说明](docs/lawson-fullpage/step-7-handoff.md)，保存记录见 [GitHub 说明](docs/github-lawson-handoff.md)。
++当前三作品候选为 **bottle-ocean-step7-3b31ab385ebfc4cb**。启动方法见[本轮运行指南](docs/beach-bottle-boat/step-7-run-guide.md)，逐项功能、最终验收及包摘要见[对照表](docs/beach-bottle-boat/step-7-parity.md)、[验收](docs/beach-bottle-boat/step-7-verification.md)、[交付清单](docs/beach-bottle-boat/step-7-handoff.md)。源码交付包只包含运行和重建所需文件，完整历史证据及最终报告留在工作区/后续仓库保存中，未随包复制。
++
++下列压缩包是此前庭院增强阶段的归档，保留其原版本身份：
+ 
+ - [成品包，约1.5MB](release/garden-enhancement-step7-487410d10d8ad600-site.zip)：完整静态网页与Windows预览入口。
+ - [源码包，约2MB](release/garden-enhancement-step7-487410d10d8ad600-source.zip)：可独立安装、修改和严格构建。

@@ -1,0 +1,30 @@
+{
+  "correctedAtShanghai": "2026-11-14T14:46:14.322859+08:00",
+  "productChangedForTheseCorrections": false,
+  "items": [
+    {
+      "topic": "Repeated live tab selector",
+      "correction": "Use button[data-project-view=live] instead of also matching the host data attribute"
+    },
+    {
+      "topic": "Observer initialization",
+      "correction": "Separate test IIFEs with a semicolon; discarded affected logs and reran required cases with a clean observer"
+    },
+    {
+      "topic": "Resize pixel expectation",
+      "correction": "Original canvas backing store uses post.scale and minimum dimensions; DPR applies separately to screenshot capture"
+    },
+    {
+      "topic": "Firefox reload",
+      "correction": "Observe current Document/API from the stable same-origin parent, then native-click/type on the new original control"
+    },
+    {
+      "topic": "Firefox focus and Escape",
+      "correction": "Bound actual Tab traversal by available controls; use a native parent toolbar click before host Escape, rather than assuming DOM focus changes the native input target"
+    },
+    {
+      "topic": "Parent camera observations",
+      "correction": "Canonical observer names actual displayH; independent final checks use recorded targetH/cameraPosition/cameraTarget and scroll, not equality of a missing progressH field"
+    }
+  ]
+}

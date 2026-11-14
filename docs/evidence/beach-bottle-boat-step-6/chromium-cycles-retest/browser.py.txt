@@ -1,0 +1,349 @@
+"""Real embedded-page controls, ownership, failures and resource observations."""
+import argparse,math,os,shutil,time,traceback
+from playwright.sync_api import sync_playwright,Error
+from common import *
+parser=argparse.ArgumentParser();parser.add_argument('--run',required=True);parser.add_argument('--engine',default='chromium');parser.add_argument('--only',default='');parser.add_argument('--base',choices=['production','dev'],default='production');parser.add_argument('--headless',action='store_true');args=parser.parse_args();folder=OUT/args.run;folder.mkdir(exist_ok=False)
+for f in TEST.glob('*.py'):shutil.copyfile(f,folder/(f.name+'.txt'))
+services=read(OUT/'services-started.json');os.environ.update(services['browserEnvironment']);base=services['productionOrigin']if args.base=='production'else services['devOrigin'];other=services['otherOrigin'];dev=services['devOrigin'];case='setup';ctx=None;p=None
+ORDER=['lawson','bottle-ocean','courtyard'];SELECT='[data-project-select]';PANEL='article[data-experiment-station=C2]';DIALOG='.tour-project-dialog'
+report={'startedAtShanghai':now(),'engine':args.engine,'checks':[],'requests':[],'pageErrors':[],'console':[],'failedRequests':[],'externalAttempts':[],'routesDisableCache':True,'physicalDevice':False,'baseKind':args.base,'headless':args.headless,'activeBuildAtStart':read(OUT/'active-build.json'),'bottleIframeAdded':True,'clockModified':False}
+def save():write(folder/'browser.json',report)
+def picked():return p.locator(SELECT+'[aria-selected=true]').get_attribute('data-project-select')
+def state():return p.evaluate('''()=>({url:location.href,viewport:[innerWidth,innerHeight],dpr:devicePixelRatio,scrollY,layout:document.querySelector('main')?.dataset.readingMode,work:document.querySelector('.experiment-reading')?.dataset.projectId,coverState:document.querySelector('.experiment-reading')?.dataset.coverState,cover:[...document.querySelectorAll('.experiment-cover img')].map(i=>({src:i.currentSrc,alt:i.alt,complete:i.complete,width:i.naturalWidth,rect:i.getBoundingClientRect().toJSON(),fit:getComputedStyle(i).objectFit})),selected:[...document.querySelectorAll('[data-project-select]')].map(b=>({id:b.dataset.projectSelect,selected:b.getAttribute('aria-selected'),tab:b.tabIndex,disabled:b.disabled,rect:b.getBoundingClientRect().toJSON()})),previewLabel:document.querySelector('#experiment-project-preview')?.getAttribute('aria-labelledby'),focus:document.activeElement?.id||document.activeElement?.getAttribute('data-project-tab'),dialog:document.querySelector('.tour-project-dialog')?.dataset,open:!!document.querySelector('dialog[open]'),frames:[...document.querySelectorAll('iframe')].map(f=>f.src),guide:{pressed:document.querySelector('#tour-guide')?.getAttribute('aria-pressed'),phase:document.querySelector('main')?.dataset.guidePhase},host:document.querySelector('#tour-host')?.dataset,overflow:document.documentElement.scrollWidth>innerWidth+1})''')
+def picture(name,page=None):(page or p).screenshot(path=str(folder/(name+'.png')))
+def selected_case(id):return not args.only or any(id.startswith(x)for x in args.only.split(','))
+def check(id,name,fn):
+ global case
+ if not selected_case(id):return
+ case=id
+ try:
+  e=fn();status=e.pop('_status','通过')if isinstance(e,dict)else'通过';entry={'id':id,'name':name,'status':status,'evidence':e};print(status+' '+id,flush=True)
+ except Exception as ex:
+  entry={'id':id,'name':name,'status':'待补核','error':str(ex),'traceback':traceback.format_exc()}
+  if p and not p.is_closed():
+   try:entry['state']=state();picture('failure-'+id.replace('.','-'))
+   except Exception:pass
+  print('待补核 '+id+': '+str(ex),flush=True)
+ report['checks'].append(entry);save()
+def watch(page):
+ page.set_default_timeout(25000);page.on('request',lambda r:report['requests'].append({'case':case,'url':r.url,'type':r.resource_type}))
+ page.on('pageerror',lambda e:report['pageErrors'].append({'case':case,'text':str(e)}));page.on('console',lambda m:report['console'].append({'case':case,'type':m.type,'text':m.text})if m.type in['warning','error']else None)
+ page.on('requestfailed',lambda r:report['failedRequests'].append({'case':case,'url':r.url,'failure':r.failure}))
+def host(url=None,w=1440,h=900,touch=False,init=None,reduced=None):
+ global ctx,p
+ if ctx:ctx.unroute_all(behavior='ignoreErrors');ctx.close()
+ opts={'viewport':{'width':w,'height':h},'device_scale_factor':1,'accept_downloads':True,'service_workers':'block'}
+ if touch:opts.update(has_touch=True,is_mobile=True,device_scale_factor=2)
+ if reduced:opts['reduced_motion']=reduced
+ ctx=browser.new_context(**opts);ctx.add_init_script(PROBE)
+ def route(r):
+  if r.request.url.startswith(('http:','https:'))and not any(r.request.url.startswith(o+'/')for o in[base,dev,services['productionOrigin'],other]):report['externalAttempts'].append({'case':case,'url':r.request.url});r.abort('blockedbyclient')
+  else:r.continue_()
+ ctx.route('**/*',route)
+ if init:ctx.add_init_script(init)
+ ctx.on('page',watch);p=ctx.new_page();p.goto(url or base+'/',wait_until='domcontentloaded');p.wait_for_function('document.querySelector("main")?.dataset.layoutReady==="true"',timeout=90000,polling=100)
+ if p.locator('main').get_attribute('data-reading-mode')!='stable':p.locator('#tour-layout-toggle').click();p.wait_for_function('document.querySelector("main").dataset.readingMode==="stable"',timeout=15000)
+ p.locator(PANEL).scroll_into_view_if_needed();p.wait_for_timeout(400);assert p.locator(SELECT).count()==3;return state()
+def choose(id,touch=False):
+ button=p.locator('[data-project-select="'+id+'"]');button.tap()if touch else button.click();p.wait_for_function('id=>document.querySelector(".experiment-reading").dataset.projectId===id',arg=id)
+ p.wait_for_function('document.querySelector(".experiment-reading").dataset.coverState==="ready"',timeout=20000);assert picked()==id
+ s=state();assert sum(x['selected']=='true'for x in s['selected'])==1 and sum(x['tab']==0 for x in s['selected'])==1;assert s['previewLabel']=='experiment-project-'+id;return s
+def open_view(tab):
+ p.locator('[data-project-tab='+tab+']').click();p.wait_for_function('document.querySelector(".tour-project-dialog").open');assert p.locator(DIALOG).get_attribute('data-project-id')==picked();p.wait_for_timeout(180)
+def close_view():
+ p.locator(DIALOG+' .tour-project-close').click();p.wait_for_function('!document.querySelector(".tour-project-dialog").open');p.wait_for_timeout(300);assert p.locator('iframe').count()==0
+def no_bottle_requests():return[r for r in report['requests']if r['case']==case and'/experiments/bottle-ocean/'in r['url']]
+def independent(label):
+ expected=p.locator(DIALOG+' .tour-project-header [data-project-independent]').get_attribute('href');assert expected and expected.endswith('/experiments/bottle-ocean/index.html')
+ with p.expect_popup(timeout=30000)as event:p.locator(DIALOG+' .tour-project-header [data-project-independent]').click()
+ pop=event.value
+ try:
+  pop.wait_for_function('window.__bottleOcean?.ready===true&&getComputedStyle(document.querySelector("#loader")).display==="none"',timeout=120000,polling=100);assert pop.url==expected
+  response=pop.request.get(pop.url);assert response.status==200;digest=hashlib.sha256(response.body()).hexdigest();assert digest==ENTRY_SHA
+  before=pop.evaluate('__bottleOcean.getDiagnostics()');assert before['renderer']['triangles']>1000;pop.locator('#waveHeight').press('End');pop.locator('[data-preset=top]').click();pop.wait_for_timeout(1500);pop.wait_for_function('__bottleOcean.state.waveHeight===100&&__bottleOcean.cameraRig.getState().preset==="top"');after=pop.evaluate('__bottleOcean.getDiagnostics()');assert after['simTime']>before['simTime']and math.dist(before['camera']['position'],after['camera']['position'])>.1;picture(label+'-original',pop)
+  return {'url':pop.url,'expected':expected,'bodySHA256':digest,'before':before,'after':after,'openedByNativeLink':True}
+ finally:pop.close()
+
+PROBE=r'''(()=>{const a=window.__embeddedTest={draws:0,states:[],keys:[],context:[]};for(const C of[window.WebGLRenderingContext,window.WebGL2RenderingContext])if(C)for(const name of['drawArrays','drawElements','drawArraysInstanced','drawElementsInstanced']){const original=C.prototype[name];if(original)C.prototype[name]=function(...args){a.draws++;return original.apply(this,args)}}new MutationObserver(records=>{for(const r of records)if(r.target.matches?.('.tour-project-dialog'))a.states.push({at:performance.now(),state:r.target.dataset.embeddedState,project:r.target.dataset.projectId,open:r.target.open})}).observe(document,{subtree:true,attributes:true,attributeFilter:['data-embedded-state']});document.addEventListener('keydown',e=>a.keys.push({code:e.code,target:e.target.id||e.target.tagName,trusted:e.isTrusted}));for(const kind of['webglcontextlost','webglcontextrestored'])document.addEventListener(kind,e=>a.context.push({kind,id:e.target.id,trusted:e.isTrusted,at:performance.now()}),true)})()'''
+PROBE+=r'''(()=>{const a=window.__embeddedTest;a.contexts=[];const raw=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){const gl=raw.call(this,kind,...args);if(gl&&/webgl/.test(kind)&&!a.contexts.some(x=>x.context===gl))a.contexts.push({canvas:this,context:gl});return gl}})()'''
+FSNAP=r'''()=>{const b=__bottleOcean,d=b.getDiagnostics(),c=b.renderer.domElement;return {url:location.href,timeOrigin:performance.timeOrigin,diagnostics:d,viewport:[innerWidth,innerHeight],dpr:devicePixelRatio,canvas:c.getBoundingClientRect().toJSON(),pixels:[c.width,c.height],contextLost:b.renderer.getContext().isContextLost(),loader:{display:getComputedStyle(document.querySelector('#loader')).display,error:document.querySelector('#loader-error').textContent},error:window.__bottleError??null,draws:__embeddedTest.draws,contextEvents:__embeddedTest.context,ui:{hidden:document.body.classList.contains('ui-hidden'),collapsed:document.querySelector('#control-panel').classList.contains('collapsed'),edit:document.body.classList.contains('edit-active'),buttons:document.querySelectorAll('button').length,sliders:document.querySelectorAll('input[data-control]').length},actual:{amplitude:b.waterField.amplitude,gpuTime:b.waterField.uniforms.uTime.value,opacity:b.bottle.glassMaterial.uniforms.uOpacity.value,exposure:b.post.getState().uniforms.uExposure.value,lighthouse:b.environment.lighthouse.isEnabled,spray:b.environment.spray.visible,dust:b.environment.dust.visible}}}'''
+def frame():
+ p.wait_for_selector('.tour-project-embed-mount > iframe',state='attached');assert p.locator('iframe').count()==1;return p.locator('iframe').element_handle().content_frame()
+def ready_frame():
+ f=frame();f.wait_for_function('window.__bottleOcean?.ready===true&&getComputedStyle(document.querySelector("#loader")).display==="none"',timeout=120000,polling=100);p.wait_for_function('document.querySelector(".tour-project-dialog").dataset.embeddedState==="ready"',timeout=30000,polling=100);s=f.evaluate(FSNAP);assert not s['error']and not s['loader']['error']and not s['contextLost'];assert s['diagnostics']['renderer']['calls']>0 and s['diagnostics']['renderer']['triangles']>1000;assert s['ui']['buttons']==22 and s['ui']['sliders']==12;assert p.locator('.tour-project-prepared').is_hidden();return f
+def enter():open_view('live');return ready_frame()
+def live(url=None,w=1440,h=900,touch=False,init=None):host(url,w,h,touch,init);choose('bottle-ocean',touch=touch);return enter()
+def tick(f,n=2):
+ start=f.evaluate('__embeddedTest.draws');f.wait_for_function('x=>__embeddedTest.draws>x',arg=start,timeout=60000,polling=100)
+ if n>1:p.wait_for_timeout(150)
+def quality(f):f.locator('[data-quality=retro]').click();tick(f);assert f.evaluate('__bottleOcean.state.quality')=='retro'
+def canvas_point(f,x=220,y=200):
+ box=p.locator('iframe').bounding_box();return box['x']+min(x,box['width']*.4),box['y']+min(y,box['height']*.4)
+def click_canvas(f):p.mouse.click(*canvas_point(f));tick(f)
+def motion(f,label):
+ quality(f);f.locator('#waveHeight').press('Home');tick(f);calm=f.evaluate(FSNAP);assert calm['actual']['amplitude']==0;f.locator('#waveHeight').press('End');tick(f)
+ f.evaluate('''()=>{const a=__embeddedTest.motion={rows:[],done:false};function sample(){const b=__bottleOcean,d=b.getDiagnostics();a.rows.push({sim:d.simTime,water:d.water,boat:d.boat,gpuTime:b.waterField.uniforms.uTime.value});if(a.rows.length>=40&&d.simTime-a.rows[0].sim>=2.5)a.done=true;else requestAnimationFrame(sample)}requestAnimationFrame(sample)}''')
+ deadline=time.monotonic()+150
+ while not f.evaluate('__embeddedTest.motion.done'):
+  assert time.monotonic()<deadline;p.wait_for_timeout(1000);write(folder/(label+'-motion-partial.json'),f.evaluate('__embeddedTest.motion'))
+ rows=f.evaluate('__embeddedTest.motion.rows');assert len({r['sim']for r in rows})>=40 and all(abs(r['gpuTime']-r['sim'])<1e-8 for r in rows);ranges={k:max(r['boat'][k]for r in rows)-min(r['boat'][k]for r in rows)for k in['rootY','pitch','roll']};ranges['surface']=max(r['water']['heightAtBoat']for r in rows)-min(r['water']['heightAtBoat']for r in rows);assert ranges['rootY']>.005 and ranges['surface']>.01 and max(ranges['pitch'],ranges['roll'])>.005;write(folder/(label+'-motion.json'),{'calm':calm,'rows':rows,'range':ranges});return {'simSeconds':rows[-1]['sim']-rows[0]['sim'],'distinctFrames':len(rows),'range':ranges,'after':f.evaluate(FSNAP)}
+def props(f):return f.evaluate('''()=>{const a=[];__bottleOcean.scene.traverse(o=>{if(o.userData.propKind)a.push({kind:o.userData.propKind,uuid:o.uuid,position:o.parent.position.toArray()})});return a}''')
+def place(f,kind):
+ f.locator('[data-edit='+kind+']').click();pt=f.evaluate('''()=>{const b=__bottleOcean,T=b.THREE,e=b.environment,ray=new T.Raycaster(),blocked=new Set([e.ocean,...e.lighthouse.hitObjects]),targets=[e.terrain,e.rocks].filter(Boolean);for(const o of e.raycastTargets)if(o&&!blocked.has(o)&&!blocked.has(o.parent)&&o.name!=='birds'&&o.name!=='seaBirds'&&!o.material?.transparent&&!targets.includes(o))targets.push(o);for(const z of[4,2,6,0,8,-2])for(const x of[-3,-1,1,3,-5,5]){const v=new T.Vector3(x,e.getSandHeight(x,z),z).project(b.camera),px=(v.x+1)*innerWidth/2,py=(1-v.y)*innerHeight/2;if(px<20||py<90||px>innerWidth-20||py>innerHeight-30||document.elementFromPoint(px,py)!==b.renderer.domElement)continue;ray.setFromCamera(new T.Vector2(px/innerWidth*2-1,1-py/innerHeight*2),b.camera);const hit=ray.intersectObjects(targets,true)[0];if(!hit||b.bottle.isInsideCavity(hit.point,.02)||hit.point.z< -8||hit.point.z>14)continue;return {x:px,y:py,point:hit.point.toArray()}}return null}''');assert pt;before=props(f);box=p.locator('iframe').bounding_box();p.mouse.click(box['x']+pt['x'],box['y']+pt['y']);tick(f);after=props(f);assert len(after)==len(before)+1 and after[-1]['kind']==kind;return {'point':pt,'before':before,'after':after}
+def download(f,label):
+ before=f.evaluate(FSNAP)
+ with p.expect_download(timeout=30000)as event:f.locator('[data-action=screenshot]').click()
+ d=event.value;path=folder/(label+'-download.png');d.save_as(str(path));raw=path.read_bytes();import struct
+ assert raw[:8]==b'\x89PNG\r\n\x1a\n';size=list(struct.unpack('>II',raw[16:24]));assert size==[round(before['canvas'][x]*min(before['dpr'],2))for x in['width','height']];assert len(raw)>10000 and not d.failure();return {'file':row(path),'name':d.suggested_filename,'PNG':size,'before':before,'nativeButtonDownload':True}
+def release(route):
+ try:route.fulfill(path=str(ROOT/'public/experiments/bottle-ocean/index.html'),content_type='text/html');return 'released original bytes'
+ except Error as e:return 'cancelled on teardown: '+str(e)
+def wait_held(held,n=1):
+ deadline=time.monotonic()+15
+ while len(held)<n:assert time.monotonic()<deadline;p.wait_for_timeout(100)
+
+def state():
+ return p.evaluate('''()=>{const h=document.querySelector('#tour-host'),m=document.querySelector('main'),d=document.querySelector('.tour-project-dialog');return {url:location.href,viewport:[innerWidth,innerHeight],dpr:devicePixelRatio,scrollY,anchor:m?.dataset.flowAnchor,layout:m?.dataset.readingMode,work:document.querySelector('.experiment-reading')?.dataset.projectId,selected:[...document.querySelectorAll('[data-project-select]')].map(b=>({id:b.dataset.projectSelect,selected:b.getAttribute('aria-selected'),tab:b.tabIndex,disabled:b.disabled})),previewLabel:document.querySelector('#experiment-project-preview')?.getAttribute('aria-labelledby'),focus:document.activeElement?.id||document.activeElement?.getAttribute('data-project-tab')||document.activeElement?.tagName,dialog:d?{projectId:d.dataset.projectId,tab:d.dataset.tab,embeddedState:d.dataset.embeddedState}:null,open:!!d?.open,frames:[...document.querySelectorAll('iframe')].map(f=>f.src),guide:{pressed:document.querySelector('#tour-guide')?.getAttribute('aria-pressed'),state:h?.dataset.guideState},host:h?Object.fromEntries(['motionState','renderState','progressH','targetH','sceneTime','cameraPosition','cameraTarget','overlayState'].map(k=>[k,h.dataset[k]])):null,overflow:document.documentElement.scrollWidth>innerWidth+1}}''')
+def wait_status(value,timeout=15000):p.wait_for_function('s=>document.querySelector(".tour-project-dialog").dataset.embeddedState===s',arg=value,timeout=timeout,polling=100)
+def original_control(f):
+ f.locator('#waveHeight').press('End');tick(f);assert f.evaluate('__bottleOcean.state.waveHeight')==100;return f.evaluate(FSNAP)
+def mark_frames():
+ p.evaluate('''()=>{const a=__embeddedTest;a.frames={rows:[],peak:document.querySelectorAll('iframe').length};const ids=new WeakMap();let seq=0;new MutationObserver(records=>{for(const r of records)for(const op of['addedNodes','removedNodes'])for(const node of r[op])if(node.tagName==='IFRAME'){if(!ids.has(node))ids.set(node,++seq);a.frames.rows.push({op,id:ids.get(node),at:performance.now(),connected:node.isConnected})}a.frames.peak=Math.max(a.frames.peak,document.querySelectorAll('iframe').length)}).observe(document,{subtree:true,childList:true})}''')
+def exit_record(old):
+ close_view();p.wait_for_timeout(650);assert old.is_detached();s=state();assert not s['open']and not s['frames'];assert not p.locator('html').evaluate('e=>e.classList.contains("tour-project-open")');return s
+def lawson_ready():
+ f=frame();f.wait_for_function('window.__LAWSON__?.ready===true',timeout=120000,polling=100);wait_status('ready');assert not f.locator('#fatal').is_visible();return f
+def signature():
+ return p.evaluate('''()=>Object.fromEntries(['.tour-brand','.tour-header','.experiment-project-selector','.tour-project-header'].map(s=>{const e=document.querySelector(s),c=getComputedStyle(e);return [s,Object.fromEntries(['fontFamily','fontSize','lineHeight','color','display','flexDirection'].map(k=>[k,c[k]]))]}))''')
+def toolbar_bounds():
+ return p.evaluate('''()=>{const rows=[...document.querySelectorAll('.tour-project-header button:not([hidden]),.tour-project-header a:not([hidden])')].filter(e=>e.getClientRects().length).map(e=>({label:e.getAttribute('aria-label')||e.textContent.trim(),r:e.getBoundingClientRect().toJSON()}));return {rows,reachable:rows.every(({r})=>r.x>=-.5&&r.right<=innerWidth+.5&&r.y>=-.5&&r.bottom<=innerHeight+.5)}}''')
+
+pw=sync_playwright().start();opts={'headless':args.headless}
+if args.engine=='chromium':opts.update(executable_path='/usr/bin/chromium',args=['--no-sandbox','--use-gl=angle','--use-angle=gl','--ignore-gpu-blocklist'])
+elif args.engine=='webkit':opts['executable_path']=str(ROOT/'docs/evidence/lawson-fullpage-step-7/webkit-run.sh')
+browser=getattr(pw,args.engine).launch(**opts);report['browserVersion']=browser.version
+try:
+ def blank_navigation():
+  f=live();before=f.evaluate(FSNAP);f.goto('about:blank',wait_until='domcontentloaded');p.wait_for_timeout(700);write(folder/'blank-navigation.json',{'before':before,'currentDocumentURL':f.url,'hostAfterNavigation':state()});wait_status('error',3500);failed=state();p.locator('.tour-project-retry').click();f=ready_frame();actual=original_control(f);return {'blankError':failed,'newOriginal':actual,'returned':exit_record(f)}
+ check('NAV.blank','已运行原页变为空白文档时不沿用就绪或等待',blank_navigation)
+ def child_blank():
+  f=live();before=f.evaluate(FSNAP)
+  with f.expect_navigation(wait_until='domcontentloaded'):f.evaluate('location.assign("about:blank")')
+  p.wait_for_timeout(700);snapshot={'before':before,'currentDocumentURL':f.url,'parentCanAccessDocument':p.locator('iframe').evaluate('e=>!!e.contentDocument'),'hostAfterNavigation':state()};write(folder/'child-blank-navigation.json',snapshot);wait_status('error',3500);p.locator('.tour-project-retry').click();f=ready_frame();return {'navigation':snapshot,'recoveredOriginal':original_control(f),'returned':exit_record(f)}
+ check('NAV.child-blank','子页发起的同源空白导航不继续等待原场景',child_blank)
+ def other_navigations():
+  f=live();rows=[]
+  for target in[base+'/missing-frame.html',other+'/missing-frame.html']:
+   previous=f;f.goto(target,wait_until='domcontentloaded');wait_status('error');failed={'actualURL':f.url,'parent':state(),'accessible':p.locator('iframe').evaluate('e=>!!e.contentDocument')};assert p.locator('.tour-project-retry').is_visible();p.locator('.tour-project-retry').click();f=ready_frame();assert previous.is_detached();rows.append({'failure':failed,'recovered':original_control(f)})
+  oldOrigin=f.evaluate('performance.timeOrigin');handle=p.locator('iframe').element_handle()
+  with f.expect_navigation(wait_until='domcontentloaded'):f.evaluate('location.reload()')
+  f=ready_frame();assert f.evaluate('performance.timeOrigin')!=oldOrigin and p.evaluate('e=>e===document.querySelector("iframe")',handle);assert f.evaluate('__bottleOcean.state.waveHeight')==35;handle.dispose();return {'actualDocumentNavigations':rows,'normalReload':f.evaluate(FSNAP),'returned':exit_record(f)}
+ check('NAV.paths','错误路径、实际跨源文档与同iframe正常重载',other_navigations)
+ def cycles():
+  host();choose('bottle-ocean');mark_frames();rows=[];count=10 if args.engine=='chromium'else 3
+  for i in range(count):
+   f=enter();before=f.evaluate(FSNAP);assert before['diagnostics']['state']['waveHeight']==35;original_control(f);handle=p.locator('iframe').element_handle();p.locator('button[data-project-view=live]').click();assert p.evaluate('e=>e===document.querySelector("iframe")',handle)and f.evaluate('performance.timeOrigin')==before['timeOrigin'];handle.dispose();archived=None
+   if i in[1,4]:
+    old=f;p.locator('button[data-project-view=archive]').click();p.wait_for_timeout(650);assert old.is_detached()and p.locator('iframe').count()==0;archived=state();p.locator('button[data-project-view=live]').click();f=ready_frame();assert f.evaluate('__bottleOcean.state.waveHeight')==35 and f.evaluate('performance.timeOrigin')!=before['timeOrigin']
+   returned=exit_record(f);rowdata={'round':i+1,'originalBefore':before,'archive':archived,'returned':returned}
+   if args.engine=='chromium'and i in[3,7]:
+    choose('lawson');open_view('live');l=lawson_ready();rowdata['lawson']={'url':l.url,'ready':l.evaluate('__LAWSON__.ready')};exit_record(l);choose('courtyard');open_view('live');assert p.locator('iframe').count()==0;p.locator('[data-project-mode=pixel]').click();assert p.locator('[data-project-mode=pixel]').get_attribute('aria-pressed')=='true';p.locator('[data-project-mode=native]').click();close_view();choose('bottle-ocean')
+   rows.append(rowdata);write(folder/'cycles-partial.json',rows)
+  monitor=p.evaluate('__embeddedTest.frames');assert monitor['peak']<=1 and len(rows)==count;return {'rounds':rows,'monitor':monitor,'preCreationRAFExitObserved':False,'preCreationAudit':'unmount invalidates generation, cancels layoutFrame; native request-pending exits tested separately, not counted as pre-creation execution'}
+ check('LIFE.cycles','连续往返、重复现场与三作品身份和实例归属',cycles)
+ def pending_actions():
+  rows=[];pattern='**/experiments/bottle-ocean/index.html'
+  for action in['close','archive','retry-archive','lawson','courtyard','error-retry-close']:
+   host();choose('bottle-ocean');held=[];attempts=[]
+   def hold(r):
+    attempts.append(r.request.url)
+    if action=='error-retry-close'and len(attempts)==1:r.fulfill(status=200,content_type='text/html',body='<html><body>Wrong original document</body></html>')
+    else:held.append(r)
+   ctx.route(pattern,hold);open_view('live')
+   if action=='error-retry-close':wait_status('error');p.locator('.tour-project-retry').click()
+   wait_held(held);old=frame()
+   if action=='retry-archive':wait_status('slow',18000);p.locator('.tour-project-retry').click();wait_held(held,2);p.locator('button[data-project-view=archive]').click()
+   elif action=='archive':p.locator('button[data-project-view=archive]').click()
+   else:
+    close_view()
+    if action in['lawson','courtyard']:
+     choose(action);open_view('live')
+     if action=='lawson':lawson_ready()
+   assert old.is_detached();released=[release(r)for r in held];p.wait_for_timeout(750);s=state();assert len(s['frames'])<2
+   if action=='lawson':assert s['dialog']['projectId']=='lawson'and s['dialog']['embeddedState']=='ready'
+   else:assert not s['frames']
+   rows.append({'action':action,'oldFrameDetached':True,'released':released,'afterLateResponses':s});ctx.unroute(pattern,hold)
+   if s['open']:close_view()
+   choose('bottle-ocean');f=enter();original_control(f);exit_record(f)
+  return {'nativeSequences':rows,'lateResponsesActuallyReleased':True}
+ check('LIFE.pending','载入/重试中退出换作品，旧响应不恢复旧实例',pending_actions)
+ def responses():
+  rows=[];pattern='**/experiments/bottle-ocean/index.html'
+  for kind in['404','200-wrong','aborted']:
+   host();choose('bottle-ocean')
+   def bad(r):
+    if kind=='aborted':r.abort('failed')
+    else:r.fulfill(status=404 if kind=='404'else 200,content_type='text/html',body='<html><body>Original entry unavailable test fixture</body></html>')
+   ctx.route(pattern,bad);open_view('live');p.wait_for_function('()=>["slow","error"].includes(document.querySelector(".tour-project-dialog").dataset.embeddedState)',timeout=18000,polling=100);failed=state();assert p.locator('.tour-project-retry').is_visible();ctx.unroute(pattern,bad);p.locator('.tour-project-retry').click();f=ready_frame();rows.append({'condition':kind,'failed':failed,'recovered':original_control(f),'returned':exit_record(f)})
+  return {'responses':rows}
+ check('FAULT.responses','404、200错误页及真实请求中断后原按钮恢复',responses)
+ def slow_response():
+  host();choose('bottle-ocean');held=[];pattern='**/experiments/bottle-ocean/index.html'
+  def hold(r):held.append(r)
+  ctx.route(pattern,hold);open_view('live');wait_held(held);start=time.monotonic();wait_status('slow',18000);elapsed=time.monotonic()-start;assert elapsed>=11 and toolbar_bounds()['reachable'];slow=state();release(held[0]);f=ready_frame();ctx.unroute(pattern,hold);events=p.evaluate('__embeddedTest.states');seq=[e['state']for e in events];assert 'slow'in seq and'loading'not in seq[seq.index('slow')+1:];return {'heldSeconds':elapsed,'slow':slow,'transitions':events,'recovered':original_control(f),'returned':exit_record(f)}
+ check('FAULT.slow','真实满12秒反馈、原响应迟到不重置慢载入',slow_response)
+ def native_input():
+  host();choose('bottle-ocean');open_view('archive');assert not no_bottle_requests()and not state()['frames'];close_view();f=enter();quality(f);style=signature();before=state();moves=[]
+  for button in['left','right']:
+   a=f.evaluate('__bottleOcean.cameraRig.getState()');x,y=canvas_point(f);p.mouse.move(x,y);p.mouse.down(button=button);p.mouse.move(x+75,y+30,steps=10);p.mouse.up(button=button);p.wait_for_timeout(550);b=f.evaluate('__bottleOcean.cameraRig.getState()');assert math.dist(a['position'],b['position'])>.01;moves.append({'kind':button,'before':a,'after':b})
+  a=f.evaluate('__bottleOcean.cameraRig.getState()');p.mouse.move(*canvas_point(f));p.mouse.wheel(0,200);p.wait_for_timeout(500);b=f.evaluate('__bottleOcean.cameraRig.getState()');assert abs(a['distance']-b['distance'])>.01
+  panel=f.locator('.panel-scroll');r=panel.bounding_box();p.mouse.move(r['x']+r['width']/2,r['y']+r['height']/2);p.mouse.wheel(0,600);p.wait_for_timeout(350);panelScroll=panel.evaluate('e=>e.scrollTop');assert panelScroll>0;p.mouse.wheel(0,-900);p.wait_for_timeout(350)
+  click_canvas(f);p.keyboard.press('h');assert f.evaluate('document.body.classList.contains("ui-hidden")');f.locator('#restore-ui').click();click_canvas(f);p.keyboard.press('Space');tick(f);paused=f.evaluate(FSNAP);p.wait_for_timeout(500);still=f.evaluate(FSNAP);assert still['diagnostics']['simTime']==paused['diagnostics']['simTime']and still['draws']>paused['draws'];p.keyboard.press('Space');tick(f);assert not f.evaluate('__bottleOcean.state.paused');f.locator('#waveHeight').focus();p.keyboard.press('h');p.keyboard.press('Space');assert not f.evaluate('document.body.classList.contains("ui-hidden")')and not f.evaluate('__bottleOcean.state.paused');f.locator('[data-edit=rock]').click();p.keyboard.press('Escape');assert f.evaluate('__bottleOcean.state.editMode')is None and state()['open']
+  p.locator('.tour-project-close').focus();trace=[]
+  for _ in range(12):
+   p.keyboard.press('Tab');p.wait_for_timeout(80);inside=p.evaluate('document.activeElement===document.querySelector("iframe")');at=f.evaluate('({tag:document.activeElement.tagName,id:document.activeElement.id})');trace.append({'key':'Tab','inside':inside,'child':at})
+   if inside and at['tag']not in['BODY','HTML']:break
+  assert inside and at['tag']not in['BODY','HTML']
+  for _ in range(12):
+   p.keyboard.press('Shift+Tab');p.wait_for_timeout(80);back=p.locator('.tour-project-close').evaluate('e=>document.activeElement===e');trace.append({'key':'Shift+Tab','toolbar':back})
+   if back:break
+  assert back and signature()==style and abs(state()['scrollY']-before['scrollY'])<1 and state()['host']['progressH']==before['host']['progressH'];d=download(f,'native-input');p.locator('.tour-project-close').focus();p.keyboard.press('Escape');p.wait_for_timeout(750);assert not state()['open']and not state()['frames'];returned=state();p.mouse.move(450,400);p.mouse.wheel(0,200);p.wait_for_timeout(350);assert p.evaluate('scrollY')!=returned['scrollY'];return {'parentBefore':before,'moves':moves,'wheelBefore':a,'wheelAfter':b,'panelScroll':panelScroll,'TabTrace':trace,'signature':style,'parentAfter':returned,'download':d,'nativeParentScrollWorksAfterReturn':True}
+ check('INPUT.native','原鼠标/面板/快捷键/焦点/下载及样式阅读隔离',native_input)
+ def initialization():
+     init = '(()=>{if(window!==window.top){const probe=window.__webglFaultProbe={blocked:0,pathAtInit:location.pathname},raw=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){if(/webgl/.test(kind)&&!window.top.__embeddedAllowWebGL){probe.blocked++;return null}return raw.call(this,kind,...args)}}})()'
+     host(init=init)
+     choose('bottle-ocean')
+     open_view('live')
+     p.wait_for_function('document.querySelector(".tour-project-dialog").dataset.embeddedState==="error"')
+     f = frame()
+     failure = f.evaluate('({ready:window.__bottleOcean?.ready,error:window.__bottleError,text:document.querySelector("#loader-error").textContent,probe:window.__webglFaultProbe})')
+     assert failure['error'] and (not failure['ready']) and (failure['probe']['blocked'] > 0)
+     p.evaluate('window.__embeddedAllowWebGL=true')
+     p.locator('.tour-project-retry').click()
+     f = ready_frame()
+     return {'injection': 'Original child WebGL creation disabled at native getContext boundary; test-only parent flag allows new document retry, original HTML unchanged', 'failure': failure, 'recovered': f.evaluate(FSNAP)}
+ def graphics():
+     f = live()
+     quality(f)
+     f.evaluate("()=>{const c=__bottleOcean.renderer.domElement;__embeddedTest.context=[];for(const kind of['webglcontextlost','webglcontextrestored'])c.addEventListener(kind,e=>__embeddedTest.context.push({kind,id:e.target.id,trusted:e.isTrusted,at:performance.now(),defaultPrevented:e.defaultPrevented}));__embeddedTest.extension=__bottleOcean.renderer.getContext().getExtension('WEBGL_lose_context');if(!__embeddedTest.extension)throw Error('Extension missing');__embeddedTest.extension.loseContext()}")
+     p.wait_for_function('document.querySelector(".tour-project-dialog").dataset.embeddedState==="error"')
+     p.wait_for_timeout(1500)
+     lost = f.evaluate(FSNAP)
+     write(folder / 'graphics-lost.json', lost)
+     assert lost['contextLost'] and lost['diagnostics']['ready']
+     assert p.locator('.tour-project-feedback').is_visible()
+     f.evaluate('__embeddedTest.extension.restoreContext()')
+     try:
+         f.wait_for_function('__embeddedTest.context.some(e=>e.kind==="webglcontextrestored")', timeout=30000, polling=100)
+     finally:
+         write(folder / 'graphics-after-restore-attempt.json', f.evaluate(FSNAP))
+     p.wait_for_timeout(700)
+     restored = f.evaluate(FSNAP)
+     assert not restored['contextLost'] and p.locator(DIALOG).get_attribute('data-embedded-state') == 'error'
+     old = f
+     p.locator('.tour-project-retry').click()
+     f = ready_frame()
+     assert old.is_detached()
+     return {'lost': lost, 'restoredOldDocument': restored, 'newDocument': f.evaluate(FSNAP), 'eventTrusted': all((e['trusted'] for e in lost['contextEvents']))}
+ def parent_failure():
+     init = '(()=>{if(window===window.top){const raw=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){return /webgl/.test(kind)?null:raw.call(this,kind,...args)}}})()'
+     f = live(init=init)
+     s = f.evaluate(FSNAP)
+     assert p.locator('.render-error').count() == 1
+     assert s['diagnostics']['ready']
+     close_view()
+     choose('courtyard')
+     assert p.locator('[data-project-tab=live]').is_disabled()
+     return {'injection': 'Host document WebGL creation disabled; real child WebGL remains available', 'childReadyDespiteHostFailure': s, 'hostAfterReturn': state()}
+ def resource_return():
+     host(w=1920, h=1080)
+     if not p.locator('#tour-layout-toggle').is_enabled():
+         return {'_status': '环境限制', 'state': state(), 'reason': 'Immersive view unavailable at current text capacity'}
+     p.locator('#tour-layout-toggle').click()
+     p.wait_for_function('document.querySelector("main").dataset.readingMode==="immersive"')
+     delta = p.evaluate('(document.documentElement.scrollHeight-innerHeight)*10.05/12.3-scrollY')
+     p.mouse.move(450, 400)
+     p.mouse.wheel(0, delta)
+     p.wait_for_function('!document.querySelector("[data-project-select=lawson]").disabled', timeout=30000)
+     p.locator('#tour-guide').click()
+     p.wait_for_function('document.querySelector("#tour-guide").getAttribute("aria-pressed")==="true"', timeout=5000)
+     guideRunning = state()
+     choose('bottle-ocean')
+     assert p.locator('#tour-guide').get_attribute('aria-pressed') == 'false'
+     if p.locator('#tour-host').get_attribute('data-motion-state') != 'running':
+         p.locator('#tour-motion').click()
+     t = p.evaluate('__embeddedTest.draws')
+     p.wait_for_timeout(700)
+     before = p.evaluate('__embeddedTest.draws')
+     assert before > t
+     anchor = state()
+     f = enter()
+     p.wait_for_timeout(500)
+     parentA = p.evaluate('__embeddedTest.draws')
+     childA = f.evaluate('__embeddedTest.draws')
+     p.wait_for_timeout(1000)
+     parentB = p.evaluate('__embeddedTest.draws')
+     childB = f.evaluate('__embeddedTest.draws')
+     assert parentB == parentA and childB > childA
+     old = f
+     close_view()
+     assert old.is_detached()
+     after = state()
+     assert abs(after['scrollY'] - anchor['scrollY']) < 1 and after['guide']['pressed'] == 'false' and (after['host']['motionState'] == 'running')
+     t = p.evaluate('__embeddedTest.draws')
+     p.wait_for_timeout(700)
+     assert p.evaluate('__embeddedTest.draws') > t
+     p.locator('#tour-motion').click()
+     p.wait_for_function('document.querySelector("#tour-host").dataset.motionState==="paused"')
+     f = enter()
+     close_view()
+     paused = state()
+     assert paused['host']['motionState'] == 'paused' and paused['guide']['pressed'] == 'false'
+     return {'guideActuallyRunning': guideRunning, 'anchor': anchor, 'coveredDraws': {'parent': [parentA, parentB], 'child': [childA, childB]}, 'playingAfterReturn': after, 'pausedAfterReturn': paused, 'oldFrameDetached': True, 'probe': 'GL calls delegate once with original arguments; no RAF/time modification'}
+ def courtyard():
+     host()
+     choose('courtyard')
+     open_view('live')
+     assert p.locator('.tour-project-live-space').is_visible() and (not p.locator('iframe').count())
+     p.locator('[data-project-mode=pixel]').click()
+     assert p.locator('[data-project-mode=pixel]').get_attribute('aria-pressed') == 'true'
+     p.locator('[data-project-mode=native]').click()
+     p.locator('.tour-project-motion').click()
+     pauseLabel = p.locator('.tour-project-motion').inner_text()
+     p.locator('.tour-project-motion').click()
+     p.locator('button[data-project-view=archive]').click()
+     p.locator('.tour-project-play').click()
+     p.wait_for_function('document.querySelector(".tour-project-archive video")?.currentTime>0', timeout=30000)
+     video = p.locator('video').evaluate('v=>({time:v.currentTime,ready:v.readyState})')
+     close_view()
+     assert not p.locator('video').count()
+     choose('bottle-ocean')
+     p.locator('[data-flow-live]').scroll_into_view_if_needed()
+     p.locator('[data-flow-live]').click()
+     p.wait_for_function('document.querySelector(".tour-project-dialog").open')
+     assert p.locator(DIALOG).get_attribute('data-project-id') == 'courtyard'
+     close_view()
+     return {'motionToggle': pauseLabel, 'video': video, 'waterTargetsCourtyard': True}
+ def visibility():
+     f = live()
+     original_control(f)
+     original = p.locator('iframe').element_handle()
+     before = f.evaluate(FSNAP)
+     blank = ctx.new_page()
+     blank.goto('about:blank')
+     blank.bring_to_front()
+     p.wait_for_timeout(700)
+     hidden = p.evaluate('({hidden:document.hidden,visibility:document.visibilityState})')
+     p.bring_to_front()
+     blank.close()
+     f = ready_frame()
+     assert p.evaluate('(old)=>old===document.querySelector("iframe")', original)
+     after = f.evaluate(FSNAP)
+     assert before['timeOrigin'] == after['timeOrigin']
+     return {'_status': '通过' if hidden['hidden'] else '环境限制', 'before': before, 'actualBackground': hidden, 'returned': after, 'sameInstancePreserved': True, 'note': 'No hidden override or synthetic event. Real hidden recovery only accepted when actually observed.'}
+
+finally:
+ if ctx:ctx.unroute_all(behavior='ignoreErrors');ctx.close()
+ browser.close();pw.stop();report['finishedAtShanghai']=now();report['complete']=bool(report['checks'])and all(c['status']!='待补核'for c in report['checks']);save();print(json.dumps({'run':args.run,'complete':report['complete'],'checks':len(report['checks'])},ensure_ascii=False),flush=True)
+if not report['complete']:raise SystemExit(1)
+

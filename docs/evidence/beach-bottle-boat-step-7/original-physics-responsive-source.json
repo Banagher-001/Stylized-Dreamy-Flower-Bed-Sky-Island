@@ -1,0 +1,309 @@
+{
+  "sourceCommit": "d94c1f911a39143fd8f5efe152b99a87fdc53184",
+  "originalFilesUnchanged": true,
+  "readOnlySourceExcerpts": [
+    {
+      "file": {
+        "path": "src/boat.js",
+        "bytes": 28164,
+        "sha256": "a49c6de65aba225a6b630d3d822670e7bd1d853401adeb581509481f4863b1ee"
+      },
+      "fromLine": 599,
+      "toLine": 649,
+      "lines": [
+        {
+          "line": 599,
+          "text": "    timeAccum = time;"
+        },
+        {
+          "line": 600,
+          "text": "    const response = clamp(state.boatResponse / 100, 0, 1);"
+        },
+        {
+          "line": 601,
+          "text": "    const dampingParam = clamp(state.boatDamping / 100, 0, 1);"
+        },
+        {
+          "line": 602,
+          "text": "    const wind = clamp(state.wind / 100, 0, 1);"
+        },
+        {
+          "line": 603,
+          "text": ""
+        },
+        {
+          "line": 604,
+          "text": "    // Gentle wind-driven drift trend, kept inside a safe central pocket."
+        },
+        {
+          "line": 605,
+          "text": "    const driftAmp = 0.095 * wind;"
+        },
+        {
+          "line": 606,
+          "text": "    const targetDriftX = Math.sin(time * 0.34 + 0.7) * driftAmp;"
+        },
+        {
+          "line": 607,
+          "text": "    const targetDriftZ = Math.cos(time * 0.27 + 1.8) * driftAmp * 0.55;"
+        },
+        {
+          "line": 608,
+          "text": "    body.driftX += (targetDriftX - body.driftX) * Math.min(1, dt * 0.8);"
+        },
+        {
+          "line": 609,
+          "text": "    body.driftZ += (targetDriftZ - body.driftZ) * Math.min(1, dt * 0.7);"
+        },
+        {
+          "line": 610,
+          "text": ""
+        },
+        {
+          "line": 611,
+          "text": "    if (state.waveSpeed < 0.05) return;"
+        },
+        {
+          "line": 612,
+          "text": "    const samples = sampleWater(time);"
+        },
+        {
+          "line": 613,
+          "text": "    lastSamples.bow = samples.bow.sample;"
+        },
+        {
+          "line": 614,
+          "text": "    lastSamples.stern = samples.stern.sample;"
+        },
+        {
+          "line": 615,
+          "text": "    lastSamples.port = samples.port.sample;"
+        },
+        {
+          "line": 616,
+          "text": "    lastSamples.starboard = samples.starboard.sample;"
+        },
+        {
+          "line": 617,
+          "text": "    lastSamples.center = samples.center.sample;"
+        },
+        {
+          "line": 618,
+          "text": ""
+        },
+        {
+          "line": 619,
+          "text": "    const avg = ("
+        },
+        {
+          "line": 620,
+          "text": "      samples.center.sample.height +"
+        },
+        {
+          "line": 621,
+          "text": "      samples.bow.sample.height +"
+        },
+        {
+          "line": 622,
+          "text": "      samples.stern.sample.height +"
+        },
+        {
+          "line": 623,
+          "text": "      samples.port.sample.height +"
+        },
+        {
+          "line": 624,
+          "text": "      samples.starboard.sample.height"
+        },
+        {
+          "line": 625,
+          "text": "    ) / 5;"
+        },
+        {
+          "line": 626,
+          "text": "    // Heave is driven by the water directly under the hull. Averaging all five"
+        },
+        {
+          "line": 627,
+          "text": "    // probes would cancel short waves and make the ship look unnaturally glued."
+        },
+        {
+          "line": 628,
+          "text": "    const heaveResponse = clamp(response * 1.55, 0, 1.6);"
+        },
+        {
+          "line": 629,
+          "text": "    const heaveSample = samples.center.sample.height;"
+        },
+        {
+          "line": 630,
+          "text": "    const calmBase = waveField.baseLevel + 0.025;"
+        },
+        {
+          "line": 631,
+          "text": "    const targetY = calmBase + (heaveSample - waveField.baseLevel) * heaveResponse;"
+        },
+        {
+          "line": 632,
+          "text": "    const pitchFromWaves = Math.atan2("
+        },
+        {
+          "line": 633,
+          "text": "      samples.bow.sample.height - samples.stern.sample.height,"
+        },
+        {
+          "line": 634,
+          "text": "      1.24"
+        },
+        {
+          "line": 635,
+          "text": "    );"
+        },
+        {
+          "line": 636,
+          "text": "    const rollFromWaves = Math.atan2("
+        },
+        {
+          "line": 637,
+          "text": "      samples.starboard.sample.height - samples.port.sample.height,"
+        },
+        {
+          "line": 638,
+          "text": "      0.38"
+        },
+        {
+          "line": 639,
+          "text": "    );"
+        },
+        {
+          "line": 640,
+          "text": "    const targetPitch = clamp(pitchFromWaves * 5.2 * response, -0.28, 0.28);"
+        },
+        {
+          "line": 641,
+          "text": "    const targetRoll = clamp(rollFromWaves * 0.95 * response, -0.29, 0.29);"
+        },
+        {
+          "line": 642,
+          "text": ""
+        },
+        {
+          "line": 643,
+          "text": "    const ySpring = 18 + 10 * (1 - response);"
+        },
+        {
+          "line": 644,
+          "text": "    const yDamp = 2 * lerp(0.82, 0.26, dampingParam) * Math.sqrt(ySpring);"
+        },
+        {
+          "line": 645,
+          "text": "    const aSpring = 11 + 8 * (1 - response);"
+        },
+        {
+          "line": 646,
+          "text": "    const aDamp = 2 * lerp(0.9, 0.32, dampingParam) * Math.sqrt(aSpring);"
+        },
+        {
+          "line": 647,
+          "text": ""
+        },
+        {
+          "line": 648,
+          "text": "    // Substep integration keeps the spring stable at low and uneven frame rates."
+        },
+        {
+          "line": 649,
+          "text": "    const steps = Math.max(1, Math.min(4, Math.ceil(dt / 0.016)));"
+        }
+      ]
+    },
+    {
+      "file": {
+        "path": "src/ui.js",
+        "bytes": 10796,
+        "sha256": "a2efe9e207e41c95ba63dbde8aade64cef5f7bea9a100871c8ec640a1aa9f3fd"
+      },
+      "fromLine": 266,
+      "toLine": 284,
+      "lines": [
+        {
+          "line": 266,
+          "text": "  // Responsive: fold the panel on very small screens, keep it open on desktop."
+        },
+        {
+          "line": 267,
+          "text": "  function applyResponsive() {"
+        },
+        {
+          "line": 268,
+          "text": "    if (window.innerWidth <= 720 && !uiHidden) {"
+        },
+        {
+          "line": 269,
+          "text": "      panel?.classList.add('collapsed');"
+        },
+        {
+          "line": 270,
+          "text": "      panelCollapsed = true;"
+        },
+        {
+          "line": 271,
+          "text": "      setUIHidden(false);"
+        },
+        {
+          "line": 272,
+          "text": "    }"
+        },
+        {
+          "line": 273,
+          "text": "  }"
+        },
+        {
+          "line": 274,
+          "text": "  applyResponsive();"
+        },
+        {
+          "line": 275,
+          "text": "  window.addEventListener('resize', () => {"
+        },
+        {
+          "line": 276,
+          "text": "    if (window.innerWidth <= 720) {"
+        },
+        {
+          "line": 277,
+          "text": "      // Do not force every resize, only the first time it becomes narrow."
+        },
+        {
+          "line": 278,
+          "text": "      if (!panel?.classList.contains('collapsed') && window.innerHeight < 900) {"
+        },
+        {
+          "line": 279,
+          "text": "        panel?.classList.add('collapsed');"
+        },
+        {
+          "line": 280,
+          "text": "        panelCollapsed = true;"
+        },
+        {
+          "line": 281,
+          "text": "      }"
+        },
+        {
+          "line": 282,
+          "text": "    }"
+        },
+        {
+          "line": 283,
+          "text": "  }, { passive: true });"
+        },
+        {
+          "line": 284,
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "meaning": "Closure-local physical coefficients are evidenced by fixed original source plus native-input actual trajectories, not invented API fields."
+}

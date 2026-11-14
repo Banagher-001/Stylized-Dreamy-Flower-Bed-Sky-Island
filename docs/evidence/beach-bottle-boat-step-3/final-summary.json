@@ -1,0 +1,415 @@
+{
+  "completedAtShanghai": "2026-11-13T13:55:54.438532+08:00",
+  "conclusion": "第三步完成：完整原页与封面已保存在工作区，通过主站构建和独立访问/代表操作验证；尚未接入Coding或iframe，未提交上传发布",
+  "standardChecks": [
+    {
+      "id": "S3-01",
+      "status": "通过",
+      "records": [
+        "baseline.json",
+        "standard-before.md"
+      ]
+    },
+    {
+      "id": "S3-02",
+      "status": "通过",
+      "records": [
+        "copied-files.json",
+        "runtime-manifest.json"
+      ]
+    },
+    {
+      "id": "S3-03",
+      "status": "通过",
+      "records": [
+        "runtime-manifest.json"
+      ]
+    },
+    {
+      "id": "S3-04",
+      "status": "通过",
+      "records": [
+        "HTTP.dev",
+        "DEV.load"
+      ]
+    },
+    {
+      "id": "S3-05",
+      "status": "通过",
+      "records": [
+        "build.json"
+      ]
+    },
+    {
+      "id": "S3-06",
+      "status": "通过",
+      "records": [
+        "HTTP.production"
+      ]
+    },
+    {
+      "id": "S3-07",
+      "status": "通过",
+      "records": [
+        "HTTP.prefix",
+        "PREFIX.load",
+        "PREFIX.reload"
+      ]
+    },
+    {
+      "id": "S3-08",
+      "status": "通过",
+      "records": [
+        "PRODUCTION.motion",
+        "PRODUCTION.camera-ui",
+        "PRODUCTION.sandbox",
+        "PRODUCTION.export"
+      ]
+    },
+    {
+      "id": "S3-09",
+      "status": "通过",
+      "records": [
+        "PREFIX.motion",
+        "PREFIX.camera-ui",
+        "PREFIX.export"
+      ]
+    },
+    {
+      "id": "S3-10",
+      "status": "通过",
+      "records": [
+        "browser/browser.json"
+      ]
+    },
+    {
+      "id": "S3-11",
+      "status": "通过",
+      "records": [
+        "HOST.dev",
+        "HOST.production",
+        "HOST.prefix"
+      ]
+    },
+    {
+      "id": "S3-12",
+      "status": "通过",
+      "records": [
+        "services-cleanup.json",
+        "final-summary.json"
+      ]
+    }
+  ],
+  "browserAndHTTPChecks": [
+    {
+      "id": "HTTP.dev",
+      "name": "正确HTTP正文和静态文件闭包",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/0",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "HTTP.production",
+      "name": "正确HTTP正文和静态文件闭包",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/1",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "HTTP.prefix",
+      "name": "正确HTTP正文和静态文件闭包",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/2",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "DEV.load",
+      "name": "开发服务独立完整载入",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/3",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "PRODUCTION.load",
+      "name": "构建根路径完整默认场景",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/4",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "PRODUCTION.motion",
+      "name": "自然波场与船体连续响应",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/5",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "PRODUCTION.camera-ui",
+      "name": "原镜头与界面隐藏恢复",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/6",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "PRODUCTION.sandbox",
+      "name": "原生石头贝壳放置、撤销、恢复",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/7",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "PRODUCTION.export",
+      "name": "根路径原按钮真实PNG下载",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/8",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "PREFIX.load",
+      "name": "真实项目前缀完整原页",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/9",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "PREFIX.reload",
+      "name": "前缀原入口刷新保持身份",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/10",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "PREFIX.motion",
+      "name": "前缀波场与船体真实响应",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/11",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "PREFIX.camera-ui",
+      "name": "前缀镜头与界面",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/12",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "PREFIX.export",
+      "name": "前缀原按钮真实PNG下载",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/13",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "HOST.dev",
+      "name": "主站Coding区不提前运行新作品",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/14",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "HOST.production",
+      "name": "主站Coding区不提前运行新作品",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/15",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    },
+    {
+      "id": "HOST.prefix",
+      "name": "主站Coding区不提前运行新作品",
+      "status": "通过",
+      "record": "browser/browser.json#/checks/16",
+      "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+    }
+  ],
+  "buildExitCode": 0,
+  "existingProductionFilesIdentical": 65,
+  "newProductionRuntimeFiles": 3,
+  "originalProtected": {
+    "checkedAtShanghai": "2026-11-13T13:55:54.427922+08:00",
+    "history": {
+      "verifiedNewFiles": 253,
+      "productsAndHistory": {
+        "sourceFilesVerified": 44,
+        "sourceClean": true,
+        "hostProductionInputsVerified": 95,
+        "lawsonRuntimeFilesVerified": 46,
+        "oldSealsVerified": [
+          {
+            "path": "docs/evidence/lawson-integration-step-1/evidence-manifest.json",
+            "sha256": "095ac6a75c182118bf1fd6c9edc8223149f24960ee7ba6b24569f89c006ece66",
+            "filesVerified": 77
+          },
+          {
+            "path": "docs/evidence/lawson-fullpage-step-1/evidence-manifest.json",
+            "sha256": "dda03a5ab980ee9e2c5db2854e32ee04775a8598f6e4da6283c3cc8bbefbbd1a",
+            "filesVerified": 109
+          },
+          {
+            "path": "docs/evidence/lawson-fullpage-step-2/evidence-manifest.json",
+            "sha256": "d8a62def72d2b46fb070a6ec6935d96633f339e4d762ed7e4aff0e1f7cae448f",
+            "filesVerified": 115
+          },
+          {
+            "path": "docs/evidence/lawson-fullpage-step-3/evidence-manifest.json",
+            "sha256": "a4421b7596c1df520c6dc1c43173c4b2edb8c34b883f7bd72c3c0f696fb8e35a",
+            "filesVerified": 95
+          },
+          {
+            "path": "docs/evidence/lawson-fullpage-step-4/evidence-manifest.json",
+            "sha256": "6b8ee7e2e28ba6d79e99290ed3259d0ed7a0c2f26c404dbd641bb8bb6c176e69",
+            "filesVerified": 95
+          },
+          {
+            "path": "docs/evidence/lawson-fullpage-step-5/evidence-manifest.json",
+            "sha256": "91e43e57678aadd968e378af1549c20d5fc27a61d52cc27db97c8d0a75f7ee2f",
+            "filesVerified": 51
+          },
+          {
+            "path": "docs/evidence/lawson-fullpage-step-6/evidence-manifest.json",
+            "sha256": "fa5a9557e129cabe1f9e893ea4a6b00937caff6b039e87669808d1d478515474",
+            "filesVerified": 315
+          },
+          {
+            "path": "docs/evidence/lawson-fullpage-step-7/evidence-manifest.json",
+            "sha256": "edcc84f6400e7442ffce47734d3352ddda2c4b834fa95d18c21b2fb17118682d",
+            "filesVerified": 750
+          }
+        ],
+        "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+        "trackedHostChanges": "",
+        "sourceCommit": "d94c1f911a39143fd8f5efe152b99a87fdc53184",
+        "hostCommit": "eae15c040aa1527833d844d1bbf81eb551843386",
+        "hostStatus": "?? docs/beach-bottle-boat/\n?? docs/evidence/beach-bottle-boat-step-1/\n?? docs/evidence/beach-bottle-boat-step-3/\n?? public/experiments/bottle-ocean/\n?? src/assets/bottle-ocean-cover.png\n?? tests/beach-bottle-boat-step-1/\n?? tests/beach-bottle-boat-step-3/"
+      }
+    },
+    "existingDistFilesUnchanged": 65,
+    "otherExistingDocumentsUnchanged": 8,
+    "hostCommitUnchanged": true,
+    "sourceCommitUnchanged": true
+  },
+  "runtime": {
+    "schema": 1,
+    "capturedAtShanghai": "2026-11-13T13:55:54.437648+08:00",
+    "projectId": "bottle-ocean",
+    "displayName": "瓶中海洋",
+    "entryPath": "experiments/bottle-ocean/index.html",
+    "sourceCommit": "d94c1f911a39143fd8f5efe152b99a87fdc53184",
+    "sourceHTMLUnmodified": true,
+    "runtimeFiles": [
+      {
+        "path": "public/experiments/bottle-ocean/index.html",
+        "bytes": 1979264,
+        "sha256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+        "role": "complete-original-webpage",
+        "production": {
+          "path": "experiments/bottle-ocean/index.html",
+          "bytes": 1979264,
+          "sha256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+        },
+        "origin": {
+          "repository": "https://github.com/Banagher-001/Beach-Bottle-Boat",
+          "commit": "d94c1f911a39143fd8f5efe152b99a87fdc53184",
+          "path": "index.html"
+        }
+      },
+      {
+        "path": "public/experiments/bottle-ocean/THIRD_PARTY_NOTICES.md",
+        "bytes": 1337,
+        "sha256": "0242e66ea25c3e7d1ba883d5e237065e5daa24fa88d83fba74f6859e3edf7861",
+        "role": "original-third-party-notices",
+        "production": {
+          "path": "experiments/bottle-ocean/THIRD_PARTY_NOTICES.md",
+          "bytes": 1337,
+          "sha256": "0242e66ea25c3e7d1ba883d5e237065e5daa24fa88d83fba74f6859e3edf7861"
+        },
+        "origin": {
+          "repository": "https://github.com/Banagher-001/Beach-Bottle-Boat",
+          "commit": "d94c1f911a39143fd8f5efe152b99a87fdc53184",
+          "path": "THIRD_PARTY_NOTICES.md"
+        }
+      },
+      {
+        "path": "public/experiments/bottle-ocean/SOURCE.md",
+        "bytes": 2611,
+        "sha256": "44961786c9166e69eedb939c65cec7958564e3d8953223c19a340322a29e557b",
+        "role": "new-source-and-running-notes",
+        "production": {
+          "path": "experiments/bottle-ocean/SOURCE.md",
+          "bytes": 2611,
+          "sha256": "44961786c9166e69eedb939c65cec7958564e3d8953223c19a340322a29e557b"
+        }
+      }
+    ],
+    "cover": {
+      "path": "src/assets/bottle-ocean-cover.png",
+      "bytes": 1610905,
+      "sha256": "7fc210e644776fda61efbe4d05a15e75392d5f563a024474dfcd0bfcf23da4fa",
+      "width": 1920,
+      "height": 1080,
+      "source": "docs/evidence/beach-bottle-boat-step-1/interactions/export-1920x1080-ui-visible.png",
+      "alt": "黄昏海岸的玻璃瓶中，三桅帆船随微型海浪起伏",
+      "condition": "Step-1 native screenshot download; Chromium 155; 1920x1080 CSS; DPR1; original fine; PNG contains WebGL scene without DOM panel"
+    },
+    "coverReferencedByHost": false,
+    "sourceDependenciesAddedToHost": false,
+    "originalRebuilt": false
+  },
+  "cleanup": {
+    "finishedAtShanghai": "2026-11-13T13:52:29.120316+08:00",
+    "startupCompleted": true,
+    "services": [
+      {
+        "name": "dev",
+        "pid": 24703,
+        "identityChecked": true,
+        "stopped": true
+      },
+      {
+        "name": "production",
+        "pid": 24710,
+        "identityChecked": true,
+        "stopped": true
+      },
+      {
+        "name": "display",
+        "pid": 24727,
+        "identityChecked": true,
+        "stopped": true
+      }
+    ],
+    "ownedBrowsersRemaining": [],
+    "productionManifestVerifiedBeforeCleanup": 68,
+    "scratch": "/tmp/bottle-ocean-step-3-7s09al1i",
+    "scratchRemoved": true,
+    "otherServicesStopped": false
+  },
+  "browser": {
+    "name": "Chromium",
+    "version": "155.0.8059.79",
+    "softwareRenderer": {
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+      "lost": false
+    }
+  },
+  "scope": {
+    "codingEntryAdded": false,
+    "iframeIntegrated": false,
+    "step2Executed": false,
+    "hostBusinessCodeChanged": false,
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "limits": [
+    "Representative copied-page checks in Linux Chromium only; step-1 Firefox/WebKit scope stays as recorded",
+    "Physical phones, hardware performance and actual hidden-state resume remain unverified",
+    "Full iframe input/lifecycle and host/Lawson regression belong to later steps",
+    "Known original brightness, camera inertia and WebGL-failure issues remain unchanged"
+  ],
+  "diagnosticNotes": {
+    "rawReportsPreserved": true,
+    "diagnosticCorrection": "The initial browser report populated nativeModeToggleUsed unconditionally. That field is not used as evidence of a click or as an acceptance condition. Actual stable readingMode, visible/enabled Coding controls, requests, no iframe and no host API assertions support HOST.* results. The script flag is now conditional; saved browser.py.txt preserves the exact executed version. Assertions and tested product are unchanged.",
+    "testsRepeated": false
+  }
+}

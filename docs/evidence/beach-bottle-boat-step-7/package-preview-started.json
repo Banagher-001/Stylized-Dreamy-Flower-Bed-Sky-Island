@@ -1,0 +1,38 @@
+{
+  "startedAtShanghai": "2026-11-14T16:28:29.721757+08:00",
+  "siteDirectory": "/tmp/bottle-ocean-step-7-v_4ap9fa/独立 解压验证/成品 网站",
+  "processes": [
+    {
+      "name": "root",
+      "pid": 163570,
+      "argv": [
+        "node",
+        "scripts/preview-site.mjs",
+        "--port",
+        "58815",
+        "--base",
+        "/",
+        "--strict-port",
+        "--json"
+      ],
+      "startTicks": "11080401",
+      "url": "http://127.0.0.1:58815/"
+    },
+    {
+      "name": "prefix",
+      "pid": 163582,
+      "argv": [
+        "node",
+        "scripts/preview-site.mjs",
+        "--port",
+        "34473",
+        "--base",
+        "/portfolio-check/",
+        "--strict-port",
+        "--json"
+      ],
+      "startTicks": "11080425",
+      "url": "http://127.0.0.1:34473/portfolio-check/"
+    }
+  ]
+}

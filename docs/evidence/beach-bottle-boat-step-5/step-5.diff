@@ -1,0 +1,411 @@
+--- before/src/tour/createLawsonExperience.ts
++++ after/src/tour/createLawsonExperience.ts
+@@ -1,114 +1,21 @@
+-import type { EmbeddedProjectState } from './projectContent';
++import { createEmbeddedPageExperience } from './createEmbeddedPageExperience';
++import type { EmbeddedPageOptions } from './createEmbeddedPageExperience';
+ 
+ interface LawsonWindow extends Window { __LAWSON__?: { ready?: boolean; error?: unknown } }
+-interface LawsonExperienceOptions {
+-  container: HTMLElement;
+-  entry: string;
+-  wanted(): boolean;
+-  status(state: EmbeddedProjectState, message?: string): void;
++
++/** Preserve LAWSON's existing signals and public lifecycle. */
++export function createLawsonExperience(options: EmbeddedPageOptions) {
++  return createEmbeddedPageExperience(options, {
++    title: '罗森便利店 · 完整交互网页',
++    canvasSelector: 'canvas#viewport',
++    inspect(doc, win, canvas) {
++      const api = (win as LawsonWindow).__LAWSON__, fatal = doc.getElementById('fatal');
++      const style = fatal ? win.getComputedStyle(fatal) : undefined;
++      const visibleFatal = !!fatal && !!fatal.getClientRects().length && style?.display !== 'none' && style?.visibility !== 'hidden' && style?.opacity !== '0';
++      if (doc.readyState === 'complete' && (!doc.getElementById('app') || !canvas)) return { state: 'error', message: '页面未能正常打开' };
++      if (visibleFatal || api?.error || doc.body?.dataset.ready === 'error') return { state: 'error' };
++      if (api?.ready === true) return { state: 'ready', message: doc.fullscreenEnabled === false ? '此浏览器未开放全屏，仍可在当前窗口操作场景' : undefined };
++      return { state: 'loading' };
++    },
++  });
+ }
+-
+-/** Own one original, unmodified document. Never reuse its API across reloads. */
+-export function createLawsonExperience(options: LawsonExperienceOptions) {
+-  let disposed = false, generation = 0;
+-  let frame: HTMLIFrameElement | undefined, layoutFrame: number | undefined, timer: number | undefined;
+-  let listeners: AbortController | undefined;
+-  let documentListeners: AbortController | undefined;
+-  function unmount() {
+-    generation++;
+-    if (layoutFrame !== undefined) cancelAnimationFrame(layoutFrame);
+-    layoutFrame = undefined;clearTimeout(timer);timer = undefined;listeners?.abort();listeners = undefined;
+-    documentListeners?.abort();documentListeners = undefined;
+-    const previous = frame;frame = undefined;
+-    if (!previous) return;
+-    try {
+-      const doc = previous.contentDocument;
+-      if (doc?.pointerLockElement) doc.exitPointerLock();
+-      if (document.fullscreenElement === previous) void document.exitFullscreen().catch(() => {});
+-      else if (doc?.fullscreenElement) void doc.exitFullscreen().catch(() => {});
+-    } catch { /* Removal still releases an inaccessible or navigating document. */ }
+-    previous.remove();
+-  }
+-  function mount() {
+-    if (disposed || !options.wanted() || frame || layoutFrame !== undefined) return;
+-    const token = ++generation;
+-    options.status('loading');
+-    // The viewer's open callback precedes showModal. Size the original document
+-    // only after that synchronous open has completed, and cancel fast exits.
+-    layoutFrame = requestAnimationFrame(() => {
+-      layoutFrame = undefined;
+-      if (disposed || generation !== token || !options.wanted() || !options.container.getClientRects().length) return;
+-      const item = document.createElement('iframe');frame = item;
+-      item.title = '罗森便利店 · 完整交互网页';item.allow = 'fullscreen';item.allowFullscreen = true;
+-      listeners = new AbortController();
+-      let currentDocument: Document | undefined, documentGeneration = 0;
+-      let startedAt = performance.now(), state: EmbeddedProjectState = 'loading';
+-      let observedCanvas: HTMLCanvasElement | undefined, graphicsLost = false, graphicsRestored = false;
+-      let message: string | undefined;
+-      const owns = () => !disposed && generation === token && frame === item && options.wanted();
+-      function publish(next: EmbeddedProjectState, reason?: string) {
+-        if (owns() && (next !== state || reason !== message)) { state = next;message = reason;options.status(next, reason); }
+-      }
+-      function observe() {
+-        if (!owns()) return;
+-        clearTimeout(timer);timer = undefined;
+-        let next: EmbeddedProjectState = performance.now() - startedAt >= 12000 ? 'slow' : 'loading';
+-        let reason: string | undefined;
+-        try {
+-          const doc = item.contentDocument;
+-          if (doc && doc.URL !== 'about:blank') {
+-            if (doc !== currentDocument) {
+-              currentDocument = doc;documentGeneration++;startedAt = performance.now();next = 'loading';
+-              documentListeners?.abort();documentListeners = new AbortController();
+-              observedCanvas = undefined;graphicsLost = false;graphicsRestored = false;
+-              publish('loading');
+-            }
+-            const canvas = doc.querySelector<HTMLCanvasElement>('canvas#viewport');
+-            if (canvas && canvas !== observedCanvas) {
+-              observedCanvas = canvas;
+-              canvas.addEventListener('webglcontextlost', () => {
+-                if (!owns() || currentDocument !== doc || observedCanvas !== canvas) return;
+-                graphicsLost = true;graphicsRestored = false;observe();
+-              }, { signal: documentListeners!.signal });
+-              canvas.addEventListener('webglcontextrestored', () => {
+-                if (!owns() || currentDocument !== doc || observedCanvas !== canvas) return;
+-                // The original ready flag predates this GPU generation. A
+-                // fresh document is the reliable recovery boundary available.
+-                graphicsRestored = true;observe();
+-              }, { signal: documentListeners!.signal });
+-            }
+-            const api = (item.contentWindow as LawsonWindow | null)?.__LAWSON__;
+-            const fatal = doc.getElementById('fatal');
+-            const style = fatal ? item.contentWindow!.getComputedStyle(fatal) : undefined;
+-            const visibleFatal = !!fatal && !!fatal.getClientRects().length && style?.display !== 'none' && style?.visibility !== 'hidden' && style?.opacity !== '0';
+-            const wrongDocument = doc.readyState === 'complete' && (!doc.getElementById('app') || !canvas);
+-            if (wrongDocument) { next = 'error';reason = '页面未能正常打开'; }
+-            else if (visibleFatal || api?.error || doc.body?.dataset.ready === 'error') next = 'error';
+-            else if (graphicsLost) { next = 'error';reason = graphicsRestored ? '图形连接已恢复，请重新载入场景' : '图形连接已中断'; }
+-            else if (api?.ready === true) {
+-              next = 'ready';
+-              if (doc.fullscreenEnabled === false) reason = '此浏览器未开放全屏，仍可在当前窗口操作场景';
+-            }
+-          }
+-        } catch { /* No trustworthy signal yet: retain loading/slow and exits. */ }
+-        publish(next, reason);
+-        const docToken = documentGeneration;
+-        const scheduled = window.setTimeout(() => {
+-          if (!owns() || timer !== scheduled || docToken !== documentGeneration) return;
+-          timer = undefined;observe();
+-        }, state === 'ready' ? 500 : 200);
+-        timer = scheduled;
+-      }
+-      item.addEventListener('load', observe, { signal: listeners.signal });
+-      document.addEventListener('visibilitychange', () => { if (!document.hidden) observe(); }, { signal: listeners.signal });
+-      window.addEventListener('pageshow', observe, { signal: listeners.signal });
+-      item.src = options.entry;options.container.append(item);observe();
+-    });
+-  }
+-  return {
+-    mount,
+-    retry() { if (!disposed && options.wanted()) { unmount();mount(); } },
+-    unmount,
+-    dispose() { if (!disposed) { disposed = true;unmount(); } },
+-  };
+-}
+--- /dev/null
++++ after/src/tour/createEmbeddedPageExperience.ts
+@@ -0,0 +1,127 @@
++import type { EmbeddedProjectState } from './projectContent';
++
++export interface PageInspection {
++  state: 'loading' | 'ready' | 'error';
++  message?: string;
++  graphicsLost?: boolean;
++}
++export interface EmbeddedPageProfile {
++  title: string;
++  canvasSelector: string;
++  readyEvent?: string;
++  inspect(doc: Document, win: Window, canvas: HTMLCanvasElement | null): PageInspection;
++}
++export interface EmbeddedPageOptions {
++  container: HTMLElement;
++  entry: string;
++  wanted(): boolean;
++  status(state: EmbeddedProjectState, message?: string): void;
++}
++
++/** Own a document, never its simulation. Retries and navigations have distinct identities. */
++export function createEmbeddedPageExperience(options: EmbeddedPageOptions, profile: EmbeddedPageProfile) {
++  let disposed = false, generation = 0;
++  let frame: HTMLIFrameElement | undefined, layoutFrame: number | undefined, timer: number | undefined;
++  let listeners: AbortController | undefined, releaseDocument: (() => void) | undefined;
++  function unmount() {
++    generation++;
++    if (layoutFrame !== undefined) cancelAnimationFrame(layoutFrame);
++    layoutFrame = undefined;clearTimeout(timer);timer = undefined;
++    listeners?.abort();listeners = undefined;releaseDocument?.();releaseDocument = undefined;
++    const previous = frame;frame = undefined;
++    if (!previous) return;
++    try {
++      const doc = previous.contentDocument;
++      if (doc?.pointerLockElement) doc.exitPointerLock();
++      if (document.fullscreenElement === previous) void document.exitFullscreen().catch(() => {});
++      else if (doc?.fullscreenElement) void doc.exitFullscreen().catch(() => {});
++    } catch { /* Removal also handles inaccessible or navigating documents. */ }
++    previous.remove();
++  }
++  function mount() {
++    if (disposed || !options.wanted() || frame || layoutFrame !== undefined) return;
++    const token = ++generation;
++    options.status('loading');
++    layoutFrame = requestAnimationFrame(() => {
++      layoutFrame = undefined;
++      if (disposed || generation !== token || !options.wanted() || !options.container.getClientRects().length) return;
++      const item = document.createElement('iframe');frame = item;
++      item.title = profile.title;item.allow = 'fullscreen';item.allowFullscreen = true;
++      listeners = new AbortController();
++      const expected = new URL(options.entry, document.baseURI);
++      let currentDocument: Document | undefined, observedCanvas: HTMLCanvasElement | undefined;
++      let documentListeners: AbortController | undefined, canvasListeners: AbortController | undefined;
++      let documentGeneration = 0, graphicsLost = false, graphicsRestored = false, loaded = false;
++      let startedAt = performance.now(), state: EmbeddedProjectState = 'loading', message: string | undefined;
++      const owns = () => !disposed && generation === token && frame === item && options.wanted();
++      releaseDocument = () => {
++        documentListeners?.abort();canvasListeners?.abort();
++        documentListeners = undefined;canvasListeners = undefined;currentDocument = undefined;observedCanvas = undefined;
++      };
++      function publish(next: EmbeddedProjectState, reason?: string) {
++        if (owns() && (next !== state || reason !== message)) { state = next;message = reason;options.status(next, reason); }
++      }
++      function observe() {
++        if (!owns()) return;
++        clearTimeout(timer);timer = undefined;
++        let next: EmbeddedProjectState = performance.now() - startedAt >= 12000 ? 'slow' : 'loading';
++        let reason: string | undefined;
++        try {
++          const doc = item.contentDocument, win = item.contentWindow;
++          if (doc && win && doc.URL !== 'about:blank') {
++            const url = new URL(doc.URL);
++            if (url.origin !== expected.origin || url.pathname !== expected.pathname) {
++              next = 'error';reason = '页面未能正常打开';
++            } else {
++              if (doc !== currentDocument) {
++                const replacement = !!currentDocument;
++                documentListeners?.abort();canvasListeners?.abort();documentGeneration++;
++                currentDocument = doc;observedCanvas = undefined;graphicsLost = false;graphicsRestored = false;
++                documentListeners = new AbortController();canvasListeners = undefined;
++                if (replacement) { startedAt = performance.now();next = 'loading'; }
++                if (profile.readyEvent) win.addEventListener(profile.readyEvent, () => {
++                  if (owns() && currentDocument === doc) observe();
++                }, { signal: documentListeners.signal });
++              }
++              const canvas = doc.querySelector<HTMLCanvasElement>(profile.canvasSelector);
++              if (canvas && canvas !== observedCanvas) {
++                canvasListeners?.abort();canvasListeners = new AbortController();observedCanvas = canvas;
++                canvas.addEventListener('webglcontextlost', () => {
++                  if (!owns() || currentDocument !== doc || observedCanvas !== canvas) return;
++                  graphicsLost = true;graphicsRestored = false;observe();
++                }, { signal: canvasListeners.signal });
++                canvas.addEventListener('webglcontextrestored', () => {
++                  if (!owns() || currentDocument !== doc || observedCanvas !== canvas) return;
++                  graphicsLost = true;graphicsRestored = true;observe();
++                }, { signal: canvasListeners.signal });
++              }
++              const inspection = profile.inspect(doc, win, canvas);
++              if (inspection.graphicsLost) graphicsLost = true;
++              if (graphicsLost) { next = 'error';reason = graphicsRestored ? '图形连接已恢复，请重新载入场景' : '图形连接已中断，请重新载入场景'; }
++              else if (inspection.state !== 'loading') { next = inspection.state;reason = inspection.message; }
++            }
++          } else if (loaded && !doc) { next = 'error';reason = '无法确认页面状态，可重新载入或独立打开'; }
++        } catch {
++          if (loaded) { next = 'error';reason = '无法确认页面状态，可重新载入或独立打开'; }
++        }
++        publish(next, reason);
++        const docToken = documentGeneration;
++        const scheduled = window.setTimeout(() => {
++          if (!owns() || timer !== scheduled || docToken !== documentGeneration) return;
++          timer = undefined;observe();
++        }, state === 'ready' ? 500 : 200);
++        timer = scheduled;
++      }
++      item.addEventListener('load', () => { loaded = true;observe(); }, { signal: listeners.signal });
++      document.addEventListener('visibilitychange', () => { if (!document.hidden) observe(); }, { signal: listeners.signal });
++      window.addEventListener('pageshow', observe, { signal: listeners.signal });
++      item.src = options.entry;options.container.append(item);observe();
++    });
++  }
++  return {
++    mount,
++    retry() { if (!disposed && options.wanted()) { unmount();mount(); } },
++    unmount,
++    dispose() { if (!disposed) { disposed = true;unmount(); } },
++  };
++}
+--- /dev/null
++++ after/src/tour/createBottleOceanExperience.ts
+@@ -0,0 +1,33 @@
++import { createEmbeddedPageExperience } from './createEmbeddedPageExperience';
++import type { EmbeddedPageOptions } from './createEmbeddedPageExperience';
++
++interface BottleWindow extends Window {
++  __bottleError?: unknown;
++  __bottleOcean?: {
++    ready?: boolean;
++    renderer?: { domElement: HTMLCanvasElement; getContext(): WebGLRenderingContext | WebGL2RenderingContext };
++    getDiagnostics?(): { renderer?: { calls?: number; triangles?: number } };
++  };
++}
++
++/** Read the original's signals without controlling its clock, parameters or camera. */
++export function createBottleOceanExperience(options: EmbeddedPageOptions) {
++  return createEmbeddedPageExperience(options, {
++    title: '瓶中海洋 · 完整交互网页',
++    canvasSelector: 'canvas#gl',
++    readyEvent: 'bottle-ocean-ready',
++    inspect(doc, win, canvas) {
++      const source = win as BottleWindow, api = source.__bottleOcean;
++      const loader = doc.getElementById('loader'), errorText = doc.getElementById('loader-error')?.textContent?.trim();
++      const context = api?.renderer?.getContext();
++      if (context?.isContextLost()) return { state: 'error', graphicsLost: true };
++      if (source.__bottleError || errorText) return { state: 'error', message: '场景暂时无法完成载入' };
++      if (doc.readyState === 'complete' && (!canvas || !loader || !api)) return { state: 'error', message: '页面未能正常打开' };
++      if (api?.ready === true && canvas?.isConnected && api.renderer?.domElement === canvas && context) {
++        const bounds = canvas.getBoundingClientRect(), draw = api.getDiagnostics?.().renderer;
++        if (bounds.width > 0 && bounds.height > 0 && canvas.width > 0 && canvas.height > 0 && loader && win.getComputedStyle(loader).display === 'none' && (draw?.calls ?? 0) > 0 && (draw?.triangles ?? 0) > 0) return { state: 'ready' };
++      }
++      return { state: 'loading' };
++    },
++  });
++}
+--- before/src/tour/startTourPrototype.ts
++++ after/src/tour/startTourPrototype.ts
+@@ -29,6 +29,7 @@
+ import { createExperimentReader } from './createExperimentReader';
+ import { createProjectViewer } from './createProjectViewer';
+ import { createLawsonExperience } from './createLawsonExperience';
++import { createBottleOceanExperience } from './createBottleOceanExperience';
+ import { resolveProjectEntry } from './projectContent';
+ import { chapterLabels, createTourPresentation } from './presentation';
+ import { createReadingLayout } from './createReadingLayout';
+@@ -100,6 +101,7 @@
+ let mediaViewer: ReturnType<typeof createMediaViewer>;
+ let projectViewer: ReturnType<typeof createProjectViewer>;
+ let lawsonExperience: ReturnType<typeof createLawsonExperience> | undefined;
++let bottleOceanExperience: ReturnType<typeof createBottleOceanExperience> | undefined;
+ const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id));
+ const filmReader = createFilmReader(app, host, (id) => filmMagic?.getAnchor(id), (media, trigger) => mediaViewer.open(media, trigger));
+ const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), (id, tab, trigger) => projectViewer.open(id, tab, trigger), () => { guide?.stop('已切换作品，可从当前位置继续导览。');readingLayout?.resize(); });
+@@ -218,24 +220,39 @@
+   host.dataset.projectId = current?.id ?? '';animation.resetTimestamp();
+   if (!failed) applyCamera();syncAnimation(animation.state);
+ }
+-function syncLawson() {
++function syncEmbeddedExperience() {
+   const current = activeProject();
+-  if (current?.id === 'lawson' && current.tab === 'live') lawsonExperience?.mount();
+-  else lawsonExperience?.unmount();
++  const lawson = current?.id === 'lawson' && current.tab === 'live';
++  const bottle = current?.id === 'bottle-ocean' && current.tab === 'live';
++  if (!lawson) lawsonExperience?.unmount();
++  if (!bottle) bottleOceanExperience?.unmount();
++  if (lawson) lawsonExperience?.mount();
++  else if (bottle) bottleOceanExperience?.mount();
+ }
+ projectViewer = createProjectViewer(app, {
+-  open() { mediaViewer.close();beginOverlay('project');syncProject();syncLawson(); },
+-  change() { syncLawson();syncProject(); },
+-  close() { lawsonExperience?.unmount();closeOverlay('project'); },
++  open() { mediaViewer.close();beginOverlay('project');syncProject();syncEmbeddedExperience(); },
++  change() { syncEmbeddedExperience();syncProject(); },
++  close() { lawsonExperience?.unmount();bottleOceanExperience?.unmount();closeOverlay('project'); },
+   mode: setMode,
+   motion() { animation.toggle(); },
+-  retry() { lawsonExperience?.retry(); },
++  retry() {
++    const current = activeProject();
++    if (current?.tab !== 'live') return;
++    if (current.id === 'lawson') lawsonExperience?.retry();
++    else if (current.id === 'bottle-ocean') bottleOceanExperience?.retry();
++  },
+ });
+ lawsonExperience = createLawsonExperience({
+   container: projectViewer.embeddedMount,
+   entry: resolveProjectEntry('lawson')!,
+   wanted: () => !disposed && activeProject()?.id === 'lawson' && activeProject()?.tab === 'live',
+   status: (state, message) => projectViewer.setEmbeddedStatus('lawson', state, message),
++});
++bottleOceanExperience = createBottleOceanExperience({
++  container: projectViewer.embeddedMount,
++  entry: resolveProjectEntry('bottle-ocean')!,
++  wanted: () => !disposed && activeProject()?.id === 'bottle-ocean' && activeProject()?.tab === 'live',
++  status: (state, message) => projectViewer.setEmbeddedStatus('bottle-ocean', state, message),
+ });
+ 
+ function experiencePose() {
+@@ -655,7 +672,7 @@
+ function dispose() {
+   if (disposed) return;
+   disposed = true;
+-  lawsonExperience?.dispose();
++  lawsonExperience?.dispose();bottleOceanExperience?.dispose();
+   listenerController.abort();
+   guide?.dispose();guideLayoutObserver.disconnect();
+   if (restoreFrame !== undefined) cancelAnimationFrame(restoreFrame);
+--- before/src/tour/createProjectViewer.ts
++++ after/src/tour/createProjectViewer.ts
+@@ -40,13 +40,13 @@
+   const active = (): ActiveProject => ({ id: projectId, tab: selected });
+   function refreshEmbeddedFeedback() {
+     const state = dialog.dataset.embeddedState;
+-    const activeLive = engaged && projectId === 'lawson' && selected === 'live';
++    const activeLive = engaged && isPageProject(projects[projectId]) && selected === 'live';
+     const retryable = state === 'slow' || state === 'error', capability = state === 'ready' && !!embeddedMessage;
+     feedback.hidden = !(activeLive && (retryable || capability));embeddedRetry.hidden = !(activeLive && retryable);
+     feedback.textContent = capability ? embeddedMessage! : state === 'error' ? `${embeddedMessage ?? '暂时无法完成载入'}，可重新载入或独立打开。` : '载入时间较长，可继续等待、重新载入或独立打开。';
+   }
+   function setEmbeddedStatus(owner: ProjectId, state: EmbeddedProjectState, message?: string) {
+-    if (!engaged || projectId !== owner || !isPageProject(projects[projectId])) return;
++    if (!engaged || projectId !== owner || !isPageProject(projects[projectId]) || (state !== 'prepared' && selected !== 'live')) return;
+     dialog.dataset.embeddedState = state;prepared.hidden = state !== 'prepared';embeddedMessage = message;
+     dialog.querySelector<HTMLElement>('.tour-project-embed-status')!.textContent = message ?? ({ prepared: '可独立体验', loading: '正在载入', slow: '载入较慢', error: '暂未就绪', ready: '' }[state]);
+     embeddedMount.setAttribute('aria-busy', String(state === 'loading' || state === 'slow'));
+--- before/src/tour/projectContent.ts
++++ after/src/tour/projectContent.ts
+@@ -24,13 +24,13 @@
+     ],
+   },
+   'bottle-ocean': {
+-    id: 'bottle-ocean', label: 'BOTTLE OCEAN', title: '瓶中海洋', shortTitle: '瓶中海洋', kind: '交互网页 · 像素场景', primaryAction: '打开完整网页',
++    id: 'bottle-ocean', label: 'BOTTLE OCEAN', title: '瓶中海洋', shortTitle: '瓶中海洋', kind: '交互网页 · 像素场景', primaryAction: '进入完整网页',
+     summary: '黄昏海岸的一只玻璃瓶，装着起伏的海浪与随波浮沉的三桅帆船。',
+     cover: { src: bottleOceanCover, width: 1920, height: 1080, alt: '黄昏海岸的玻璃瓶中，三桅帆船随微型海浪起伏' },
+     experience: { kind: 'embedded-page', entryPath: 'experiments/bottle-ocean/index.html' },
+     introduction: '拖动镜头绕过玻璃，看浪头托起船身；调整风、浪与水位，再在沙地留下自己的布置。',
+     archive: { kicker: 'BOTTLE OCEAN / INTERACTIVE WORLD', headline: ['让一片海，', '托起一艘船。'], caption: '瓶中海洋 · 黄昏海岸' },
+-    prepared: { description: '在新窗口探索完整海岸，调整海浪、切换镜头、布置沙滩。' },
++    prepared: { description: '调整海浪、切换镜头、布置沙滩，也可在新窗口独立体验。' },
+     features: [
+       { title: '海浪与船体', body: '波高、速度、方向与水位变化，带动船体浮沉、俯仰和横摇。' },
+       { title: '黄昏像素海岸', body: '玻璃瓶、外海与灯塔组成微缩海岸，可以调节夕阳、亮度和像素强度。' },

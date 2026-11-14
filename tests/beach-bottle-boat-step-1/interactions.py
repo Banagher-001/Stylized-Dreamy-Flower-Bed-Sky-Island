@@ -1,0 +1,107 @@
+"""Native camera, keyboard, sandbox, playback and real PNG downloads."""
+import json,math,struct,time
+from common import Run,arguments,SNAP
+args=arguments();r=Run(args,'interactions');c,p=r.new(1280,720);r.ready();r.quality('retro')
+def camera():return p.evaluate('__bottleOcean.cameraRig.getState()')
+def distance(a,b):return math.dist(a,b)
+def settle():p.wait_for_timeout(1450);r.frames(4)
+def canvas_focus():p.mouse.click(100,190);r.frames()
+def props():return p.evaluate('''()=>{const a=[];__bottleOcean.scene.traverse(o=>{if(o.userData.propKind)a.push({uuid:o.uuid,kind:o.userData.propKind,position:o.parent.position.toArray()})});return a}''')
+def pick(kind):
+ return p.evaluate('''kind=>{const b=__bottleOcean,T=b.THREE,e=b.environment,ray=new T.Raycaster(),rect=b.renderer.domElement.getBoundingClientRect(),v=new T.Vector3();
+ const desc=(o,a)=>{for(;o;o=o.parent)if(o===a)return true;return false};
+ const projected=w=>{v.copy(w).project(b.camera);return {x:(v.x+1)*rect.width/2,y:(1-v.y)*rect.height/2}};
+ let candidates=[];
+ if(kind==='bottle')candidates.push(projected(b.bottle.root.position),projected(b.boat.root.position));
+ if(kind==='lighthouse')for(const obj of e.lighthouse.hitObjects){const box=new T.Box3().setFromObject(obj);for(const f of[.7,.85,.5,.35])candidates.push(projected(new T.Vector3((box.min.x+box.max.x)/2,box.min.y+(box.max.y-box.min.y)*f,(box.min.z+box.max.z)/2)))}
+ if(kind==='ground'||kind==='edit'||kind==='ocean')for(const z of[4,2,6,0,8,-2,-5])for(const x of[-3,-1,1,3,-5,5,8,-8])candidates.push(projected(new T.Vector3(x,e.getSandHeight(x,z),z)));
+ const all=[b.bottle.glassMesh,b.bottle.corkMesh,b.boat.root,...e.lighthouse.hitObjects,...e.raycastTargets];
+ const blocked=new Set([e.ocean,...e.lighthouse.hitObjects]),edit=[e.terrain,e.rocks].filter(Boolean);
+ for(const o of e.raycastTargets)if(o&&!blocked.has(o)&&!blocked.has(o.parent)&&o.name!=='birds'&&o.name!=='seaBirds'&&!o.material?.transparent&&!edit.includes(o))edit.push(o);
+ for(const pos of candidates){if(pos.x<20||pos.y<80||pos.x>innerWidth-20||pos.y>innerHeight-25||document.elementFromPoint(pos.x,pos.y)!==b.renderer.domElement)continue;
+ ray.setFromCamera(new T.Vector2(pos.x/rect.width*2-1,1-pos.y/rect.height*2),b.camera);const hits=ray.intersectObjects(kind==='edit'?edit:all,true);if(!hits.length)continue;
+ let h=hits[0];const bottleHit=hits.find(h=>desc(h.object,b.bottle.root)||desc(h.object,b.boat.root)),lightHit=hits.find(h=>desc(h.object,e.lighthouse.group));
+ if(kind==='bottle'&&!bottleHit)continue;if(kind==='lighthouse'&&!desc(h.object,e.lighthouse.group))continue;
+ if(kind==='ground'&&(bottleHit||lightHit||h.object!==e.terrain))continue;
+ if(kind==='edit'&&b.bottle.isInsideCavity(h.point,.02))continue;
+ if(kind==='ocean'&&h.object!==e.ocean)continue;
+ return {...pos,point:h.point.toArray(),object:h.object.name,objectType:h.object.type,insideBottle:b.bottle.isInsideCavity(h.point,.02)};
+ }return null}''',kind)
+def download(label):
+ before=r.snapshot()
+ with p.expect_download(timeout=30000)as wait:p.locator('[data-action=screenshot]').click()
+ d=wait.value;target=r.folder/(label+'.png');d.save_as(str(target));raw=target.read_bytes();assert raw[:8]==b'\x89PNG\r\n\x1a\n';w,h=struct.unpack('>II',raw[16:24]);assert [w,h]==[round(before['canvas']['width']*min(before['dpr'],2)),round(before['canvas']['height']*min(before['dpr'],2))]
+ return {'name':d.suggested_filename,'bytes':len(raw),'PNG':[w,h],'before':before,'saved':target.name,'downloadError':d.failure()}
+try:
+ def presets():
+  rows=[]
+  for name in['cinema','side','top','closeup','panorama']:
+   before=camera();p.locator('[data-preset='+name+']').click();settle();after=camera();assert after['preset']==name
+   assert abs(after['fov']-{'cinema':42,'side':39,'top':44,'closeup':36,'panorama':47}[name])<.01
+   if name!='cinema':assert distance(before['position'],after['position'])>.1
+   r.picture('camera-'+name);rows.append({'preset':name,'before':before,'after':after})
+  return {'nativePresetButtons':rows}
+ r.check('CAMERA.five-presets','五个真实镜头按钮及补间结果',presets)
+ def pointer():
+  r.reset();settle();rows=[]
+  for action in['rotate','pan','zoom']:
+   before=camera();p.mouse.move(270,230)
+   if action=='zoom':p.mouse.wheel(0,350)
+   else:
+    p.mouse.down(button='right'if action=='pan'else'left');p.mouse.move(410,285,steps=10);p.mouse.up(button='right'if action=='pan'else'left')
+   r.frames(16);after=camera();assert distance(before['position'],after['position'])>.005
+   if action=='pan':assert distance(before['target'],after['target'])>.005
+   if action=='zoom':assert abs(before['distance']-after['distance'])>.05
+   rows.append({'action':action,'before':before,'after':after})
+  p.locator('[data-action=resetCamera]').click();settle();restored=camera();r.picture('reset-camera-after-input');return {'inputs':rows,'restored':restored,'resetErrorVsDeclaredCinema':distance(restored['position'],[.55,2.15,6.5]),'note':'Observed residual damping retained; no API reset'}
+ r.check('CAMERA.pointer-reset','左旋右移、滚轮和原恢复镜头',pointer)
+ def picking():
+  rows=[]
+  for kind in['bottle','ground','lighthouse']:
+   r.reset();settle()
+   if kind=='lighthouse':p.locator('#control-panel [data-action=toggleUI]').click();p.wait_for_timeout(450)
+   pt=pick(kind);assert pt,kind+' visible raycast candidate not found'
+   before=camera();lightBefore=p.evaluate('__bottleOcean.state.lighthouse')
+   if kind=='lighthouse':p.mouse.click(pt['x'],pt['y']);r.frames();assert p.evaluate('__bottleOcean.state.lighthouse')is not lightBefore
+   else:p.mouse.dblclick(pt['x'],pt['y'],delay=95);settle();assert distance(before['target'],camera()['target'])>.05
+   rows.append({'kind':kind,'nativePoint':pt,'cameraBefore':before,'cameraAfter':camera(),'lighthouseBefore':lightBefore,'lighthouseAfter':p.evaluate('__bottleOcean.state.lighthouse')})
+  pt=pick('lighthouse');assert pt;before=p.evaluate('__bottleOcean.state.lighthouse');p.mouse.dblclick(pt['x'],pt['y'],delay=95);settle();rows.append({'kind':'lighthouse-double-click','before':before,'after':p.evaluate('__bottleOcean.state.lighthouse'),'camera':camera(),'note':'Two native pointer-up toggles plus dblclick handler are original sequence'})
+  return {'picking':rows}
+ r.check('POINTER.scene-picking','双击瓶子/地面、点击/双击灯塔',picking)
+ def keyboard():
+  r.reset();settle();canvas_focus();p.keyboard.press('h');assert p.evaluate('document.body.classList.contains("ui-hidden")');p.keyboard.press('h');assert not p.evaluate('document.body.classList.contains("ui-hidden")')
+  p.locator('#waveHeight').focus();before=p.evaluate('__bottleOcean.state.paused');p.keyboard.press('h');p.keyboard.press('Space');assert not p.evaluate('document.body.classList.contains("ui-hidden")');assert p.evaluate('__bottleOcean.state.paused')==before
+  canvas_focus();p.keyboard.press('Space');assert p.evaluate('__bottleOcean.state.paused');p.keyboard.press('Space');assert not p.evaluate('__bottleOcean.state.paused')
+  p.locator('[data-action=pause]').focus();p.keyboard.press('Space');assert p.evaluate('__bottleOcean.state.paused');p.keyboard.press('Space');assert not p.evaluate('__bottleOcean.state.paused')
+  p.locator('[data-edit=rock]').click();assert p.evaluate('__bottleOcean.state.editMode')=='rock';p.locator('#waveHeight').focus();p.keyboard.press('Escape');assert p.evaluate('__bottleOcean.state.editMode')is None;assert not p.evaluate('document.body.classList.contains("edit-active")')
+  return {'nativeKeys':p.evaluate('__baseline.keys'),'buttonSpace':'native button activation toggles once; global handler skips BUTTON','inputFocus':'H/Space protected; Escape exits edit mode'}
+ r.check('KEYBOARD.original','H、空格、Escape及输入/按钮焦点',keyboard)
+ def playback():
+  r.reset();settle();r.frames(4);running=r.snapshot();p.locator('[data-action=pause]').click();r.frames(2);a=r.snapshot();r.frames(10);b=r.snapshot();assert a['diagnostics']['simTime']==b['diagnostics']['simTime'];assert a['diagnostics']['boat']==b['diagnostics']['boat'];assert b['draws']>a['draws']
+  p.mouse.move(270,230);p.mouse.down();p.mouse.move(335,250,steps=6);p.mouse.up();r.frames(6);moved=r.snapshot();assert distance(a['diagnostics']['camera']['position'],moved['diagnostics']['camera']['position'])>.01;assert moved['diagnostics']['simTime']==a['diagnostics']['simTime']
+  p.locator('[data-action=pause]').click();r.frames(6);resumed=r.snapshot();assert resumed['diagnostics']['simTime']>b['diagnostics']['simTime']
+  return {'running':running,'pausedStart':a,'pausedEnd':b,'pausedCameraMoved':moved,'resumed':resumed,'pauseStopsRAF':False,'pauseStopsDrawing':False}
+ r.check('PLAYBACK.freeze-resume','真实暂停冻结模拟、仍绘制且相机可用',playback)
+ def sandbox():
+  r.reset();settle();initial=props();assert not initial;rows=[]
+  for kind in['rock','shell']:
+   p.locator('[data-edit='+kind+']').click();assert p.evaluate('__bottleOcean.state.editMode')==kind
+   pt=pick('edit');assert pt;before=props();p.mouse.click(pt['x'],pt['y']);r.frames(3);after=props();assert len(after)==len(before)+1 and after[-1]['kind']==kind;rows.append({'kind':kind,'point':pt,'before':before,'after':after});r.picture('placed-'+kind)
+  p.locator('[data-action=undoProp]').click();r.frames();undo=props();assert len(undo)==1 and undo[0]['kind']=='rock'
+  pt=pick('edit');assert pt;p.mouse.move(pt['x'],pt['y']);p.mouse.down();p.mouse.move(pt['x']+45,pt['y']-15,steps=5);p.mouse.up();r.frames();assert len(props())==1
+  p.keyboard.press('Escape');assert p.evaluate('__bottleOcean.state.editMode')is None;pt=pick('edit');assert pt;p.mouse.click(pt['x'],pt['y']);r.frames();assert len(props())==1
+  p.locator('[data-edit=shell]').click();pt=pick('edit');assert pt;p.mouse.click(pt['x'],pt['y']);r.frames();assert len(props())==2
+  p.locator('[data-action=resetProps]').click();r.frames();assert props()==[];p.keyboard.press('Escape');return {'placements':rows,'undo':undo,'dragDidNotPlace':True,'ordinaryClickDidNotPlace':True,'replacedCountBeforeReset':2,'resetProps':props(),'sandboxRules':'Terrain/opaque ground raycasts; cavity rejected by original code; all terrain pixels/cap not claimed'}
+ r.check('SANDBOX.real-props','石头、贝壳、真实新增对象、撤销、拖动与恢复',sandbox)
+ def reset_all():
+  r.reset();r.slider('waveHeight',100);r.slider('brightness',1.6);p.locator('[data-toggle=dust]').click();p.locator('[data-preset=top]').click();settle();p.locator('[data-edit=rock]').click();pt=pick('edit');assert pt;p.mouse.click(pt['x'],pt['y']);r.frames();assert props();p.locator('[data-action=pause]').click();assert p.evaluate('__bottleOcean.state.paused');before=r.snapshot();p.locator('[data-action=reset]').click();settle();after=r.snapshot();state=after['diagnostics']['state']
+  expected={'waveHeight':35,'waveSpeed':1,'waveDensity':1.25,'waveDirection':28,'waterLevel':42,'boatResponse':72,'boatDamping':48,'wind':22,'pixelScale':2,'sunset':45,'brightness':.82,'glassOpacity':.15,'lighthouse':True,'spray':True,'dust':True,'quality':'fine','paused':False,'editMode':None}
+  assert state==expected and not props();assert after['diagnostics']['camera']['preset']=='cinema';assert not after['ui']['edit'];return {'before':before,'after':after,'addedPropsAfter':props(),'resetViaOriginalButton':True}
+ r.check('PLAYBACK.full-reset','参数、画质、机位、编辑、装饰及播放状态一起恢复',reset_all)
+ def exports():
+  global c,p
+  c,p=r.new(1920,1080);r.ready();a=download('export-1920x1080-ui-visible');p.locator('#control-panel [data-action=toggleUI]').click();assert p.evaluate('document.body.classList.contains("ui-hidden")');r.picture('scene-hidden-ui-1920')
+  # Original screenshot control is hidden with the UI. Restore it using the real button.
+  p.locator('#restore-ui').click();b=download('export-1920x1080-after-ui-restored');c,p=r.new(960,600,3);r.ready();r.quality('retro');d=download('export-960x600-dpr3-capped2');return {'downloads':[a,b,d],'UIContent':'Original PNG copies WebGL canvas only; DOM panel absent; hidden button unavailable until native UI restoration','DPRCapObserved':True}
+ r.check('EXPORT.native-download','原按钮真实PNG下载、尺寸和DPR上限',exports)
+finally:r.finish()

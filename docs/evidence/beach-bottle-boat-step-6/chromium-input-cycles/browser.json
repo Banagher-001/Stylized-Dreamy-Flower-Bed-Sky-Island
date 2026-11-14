@@ -1,0 +1,732 @@
+{
+  "startedAtShanghai": "2026-11-14T14:07:18.214350+08:00",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "LIFE.cycles",
+      "name": "连续往返、重复现场与三作品身份和实例归属",
+      "status": "待补核",
+      "error": "Locator.click: Error: strict mode violation: locator(\"[data-project-view=live]\") resolved to 2 elements:\n    1) <div id=\"tour-host\" data-stage=\"S00\" data-film-station=\"\" data-film-phase=\"off\" data-guide-station=\"O\" data-guide-ready-at=\"\" data-guide-deadline=\"\" data-orb-style=\"lively\" data-chapter=\"overview\" data-aspect=\"1.6000000\" data-reading-station=\"\" data-guide-target-h=\"0\" data-reading-phase=\"off\" data-project-view=\"live\" data-render-state=\"ready\" data-magic-status=\"ready\" data-overlay-state=\"open\" data-target-h=\"0.0000000\" data-visibility=\"visible\" data-guide-phase=\"manual\" data-display-h=\"0.0000000\" d…>…</div> aka locator(\"#tour-host\")\n    2) <button role=\"tab\" tabindex=\"0\" type=\"button\" aria-selected=\"true\" id=\"project-tab-live\" data-project-view=\"live\" aria-controls=\"tour-project-live\">…</button> aka get_by_role(\"tab\", name=\"现场体验\")\n\nCall log:\n  - waiting for locator(\"[data-project-view=live]\")\n",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/beach-bottle-boat-step-6/browser.py\", line 20, in check\n    e=fn();status=e.pop('_status','通过')if isinstance(e,dict)else'通过';entry={'id':id,'name':name,'status':status,'evidence':e};print(status+' '+id,flush=True)\n      ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/beach-bottle-boat-step-6/browser.py\", line 145, in cycles\n    f=enter();before=f.evaluate(FSNAP);assert before['diagnostics']['state']['waveHeight']==35;original_control(f);handle=p.locator('iframe').element_handle();p.locator('[data-project-view=live]').click();assert p.evaluate('e=>e===document.querySelector(\"iframe\")',handle)and f.evaluate('performance.timeOrigin')==before['timeOrigin'];handle.dispose();archived=None\n                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 17876, in click\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_locator.py\", line 165, in click\n    return await self._frame._click(self._selector, strict=True, **params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 593, in _click\n    await self._channel.send(\"click\", self._timeout, locals_to_params(locals()))\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Locator.click: Error: strict mode violation: locator(\"[data-project-view=live]\") resolved to 2 elements:\n    1) <div id=\"tour-host\" data-stage=\"S00\" data-film-station=\"\" data-film-phase=\"off\" data-guide-station=\"O\" data-guide-ready-at=\"\" data-guide-deadline=\"\" data-orb-style=\"lively\" data-chapter=\"overview\" data-aspect=\"1.6000000\" data-reading-station=\"\" data-guide-target-h=\"0\" data-reading-phase=\"off\" data-project-view=\"live\" data-render-state=\"ready\" data-magic-status=\"ready\" data-overlay-state=\"open\" data-target-h=\"0.0000000\" data-visibility=\"visible\" data-guide-phase=\"manual\" data-display-h=\"0.0000000\" d…>…</div> aka locator(\"#tour-host\")\n    2) <button role=\"tab\" tabindex=\"0\" type=\"button\" aria-selected=\"true\" id=\"project-tab-live\" data-project-view=\"live\" aria-controls=\"tour-project-live\">…</button> aka get_by_role(\"tab\", name=\"现场体验\")\n\nCall log:\n  - waiting for locator(\"[data-project-view=live]\")\n\n",
+      "state": {
+        "url": "http://127.0.0.1:44457/",
+        "viewport": [
+          1440,
+          900
+        ],
+        "dpr": 1,
+        "scrollY": 5604,
+        "anchor": "C1",
+        "layout": "stable",
+        "work": "bottle-ocean",
+        "selected": [
+          {
+            "id": "lawson",
+            "selected": "false",
+            "tab": -1,
+            "disabled": false
+          },
+          {
+            "id": "bottle-ocean",
+            "selected": "true",
+            "tab": 0,
+            "disabled": false
+          },
+          {
+            "id": "courtyard",
+            "selected": "false",
+            "tab": -1,
+            "disabled": false
+          }
+        ],
+        "previewLabel": "experiment-project-bottle-ocean",
+        "focus": "IFRAME",
+        "dialog": {
+          "projectId": "bottle-ocean",
+          "tab": "live",
+          "embeddedState": "ready"
+        },
+        "open": true,
+        "frames": [
+          "http://127.0.0.1:44457/experiments/bottle-ocean/index.html"
+        ],
+        "guide": {
+          "pressed": "false",
+          "state": "blocked"
+        },
+        "host": {
+          "motionState": "covered",
+          "renderState": "ready",
+          "progressH": null,
+          "targetH": "0.0000000",
+          "sceneTime": "2.450000",
+          "cameraPosition": "[4.5,23,16]",
+          "cameraTarget": "[0,0.45,0]",
+          "overlayState": "open"
+        },
+        "overflow": false
+      }
+    },
+    {
+      "id": "INPUT.native",
+      "name": "原鼠标/面板/快捷键/焦点/下载及样式阅读隔离",
+      "status": "通过",
+      "evidence": {
+        "parentBefore": {
+          "url": "http://127.0.0.1:44457/",
+          "viewport": [
+            1440,
+            900
+          ],
+          "dpr": 1,
+          "scrollY": 5604,
+          "anchor": "C1",
+          "layout": "stable",
+          "work": "bottle-ocean",
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false
+            },
+            {
+              "id": "courtyard",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            }
+          ],
+          "previewLabel": "experiment-project-bottle-ocean",
+          "focus": "IFRAME",
+          "dialog": {
+            "projectId": "bottle-ocean",
+            "tab": "live",
+            "embeddedState": "ready"
+          },
+          "open": true,
+          "frames": [
+            "http://127.0.0.1:44457/experiments/bottle-ocean/index.html"
+          ],
+          "guide": {
+            "pressed": "false",
+            "state": "blocked"
+          },
+          "host": {
+            "motionState": "covered",
+            "renderState": "ready",
+            "progressH": null,
+            "targetH": "0.0000000",
+            "sceneTime": "2.450000",
+            "cameraPosition": "[4.5,23,16]",
+            "cameraTarget": "[0,0.45,0]",
+            "overlayState": "open"
+          },
+          "overflow": false
+        },
+        "moves": [
+          {
+            "kind": "left",
+            "before": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "after": {
+              "position": [
+                -0.9310431047264103,
+                2.9477012540681162,
+                6.184629808128507
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": null,
+              "distance": 6.409009283812904
+            }
+          },
+          {
+            "kind": "right",
+            "before": {
+              "position": [
+                -0.9310431047264103,
+                2.9477012540681162,
+                6.184629808128507
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": null,
+              "distance": 6.409009283812904
+            },
+            "after": {
+              "position": [
+                -1.5695215669543048,
+                3.2215460060859042,
+                5.924797034480055
+              ],
+              "target": [
+                0.6101338045333269,
+                2.0005277409146265,
+                0.022795945216921173
+              ],
+              "fov": 42,
+              "preset": null,
+              "distance": 6.409009283812904
+            }
+          }
+        ],
+        "wheelBefore": {
+          "position": [
+            -1.5695215669543048,
+            3.2215460060859042,
+            5.924797034480055
+          ],
+          "target": [
+            0.6101338045333269,
+            2.0005277409146265,
+            0.022795945216921173
+          ],
+          "fov": 42,
+          "preset": null,
+          "distance": 6.409009283812904
+        },
+        "wheelAfter": {
+          "position": [
+            -1.8342910080846924,
+            3.3604775093137027,
+            6.410348893225107
+          ],
+          "target": [
+            0.5718911943232864,
+            2.0168093156277545,
+            0.006740705054390791
+          ],
+          "fov": 42,
+          "preset": null,
+          "distance": 6.971467193748761
+        },
+        "panelScroll": 178,
+        "TabTrace": [
+          {
+            "key": "Tab",
+            "inside": true,
+            "child": {
+              "tag": "BUTTON",
+              "id": "panel-toggle"
+            }
+          },
+          {
+            "key": "Shift+Tab",
+            "toolbar": true
+          }
+        ],
+        "signature": {
+          ".tour-brand": {
+            "fontFamily": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "color": "rgb(46, 67, 54)",
+            "display": "block",
+            "flexDirection": "row"
+          },
+          ".tour-header": {
+            "fontFamily": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "color": "rgb(46, 67, 54)",
+            "display": "flex",
+            "flexDirection": "row"
+          },
+          ".experiment-project-selector": {
+            "fontFamily": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+            "fontSize": "18px",
+            "lineHeight": "32.4px",
+            "color": "rgb(237, 244, 230)",
+            "display": "grid",
+            "flexDirection": "row"
+          },
+          ".tour-project-header": {
+            "fontFamily": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "color": "rgb(237, 244, 230)",
+            "display": "flex",
+            "flexDirection": "row"
+          }
+        },
+        "parentAfter": {
+          "url": "http://127.0.0.1:44457/",
+          "viewport": [
+            1440,
+            900
+          ],
+          "dpr": 1,
+          "scrollY": 5604,
+          "anchor": "C1",
+          "layout": "stable",
+          "work": "bottle-ocean",
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false
+            },
+            {
+              "id": "courtyard",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            }
+          ],
+          "previewLabel": "experiment-project-bottle-ocean",
+          "focus": "live",
+          "dialog": {
+            "projectId": "bottle-ocean",
+            "tab": "live",
+            "embeddedState": "ready"
+          },
+          "open": false,
+          "frames": [],
+          "guide": {
+            "pressed": "false",
+            "state": "blocked"
+          },
+          "host": {
+            "motionState": "running",
+            "renderState": "ready",
+            "progressH": null,
+            "targetH": "0.0000000",
+            "sceneTime": "2.450000",
+            "cameraPosition": "[4.5,23,16]",
+            "cameraTarget": "[0,0.45,0]",
+            "overlayState": "closed"
+          },
+          "overflow": false
+        },
+        "download": {
+          "file": {
+            "path": "docs/evidence/beach-bottle-boat-step-6/chromium-input-cycles/native-input-download.png",
+            "bytes": 356139,
+            "sha256": "61bc75cb1b960bda09f3e4e5fa45f36b7bdba5b64bd74c4df07f1f521ccff39c"
+          },
+          "name": "bottle-ocean-2026-11-14T06-07-37.png",
+          "PNG": [
+            1440,
+            844
+          ],
+          "before": {
+            "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+            "timeOrigin": 1794636447174,
+            "diagnostics": {
+              "ready": true,
+              "simTime": 5.63249999999999,
+              "paused": false,
+              "state": {
+                "waveHeight": 35,
+                "waveSpeed": 1,
+                "waveDensity": 1.25,
+                "waveDirection": 28,
+                "waterLevel": 42,
+                "boatResponse": 72,
+                "boatDamping": 48,
+                "wind": 22,
+                "pixelScale": 3.8,
+                "sunset": 45,
+                "brightness": 0.82,
+                "glassOpacity": 0.15,
+                "lighthouse": true,
+                "spray": true,
+                "dust": true,
+                "quality": "retro",
+                "paused": false,
+                "editMode": null
+              },
+              "camera": {
+                "position": [
+                  -1.8779268567850345,
+                  3.3793677641967266,
+                  6.3909697829697825
+                ],
+                "target": [
+                  0.549151530467531,
+                  2.0264905987301742,
+                  -0.002805995926901234
+                ],
+                "fov": 42,
+                "preset": null,
+                "distance": 6.971467193748761
+              },
+              "boat": {
+                "position": [
+                  -0.30479542155510964,
+                  0.7740975295892246,
+                  0.02939300723014806
+                ],
+                "quaternion": [
+                  -0.030059362662876316,
+                  0.05783143073370526,
+                  -0.011703831780540273,
+                  0.9978050814950018
+                ],
+                "pitch": -0.026836258608139082,
+                "roll": -0.05868787425525601,
+                "yaw": 0.115,
+                "rootY": 0.7740975295892246,
+                "surfaceAtBoat": 0.7447023859395281,
+                "waterLevel": 0.7564,
+                "waveAmplitude": 0.06351844560433681,
+                "sampleHeights": {
+                  "bow": 0.7556503869424768,
+                  "stern": 0.7743737420451339,
+                  "port": 0.7641412087924581,
+                  "starboard": 0.7556422852200312,
+                  "center": 0.7447023859395281
+                },
+                "mastTip": [
+                  -0.257172367026969,
+                  1.6684258008009154,
+                  -0.029070553976109928
+                ],
+                "mastTips": [
+                  [
+                    -0.628969588447762,
+                    1.4588118644764747,
+                    0.026865336491023767
+                  ],
+                  [
+                    -0.257172367026969,
+                    1.6684258008009154,
+                    -0.029070553976109928
+                  ],
+                  [
+                    0.07688192813828848,
+                    1.4796771642213922,
+                    -0.057029095980549276
+                  ]
+                ],
+                "forward": [
+                  0.9930370918818909,
+                  -0.02683303754664647,
+                  -0.11470537146436155
+                ],
+                "drift": [
+                  0.015204578444890354,
+                  -0.010606992769851943
+                ],
+                "safety": {
+                  "withinBottle": true,
+                  "worst": null,
+                  "checks": {
+                    "mastTips": [
+                      true,
+                      true,
+                      true
+                    ],
+                    "hull": true
+                  }
+                }
+              },
+              "water": {
+                "baseLevel": 0.7564,
+                "amplitude": 0.06351844560433681,
+                "heightAtBoat": 0.7447023859395281,
+                "samples": {
+                  "bow": 0.7556503869424768,
+                  "stern": 0.7743737420451339,
+                  "port": 0.7641412087924581,
+                  "starboard": 0.7556422852200312,
+                  "center": 0.7447023859395281
+                }
+              },
+              "renderer": {
+                "calls": 74,
+                "triangles": 193219,
+                "points": 774,
+                "lines": 29,
+                "pixelWidth": 379,
+                "pixelHeight": 222,
+                "scale": 3.8,
+                "levels": 12
+              },
+              "fps": 15,
+              "cameraInsideBottle": false,
+              "editMode": null
+            },
+            "viewport": [
+              1440,
+              844
+            ],
+            "dpr": 1,
+            "canvas": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 844,
+              "top": 0,
+              "right": 1440,
+              "bottom": 844,
+              "left": 0
+            },
+            "pixels": [
+              379,
+              222
+            ],
+            "contextLost": false,
+            "loader": {
+              "display": "none",
+              "error": ""
+            },
+            "error": null,
+            "draws": 9690,
+            "contextEvents": [],
+            "ui": {
+              "hidden": false,
+              "collapsed": false,
+              "edit": false,
+              "buttons": 22,
+              "sliders": 12
+            },
+            "actual": {
+              "amplitude": 0.06351844560433681,
+              "gpuTime": 5.63249999999999,
+              "opacity": 0.15,
+              "exposure": 0.82,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true
+            }
+          },
+          "nativeButtonDownload": true
+        },
+        "nativeParentScrollWorksAfterReturn": true
+      }
+    }
+  ],
+  "requests": [
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/",
+      "type": "document"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/index-DLaqqT4X.js",
+      "type": "script"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-gfLFgklB.js",
+      "type": "script"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/",
+      "type": "document"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/index-DLaqqT4X.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-gfLFgklB.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.native",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    }
+  ],
+  "pageErrors": [
+    {
+      "case": "LIFE.cycles",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "LIFE.cycles",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "LIFE.cycles",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "INPUT.native",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "INPUT.native",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "INPUT.native",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    }
+  ],
+  "console": [
+    {
+      "case": "LIFE.cycles",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "INPUT.native",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "failedRequests": [],
+  "externalAttempts": [],
+  "routesDisableCache": true,
+  "physicalDevice": false,
+  "baseKind": "production",
+  "headless": false,
+  "activeBuildAtStart": {
+    "run": "candidate",
+    "record": "build-candidate.json",
+    "buildRoot": "/tmp/bottle-ocean-step-6-8x7h8zn4/production-candidate",
+    "switchedAtShanghai": "2026-11-14T14:02:39.292939+08:00"
+  },
+  "bottleIframeAdded": true,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "finishedAtShanghai": "2026-11-14T14:07:39.106652+08:00",
+  "complete": false
+}

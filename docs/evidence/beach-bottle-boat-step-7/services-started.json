@@ -1,0 +1,92 @@
+{
+  "startedAtShanghai": "2026-11-14T15:32:54.807821+08:00",
+  "services": [
+    {
+      "name": "production",
+      "pid": 151505,
+      "argv": [
+        "node",
+        "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/scripts/preview-site.mjs",
+        "--dir",
+        "/tmp/bottle-ocean-step-7-v_4ap9fa/production-final",
+        "--port",
+        "46767",
+        "--strict-port",
+        "--json"
+      ],
+      "startTicks": "10746895",
+      "state": "S"
+    },
+    {
+      "name": "reference",
+      "pid": 151517,
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/beach-bottle-boat-step-7/serve.py",
+        "--root",
+        "/workspace/Beach-Bottle-Boat",
+        "--port",
+        "35393",
+        "--log",
+        "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/evidence/beach-bottle-boat-step-7/reference-http.jsonl"
+      ],
+      "startTicks": "10746910",
+      "state": "S"
+    },
+    {
+      "name": "prefix",
+      "pid": 151518,
+      "argv": [
+        "node",
+        "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/scripts/preview-site.mjs",
+        "--dir",
+        "/tmp/bottle-ocean-step-7-v_4ap9fa/production-final",
+        "--port",
+        "43963",
+        "--base",
+        "/portfolio-check/",
+        "--strict-port",
+        "--json"
+      ],
+      "startTicks": "10746925",
+      "state": "S"
+    },
+    {
+      "name": "display",
+      "pid": 151530,
+      "argv": [
+        "/workspace/.cache/browser-deps/root/usr/bin/Xvfb",
+        ":122",
+        "-screen",
+        "0",
+        "1920x1200x24",
+        "-nolisten",
+        "tcp"
+      ],
+      "startTicks": "10746941",
+      "state": "S"
+    }
+  ],
+  "productionOrigin": "http://127.0.0.1:46767",
+  "referenceOrigin": "http://127.0.0.1:35393",
+  "prefixOrigin": "http://127.0.0.1:43963",
+  "prefix": "/portfolio-check/",
+  "buildRoot": "/tmp/bottle-ocean-step-7-v_4ap9fa/production-final",
+  "browserEnvironment": {
+    "DISPLAY": ":122",
+    "LD_LIBRARY_PATH": "/workspace/.cache/browser-deps/root/usr/lib/x86_64-linux-gnu",
+    "LIBGL_ALWAYS_SOFTWARE": "1",
+    "LP_NUM_THREADS": "3",
+    "PLAYWRIGHT_BROWSERS_PATH": "/workspace/.cache/ms-playwright"
+  },
+  "coordinator": {
+    "pid": 151502,
+    "argv": [
+      "python",
+      "tests/beach-bottle-boat-step-7/services.py",
+      "run"
+    ],
+    "startTicks": "10746888",
+    "state": "R"
+  }
+}

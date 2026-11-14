@@ -1,0 +1,151 @@
+{
+  "phase": "boundaries",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "CAMERA.reset-inertia",
+      "name": "原恢复镜头后的残余惯性",
+      "status": "原页已有问题",
+      "evidence": {
+        "before": {
+          "position": [
+            0.5503801579587017,
+            2.34138507530666,
+            6.490267956257238
+          ],
+          "target": [
+            0.8,
+            1.92,
+            0.1
+          ],
+          "fov": 42,
+          "preset": "cinema",
+          "distance": 6.409009283812904
+        },
+        "afterTween": {
+          "position": [
+            -0.3182289112092487,
+            2.4580378380391066,
+            6.387724499926343
+          ],
+          "target": [
+            0.8,
+            1.92,
+            0.1
+          ],
+          "fov": 42,
+          "preset": "cinema",
+          "distance": 6.409009283812905
+        },
+        "after80MoreRenderedFrames": {
+          "position": [
+            -1.195362337521765,
+            2.600047087477923,
+            6.152393336591105
+          ],
+          "target": [
+            0.8,
+            1.92,
+            0.1
+          ],
+          "fov": 42,
+          "preset": "cinema",
+          "distance": 6.4090092838129005
+        },
+        "positionErrorVsDeclaredCinema": 1.8356640386064838,
+        "input": "Native rotate followed by native resetCamera; no direct camera write",
+        "note": "OrbitControls residual delta is not cleared by preset tween; active preset label may be cinema while final coordinates drift"
+      }
+    },
+    {
+      "id": "SANDBOX.representative-rules",
+      "name": "瓶中、外海和天空代表点的真实编辑射线",
+      "status": "通过",
+      "evidence": {
+        "representativeClicks": [
+          {
+            "region": "bottle-centered",
+            "nativePoint": {
+              "x": 501.46979580738605,
+              "y": 481.187927164682,
+              "canvasHit": true,
+              "rayHit": {
+                "object": "sandTerrain",
+                "point": [
+                  -2.318921331077794,
+                  -2.7900958812258754,
+                  -19.716160139864513
+                ],
+                "insideBottle": false
+              }
+            },
+            "countBefore": 0,
+            "countAfter": 0,
+            "toast": "布置模式：点击沙地放置石头"
+          },
+          {
+            "region": "external-ocean",
+            "nativePoint": {
+              "x": 477.2826844329776,
+              "y": 379.6889855930047,
+              "canvasHit": true,
+              "rayHit": null
+            },
+            "countBefore": 0,
+            "countAfter": 0,
+            "toast": "布置模式：点击沙地放置石头"
+          },
+          {
+            "region": "upper-sky",
+            "nativePoint": {
+              "x": 384,
+              "y": 57.6,
+              "canvasHit": true,
+              "rayHit": null
+            },
+            "countBefore": 0,
+            "countAfter": 0,
+            "toast": "布置模式：点击沙地放置石头"
+          }
+        ],
+        "note": "Editing ray excludes ocean itself and tests underlying opaque ground. Clicking visible ocean can still place on terrain below; clicking bottle is not sufficient to prove actual ray point lies inside cavity. UI exposes rock and shell only; limit/all pixels not tested."
+      }
+    },
+    {
+      "id": "EXPORT.hidden-ui-keyboard",
+      "name": "隐藏UI后原截图按钮的真实键盘导出",
+      "status": "通过",
+      "evidence": {
+        "focusBeforeActivation": {
+          "tag": "BUTTON",
+          "action": "screenshot"
+        },
+        "nativeSequence": "Focus original screenshot button; H hides UI; Enter activates still-focused original button",
+        "download": "bottle-ocean-2026-11-13T02-47-57.png",
+        "PNG": [
+          1280,
+          720
+        ],
+        "bytes": 267597,
+        "exportIncludesDOMPanel": false
+      }
+    }
+  ],
+  "events": [],
+  "requests": [
+    {
+      "case": "setup",
+      "url": "http://127.0.0.1:4201/index.html",
+      "type": "document"
+    }
+  ],
+  "externalAttempts": [],
+  "sourceFilesModified": false,
+  "clockModified": false,
+  "scope": "standalone original only; no host integration",
+  "physicalDevice": false,
+  "DISPLAY": ":121",
+  "browserVersion": "155.0.8059.79",
+  "complete": true,
+  "externalRequestsAttempted": 0
+}

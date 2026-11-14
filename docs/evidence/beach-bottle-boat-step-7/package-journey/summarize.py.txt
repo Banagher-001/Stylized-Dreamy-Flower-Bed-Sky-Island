@@ -1,0 +1,53 @@
+"""Adopt named successful A/B cases; retain first failures and exact evidence paths."""
+from collections import Counter
+from common import *
+plan=[('chromium-controls',None),('chromium-actions',{'CAMERA.presets','EXPORT.desktop','EXPORT.phone'}),('chromium-camera-retest',None),('chromium-export-retest',None),('chromium-dynamics',None),('chromium-views',{'VIEW.narrow'}),('chromium-narrow-retest',None),('firefox-controls',None),('firefox-actions',None),('webkit-controls',None),('webkit-actions',None)]
+adopted=[];runs=[];ctl={str(i):[]for i in range(1,35)};warnings=[]
+def files_intact(value):
+ if isinstance(value,dict):
+  if set(value)=={'path','bytes','sha256'}:assert row(ROOT/value['path'])==value,value['path']
+  else:
+   for v in value.values():files_intact(v)
+ elif isinstance(value,list):
+  for v in value:files_intact(v)
+for name,excluded in plan:
+ report=read(OUT/name/'browser.json');selected=[c for c in report['checks']if not excluded or c['id']not in excluded];assert selected
+ for c in selected:
+  assert c['status']=='配对通过',(name,c['id'],c.get('comparisonError'))
+  for side in['reference','embedded']:
+   s=c['sides'][side];assert s['status']=='通过'and s['conditions']['entrySHA256']==ENTRY_SHA;files_intact(s['evidence'])
+  assert c['sides']['reference']['conditions']['viewport']==c['sides']['embedded']['conditions']['viewport']
+  assert c['sides']['reference']['conditions']['dpr']==c['sides']['embedded']['conditions']['dpr']
+  adopted.append({'run':name,'engine':report['engine'],'id':c['id'],'ctls':c['ctls'],'status':c['status'],'report':str((OUT/name/'browser.json').relative_to(ROOT)),'sides':{side:str((OUT/name/(c['id'].replace('.','-')+'-'+side+'.json')).relative_to(ROOT))for side in['reference','embedded']}})
+  if report['engine']=='chromium':
+   for i in c['ctls']:ctl[str(i)].append({'run':name,'id':c['id'],'sides':adopted[-1]['sides']})
+ events=[e for e in report['events']if e.get('case')in[c['id']for c in selected]]
+ assert not[e for e in events if e['kind']in['pageerror','error']],(name,events)
+ assert not report['externalAttempts'],name
+ assert not report['clockModified']and not report['RAFReplaced']and not report['originalFilesModified']
+ for kind,count in Counter((e['kind'],e.get('text',''))for e in events).items():warnings.append({'run':name,'kind':kind[0],'text':kind[1],'count':count})
+ runs.append({'run':name,'engine':report['engine'],'version':report['version'],'adoptedPairs':len(selected),'rawRunComplete':report['complete'],'excludedFirstAttempts':sorted(excluded or[]),'externalAttempts':0,'pageErrors':0,'consoleErrors':0})
+assert len(adopted)==68 and all(ctl.values());counts=dict(Counter(c['engine']for c in adopted));assert counts=={'chromium':50,'firefox':9,'webkit':9}
+d=read(OUT/'chromium-dynamics/browser.json');dynamic=[]
+for c in d['checks']:
+ sides={}
+ for side in['reference','embedded']:
+  e=c['sides'][side]['evidence'];samples=e['rows'];assert e['simSeconds']>=8 and e['distinctRenderedFrames']>=40
+  assert all(abs(x['gpuWaveTime']-x['simTime'])<1e-8 for x in samples)
+  sides[side]={'simSeconds':e['simSeconds'],'distinctRenderedFrames':e['distinctRenderedFrames'],'ranges':e['range'],'allReportedInsideBottle':e['allReportedInsideBottle'],'firstSimTime':samples[0]['simTime'],'lastSimTime':samples[-1]['simTime']}
+ dynamic.append({'id':c['id'],'configuration':c['sides']['reference']['evidence']['configuration'],'sides':sides})
+# These comparisons verify original physical response without requiring equal phase.
+def dyn(id,side):return next(x for x in dynamic if x['id']==id)['sides'][side]['ranges']
+response=[]
+for side in['reference','embedded']:
+ zero=dyn('DYN.boatResponse-0',side);full=dyn('DYN.boatResponse-100',side);low=dyn('DYN.boatDamping-0',side);high=dyn('DYN.boatDamping-100',side)
+ assert full['rootY']>100*zero['rootY']and full['pitch']>100*zero['pitch']and full['roll']>100*zero['roll']
+ assert high['rootY']>low['rootY']and high['pitch']>low['pitch']and high['roll']>low['roll']
+ response.append({'side':side,'response0':zero,'response100':full,'damping0':low,'damping100':high,'largerOriginalDampingSliderAllowsLargerMotion':True})
+write(OUT/'dynamic-analysis.json',{'analyzedAtShanghai':now(),'conditions':dynamic,'responseComparisons':response,'minimumSimSeconds':min(s['simSeconds']for c in dynamic for s in c['sides'].values()),'minimumDistinctRenderedFrames':min(s['distinctRenderedFrames']for c in dynamic for s in c['sides'].values()),'allSampledOriginalContainmentFlagsTrue':all(s['allReportedInsideBottle']for c in dynamic for s in c['sides'].values()),'notExhaustiveCollisionOrPhaseEqualityClaim':True})
+snippets=[]
+for name,start,end in[('src/boat.js',599,649),('src/ui.js',266,284)]:
+ p=SOURCE/name;lines=p.read_text().splitlines();snippets.append({'file':row(p,SOURCE),'fromLine':start,'toLine':end,'lines':[{'line':i,'text':lines[i-1]}for i in range(start,end+1)]})
+write(OUT/'original-physics-responsive-source.json',{'sourceCommit':git(SOURCE,'rev-parse','HEAD'),'originalFilesUnchanged':True,'readOnlySourceExcerpts':snippets,'meaning':'Closure-local physical coefficients are evidenced by fixed original source plus native-input actual trajectories, not invented API fields.'})
+summary={'generatedAtShanghai':now(),'candidateId':read(OUT/'delivery-config.json')['candidateId'],'complete':True,'adoptedPairs':adopted,'pairedChecks':len(adopted),'byEngine':counts,'uniqueOriginalControls':34,'controlLedger':ctl,'runs':runs,'warnings':warnings,'firstAttemptsRetained':[{'run':'chromium-actions','case':'CAMERA.presets','reason':'Both sides: reset tween overrode the test drag before the first preset; retest begins with native top preset and waits for actual FOV before native cinema. No product change.'},{'run':'chromium-views','case':'VIEW.narrow','reason':'Original applyResponsive expands, but later resize folds; different browser resize event timing at entry. Retest matches native 321→320 resize history on both sides; no synthetic resize event or state write.'},{'run':'chromium-actions','case':'EXPORT.desktop/EXPORT.phone','reason':'Both native downloads succeeded, but the test reused output filenames and the phone files replaced desktop files. New separate evidence run retains uniquely named real desktop and phone downloads; earlier report is preserved and excluded for these two cases.'}],'additionalLimits':['No physical phone, Windows, Safari or hardware GPU test','Real hidden transition was not observed in prior Xvfb tests; no new claim','Representative cavity ray did not actually reach cavity; no rejection-branch claim','No exhaustive prop-cap, all-pixels, or all-clipping claim'],'protection':protect_current()}
+write(OUT/'functional-summary.json',summary);print(json.dumps({'complete':True,'pairedChecks':68,'byEngine':counts,'originalControls':34},ensure_ascii=False))

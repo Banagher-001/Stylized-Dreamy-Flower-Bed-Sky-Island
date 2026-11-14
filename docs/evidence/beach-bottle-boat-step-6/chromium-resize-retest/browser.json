@@ -1,0 +1,168 @@
+{
+  "startedAtShanghai": "2026-11-14T14:24:22.950474+08:00",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "LAYOUT.resize",
+      "name": "同一原文档变尺寸保留参数与像素规则、锚点和焦点返回",
+      "status": "待补核",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/beach-bottle-boat-step-6/browser.py\", line 20, in check\n    e=fn();status=e.pop('_status','通过')if isinstance(e,dict)else'通过';entry={'id':id,'name':name,'status':status,'evidence':e};print(status+' '+id,flush=True)\n      ^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/beach-bottle-boat-step-6/browser.py\", line 385, in resize_return\n    p.set_viewport_size({'width':w,'height':h});p.wait_for_timeout(750);tick(f);s=f.evaluate(FSNAP);box=p.locator('iframe').bounding_box();rows.append(s);write(folder/'resize-partial.json',rows);assert p.evaluate('e=>e===document.querySelector(\"iframe\")',handle)and s['timeOrigin']==before['timeOrigin']and s['diagnostics']['state']['waveHeight']==100 and abs(s['canvas']['width']-box['width'])<1 and abs(s['canvas']['height']-box['height'])<1;assert s['pixels']==[math.floor(v*min(s['dpr'],2))for v in s['viewport']]\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "state": {
+        "url": "http://127.0.0.1:44457/",
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "scrollY": 5508,
+        "anchor": "C1",
+        "layout": "stable",
+        "work": "bottle-ocean",
+        "selected": [
+          {
+            "id": "lawson",
+            "selected": "false",
+            "tab": -1,
+            "disabled": false
+          },
+          {
+            "id": "bottle-ocean",
+            "selected": "true",
+            "tab": 0,
+            "disabled": false
+          },
+          {
+            "id": "courtyard",
+            "selected": "false",
+            "tab": -1,
+            "disabled": false
+          }
+        ],
+        "previewLabel": "experiment-project-bottle-ocean",
+        "focus": "IFRAME",
+        "dialog": {
+          "projectId": "bottle-ocean",
+          "tab": "live",
+          "embeddedState": "ready"
+        },
+        "open": true,
+        "frames": [
+          "http://127.0.0.1:44457/experiments/bottle-ocean/index.html"
+        ],
+        "guide": {
+          "pressed": "false",
+          "state": "blocked"
+        },
+        "host": {
+          "motionState": "covered",
+          "renderState": "ready",
+          "progressH": null,
+          "targetH": "0.0000000",
+          "sceneTime": "2.466500",
+          "cameraPosition": "[4.5,23,16]",
+          "cameraTarget": "[0,0.45,0]",
+          "overlayState": "open"
+        },
+        "overflow": false
+      }
+    }
+  ],
+  "requests": [
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/",
+      "type": "document"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/index-DLaqqT4X.js",
+      "type": "script"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-gfLFgklB.js",
+      "type": "script"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "LAYOUT.resize",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    }
+  ],
+  "pageErrors": [],
+  "console": [
+    {
+      "case": "LAYOUT.resize",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "failedRequests": [],
+  "externalAttempts": [],
+  "routesDisableCache": true,
+  "physicalDevice": false,
+  "baseKind": "production",
+  "headless": false,
+  "activeBuildAtStart": {
+    "run": "candidate",
+    "record": "build-candidate.json",
+    "buildRoot": "/tmp/bottle-ocean-step-6-8x7h8zn4/production-candidate",
+    "switchedAtShanghai": "2026-11-14T14:18:11.839477+08:00"
+  },
+  "bottleIframeAdded": true,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "finishedAtShanghai": "2026-11-14T14:24:31.503448+08:00",
+  "complete": false
+}

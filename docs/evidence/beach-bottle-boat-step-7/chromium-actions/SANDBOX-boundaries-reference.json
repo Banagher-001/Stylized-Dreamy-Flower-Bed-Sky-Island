@@ -1,0 +1,83 @@
+{
+  "status": "通过",
+  "conditions": {
+    "side": "reference",
+    "url": "http://127.0.0.1:35393/index.html",
+    "entrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+    "viewport": [
+      1440,
+      844
+    ],
+    "canvas": [
+      1440,
+      844
+    ],
+    "dpr": 1,
+    "touch": false,
+    "timeOrigin": 1794642506396.6,
+    "engineRevision": "180"
+  },
+  "evidence": {
+    "representativeClicks": [
+      {
+        "region": "bottle-centered",
+        "actualRay": {
+          "x": 557.6139954846,
+          "y": 564.0549075648311,
+          "canvasHit": true,
+          "rayHit": {
+            "object": "sandTerrain",
+            "point": [
+              -2.3220846907699744,
+              -2.7900186105084495,
+              -19.718098842432752
+            ],
+            "insideBottle": false
+          }
+        },
+        "beforeCount": 0,
+        "afterCount": 0,
+        "toast": "布置模式：点击沙地放置石头"
+      },
+      {
+        "region": "external-ocean",
+        "actualRay": {
+          "x": 529.3924350807001,
+          "y": 445.09595303585644,
+          "canvasHit": true,
+          "rayHit": null
+        },
+        "beforeCount": 0,
+        "afterCount": 0,
+        "toast": "布置模式：点击沙地放置石头"
+      },
+      {
+        "region": "upper-sky",
+        "actualRay": {
+          "x": 432,
+          "y": 67.52,
+          "canvasHit": true,
+          "rayHit": null
+        },
+        "beforeCount": 0,
+        "afterCount": 0,
+        "toast": "布置模式：点击沙地放置石头"
+      }
+    ],
+    "bottleCavityBranchActuallyHit": false,
+    "notExhaustive": "All pixels, prop cap and unreachable cavity branch are not claimed; visible ocean may raycast opaque terrain below",
+    "comparison": {
+      "regions": [
+        "bottle-centered",
+        "external-ocean",
+        "upper-sky"
+      ],
+      "countDeltas": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "returned": null
+}

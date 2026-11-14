@@ -1,0 +1,1027 @@
+{
+  "completedAtShanghai": "2026-11-14T14:48:57.306347+08:00",
+  "conclusion": "第六步完成：主站隔离、异常、生命周期与兼容代表范围验收；修复子页发起空白导航及异常文档替换的宿主识别/监听清理",
+  "standardChecks": [
+    {
+      "id": "S6-01",
+      "status": "通过",
+      "records": [
+        "baseline.json",
+        "candidate-manifest.json"
+      ]
+    },
+    {
+      "id": "S6-02",
+      "status": "通过",
+      "records": [
+        "ISOLATION.documents",
+        "INPUT.native"
+      ]
+    },
+    {
+      "id": "S6-03",
+      "status": "通过",
+      "records": [
+        "INPUT.native"
+      ]
+    },
+    {
+      "id": "S6-04",
+      "status": "通过",
+      "records": [
+        "INPUT.native",
+        "LAYOUT.sizes",
+        "PREF.reduced"
+      ]
+    },
+    {
+      "id": "S6-05",
+      "status": "通过",
+      "records": [
+        "LIFE.cycles"
+      ]
+    },
+    {
+      "id": "S6-06",
+      "status": "通过",
+      "records": [
+        "LIFE.pending",
+        "LIFE.cycles"
+      ]
+    },
+    {
+      "id": "S6-07",
+      "status": "通过",
+      "records": [
+        "FAULT.slow"
+      ]
+    },
+    {
+      "id": "S6-08",
+      "status": "通过",
+      "records": [
+        "FAULT.responses"
+      ]
+    },
+    {
+      "id": "S6-09",
+      "status": "通过",
+      "records": [
+        "NAV.blank",
+        "NAV.child-blank",
+        "NAV.paths"
+      ]
+    },
+    {
+      "id": "S6-10",
+      "status": "通过",
+      "records": [
+        "FAULT.child-init",
+        "FAULT.child-graphics"
+      ]
+    },
+    {
+      "id": "S6-11",
+      "status": "通过",
+      "records": [
+        "FAULT.host-init",
+        "FAULT.parent-graphics"
+      ]
+    },
+    {
+      "id": "S6-12",
+      "status": "通过",
+      "records": [
+        "CAP.native",
+        "CAP.denied",
+        "INPUT.native",
+        "LAYOUT.sizes",
+        "visual-review.json"
+      ]
+    },
+    {
+      "id": "S6-13",
+      "status": "通过",
+      "records": [
+        "LAYOUT.sizes",
+        "FAULT.slow"
+      ]
+    },
+    {
+      "id": "S6-14",
+      "status": "通过",
+      "records": [
+        "LAYOUT.resize"
+      ]
+    },
+    {
+      "id": "S6-15",
+      "status": "通过",
+      "records": [
+        "RESOURCE.return"
+      ]
+    },
+    {
+      "id": "S6-16",
+      "status": "通过（条件范围见记录）",
+      "records": [
+        "VISIBILITY.return"
+      ]
+    },
+    {
+      "id": "S6-17",
+      "status": "通过",
+      "records": [
+        "REGRESS.courtyard",
+        "REGRESS.reading",
+        "LIFE.cycles",
+        "CAP.native"
+      ]
+    },
+    {
+      "id": "S6-18",
+      "status": "通过",
+      "records": [
+        "RESOURCE.return"
+      ]
+    },
+    {
+      "id": "S6-19",
+      "status": "通过",
+      "records": [
+        "adoption-plan.json"
+      ]
+    },
+    {
+      "id": "S6-20",
+      "status": "通过",
+      "records": [
+        "build-candidate.json",
+        "PATH.prefix",
+        "services-cleanup.json",
+        "step-6.diff"
+      ]
+    }
+  ],
+  "adoptedChecks": [
+    {
+      "run": "chromium-core-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "NAV.blank",
+      "status": "通过",
+      "record": "chromium-core-clean/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium-core-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "NAV.child-blank",
+      "status": "通过",
+      "record": "chromium-core-clean/browser.json#/checks/1"
+    },
+    {
+      "run": "chromium-core-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "NAV.paths",
+      "status": "通过",
+      "record": "chromium-core-clean/browser.json#/checks/2"
+    },
+    {
+      "run": "chromium-core-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LIFE.cycles",
+      "status": "通过",
+      "record": "chromium-core-clean/browser.json#/checks/3"
+    },
+    {
+      "run": "chromium-core-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "INPUT.native",
+      "status": "通过",
+      "record": "chromium-core-clean/browser.json#/checks/4"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LIFE.pending",
+      "status": "通过",
+      "record": "chromium-faults-clean/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.responses",
+      "status": "通过",
+      "record": "chromium-faults-clean/browser.json#/checks/1"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.slow",
+      "status": "通过",
+      "record": "chromium-faults-clean/browser.json#/checks/2"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.child-init",
+      "status": "通过",
+      "record": "chromium-faults-clean/browser.json#/checks/3"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.host-init",
+      "status": "通过",
+      "record": "chromium-faults-clean/browser.json#/checks/4"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.child-graphics",
+      "status": "通过",
+      "record": "chromium-faults-clean/browser.json#/checks/5"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.parent-graphics",
+      "status": "通过",
+      "record": "chromium-faults-clean/browser.json#/checks/6"
+    },
+    {
+      "run": "chromium-layout",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LAYOUT.sizes",
+      "status": "通过",
+      "record": "chromium-layout/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium-resize-final",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LAYOUT.resize",
+      "status": "通过",
+      "record": "chromium-resize-final/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "RESOURCE.return",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "REGRESS.courtyard",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/1"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "VISIBILITY.return",
+      "status": "环境限制",
+      "record": "chromium-regression/browser.json#/checks/2"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "PREF.reduced",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/3"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "REGRESS.reading",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/4"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "PATH.prefix",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/5"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "CAP.native",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/6"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "CAP.denied",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/7"
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "ISOLATION.documents",
+      "status": "通过",
+      "record": "chromium-regression/browser.json#/checks/8"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "NAV.child-blank",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/0"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "LIFE.cycles",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/2"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "FAULT.responses",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/3"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "LAYOUT.sizes",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/5"
+    },
+    {
+      "run": "firefox-native-final",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "NAV.paths",
+      "status": "通过",
+      "record": "firefox-native-final/browser.json#/checks/0"
+    },
+    {
+      "run": "firefox-native-final",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "INPUT.native",
+      "status": "通过",
+      "record": "firefox-native-final/browser.json#/checks/1"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "NAV.child-blank",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/0"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "NAV.paths",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/1"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "LIFE.cycles",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/2"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "FAULT.responses",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/3"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "INPUT.native",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/4"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "LAYOUT.sizes",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/5"
+    }
+  ],
+  "browserRuns": [
+    {
+      "run": "chromium-core-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "selectedPassed": 5,
+      "selectedLimits": 0,
+      "rawReportComplete": true
+    },
+    {
+      "run": "chromium-faults-clean",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "selectedPassed": 7,
+      "selectedLimits": 0,
+      "rawReportComplete": true
+    },
+    {
+      "run": "chromium-layout",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "selectedPassed": 1,
+      "selectedLimits": 0,
+      "rawReportComplete": false
+    },
+    {
+      "run": "chromium-resize-final",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "selectedPassed": 1,
+      "selectedLimits": 0,
+      "rawReportComplete": true
+    },
+    {
+      "run": "chromium-regression",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "selectedPassed": 8,
+      "selectedLimits": 1,
+      "rawReportComplete": true
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "selectedPassed": 4,
+      "selectedLimits": 0,
+      "rawReportComplete": false
+    },
+    {
+      "run": "firefox-native-final",
+      "engine": "firefox",
+      "version": "153.0",
+      "selectedPassed": 2,
+      "selectedLimits": 0,
+      "rawReportComplete": true
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "selectedPassed": 6,
+      "selectedLimits": 0,
+      "rawReportComplete": true
+    }
+  ],
+  "fixedHostIssue": {
+    "issue": "Child-initiated accessible about:blank kept loading after a previously valid document",
+    "beforeRun": "child-navigation-clean-before",
+    "fixedRun": "chromium-core-clean",
+    "beforeActiveBuild": "initial",
+    "afterActiveBuild": "candidate",
+    "beforeProbeErrors": 0,
+    "productFilesChanged": [
+      "src/tour/createEmbeddedPageExperience.ts"
+    ],
+    "originalHTMLChanged": false
+  },
+  "retainedEarlierFailures": [
+    {
+      "run": "child-navigation-before",
+      "id": "NAV.child-blank",
+      "classification": "fixed-host-document-boundary",
+      "error": "Page.wait_for_function: Timeout 3500ms exceeded.",
+      "adoptedRetest": "chromium-core-clean/browser.json#/checks/1",
+      "productIssue": true
+    },
+    {
+      "run": "child-navigation-clean-before",
+      "id": "NAV.child-blank",
+      "classification": "fixed-host-document-boundary",
+      "error": "Page.wait_for_function: Timeout 3500ms exceeded.",
+      "adoptedRetest": "chromium-core-clean/browser.json#/checks/1",
+      "productIssue": true
+    },
+    {
+      "run": "chromium-faults",
+      "id": "FAULT.parent-graphics",
+      "classification": "test-fixture",
+      "error": "Page.evaluate: TypeError: Cannot read properties of undefined (reading 'find')\n    at eval (eval at evaluate (:311:30), <anonymous>:1:46)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "adoptedRetest": "chromium-faults-clean/browser.json#/checks/6",
+      "productIssue": false
+    },
+    {
+      "run": "chromium-input-cycles",
+      "id": "LIFE.cycles",
+      "classification": "test-fixture",
+      "error": "Locator.click: Error: strict mode violation: locator(\"[data-project-view=live]\") resolved to 2 elements:\n    1) <div id=\"tour-host\" data-stage=\"S00\" data-film-station=\"\" data-film-phase=\"off\" data-guide-station=\"O\" data-guide-ready-at=\"\" data-guide-deadline=\"\" data-orb-style=\"lively\" data-chapter=\"overview\" data-aspect=\"1.6000000\" data-reading-station=\"\" data-guide-target-h=\"0\" data-reading-phase=\"off\" data-project-view=\"live\" data-render-state=\"ready\" data-magic-status=\"ready\" data-overlay-state=\"open\" data-target-h=\"0.0000000\" data-visibility=\"visible\" data-guide-phase=\"manual\" data-display-h=\"0.0000000\" d…>…</div> aka locator(\"#tour-host\")\n    2) <button role=\"tab\" tabindex=\"0\" type=\"button\" aria-selected=\"true\" id=\"project-tab-live\" data-project-view=\"live\" aria-controls=\"tour-project-live\">…</button> aka get_by_role(\"tab\", name=\"现场体验\")\n\nCall log:\n  - waiting for locator(\"[data-project-view=live]\")\n",
+      "adoptedRetest": "chromium-core-clean/browser.json#/checks/3",
+      "productIssue": false
+    },
+    {
+      "run": "chromium-layout",
+      "id": "LAYOUT.resize",
+      "classification": "test-fixture",
+      "error": "",
+      "adoptedRetest": "chromium-resize-final/browser.json#/checks/0",
+      "productIssue": false
+    },
+    {
+      "run": "chromium-resize-retest",
+      "id": "LAYOUT.resize",
+      "classification": "test-fixture",
+      "error": "",
+      "adoptedRetest": "chromium-resize-final/browser.json#/checks/0",
+      "productIssue": false
+    },
+    {
+      "run": "firefox",
+      "id": "NAV.paths",
+      "classification": "test-fixture",
+      "error": "Timeout 25000ms exceeded.\n=========================== logs ===========================\nwaiting for navigation until 'domcontentloaded'\n============================================================",
+      "adoptedRetest": "firefox-native-final/browser.json#/checks/0",
+      "productIssue": false
+    },
+    {
+      "run": "firefox",
+      "id": "INPUT.native",
+      "classification": "test-fixture",
+      "error": "",
+      "adoptedRetest": "firefox-native-final/browser.json#/checks/1",
+      "productIssue": false
+    },
+    {
+      "run": "firefox-final",
+      "id": "NAV.paths",
+      "classification": "test-fixture",
+      "error": "Frame.wait_for_function: Timeout 120000ms exceeded.",
+      "adoptedRetest": "firefox-native-final/browser.json#/checks/0",
+      "productIssue": false
+    },
+    {
+      "run": "firefox-final",
+      "id": "INPUT.native",
+      "classification": "test-fixture",
+      "error": "",
+      "adoptedRetest": "firefox-native-final/browser.json#/checks/1",
+      "productIssue": false
+    },
+    {
+      "run": "firefox-retest",
+      "id": "NAV.paths",
+      "classification": "test-fixture",
+      "error": "Frame.wait_for_function: Timeout 30000ms exceeded.",
+      "adoptedRetest": "firefox-native-final/browser.json#/checks/0",
+      "productIssue": false
+    },
+    {
+      "run": "firefox-retest",
+      "id": "INPUT.native",
+      "classification": "test-fixture",
+      "error": "",
+      "adoptedRetest": "firefox-native-final/browser.json#/checks/1",
+      "productIssue": false
+    }
+  ],
+  "observerAffectedRunsNotAdopted": [
+    {
+      "run": "child-navigation-before",
+      "observerInitializationErrors": 4,
+      "adopted": false,
+      "reason": "Two test IIFEs were concatenated without a semicolon; all required cases rerun with a clean observer"
+    },
+    {
+      "run": "chromium-cycles-retest",
+      "observerInitializationErrors": 16,
+      "adopted": false,
+      "reason": "Two test IIFEs were concatenated without a semicolon; all required cases rerun with a clean observer"
+    },
+    {
+      "run": "chromium-faults",
+      "observerInitializationErrors": 59,
+      "adopted": false,
+      "reason": "Two test IIFEs were concatenated without a semicolon; all required cases rerun with a clean observer"
+    },
+    {
+      "run": "chromium-input-cycles",
+      "observerInitializationErrors": 6,
+      "adopted": false,
+      "reason": "Two test IIFEs were concatenated without a semicolon; all required cases rerun with a clean observer"
+    },
+    {
+      "run": "chromium-navigation",
+      "observerInitializationErrors": 18,
+      "adopted": false,
+      "reason": "Two test IIFEs were concatenated without a semicolon; all required cases rerun with a clean observer"
+    }
+  ],
+  "expectedFaultLogs": [
+    {
+      "run": "chromium-core-clean",
+      "kind": "console.error",
+      "case": "NAV.paths",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "run": "chromium-core-clean",
+      "kind": "console.error",
+      "case": "NAV.paths",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "kind": "console.error",
+      "case": "FAULT.responses",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "kind": "console.error",
+      "case": "FAULT.child-init",
+      "type": "error",
+      "text": "THREE.WebGLRenderer: Error creating WebGL context."
+    },
+    {
+      "run": "chromium-faults-clean",
+      "kind": "console.error",
+      "case": "FAULT.child-init",
+      "type": "error",
+      "text": "Error: Error creating WebGL context.\n    at new WebGLRenderer (http://127.0.0.1:44457/experiments/bottle-ocean/index.html:41451:21)\n    at boot (http://127.0.0.1:44457/experiments/bottle-ocean/index.html:48939:18)"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "kind": "console.error",
+      "case": "FAULT.host-init",
+      "type": "error",
+      "text": "THREE.WebGLRenderer: THREE.WebGLRenderer: Error creating WebGL context."
+    },
+    {
+      "run": "chromium-faults-clean",
+      "kind": "console.error",
+      "case": "FAULT.host-init",
+      "type": "error",
+      "text": "Tour scene initialization failed. Error: THREE.WebGLRenderer: Error creating WebGL context.\n    at new Br (http://127.0.0.1:44457/assets/three-renderer-Bo7ttXUR.js:4221:23774)\n    at Nt (http://127.0.0.1:44457/assets/createAnimationController-Cv0VwzcZ.js:454:1367)\n    at http://127.0.0.1:44457/assets/startTourPrototype-gfLFgklB.js:43:14150"
+    },
+    {
+      "run": "chromium-regression",
+      "kind": "pageerror",
+      "case": "CAP.denied",
+      "text": "Disallowed by permissions policy"
+    },
+    {
+      "run": "chromium-regression",
+      "kind": "console.error",
+      "case": "CAP.denied",
+      "type": "error",
+      "text": "Permissions policy violation: fullscreen is not allowed in this document."
+    },
+    {
+      "run": "webkit",
+      "kind": "pageerror",
+      "case": "NAV.paths",
+      "text": "/127.0.0.1:44457\" from accessing a frame with origin \"http://127.0.0.1:59609\". Protocols, domains, and ports must match."
+    },
+    {
+      "run": "webkit",
+      "kind": "pageerror",
+      "case": "NAV.paths",
+      "text": "/127.0.0.1:44457\" from accessing a frame with origin \"http://127.0.0.1:59609\". Protocols, domains, and ports must match."
+    },
+    {
+      "run": "webkit",
+      "kind": "pageerror",
+      "case": "NAV.paths",
+      "text": "/127.0.0.1:44457\" from accessing a frame with origin \"http://127.0.0.1:59609\". Protocols, domains, and ports must match."
+    },
+    {
+      "run": "webkit",
+      "kind": "console.error",
+      "case": "NAV.paths",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "run": "webkit",
+      "kind": "console.error",
+      "case": "NAV.paths",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "run": "webkit",
+      "kind": "console.error",
+      "case": "FAULT.responses",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "failedRequestsRetained": [
+    {
+      "run": "chromium-core-clean",
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/experiments/lawson/assets/models/lawson_scene.glb",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Original LAWSON asynchronous model request cancelled by intentional iframe exit after original ready"
+    },
+    {
+      "run": "chromium-core-clean",
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/experiments/lawson/assets/models/car_C.glb",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Original LAWSON asynchronous model request cancelled by intentional iframe exit after original ready"
+    },
+    {
+      "run": "chromium-core-clean",
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/experiments/lawson/assets/models/lawson_scene.glb",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Original LAWSON asynchronous model request cancelled by intentional iframe exit after original ready"
+    },
+    {
+      "run": "chromium-core-clean",
+      "case": "LIFE.cycles",
+      "url": "http://127.0.0.1:44457/experiments/lawson/assets/models/car_A.glb",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Original LAWSON asynchronous model request cancelled by intentional iframe exit after original ready"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "case": "LIFE.pending",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Held original navigation deliberately cancelled by native close/archive/retry/project switch"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "case": "LIFE.pending",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Held original navigation deliberately cancelled by native close/archive/retry/project switch"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "case": "LIFE.pending",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Held original navigation deliberately cancelled by native close/archive/retry/project switch"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "case": "LIFE.pending",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Held original navigation deliberately cancelled by native close/archive/retry/project switch"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "case": "LIFE.pending",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Held original navigation deliberately cancelled by native close/archive/retry/project switch"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "case": "LIFE.pending",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Held original navigation deliberately cancelled by native close/archive/retry/project switch"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "case": "LIFE.pending",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Held original navigation deliberately cancelled by native close/archive/retry/project switch"
+    },
+    {
+      "run": "chromium-faults-clean",
+      "case": "FAULT.responses",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "failure": "net::ERR_FAILED",
+      "interpretation": "Real request abort deliberately injected; actual original button retry recovered"
+    },
+    {
+      "run": "chromium-regression",
+      "case": "CAP.native",
+      "url": "http://127.0.0.1:44457/experiments/lawson/assets/models/car_A.glb",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Original LAWSON asynchronous model request cancelled by intentional iframe exit after original ready"
+    },
+    {
+      "run": "chromium-regression",
+      "case": "CAP.denied",
+      "url": "http://127.0.0.1:44457/experiments/lawson/assets/models/car_C.glb",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Original LAWSON asynchronous model request cancelled by intentional iframe exit after original ready"
+    },
+    {
+      "run": "firefox",
+      "case": "FAULT.responses",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "failure": "NS_ERROR_FAILURE",
+      "interpretation": "Real request abort deliberately injected; actual original button retry recovered"
+    },
+    {
+      "run": "webkit",
+      "case": "FAULT.responses",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "failure": "Blocked by Web Inspector",
+      "interpretation": "Real request abort deliberately injected; actual original button retry recovered"
+    }
+  ],
+  "normalUnexpectedErrors": [],
+  "protection": {
+    "checkedAtShanghai": "2026-11-14T14:48:57.277603+08:00",
+    "history": {
+      "seals": [
+        {
+          "path": "docs/evidence/lawson-integration-step-1/evidence-manifest.json",
+          "sha256": "095ac6a75c182118bf1fd6c9edc8223149f24960ee7ba6b24569f89c006ece66",
+          "filesVerified": 77
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-1/evidence-manifest.json",
+          "sha256": "dda03a5ab980ee9e2c5db2854e32ee04775a8598f6e4da6283c3cc8bbefbbd1a",
+          "filesVerified": 109
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-2/evidence-manifest.json",
+          "sha256": "d8a62def72d2b46fb070a6ec6935d96633f339e4d762ed7e4aff0e1f7cae448f",
+          "filesVerified": 115
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-3/evidence-manifest.json",
+          "sha256": "a4421b7596c1df520c6dc1c43173c4b2edb8c34b883f7bd72c3c0f696fb8e35a",
+          "filesVerified": 95
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-4/evidence-manifest.json",
+          "sha256": "6b8ee7e2e28ba6d79e99290ed3259d0ed7a0c2f26c404dbd641bb8bb6c176e69",
+          "filesVerified": 95
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-5/evidence-manifest.json",
+          "sha256": "91e43e57678aadd968e378af1549c20d5fc27a61d52cc27db97c8d0a75f7ee2f",
+          "filesVerified": 51
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-6/evidence-manifest.json",
+          "sha256": "fa5a9557e129cabe1f9e893ea4a6b00937caff6b039e87669808d1d478515474",
+          "filesVerified": 315
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-7/evidence-manifest.json",
+          "sha256": "edcc84f6400e7442ffce47734d3352ddda2c4b834fa95d18c21b2fb17118682d",
+          "filesVerified": 750
+        },
+        {
+          "path": "docs/evidence/beach-bottle-boat-step-1/evidence-manifest.json",
+          "sha256": "cc033a75a5f09c7f5a8876bb15d0ef5d6902ff9907b96cfa24eb0d3abfda5633",
+          "filesVerified": 253
+        },
+        {
+          "path": "docs/evidence/beach-bottle-boat-step-3/evidence-manifest.json",
+          "sha256": "5a9ecb9086711cfc1b862cafe83d2ded3024de56c944949412e2fd6f9b533533",
+          "filesVerified": 55
+        },
+        {
+          "path": "docs/evidence/beach-bottle-boat-step-4/evidence-manifest.json",
+          "sha256": "b22e97127b219597a429bf77a1c53db3fb53fe88927aeb6adc0e8dc2605d78e1",
+          "filesVerified": 87
+        },
+        {
+          "path": "docs/evidence/beach-bottle-boat-step-5/evidence-manifest.json",
+          "sha256": "97d32029a58bbe972a3c6b4101bea2da9a3d715410eeca510b6cd084e747494d",
+          "filesVerified": 144
+        }
+      ],
+      "originalFilesVerified": 44,
+      "sourceClean": true
+    },
+    "changedProductionInputs": [
+      {
+        "before": {
+          "path": "src/tour/createEmbeddedPageExperience.ts",
+          "bytes": 7074,
+          "sha256": "c99166829ab49ea88a91d949a51a0b122457cdf88fe08a54fe360c97753b4673"
+        },
+        "after": {
+          "path": "src/tour/createEmbeddedPageExperience.ts",
+          "bytes": 7123,
+          "sha256": "ec7b57bc3a47de545940b22f441dbf28f872462994be0912c8134b319d778594"
+        }
+      }
+    ],
+    "unchangedProductionInputs": 96,
+    "existingDistFilesUnchanged": 65,
+    "trackedChanges": [
+      "src/tour/createExperimentReader.ts",
+      "src/tour/createLawsonExperience.ts",
+      "src/tour/createProjectViewer.ts",
+      "src/tour/projectContent.ts",
+      "src/tour/projectHost.css",
+      "src/tour/startTourPrototype.ts"
+    ]
+  },
+  "cleanup": {
+    "finishedAtShanghai": "2026-11-14T14:46:15.308961+08:00",
+    "startupCompleted": true,
+    "services": [
+      {
+        "name": "dev",
+        "pid": 135679,
+        "identityChecked": true,
+        "stopped": true
+      },
+      {
+        "name": "production",
+        "pid": 135687,
+        "identityChecked": true,
+        "stopped": true
+      },
+      {
+        "name": "other-origin",
+        "pid": 135703,
+        "identityChecked": true,
+        "stopped": true
+      },
+      {
+        "name": "display",
+        "pid": 135704,
+        "identityChecked": true,
+        "stopped": true
+      }
+    ],
+    "ownedBrowsersRemaining": [],
+    "buildsVerifiedBeforeCleanup": [
+      {
+        "record": "build-candidate.json",
+        "files": 69
+      },
+      {
+        "record": "build-initial.json",
+        "files": 69
+      }
+    ],
+    "scratch": "/tmp/bottle-ocean-step-6-8x7h8zn4",
+    "scratchRemoved": true,
+    "otherServicesStopped": false
+  },
+  "scope": {
+    "stage6Complete": true,
+    "originalHTMLModified": false,
+    "stage2Executed": false,
+    "stage7Executed": false,
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "limits": [
+    "Real hidden was not observed; visible native tab return preserves the original instance and changed parameters",
+    "Pending-network exits were actually exercised; pre-creation-RAF exit timing was audited but not observed, not counted as a runtime pass",
+    "Touch/mobile and root-font 200% tests are emulation/enlargement conditions, not physical-phone/OS zoom evidence",
+    "Linux WebKit is not iOS/macOS Safari; Windows, physical mobile and hardware-GPU performance are unverified",
+    "Full 34-control original-vs-embedded parity belongs to Stage 7; original known issues remain unchanged"
+  ]
+}

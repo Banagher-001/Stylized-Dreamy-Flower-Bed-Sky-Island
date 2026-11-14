@@ -1,0 +1,674 @@
+{
+  "startedAtShanghai": "2026-11-13T16:51:48.130718+08:00",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "REGRESS.guide-motion",
+      "name": "真实活动导览被作品切换打断，播放选择返回后保留",
+      "status": "通过",
+      "evidence": {
+        "nativeGuideStarted": {
+          "url": "http://127.0.0.1:38073/",
+          "viewport": [
+            1920,
+            1080
+          ],
+          "dpr": 1,
+          "scrollY": 10854,
+          "layout": "immersive",
+          "work": "lawson",
+          "coverState": "ready",
+          "cover": [
+            {
+              "src": "http://127.0.0.1:38073/assets/lawson-cover-DsynKw5x.png",
+              "alt": "蓝色 LAWSON 招牌与方块樱花环绕的微缩便利店",
+              "complete": true,
+              "width": 1280,
+              "rect": {
+                "x": 829,
+                "y": 379.1875,
+                "width": 450,
+                "height": 158,
+                "top": 379.1875,
+                "right": 1279,
+                "bottom": 537.1875,
+                "left": 829
+              },
+              "fit": "contain"
+            }
+          ],
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false,
+              "rect": {
+                "x": 832,
+                "y": 306.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 306.09375,
+                "right": 977.328125,
+                "bottom": 360.1875,
+                "left": 832
+              }
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false,
+              "rect": {
+                "x": 981.328125,
+                "y": 306.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 306.09375,
+                "right": 1126.65625,
+                "bottom": 360.1875,
+                "left": 981.328125
+              }
+            },
+            {
+              "id": "courtyard",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false,
+              "rect": {
+                "x": 1130.65625,
+                "y": 306.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 306.09375,
+                "right": 1275.984375,
+                "bottom": 360.1875,
+                "left": 1130.65625
+              }
+            }
+          ],
+          "previewLabel": "experiment-project-lawson",
+          "focus": "tour-guide",
+          "dialog": {},
+          "open": false,
+          "frames": [],
+          "guide": {
+            "pressed": "true",
+            "phase": null
+          },
+          "host": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.0464079999999998,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"flow\":\"curved-rest-sphere-v2\",\"vertices\":117,\"triangles\":168,\"restAttributeBytes\":1404,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "cloudShadows": "{\"enabled\":true,\"active\":1,\"time\":2,\"drift\":0.4399999999999977,\"repeatSeconds\":145.45454545454547,\"failures\":[],\"materials\":[{\"name\":\"courtyard-ground\",\"surface\":\"ground\",\"strength\":0.18},{\"name\":\"courtyard-pool-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-refined-surface\",\"surface\":\"water\",\"strength\":0.075},{\"name\":\"courtyard-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-jet\",\"surface\":\"water\",\"strength\":0.045},{\"name\":\"courtyard-living-orb\",\"surface\":\"water\",\"strength\":0.05},{\"name\":\"courtyard-foliage\",\"surface\":\"foliage\",\"strength\":0.13},{\"name\":\"courtyard-flower\",\"surface\":\"flower\",\"strength\":0.1},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0,\"extraDrawCalls\":0}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "birdResources": "{\"birds\":3,\"newGeometries\":1,\"newTextures\":0,\"maximumColorDrawCalls\":1,\"extraPasses\":0,\"castsShadows\":false,\"trianglesPerBird\":60}",
+            "overlayState": "closed",
+            "stage": "C2",
+            "chapter": "experiments",
+            "displayH": "10.0499456",
+            "targetH": "10.0500000",
+            "cameraState": "moving",
+            "cameraPosition": "[5.2778361,6,13.9409552]",
+            "cameraTarget": "[4.0778361,1.8,4.9409552]",
+            "viewHeight": "3.6000000",
+            "aspect": "1.9578623",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "C2",
+            "experimentPhase": "read",
+            "experimentPresentation": "{\"frame\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "running",
+            "visibility": "visible",
+            "guideState": "arriving",
+            "guidePhase": "arriving",
+            "guideStation": "C2",
+            "guideTargetH": "10.05",
+            "guideReadSeconds": "0",
+            "guideReadyAt": "",
+            "guideDeadline": "",
+            "guideReason": "",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2.816499999999999,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2.816499999999999,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2.816499999999999,\"lod\":1}",
+            "sceneTime": "2.816500",
+            "rendererStats": "{\"geometries\":55,\"textures\":4,\"programs\":13,\"calls\":48,\"triangles\":7431,\"mode\":\"pixel\",\"outputWidth\":1905,\"outputHeight\":973,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":196,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":3}}"
+          },
+          "overflow": false
+        },
+        "manualPauseBefore": {
+          "url": "http://127.0.0.1:38073/",
+          "viewport": [
+            1920,
+            1080
+          ],
+          "dpr": 1,
+          "scrollY": 10854,
+          "layout": "immersive",
+          "work": "bottle-ocean",
+          "coverState": "ready",
+          "cover": [
+            {
+              "src": "http://127.0.0.1:38073/assets/bottle-ocean-cover-qRB3P1Tl.png",
+              "alt": "黄昏海岸的玻璃瓶中，三桅帆船随微型海浪起伏",
+              "complete": true,
+              "width": 1920,
+              "rect": {
+                "x": 829,
+                "y": 364.1875,
+                "width": 450,
+                "height": 158,
+                "top": 364.1875,
+                "right": 1279,
+                "bottom": 522.1875,
+                "left": 829
+              },
+              "fit": "contain"
+            }
+          ],
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false,
+              "rect": {
+                "x": 832,
+                "y": 291.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 291.09375,
+                "right": 977.328125,
+                "bottom": 345.1875,
+                "left": 832
+              }
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false,
+              "rect": {
+                "x": 981.328125,
+                "y": 291.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 291.09375,
+                "right": 1126.65625,
+                "bottom": 345.1875,
+                "left": 981.328125
+              }
+            },
+            {
+              "id": "courtyard",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false,
+              "rect": {
+                "x": 1130.65625,
+                "y": 291.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 291.09375,
+                "right": 1275.984375,
+                "bottom": 345.1875,
+                "left": 1130.65625
+              }
+            }
+          ],
+          "previewLabel": "experiment-project-bottle-ocean",
+          "focus": "tour-motion",
+          "dialog": {},
+          "open": false,
+          "frames": [],
+          "guide": {
+            "pressed": "false",
+            "phase": null
+          },
+          "host": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.0464079999999998,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"flow\":\"curved-rest-sphere-v2\",\"vertices\":117,\"triangles\":168,\"restAttributeBytes\":1404,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "cloudShadows": "{\"enabled\":true,\"active\":1,\"time\":2,\"drift\":0.4399999999999977,\"repeatSeconds\":145.45454545454547,\"failures\":[],\"materials\":[{\"name\":\"courtyard-ground\",\"surface\":\"ground\",\"strength\":0.18},{\"name\":\"courtyard-pool-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-refined-surface\",\"surface\":\"water\",\"strength\":0.075},{\"name\":\"courtyard-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-jet\",\"surface\":\"water\",\"strength\":0.045},{\"name\":\"courtyard-living-orb\",\"surface\":\"water\",\"strength\":0.05},{\"name\":\"courtyard-foliage\",\"surface\":\"foliage\",\"strength\":0.13},{\"name\":\"courtyard-flower\",\"surface\":\"flower\",\"strength\":0.1},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0,\"extraDrawCalls\":0}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "birdResources": "{\"birds\":3,\"newGeometries\":1,\"newTextures\":0,\"maximumColorDrawCalls\":1,\"extraPasses\":0,\"castsShadows\":false,\"trianglesPerBird\":60}",
+            "overlayState": "closed",
+            "stage": "C2",
+            "chapter": "experiments",
+            "displayH": "10.0500000",
+            "targetH": "10.0500000",
+            "cameraState": "settled",
+            "cameraPosition": "[5.2778361,6,13.9409552]",
+            "cameraTarget": "[4.0778361,1.8,4.9409552]",
+            "viewHeight": "3.6000000",
+            "aspect": "1.9578623",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "C2",
+            "experimentPhase": "read",
+            "experimentPresentation": "{\"frame\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "guideState": "paused",
+            "guidePhase": "paused",
+            "guideStation": "C2",
+            "guideTargetH": "10.05",
+            "guideReadSeconds": "13.025974025974026",
+            "guideReadyAt": "2254.199999999255",
+            "guideDeadline": "",
+            "guideReason": "已交还手动浏览，可从当前位置继续导览。",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":3.0331999999999986,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":3.0331999999999986,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":3.0331999999999986,\"lod\":1}",
+            "sceneTime": "3.033200",
+            "rendererStats": "{\"geometries\":55,\"textures\":4,\"programs\":13,\"calls\":44,\"triangles\":7227,\"mode\":\"pixel\",\"outputWidth\":1905,\"outputHeight\":973,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":196,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":3}}"
+          },
+          "overflow": false
+        },
+        "pausedAfterReturn": {
+          "url": "http://127.0.0.1:38073/",
+          "viewport": [
+            1920,
+            1080
+          ],
+          "dpr": 1,
+          "scrollY": 10854,
+          "layout": "immersive",
+          "work": "bottle-ocean",
+          "coverState": "ready",
+          "cover": [
+            {
+              "src": "http://127.0.0.1:38073/assets/bottle-ocean-cover-qRB3P1Tl.png",
+              "alt": "黄昏海岸的玻璃瓶中，三桅帆船随微型海浪起伏",
+              "complete": true,
+              "width": 1920,
+              "rect": {
+                "x": 829,
+                "y": 364.1875,
+                "width": 450,
+                "height": 158,
+                "top": 364.1875,
+                "right": 1279,
+                "bottom": 522.1875,
+                "left": 829
+              },
+              "fit": "contain"
+            }
+          ],
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false,
+              "rect": {
+                "x": 832,
+                "y": 291.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 291.09375,
+                "right": 977.328125,
+                "bottom": 345.1875,
+                "left": 832
+              }
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false,
+              "rect": {
+                "x": 981.328125,
+                "y": 291.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 291.09375,
+                "right": 1126.65625,
+                "bottom": 345.1875,
+                "left": 981.328125
+              }
+            },
+            {
+              "id": "courtyard",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false,
+              "rect": {
+                "x": 1130.65625,
+                "y": 291.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 291.09375,
+                "right": 1275.984375,
+                "bottom": 345.1875,
+                "left": 1130.65625
+              }
+            }
+          ],
+          "previewLabel": "experiment-project-bottle-ocean",
+          "focus": "archive",
+          "dialog": {
+            "projectId": "bottle-ocean",
+            "experienceKind": "embedded-page",
+            "embeddedState": "prepared",
+            "tab": "archive",
+            "mediaState": "idle"
+          },
+          "open": false,
+          "frames": [],
+          "guide": {
+            "pressed": "false",
+            "phase": null
+          },
+          "host": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.0464079999999998,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"flow\":\"curved-rest-sphere-v2\",\"vertices\":117,\"triangles\":168,\"restAttributeBytes\":1404,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "cloudShadows": "{\"enabled\":true,\"active\":1,\"time\":2,\"drift\":0.4399999999999977,\"repeatSeconds\":145.45454545454547,\"failures\":[],\"materials\":[{\"name\":\"courtyard-ground\",\"surface\":\"ground\",\"strength\":0.18},{\"name\":\"courtyard-pool-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-refined-surface\",\"surface\":\"water\",\"strength\":0.075},{\"name\":\"courtyard-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-jet\",\"surface\":\"water\",\"strength\":0.045},{\"name\":\"courtyard-living-orb\",\"surface\":\"water\",\"strength\":0.05},{\"name\":\"courtyard-foliage\",\"surface\":\"foliage\",\"strength\":0.13},{\"name\":\"courtyard-flower\",\"surface\":\"flower\",\"strength\":0.1},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0,\"extraDrawCalls\":0}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "birdResources": "{\"birds\":3,\"newGeometries\":1,\"newTextures\":0,\"maximumColorDrawCalls\":1,\"extraPasses\":0,\"castsShadows\":false,\"trianglesPerBird\":60}",
+            "overlayState": "closed",
+            "stage": "C2",
+            "chapter": "experiments",
+            "displayH": "10.0500000",
+            "targetH": "10.0500000",
+            "cameraState": "settled",
+            "cameraPosition": "[5.2778361,6,13.9409552]",
+            "cameraTarget": "[4.0778361,1.8,4.9409552]",
+            "viewHeight": "3.6000000",
+            "aspect": "1.9578623",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "C2",
+            "experimentPhase": "read",
+            "experimentPresentation": "{\"frame\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "paused",
+            "visibility": "visible",
+            "guideState": "paused",
+            "guidePhase": "paused",
+            "guideStation": "C2",
+            "guideTargetH": "10.05",
+            "guideReadSeconds": "13.025974025974026",
+            "guideReadyAt": "2254.199999999255",
+            "guideDeadline": "",
+            "guideReason": "已交还手动浏览，可从当前位置继续导览。",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":3.0331999999999986,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":3.0331999999999986,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":3.0331999999999986,\"lod\":1}",
+            "sceneTime": "3.033200",
+            "rendererStats": "{\"geometries\":55,\"textures\":4,\"programs\":13,\"calls\":44,\"triangles\":7227,\"mode\":\"pixel\",\"outputWidth\":1905,\"outputHeight\":973,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":196,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":5}}",
+            "projectView": "closed"
+          },
+          "overflow": false
+        },
+        "playingAfterReturn": {
+          "url": "http://127.0.0.1:38073/",
+          "viewport": [
+            1920,
+            1080
+          ],
+          "dpr": 1,
+          "scrollY": 10854,
+          "layout": "immersive",
+          "work": "bottle-ocean",
+          "coverState": "ready",
+          "cover": [
+            {
+              "src": "http://127.0.0.1:38073/assets/bottle-ocean-cover-qRB3P1Tl.png",
+              "alt": "黄昏海岸的玻璃瓶中，三桅帆船随微型海浪起伏",
+              "complete": true,
+              "width": 1920,
+              "rect": {
+                "x": 829,
+                "y": 364.1875,
+                "width": 450,
+                "height": 158,
+                "top": 364.1875,
+                "right": 1279,
+                "bottom": 522.1875,
+                "left": 829
+              },
+              "fit": "contain"
+            }
+          ],
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false,
+              "rect": {
+                "x": 832,
+                "y": 291.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 291.09375,
+                "right": 977.328125,
+                "bottom": 345.1875,
+                "left": 832
+              }
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false,
+              "rect": {
+                "x": 981.328125,
+                "y": 291.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 291.09375,
+                "right": 1126.65625,
+                "bottom": 345.1875,
+                "left": 981.328125
+              }
+            },
+            {
+              "id": "courtyard",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false,
+              "rect": {
+                "x": 1130.65625,
+                "y": 291.09375,
+                "width": 145.328125,
+                "height": 54.09375,
+                "top": 291.09375,
+                "right": 1275.984375,
+                "bottom": 345.1875,
+                "left": 1130.65625
+              }
+            }
+          ],
+          "previewLabel": "experiment-project-bottle-ocean",
+          "focus": "live",
+          "dialog": {
+            "projectId": "bottle-ocean",
+            "experienceKind": "embedded-page",
+            "embeddedState": "prepared",
+            "tab": "live",
+            "mediaState": "idle"
+          },
+          "open": false,
+          "frames": [],
+          "guide": {
+            "pressed": "false",
+            "phase": null
+          },
+          "host": {
+            "renderState": "ready",
+            "fountainStyle": "refined",
+            "fountainResources": "{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}",
+            "orbStyle": "lively",
+            "orbResources": "{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.0464079999999998,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"flow\":\"curved-rest-sphere-v2\",\"vertices\":117,\"triangles\":168,\"restAttributeBytes\":1404,\"dropCapacity\":32,\"rippleCapacity\":8}",
+            "cloudShadows": "{\"enabled\":true,\"active\":1,\"time\":2,\"drift\":0.4399999999999977,\"repeatSeconds\":145.45454545454547,\"failures\":[],\"materials\":[{\"name\":\"courtyard-ground\",\"surface\":\"ground\",\"strength\":0.18},{\"name\":\"courtyard-pool-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-refined-surface\",\"surface\":\"water\",\"strength\":0.075},{\"name\":\"courtyard-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-jet\",\"surface\":\"water\",\"strength\":0.045},{\"name\":\"courtyard-living-orb\",\"surface\":\"water\",\"strength\":0.05},{\"name\":\"courtyard-foliage\",\"surface\":\"foliage\",\"strength\":0.13},{\"name\":\"courtyard-flower\",\"surface\":\"flower\",\"strength\":0.1},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0,\"extraDrawCalls\":0}",
+            "magicStatus": "ready",
+            "magicResources": "{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmMagicStatus": "ready",
+            "filmMagicResources": "{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "filmAvailability": "{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}",
+            "experimentMagicStatus": "ready",
+            "experimentMagicResources": "{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}",
+            "birdResources": "{\"birds\":3,\"newGeometries\":1,\"newTextures\":0,\"maximumColorDrawCalls\":1,\"extraPasses\":0,\"castsShadows\":false,\"trianglesPerBird\":60}",
+            "overlayState": "closed",
+            "stage": "C2",
+            "chapter": "experiments",
+            "displayH": "10.0500000",
+            "targetH": "10.0500000",
+            "cameraState": "settled",
+            "cameraPosition": "[5.2778361,6,13.9409552]",
+            "cameraTarget": "[4.0778361,1.8,4.9409552]",
+            "viewHeight": "3.6000000",
+            "aspect": "1.9578623",
+            "readingStation": "",
+            "readingPhase": "off",
+            "readingOpacity": "0.0000000",
+            "readingTitleOpacity": "0.0000000",
+            "filmStation": "",
+            "filmPhase": "off",
+            "filmPresentation": "{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}",
+            "experimentStation": "C2",
+            "experimentPhase": "read",
+            "experimentPresentation": "{\"frame\":1,\"title\":1,\"body\":1,\"offset\":0}",
+            "motionState": "running",
+            "visibility": "visible",
+            "guideState": "paused",
+            "guidePhase": "paused",
+            "guideStation": "C2",
+            "guideTargetH": "10.05",
+            "guideReadSeconds": "13.025974025974026",
+            "guideReadyAt": "2254.199999999255",
+            "guideDeadline": "",
+            "guideReason": "已交还手动浏览，可从当前位置继续导览。",
+            "magicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":3.3330999999999986,\"lod\":1}",
+            "filmMagicFrame": "{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":3.3330999999999986,\"lod\":1}",
+            "experimentMagicFrame": "{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":3.3330999999999986,\"lod\":1}",
+            "sceneTime": "3.333100",
+            "rendererStats": "{\"geometries\":55,\"textures\":4,\"programs\":13,\"calls\":44,\"triangles\":7219,\"mode\":\"pixel\",\"outputWidth\":1905,\"outputHeight\":973,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":196,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":7}}",
+            "projectView": "closed"
+          },
+          "overflow": false
+        },
+        "routePositionReachedThroughNativeWheel": true
+      }
+    }
+  ],
+  "requests": [
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/",
+      "type": "document"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/index-B5fEclxT.js",
+      "type": "script"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/startTourPrototype-RxrtyX83.js",
+      "type": "script"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "REGRESS.guide-motion",
+      "url": "http://127.0.0.1:38073/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    }
+  ],
+  "pageErrors": [],
+  "console": [],
+  "failedRequests": [],
+  "externalAttempts": [],
+  "routesDisableCache": true,
+  "physicalDevice": false,
+  "bottleIframeAdded": false,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "complete": true,
+  "finishedAtShanghai": "2026-11-13T16:51:53.026594+08:00"
+}

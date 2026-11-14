@@ -1,0 +1,227 @@
+{
+  "status": "通过",
+  "conditions": {
+    "side": "embedded",
+    "url": "http://127.0.0.1:46767/experiments/bottle-ocean/index.html",
+    "entrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+    "viewport": [
+      1440,
+      844
+    ],
+    "canvas": [
+      1440,
+      844
+    ],
+    "dpr": 1,
+    "touch": false,
+    "timeOrigin": 1794642467087.8,
+    "engineRevision": "180"
+  },
+  "evidence": {
+    "nativePicking": [
+      {
+        "kind": "bottle",
+        "actualRay": {
+          "x": 557.6139954846,
+          "y": 564.0549075648311,
+          "point": [
+            -0.05291719938621112,
+            1.2636478544343648,
+            0.9857833889443239
+          ],
+          "object": "BottleGlass",
+          "objectType": "Mesh",
+          "insideBottle": false
+        },
+        "before": {
+          "position": [
+            0.5503801579587017,
+            2.34138507530666,
+            6.490267956257238
+          ],
+          "target": [
+            0.8,
+            1.92,
+            0.1
+          ],
+          "fov": 42,
+          "preset": "cinema",
+          "distance": 6.409009283812904
+        },
+        "after": {
+          "position": [
+            -0.3996198420412984,
+            1.561603116972613,
+            6.490267956257238
+          ],
+          "target": [
+            -0.15000000000000002,
+            1.1402180416659529,
+            0.1
+          ],
+          "fov": 42,
+          "preset": null,
+          "distance": 6.409009283812904
+        },
+        "lightBefore": true,
+        "lightAfter": true
+      },
+      {
+        "kind": "ground",
+        "actualRay": {
+          "x": 302.50318518819347,
+          "y": 807.4824164489137,
+          "point": [
+            -1.0012760432649732,
+            0.4524907119978434,
+            1.996304276629119
+          ],
+          "object": "sandTerrain",
+          "objectType": "Mesh",
+          "insideBottle": false
+        },
+        "before": {
+          "position": [
+            0.5503801579587017,
+            2.34138507530666,
+            6.490267956257238
+          ],
+          "target": [
+            0.8,
+            1.92,
+            0.1
+          ],
+          "fov": 42,
+          "preset": "cinema",
+          "distance": 6.409009283812904
+        },
+        "after": {
+          "position": [
+            -1.2538261516735223,
+            1.8098749153889913,
+            8.38388155164916
+          ],
+          "target": [
+            -1.0042063096322238,
+            0.45344005412089533,
+            1.993613595391923
+          ],
+          "fov": 42,
+          "preset": null,
+          "distance": 6.5374115788415965
+        },
+        "lightBefore": true,
+        "lightAfter": true
+      },
+      {
+        "kind": "lighthouse",
+        "actualRay": {
+          "x": 1011.5060022434974,
+          "y": 252.49225835340135,
+          "point": [
+            10.122842390294075,
+            5.112949746912868,
+            -24.86766616095963
+          ],
+          "object": "lighthouseTower",
+          "objectType": "Mesh",
+          "insideBottle": false
+        },
+        "before": {
+          "position": [
+            0.5503801579587017,
+            2.3413850753066603,
+            6.49026795625724
+          ],
+          "target": [
+            0.8,
+            1.92,
+            0.10000000000000009
+          ],
+          "fov": 42,
+          "preset": "cinema",
+          "distance": 6.409009283812905
+        },
+        "after": {
+          "position": [
+            0.5503801579587017,
+            2.3413850753066603,
+            6.49026795625724
+          ],
+          "target": [
+            0.8,
+            1.92,
+            0.10000000000000009
+          ],
+          "fov": 42,
+          "preset": null,
+          "distance": 6.409009283812905
+        },
+        "lightBefore": true,
+        "lightAfter": false
+      },
+      {
+        "kind": "lighthouse-double",
+        "actualRay": {
+          "x": 1011.5060022434974,
+          "y": 252.49225835340135,
+          "point": [
+            10.122842390294075,
+            5.112949746912868,
+            -24.86766616095963
+          ],
+          "object": "lighthouseTower",
+          "objectType": "Mesh",
+          "insideBottle": false
+        },
+        "before": {
+          "position": [
+            0.5503801579587017,
+            2.3413850753066603,
+            6.49026795625724
+          ],
+          "target": [
+            0.8,
+            1.92,
+            0.10000000000000009
+          ],
+          "fov": 42,
+          "preset": null,
+          "distance": 6.409009283812905
+        },
+        "after": {
+          "position": [
+            9.857105272781952,
+            5.547898599678661,
+            -18.473358187848113
+          ],
+          "target": [
+            10.10672511482325,
+            5.126513524372001,
+            -22
+          ],
+          "fov": 42,
+          "preset": null,
+          "distance": 3.560488438185113
+        },
+        "lightAfter": true
+      }
+    ],
+    "comparison": {
+      "kinds": [
+        "bottle",
+        "ground",
+        "lighthouse",
+        "lighthouse-double"
+      ],
+      "singleLighthouseToggled": true,
+      "bottleAndTerrainFocused": true
+    },
+    "nativeDoubleClickIncludesOriginalPointerUpSequence": true
+  },
+  "returned": {
+    "scrollY": 5604,
+    "focus": "live",
+    "projectLock": false
+  }
+}

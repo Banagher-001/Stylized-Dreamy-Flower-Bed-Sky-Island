@@ -1,0 +1,33 @@
+{
+  "reviewedAtShanghai": "2026-11-14T14:46:14.309759+08:00",
+  "method": "Assistant inspected the actual native-button downloaded PNGs and browser screenshots with view_image",
+  "files": [
+    {
+      "path": "docs/evidence/beach-bottle-boat-step-6/chromium-core-clean/native-input-download.png",
+      "bytes": 356370,
+      "sha256": "72a9ba3f99d5120247043fb819b103f90b34c76444841a9a3ec591c579b42f91"
+    },
+    {
+      "path": "docs/evidence/beach-bottle-boat-step-6/chromium-layout/phone-native-download.png",
+      "bytes": 231027,
+      "sha256": "41e6847d52f5dcf96b035c95fd540b90a58c5a133a3d7b11f245d8ccf63d3f3c"
+    },
+    {
+      "path": "docs/evidence/beach-bottle-boat-step-6/chromium-layout/layout-320-error.png",
+      "bytes": 35911,
+      "sha256": "e28ce36b13623a8e3ed1c2d1f44789796914ee761d474f4d469749670ae26741"
+    },
+    {
+      "path": "docs/evidence/beach-bottle-boat-step-6/child-navigation-before/failure-NAV-child-blank.png",
+      "bytes": 14920,
+      "sha256": "a95b2a0b1c181f862b27cb24184021c484e2e2b45199643392749facfc9860bb"
+    }
+  ],
+  "observed": [
+    "Desktop native PNG contains the original bottle/ship/ocean/sunset scene, no DOM controls.",
+    "Phone PNG shows the original camera after native orbit/pinch, including partial bottle and lighthouse; the original portrait cropping is preserved.",
+    "320px error screenshot has wrapped host toolbar with independent/retry/return actions and readable error feedback; fixture text is test-only.",
+    "Initial product failure screenshot shows a blank live area with host still displaying loading; original failure retained."
+  ],
+  "imagesEdited": false
+}

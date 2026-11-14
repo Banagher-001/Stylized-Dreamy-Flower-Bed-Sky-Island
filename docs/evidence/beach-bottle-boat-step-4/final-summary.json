@@ -1,0 +1,558 @@
+{
+  "completedAtShanghai": "2026-11-13T16:56:47.504110+08:00",
+  "conclusion": "第四步完成：三作品选择、预览、瓶中海洋档案和独立打开入口可用；完整瓶中海洋iframe仍未接通",
+  "standardChecks": [
+    {
+      "id": "S4-01",
+      "status": "通过",
+      "records": [
+        "baseline.json"
+      ]
+    },
+    {
+      "id": "S4-02",
+      "status": "通过",
+      "records": [
+        "SELECT.three"
+      ]
+    },
+    {
+      "id": "S4-03",
+      "status": "通过",
+      "records": [
+        "SELECT.three",
+        "LAYOUT.sizes"
+      ]
+    },
+    {
+      "id": "S4-04",
+      "status": "通过",
+      "records": [
+        "KEYBOARD.cycle"
+      ]
+    },
+    {
+      "id": "S4-05",
+      "status": "通过",
+      "records": [
+        "FAULT.delayed-cover"
+      ]
+    },
+    {
+      "id": "S4-06",
+      "status": "通过",
+      "records": [
+        "FAULT.failed-cover",
+        "build.json"
+      ]
+    },
+    {
+      "id": "S4-07",
+      "status": "通过",
+      "records": [
+        "ARCHIVE.prepared"
+      ]
+    },
+    {
+      "id": "S4-08",
+      "status": "通过",
+      "records": [
+        "ARCHIVE.prepared",
+        "REGRESS.lawson"
+      ]
+    },
+    {
+      "id": "S4-09",
+      "status": "通过",
+      "records": [
+        "OPEN.root"
+      ]
+    },
+    {
+      "id": "S4-10",
+      "status": "通过",
+      "records": [
+        "OPEN.prefix"
+      ]
+    },
+    {
+      "id": "S4-11",
+      "status": "通过",
+      "records": [
+        "REGRESS.lawson"
+      ]
+    },
+    {
+      "id": "S4-12",
+      "status": "通过",
+      "records": [
+        "REGRESS.courtyard-water",
+        "FAULT.host-graphics"
+      ]
+    },
+    {
+      "id": "S4-13",
+      "status": "通过",
+      "records": [
+        "LAYOUT.sizes"
+      ]
+    },
+    {
+      "id": "S4-14",
+      "status": "通过",
+      "records": [
+        "ARCHIVE.prepared",
+        "REGRESS.reading",
+        "REGRESS.guide-motion"
+      ]
+    },
+    {
+      "id": "S4-15",
+      "status": "通过",
+      "records": [
+        "build.json"
+      ]
+    },
+    {
+      "id": "S4-16",
+      "status": "通过",
+      "records": [
+        "final-summary.json",
+        "services-cleanup.json"
+      ]
+    }
+  ],
+  "adoptedChecks": [
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "SELECT.three",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/0"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "KEYBOARD.cycle",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/1"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "ARCHIVE.prepared",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/2"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "OPEN.root",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/3"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "OPEN.prefix",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/4"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.delayed-cover",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/5"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.failed-cover",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/6"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "REGRESS.lawson",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/7"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "REGRESS.courtyard-water",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/8"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "FAULT.host-graphics",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/9"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "LAYOUT.sizes",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/10"
+    },
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "REGRESS.reading",
+      "status": "通过",
+      "record": "chromium/browser.json#/checks/11"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "SELECT.three",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/0"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "KEYBOARD.cycle",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/1"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "ARCHIVE.prepared",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/2"
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "id": "OPEN.root",
+      "status": "通过",
+      "record": "firefox/browser.json#/checks/3"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "SELECT.three",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/0"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "KEYBOARD.cycle",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/1"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "ARCHIVE.prepared",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/2"
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "id": "OPEN.root",
+      "status": "通过",
+      "record": "webkit/browser.json#/checks/3"
+    },
+    {
+      "run": "guide-motion",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "id": "REGRESS.guide-motion",
+      "status": "通过",
+      "record": "guide-motion/browser.json#/checks/0"
+    }
+  ],
+  "runs": [
+    {
+      "run": "chromium",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "passed": 12,
+      "expectedFaults": [
+        "FAULT.delayed-cover",
+        "FAULT.failed-cover",
+        "FAULT.host-graphics"
+      ]
+    },
+    {
+      "run": "firefox",
+      "engine": "firefox",
+      "version": "153.0",
+      "passed": 4,
+      "expectedFaults": []
+    },
+    {
+      "run": "webkit",
+      "engine": "webkit",
+      "version": "26.5",
+      "passed": 4,
+      "expectedFaults": []
+    },
+    {
+      "run": "guide-motion",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "passed": 1,
+      "expectedFaults": []
+    }
+  ],
+  "protection": {
+    "checkedAtShanghai": "2026-11-13T16:56:47.467049+08:00",
+    "history": {
+      "seals": [
+        {
+          "path": "docs/evidence/lawson-integration-step-1/evidence-manifest.json",
+          "sha256": "095ac6a75c182118bf1fd6c9edc8223149f24960ee7ba6b24569f89c006ece66",
+          "filesVerified": 77
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-1/evidence-manifest.json",
+          "sha256": "dda03a5ab980ee9e2c5db2854e32ee04775a8598f6e4da6283c3cc8bbefbbd1a",
+          "filesVerified": 109
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-2/evidence-manifest.json",
+          "sha256": "d8a62def72d2b46fb070a6ec6935d96633f339e4d762ed7e4aff0e1f7cae448f",
+          "filesVerified": 115
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-3/evidence-manifest.json",
+          "sha256": "a4421b7596c1df520c6dc1c43173c4b2edb8c34b883f7bd72c3c0f696fb8e35a",
+          "filesVerified": 95
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-4/evidence-manifest.json",
+          "sha256": "6b8ee7e2e28ba6d79e99290ed3259d0ed7a0c2f26c404dbd641bb8bb6c176e69",
+          "filesVerified": 95
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-5/evidence-manifest.json",
+          "sha256": "91e43e57678aadd968e378af1549c20d5fc27a61d52cc27db97c8d0a75f7ee2f",
+          "filesVerified": 51
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-6/evidence-manifest.json",
+          "sha256": "fa5a9557e129cabe1f9e893ea4a6b00937caff6b039e87669808d1d478515474",
+          "filesVerified": 315
+        },
+        {
+          "path": "docs/evidence/lawson-fullpage-step-7/evidence-manifest.json",
+          "sha256": "edcc84f6400e7442ffce47734d3352ddda2c4b834fa95d18c21b2fb17118682d",
+          "filesVerified": 750
+        },
+        {
+          "path": "docs/evidence/beach-bottle-boat-step-1/evidence-manifest.json",
+          "sha256": "cc033a75a5f09c7f5a8876bb15d0ef5d6902ff9907b96cfa24eb0d3abfda5633",
+          "filesVerified": 253
+        },
+        {
+          "path": "docs/evidence/beach-bottle-boat-step-3/evidence-manifest.json",
+          "sha256": "5a9ecb9086711cfc1b862cafe83d2ded3024de56c944949412e2fd6f9b533533",
+          "filesVerified": 55
+        }
+      ],
+      "originalFilesVerified": 44,
+      "sourceClean": true
+    },
+    "changedProductionInputs": [
+      {
+        "before": {
+          "path": "src/tour/createExperimentReader.ts",
+          "bytes": 15535,
+          "sha256": "097951761c40a168d34e98afacabfabf568928e939c7950bbb8c488bc7bff303"
+        },
+        "after": {
+          "path": "src/tour/createExperimentReader.ts",
+          "bytes": 15530,
+          "sha256": "428c47af892f7888725f3bb1bc98184a22cb8c52367701a8323fb47da5bcc060"
+        }
+      },
+      {
+        "before": {
+          "path": "src/tour/createProjectViewer.ts",
+          "bytes": 18908,
+          "sha256": "e2eeaf2ed45b39cb02f35e1f5fbfee599642767c9559b558613f996d65914506"
+        },
+        "after": {
+          "path": "src/tour/createProjectViewer.ts",
+          "bytes": 20148,
+          "sha256": "4655f1dea05d07abe03cd6843f0e91730bf90315ee34a9a7d0714a7214e342c0"
+        }
+      },
+      {
+        "before": {
+          "path": "src/tour/projectContent.ts",
+          "bytes": 1805,
+          "sha256": "778f57b88ad31cb3d2dae88ad09cdcebf574df693647f0ee0715742705891c53"
+        },
+        "after": {
+          "path": "src/tour/projectContent.ts",
+          "bytes": 3912,
+          "sha256": "7ea09aca9415d6ddc5771ef10764ed88da431b27c96e16b4b92b0c12ffc26644"
+        }
+      },
+      {
+        "before": {
+          "path": "src/tour/projectHost.css",
+          "bytes": 7500,
+          "sha256": "4279335f28787eda9d0e3ea6837267cf2648b26f53f3c972bafb6db6afd61b70"
+        },
+        "after": {
+          "path": "src/tour/projectHost.css",
+          "bytes": 9329,
+          "sha256": "47d0e9164a9f70f386f8a7b80d05146d191969af3f12be50bcbb3b6054960c74"
+        }
+      },
+      {
+        "before": {
+          "path": "src/tour/startTourPrototype.ts",
+          "bytes": 47621,
+          "sha256": "7c3ff341daa492ead8a8b82dca3c60f9ee6c5f346a6941919bc2f3d50f542a66"
+        },
+        "after": {
+          "path": "src/tour/startTourPrototype.ts",
+          "bytes": 47631,
+          "sha256": "08a94f61b1e417f216dfaf150c82406450d0b7635b80eb6c8e9219329384c3df"
+        }
+      }
+    ],
+    "unchangedProductionInputs": 90,
+    "existingDistFilesUnchanged": 65,
+    "trackedChanges": [
+      "src/tour/createExperimentReader.ts",
+      "src/tour/createProjectViewer.ts",
+      "src/tour/projectContent.ts",
+      "src/tour/projectHost.css",
+      "src/tour/startTourPrototype.ts"
+    ]
+  },
+  "cleanup": {
+    "finishedAtShanghai": "2026-11-13T16:53:28.227001+08:00",
+    "startupCompleted": true,
+    "services": [
+      {
+        "name": "dev",
+        "pid": 38280,
+        "identityChecked": true,
+        "stopped": true
+      },
+      {
+        "name": "production",
+        "pid": 38294,
+        "identityChecked": true,
+        "stopped": true
+      },
+      {
+        "name": "display",
+        "pid": 38304,
+        "identityChecked": true,
+        "stopped": true
+      }
+    ],
+    "ownedBrowsersRemaining": [],
+    "productionManifestVerifiedBeforeCleanup": 69,
+    "scratch": "/tmp/bottle-ocean-step-4-n5bakj9_",
+    "scratchRemoved": true,
+    "otherServicesStopped": false
+  },
+  "expectedTeardownAborts": [
+    {
+      "run": "chromium",
+      "case": "REGRESS.lawson",
+      "url": "http://127.0.0.1:38073/experiments/lawson/assets/models/car_A.glb",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Original lazy car-model fetch cancelled when the LAWSON iframe was intentionally closed after ready"
+    },
+    {
+      "run": "chromium",
+      "case": "REGRESS.lawson",
+      "url": "http://127.0.0.1:38073/experiments/lawson/assets/models/car_B.glb",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Original lazy car-model fetch cancelled when the LAWSON iframe was intentionally closed after ready"
+    },
+    {
+      "run": "chromium",
+      "case": "REGRESS.lawson",
+      "url": "http://127.0.0.1:38073/experiments/lawson/assets/models/car_C.glb",
+      "failure": "net::ERR_ABORTED",
+      "interpretation": "Original lazy car-model fetch cancelled when the LAWSON iframe was intentionally closed after ready"
+    }
+  ],
+  "softwareWarnings": [
+    {
+      "run": "chromium",
+      "case": "REGRESS.lawson",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "run": "firefox",
+      "case": "SELECT.three",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "run": "firefox",
+      "case": "KEYBOARD.cycle",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "run": "firefox",
+      "case": "ARCHIVE.prepared",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    },
+    {
+      "run": "firefox",
+      "case": "OPEN.root",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    }
+  ],
+  "scope": {
+    "bottleIframeAdded": false,
+    "bottleRuntimeModified": false,
+    "step2Executed": false,
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "limits": [
+    "Chromium full step-4 matrix; Firefox/Linux WebKit four representative checks each",
+    "390/320 mobile emulation used real touchscreen taps to select bottle-ocean; three-way selection and key cycling exercised on desktop",
+    "Font enlargement used test html font-size 200%, not OS/browser zoom or physical-phone accessibility",
+    "Original 34-control parity inside a bottle iframe, actual hidden-state recovery and hardware performance belong to later verification"
+  ],
+  "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+}

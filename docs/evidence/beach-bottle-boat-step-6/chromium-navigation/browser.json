@@ -1,0 +1,1902 @@
+{
+  "startedAtShanghai": "2026-11-14T14:05:45.534120+08:00",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "NAV.blank",
+      "name": "已运行原页变为空白文档时不沿用就绪或等待",
+      "status": "通过",
+      "evidence": {
+        "blankError": {
+          "url": "http://127.0.0.1:44457/",
+          "viewport": [
+            1440,
+            900
+          ],
+          "dpr": 1,
+          "scrollY": 5604,
+          "anchor": "C1",
+          "layout": "stable",
+          "work": "bottle-ocean",
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false
+            },
+            {
+              "id": "courtyard",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            }
+          ],
+          "previewLabel": "experiment-project-bottle-ocean",
+          "focus": "BUTTON",
+          "dialog": {
+            "projectId": "bottle-ocean",
+            "tab": "live",
+            "embeddedState": "error"
+          },
+          "open": true,
+          "frames": [
+            "http://127.0.0.1:44457/experiments/bottle-ocean/index.html"
+          ],
+          "guide": {
+            "pressed": "false",
+            "state": "blocked"
+          },
+          "host": {
+            "motionState": "covered",
+            "renderState": "ready",
+            "progressH": null,
+            "targetH": "0.0000000",
+            "sceneTime": "2.483400",
+            "cameraPosition": "[4.5,23,16]",
+            "cameraTarget": "[0,0.45,0]",
+            "overlayState": "open"
+          },
+          "overflow": false
+        },
+        "newOriginal": {
+          "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+          "timeOrigin": 1794636352675.5,
+          "diagnostics": {
+            "ready": true,
+            "simTime": 0.9834000000000004,
+            "paused": false,
+            "state": {
+              "waveHeight": 100,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 2,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "fine",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.3110232626735166,
+                0.7324605168463233,
+                0.037837406401881116
+              ],
+              "quaternion": [
+                -0.04066562486847525,
+                0.056330284104255064,
+                0.027716072390137205,
+                0.9971985887364938
+              ],
+              "pitch": 0.05071718407883066,
+              "roll": -0.08443464609528857,
+              "yaw": 0.115,
+              "rootY": 0.7324605168463233,
+              "surfaceAtBoat": 0.6512342230794361,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.16,
+              "sampleHeights": {
+                "bow": 0.868657226571444,
+                "stern": 0.8326088468579803,
+                "port": 0.7194358621604813,
+                "starboard": 0.646511840321096,
+                "center": 0.6512342230794361
+              },
+              "mastTip": [
+                -0.33495260681601424,
+                1.626636538726428,
+                -0.03554943426850243
+              ],
+              "mastTips": [
+                [
+                  -0.6888672392808254,
+                  1.3889448488286096,
+                  0.024008046208906397
+                ],
+                [
+                  -0.33495260681601424,
+                  1.626636538726428,
+                  -0.03554943426850243
+                ],
+                [
+                  0.013141810123262154,
+                  1.464744864271751,
+                  -0.06047658087548674
+                ]
+              ],
+              "forward": [
+                0.9921174368479971,
+                0.050695444141290104,
+                -0.11459914242906745
+              ],
+              "drift": [
+                0.00897673732648341,
+                -0.0021625935981188817
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.16,
+              "heightAtBoat": 0.6512342230794361,
+              "samples": {
+                "bow": 0.868657226571444,
+                "stern": 0.8326088468579803,
+                "port": 0.7194358621604813,
+                "starboard": 0.646511840321096,
+                "center": 0.6512342230794361
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 720,
+              "pixelHeight": 422,
+              "scale": 2,
+              "levels": 48
+            },
+            "fps": 12,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            1440,
+            844
+          ],
+          "dpr": 1,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 844,
+            "top": 0,
+            "right": 1440,
+            "bottom": 844,
+            "left": 0
+          },
+          "pixels": [
+            720,
+            422
+          ],
+          "contextLost": false,
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "draws": 1712,
+          "contextEvents": [],
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "edit": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "actual": {
+            "amplitude": 0.16,
+            "gpuTime": 0.9834000000000004,
+            "opacity": 0.15,
+            "exposure": 0.82,
+            "lighthouse": true,
+            "spray": true,
+            "dust": true
+          }
+        },
+        "returned": {
+          "url": "http://127.0.0.1:44457/",
+          "viewport": [
+            1440,
+            900
+          ],
+          "dpr": 1,
+          "scrollY": 5604,
+          "anchor": "C1",
+          "layout": "stable",
+          "work": "bottle-ocean",
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false
+            },
+            {
+              "id": "courtyard",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            }
+          ],
+          "previewLabel": "experiment-project-bottle-ocean",
+          "focus": "live",
+          "dialog": {
+            "projectId": "bottle-ocean",
+            "tab": "live",
+            "embeddedState": "ready"
+          },
+          "open": false,
+          "frames": [],
+          "guide": {
+            "pressed": "false",
+            "state": "blocked"
+          },
+          "host": {
+            "motionState": "running",
+            "renderState": "ready",
+            "progressH": null,
+            "targetH": "0.0000000",
+            "sceneTime": "2.483400",
+            "cameraPosition": "[4.5,23,16]",
+            "cameraTarget": "[0,0.45,0]",
+            "overlayState": "closed"
+          },
+          "overflow": false
+        }
+      }
+    },
+    {
+      "id": "NAV.child-blank",
+      "name": "子页发起的同源空白导航不继续等待原场景",
+      "status": "通过",
+      "evidence": {
+        "navigation": {
+          "before": {
+            "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+            "timeOrigin": 1794636358525.7,
+            "diagnostics": {
+              "ready": true,
+              "simTime": 0.8834000000000001,
+              "paused": false,
+              "state": {
+                "waveHeight": 35,
+                "waveSpeed": 1,
+                "waveDensity": 1.25,
+                "waveDirection": 28,
+                "waterLevel": 42,
+                "boatResponse": 72,
+                "boatDamping": 48,
+                "wind": 22,
+                "pixelScale": 2,
+                "sunset": 45,
+                "brightness": 0.82,
+                "glassOpacity": 0.15,
+                "lighthouse": true,
+                "spray": true,
+                "dust": true,
+                "quality": "fine",
+                "paused": false,
+                "editMode": null
+              },
+              "camera": {
+                "position": [
+                  0.5503801579587017,
+                  2.34138507530666,
+                  6.490267956257238
+                ],
+                "target": [
+                  0.8,
+                  1.92,
+                  0.1
+                ],
+                "fov": 42,
+                "preset": "cinema",
+                "distance": 6.409009283812904
+              },
+              "boat": {
+                "position": [
+                  -0.311780151343815,
+                  0.7591729362792456,
+                  0.038075790876549935
+                ],
+                "quaternion": [
+                  -0.02649791308540791,
+                  0.05716935879637176,
+                  0.011687206067732962,
+                  0.9979443542759587
+                ],
+                "pitch": 0.020298019025028056,
+                "roll": -0.054260980266904124,
+                "yaw": 0.115,
+                "rootY": 0.7591729362792456,
+                "surfaceAtBoat": 0.7192574683001101,
+                "waterLevel": 0.7564,
+                "waveAmplitude": 0.06351844560433681,
+                "sampleHeights": {
+                  "bow": 0.8007352443255025,
+                  "stern": 0.7814762320918434,
+                  "port": 0.74469688427457,
+                  "starboard": 0.7051091448235836,
+                  "center": 0.7192574683001101
+                },
+                "mastTip": [
+                  -0.3056258686495474,
+                  1.6552771530866757,
+                  -0.0116067757284668
+                ],
+                "mastTips": [
+                  [
+                    -0.6673078811293536,
+                    1.428136443034544,
+                    0.04218188186373288
+                  ],
+                  [
+                    -0.3056258686495474,
+                    1.6552771530866757,
+                    -0.0116067757284668
+                  ],
+                  [
+                    0.03680287942298105,
+                    1.482479948528927,
+                    -0.04133350764619428
+                  ]
+                ],
+                "forward": [
+                  0.9931901472582841,
+                  0.020296625224038155,
+                  -0.11472305083801972
+                ],
+                "drift": [
+                  0.008219848656185023,
+                  -0.0019242091234500688
+                ],
+                "safety": {
+                  "withinBottle": true,
+                  "worst": null,
+                  "checks": {
+                    "mastTips": [
+                      true,
+                      true,
+                      true
+                    ],
+                    "hull": true
+                  }
+                }
+              },
+              "water": {
+                "baseLevel": 0.7564,
+                "amplitude": 0.06351844560433681,
+                "heightAtBoat": 0.7192574683001101,
+                "samples": {
+                  "bow": 0.8007352443255025,
+                  "stern": 0.7814762320918434,
+                  "port": 0.74469688427457,
+                  "starboard": 0.7051091448235836,
+                  "center": 0.7192574683001101
+                }
+              },
+              "renderer": {
+                "calls": 74,
+                "triangles": 193219,
+                "points": 774,
+                "lines": 29,
+                "pixelWidth": 720,
+                "pixelHeight": 422,
+                "scale": 2,
+                "levels": 48
+              },
+              "fps": 12,
+              "cameraInsideBottle": false,
+              "editMode": null
+            },
+            "viewport": [
+              1440,
+              844
+            ],
+            "dpr": 1,
+            "canvas": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 844,
+              "top": 0,
+              "right": 1440,
+              "bottom": 844,
+              "left": 0
+            },
+            "pixels": [
+              720,
+              422
+            ],
+            "contextLost": false,
+            "loader": {
+              "display": "none",
+              "error": ""
+            },
+            "error": null,
+            "draws": 1562,
+            "contextEvents": [],
+            "ui": {
+              "hidden": false,
+              "collapsed": false,
+              "edit": false,
+              "buttons": 22,
+              "sliders": 12
+            },
+            "actual": {
+              "amplitude": 0.06351844560433681,
+              "gpuTime": 0.8834000000000001,
+              "opacity": 0.15,
+              "exposure": 0.82,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true
+            }
+          },
+          "currentDocumentURL": "about:blank",
+          "parentCanAccessDocument": true,
+          "hostAfterNavigation": {
+            "url": "http://127.0.0.1:44457/",
+            "viewport": [
+              1440,
+              900
+            ],
+            "dpr": 1,
+            "scrollY": 5604,
+            "anchor": "C1",
+            "layout": "stable",
+            "work": "bottle-ocean",
+            "selected": [
+              {
+                "id": "lawson",
+                "selected": "false",
+                "tab": -1,
+                "disabled": false
+              },
+              {
+                "id": "bottle-ocean",
+                "selected": "true",
+                "tab": 0,
+                "disabled": false
+              },
+              {
+                "id": "courtyard",
+                "selected": "false",
+                "tab": -1,
+                "disabled": false
+              }
+            ],
+            "previewLabel": "experiment-project-bottle-ocean",
+            "focus": "BUTTON",
+            "dialog": {
+              "projectId": "bottle-ocean",
+              "tab": "live",
+              "embeddedState": "error"
+            },
+            "open": true,
+            "frames": [
+              "http://127.0.0.1:44457/experiments/bottle-ocean/index.html"
+            ],
+            "guide": {
+              "pressed": "false",
+              "state": "blocked"
+            },
+            "host": {
+              "motionState": "covered",
+              "renderState": "ready",
+              "progressH": null,
+              "targetH": "0.0000000",
+              "sceneTime": "2.416700",
+              "cameraPosition": "[4.5,23,16]",
+              "cameraTarget": "[0,0.45,0]",
+              "overlayState": "open"
+            },
+            "overflow": false
+          }
+        },
+        "recoveredOriginal": {
+          "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+          "timeOrigin": 1794636362308.3,
+          "diagnostics": {
+            "ready": true,
+            "simTime": 0.9333000000000002,
+            "paused": false,
+            "state": {
+              "waveHeight": 100,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 2,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "fine",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.3113984936846186,
+                0.7435899055963909,
+                0.03795715383986505
+              ],
+              "quaternion": [
+                -0.03538371540843409,
+                0.056715407391120104,
+                0.021339563577503273,
+                0.9975349509038146
+              ],
+              "pitch": 0.03856987961885558,
+              "roll": -0.07313306610777152,
+              "yaw": 0.115,
+              "rootY": 0.7435899055963909,
+              "surfaceAtBoat": 0.6563588113966086,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.16,
+              "sampleHeights": {
+                "bow": 0.8694582679077743,
+                "stern": 0.8261301815983025,
+                "port": 0.7235026882952706,
+                "starboard": 0.6356554811510335,
+                "center": 0.6563588113966086
+              },
+              "mastTip": [
+                -0.3234078241871216,
+                1.6386836677007912,
+                -0.026633348733447075
+              ],
+              "mastTips": [
+                [
+                  -0.680441278094702,
+                  1.4051675993716133,
+                  0.030789282892997427
+                ],
+                [
+                  -0.3234078241871216,
+                  1.6386836677007912,
+                  -0.026633348733447075
+                ],
+                [
+                  0.022480960457007426,
+                  1.4724088339415244,
+                  -0.05334717129285408
+                ]
+              ],
+              "forward": [
+                0.9926559711815619,
+                0.038560317342385526,
+                -0.1146613483439148
+              ],
+              "drift": [
+                0.008601506315381402,
+                -0.002042846160134951
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.16,
+              "heightAtBoat": 0.6563588113966086,
+              "samples": {
+                "bow": 0.8694582679077743,
+                "stern": 0.8261301815983025,
+                "port": 0.7235026882952706,
+                "starboard": 0.6356554811510335,
+                "center": 0.6563588113966086
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 720,
+              "pixelHeight": 422,
+              "scale": 2,
+              "levels": 48
+            },
+            "fps": 12,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            1440,
+            844
+          ],
+          "dpr": 1,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 844,
+            "top": 0,
+            "right": 1440,
+            "bottom": 844,
+            "left": 0
+          },
+          "pixels": [
+            720,
+            422
+          ],
+          "contextLost": false,
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "draws": 1637,
+          "contextEvents": [],
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "edit": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "actual": {
+            "amplitude": 0.16,
+            "gpuTime": 0.9333000000000002,
+            "opacity": 0.15,
+            "exposure": 0.82,
+            "lighthouse": true,
+            "spray": true,
+            "dust": true
+          }
+        },
+        "returned": {
+          "url": "http://127.0.0.1:44457/",
+          "viewport": [
+            1440,
+            900
+          ],
+          "dpr": 1,
+          "scrollY": 5604,
+          "anchor": "C1",
+          "layout": "stable",
+          "work": "bottle-ocean",
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false
+            },
+            {
+              "id": "courtyard",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            }
+          ],
+          "previewLabel": "experiment-project-bottle-ocean",
+          "focus": "live",
+          "dialog": {
+            "projectId": "bottle-ocean",
+            "tab": "live",
+            "embeddedState": "ready"
+          },
+          "open": false,
+          "frames": [],
+          "guide": {
+            "pressed": "false",
+            "state": "blocked"
+          },
+          "host": {
+            "motionState": "running",
+            "renderState": "ready",
+            "progressH": null,
+            "targetH": "0.0000000",
+            "sceneTime": "2.416700",
+            "cameraPosition": "[4.5,23,16]",
+            "cameraTarget": "[0,0.45,0]",
+            "overlayState": "closed"
+          },
+          "overflow": false
+        }
+      }
+    },
+    {
+      "id": "NAV.paths",
+      "name": "错误路径、实际跨源文档与同iframe正常重载",
+      "status": "通过",
+      "evidence": {
+        "actualDocumentNavigations": [
+          {
+            "failure": {
+              "actualURL": "http://127.0.0.1:44457/missing-frame.html",
+              "parent": {
+                "url": "http://127.0.0.1:44457/",
+                "viewport": [
+                  1440,
+                  900
+                ],
+                "dpr": 1,
+                "scrollY": 5604,
+                "anchor": "C1",
+                "layout": "stable",
+                "work": "bottle-ocean",
+                "selected": [
+                  {
+                    "id": "lawson",
+                    "selected": "false",
+                    "tab": -1,
+                    "disabled": false
+                  },
+                  {
+                    "id": "bottle-ocean",
+                    "selected": "true",
+                    "tab": 0,
+                    "disabled": false
+                  },
+                  {
+                    "id": "courtyard",
+                    "selected": "false",
+                    "tab": -1,
+                    "disabled": false
+                  }
+                ],
+                "previewLabel": "experiment-project-bottle-ocean",
+                "focus": "BUTTON",
+                "dialog": {
+                  "projectId": "bottle-ocean",
+                  "tab": "live",
+                  "embeddedState": "error"
+                },
+                "open": true,
+                "frames": [
+                  "http://127.0.0.1:44457/experiments/bottle-ocean/index.html"
+                ],
+                "guide": {
+                  "pressed": "false",
+                  "state": "blocked"
+                },
+                "host": {
+                  "motionState": "covered",
+                  "renderState": "ready",
+                  "progressH": null,
+                  "targetH": "0.0000000",
+                  "sceneTime": "2.416500",
+                  "cameraPosition": "[4.5,23,16]",
+                  "cameraTarget": "[0,0.45,0]",
+                  "overlayState": "open"
+                },
+                "overflow": false
+              },
+              "accessible": true
+            },
+            "recovered": {
+              "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+              "timeOrigin": 1794636370857.7,
+              "diagnostics": {
+                "ready": true,
+                "simTime": 1.0334000000000005,
+                "paused": false,
+                "state": {
+                  "waveHeight": 100,
+                  "waveSpeed": 1,
+                  "waveDensity": 1.25,
+                  "waveDirection": 28,
+                  "waterLevel": 42,
+                  "boatResponse": 72,
+                  "boatDamping": 48,
+                  "wind": 22,
+                  "pixelScale": 2,
+                  "sunset": 45,
+                  "brightness": 0.82,
+                  "glassOpacity": 0.15,
+                  "lighthouse": true,
+                  "spray": true,
+                  "dust": true,
+                  "quality": "fine",
+                  "paused": false,
+                  "editMode": null
+                },
+                "camera": {
+                  "position": [
+                    0.5503801579587017,
+                    2.34138507530666,
+                    6.490267956257238
+                  ],
+                  "target": [
+                    0.8,
+                    1.92,
+                    0.1
+                  ],
+                  "fov": 42,
+                  "preset": "cinema",
+                  "distance": 6.409009283812904
+                },
+                "boat": {
+                  "position": [
+                    -0.3106566029854683,
+                    0.740896582962805,
+                    0.0377173159932186
+                  ],
+                  "quaternion": [
+                    -0.03398253491054952,
+                    0.05668659082206249,
+                    0.022824377914340575,
+                    0.9975524374762705
+                  ],
+                  "pitch": 0.04169640064759738,
+                  "roll": -0.07050602519029919,
+                  "yaw": 0.115,
+                  "rootY": 0.740896582962805,
+                  "surfaceAtBoat": 0.6477501822316323,
+                  "waterLevel": 0.7564,
+                  "waveAmplitude": 0.16,
+                  "sampleHeights": {
+                    "bow": 0.8656089970543642,
+                    "stern": 0.8386956157148785,
+                    "port": 0.7149082199724297,
+                    "starboard": 0.6595336370839184,
+                    "center": 0.6477501822316323
+                  },
+                  "mastTip": [
+                    -0.32518325525961855,
+                    1.6361407903074654,
+                    -0.024216403332661403
+                  ],
+                  "mastTips": [
+                    [
+                      -0.681554115258511,
+                      1.4014549286357978,
+                      0.03254940041463744
+                    ],
+                    [
+                      -0.32518325525961855,
+                      1.6361407903074654,
+                      -0.024216403332661403
+                    ],
+                    [
+                      0.021167558346766535,
+                      1.470916734317786,
+                      -0.05145837896796277
+                    ]
+                  ],
+                  "forward": [
+                    0.9925313563875908,
+                    0.041684319541518446,
+                    -0.11464695413210815
+                  ],
+                  "drift": [
+                    0.009343397014531706,
+                    -0.0022826840067813998
+                  ],
+                  "safety": {
+                    "withinBottle": true,
+                    "worst": null,
+                    "checks": {
+                      "mastTips": [
+                        true,
+                        true,
+                        true
+                      ],
+                      "hull": true
+                    }
+                  }
+                },
+                "water": {
+                  "baseLevel": 0.7564,
+                  "amplitude": 0.16,
+                  "heightAtBoat": 0.6477501822316323,
+                  "samples": {
+                    "bow": 0.8656089970543642,
+                    "stern": 0.8386956157148785,
+                    "port": 0.7149082199724297,
+                    "starboard": 0.6595336370839184,
+                    "center": 0.6477501822316323
+                  }
+                },
+                "renderer": {
+                  "calls": 74,
+                  "triangles": 193219,
+                  "points": 774,
+                  "lines": 29,
+                  "pixelWidth": 720,
+                  "pixelHeight": 422,
+                  "scale": 2,
+                  "levels": 48
+                },
+                "fps": 12,
+                "cameraInsideBottle": false,
+                "editMode": null
+              },
+              "viewport": [
+                1440,
+                844
+              ],
+              "dpr": 1,
+              "canvas": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 844,
+                "top": 0,
+                "right": 1440,
+                "bottom": 844,
+                "left": 0
+              },
+              "pixels": [
+                720,
+                422
+              ],
+              "contextLost": false,
+              "loader": {
+                "display": "none",
+                "error": ""
+              },
+              "error": null,
+              "draws": 1787,
+              "contextEvents": [],
+              "ui": {
+                "hidden": false,
+                "collapsed": false,
+                "edit": false,
+                "buttons": 22,
+                "sliders": 12
+              },
+              "actual": {
+                "amplitude": 0.16,
+                "gpuTime": 1.0334000000000005,
+                "opacity": 0.15,
+                "exposure": 0.82,
+                "lighthouse": true,
+                "spray": true,
+                "dust": true
+              }
+            }
+          },
+          {
+            "failure": {
+              "actualURL": "http://127.0.0.1:59609/missing-frame.html",
+              "parent": {
+                "url": "http://127.0.0.1:44457/",
+                "viewport": [
+                  1440,
+                  900
+                ],
+                "dpr": 1,
+                "scrollY": 5604,
+                "anchor": "C1",
+                "layout": "stable",
+                "work": "bottle-ocean",
+                "selected": [
+                  {
+                    "id": "lawson",
+                    "selected": "false",
+                    "tab": -1,
+                    "disabled": false
+                  },
+                  {
+                    "id": "bottle-ocean",
+                    "selected": "true",
+                    "tab": 0,
+                    "disabled": false
+                  },
+                  {
+                    "id": "courtyard",
+                    "selected": "false",
+                    "tab": -1,
+                    "disabled": false
+                  }
+                ],
+                "previewLabel": "experiment-project-bottle-ocean",
+                "focus": "IFRAME",
+                "dialog": {
+                  "projectId": "bottle-ocean",
+                  "tab": "live",
+                  "embeddedState": "error"
+                },
+                "open": true,
+                "frames": [
+                  "http://127.0.0.1:44457/experiments/bottle-ocean/index.html"
+                ],
+                "guide": {
+                  "pressed": "false",
+                  "state": "blocked"
+                },
+                "host": {
+                  "motionState": "covered",
+                  "renderState": "ready",
+                  "progressH": null,
+                  "targetH": "0.0000000",
+                  "sceneTime": "2.416500",
+                  "cameraPosition": "[4.5,23,16]",
+                  "cameraTarget": "[0,0.45,0]",
+                  "overlayState": "open"
+                },
+                "overflow": false
+              },
+              "accessible": false
+            },
+            "recovered": {
+              "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+              "timeOrigin": 1794636374024.2,
+              "diagnostics": {
+                "ready": true,
+                "simTime": 0.9333000000000002,
+                "paused": false,
+                "state": {
+                  "waveHeight": 100,
+                  "waveSpeed": 1,
+                  "waveDensity": 1.25,
+                  "waveDirection": 28,
+                  "waterLevel": 42,
+                  "boatResponse": 72,
+                  "boatDamping": 48,
+                  "wind": 22,
+                  "pixelScale": 2,
+                  "sunset": 45,
+                  "brightness": 0.82,
+                  "glassOpacity": 0.15,
+                  "lighthouse": true,
+                  "spray": true,
+                  "dust": true,
+                  "quality": "fine",
+                  "paused": false,
+                  "editMode": null
+                },
+                "camera": {
+                  "position": [
+                    0.5503801579587017,
+                    2.34138507530666,
+                    6.490267956257238
+                  ],
+                  "target": [
+                    0.8,
+                    1.92,
+                    0.1
+                  ],
+                  "fov": 42,
+                  "preset": "cinema",
+                  "distance": 6.409009283812904
+                },
+                "boat": {
+                  "position": [
+                    -0.3113984936846186,
+                    0.7435899055963909,
+                    0.03795715383986505
+                  ],
+                  "quaternion": [
+                    -0.035383715408434095,
+                    0.056715407391120104,
+                    0.021339563577503273,
+                    0.9975349509038146
+                  ],
+                  "pitch": 0.03856987961885558,
+                  "roll": -0.07313306610777154,
+                  "yaw": 0.115,
+                  "rootY": 0.7435899055963909,
+                  "surfaceAtBoat": 0.6563588113966086,
+                  "waterLevel": 0.7564,
+                  "waveAmplitude": 0.16,
+                  "sampleHeights": {
+                    "bow": 0.8694582679077743,
+                    "stern": 0.8261301815983025,
+                    "port": 0.7235026882952706,
+                    "starboard": 0.6356554811510335,
+                    "center": 0.6563588113966086
+                  },
+                  "mastTip": [
+                    -0.3234078241871216,
+                    1.6386836677007912,
+                    -0.02663334873344709
+                  ],
+                  "mastTips": [
+                    [
+                      -0.680441278094702,
+                      1.4051675993716133,
+                      0.03078928289299742
+                    ],
+                    [
+                      -0.3234078241871216,
+                      1.6386836677007912,
+                      -0.02663334873344709
+                    ],
+                    [
+                      0.022480960457007426,
+                      1.4724088339415244,
+                      -0.05334717129285411
+                    ]
+                  ],
+                  "forward": [
+                    0.9926559711815619,
+                    0.038560317342385526,
+                    -0.1146613483439148
+                  ],
+                  "drift": [
+                    0.008601506315381402,
+                    -0.002042846160134951
+                  ],
+                  "safety": {
+                    "withinBottle": true,
+                    "worst": null,
+                    "checks": {
+                      "mastTips": [
+                        true,
+                        true,
+                        true
+                      ],
+                      "hull": true
+                    }
+                  }
+                },
+                "water": {
+                  "baseLevel": 0.7564,
+                  "amplitude": 0.16,
+                  "heightAtBoat": 0.6563588113966086,
+                  "samples": {
+                    "bow": 0.8694582679077743,
+                    "stern": 0.8261301815983025,
+                    "port": 0.7235026882952706,
+                    "starboard": 0.6356554811510335,
+                    "center": 0.6563588113966086
+                  }
+                },
+                "renderer": {
+                  "calls": 74,
+                  "triangles": 193219,
+                  "points": 774,
+                  "lines": 29,
+                  "pixelWidth": 720,
+                  "pixelHeight": 422,
+                  "scale": 2,
+                  "levels": 48
+                },
+                "fps": 12,
+                "cameraInsideBottle": false,
+                "editMode": null
+              },
+              "viewport": [
+                1440,
+                844
+              ],
+              "dpr": 1,
+              "canvas": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 844,
+                "top": 0,
+                "right": 1440,
+                "bottom": 844,
+                "left": 0
+              },
+              "pixels": [
+                720,
+                422
+              ],
+              "contextLost": false,
+              "loader": {
+                "display": "none",
+                "error": ""
+              },
+              "error": null,
+              "draws": 1637,
+              "contextEvents": [],
+              "ui": {
+                "hidden": false,
+                "collapsed": false,
+                "edit": false,
+                "buttons": 22,
+                "sliders": 12
+              },
+              "actual": {
+                "amplitude": 0.16,
+                "gpuTime": 0.9333000000000002,
+                "opacity": 0.15,
+                "exposure": 0.82,
+                "lighthouse": true,
+                "spray": true,
+                "dust": true
+              }
+            }
+          }
+        ],
+        "normalReload": {
+          "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+          "timeOrigin": 1794636376712.5,
+          "diagnostics": {
+            "ready": true,
+            "simTime": 0.7333000000000003,
+            "paused": false,
+            "state": {
+              "waveHeight": 35,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 2,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "fine",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.31297696962717575,
+                0.7686240081215299,
+                0.038428232991364136
+              ],
+              "quaternion": [
+                -0.01732914647076888,
+                0.057471822750062816,
+                0.0002946049675511906,
+                0.9981966757509729
+              ],
+              "pitch": -0.0014037283312139592,
+              "roll": -0.03463661503596587,
+              "yaw": 0.115,
+              "rootY": 0.7686240081215299,
+              "surfaceAtBoat": 0.7291452760229692,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.06351844560433681,
+              "sampleHeights": {
+                "bow": 0.7944742433074038,
+                "stern": 0.7743156344708493,
+                "port": 0.7468268722850815,
+                "starboard": 0.7009681542916839,
+                "center": 0.7291452760229692
+              },
+              "mastTip": [
+                -0.28548943579187697,
+                1.6650430036049944,
+                0.003983784671351624
+              ],
+              "mastTips": [
+                [
+                  -0.6524775388753691,
+                  1.4456945528051512,
+                  0.054043642111110936
+                ],
+                [
+                  -0.28548943579187697,
+                  1.6650430036049944,
+                  0.003983784671351624
+                ],
+                [
+                  0.05272886219067102,
+                  1.4846738751285375,
+                  -0.0288089035751445
+                ]
+              ],
+              "forward": [
+                0.9933938055953969,
+                -0.0014037278702171679,
+                -0.11474657534219111
+              ],
+              "drift": [
+                0.007023030372824243,
+                -0.0015717670086358617
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.06351844560433681,
+              "heightAtBoat": 0.7291452760229692,
+              "samples": {
+                "bow": 0.7944742433074038,
+                "stern": 0.7743156344708493,
+                "port": 0.7468268722850815,
+                "starboard": 0.7009681542916839,
+                "center": 0.7291452760229692
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 720,
+              "pixelHeight": 422,
+              "scale": 2,
+              "levels": 48
+            },
+            "fps": 12,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            1440,
+            844
+          ],
+          "dpr": 1,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 844,
+            "top": 0,
+            "right": 1440,
+            "bottom": 844,
+            "left": 0
+          },
+          "pixels": [
+            720,
+            422
+          ],
+          "contextLost": false,
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "draws": 1337,
+          "contextEvents": [],
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "edit": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "actual": {
+            "amplitude": 0.06351844560433681,
+            "gpuTime": 0.7333000000000003,
+            "opacity": 0.15,
+            "exposure": 0.82,
+            "lighthouse": true,
+            "spray": true,
+            "dust": true
+          }
+        },
+        "returned": {
+          "url": "http://127.0.0.1:44457/",
+          "viewport": [
+            1440,
+            900
+          ],
+          "dpr": 1,
+          "scrollY": 5604,
+          "anchor": "C1",
+          "layout": "stable",
+          "work": "bottle-ocean",
+          "selected": [
+            {
+              "id": "lawson",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            },
+            {
+              "id": "bottle-ocean",
+              "selected": "true",
+              "tab": 0,
+              "disabled": false
+            },
+            {
+              "id": "courtyard",
+              "selected": "false",
+              "tab": -1,
+              "disabled": false
+            }
+          ],
+          "previewLabel": "experiment-project-bottle-ocean",
+          "focus": "live",
+          "dialog": {
+            "projectId": "bottle-ocean",
+            "tab": "live",
+            "embeddedState": "ready"
+          },
+          "open": false,
+          "frames": [],
+          "guide": {
+            "pressed": "false",
+            "state": "blocked"
+          },
+          "host": {
+            "motionState": "running",
+            "renderState": "ready",
+            "progressH": null,
+            "targetH": "0.0000000",
+            "sceneTime": "2.416500",
+            "cameraPosition": "[4.5,23,16]",
+            "cameraTarget": "[0,0.45,0]",
+            "overlayState": "closed"
+          },
+          "overflow": false
+        }
+      }
+    }
+  ],
+  "requests": [
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/",
+      "type": "document"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/index-DLaqqT4X.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-gfLFgklB.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "NAV.blank",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/",
+      "type": "document"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/index-DLaqqT4X.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-gfLFgklB.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "NAV.child-blank",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/",
+      "type": "document"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/index-DLaqqT4X.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-gfLFgklB.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/missing-frame.html",
+      "type": "document"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:59609/missing-frame.html",
+      "type": "document"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "NAV.paths",
+      "url": "http://127.0.0.1:44457/experiments/bottle-ocean/index.html",
+      "type": "document"
+    }
+  ],
+  "pageErrors": [
+    {
+      "case": "NAV.blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.child-blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.child-blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.child-blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.child-blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.child-blank",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.paths",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.paths",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.paths",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.paths",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.paths",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.paths",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.paths",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    },
+    {
+      "case": "NAV.paths",
+      "text": "(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+    }
+  ],
+  "console": [
+    {
+      "case": "NAV.blank",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "NAV.child-blank",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "NAV.paths",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "NAV.paths",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "case": "NAV.paths",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "failedRequests": [],
+  "externalAttempts": [],
+  "routesDisableCache": true,
+  "physicalDevice": false,
+  "baseKind": "production",
+  "headless": false,
+  "activeBuildAtStart": {
+    "run": "candidate",
+    "record": "build-candidate.json",
+    "buildRoot": "/tmp/bottle-ocean-step-6-8x7h8zn4/production-candidate",
+    "switchedAtShanghai": "2026-11-14T14:02:39.292939+08:00"
+  },
+  "bottleIframeAdded": true,
+  "clockModified": false,
+  "browserVersion": "155.0.8059.79",
+  "finishedAtShanghai": "2026-11-14T14:06:20.965823+08:00",
+  "complete": true
+}

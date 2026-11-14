@@ -1,0 +1,3765 @@
+{
+  "startedAtShanghai": "2026-11-13T13:50:27.401169+08:00",
+  "browser": "Chromium",
+  "checks": [
+    {
+      "id": "HTTP.dev",
+      "name": "正确HTTP正文和静态文件闭包",
+      "status": "通过",
+      "evidence": {
+        "responses": [
+          {
+            "url": "http://127.0.0.1:45373/experiments/bottle-ocean/index.html",
+            "status": 200,
+            "type": "text/html",
+            "bytes": 1979264,
+            "sha256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+          },
+          {
+            "url": "http://127.0.0.1:45373/experiments/bottle-ocean/THIRD_PARTY_NOTICES.md",
+            "status": 200,
+            "type": "text/markdown",
+            "bytes": 1337,
+            "sha256": "0242e66ea25c3e7d1ba883d5e237065e5daa24fa88d83fba74f6859e3edf7861"
+          },
+          {
+            "url": "http://127.0.0.1:45373/experiments/bottle-ocean/SOURCE.md",
+            "status": 200,
+            "type": "text/markdown",
+            "bytes": 2611,
+            "sha256": "44961786c9166e69eedb939c65cec7958564e3d8953223c19a340322a29e557b"
+          }
+        ],
+        "verifiedActualBodies": true
+      }
+    },
+    {
+      "id": "HTTP.production",
+      "name": "正确HTTP正文和静态文件闭包",
+      "status": "通过",
+      "evidence": {
+        "responses": [
+          {
+            "url": "http://127.0.0.1:44855/experiments/bottle-ocean/index.html",
+            "status": 200,
+            "type": "text/html",
+            "bytes": 1979264,
+            "sha256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+          },
+          {
+            "url": "http://127.0.0.1:44855/experiments/bottle-ocean/THIRD_PARTY_NOTICES.md",
+            "status": 200,
+            "type": "text/markdown",
+            "bytes": 1337,
+            "sha256": "0242e66ea25c3e7d1ba883d5e237065e5daa24fa88d83fba74f6859e3edf7861"
+          },
+          {
+            "url": "http://127.0.0.1:44855/experiments/bottle-ocean/SOURCE.md",
+            "status": 200,
+            "type": "text/markdown",
+            "bytes": 2611,
+            "sha256": "44961786c9166e69eedb939c65cec7958564e3d8953223c19a340322a29e557b"
+          }
+        ],
+        "verifiedActualBodies": true
+      }
+    },
+    {
+      "id": "HTTP.prefix",
+      "name": "正确HTTP正文和静态文件闭包",
+      "status": "通过",
+      "evidence": {
+        "responses": [
+          {
+            "url": "http://127.0.0.1:44855/portfolio-check/experiments/bottle-ocean/index.html",
+            "status": 200,
+            "type": "text/html",
+            "bytes": 1979264,
+            "sha256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+          },
+          {
+            "url": "http://127.0.0.1:44855/portfolio-check/experiments/bottle-ocean/THIRD_PARTY_NOTICES.md",
+            "status": 200,
+            "type": "text/markdown",
+            "bytes": 1337,
+            "sha256": "0242e66ea25c3e7d1ba883d5e237065e5daa24fa88d83fba74f6859e3edf7861"
+          },
+          {
+            "url": "http://127.0.0.1:44855/portfolio-check/experiments/bottle-ocean/SOURCE.md",
+            "status": 200,
+            "type": "text/markdown",
+            "bytes": 2611,
+            "sha256": "44961786c9166e69eedb939c65cec7958564e3d8953223c19a340322a29e557b"
+          }
+        ],
+        "verifiedActualBodies": true
+      }
+    },
+    {
+      "id": "DEV.load",
+      "name": "开发服务独立完整载入",
+      "status": "通过",
+      "evidence": {
+        "wallSeconds": 5.093239967000045,
+        "bodySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+        "default": {
+          "url": "http://127.0.0.1:45373/experiments/bottle-ocean/index.html",
+          "diagnostics": {
+            "ready": true,
+            "simTime": 0.6832999999999998,
+            "paused": false,
+            "state": {
+              "waveHeight": 35,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 2,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "fine",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.31339234909404196,
+                0.7710438056492135,
+                0.03854396266458776
+              ],
+              "quaternion": [
+                -0.014021350630935734,
+                0.057517267507995885,
+                -0.0031784825730284596,
+                0.9982409843887551
+              ],
+              "pitch": -0.007958806716908804,
+              "roll": -0.027632129690840845,
+              "yaw": 0.115,
+              "rootY": 0.7710438056492135,
+              "surfaceAtBoat": 0.7327535039217836,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.06351844560433681,
+              "sampleHeights": {
+                "bow": 0.7911430411014602,
+                "stern": 0.772410383333274,
+                "port": 0.7468223843042969,
+                "starboard": 0.7015511417668654,
+                "center": 0.7327535039217836
+              },
+              "mastTip": [
+                -0.27934608871811106,
+                1.667434222329537,
+                0.009663639984772252
+              ],
+              "mastTips": [
+                [
+                  -0.6479317435873513,
+                  1.4504698981777722,
+                  0.05835755202705137
+                ],
+                [
+                  -0.27934608871811106,
+                  1.667434222329537,
+                  0.009663639984772252
+                ],
+                [
+                  0.05754552904191279,
+                  1.4848026689821456,
+                  -0.024244376839466675
+                ]
+              ],
+              "forward": [
+                0.9933633223738931,
+                -0.00795872269525074,
+                -0.11474305423580483
+              ],
+              "drift": [
+                0.006607650905958042,
+                -0.0014560373354122406
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.06351844560433681,
+              "heightAtBoat": 0.7327535039217836,
+              "samples": {
+                "bow": 0.7911430411014602,
+                "stern": 0.772410383333274,
+                "port": 0.7468223843042969,
+                "starboard": 0.7015511417668654,
+                "center": 0.7327535039217836
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 640,
+              "pixelHeight": 360,
+              "scale": 2,
+              "levels": 48
+            },
+            "fps": 12,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            1280,
+            720
+          ],
+          "dpr": 1,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 720,
+            "top": 0,
+            "right": 1280,
+            "bottom": 720,
+            "left": 0
+          },
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "gl": {
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+            "lost": false
+          },
+          "readyEvents": [
+            {
+              "time": 2679.800000000745,
+              "ready": true,
+              "loader": ""
+            }
+          ],
+          "inputs": [],
+          "clicks": [],
+          "scene": {
+            "masts": 3,
+            "terrainVertices": 23680,
+            "meshes": 68,
+            "ocean": true,
+            "sky": true,
+            "lighthouse": true,
+            "glass": true
+          }
+        }
+      }
+    },
+    {
+      "id": "PRODUCTION.load",
+      "name": "构建根路径完整默认场景",
+      "status": "通过",
+      "evidence": {
+        "wallSeconds": 3.3513622600003146,
+        "bodySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+        "default": {
+          "url": "http://127.0.0.1:44855/experiments/bottle-ocean/index.html",
+          "diagnostics": {
+            "ready": true,
+            "simTime": 0.7834000000000003,
+            "paused": false,
+            "state": {
+              "waveHeight": 35,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 2,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "fine",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.3125692299393788,
+                0.7658009153906161,
+                0.03831139370047357
+              ],
+              "quaternion": [
+                -0.02060684563270907,
+                0.057396172259189034,
+                0.004053517060905145,
+                0.9981305557503488
+              ],
+              "pitch": 0.005726401646515657,
+              "roll": -0.04161464959230997,
+              "yaw": 0.115,
+              "rootY": 0.7658009153906161,
+              "surfaceAtBoat": 0.7256063739553003,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.06351844560433681,
+              "sampleHeights": {
+                "bow": 0.7972548697978773,
+                "stern": 0.7765090511770756,
+                "port": 0.7464693603749905,
+                "starboard": 0.7013503191933483,
+                "center": 0.7256063739553003
+              },
+              "mastTip": [
+                -0.29214815081213946,
+                1.6621814213821584,
+                -0.0016131351712042608
+              ],
+              "mastTips": [
+                [
+                  -0.6573975695838228,
+                  1.440256736511088,
+                  0.04979013643502317
+                ],
+                [
+                  -0.29214815081213946,
+                  1.6621814213821584,
+                  -0.0016131351712042608
+                ],
+                [
+                  0.04748286769369664,
+                  1.4842871736127183,
+                  -0.033305529830387204
+                ]
+              ],
+              "forward": [
+                0.9933784968188609,
+                0.005726370350182572,
+                -0.11474480703070145
+              ],
+              "drift": [
+                0.007430770060621219,
+                -0.001688606299526434
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.06351844560433681,
+              "heightAtBoat": 0.7256063739553003,
+              "samples": {
+                "bow": 0.7972548697978773,
+                "stern": 0.7765090511770756,
+                "port": 0.7464693603749905,
+                "starboard": 0.7013503191933483,
+                "center": 0.7256063739553003
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 640,
+              "pixelHeight": 360,
+              "scale": 2,
+              "levels": 48
+            },
+            "fps": 12,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            1280,
+            720
+          ],
+          "dpr": 1,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 720,
+            "top": 0,
+            "right": 1280,
+            "bottom": 720,
+            "left": 0
+          },
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "gl": {
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+            "lost": false
+          },
+          "readyEvents": [
+            {
+              "time": 1238.9000000003725,
+              "ready": true,
+              "loader": ""
+            }
+          ],
+          "inputs": [],
+          "clicks": [],
+          "scene": {
+            "masts": 3,
+            "terrainVertices": 23680,
+            "meshes": 68,
+            "ocean": true,
+            "sky": true,
+            "lighthouse": true,
+            "glass": true
+          }
+        }
+      }
+    },
+    {
+      "id": "PRODUCTION.motion",
+      "name": "自然波场与船体连续响应",
+      "status": "通过",
+      "evidence": {
+        "calm": {
+          "url": "http://127.0.0.1:44855/experiments/bottle-ocean/index.html",
+          "diagnostics": {
+            "ready": true,
+            "simTime": 1.6669000000000005,
+            "paused": false,
+            "state": {
+              "waveHeight": 0,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 3.8,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "retro",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.30665721800485535,
+                0.7496012972893208,
+                0.03617062148278921
+              ],
+              "quaternion": [
+                0.014403313265832466,
+                0.05719232135949777,
+                -0.017819098950082855,
+                0.9981002267593598
+              ],
+              "pitch": -0.033929485182433564,
+              "roll": 0.03081273869740947,
+              "yaw": 0.115,
+              "rootY": 0.7496012972893208,
+              "surfaceAtBoat": 0.7564,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0,
+              "sampleHeights": {
+                "bow": 0.7564,
+                "stern": 0.7564,
+                "port": 0.7564,
+                "starboard": 0.7564,
+                "center": 0.7564
+              },
+              "mastTip": [
+                -0.2434879708305911,
+                1.6446418015799686,
+                0.056692363382046335
+              ],
+              "mastTips": [
+                [
+                  -0.6190204566916924,
+                  1.4374242918554765,
+                  0.09324719516338328
+                ],
+                [
+                  -0.2434879708305911,
+                  1.6446418015799686,
+                  0.056692363382046335
+                ],
+                [
+                  0.08737261944617003,
+                  1.453296981147709,
+                  0.01289248329705659
+                ]
+              ],
+              "forward": [
+                0.9928230361802381,
+                -0.03392297556356832,
+                -0.11468064596420362
+              ],
+              "drift": [
+                0.013342781995144649,
+                -0.0038293785172107886
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0,
+              "heightAtBoat": 0.7564,
+              "samples": {
+                "bow": 0.7564,
+                "stern": 0.7564,
+                "port": 0.7564,
+                "starboard": 0.7564,
+                "center": 0.7564
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 337,
+              "pixelHeight": 189,
+              "scale": 3.8,
+              "levels": 12
+            },
+            "fps": 14,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            1280,
+            720
+          ],
+          "dpr": 1,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 720,
+            "top": 0,
+            "right": 1280,
+            "bottom": 720,
+            "left": 0
+          },
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "gl": {
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+            "lost": false
+          },
+          "readyEvents": [
+            {
+              "time": 1238.9000000003725,
+              "ready": true,
+              "loader": ""
+            }
+          ],
+          "inputs": [
+            {
+              "id": "waveHeight",
+              "value": "0",
+              "trusted": true
+            }
+          ],
+          "clicks": [
+            {
+              "id": "",
+              "data": {
+                "quality": "retro"
+              },
+              "trusted": true
+            }
+          ]
+        },
+        "after": {
+          "url": "http://127.0.0.1:44855/experiments/bottle-ocean/index.html",
+          "diagnostics": {
+            "ready": true,
+            "simTime": 4.616099999999995,
+            "paused": false,
+            "state": {
+              "waveHeight": 100,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 3.8,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "retro",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.3017789031573555,
+                0.758880950366557,
+                0.03027460384792892
+              ],
+              "quaternion": [
+                0.0681158975895626,
+                0.0580501763694138,
+                0.006687305659199052,
+                0.9959646989035649
+              ],
+              "pitch": 0.02123051532461983,
+              "roll": 0.13534894146472443,
+              "yaw": 0.115,
+              "rootY": 0.758880950366557,
+              "surfaceAtBoat": 0.7587696729941927,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.16,
+              "sampleHeights": {
+                "bow": 0.7409816529236718,
+                "stern": 0.7610735531903908,
+                "port": 0.7123045012856999,
+                "starboard": 0.7330659508754439,
+                "center": 0.7587696729941927
+              },
+              "mastTip": [
+                -0.2768386635540427,
+                1.6481138329435439,
+                0.14923621527091083
+              ],
+              "mastTips": [
+                [
+                  -0.6431211822898226,
+                  1.4223203104159428,
+                  0.1616620614453505
+                ],
+                [
+                  -0.2768386635540427,
+                  1.6481138329435439,
+                  0.14923621527091083
+                ],
+                [
+                  0.0618136721627115,
+                  1.477018084306115,
+                  0.08566861100753899
+                ]
+              ],
+              "forward": [
+                0.9931709139330008,
+                0.021228920471950654,
+                -0.11472082920325989
+              ],
+              "drift": [
+                0.018221096842644478,
+                -0.00972539615207108
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.16,
+              "heightAtBoat": 0.7587696729941927,
+              "samples": {
+                "bow": 0.7409816529236718,
+                "stern": 0.7610735531903908,
+                "port": 0.7123045012856999,
+                "starboard": 0.7330659508754439,
+                "center": 0.7587696729941927
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 337,
+              "pixelHeight": 189,
+              "scale": 3.8,
+              "levels": 12
+            },
+            "fps": 18,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            1280,
+            720
+          ],
+          "dpr": 1,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 720,
+            "top": 0,
+            "right": 1280,
+            "bottom": 720,
+            "left": 0
+          },
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "gl": {
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+            "lost": false
+          },
+          "readyEvents": [
+            {
+              "time": 1238.9000000003725,
+              "ready": true,
+              "loader": ""
+            }
+          ],
+          "inputs": [
+            {
+              "id": "waveHeight",
+              "value": "0",
+              "trusted": true
+            },
+            {
+              "id": "waveHeight",
+              "value": "100",
+              "trusted": true
+            }
+          ],
+          "clicks": [
+            {
+              "id": "",
+              "data": {
+                "quality": "retro"
+              },
+              "trusted": true
+            }
+          ]
+        },
+        "simSeconds": 2.5327999999999946,
+        "distinctSimFrames": 52,
+        "range": {
+          "rootY": 0.2398143547292131,
+          "pitch": 0.28541829418610865,
+          "roll": 0.3629414715710113,
+          "surface": 0.20116561234369912
+        }
+      }
+    },
+    {
+      "id": "PRODUCTION.camera-ui",
+      "name": "原镜头与界面隐藏恢复",
+      "status": "通过",
+      "evidence": {
+        "before": {
+          "position": [
+            0.5503801579587017,
+            2.34138507530666,
+            6.490267956257238
+          ],
+          "target": [
+            0.8,
+            1.92,
+            0.1
+          ],
+          "fov": 42,
+          "preset": "cinema",
+          "distance": 6.409009283812904
+        },
+        "top": {
+          "position": [
+            0.40000000000000036,
+            7.15,
+            4
+          ],
+          "target": [
+            -0.050000000000000044,
+            0.75,
+            0.44999999999999996
+          ],
+          "fov": 44,
+          "preset": "top",
+          "distance": 7.332462069455253
+        },
+        "nativeUIRestored": true,
+        "trustedButtonEvents": [
+          {
+            "id": "",
+            "data": {
+              "quality": "retro"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "preset": "top"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "action": "toggleUI"
+            },
+            "trusted": true
+          },
+          {
+            "id": "restore-ui",
+            "data": {
+              "action": "toggleUI"
+            },
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "PRODUCTION.sandbox",
+      "name": "原生石头贝壳放置、撤销、恢复",
+      "status": "通过",
+      "evidence": {
+        "nativePlacements": [
+          {
+            "kind": "rock",
+            "nativePoint": {
+              "x": 283.8415797813972,
+              "y": 688.8475590559453,
+              "world": [
+                -1.001276043264974,
+                0.45249071199784363,
+                1.996304276629119
+              ],
+              "object": "sandTerrain"
+            },
+            "before": [],
+            "after": [
+              {
+                "uuid": "662c588e-8929-4b7f-962b-8ebdff440bfb",
+                "kind": "rock",
+                "position": [
+                  -1.001276082951983,
+                  0.45515021090269075,
+                  1.9963041048558
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "shell",
+            "nativePoint": {
+              "x": 283.8415797813972,
+              "y": 688.8475590559453,
+              "world": [
+                -0.9251402645461291,
+                0.5451738999068274,
+                2.2168115152898897
+              ],
+              "object": ""
+            },
+            "before": [
+              {
+                "uuid": "662c588e-8929-4b7f-962b-8ebdff440bfb",
+                "kind": "rock",
+                "position": [
+                  -1.001276082951983,
+                  0.45515021090269075,
+                  1.9963041048558
+                ]
+              }
+            ],
+            "after": [
+              {
+                "uuid": "662c588e-8929-4b7f-962b-8ebdff440bfb",
+                "kind": "rock",
+                "position": [
+                  -1.001276082951983,
+                  0.45515021090269075,
+                  1.9963041048558
+                ]
+              },
+              {
+                "uuid": "082b5a22-4824-4098-a50e-e0f141bdaa40",
+                "kind": "shell",
+                "position": [
+                  -0.9251402927942536,
+                  0.40209195753505583,
+                  2.2168113794348057
+                ]
+              }
+            ]
+          }
+        ],
+        "afterUndo": [
+          {
+            "uuid": "662c588e-8929-4b7f-962b-8ebdff440bfb",
+            "kind": "rock",
+            "position": [
+              -1.001276082951983,
+              0.45515021090269075,
+              1.9963041048558
+            ]
+          }
+        ],
+        "afterReset": [],
+        "trustedActions": [
+          {
+            "id": "",
+            "data": {
+              "quality": "retro"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "preset": "top"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "action": "toggleUI"
+            },
+            "trusted": true
+          },
+          {
+            "id": "restore-ui",
+            "data": {
+              "action": "toggleUI"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "action": "reset"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "quality": "retro"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "edit": "rock"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "edit": "shell"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "action": "undoProp"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "action": "resetProps"
+            },
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "PRODUCTION.export",
+      "name": "根路径原按钮真实PNG下载",
+      "status": "通过",
+      "evidence": {
+        "filename": "bottle-ocean-2026-11-13T05-50-50.png",
+        "file": {
+          "path": "docs/evidence/beach-bottle-boat-step-3/browser/production-download.png",
+          "bytes": 267294,
+          "sha256": "99870dc41157e0f9c12fa234da476c3697b9a8204e939ebd715a6ebb0aec5cd8"
+        },
+        "PNG": [
+          1280,
+          720
+        ],
+        "before": {
+          "url": "http://127.0.0.1:44855/experiments/bottle-ocean/index.html",
+          "diagnostics": {
+            "ready": true,
+            "simTime": 4.266099999999994,
+            "paused": false,
+            "state": {
+              "waveHeight": 35,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 3.8,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "retro",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.09999999999999998
+              ],
+              "fov": 42,
+              "preset": null,
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.3012487683921645,
+                0.7578569135733261,
+                0.03074676646817662
+              ],
+              "quaternion": [
+                0.028253795460334276,
+                0.0578520114122104,
+                0.013426478302196159,
+                0.9978349550391828
+              ],
+              "pitch": 0.03006842719854336,
+              "roll": 0.054884098295745115,
+              "yaw": 0.115,
+              "rootY": 0.7578569135733261,
+              "surfaceAtBoat": 0.7438449278023074,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.06351844560433681,
+              "sampleHeights": {
+                "bow": 0.767308298175409,
+                "stern": 0.7642279353951862,
+                "port": 0.7178234859135321,
+                "starboard": 0.7469772667609347,
+                "center": 0.7438449278023074
+              },
+              "mastTip": [
+                -0.29256298555802773,
+                1.6540033166536914,
+                0.07927697791096422
+              ],
+              "mastTips": [
+                [
+                  -0.654777249646177,
+                  1.4233102357356895,
+                  0.10896753714518385
+                ],
+                [
+                  -0.29256298555802773,
+                  1.6540033166536914,
+                  0.07927697791096422
+                ],
+                [
+                  0.049273202443241404,
+                  1.4845773184974793,
+                  0.029851764491777465
+                ]
+              ],
+              "forward": [
+                0.9929457489119243,
+                0.03006389654083197,
+                -0.11469482046945279
+              ],
+              "drift": [
+                0.018751231607835508,
+                -0.00925323353182338
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.06351844560433681,
+              "heightAtBoat": 0.7438449278023074,
+              "samples": {
+                "bow": 0.767308298175409,
+                "stern": 0.7642279353951862,
+                "port": 0.7178234859135321,
+                "starboard": 0.7469772667609347,
+                "center": 0.7438449278023074
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 337,
+              "pixelHeight": 189,
+              "scale": 3.8,
+              "levels": 12
+            },
+            "fps": 17,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            1280,
+            720
+          ],
+          "dpr": 1,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 720,
+            "top": 0,
+            "right": 1280,
+            "bottom": 720,
+            "left": 0
+          },
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "gl": {
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+            "lost": false
+          },
+          "readyEvents": [
+            {
+              "time": 1238.9000000003725,
+              "ready": true,
+              "loader": ""
+            }
+          ],
+          "inputs": [
+            {
+              "id": "waveHeight",
+              "value": "0",
+              "trusted": true
+            },
+            {
+              "id": "waveHeight",
+              "value": "100",
+              "trusted": true
+            }
+          ],
+          "clicks": [
+            {
+              "id": "",
+              "data": {
+                "quality": "retro"
+              },
+              "trusted": true
+            },
+            {
+              "id": "",
+              "data": {
+                "preset": "top"
+              },
+              "trusted": true
+            },
+            {
+              "id": "",
+              "data": {
+                "action": "toggleUI"
+              },
+              "trusted": true
+            },
+            {
+              "id": "restore-ui",
+              "data": {
+                "action": "toggleUI"
+              },
+              "trusted": true
+            },
+            {
+              "id": "",
+              "data": {
+                "action": "reset"
+              },
+              "trusted": true
+            },
+            {
+              "id": "",
+              "data": {
+                "quality": "retro"
+              },
+              "trusted": true
+            },
+            {
+              "id": "",
+              "data": {
+                "edit": "rock"
+              },
+              "trusted": true
+            },
+            {
+              "id": "",
+              "data": {
+                "edit": "shell"
+              },
+              "trusted": true
+            },
+            {
+              "id": "",
+              "data": {
+                "action": "undoProp"
+              },
+              "trusted": true
+            },
+            {
+              "id": "",
+              "data": {
+                "action": "resetProps"
+              },
+              "trusted": true
+            }
+          ]
+        },
+        "downloadError": null,
+        "originalButtonTrusted": {
+          "id": "",
+          "data": {
+            "action": "screenshot"
+          },
+          "trusted": true
+        }
+      }
+    },
+    {
+      "id": "PREFIX.load",
+      "name": "真实项目前缀完整原页",
+      "status": "通过",
+      "evidence": {
+        "wallSeconds": 3.667107617999136,
+        "bodySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+        "default": {
+          "url": "http://127.0.0.1:44855/portfolio-check/experiments/bottle-ocean/index.html",
+          "diagnostics": {
+            "ready": true,
+            "simTime": 0.9832000000000001,
+            "paused": false,
+            "state": {
+              "waveHeight": 35,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 2,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "fine",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.31102661367218415,
+                0.7517676548254209,
+                0.03783846903927379
+              ],
+              "quaternion": [
+                -0.030622433851880838,
+                0.05691190526281474,
+                0.018248032488773443,
+                0.9977426075369501
+              ],
+              "pitch": 0.03293407027700945,
+              "roll": -0.06326014070936048,
+              "yaw": 0.115,
+              "rootY": 0.7517676548254209,
+              "surfaceAtBoat": 0.7146570505578755,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.06351844560433681,
+              "sampleHeights": {
+                "bow": 0.8009678703901305,
+                "stern": 0.7866442966457224,
+                "port": 0.7417322896199365,
+                "starboard": 0.7127568691594445,
+                "center": 0.7146570505578755
+              },
+              "mastTip": [
+                -0.3170305503174862,
+                1.6474758192175942,
+                -0.018551574283663594
+              ],
+              "mastTips": [
+                [
+                  -0.6756094700845159,
+                  1.415851534578303,
+                  0.036868179090442
+                ],
+                [
+                  -0.3170305503174862,
+                  1.6474758192175942,
+                  -0.018551574283663594
+                ],
+                [
+                  0.027722383246215065,
+                  1.4791288396648563,
+                  -0.046918972378875684
+                ]
+              ],
+              "forward": [
+                0.9928560886992902,
+                0.032928116926945486,
+                -0.11468446384926217
+              ],
+              "drift": [
+                0.008973386327815842,
+                -0.0021615309607262057
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.06351844560433681,
+              "heightAtBoat": 0.7146570505578755,
+              "samples": {
+                "bow": 0.8009678703901305,
+                "stern": 0.7866442966457224,
+                "port": 0.7417322896199365,
+                "starboard": 0.7127568691594445,
+                "center": 0.7146570505578755
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 480,
+              "pixelHeight": 300,
+              "scale": 2,
+              "levels": 48
+            },
+            "fps": 17,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            960,
+            600
+          ],
+          "dpr": 2,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 960,
+            "height": 600,
+            "top": 0,
+            "right": 960,
+            "bottom": 600,
+            "left": 0
+          },
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "gl": {
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+            "lost": false
+          },
+          "readyEvents": [
+            {
+              "time": 1010.4000000003725,
+              "ready": true,
+              "loader": ""
+            }
+          ],
+          "inputs": [],
+          "clicks": [],
+          "scene": {
+            "masts": 3,
+            "terrainVertices": 23680,
+            "meshes": 68,
+            "ocean": true,
+            "sky": true,
+            "lighthouse": true,
+            "glass": true
+          }
+        }
+      }
+    },
+    {
+      "id": "PREFIX.reload",
+      "name": "前缀原入口刷新保持身份",
+      "status": "通过",
+      "evidence": {
+        "afterReload": {
+          "url": "http://127.0.0.1:44855/portfolio-check/experiments/bottle-ocean/index.html",
+          "diagnostics": {
+            "ready": true,
+            "simTime": 0.9498000000000002,
+            "paused": false,
+            "state": {
+              "waveHeight": 35,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 2,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "fine",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.3112779227458452,
+                0.754288725795527,
+                0.03791901165597978
+              ],
+              "quaternion": [
+                -0.02945718096016513,
+                0.056996554052965345,
+                0.016213367361930176,
+                0.9978079945734825
+              ],
+              "pitch": 0.029001804953080666,
+              "roll": -0.06069620282813397,
+              "yaw": 0.115,
+              "rootY": 0.754288725795527,
+              "surfaceAtBoat": 0.7159485720225126,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.06351844560433681,
+              "sampleHeights": {
+                "bow": 0.801275774786974,
+                "stern": 0.784939644006264,
+                "port": 0.7428329705568063,
+                "starboard": 0.7097846844352895,
+                "center": 0.7159485720225126
+              },
+              "mastTip": [
+                -0.31352368454403806,
+                1.6501303637498266,
+                -0.01659443862285647
+              ],
+              "mastTips": [
+                [
+                  -0.67306820344025,
+                  1.4198986635912867,
+                  0.038370124268152256
+                ],
+                [
+                  -0.31352368454403806,
+                  1.6501303637498266,
+                  -0.01659443862285647
+                ],
+                [
+                  0.030516951483109067,
+                  1.4803966107554822,
+                  -0.045343244797912095
+                ]
+              ],
+              "forward": [
+                0.992977039089749,
+                0.028997739531693337,
+                -0.11469843478708491
+              ],
+              "drift": [
+                0.008722077254154775,
+                -0.0020809883440202222
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.06351844560433681,
+              "heightAtBoat": 0.7159485720225126,
+              "samples": {
+                "bow": 0.801275774786974,
+                "stern": 0.784939644006264,
+                "port": 0.7428329705568063,
+                "starboard": 0.7097846844352895,
+                "center": 0.7159485720225126
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 480,
+              "pixelHeight": 300,
+              "scale": 2,
+              "levels": 48
+            },
+            "fps": 16,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            960,
+            600
+          ],
+          "dpr": 2,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 960,
+            "height": 600,
+            "top": 0,
+            "right": 960,
+            "bottom": 600,
+            "left": 0
+          },
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "gl": {
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+            "lost": false
+          },
+          "readyEvents": [
+            {
+              "time": 1287.5999999996275,
+              "ready": true,
+              "loader": ""
+            }
+          ],
+          "inputs": [],
+          "clicks": []
+        },
+        "bodySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+      }
+    },
+    {
+      "id": "PREFIX.motion",
+      "name": "前缀波场与船体真实响应",
+      "status": "通过",
+      "evidence": {
+        "calm": {
+          "url": "http://127.0.0.1:44855/portfolio-check/experiments/bottle-ocean/index.html",
+          "diagnostics": {
+            "ready": true,
+            "simTime": 1.6498000000000006,
+            "paused": false,
+            "state": {
+              "waveHeight": 0,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 3.8,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "retro",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.30675307296461035,
+                0.7512555103194399,
+                0.036213807966894704
+              ],
+              "quaternion": [
+                0.005330178298210612,
+                0.05742470775497617,
+                -0.007490395854608389,
+                0.9983075107943976
+              ],
+              "pitch": -0.014343760869654212,
+              "roll": 0.01150401877912842,
+              "yaw": 0.115,
+              "rootY": 0.7512555103194399,
+              "surfaceAtBoat": 0.7564,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0,
+              "sampleHeights": {
+                "bow": 0.7564,
+                "stern": 0.7564,
+                "port": 0.7564,
+                "starboard": 0.7564,
+                "center": 0.7564
+              },
+              "mastTip": [
+                -0.262990153695524,
+                1.6476735890545102,
+                0.04154625712023722
+              ],
+              "mastTips": [
+                [
+                  -0.6339332864518052,
+                  1.4330177859970123,
+                  0.08184611412614462
+                ],
+                [
+                  -0.262990153695524,
+                  1.6476735890545102,
+                  0.04154625712023722
+                ],
+                [
+                  0.07192715934897709,
+                  1.462827303647173,
+                  0.0007756280576279445
+                ]
+              ],
+              "forward": [
+                0.9932925938183937,
+                -0.014343269018844229,
+                -0.11473488440479049
+              ],
+              "drift": [
+                0.013246927035389674,
+                -0.003786192033105298
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0,
+              "heightAtBoat": 0.7564,
+              "samples": {
+                "bow": 0.7564,
+                "stern": 0.7564,
+                "port": 0.7564,
+                "starboard": 0.7564,
+                "center": 0.7564
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 253,
+              "pixelHeight": 158,
+              "scale": 3.8,
+              "levels": 12
+            },
+            "fps": 16,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            960,
+            600
+          ],
+          "dpr": 2,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 960,
+            "height": 600,
+            "top": 0,
+            "right": 960,
+            "bottom": 600,
+            "left": 0
+          },
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "gl": {
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+            "lost": false
+          },
+          "readyEvents": [
+            {
+              "time": 1287.5999999996275,
+              "ready": true,
+              "loader": ""
+            }
+          ],
+          "inputs": [
+            {
+              "id": "waveHeight",
+              "value": "0",
+              "trusted": true
+            }
+          ],
+          "clicks": [
+            {
+              "id": "",
+              "data": {
+                "quality": "retro"
+              },
+              "trusted": true
+            }
+          ]
+        },
+        "after": {
+          "url": "http://127.0.0.1:44855/portfolio-check/experiments/bottle-ocean/index.html",
+          "diagnostics": {
+            "ready": true,
+            "simTime": 4.882599999999995,
+            "paused": false,
+            "state": {
+              "waveHeight": 100,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 3.8,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "retro",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "boat": {
+              "position": [
+                -0.30235975024471934,
+                0.7867550694878913,
+                0.029973934537007592
+              ],
+              "quaternion": [
+                0.03345943625923808,
+                0.05684086175620775,
+                -0.018929206273518205,
+                0.997642855790528
+              ],
+              "pitch": -0.03397198253627025,
+              "roll": 0.06900758163971243,
+              "yaw": 0.115,
+              "rootY": 0.7867550694878913,
+              "surfaceAtBoat": 0.7694195757315179,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.16,
+              "sampleHeights": {
+                "bow": 0.736428311515857,
+                "stern": 0.7562942961720013,
+                "port": 0.7719659488535542,
+                "starboard": 0.7281211201550747,
+                "center": 0.7694195757315179
+              },
+              "mastTip": [
+                -0.23528420978146902,
+                1.6800848454225419,
+                0.0844879996955515
+              ],
+              "mastTips": [
+                [
+                  -0.6117742412161036,
+                  1.473302314779656,
+                  0.11270574679328857
+                ],
+                [
+                  -0.23528420978146902,
+                  1.6800848454225419,
+                  0.0844879996955515
+                ],
+                [
+                  0.09479201308175544,
+                  1.4890686184981954,
+                  0.03386697489425501
+                ]
+              ],
+              "forward": [
+                0.9928216031693325,
+                -0.03396544842741737,
+                -0.11468048043760892
+              ],
+              "drift": [
+                0.017640249755280675,
+                -0.010026065462992407
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.16,
+              "heightAtBoat": 0.7694195757315179,
+              "samples": {
+                "bow": 0.736428311515857,
+                "stern": 0.7562942961720013,
+                "port": 0.7719659488535542,
+                "starboard": 0.7281211201550747,
+                "center": 0.7694195757315179
+              }
+            },
+            "renderer": {
+              "calls": 74,
+              "triangles": 193219,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 253,
+              "pixelHeight": 158,
+              "scale": 3.8,
+              "levels": 12
+            },
+            "fps": 19,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            960,
+            600
+          ],
+          "dpr": 2,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 960,
+            "height": 600,
+            "top": 0,
+            "right": 960,
+            "bottom": 600,
+            "left": 0
+          },
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "gl": {
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+            "lost": false
+          },
+          "readyEvents": [
+            {
+              "time": 1287.5999999996275,
+              "ready": true,
+              "loader": ""
+            }
+          ],
+          "inputs": [
+            {
+              "id": "waveHeight",
+              "value": "0",
+              "trusted": true
+            },
+            {
+              "id": "waveHeight",
+              "value": "100",
+              "trusted": true
+            }
+          ],
+          "clicks": [
+            {
+              "id": "",
+              "data": {
+                "quality": "retro"
+              },
+              "trusted": true
+            }
+          ]
+        },
+        "simSeconds": 2.533099999999994,
+        "distinctSimFrames": 55,
+        "range": {
+          "rootY": 0.23945693629353904,
+          "pitch": 0.28245883316309073,
+          "roll": 0.36275124330726016,
+          "surface": 0.20108534954530732
+        }
+      }
+    },
+    {
+      "id": "PREFIX.camera-ui",
+      "name": "前缀镜头与界面",
+      "status": "通过",
+      "evidence": {
+        "before": {
+          "position": [
+            0.5503801579587017,
+            2.34138507530666,
+            6.490267956257238
+          ],
+          "target": [
+            0.8,
+            1.92,
+            0.1
+          ],
+          "fov": 42,
+          "preset": "cinema",
+          "distance": 6.409009283812904
+        },
+        "top": {
+          "position": [
+            0.40000000000000036,
+            7.15,
+            4
+          ],
+          "target": [
+            -0.050000000000000044,
+            0.75,
+            0.44999999999999996
+          ],
+          "fov": 44,
+          "preset": "top",
+          "distance": 7.332462069455253
+        },
+        "nativeUIRestored": true,
+        "trustedButtonEvents": [
+          {
+            "id": "",
+            "data": {
+              "quality": "retro"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "preset": "top"
+            },
+            "trusted": true
+          },
+          {
+            "id": "",
+            "data": {
+              "action": "toggleUI"
+            },
+            "trusted": true
+          },
+          {
+            "id": "restore-ui",
+            "data": {
+              "action": "toggleUI"
+            },
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "PREFIX.export",
+      "name": "前缀原按钮真实PNG下载",
+      "status": "通过",
+      "evidence": {
+        "filename": "bottle-ocean-2026-11-13T05-51-05.png",
+        "file": {
+          "path": "docs/evidence/beach-bottle-boat-step-3/browser/prefix-download.png",
+          "bytes": 221631,
+          "sha256": "08e4776fd3fb5a372a8a2fb530349f0c7dee05bd1c961a2ef8b8865ed99d6896"
+        },
+        "PNG": [
+          1920,
+          1200
+        ],
+        "before": {
+          "url": "http://127.0.0.1:44855/portfolio-check/experiments/bottle-ocean/index.html",
+          "diagnostics": {
+            "ready": true,
+            "simTime": 7.882299999999996,
+            "paused": false,
+            "state": {
+              "waveHeight": 100,
+              "waveSpeed": 1,
+              "waveDensity": 1.25,
+              "waveDirection": 28,
+              "waterLevel": 42,
+              "boatResponse": 72,
+              "boatDamping": 48,
+              "wind": 22,
+              "pixelScale": 3.8,
+              "sunset": 45,
+              "brightness": 0.82,
+              "glassOpacity": 0.15,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "quality": "retro",
+              "paused": false,
+              "editMode": null
+            },
+            "camera": {
+              "position": [
+                0.40000000000000036,
+                7.15,
+                4
+              ],
+              "target": [
+                -0.050000000000000044,
+                0.75,
+                0.44999999999999996
+              ],
+              "fov": 44,
+              "preset": "top",
+              "distance": 7.332462069455253
+            },
+            "boat": {
+              "position": [
+                -0.3171195638454649,
+                0.7501628843632827,
+                0.030221855761595105
+              ],
+              "quaternion": [
+                0.014124896415173636,
+                0.057447205727749084,
+                -0.0018917151179290272,
+                0.9982468268265353
+              ],
+              "pitch": -0.0021539272324624754,
+              "roll": 0.028421505709201603,
+              "yaw": 0.115,
+              "rootY": 0.7501628843632827,
+              "surfaceAtBoat": 0.746749585750574,
+              "waterLevel": 0.7564,
+              "waveAmplitude": 0.16,
+              "sampleHeights": {
+                "bow": 0.7479648367332787,
+                "stern": 0.7941242448201935,
+                "port": 0.7045927052068315,
+                "starboard": 0.7236485587039252,
+                "center": 0.746749585750574
+              },
+              "mastTip": [
+                -0.2824742864548891,
+                1.6467339208312943,
+                0.05188014104011111
+              ],
+              "mastTips": [
+                [
+                  -0.6512174311865493,
+                  1.4276202334563983,
+                  0.08818007517754806
+                ],
+                [
+                  -0.2824742864548891,
+                  1.6467339208312943,
+                  0.05188014104011111
+                ],
+                [
+                  0.05430721632350949,
+                  1.466074699001061,
+                  0.00782943214663194
+                ]
+              ],
+              "forward": [
+                0.9933924799359726,
+                -0.0021539255669736222,
+                -0.11474642221572891
+              ],
+              "drift": [
+                0.0028804361545350776,
+                -0.009778144238404896
+              ],
+              "safety": {
+                "withinBottle": true,
+                "worst": null,
+                "checks": {
+                  "mastTips": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "hull": true
+                }
+              }
+            },
+            "water": {
+              "baseLevel": 0.7564,
+              "amplitude": 0.16,
+              "heightAtBoat": 0.746749585750574,
+              "samples": {
+                "bow": 0.7479648367332787,
+                "stern": 0.7941242448201935,
+                "port": 0.7045927052068315,
+                "starboard": 0.7236485587039252,
+                "center": 0.746749585750574
+              }
+            },
+            "renderer": {
+              "calls": 66,
+              "triangles": 192329,
+              "points": 774,
+              "lines": 29,
+              "pixelWidth": 253,
+              "pixelHeight": 158,
+              "scale": 3.8,
+              "levels": 12
+            },
+            "fps": 23,
+            "cameraInsideBottle": false,
+            "editMode": null
+          },
+          "viewport": [
+            960,
+            600
+          ],
+          "dpr": 2,
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 960,
+            "height": 600,
+            "top": 0,
+            "right": 960,
+            "bottom": 600,
+            "left": 0
+          },
+          "loader": {
+            "display": "none",
+            "error": ""
+          },
+          "error": null,
+          "ui": {
+            "hidden": false,
+            "collapsed": false,
+            "buttons": 22,
+            "sliders": 12
+          },
+          "gl": {
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "renderer": "ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL 4.5)",
+            "lost": false
+          },
+          "readyEvents": [
+            {
+              "time": 1287.5999999996275,
+              "ready": true,
+              "loader": ""
+            }
+          ],
+          "inputs": [
+            {
+              "id": "waveHeight",
+              "value": "0",
+              "trusted": true
+            },
+            {
+              "id": "waveHeight",
+              "value": "100",
+              "trusted": true
+            }
+          ],
+          "clicks": [
+            {
+              "id": "",
+              "data": {
+                "quality": "retro"
+              },
+              "trusted": true
+            },
+            {
+              "id": "",
+              "data": {
+                "preset": "top"
+              },
+              "trusted": true
+            },
+            {
+              "id": "",
+              "data": {
+                "action": "toggleUI"
+              },
+              "trusted": true
+            },
+            {
+              "id": "restore-ui",
+              "data": {
+                "action": "toggleUI"
+              },
+              "trusted": true
+            }
+          ]
+        },
+        "downloadError": null,
+        "originalButtonTrusted": {
+          "id": "",
+          "data": {
+            "action": "screenshot"
+          },
+          "trusted": true
+        }
+      }
+    },
+    {
+      "id": "HOST.dev",
+      "name": "主站Coding区不提前运行新作品",
+      "status": "通过",
+      "evidence": {
+        "url": "http://127.0.0.1:45373/",
+        "readingMode": "stable",
+        "currentWorks": [
+          {
+            "id": "lawson",
+            "enabled": true
+          },
+          {
+            "id": "courtyard",
+            "enabled": true
+          }
+        ],
+        "requests": [
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/",
+            "type": "document"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/@vite/client",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/main.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/styles.css",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/node_modules/vite/dist/client/env.mjs",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/startTourPrototype.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/favicon.svg",
+            "type": "other"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/tour.css",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/film.css",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/experiment.css",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/projectHost.css",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/readingLayout.css",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/autoGuide.css",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/node_modules/.vite/deps/three.js?v=3e971b73",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/palette.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/scene.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/water.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/visual.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/environment.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/scene/createScene.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/rendering/createRenderer.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/animation/createAnimationController.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/route.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/reading.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/createPillarReader.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/createPillarAppearance.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/createPillarMagic.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/filmReading.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/createFilmReader.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/createMediaViewer.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/filmContent.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/experimentReading.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/createExperimentReader.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/createProjectViewer.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/createLawsonExperience.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/projectContent.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/presentation.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/createReadingLayout.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/autoGuide.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/birdVisibility.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/lighting.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/createGroundMaterial.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/scene/createBlockout.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/scene/createVegetation.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/createWaterMaterial.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/scene/createFountainEffects.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/animation/environmentMotion.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/scene/createFloatingPetals.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/scene/createFountainAppearance.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/animation/cloudShadows.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/applyCloudShadows.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/scene/createBirds.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/rendering/createPixelPipeline.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/rendering/releaseSceneGpuResources.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/magicStyle.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/aboutContent.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/readerFlow.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/createStoneMaterial.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/assets/signal-garden.webp?import",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/assets/liquid-form.webp?import",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/tour/experimentContent.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/assets/lawson-cover.png?import",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/birds.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/createArtMaterial.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/layout.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/stone.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/geometry/createStoneBlockGeometry.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/vegetation.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/geometry/createFlowerGeometry.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/createVegetationMaterial.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/scene/createLivelyFountainEffects.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/createFountainStoneMaterial.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/createRefinedWaterMaterial.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/cloudShadows.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/animation/birdMotion.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/geometry/createBirdGeometry.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/createBirdMaterial.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/assets/courtyard-orb-cover.webp?import",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/assets/courtyard-motion.mp4?import",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/assets/courtyard-keyframe-00.png?import",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/assets/courtyard-keyframe-03.png?import",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/applyEnvironmentMotion.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/fountain.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/config/orb.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/animation/orbMotion.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/animation/orbSurface.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/materials/createOrbMaterial.ts",
+            "type": "script"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/assets/signal-garden.webp",
+            "type": "image"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/assets/liquid-form.webp",
+            "type": "image"
+          },
+          {
+            "case": "HOST.dev",
+            "url": "http://127.0.0.1:45373/src/assets/lawson-cover.png",
+            "type": "image"
+          }
+        ],
+        "bottleRequests": [],
+        "iframeCount": 0,
+        "bottleAPIInHost": false,
+        "nativeModeToggleUsed": true
+      }
+    },
+    {
+      "id": "HOST.production",
+      "name": "主站Coding区不提前运行新作品",
+      "status": "通过",
+      "evidence": {
+        "url": "http://127.0.0.1:44855/",
+        "readingMode": "stable",
+        "currentWorks": [
+          {
+            "id": "lawson",
+            "enabled": true
+          },
+          {
+            "id": "courtyard",
+            "enabled": true
+          }
+        ],
+        "requests": [
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/",
+            "type": "document"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/assets/index-I_dsI6Eg.js",
+            "type": "script"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/assets/index-B5-UwPAe.css",
+            "type": "stylesheet"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/assets/startTourPrototype-WeWohhtn.js",
+            "type": "script"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/assets/three-core-Nz4Rm5ga.js",
+            "type": "script"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/assets/createAnimationController-Cv0VwzcZ.js",
+            "type": "script"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/assets/three-renderer-Bo7ttXUR.js",
+            "type": "script"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/assets/startTourPrototype-VQ1ktMv3.css",
+            "type": "stylesheet"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/favicon.svg",
+            "type": "other"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/assets/signal-garden-CbiDrnMk.webp",
+            "type": "image"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/assets/liquid-form-Yl5oqdSL.webp",
+            "type": "image"
+          },
+          {
+            "case": "HOST.production",
+            "url": "http://127.0.0.1:44855/assets/lawson-cover-DsynKw5x.png",
+            "type": "image"
+          }
+        ],
+        "bottleRequests": [],
+        "iframeCount": 0,
+        "bottleAPIInHost": false,
+        "nativeModeToggleUsed": true
+      }
+    },
+    {
+      "id": "HOST.prefix",
+      "name": "主站Coding区不提前运行新作品",
+      "status": "通过",
+      "evidence": {
+        "url": "http://127.0.0.1:44855/portfolio-check/",
+        "readingMode": "stable",
+        "currentWorks": [
+          {
+            "id": "lawson",
+            "enabled": true
+          },
+          {
+            "id": "courtyard",
+            "enabled": true
+          }
+        ],
+        "requests": [
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/",
+            "type": "document"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/assets/index-I_dsI6Eg.js",
+            "type": "script"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/assets/index-B5-UwPAe.css",
+            "type": "stylesheet"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/assets/startTourPrototype-WeWohhtn.js",
+            "type": "script"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/assets/three-core-Nz4Rm5ga.js",
+            "type": "script"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/assets/createAnimationController-Cv0VwzcZ.js",
+            "type": "script"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/assets/three-renderer-Bo7ttXUR.js",
+            "type": "script"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/assets/startTourPrototype-VQ1ktMv3.css",
+            "type": "stylesheet"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/favicon.svg",
+            "type": "other"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/assets/signal-garden-CbiDrnMk.webp",
+            "type": "image"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/assets/liquid-form-Yl5oqdSL.webp",
+            "type": "image"
+          },
+          {
+            "case": "HOST.prefix",
+            "url": "http://127.0.0.1:44855/portfolio-check/assets/lawson-cover-DsynKw5x.png",
+            "type": "image"
+          }
+        ],
+        "bottleRequests": [],
+        "iframeCount": 0,
+        "bottleAPIInHost": false,
+        "nativeModeToggleUsed": true
+      }
+    }
+  ],
+  "requests": [
+    {
+      "case": "DEV.load",
+      "url": "http://127.0.0.1:45373/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "PRODUCTION.load",
+      "url": "http://127.0.0.1:44855/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "PREFIX.load",
+      "url": "http://127.0.0.1:44855/portfolio-check/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "PREFIX.reload",
+      "url": "http://127.0.0.1:44855/portfolio-check/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/",
+      "type": "document"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/@vite/client",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/main.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/styles.css",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/node_modules/vite/dist/client/env.mjs",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/startTourPrototype.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/tour.css",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/film.css",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/experiment.css",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/projectHost.css",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/readingLayout.css",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/autoGuide.css",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/node_modules/.vite/deps/three.js?v=3e971b73",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/palette.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/scene.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/water.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/visual.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/environment.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/scene/createScene.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/rendering/createRenderer.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/animation/createAnimationController.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/route.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/reading.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/createPillarReader.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/createPillarAppearance.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/createPillarMagic.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/filmReading.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/createFilmReader.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/createMediaViewer.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/filmContent.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/experimentReading.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/createExperimentReader.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/createProjectViewer.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/createLawsonExperience.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/projectContent.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/presentation.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/createReadingLayout.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/autoGuide.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/birdVisibility.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/lighting.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/createGroundMaterial.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/scene/createBlockout.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/scene/createVegetation.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/createWaterMaterial.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/scene/createFountainEffects.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/animation/environmentMotion.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/scene/createFloatingPetals.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/scene/createFountainAppearance.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/animation/cloudShadows.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/applyCloudShadows.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/scene/createBirds.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/rendering/createPixelPipeline.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/rendering/releaseSceneGpuResources.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/magicStyle.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/aboutContent.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/readerFlow.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/createStoneMaterial.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/assets/signal-garden.webp?import",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/assets/liquid-form.webp?import",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/tour/experimentContent.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/assets/lawson-cover.png?import",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/birds.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/createArtMaterial.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/layout.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/stone.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/geometry/createStoneBlockGeometry.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/vegetation.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/geometry/createFlowerGeometry.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/createVegetationMaterial.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/scene/createLivelyFountainEffects.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/createFountainStoneMaterial.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/createRefinedWaterMaterial.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/cloudShadows.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/animation/birdMotion.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/geometry/createBirdGeometry.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/createBirdMaterial.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/assets/courtyard-orb-cover.webp?import",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/assets/courtyard-motion.mp4?import",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/assets/courtyard-keyframe-00.png?import",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/assets/courtyard-keyframe-03.png?import",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/applyEnvironmentMotion.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/fountain.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/config/orb.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/animation/orbMotion.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/animation/orbSurface.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/materials/createOrbMaterial.ts",
+      "type": "script"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/assets/signal-garden.webp",
+      "type": "image"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/assets/liquid-form.webp",
+      "type": "image"
+    },
+    {
+      "case": "HOST.dev",
+      "url": "http://127.0.0.1:45373/src/assets/lawson-cover.png",
+      "type": "image"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/",
+      "type": "document"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/assets/index-I_dsI6Eg.js",
+      "type": "script"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/assets/startTourPrototype-WeWohhtn.js",
+      "type": "script"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/assets/startTourPrototype-VQ1ktMv3.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "HOST.production",
+      "url": "http://127.0.0.1:44855/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/",
+      "type": "document"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/assets/index-I_dsI6Eg.js",
+      "type": "script"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/assets/startTourPrototype-WeWohhtn.js",
+      "type": "script"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/assets/startTourPrototype-VQ1ktMv3.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "HOST.prefix",
+      "url": "http://127.0.0.1:44855/portfolio-check/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    }
+  ],
+  "pageErrors": [],
+  "console": [],
+  "failedRequests": [],
+  "httpErrors": [],
+  "externalAttempts": [],
+  "routesDisableCache": true,
+  "serviceWorkers": "blocked",
+  "originalClockModified": false,
+  "originalFilesModified": false,
+  "scope": "saved original standalone; no Coding entry or iframe integration",
+  "sourceEntrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+  "softwareRenderingRequested": {
+    "DISPLAY": ":122",
+    "LD_LIBRARY_PATH": "/workspace/.cache/browser-deps/root/usr/lib/x86_64-linux-gnu",
+    "LIBGL_ALWAYS_SOFTWARE": "1",
+    "LP_NUM_THREADS": "3",
+    "PLAYWRIGHT_BROWSERS_PATH": "/workspace/.cache/ms-playwright"
+  },
+  "browserVersion": "155.0.8059.79",
+  "complete": true,
+  "finishedAtShanghai": "2026-11-13T13:51:11.255174+08:00"
+}

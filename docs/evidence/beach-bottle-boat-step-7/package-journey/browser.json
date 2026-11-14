@@ -1,0 +1,1896 @@
+{
+  "startedAtShanghai": "2026-11-14T16:28:29.844650+08:00",
+  "engine": "chromium",
+  "headed": false,
+  "checks": [
+    {
+      "id": "PACKAGE.core-flow",
+      "status": "通过",
+      "evidence": {
+        "steps": [
+          {
+            "stage": "extracted-site-original-controls-and-PNG",
+            "conditions": {
+              "side": "embedded",
+              "url": "http://127.0.0.1:58815/experiments/bottle-ocean/index.html",
+              "entrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+              "viewport": [
+                1440,
+                844
+              ],
+              "canvas": [
+                1440,
+                844
+              ],
+              "dpr": 1,
+              "touch": false,
+              "timeOrigin": 1794644912086.5,
+              "engineRevision": "180"
+            },
+            "download": {
+              "file": {
+                "path": "docs/evidence/beach-bottle-boat-step-7/package-journey/package-embedded-embedded.png",
+                "bytes": 351339,
+                "sha256": "5ec0636267dc97100401c92a6384aa00242963ddb7ac095f8ce289cd26b3689d"
+              },
+              "name": "bottle-ocean-2026-11-14T08-28-37.png",
+              "PNG": [
+                1440,
+                844
+              ],
+              "expected": [
+                1440,
+                844
+              ],
+              "before": {
+                "diagnostics": {
+                  "ready": true,
+                  "simTime": 1.6500000000000004,
+                  "paused": false,
+                  "state": {
+                    "waveHeight": 100,
+                    "waveSpeed": 1,
+                    "waveDensity": 1.25,
+                    "waveDirection": 28,
+                    "waterLevel": 42,
+                    "boatResponse": 72,
+                    "boatDamping": 48,
+                    "wind": 22,
+                    "pixelScale": 3.8,
+                    "sunset": 45,
+                    "brightness": 0.82,
+                    "glassOpacity": 0.15,
+                    "lighthouse": true,
+                    "spray": true,
+                    "dust": true,
+                    "quality": "retro",
+                    "paused": false,
+                    "editMode": null
+                  },
+                  "camera": {
+                    "position": [
+                      0.5503801579587017,
+                      2.34138507530666,
+                      6.490267956257238
+                    ],
+                    "target": [
+                      0.8,
+                      1.92,
+                      0.1
+                    ],
+                    "fov": 42,
+                    "preset": "cinema",
+                    "distance": 6.409009283812904
+                  },
+                  "boat": {
+                    "position": [
+                      -0.30674502868691766,
+                      0.7456439608758079,
+                      0.03621027123711497
+                    ],
+                    "quaternion": [
+                      0.025224676672188785,
+                      0.05663322367721691,
+                      -0.03081611411267831,
+                      0.9976005015905436
+                    ],
+                    "pitch": -0.05866086945437299,
+                    "roll": 0.0539376120140794,
+                    "yaw": 0.115,
+                    "rootY": 0.7456439608758079,
+                    "surfaceAtBoat": 0.7628245444351149,
+                    "waterLevel": 0.7564,
+                    "waveAmplitude": 0.16,
+                    "sampleHeights": {
+                      "bow": 0.6989686157728761,
+                      "stern": 0.7995823289926487,
+                      "port": 0.70275620383889,
+                      "starboard": 0.8680983612381855,
+                      "center": 0.7628245444351149
+                    },
+                    "mastTip": [
+                      -0.21928016416194113,
+                      1.6380400084466384,
+                      0.07478735969111155
+                    ],
+                    "mastTips": [
+                      [
+                        -0.6003591368131604,
+                        1.4404298879590072,
+                        0.10686627619331215
+                      ],
+                      [
+                        -0.21928016416194113,
+                        1.6380400084466384,
+                        0.07478735969111155
+                      ],
+                      [
+                        0.1063116452624302,
+                        1.4386776796644303,
+                        0.027409775346839867
+                      ]
+                    ],
+                    "forward": [
+                      0.9916860901738414,
+                      -0.05862723227943554,
+                      -0.11454931772373325
+                    ],
+                    "drift": [
+                      0.01325497131308233,
+                      -0.0037897287628850316
+                    ],
+                    "safety": {
+                      "withinBottle": true,
+                      "worst": null,
+                      "checks": {
+                        "mastTips": [
+                          true,
+                          true,
+                          true
+                        ],
+                        "hull": true
+                      }
+                    }
+                  },
+                  "water": {
+                    "baseLevel": 0.7564,
+                    "amplitude": 0.16,
+                    "heightAtBoat": 0.7628245444351149,
+                    "samples": {
+                      "bow": 0.6989686157728761,
+                      "stern": 0.7995823289926487,
+                      "port": 0.70275620383889,
+                      "starboard": 0.8680983612381855,
+                      "center": 0.7628245444351149
+                    }
+                  },
+                  "renderer": {
+                    "calls": 74,
+                    "triangles": 193219,
+                    "points": 774,
+                    "lines": 29,
+                    "pixelWidth": 379,
+                    "pixelHeight": 222,
+                    "scale": 3.8,
+                    "levels": 12
+                  },
+                  "fps": 14,
+                  "cameraInsideBottle": false,
+                  "editMode": null
+                },
+                "post": {
+                  "quality": "retro",
+                  "scale": 3.8,
+                  "levels": 12,
+                  "dither": 1.2,
+                  "pixelWidth": 379,
+                  "pixelHeight": 222,
+                  "exposure": 0.82
+                },
+                "actual": {
+                  "waveParams": {
+                    "height": 100,
+                    "speed": 1,
+                    "density": 1.25,
+                    "direction": 28,
+                    "waterLevel": 42
+                  },
+                  "amplitude": 0.16,
+                  "baseLevel": 0.7564,
+                  "waves": [
+                    {
+                      "dx": 0.9995884073383324,
+                      "dz": 0.028688253952025754,
+                      "k": 4.487989505128276,
+                      "omega": 1.6275000000000002,
+                      "amplitude": 0.0576
+                    },
+                    {
+                      "dx": 0.8087973061583119,
+                      "dz": 0.5880875084127004,
+                      "k": 6.95042622475618,
+                      "omega": 2.4335,
+                      "amplitude": 0.044800000000000006
+                    },
+                    {
+                      "dx": 0.5073476843913445,
+                      "dz": 0.8617414502869992,
+                      "k": 10.06920722304421,
+                      "omega": 3.2395,
+                      "amplitude": 0.0344
+                    },
+                    {
+                      "dx": 0.9464653209006031,
+                      "dz": 0.32280550852257534,
+                      "k": 15.103810834566312,
+                      "omega": 4.0455000000000005,
+                      "amplitude": 0.0232
+                    }
+                  ],
+                  "glassOpacity": 0.15,
+                  "sunIntensity": 2.05,
+                  "sunColor": [
+                    1,
+                    0.46207699964472876,
+                    0.14126329113044456
+                  ],
+                  "sunPosition": [
+                    11.863751277631795,
+                    8.214844548519872,
+                    -74.16547657549474
+                  ],
+                  "wind": 0.22,
+                  "lighthouse": true,
+                  "spray": true,
+                  "dust": true,
+                  "sails": [
+                    {
+                      "name": "",
+                      "rotation": [
+                        0,
+                        0.0005247714243643608,
+                        -0.04688256728113235
+                      ]
+                    },
+                    {
+                      "name": "",
+                      "rotation": [
+                        0,
+                        -0.07900241741485088,
+                        -0.01485475781749912
+                      ]
+                    },
+                    {
+                      "name": "",
+                      "rotation": [
+                        0,
+                        0.019833281615516427,
+                        0.05071047479888868
+                      ]
+                    }
+                  ]
+                },
+                "ui": {
+                  "hidden": false,
+                  "collapsed": false,
+                  "edit": false,
+                  "pauseLabel": "暂停模拟",
+                  "sliders": [
+                    {
+                      "id": "waveHeight",
+                      "value": "100",
+                      "output": "100%",
+                      "min": "0",
+                      "max": "100",
+                      "step": "1"
+                    },
+                    {
+                      "id": "waveSpeed",
+                      "value": "1",
+                      "output": "1.00×",
+                      "min": "0.2",
+                      "max": "3",
+                      "step": "0.05"
+                    },
+                    {
+                      "id": "waveDensity",
+                      "value": "1.25",
+                      "output": "1.25×",
+                      "min": "0.5",
+                      "max": "3",
+                      "step": "0.05"
+                    },
+                    {
+                      "id": "waveDirection",
+                      "value": "28",
+                      "output": "28°",
+                      "min": "0",
+                      "max": "360",
+                      "step": "1"
+                    },
+                    {
+                      "id": "waterLevel",
+                      "value": "42",
+                      "output": "42%",
+                      "min": "0",
+                      "max": "100",
+                      "step": "1"
+                    },
+                    {
+                      "id": "boatResponse",
+                      "value": "72",
+                      "output": "72%",
+                      "min": "0",
+                      "max": "100",
+                      "step": "1"
+                    },
+                    {
+                      "id": "boatDamping",
+                      "value": "48",
+                      "output": "48%",
+                      "min": "0",
+                      "max": "100",
+                      "step": "1"
+                    },
+                    {
+                      "id": "wind",
+                      "value": "22",
+                      "output": "22%",
+                      "min": "0",
+                      "max": "100",
+                      "step": "1"
+                    },
+                    {
+                      "id": "pixelScale",
+                      "value": "3.8",
+                      "output": "3.8×",
+                      "min": "1",
+                      "max": "5",
+                      "step": "0.1"
+                    },
+                    {
+                      "id": "sunset",
+                      "value": "45",
+                      "output": "45%",
+                      "min": "0",
+                      "max": "100",
+                      "step": "1"
+                    },
+                    {
+                      "id": "brightness",
+                      "value": "0.8",
+                      "output": "0.82×",
+                      "min": "0.6",
+                      "max": "1.6",
+                      "step": "0.05"
+                    },
+                    {
+                      "id": "glassOpacity",
+                      "value": "0.15",
+                      "output": "15%",
+                      "min": "0.04",
+                      "max": "0.4",
+                      "step": "0.01"
+                    }
+                  ]
+                },
+                "viewport": [
+                  1440,
+                  844
+                ],
+                "dpr": 1,
+                "frames": null,
+                "draws": 2790,
+                "canvas": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 1440,
+                  "height": 844,
+                  "top": 0,
+                  "right": 1440,
+                  "bottom": 844,
+                  "left": 0
+                },
+                "loader": {
+                  "hidden": "hidden",
+                  "display": "none",
+                  "error": ""
+                },
+                "error": null
+              },
+              "nativeButton": true,
+              "hiddenUIActivation": false
+            }
+          },
+          {
+            "stage": "about",
+            "text": "01 / 关于我\n身份\n\nsakan\n\n张辰翰 / 萨坎\n\n专注 AIGC 的创作者。\n\n化名取自《战锤 40K》的角色。"
+          },
+          {
+            "stage": "film-original-media-opened-and-cleared"
+          },
+          {
+            "stage": "lawson-native-camera",
+            "preset": "front",
+            "state": {
+              "loaded": true,
+              "paused": false,
+              "quality": "high",
+              "cameraMode": "front",
+              "timeOfDay": 18.5,
+              "roofVisible": true,
+              "lights": {
+                "StoreInterior": true,
+                "LawsonSign": true,
+                "FacadeStrip": true,
+                "StreetLamp": true,
+                "CoolerLighting": true,
+                "VendingLighting": true,
+                "WarmExterior": true,
+                "VehicleLights": true
+              },
+              "traffic": {
+                "enabled": true,
+                "running": true,
+                "current": "A",
+                "phase": "APPROACHING",
+                "speed": 1,
+                "activePosition": [
+                  -41,
+                  -0.18,
+                  23.4
+                ],
+                "reverseLamp": false,
+                "brake": false
+              },
+              "doors": {
+                "state": "CLOSED",
+                "isOpen": false,
+                "progress": 0,
+                "automatic": true
+              },
+              "walk": false,
+              "fps": 0,
+              "stats": {
+                "drawCalls": 1617,
+                "triangles": 414498,
+                "programs": 22,
+                "geometries": 1206,
+                "textures": 16,
+                "pixelRatio": 1,
+                "resScale": 1,
+                "width": 1440,
+                "height": 844
+              }
+            }
+          },
+          {
+            "stage": "courtyard-modes-motion-video",
+            "videoTime": 0.05584
+          },
+          {
+            "stage": "independent-native-popup",
+            "url": "http://127.0.0.1:58815/experiments/bottle-ocean/index.html",
+            "ready": true
+          },
+          {
+            "stage": "water-entry-still-courtyard"
+          },
+          {
+            "stage": "actual-immersive-guide-interruption-and-child-wheel-isolation",
+            "guideActuallyRunning": {
+              "scrollY": 10854,
+              "anchor": "C3",
+              "displayH": "10.0500000",
+              "targetH": "10.0500000",
+              "cameraPosition": "[5.286638,6,13.9397816]",
+              "guide": "true",
+              "frames": 0,
+              "open": false
+            },
+            "coveredBefore": {
+              "scrollY": 10854,
+              "anchor": "C3",
+              "displayH": "10.0500000",
+              "targetH": "10.0500000",
+              "cameraPosition": "[5.1750174,6,13.9546644]",
+              "guide": "false",
+              "frames": 1,
+              "open": true
+            },
+            "coveredAfterNativeWheel": {
+              "scrollY": 10854,
+              "anchor": "C3",
+              "displayH": "10.0500000",
+              "targetH": "10.0500000",
+              "cameraPosition": "[5.1750174,6,13.9546644]",
+              "guide": "false",
+              "frames": 1,
+              "open": true
+            },
+            "childCameraBefore": {
+              "position": [
+                0.40010338913521587,
+                7.146693988453009,
+                4.001712105200234
+              ],
+              "target": [
+                -0.04941560930560007,
+                0.7508043966028799,
+                0.4497593685376
+              ],
+              "fov": 43.998624963072,
+              "preset": "top",
+              "distance": 7.32979121425578
+            },
+            "childCameraAfter": {
+              "position": [
+                0.4713696742543222,
+                8.165035367172571,
+                4.563027430228533
+              ],
+              "target": [
+                -0.050000000000000044,
+                0.75,
+                0.44999999999999996
+              ],
+              "fov": 44,
+              "preset": null,
+              "distance": 8.495385245853448
+            },
+            "returned": {
+              "scrollY": 10854,
+              "anchor": "C3",
+              "displayH": "10.0500000",
+              "targetH": "10.0500000",
+              "cameraPosition": "[5.286638,6,13.9397816]",
+              "guide": "false",
+              "frames": 0,
+              "open": false
+            }
+          }
+        ],
+        "final": {
+          "scrollY": 10854,
+          "anchor": "C3",
+          "displayH": "10.0500000",
+          "targetH": "10.0500000",
+          "cameraPosition": "[5.286638,6,13.9397816]",
+          "guide": "false",
+          "frames": 0,
+          "open": false
+        },
+        "actualPackagedNodeServer": true
+      }
+    },
+    {
+      "id": "PACKAGE.prefix",
+      "status": "通过",
+      "evidence": {
+        "conditions": {
+          "side": "embedded",
+          "url": "http://127.0.0.1:34473/portfolio-check/experiments/bottle-ocean/index.html",
+          "entrySHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+          "viewport": [
+            1440,
+            844
+          ],
+          "canvas": [
+            1440,
+            844
+          ],
+          "dpr": 1,
+          "touch": false,
+          "timeOrigin": 1794644943053.2,
+          "engineRevision": "180"
+        },
+        "nativeDownload": {
+          "file": {
+            "path": "docs/evidence/beach-bottle-boat-step-7/package-journey/package-prefix-original-embedded.png",
+            "bytes": 351361,
+            "sha256": "e46f8153bbd810cfe7ffca80e9287452ab555d1d8b50957f49207fba4d87226d"
+          },
+          "name": "bottle-ocean-2026-11-14T08-29-06.png",
+          "PNG": [
+            1440,
+            844
+          ],
+          "expected": [
+            1440,
+            844
+          ],
+          "before": {
+            "diagnostics": {
+              "ready": true,
+              "simTime": 1.5333000000000006,
+              "paused": false,
+              "state": {
+                "waveHeight": 35,
+                "waveSpeed": 1,
+                "waveDensity": 1.25,
+                "waveDirection": 28,
+                "waterLevel": 42,
+                "boatResponse": 72,
+                "boatDamping": 48,
+                "wind": 22,
+                "pixelScale": 3.8,
+                "sunset": 45,
+                "brightness": 0.82,
+                "glassOpacity": 0.4,
+                "lighthouse": true,
+                "spray": true,
+                "dust": true,
+                "quality": "retro",
+                "paused": false,
+                "editMode": null
+              },
+              "camera": {
+                "position": [
+                  0.5503801579587017,
+                  2.34138507530666,
+                  6.490267956257238
+                ],
+                "target": [
+                  0.8,
+                  1.92,
+                  0.1
+                ],
+                "fov": 42,
+                "preset": "cinema",
+                "distance": 6.409009283812904
+              },
+              "boat": {
+                "position": [
+                  -0.3074041661340198,
+                  0.7378971707870658,
+                  0.03649809635253301
+                ],
+                "quaternion": [
+                  0.0005903676344998648,
+                  0.05746473019810377,
+                  -0.0039066565352797915,
+                  0.9983397188753088
+                ],
+                "pitch": -0.007732567198825496,
+                "roll": 0.0016278142283185117,
+                "yaw": 0.115,
+                "rootY": 0.7378971707870658,
+                "surfaceAtBoat": 0.7431564425450415,
+                "waterLevel": 0.7564,
+                "waveAmplitude": 0.06351844560433681,
+                "sampleHeights": {
+                  "bow": 0.748889372743386,
+                  "stern": 0.7846869472356218,
+                  "port": 0.7304745445161043,
+                  "starboard": 0.7888532874491583,
+                  "center": 0.7431564425450415
+                },
+                "mastTip": [
+                  -0.27054544587195123,
+                  1.6346371908472295,
+                  0.03371041575034793
+                ],
+                "mastTips": [
+                  [
+                    -0.6398215296670158,
+                    1.4175050808189413,
+                    0.0760048684793258
+                  ],
+                  [
+                    -0.27054544587195123,
+                    1.6346371908472295,
+                    0.03371041575034793
+                  ],
+                  [
+                    0.06578240879082858,
+                    1.452013763979121,
+                    -0.005433653236928598
+                  ]
+                ],
+                "forward": [
+                  0.993365085635949,
+                  -0.007732490140678775,
+                  -0.11474325790959584
+                ],
+                "drift": [
+                  0.01259583386598023,
+                  -0.0035019036474669895
+                ],
+                "safety": {
+                  "withinBottle": true,
+                  "worst": null,
+                  "checks": {
+                    "mastTips": [
+                      true,
+                      true,
+                      true
+                    ],
+                    "hull": true
+                  }
+                }
+              },
+              "water": {
+                "baseLevel": 0.7564,
+                "amplitude": 0.06351844560433681,
+                "heightAtBoat": 0.7431564425450415,
+                "samples": {
+                  "bow": 0.748889372743386,
+                  "stern": 0.7846869472356218,
+                  "port": 0.7304745445161043,
+                  "starboard": 0.7888532874491583,
+                  "center": 0.7431564425450415
+                }
+              },
+              "renderer": {
+                "calls": 74,
+                "triangles": 193219,
+                "points": 774,
+                "lines": 29,
+                "pixelWidth": 379,
+                "pixelHeight": 222,
+                "scale": 3.8,
+                "levels": 12
+              },
+              "fps": 11,
+              "cameraInsideBottle": false,
+              "editMode": null
+            },
+            "post": {
+              "quality": "retro",
+              "scale": 3.8,
+              "levels": 12,
+              "dither": 1.2,
+              "pixelWidth": 379,
+              "pixelHeight": 222,
+              "exposure": 0.82
+            },
+            "actual": {
+              "waveParams": {
+                "height": 35,
+                "speed": 1,
+                "density": 1.25,
+                "direction": 28,
+                "waterLevel": 42
+              },
+              "amplitude": 0.06351844560433681,
+              "baseLevel": 0.7564,
+              "waves": [
+                {
+                  "dx": 0.9995884073383324,
+                  "dz": 0.028688253952025754,
+                  "k": 4.487989505128276,
+                  "omega": 1.6275000000000002,
+                  "amplitude": 0.02286664041756125
+                },
+                {
+                  "dx": 0.8087973061583119,
+                  "dz": 0.5880875084127004,
+                  "k": 6.95042622475618,
+                  "omega": 2.4335,
+                  "amplitude": 0.01778516476921431
+                },
+                {
+                  "dx": 0.5073476843913445,
+                  "dz": 0.8617414502869992,
+                  "k": 10.06920722304421,
+                  "omega": 3.2395,
+                  "amplitude": 0.013656465804932414
+                },
+                {
+                  "dx": 0.9464653209006031,
+                  "dz": 0.32280550852257534,
+                  "k": 15.103810834566312,
+                  "omega": 4.0455000000000005,
+                  "amplitude": 0.009210174612628836
+                }
+              ],
+              "glassOpacity": 0.4,
+              "sunIntensity": 2.05,
+              "sunColor": [
+                1,
+                0.46207699964472876,
+                0.14126329113044456
+              ],
+              "sunPosition": [
+                11.863751277631795,
+                8.214844548519872,
+                -74.16547657549474
+              ],
+              "wind": 0.22,
+              "lighthouse": true,
+              "spray": true,
+              "dust": true,
+              "sails": [
+                {
+                  "name": "",
+                  "rotation": [
+                    0,
+                    0.018016984609881426,
+                    -0.03844528347553142
+                  ]
+                },
+                {
+                  "name": "",
+                  "rotation": [
+                    0,
+                    -0.07920930205076498,
+                    -0.028878445672226406
+                  ]
+                },
+                {
+                  "name": "",
+                  "rotation": [
+                    0,
+                    0.0023943803225831652,
+                    0.04588694093288902
+                  ]
+                }
+              ]
+            },
+            "ui": {
+              "hidden": false,
+              "collapsed": false,
+              "edit": false,
+              "pauseLabel": "暂停模拟",
+              "sliders": [
+                {
+                  "id": "waveHeight",
+                  "value": "35",
+                  "output": "35%",
+                  "min": "0",
+                  "max": "100",
+                  "step": "1"
+                },
+                {
+                  "id": "waveSpeed",
+                  "value": "1",
+                  "output": "1.00×",
+                  "min": "0.2",
+                  "max": "3",
+                  "step": "0.05"
+                },
+                {
+                  "id": "waveDensity",
+                  "value": "1.25",
+                  "output": "1.25×",
+                  "min": "0.5",
+                  "max": "3",
+                  "step": "0.05"
+                },
+                {
+                  "id": "waveDirection",
+                  "value": "28",
+                  "output": "28°",
+                  "min": "0",
+                  "max": "360",
+                  "step": "1"
+                },
+                {
+                  "id": "waterLevel",
+                  "value": "42",
+                  "output": "42%",
+                  "min": "0",
+                  "max": "100",
+                  "step": "1"
+                },
+                {
+                  "id": "boatResponse",
+                  "value": "72",
+                  "output": "72%",
+                  "min": "0",
+                  "max": "100",
+                  "step": "1"
+                },
+                {
+                  "id": "boatDamping",
+                  "value": "48",
+                  "output": "48%",
+                  "min": "0",
+                  "max": "100",
+                  "step": "1"
+                },
+                {
+                  "id": "wind",
+                  "value": "22",
+                  "output": "22%",
+                  "min": "0",
+                  "max": "100",
+                  "step": "1"
+                },
+                {
+                  "id": "pixelScale",
+                  "value": "3.8",
+                  "output": "3.8×",
+                  "min": "1",
+                  "max": "5",
+                  "step": "0.1"
+                },
+                {
+                  "id": "sunset",
+                  "value": "45",
+                  "output": "45%",
+                  "min": "0",
+                  "max": "100",
+                  "step": "1"
+                },
+                {
+                  "id": "brightness",
+                  "value": "0.8",
+                  "output": "0.82×",
+                  "min": "0.6",
+                  "max": "1.6",
+                  "step": "0.05"
+                },
+                {
+                  "id": "glassOpacity",
+                  "value": "0.4",
+                  "output": "40%",
+                  "min": "0.04",
+                  "max": "0.4",
+                  "step": "0.01"
+                }
+              ]
+            },
+            "viewport": [
+              1440,
+              844
+            ],
+            "dpr": 1,
+            "frames": null,
+            "draws": 2640,
+            "canvas": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 844,
+              "top": 0,
+              "right": 1440,
+              "bottom": 844,
+              "left": 0
+            },
+            "loader": {
+              "hidden": "hidden",
+              "display": "none",
+              "error": ""
+            },
+            "error": null
+          },
+          "nativeButton": true,
+          "hiddenUIActivation": false
+        },
+        "originalSHA256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef",
+        "missingStaticStatus": 404,
+        "resources": [
+          {
+            "path": "assets/createAnimationController-Cv0VwzcZ.js",
+            "status": 200,
+            "contentType": "text/javascript; charset=utf-8",
+            "SHA256": "288129fd4859a477c3edc84409098c5e91cd013eefccf64a8820ec2479ea5f0c"
+          },
+          {
+            "path": "assets/index-B5-UwPAe.css",
+            "status": 200,
+            "contentType": "text/css; charset=utf-8",
+            "SHA256": "b3a0cb62aac1eafb4fee5694c90793f40cb1244003b437dd7baa48f916376162"
+          },
+          {
+            "path": "assets/bottle-ocean-cover-qRB3P1Tl.png",
+            "status": 200,
+            "contentType": "image/png",
+            "SHA256": "7fc210e644776fda61efbe4d05a15e75392d5f563a024474dfcd0bfcf23da4fa"
+          },
+          {
+            "path": "experiments/lawson/assets/models/car_A.glb",
+            "status": 200,
+            "contentType": "application/octet-stream",
+            "SHA256": "7c832daf2463bc0a95915fa66309fc5254c65754b40b0410bcf7d1eefa54cb95"
+          },
+          {
+            "path": "assets/courtyard-motion-7fR7fsF8.mp4",
+            "status": 200,
+            "contentType": "video/mp4",
+            "SHA256": "70d6128b6385c8f0da201112ce4fb1c99f25dccce98b6f705c094321a56a0b8c"
+          },
+          {
+            "path": "assets/courtyard-motion-7fR7fsF8.mp4",
+            "rangeStatus": 206,
+            "bytes": 16,
+            "contentRange": "bytes 0-15/556259"
+          }
+        ],
+        "returned": {
+          "scrollY": 5604,
+          "focus": "live",
+          "projectLock": false
+        }
+      }
+    }
+  ],
+  "requests": [
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/",
+      "type": "document"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/index-DLaqqT4X.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/startTourPrototype-gfLFgklB.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/index.html",
+      "type": "document"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/css/main.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/css/controls.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/css/responsive.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/main.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/three.module.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/core/SceneManager.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/core/Renderer.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/core/AssetManager.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/core/AnimationController.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/core/UpdateLoop.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/LightingSystem.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/DayNightSystem.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/DoorSystem.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/TrafficSystem.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/ClerkSystem.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/CameraSystem.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/InteractionSystem.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/QualitySystem.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/ui/UIState.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/ui/UIController.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/config/lightConfig.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/config/sceneConfig.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/config/assetManifest.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/config/vehiclePaths.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/clerk/NavGrid.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/clerk/AnimLibrary.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/clerk/TaskManager.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/js/systems/clerk/clerkConfig.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/assets/models/lawson_scene.glb",
+      "type": "fetch"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/assets/models/car_A.glb",
+      "type": "fetch"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/assets/models/car_B.glb",
+      "type": "fetch"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/lawson/assets/models/car_C.glb",
+      "type": "fetch"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/courtyard-orb-cover-CFKlnXYs.webp",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/courtyard-keyframe-00-Dnvt_afN.png",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/courtyard-keyframe-03-BpIvPl5V.png",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/assets/courtyard-motion-7fR7fsF8.mp4",
+      "type": "media"
+    },
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "url": "http://127.0.0.1:58815/experiments/bottle-ocean/index.html",
+      "type": "document"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/",
+      "type": "document"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/index-DLaqqT4X.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/startTourPrototype-gfLFgklB.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/favicon.svg",
+      "type": "other"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "url": "http://127.0.0.1:34473/portfolio-check/experiments/bottle-ocean/index.html",
+      "type": "document"
+    }
+  ],
+  "events": [
+    {
+      "case": "PACKAGE.core-flow",
+      "side": "embedded",
+      "kind": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "case": "PACKAGE.prefix",
+      "side": "embedded",
+      "kind": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    }
+  ],
+  "externalAttempts": [],
+  "clockModified": false,
+  "RAFReplaced": false,
+  "originalFilesModified": false,
+  "physicalDevice": false,
+  "comparisonTolerance": 1e-06,
+  "buildRecord": "build-final.json",
+  "version": "155.0.8059.79",
+  "siteURL": "http://127.0.0.1:58815/",
+  "prefixURL": "http://127.0.0.1:34473/portfolio-check/",
+  "testedSiteArchive": {
+    "fileName": "bottle-ocean-step7-3b31ab385ebfc4cb-site.zip",
+    "absolutePath": "/workspace/deliverables/beach-bottle-boat-step-7/bottle-ocean-step7-3b31ab385ebfc4cb/bottle-ocean-step7-3b31ab385ebfc4cb-site.zip",
+    "bytes": 6950380,
+    "sha256": "deab7323b2572b244558a7fa49d6ba978b56e4cf7feb822ea2e742954a09b522",
+    "files": [
+      {
+        "path": "QUICKSTART.md",
+        "bytes": 4550,
+        "sha256": "bfedbfab52cb44c5335db33f38086533f95ffe50a0596b7e03853494c1994f13"
+      },
+      {
+        "path": "SITE-PACKAGE.txt",
+        "bytes": 216,
+        "sha256": "27c184dc8ed8fe902659a38712c3fa67fdf31639337e21fa75ecc06d49249003"
+      },
+      {
+        "path": "START-PREVIEW.cmd",
+        "bytes": 353,
+        "sha256": "2243c942ea559a4360aa58566e36da9c6d69f25a39835a77cea6822c00ab0a76"
+      },
+      {
+        "path": "assets/bottle-ocean-cover-qRB3P1Tl.png",
+        "bytes": 1610905,
+        "sha256": "7fc210e644776fda61efbe4d05a15e75392d5f563a024474dfcd0bfcf23da4fa"
+      },
+      {
+        "path": "assets/courtyard-keyframe-00-Dnvt_afN.png",
+        "bytes": 93946,
+        "sha256": "66fa8b82632247eaeb87fb9b7d7e20840ca089f2b5cd0c05b13e80a454670d46"
+      },
+      {
+        "path": "assets/courtyard-keyframe-03-BpIvPl5V.png",
+        "bytes": 94380,
+        "sha256": "b6356c57d768eea3a06483e460d025e4066e79dbff8a46896eb55b9ad110617a"
+      },
+      {
+        "path": "assets/courtyard-motion-7fR7fsF8.mp4",
+        "bytes": 556259,
+        "sha256": "70d6128b6385c8f0da201112ce4fb1c99f25dccce98b6f705c094321a56a0b8c"
+      },
+      {
+        "path": "assets/courtyard-o3Fn-aDY.png",
+        "bytes": 93936,
+        "sha256": "802e0b8aff55e59042d6ab45085d00a0a4ae758aad56174f07a94f5ccae4fe5a"
+      },
+      {
+        "path": "assets/courtyard-orb-cover-CFKlnXYs.webp",
+        "bytes": 65728,
+        "sha256": "38ca3fe85c950f444baa5e881ad2fa2fcdbcb3971af0b34d45451e8716c95210"
+      },
+      {
+        "path": "assets/createAnimationController-Cv0VwzcZ.js",
+        "bytes": 81344,
+        "sha256": "288129fd4859a477c3edc84409098c5e91cd013eefccf64a8820ec2479ea5f0c"
+      },
+      {
+        "path": "assets/index-B5-UwPAe.css",
+        "bytes": 19127,
+        "sha256": "b3a0cb62aac1eafb4fee5694c90793f40cb1244003b437dd7baa48f916376162"
+      },
+      {
+        "path": "assets/index-DLaqqT4X.js",
+        "bytes": 2739,
+        "sha256": "afda782aabc68913ad7c954c90b46f003ed2ef3dc67579d2feddec469c98fb25"
+      },
+      {
+        "path": "assets/lawson-cover-DsynKw5x.png",
+        "bytes": 429796,
+        "sha256": "d795455b466097baa4a17ca0cc95bdfc42252baaea0cdc95fa8208ea6e926c8e"
+      },
+      {
+        "path": "assets/liquid-form-Yl5oqdSL.webp",
+        "bytes": 122592,
+        "sha256": "4affe046c4973f091c79e1a67c923fd3a8b7ab8490596331cfd36e9b766285cc"
+      },
+      {
+        "path": "assets/signal-garden-CbiDrnMk.webp",
+        "bytes": 162180,
+        "sha256": "1ccb2af6cf90ab0169cf96fa6a69404af74ac5d5424be0f4283e6ce907a5620e"
+      },
+      {
+        "path": "assets/startPortfolio-3dhxlalL.js",
+        "bytes": 18339,
+        "sha256": "db22770e7737a3ca48f1b3be9e49c83acdcd7fdd49b8d0dcb9166b34d000e9fd"
+      },
+      {
+        "path": "assets/startTourPrototype-gfLFgklB.js",
+        "bytes": 112982,
+        "sha256": "a770f182ae75f7c2a59767b679871b7df1f72c5b1109e544a626680c0700bb66"
+      },
+      {
+        "path": "assets/startTourPrototype-oCbZU5e4.css",
+        "bytes": 49593,
+        "sha256": "0318d4c07cbc96fc85f88188091d32a61d9a233433a2f15dd70e11f45c17ea03"
+      },
+      {
+        "path": "assets/three-core-Nz4Rm5ga.js",
+        "bytes": 220244,
+        "sha256": "5dc38d4eceea4b63cdca6074b1c0c4f1a1ef80eb55a041d3682b412816062ee7"
+      },
+      {
+        "path": "assets/three-renderer-Bo7ttXUR.js",
+        "bytes": 352602,
+        "sha256": "b39f44fa70098de8547797a4841cda4130c9513b9d25d2deba078fce60c3bc26"
+      },
+      {
+        "path": "experiments/bottle-ocean/SOURCE.md",
+        "bytes": 2611,
+        "sha256": "44961786c9166e69eedb939c65cec7958564e3d8953223c19a340322a29e557b"
+      },
+      {
+        "path": "experiments/bottle-ocean/THIRD_PARTY_NOTICES.md",
+        "bytes": 1337,
+        "sha256": "0242e66ea25c3e7d1ba883d5e237065e5daa24fa88d83fba74f6859e3edf7861"
+      },
+      {
+        "path": "experiments/bottle-ocean/index.html",
+        "bytes": 1979264,
+        "sha256": "941feb2ea6ddd3cc93aad5b0b92dbca52ee66a3e1098fee0dbf16f01ca63d1ef"
+      },
+      {
+        "path": "experiments/lawson/assets/models/car_A.glb",
+        "bytes": 396308,
+        "sha256": "7c832daf2463bc0a95915fa66309fc5254c65754b40b0410bcf7d1eefa54cb95"
+      },
+      {
+        "path": "experiments/lawson/assets/models/car_B.glb",
+        "bytes": 489936,
+        "sha256": "0fd3139059891dafc1f9e9ade0abd2872820335f4f327cbeb6fd13a1f1d20c3b"
+      },
+      {
+        "path": "experiments/lawson/assets/models/car_C.glb",
+        "bytes": 445748,
+        "sha256": "a730a81d78bc68cf661038cbde50f8cef4292d5c5c60c54e5015111f9bd417fb"
+      },
+      {
+        "path": "experiments/lawson/assets/models/lawson_scene.glb",
+        "bytes": 17316048,
+        "sha256": "f953f7413eb4ef20e3dfe206e8619dff2031c98eabd74866c90f75475a26e41c"
+      },
+      {
+        "path": "experiments/lawson/css/controls.css",
+        "bytes": 1316,
+        "sha256": "5cbe7cdcd9867d69400924998f220fd6b7d4f2ebf49397f9c18aa27560b9e171"
+      },
+      {
+        "path": "experiments/lawson/css/main.css",
+        "bytes": 9446,
+        "sha256": "6609cb077bd9495945bbe0c181885274c137fd63f1c7c17f419570a96f44a011"
+      },
+      {
+        "path": "experiments/lawson/css/responsive.css",
+        "bytes": 1310,
+        "sha256": "8601fcf67c71802f63b0ffe44b7777320097bf0597096512b65793e954b95c40"
+      },
+      {
+        "path": "experiments/lawson/index.html",
+        "bytes": 8821,
+        "sha256": "ef8eb8d656620e8e0337b24cfc78fa7fe2422f66d165780ae43c50fa23edd888"
+      },
+      {
+        "path": "experiments/lawson/js/config/assetManifest.js",
+        "bytes": 832,
+        "sha256": "30d61399598f139dfd9f52cbabdd297bf2ec960ef4b2f242db2b078b31b258e0"
+      },
+      {
+        "path": "experiments/lawson/js/config/lightConfig.js",
+        "bytes": 7082,
+        "sha256": "0a7c83866554d22ffd1bb1b8a0c2f6e37b18beed24805e7543a3f83cee67f1d6"
+      },
+      {
+        "path": "experiments/lawson/js/config/sceneConfig.js",
+        "bytes": 3051,
+        "sha256": "7a28ae30d4deaee89aec6f0a1b7f342cb2cf2c831e13a2479979bcbbb0a85271"
+      },
+      {
+        "path": "experiments/lawson/js/config/vehiclePaths.js",
+        "bytes": 3857,
+        "sha256": "0a35ecb9983944a64698ead709b678712466eecc3fc2a9b7044e4858feada3a9"
+      },
+      {
+        "path": "experiments/lawson/js/core/AnimationController.js",
+        "bytes": 919,
+        "sha256": "7d079522fd068f167342b499323a5e114da3088e6f5dfc130091d073a01f325d"
+      },
+      {
+        "path": "experiments/lawson/js/core/AssetManager.js",
+        "bytes": 20310,
+        "sha256": "180ea83606e0b9d5503ef40a238903df1c870bc6cf80821c5e86297738f378ea"
+      },
+      {
+        "path": "experiments/lawson/js/core/Renderer.js",
+        "bytes": 6653,
+        "sha256": "123579b8470bfe9ba21d7399928069d367f9bd85e98e74b33e53fef3acee3566"
+      },
+      {
+        "path": "experiments/lawson/js/core/SceneManager.js",
+        "bytes": 3627,
+        "sha256": "36d2d0ec3eeb724d3ba921f257a615d21e3afa0c04d8e707a9a3c4b0948545c3"
+      },
+      {
+        "path": "experiments/lawson/js/core/UpdateLoop.js",
+        "bytes": 1359,
+        "sha256": "fb6f999e91d4cfca001c818b578b2c5a01fa357235496025a8356dff945ccfaa"
+      },
+      {
+        "path": "experiments/lawson/js/main.js",
+        "bytes": 21797,
+        "sha256": "401b1f1331fda13472f4f37cef0ca652472afe6311d1d8538067d3f8ad13a134"
+      },
+      {
+        "path": "experiments/lawson/js/systems/CameraSystem.js",
+        "bytes": 7819,
+        "sha256": "319087cdd0aa9bf3d3afa96460810962609aff6eca21f704fbc702344c72f23b"
+      },
+      {
+        "path": "experiments/lawson/js/systems/ClerkSystem.js",
+        "bytes": 32677,
+        "sha256": "b96ba89d76cfbe7b73baf4b92bcad23aede3e6e7fc754a42bdc266934c1ea820"
+      },
+      {
+        "path": "experiments/lawson/js/systems/DayNightSystem.js",
+        "bytes": 2870,
+        "sha256": "7ea481dbbdb0c39a8e9b1654d44bb188d74f17a8c7376741e3f1253c29981007"
+      },
+      {
+        "path": "experiments/lawson/js/systems/DoorSystem.js",
+        "bytes": 3462,
+        "sha256": "d51a51d10cb3a523a4db81aae8d21d314d39e4a905773317708450b44a3b9243"
+      },
+      {
+        "path": "experiments/lawson/js/systems/InteractionSystem.js",
+        "bytes": 4315,
+        "sha256": "6bbd2abba1381dd80a535234643127550fe43114ea322936e3cacf0447dad8cd"
+      },
+      {
+        "path": "experiments/lawson/js/systems/LightingSystem.js",
+        "bytes": 5332,
+        "sha256": "778f76487ce8e38aa792bb61cbaac4806d022b9dd247db1a38eb84182d7f4d88"
+      },
+      {
+        "path": "experiments/lawson/js/systems/QualitySystem.js",
+        "bytes": 1768,
+        "sha256": "a6753418147ccc63533e7aa38dbed126dda32c82a308a8dd3938c56aacdf651f"
+      },
+      {
+        "path": "experiments/lawson/js/systems/TrafficSystem.js",
+        "bytes": 25616,
+        "sha256": "483844a695096fc6384c1ae4d741c4d0779f667009f7f560735926701fcdb680"
+      },
+      {
+        "path": "experiments/lawson/js/systems/clerk/AnimLibrary.js",
+        "bytes": 7981,
+        "sha256": "249d52296e0fc1900ba53c10a6abdfe89ebce47ff8982bd5859ca8c02d7ff9fe"
+      },
+      {
+        "path": "experiments/lawson/js/systems/clerk/NavGrid.js",
+        "bytes": 5835,
+        "sha256": "e8067b63b1f47a9ff62e002961a05389c772611033d17f3cd484aa189069025d"
+      },
+      {
+        "path": "experiments/lawson/js/systems/clerk/TaskManager.js",
+        "bytes": 4542,
+        "sha256": "c7346b527e25eb21f503008b0254a00abe450776bb9f5ff76053e1febd6361ae"
+      },
+      {
+        "path": "experiments/lawson/js/systems/clerk/clerkConfig.js",
+        "bytes": 8395,
+        "sha256": "165946aecca5b352e1117d876aac9b13defd532121568872681ed73e3a9cd7eb"
+      },
+      {
+        "path": "experiments/lawson/js/ui/UIController.js",
+        "bytes": 9561,
+        "sha256": "12bd956cff97fa211c2ca00b8b742f0ea93b24a6a96b49716da8665ddea23d74"
+      },
+      {
+        "path": "experiments/lawson/js/ui/UIState.js",
+        "bytes": 884,
+        "sha256": "005f671a6894c6f1b66afadec5c14f551fb4b427030aff1b7de9c7555ef43e95"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/controls/OrbitControls.js",
+        "bytes": 29868,
+        "sha256": "5a44a9e86a2a0fb11933eed69bc2cd33c76a496854c1aed6ed776efa87d7b064"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/loaders/GLTFLoader.js",
+        "bytes": 108522,
+        "sha256": "d073b438e6a07e1359741dd5d6c76c953420cc0d4fd84eb1bdde94315540e6a3"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/postprocessing/EffectComposer.js",
+        "bytes": 4651,
+        "sha256": "d234e578618fa816955ebdc059c049c577e203e650e33cf22bde3f232c29e669"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/postprocessing/MaskPass.js",
+        "bytes": 2231,
+        "sha256": "328cf7db0da5d9be83ffe39d54b01d5ac1fddf108cc98182ddbb056f5c8b537f"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/postprocessing/OutputPass.js",
+        "bytes": 2398,
+        "sha256": "13817fc7a87f662d29d2c5e00f44d3a4588c9afac4a372de0cacb0e44e368ffd"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/postprocessing/Pass.js",
+        "bytes": 1706,
+        "sha256": "b3c6128340eaa37e40a6a2f1b738e894c855239417d50959759b34a2b5e89f92"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/postprocessing/RenderPass.js",
+        "bytes": 1915,
+        "sha256": "1c90c085312871c4bcdccfcf519499c6276dd503363fcf7cb7f703add45cf4a2"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/postprocessing/ShaderPass.js",
+        "bytes": 1576,
+        "sha256": "3b28a1ee27e0eb96c0eab137a1f442ccf127a926904eced2d51e125ec44af781"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/postprocessing/UnrealBloomPass.js",
+        "bytes": 12406,
+        "sha256": "8f09315c0cec117a0ca2494d3e3586035b3c4323d6dcb037537cc51b04c3cdba"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/shaders/CopyShader.js",
+        "bytes": 571,
+        "sha256": "4e3346db194db56a596cd074e9bdb39fb5eb52040c333e0d29dc4eb1324d3b1d"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/shaders/LuminosityHighPassShader.js",
+        "bytes": 1192,
+        "sha256": "3d841cc594a0c1767d1b0185720b32761a0133c5f1b70b56658e28f2fb9b7900"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/shaders/OutputShader.js",
+        "bytes": 1393,
+        "sha256": "53a52e430c27bc36ceaab8ae90a2b4af7b02672d7ee4b29d6ba3c28e09c92c2a"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/jsm/utils/BufferGeometryUtils.js",
+        "bytes": 31906,
+        "sha256": "9be041e96308775d00e2695cc607645b9a9b64fd7c0e759dd8f7c00a8d92becb"
+      },
+      {
+        "path": "experiments/lawson/vendor/three/three.module.js",
+        "bytes": 1272972,
+        "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+      },
+      {
+        "path": "favicon.svg",
+        "bytes": 322,
+        "sha256": "d9d37a32183e292ee556ff3918235bdec02cdf7f0405d51972b96471e62d33a8"
+      },
+      {
+        "path": "index.html",
+        "bytes": 1404,
+        "sha256": "db51161931433ff7511600fe3d86cbf93301b1821211d920d8c9c78f91443103"
+      },
+      {
+        "path": "scripts/preview-site.mjs",
+        "bytes": 7855,
+        "sha256": "1c5c48f675632432e7bdf9d03843ebcd8f53c51267bdb43b844e97ed2678ce0c"
+      },
+      {
+        "path": "share-cover.webp",
+        "bytes": 65728,
+        "sha256": "38ca3fe85c950f444baa5e881ad2fa2fcdbcb3971af0b34d45451e8716c95210"
+      }
+    ]
+  },
+  "finishedAtShanghai": "2026-11-14T16:29:07.614879+08:00",
+  "complete": true
+}

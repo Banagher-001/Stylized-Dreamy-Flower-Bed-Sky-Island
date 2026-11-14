@@ -1,0 +1,194 @@
+{
+  "phase": "interactions",
+  "engine": "chromium",
+  "checks": [
+    {
+      "id": "POINTER.scene-picking",
+      "name": "双击瓶子/地面、点击/双击灯塔",
+      "status": "通过",
+      "evidence": {
+        "picking": [
+          {
+            "kind": "bottle",
+            "nativePoint": {
+              "x": 501.4716549157725,
+              "y": 481.18428133492694,
+              "point": [
+                -0.0529171993862087,
+                1.2636478544343692,
+                0.9857833889443218
+              ],
+              "object": "BottleGlass",
+              "objectType": "Mesh",
+              "insideBottle": false
+            },
+            "cameraBefore": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "cameraAfter": {
+              "position": [
+                -0.3996198420412984,
+                1.561603116972613,
+                6.490267956257238
+              ],
+              "target": [
+                -0.15000000000000002,
+                1.1402180416659529,
+                0.1
+              ],
+              "fov": 42,
+              "preset": null,
+              "distance": 6.409009283812904
+            },
+            "lighthouseBefore": true,
+            "lighthouseAfter": true
+          },
+          {
+            "kind": "ground",
+            "nativePoint": {
+              "x": 283.8415797813972,
+              "y": 688.8475590559453,
+              "point": [
+                -1.001276043264974,
+                0.45249071199784363,
+                1.996304276629119
+              ],
+              "object": "sandTerrain",
+              "objectType": "Mesh",
+              "insideBottle": false
+            },
+            "cameraBefore": {
+              "position": [
+                0.5503801579587017,
+                2.34138507530666,
+                6.490267956257238
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.1
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812904
+            },
+            "cameraAfter": {
+              "position": [
+                -1.256735777401238,
+                1.8092089395616484,
+                8.381014234305162
+              ],
+              "target": [
+                -1.0071159353599395,
+                0.4544380354756525,
+                1.990746278047924
+              ],
+              "fov": 42,
+              "preset": null,
+              "distance": 6.537066530246329
+            },
+            "lighthouseBefore": true,
+            "lighthouseAfter": true
+          },
+          {
+            "kind": "lighthouse",
+            "nativePoint": {
+              "x": 888.6781061792869,
+              "y": 215.39623935361251,
+              "point": [
+                10.12284239029409,
+                5.112949746912869,
+                -24.867666160959633
+              ],
+              "object": "lighthouseTower",
+              "objectType": "Mesh",
+              "insideBottle": false
+            },
+            "cameraBefore": {
+              "position": [
+                0.5503801579587017,
+                2.3413850753066603,
+                6.49026795625724
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.10000000000000009
+              ],
+              "fov": 42,
+              "preset": "cinema",
+              "distance": 6.409009283812905
+            },
+            "cameraAfter": {
+              "position": [
+                0.5503801579587017,
+                2.3413850753066603,
+                6.49026795625724
+              ],
+              "target": [
+                0.8,
+                1.92,
+                0.10000000000000009
+              ],
+              "fov": 42,
+              "preset": null,
+              "distance": 6.409009283812905
+            },
+            "lighthouseBefore": true,
+            "lighthouseAfter": false
+          },
+          {
+            "kind": "lighthouse-double-click",
+            "before": false,
+            "after": true,
+            "camera": {
+              "position": [
+                9.847813596813277,
+                5.546804942989396,
+                -18.470242640682596
+              ],
+              "target": [
+                10.097433438854575,
+                5.125419867682735,
+                -22
+              ],
+              "fov": 42,
+              "preset": null,
+              "distance": 3.563574394184482
+            },
+            "note": "Two native pointer-up toggles plus dblclick handler are original sequence"
+          }
+        ]
+      }
+    }
+  ],
+  "events": [],
+  "requests": [
+    {
+      "case": "setup",
+      "url": "http://127.0.0.1:4201/index.html",
+      "type": "document"
+    }
+  ],
+  "externalAttempts": [],
+  "sourceFilesModified": false,
+  "clockModified": false,
+  "scope": "standalone original only; no host integration",
+  "physicalDevice": false,
+  "DISPLAY": ":121",
+  "browserVersion": "155.0.8059.79",
+  "complete": true,
+  "externalRequestsAttempted": 0
+}

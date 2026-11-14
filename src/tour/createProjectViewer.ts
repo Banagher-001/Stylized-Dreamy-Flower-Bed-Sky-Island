@@ -1,6 +1,6 @@
 import type { RenderMode } from '../config/scene';
 import { courtyardProject as project } from './experimentContent';
-import { projects, resolveProjectEntry } from './projectContent';
+import { isPageProject, projects, resolveProjectEntry } from './projectContent';
 import type { ActiveProject, EmbeddedProjectState, ProjectId, ProjectTab } from './projectContent';
 
 interface ProjectLifecycle {
@@ -15,7 +15,7 @@ interface ProjectLifecycle {
 /** One modal owner for a live view of the existing canvas and its media archive. */
 export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecycle) {
   const dialog = document.createElement('dialog');dialog.className = 'tour-project-dialog';dialog.setAttribute('aria-labelledby', 'project-title');
-  dialog.innerHTML = `<div class="tour-project-shell"><header class="tour-project-header"><div class="tour-project-identity"><p>03 / 交互实验 <span>交互网页场景</span></p><h2 id="project-title"><span data-project-title></span><span data-project-short-title></span></h2><span class="tour-project-embed-status" role="status"></span></div><div class="tour-project-tabs" role="tablist" aria-label="项目内容"><button type="button" role="tab" id="project-tab-live" aria-controls="tour-project-live" data-project-view="live"><span class="project-label-full">现场体验</span><span class="project-label-short">体验</span></button><button type="button" role="tab" id="project-tab-archive" aria-controls="tour-project-archive" data-project-view="archive"><span class="project-label-full">项目档案</span><span class="project-label-short">档案</span></button></div><div class="tour-project-header-actions"><a class="tour-project-independent" data-project-independent target="_blank" rel="noopener noreferrer" aria-label="独立打开完整网页"><span class="project-label-full">独立打开</span><span aria-hidden="true">↗</span></a><button type="button" class="tour-project-retry" aria-label="重新载入罗森便利店完整网页" hidden><span class="project-label-full">重新载入</span><span class="project-label-short">重试</span></button><button type="button" class="tour-project-close" aria-label="关闭项目，返回阅读" autofocus><span class="project-label-full">返回阅读</span><span class="project-label-short">返回</span><span class="project-close-icon" aria-hidden="true">×</span></button></div><p class="tour-project-feedback" role="status" hidden></p></header><section id="tour-project-live" class="tour-project-live" role="tabpanel" aria-labelledby="project-tab-live"><div class="tour-project-live-space" role="img" aria-label="庭院全景：三根深色石柱与小花围绕蓝白水潭"><p class="tour-project-scene-status" role="status" hidden></p></div><div class="tour-project-live-controls"><p>停一会儿，看风经过。</p><div><div role="group" aria-label="体验画面模式"><button type="button" data-project-mode="native">正常画面</button><button type="button" data-project-mode="pixel">像素画面</button></div><button type="button" class="tour-project-motion">播放动效</button></div></div><div class="tour-project-embedded-live" hidden><div class="tour-project-embed-mount" aria-label="罗森便利店完整网页挂载区域"></div><section class="tour-project-prepared"><p class="tour-project-section-label">LAWSON / INTERACTIVE WORLD</p><h3>一间店，<br>几个日夜。</h3><p>打开后载入完整罗森网页，也可独立打开。</p><a data-project-independent target="_blank" rel="noopener noreferrer">独立打开完整网页 <span aria-hidden="true">↗</span></a></section></div></section><section id="tour-project-archive" class="tour-project-archive" role="tabpanel" aria-labelledby="project-tab-archive" tabindex="0" hidden></section></div>`;
+  dialog.innerHTML = `<div class="tour-project-shell"><header class="tour-project-header"><div class="tour-project-identity"><p>03 / 交互实验 <span>交互网页场景</span></p><h2 id="project-title"><span data-project-title></span><span data-project-short-title></span></h2><span class="tour-project-embed-status" role="status"></span></div><div class="tour-project-tabs" role="tablist" aria-label="项目内容"><button type="button" role="tab" id="project-tab-live" aria-controls="tour-project-live" data-project-view="live"><span class="project-label-full">现场体验</span><span class="project-label-short">体验</span></button><button type="button" role="tab" id="project-tab-archive" aria-controls="tour-project-archive" data-project-view="archive"><span class="project-label-full">项目档案</span><span class="project-label-short">档案</span></button></div><div class="tour-project-header-actions"><a class="tour-project-independent" data-project-independent target="_blank" rel="noopener noreferrer" aria-label="独立打开完整网页"><span class="project-label-full">独立打开</span><span aria-hidden="true">↗</span></a><button type="button" class="tour-project-retry" aria-label="重新载入罗森便利店完整网页" hidden><span class="project-label-full">重新载入</span><span class="project-label-short">重试</span></button><button type="button" class="tour-project-close" aria-label="关闭项目，返回阅读" autofocus><span class="project-label-full">返回阅读</span><span class="project-label-short">返回</span><span class="project-close-icon" aria-hidden="true">×</span></button></div><p class="tour-project-feedback" role="status" hidden></p></header><section id="tour-project-live" class="tour-project-live" role="tabpanel" aria-labelledby="project-tab-live"><div class="tour-project-live-space" role="img" aria-label="庭院全景：三根深色石柱与小花围绕蓝白水潭"><p class="tour-project-scene-status" role="status" hidden></p></div><div class="tour-project-live-controls"><p>停一会儿，看风经过。</p><div><div role="group" aria-label="体验画面模式"><button type="button" data-project-mode="native">正常画面</button><button type="button" data-project-mode="pixel">像素画面</button></div><button type="button" class="tour-project-motion">播放动效</button></div></div><div class="tour-project-embedded-live" hidden><div class="tour-project-embed-mount" aria-label="罗森便利店完整网页挂载区域"></div><section class="tour-project-prepared"><p class="tour-project-section-label">LAWSON / INTERACTIVE WORLD</p><h3>一间店，<br>几个日夜。</h3><img data-prepared-cover hidden decoding="async"/><p data-prepared-description>打开后载入完整罗森网页，也可独立打开。</p><a data-project-independent target="_blank" rel="noopener noreferrer">独立打开完整网页 <span aria-hidden="true">↗</span></a></section></div></section><section id="tour-project-archive" class="tour-project-archive" role="tabpanel" aria-labelledby="project-tab-archive" tabindex="0" hidden></section></div>`;
   root.append(dialog);
   const listeners = new AbortController(), options = { signal: listeners.signal };
   const tabs = [...dialog.querySelectorAll<HTMLButtonElement>('[data-project-view]')], closeButton = dialog.querySelector<HTMLButtonElement>('.tour-project-close')!;
@@ -40,29 +40,41 @@ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecyc
   const active = (): ActiveProject => ({ id: projectId, tab: selected });
   function refreshEmbeddedFeedback() {
     const state = dialog.dataset.embeddedState;
-    const activeLive = engaged && projectId === 'lawson' && selected === 'live';
+    const activeLive = engaged && isPageProject(projects[projectId]) && selected === 'live';
     const retryable = state === 'slow' || state === 'error', capability = state === 'ready' && !!embeddedMessage;
     feedback.hidden = !(activeLive && (retryable || capability));embeddedRetry.hidden = !(activeLive && retryable);
     feedback.textContent = capability ? embeddedMessage! : state === 'error' ? `${embeddedMessage ?? '暂时无法完成载入'}，可重新载入或独立打开。` : '载入时间较长，可继续等待、重新载入或独立打开。';
   }
-  function setEmbeddedStatus(state: EmbeddedProjectState, message?: string) {
-    if (!engaged || projectId !== 'lawson') return;
+  function setEmbeddedStatus(owner: ProjectId, state: EmbeddedProjectState, message?: string) {
+    if (!engaged || projectId !== owner || !isPageProject(projects[projectId]) || (state !== 'prepared' && selected !== 'live')) return;
     dialog.dataset.embeddedState = state;prepared.hidden = state !== 'prepared';embeddedMessage = message;
-    dialog.querySelector<HTMLElement>('.tour-project-embed-status')!.textContent = message ?? ({ prepared: '独立打开可体验', loading: '正在载入', slow: '载入较慢', error: '暂未就绪', ready: '' }[state]);
+    dialog.querySelector<HTMLElement>('.tour-project-embed-status')!.textContent = message ?? ({ prepared: '可独立体验', loading: '正在载入', slow: '载入较慢', error: '暂未就绪', ready: '' }[state]);
     embeddedMount.setAttribute('aria-busy', String(state === 'loading' || state === 'slow'));
     refreshEmbeddedFeedback();
   }
   function configure() {
-    const item = projects[projectId], lawson = projectId === 'lawson';dialog.dataset.projectId = projectId;
+    const item = projects[projectId], page = isPageProject(item);dialog.dataset.projectId = projectId;dialog.dataset.experienceKind = item.experience.kind;
     dialog.querySelector('[data-project-title]')!.textContent = item.title;
     dialog.querySelector('[data-project-short-title]')!.textContent = item.shortTitle;
-    liveSpace.hidden = lawson;liveControls.hidden = lawson;embeddedLive.hidden = !lawson;
+    liveSpace.hidden = page;liveControls.hidden = page;embeddedLive.hidden = !page;
+    embeddedMount.setAttribute('aria-label', `${item.title}完整网页挂载区域`);
+    embeddedRetry.setAttribute('aria-label', `重新载入${item.title}完整网页`);
     for (const link of dialog.querySelectorAll<HTMLAnchorElement>('[data-project-independent]')) {
-      link.hidden = !lawson;link.href = resolveProjectEntry(projectId) ?? '';link.setAttribute('aria-label', `独立打开${item.title}完整网页`);
+      link.hidden = !page;
+      if (page) link.href = resolveProjectEntry(projectId)!;else link.removeAttribute('href');
+      link.setAttribute('aria-label', `独立打开${item.title}完整网页`);
     }
-    tabs[0]!.disabled = !lawson && gardenUnavailable === 'failed';
-    if (lawson) setEmbeddedStatus('prepared');
-    else refreshEmbeddedFeedback();
+    tabs[0]!.disabled = !page && gardenUnavailable === 'failed';
+    if (page) {
+      prepared.querySelector('.tour-project-section-label')!.textContent = item.archive.kicker;
+      prepared.querySelector('h3')!.replaceChildren(document.createTextNode(item.archive.headline[0]), document.createElement('br'), document.createTextNode(item.archive.headline[1]));
+      prepared.querySelector('[data-prepared-description]')!.textContent = item.prepared.description;
+      const visual = prepared.querySelector<HTMLImageElement>('[data-prepared-cover]')!;
+      visual.hidden = projectId !== 'bottle-ocean';
+      if (projectId === 'bottle-ocean') { visual.src = item.cover.src;visual.width = item.cover.width;visual.height = item.cover.height;visual.alt = item.cover.alt; }
+      else visual.removeAttribute('src');
+      setEmbeddedStatus(projectId, 'prepared');
+    } else { delete dialog.dataset.embeddedState;embeddedMessage = undefined;prepared.hidden = true;refreshEmbeddedFeedback(); }
   }
 
   function releaseVideo() {
@@ -93,9 +105,9 @@ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecyc
     if (initialized === projectId) return;
     releaseVideo();archiveListeners?.abort();archiveListeners = new AbortController();const archiveOptions = { signal: archiveListeners.signal };
     viewport = undefined;mediaStatus = undefined;retry = undefined;archive.replaceChildren();initialized = projectId;archive.dataset.projectId = projectId;
-    if (projectId === 'lawson') {
-      const item = projects.lawson;
-      archive.innerHTML = `<div class="lawson-archive-intro"><div><p class="tour-project-section-label">LAWSON / INTERACTIVE WORLD</p><h3>一间店，<br>几个日夜。</h3></div><p>${item.introduction}</p></div><figure class="project-current-cover"><img src="${item.cover.src}" width="${item.cover.width}" height="${item.cover.height}" alt="${item.cover.alt}" decoding="async"/><figcaption>罗森便利店 · 场景画面</figcaption></figure><div class="lawson-archive-features">${item.features.map((f, i) => `<section><span>0${i + 1}</span><h3>${f.title}</h3><p>${f.body}</p></section>`).join('')}</div>`;
+    const item = projects[projectId];
+    if (isPageProject(item)) {
+      archive.innerHTML = `<div class="lawson-archive-intro"><div><p class="tour-project-section-label">${item.archive.kicker}</p><h3>${item.archive.headline.join('<br>')}</h3></div><p>${item.introduction}</p></div><figure class="project-current-cover"><img src="${item.cover.src}" width="${item.cover.width}" height="${item.cover.height}" alt="${item.cover.alt}" decoding="async"/><figcaption>${item.archive.caption}</figcaption></figure><div class="lawson-archive-features">${item.features.map((f, i) => `<section><span>0${i + 1}</span><h3>${f.title}</h3><p>${f.body}</p></section>`).join('')}</div>`;
     } else {
     archive.innerHTML = `<div class="project-archive-intro"><p class="tour-project-section-label">PROJECT / 庭院习作</p><p class="tour-project-introduction">${project.introduction}</p></div><figure class="project-current-cover"><img src="${project.cover.src}" width="${project.cover.width}" height="${project.cover.height}" alt="${project.cover.alt}" decoding="async"/><figcaption>当前庭院 · 全景</figcaption></figure><section class="tour-project-features"><h3>当前可体验</h3><ol>${project.features.map((f) => `<li>${f}</li>`).join('')}</ol></section><section class="tour-project-clip"><div><p class="tour-project-section-label">EARLIER STUDY / 早期习作</p><h3>${project.clip.label}</h3><p>${project.clip.note}</p><p>记录最初的水面与悬浮球，也保留庭院逐渐生长的痕迹。</p></div><div><div class="tour-project-video-viewport"></div><p class="tour-project-media-status" role="status" aria-live="polite"></p><button type="button" class="tour-project-media-retry" hidden>重新载入片段</button></div></section><div class="tour-project-frame-pair">${project.frames.map((f) => `<figure><img src="${f.src}" width="680" height="680" alt="${f.alt}" loading="lazy" decoding="async"/><figcaption>${f.label}</figcaption></figure>`).join('')}</div>`;
     viewport = archive.querySelector<HTMLElement>('.tour-project-video-viewport')!;mediaStatus = archive.querySelector<HTMLElement>('.tour-project-media-status')!;retry = archive.querySelector<HTMLButtonElement>('.tour-project-media-retry')!;

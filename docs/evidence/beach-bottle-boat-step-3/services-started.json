@@ -1,0 +1,72 @@
+{
+  "startedAtShanghai": "2026-11-13T13:46:59.749619+08:00",
+  "services": [
+    {
+      "name": "dev",
+      "pid": 24703,
+      "argv": [
+        "node",
+        "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/node_modules/vite/bin/vite.js",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "45373",
+        "--strictPort"
+      ],
+      "startTicks": "1471404",
+      "state": "R"
+    },
+    {
+      "name": "production",
+      "pid": 24710,
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/beach-bottle-boat-step-3/serve.py",
+        "--root",
+        "/tmp/bottle-ocean-step-3-7s09al1i/production",
+        "--port",
+        "44855",
+        "--log",
+        "/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/evidence/beach-bottle-boat-step-3/production-http.jsonl"
+      ],
+      "startTicks": "1471419",
+      "state": "S"
+    },
+    {
+      "name": "display",
+      "pid": 24727,
+      "argv": [
+        "/workspace/.cache/browser-deps/root/usr/bin/Xvfb",
+        ":122",
+        "-screen",
+        "0",
+        "1920x1200x24",
+        "-nolisten",
+        "tcp"
+      ],
+      "startTicks": "1471434",
+      "state": "S"
+    }
+  ],
+  "devOrigin": "http://127.0.0.1:45373",
+  "productionOrigin": "http://127.0.0.1:44855",
+  "productionPrefix": "/portfolio-check/",
+  "buildRoot": "/tmp/bottle-ocean-step-3-7s09al1i/production",
+  "browserEnvironment": {
+    "DISPLAY": ":122",
+    "LD_LIBRARY_PATH": "/workspace/.cache/browser-deps/root/usr/lib/x86_64-linux-gnu",
+    "LIBGL_ALWAYS_SOFTWARE": "1",
+    "LP_NUM_THREADS": "3",
+    "PLAYWRIGHT_BROWSERS_PATH": "/workspace/.cache/ms-playwright"
+  },
+  "coordinator": {
+    "pid": 24700,
+    "argv": [
+      "python",
+      "tests/beach-bottle-boat-step-3/services.py",
+      "run"
+    ],
+    "startTicks": "1471397",
+    "state": "R"
+  }
+}

@@ -3,7 +3,7 @@ import type { Camera } from 'three';
 import { experimentStations, sampleExperimentPresentation } from './experimentReading';
 import type { ExperimentReadingFrame } from './experimentReading';
 import { experimentContent as content } from './experimentContent';
-import { projects } from './projectContent';
+import { projectOrder, projects } from './projectContent';
 import type { ProjectId, ProjectTab } from './projectContent';
 import { createReaderFlow } from './readerFlow';
 
@@ -13,7 +13,7 @@ export function createExperimentReader(app: HTMLElement, host: HTMLElement, anch
   const panel = document.createElement('section');panel.className = 'experiment-reading';panel.setAttribute('aria-label', '交互实验，沿第三根石柱浏览');panel.setAttribute('aria-hidden', 'true');
   const bodies = [
     `<p data-experiment-ink>${content.C1.body}</p><ol class="experiment-process" data-experiment-ink aria-label="从想法到交互">${content.C1.steps.map((s) => `<li>${s}</li>`).join('')}</ol>`,
-    `<div class="experiment-project-selector" role="tablist" aria-label="选择交互作品"><button type="button" role="tab" id="experiment-project-lawson" data-project-select="lawson" aria-controls="experiment-project-preview" aria-selected="true"><span>LAWSON</span>罗森便利店</button><button type="button" role="tab" id="experiment-project-courtyard" data-project-select="courtyard" aria-controls="experiment-project-preview" aria-selected="false" tabindex="-1"><span>COURTYARD</span>庭院习作</button></div><div id="experiment-project-preview" role="tabpanel" aria-labelledby="experiment-project-lawson"><div class="experiment-project-summary"><figure class="experiment-cover"><img width="${project.cover.width}" height="${project.cover.height}" alt="${project.cover.alt}" decoding="async"/><span class="experiment-image-state" role="status">封面载入中</span></figure><div><p class="experiment-kind" data-experiment-ink>${project.kind}</p><p class="experiment-summary" data-experiment-ink>${project.summary}</p></div></div><div class="experiment-entry-actions"><button type="button" data-project-tab="live">进入完整网页 <span aria-hidden="true">↗</span></button><button type="button" data-project-tab="archive">项目档案 <span aria-hidden="true">＋</span></button></div></div>`,
+    `<div class="experiment-project-selector" role="tablist" aria-label="选择交互作品">${projectOrder.map((id) => `<button type="button" role="tab" id="experiment-project-${id}" data-project-select="${id}" aria-controls="experiment-project-preview" aria-selected="${id === 'lawson'}" tabindex="${id === 'lawson' ? 0 : -1}"><span>${projects[id].label}</span>${projects[id].title}</button>`).join('')}</div><div id="experiment-project-preview" role="tabpanel" aria-labelledby="experiment-project-lawson"><div class="experiment-project-summary"><figure class="experiment-cover"><img width="${project.cover.width}" height="${project.cover.height}" alt="${project.cover.alt}" decoding="async"/><span class="experiment-image-state" role="status">封面载入中</span></figure><div><p class="experiment-kind" data-experiment-ink>${project.kind}</p><p class="experiment-summary" data-experiment-ink>${project.summary}</p></div></div><div class="experiment-entry-actions"><button type="button" data-project-tab="live">进入完整网页 <span aria-hidden="true">↗</span></button><button type="button" data-project-tab="archive">项目档案 <span aria-hidden="true">＋</span></button></div></div>`,
     `<p data-experiment-ink>${content.C3.body}</p><p class="experiment-cue" data-experiment-ink><span aria-hidden="true">↓</span> ${content.C3.cue}</p>`,
   ];
   const titles = [content.C1.title, project.title, content.C3.title];
@@ -68,8 +68,8 @@ export function createExperimentReader(app: HTMLElement, host: HTMLElement, anch
     nextImage.width = item.cover.width;nextImage.height = item.cover.height;nextImage.alt = item.cover.alt;nextImage.decoding = 'async';
     image.replaceWith(nextImage);image = nextImage;
     const liveButton = panel.querySelector<HTMLButtonElement>('[data-project-tab="live"]')!;
-    liveButton.innerHTML = `${id === 'lawson' ? '进入完整网页' : '现场体验'} <span aria-hidden="true">↗</span>`;
-    liveButton.setAttribute('aria-label', `进入${item.title}${id === 'lawson' ? '完整网页' : '现场体验'}`);
+    liveButton.innerHTML = `${item.primaryAction} <span aria-hidden="true">↗</span>`;
+    liveButton.setAttribute('aria-label', `${item.primaryAction}：${item.title}`);
     panel.querySelector('[data-project-tab="archive"]')!.setAttribute('aria-label', `查看${item.title}项目档案`);
     signature = '';dirty = true;prime();syncButtons();measure();place();
   }
@@ -81,7 +81,9 @@ export function createExperimentReader(app: HTMLElement, host: HTMLElement, anch
   }, options);
   panel.querySelector('.experiment-project-selector')!.addEventListener('keydown', event => {
     const e = event as KeyboardEvent;if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
-    e.preventDefault();const id = e.key === 'Home' ? 'lawson' : e.key === 'End' ? 'courtyard' : projectId === 'lawson' ? 'courtyard' : 'lawson';
+    e.preventDefault();
+    const current = projectOrder.indexOf(projectId), next = (current + (e.key === 'ArrowLeft' ? -1 : 1) + projectOrder.length) % projectOrder.length;
+    const id = e.key === 'Home' ? projectOrder[0] : e.key === 'End' ? projectOrder[projectOrder.length - 1]! : projectOrder[next]!;
     choose(id);panel.querySelector<HTMLButtonElement>(`[data-project-select="${id}"]`)!.focus({ preventScroll: true });
   }, options);
   panel.dataset.projectId = projectId;

@@ -1,0 +1,163 @@
+{
+  "startedAtShanghai": "2026-11-13T21:07:59.856427+08:00",
+  "engine": "firefox",
+  "checks": [
+    {
+      "id": "INPUT.focus",
+      "name": "原右键平移与Tab往返宿主工具栏和原页",
+      "status": "通过",
+      "evidence": {
+        "rightDrag": {
+          "before": {
+            "position": [
+              0.5503801579587017,
+              2.34138507530666,
+              6.490267956257238
+            ],
+            "target": [
+              0.8,
+              1.92,
+              0.1
+            ],
+            "fov": 42,
+            "preset": "cinema",
+            "distance": 6.409009283812904
+          },
+          "after": {
+            "position": [
+              0.36335518974994785,
+              2.416332458219172,
+              6.478020136267462
+            ],
+            "target": [
+              0.6129750317912462,
+              1.9949473829125122,
+              0.08775218001022381
+            ],
+            "fov": 42,
+            "preset": null,
+            "distance": 6.409009283812904
+          }
+        },
+        "nativeTabEnteredChild": true,
+        "childFocus": {
+          "tag": "BUTTON",
+          "id": "panel-toggle"
+        },
+        "nativeShiftTabReturnedToToolbar": true,
+        "focusTrace": [
+          {
+            "key": "Tab",
+            "inside": true,
+            "childFocus": {
+              "tag": "BODY",
+              "id": ""
+            }
+          },
+          {
+            "key": "Tab",
+            "inside": true,
+            "childFocus": {
+              "tag": "BUTTON",
+              "id": "panel-toggle"
+            }
+          },
+          {
+            "key": "Shift+Tab",
+            "toolbarCloseFocused": true,
+            "parentFocus": "BUTTON"
+          }
+        ]
+      }
+    }
+  ],
+  "requests": [
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/",
+      "type": "document"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/index-C13u_He4.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/index-B5-UwPAe.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/startTourPrototype-Dl0putm4.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/three-core-Nz4Rm5ga.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/createAnimationController-Cv0VwzcZ.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/three-renderer-Bo7ttXUR.js",
+      "type": "script"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/startTourPrototype-oCbZU5e4.css",
+      "type": "stylesheet"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/favicon.svg",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/signal-garden-CbiDrnMk.webp",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/liquid-form-Yl5oqdSL.webp",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/lawson-cover-DsynKw5x.png",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/assets/bottle-ocean-cover-qRB3P1Tl.png",
+      "type": "image"
+    },
+    {
+      "case": "INPUT.focus",
+      "url": "http://127.0.0.1:49359/experiments/bottle-ocean/index.html",
+      "type": "document"
+    }
+  ],
+  "pageErrors": [],
+  "console": [
+    {
+      "case": "INPUT.focus",
+      "type": "warning",
+      "text": "[JavaScript Warning: \"WebGL warning: drawElementsInstanced: Depth texture comparison requests (e.g. `LINEAR`) Filtering, but behavior is implementation-defined, and so on some systems will sometimes behave as `NEAREST`. (warns once)\"]"
+    }
+  ],
+  "failedRequests": [],
+  "externalAttempts": [],
+  "routesDisableCache": true,
+  "physicalDevice": false,
+  "bottleIframeAdded": true,
+  "clockModified": false,
+  "browserVersion": "153.0",
+  "complete": true,
+  "finishedAtShanghai": "2026-11-13T21:08:09.943291+08:00"
+}
