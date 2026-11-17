@@ -1,0 +1,98 @@
+{
+  "startedAtShanghai": "2026-11-17T17:06:09.115421+08:00",
+  "engine": "chromium",
+  "version": "155.0.8059.79",
+  "origin": "http://127.0.0.1:34877/",
+  "checks": [
+    {
+      "id": "desktop-complete-journey",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "touchEmulation": false,
+      "data": "desktop-complete-journey-data.json",
+      "errors": [],
+      "requestFailures": [],
+      "httpFailures": [],
+      "externalAttempts": [],
+      "warnings": [
+        "Allow attribute will take precedence over 'allowfullscreen'."
+      ],
+      "video": "video/page@540fe4f9ca826eba2a13cacbfed4b275.webm"
+    },
+    {
+      "id": "fast-review-preserves-reading",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "touchEmulation": false,
+      "data": "fast-review-preserves-reading-data.json",
+      "errors": [],
+      "requestFailures": [],
+      "httpFailures": [],
+      "externalAttempts": [],
+      "warnings": [
+        "Allow attribute will take precedence over 'allowfullscreen'."
+      ]
+    },
+    {
+      "id": "mobile-complete-journey",
+      "status": "通过",
+      "viewport": [
+        390,
+        844
+      ],
+      "touchEmulation": true,
+      "data": "mobile-complete-journey-data.json",
+      "errors": [],
+      "requestFailures": [],
+      "httpFailures": [],
+      "externalAttempts": [],
+      "warnings": [
+        "Allow attribute will take precedence over 'allowfullscreen'."
+      ]
+    },
+    {
+      "id": "keyboard-complete-route",
+      "status": "失败",
+      "viewport": [
+        1440,
+        900
+      ],
+      "touchEmulation": false,
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/about-refresh-final/support.py\", line 103, in case\n    data = fn(page)\n           ^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/tests/about-refresh-final/browser.py\", line 223, in keyboard\n    assert page.locator('[data-project-select=bottle-ocean]').evaluate('e=>e===document.activeElement&&e.getAttribute(\"aria-selected\")===\"true\"')\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "errors": [],
+      "requestFailures": [],
+      "httpFailures": [],
+      "externalAttempts": [],
+      "warnings": []
+    },
+    {
+      "id": "reduced-motion-complete-reading",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "touchEmulation": false,
+      "data": "reduced-motion-complete-reading-data.json",
+      "errors": [],
+      "requestFailures": [],
+      "httpFailures": [],
+      "externalAttempts": [],
+      "warnings": []
+    }
+  ],
+  "complete": false,
+  "physicalDevice": false,
+  "clockModified": false,
+  "candidateId": "about-refresh-step14-6341623c81b6b265",
+  "runtimeInputDigest": "6341623c81b6b2652a300afb89752918c61c89334193b30cfdcee651bf057746",
+  "browserClosed": true,
+  "finishedAtShanghai": "2026-11-17T17:07:09.696567+08:00"
+}

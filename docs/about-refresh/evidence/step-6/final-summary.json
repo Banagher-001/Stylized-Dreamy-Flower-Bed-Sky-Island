@@ -1,0 +1,66 @@
+{
+  "completedAtShanghai": "2026-11-16T10:21:44.840023+08:00",
+  "status": "第六步完成",
+  "suites": {
+    "entrance-2": {
+      "report": "entrance-2/browser.json",
+      "passed": 21,
+      "failed": 0,
+      "sourceMatches": true
+    },
+    "accepted-resource-guide": {
+      "report": "accepted-resource-guide/browser.json",
+      "passed": 1,
+      "failed": 0,
+      "sourceMatches": true
+    },
+    "accepted-main": {
+      "report": "accepted-main/browser.json",
+      "passed": 44,
+      "failed": 0,
+      "sourceMatches": true
+    },
+    "accepted-projection": {
+      "report": "accepted-projection/browser.json",
+      "passed": 8,
+      "failed": 0,
+      "sourceMatches": true
+    },
+    "accepted-regressions": {
+      "report": "accepted-regressions/browser.json",
+      "passed": 7,
+      "failed": 0,
+      "sourceMatches": true
+    }
+  },
+  "totalPassedChecks": 81,
+  "motionDurationMS": 1466.7999999970198,
+  "video": {
+    "path": "docs/about-refresh/evidence/step-6/step-6-entrance.mp4",
+    "bytes": 629289,
+    "sha256": "adb75934a1dcfc267144e9b1f9bd0cfd8c8c9cf0f2572ff4f216ab8ee47a66d1"
+  },
+  "sourceMatchesFinalEvidence": true,
+  "build": {
+    "command": "npm run build",
+    "includes": "npm run typecheck && vite build",
+    "exitCode": 0,
+    "output": "build-4.txt",
+    "outputSHA256": "03591bcda03f1b2bb4937123cb9c8309c47d0d9ec41f2d60d98c28d8a67a613d"
+  },
+  "historicalArtifactsUnchanged": 2003,
+  "servicesCleanup": {
+    "servicesStopped": 2,
+    "portClosed": true,
+    "otherServicesStopped": false
+  },
+  "notImplemented": [
+    "automatic-track",
+    "wheel-velocity-inertia",
+    "pointer-follow-hover",
+    "flight-out"
+  ],
+  "committed": false,
+  "pushed": false,
+  "published": false
+}

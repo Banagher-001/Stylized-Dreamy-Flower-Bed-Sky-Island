@@ -1,0 +1,6 @@
+/* Clip the composed stage outside its preserve-3d chain, leaving controls live. */
+.about-refresh .ar-card-foreground[data-flight-window="true"] { inset: auto; overflow: hidden; pointer-events: none; }
+.about-refresh .ar-flight-stage { position: absolute; inset: 0; perspective: 1100px; perspective-origin: 50% 50%; transform-style: preserve-3d; pointer-events: none; }
+.about-refresh .ar-flight-stage > .ar-stone-card { position: absolute; margin: 0; perspective: none; transform-style: preserve-3d; pointer-events: none; }
+.about-refresh .ar-tools-browser[data-entrance="preparing"] .ar-tool-slot[data-entry-card="true"] > .ar-stone-card { visibility: hidden; }
+.about-refresh .ar-tools-browser[data-entrance="playing"] .ar-tool-rail { scroll-snap-type: none; }

@@ -1,0 +1,24 @@
+{
+  "startedAtShanghai": "2026-11-16T18:24:54.362814+08:00",
+  "checks": [
+    {
+      "id": "edge-card-front-occlusion",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "失败",
+      "error": "[{'x': 309.65827026367185, 'y': 479.2600341796875, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 309.65827026367185, 'y': 579.066650390625, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 309.65827026367185, 'y': 678.8732666015626, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 402.231689453125, 'y': 479.2600341796875, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 402.231689453125, 'y': 579.066650390625, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 402.231689453125, 'y': 678.8732666015626, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 494.80510864257815, 'y': 479.2600341796875, 'expected': 'midjourney', 'actual': 'comfyui'}, {'x': 494.80510864257815, 'y': 579.066650390625, 'expected': 'midjourney', 'actual': 'comfyui'}, {'x': 494.80510864257815, 'y': 678.8732666015626, 'expected': 'midjourney', 'actual': 'comfyui'}, {'x': 513.3197924804688, 'y': 479.2600341796875, 'expected': 'midjourney', 'actual': 'comfyui'}, {'x': 513.3197924804688, 'y': 579.066650390625, 'expected': 'midjourney', 'actual': 'comfyui'}, {'x': 513.3197924804688, 'y': 678.8732666015626, 'expected': 'midjourney', 'actual': 'comfyui'}]",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-9/verify-hover.py\", line 54, in case\n    setup(p,program,paused);data=fn(p);last=read(p);assert not errors,errors;assert not last['duplicates'] and last['overflow']<=1,last\n                                 ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-9/verify-hover.py\", line 95, in occlusion\n    records.append({'state':state,'hits':hits});save(run/'edge-interior-hit-grid.json',records);assert all(h['expected']==h['actual'] for h in hits),hits\n                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: [{'x': 309.65827026367185, 'y': 479.2600341796875, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 309.65827026367185, 'y': 579.066650390625, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 309.65827026367185, 'y': 678.8732666015626, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 402.231689453125, 'y': 479.2600341796875, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 402.231689453125, 'y': 579.066650390625, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 402.231689453125, 'y': 678.8732666015626, 'expected': 'midjourney', 'actual': 'midjourney'}, {'x': 494.80510864257815, 'y': 479.2600341796875, 'expected': 'midjourney', 'actual': 'comfyui'}, {'x': 494.80510864257815, 'y': 579.066650390625, 'expected': 'midjourney', 'actual': 'comfyui'}, {'x': 494.80510864257815, 'y': 678.8732666015626, 'expected': 'midjourney', 'actual': 'comfyui'}, {'x': 513.3197924804688, 'y': 479.2600341796875, 'expected': 'midjourney', 'actual': 'comfyui'}, {'x': 513.3197924804688, 'y': 579.066650390625, 'expected': 'midjourney', 'actual': 'comfyui'}, {'x': 513.3197924804688, 'y': 678.8732666015626, 'expected': 'midjourney', 'actual': 'comfyui'}]\n"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "clockModified": false,
+  "physicalDevice": false,
+  "main": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "serverClosed": true,
+  "finishedAtShanghai": "2026-11-16T18:25:00.174340+08:00"
+}

@@ -102,7 +102,17 @@ let mediaViewer: ReturnType<typeof createMediaViewer>;
 let projectViewer: ReturnType<typeof createProjectViewer>;
 let lawsonExperience: ReturnType<typeof createLawsonExperience> | undefined;
 let bottleOceanExperience: ReturnType<typeof createBottleOceanExperience> | undefined;
-const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id));
+const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id), {
+  interaction() { guide?.stop('已交还阅读操作，可从当前位置继续导览。'); },
+  layoutChanged() { queueMicrotask(() => { if (!disposed) readingLayout?.contentChanged(); }); },
+  entranceChanged() { queueMicrotask(() => { if (!disposed) { guide?.poke();if (view && !loopRequested) view.renderOnce(); } }); },
+  continue() { navigate(4.95); },
+  overview(open) {
+    if (open) { mediaViewer?.close();projectViewer?.close();beginOverlay('about'); }
+    else closeOverlay('about');
+    animation.resetTimestamp();syncAnimation(animation.state);
+  },
+});
 const filmReader = createFilmReader(app, host, (id) => filmMagic?.getAnchor(id), (media, trigger) => mediaViewer.open(media, trigger));
 const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), (id, tab, trigger) => projectViewer.open(id, tab, trigger), () => { guide?.stop('已切换作品，可从当前位置继续导览。');readingLayout?.resize(); });
 const world = createScene(resolveEnvironmentOptions(query), query.get('pool') === 'legacy' ? 'legacy' : 'refined', query.get('orb') === 'legacy' ? 'legacy' : 'lively', query.get('clouds') !== 'off', query.get('birds') !== 'off');
@@ -140,7 +150,7 @@ let failed = false;
 let layoutLock = false;
 let mediaOpen = false;
 let mediaProgress = 0;
-let overlayOwner: 'media' | 'project' | undefined;
+let overlayOwner: 'media' | 'project' | 'about' | undefined;
 let contextLost = false;
 let restoreFrame: number | undefined;
 let recoveryTimer: number | undefined;
@@ -159,7 +169,7 @@ const cameraMoving = () => !readingLayout?.stable && Math.abs(targetH - displayH
 const activeProject = () => projectViewer?.active;
 const projectOpen = () => !!activeProject();
 const courtyardLive = () => activeProject()?.id === 'courtyard' && activeProject()?.tab === 'live';
-const covered = () => mediaOpen || (projectOpen() && !courtyardLive());
+const covered = () => overlayOwner === 'about' || mediaOpen || (projectOpen() && !courtyardLive());
 const offscreen = () => !!readingLayout?.stable && !readingLayout.coverVisible && !courtyardLive();
 
 function syncLoop() {
@@ -186,7 +196,7 @@ function syncAnimation(state: AnimationState) {
   if (view && !loopRequested && !state.hidden && !covered() && !offscreen()) view.renderOnce();
 }
 const animation = createAnimationController(syncAnimation, fixedTime ?? waterConfig.initialTime, fixedTime !== undefined, { retainReducedPause: true });
-function beginOverlay(owner: 'media' | 'project') {
+function beginOverlay(owner: 'media' | 'project' | 'about') {
   guide?.stop('作品已打开，关闭后可从当前位置继续导览。');
   if (!overlayOwner) { mediaProgress = displayH;overlayPosition = readingLayout?.capture(); }
   targetH = displayH;overlayOwner = owner;
@@ -196,7 +206,7 @@ function beginOverlay(owner: 'media' | 'project') {
   host.dataset.overlayState = 'open';
   presentation.setCovered(true);
 }
-function closeOverlay(owner: 'media' | 'project') {
+function closeOverlay(owner: 'media' | 'project' | 'about') {
   if (overlayOwner !== owner) return;
   overlayOwner = undefined;mediaOpen = false;delete host.dataset.projectId;
   document.documentElement.classList.remove('tour-media-open', 'tour-project-open');host.dataset.projectView = 'closed';host.dataset.overlayState = 'closed';
@@ -403,11 +413,17 @@ function rendererState(state: RendererState) {
   if (contextLost) guide?.stop('图形正在恢复，导览已停止。');
   presentation.setUnavailable(failed || state === 'context-lost' || state === 'restored');
   projectViewer.sync(mode, animation.state.playing, contextLost ? 'recovering' : 'none');
-  if (state === 'restored') { animation.resetTimestamp();cameraTimestamp = null;readingLayout?.available();return; }
   clearTimeout(recoveryTimer);
   const lost = state === 'context-lost';
   notice.hidden = !lost;
   for (const button of [...modeButtons, motion]) button.disabled = lost;
+  if (state === 'restored') {
+    // Stable reading may keep the recovered canvas offscreen. Its first draw
+    // can wait for visibility; the old loss notice and timeout must end now.
+    host.dataset.renderState = 'restored';
+    status.textContent = '图形连接已恢复，当前阅读位置已保留。';
+    animation.resetTimestamp();cameraTimestamp = null;readingLayout?.available();return;
+  }
   if (lost) {
     readingLayout?.unavailable();
     notice.textContent = '画面正在恢复，请稍候。';
@@ -422,17 +438,19 @@ function restoreReadingH(h: number, y?: number) {
   if (y !== undefined) window.scrollTo({ top: y, behavior: 'instant' });
   if (!failed) { applyCamera();syncLoop();if (!animation.state.hidden && !offscreen()) view?.renderOnce(); }
 }
-function flowReaders(enabled: boolean) {
-  reader.setFlow(enabled);filmReader.setFlow(enabled);experimentReader.setFlow(enabled, failed || contextLost);
+function flowReaders(enabled: boolean, measuring = false) {
+  reader.setFlow(enabled, measuring);filmReader.setFlow(enabled);experimentReader.setFlow(enabled, failed || contextLost);
 }
 function measureReadingCapacity(): ReadingCapacity {
   if (failed || contextLost) return { fits: false, margin: 0, stations: [] };
   const main = app!.querySelector<HTMLElement>('main')!, wasStable = !!readingLayout?.stable;
   const beforeY = scrollY, rows: ReadingCapacity['stations'] = [];
+  const aboutStation = reader.station;
+  const aboutPresentation = main.dataset.aboutStation ?? '';
   const current = sampleTour(displayH), camera = world.camera.clone();
   main.dataset.readingMode = 'immersive';document.documentElement.classList.remove('tour-stable-reading');
   presentation.update(sampleTour(1.74), true, true, false);
-  flowReaders(false);
+  flowReaders(false, true);
   app!.style.setProperty('--tour-footer-height', `${footer.getBoundingClientRect().height}px`);
   try {
     const bounds = host.getBoundingClientRect(), aspect = bounds.width / bounds.height;
@@ -441,9 +459,12 @@ function measureReadingCapacity(): ReadingCapacity {
       camera.top = pose.viewHeight / 2;camera.bottom = -camera.top;camera.left = -camera.top * aspect;camera.right = camera.top * aspect;
       camera.updateProjectionMatrix();camera.position.set(...pose.position);camera.up.set(0, 1, 0);camera.lookAt(...pose.target);camera.updateMatrixWorld(true);
       presentation.update(frame, true, true, false);
+      // Probe each station with its own heading treatment. The live A3 layout
+      // hides the shared heading; it must not change A1/A2 capacity results.
+      main.dataset.aboutStation = frame.reading?.station.id ?? '';
       // These are the real nodes, full reading state and actual projected pose.
-      flowReaders(false);
-      reader.update(frame.reading, camera, true);filmReader.update(frame.filmReading, camera, true, true);experimentReader.update(frame.experimentReading, camera, true, true);
+      flowReaders(false, true);
+      reader.update(frame.reading, camera, true, true);filmReader.update(frame.filmReading, camera, true, true);experimentReader.update(frame.experimentReading, camera, true, true);
       const panel = frame.reading ? reader.element : frame.filmReading ? filmReader.element : experimentReader.element;
       const r = panel.getBoundingClientRect(), nav = app!.querySelector('.tour-stops')!.getBoundingClientRect(), header = app!.querySelector('.tour-header')!.getBoundingClientRect();
       const bottom = innerWidth <= 1000 ? Math.min(bounds.bottom, nav.top) : bounds.bottom;
@@ -455,9 +476,11 @@ function measureReadingCapacity(): ReadingCapacity {
     }
     return { fits: rows.every(r => r.fits), margin: Math.min(...rows.map(r => r.margin)), stations: rows };
   } finally {
+    reader.restoreStation(aboutStation);
+    main.dataset.aboutStation = aboutPresentation;
     main.dataset.readingMode = wasStable ? 'stable' : 'immersive';document.documentElement.classList.toggle('tour-stable-reading', wasStable);
-    if (wasStable) { flowReaders(true);app!.querySelector<HTMLElement>('.tour-heading')!.setAttribute('aria-hidden', 'true'); }
-    else { presentation.update(current, animation.state.reducedMotion, !cameraMoving(), scrollRange - beforeY <= 1);flowReaders(false);reader.update(current.reading, world.camera, animation.state.reducedMotion);filmReader.update(current.filmReading, world.camera, animation.state.reducedMotion);experimentReader.update(current.experimentReading, world.camera, animation.state.reducedMotion); }
+    if (wasStable) { flowReaders(true, true);app!.querySelector<HTMLElement>('.tour-heading')!.setAttribute('aria-hidden', 'true'); }
+    else { presentation.update(current, animation.state.reducedMotion, !cameraMoving(), scrollRange - beforeY <= 1);flowReaders(false, true);reader.update(current.reading, world.camera, animation.state.reducedMotion, true);filmReader.update(current.filmReading, world.camera, animation.state.reducedMotion);experimentReader.update(current.experimentReading, world.camera, animation.state.reducedMotion); }
     if (Math.abs(scrollY - beforeY) > .5) scrollTo({ top: beforeY, behavior: 'instant' });
   }
 }
@@ -509,12 +532,16 @@ function guideReady(stop: GuideStop) {
   if (cameraMoving() || Math.abs(targetH - displayH) >= .000001) return unread;
   if (!/^[ABC]/.test(stop.id)) return { ready: Number(app!.querySelector<HTMLElement>('.tour-heading')!.dataset.opacity) >= .999, text: '' };
   const panel = stop.id.startsWith('A') ? reader.element : stop.id.startsWith('B') ? filmReader.element : experimentReader.element;
-  const article = panel.querySelector<HTMLElement>(`article[data-flow-anchor="${stop.id}"]`);
+  const article = panel.querySelector<HTMLElement>(`[data-flow-anchor="${stop.id}"]`);
   if (!article || article.hidden || article.inert || article.getAttribute('aria-hidden') !== 'false' || panel.dataset.fits !== 'true') return unread;
   const frame = stop.id.startsWith('A') ? { body: Number(host.dataset.readingOpacity), title: Number(host.dataset.readingTitleOpacity) }
     : JSON.parse(stop.id.startsWith('B') ? host.dataset.filmPresentation! : host.dataset.experimentPresentation!) as { body: number; title: number; media?: number };
   if (frame.body < .999 || frame.title < .999 || 'media' in frame && frame.media! < .999) return unread;
-  for (const image of article.querySelectorAll<HTMLImageElement>('img')) {
+  if (stop.id === 'A3' && !reader.entranceReady) return unread;
+  // Local decorative marks already have finite entrance preparation/fallback.
+  // Tool names remain readable even if a mark fails; do not wait indefinitely.
+  const images = stop.id === 'A3' ? [] : [...article.querySelectorAll<HTMLImageElement>('img')];
+  for (const image of images) {
     if (!image.currentSrc || !image.complete) return unread;
     // Existing error placeholders remain usable; successful images must decode.
     if (image.naturalWidth === 0) continue;
@@ -528,7 +555,7 @@ function guideReady(stop: GuideStop) {
       return unread;
     }
   }
-  return { ready: true, text: article.innerText };
+  return { ready: true, text: stop.id.startsWith('A') ? reader.readingText() : article.innerText };
 }
 let guideAnnouncement = '';
 function renderGuide(state: GuideSnapshot) {
@@ -681,16 +708,16 @@ function dispose() {
   if (experienceLayoutFrame !== undefined) cancelAnimationFrame(experienceLayoutFrame);
   animation.dispose();
   birdVisibility?.dispose();readingLayout?.dispose();
+  reader.dispose();
   presentation.dispose();
   view?.dispose();
   mediaViewer.dispose();
   projectViewer.dispose();
   magic?.dispose();filmMagic?.dispose();experimentMagic?.dispose();appearance.dispose();filmAppearance.dispose();experimentAppearance.dispose();
   world.dispose();
-  reader.dispose();
   filmReader.dispose();
   experimentReader.dispose();
-  document.documentElement.classList.remove('tour-document', 'tour-media-open', 'tour-project-open');
+  document.documentElement.classList.remove('tour-document', 'tour-media-open', 'tour-project-open', 'tour-about-open');
   app!.style.removeProperty('--tour-footer-height');
   document.title = originalTitle;
   history.scrollRestoration = previousRestoration;

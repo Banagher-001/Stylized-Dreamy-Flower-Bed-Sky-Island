@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "id": "desktop-front",
+      "status": "通过",
+      "measurement": "desktop-front-measurement.json"
+    },
+    {
+      "id": "large-front",
+      "status": "通过",
+      "measurement": "large-front-measurement.json"
+    },
+    {
+      "id": "phone-front",
+      "status": "通过",
+      "measurement": "phone-front-measurement.json"
+    },
+    {
+      "id": "narrow-front",
+      "status": "通过",
+      "measurement": "narrow-front-measurement.json"
+    },
+    {
+      "id": "first-detail",
+      "status": "失败",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-7/verify-projection.py\", line 32, in case\n    if expanded:assert next(c for c in m['cards'] if c['expanded']=='true')['full']\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nStopIteration\n"
+    },
+    {
+      "id": "last-detail",
+      "status": "失败",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-7/verify-projection.py\", line 32, in case\n    if expanded:assert next(c for c in m['cards'] if c['expanded']=='true')['full']\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nStopIteration\n"
+    },
+    {
+      "id": "narrow-detail",
+      "status": "通过",
+      "measurement": "narrow-detail-measurement.json"
+    },
+    {
+      "id": "large-text-detail",
+      "status": "通过",
+      "measurement": "large-text-detail-measurement.json"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "browserClosed": true
+}

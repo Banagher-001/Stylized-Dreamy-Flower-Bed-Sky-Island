@@ -1,92 +1,68 @@
 # sakan · 张辰翰的创作庭院
 
-默认首页为三柱滚动作品集：滚轮/触摸控制运镜，沿柱身阅读个人介绍、AI影像与交互作品。小屏、短横屏、大字或减少动态时使用同一正文的稳定阅读。三柱、魔法文字、水潭和悬浮水球保持现有风格；当前包含介绍背景羽化、球面流纹、可接管自动导览、移动云影和三只飞鸟。
+三柱滚动作品集：从清新的像素庭院出发，用滚轮沿石柱阅读个人介绍、AI 影像和 Coding 作品。水球流纹、移动云影、三只飞鸟与可随时接管的自动导览保留。小屏、短横屏、放大文字或减少动态时，使用同一份正文的稳定阅读。
 
-当前 Coding 区按 **LAWSON → BOTTLE OCEAN → COURTYARD** 展示三个作品，默认罗森。罗森便利店与瓶中海洋通过大尺寸独立文档运行，保留各自的原网页、控制台、交互及原下载能力，支持档案、独立打开与返回阅读；庭院继续使用主站场景。完整原文件分别保存在 `public/experiments/lawson/` 和 `public/experiments/bottle-ocean/`，运行时无需访问 GitHub 或私有仓库。[本轮运行指南](docs/beach-bottle-boat/step-7-run-guide.md)说明当前源码与成品的启动方式、版本和交付范围；完整验收与原始记录位于 `docs/beach-bottle-boat/`、`docs/evidence/beach-bottle-boat-step-*/`。[本次 GitHub 保存说明](docs/github-bottle-ocean-handoff.md)单列仓库保存范围，历史报告保留封存时状态。简历更新及三维工具卡改版尚处设计阶段，未包含在本次网页版本中。
+本轮「关于我」十四步改版候选为 **about-refresh-step14-6341623c81b6b265**。身份、经历和制作流程已接入；第三屏包含 22 张真实工具卡、首批四卡的三维入场、自动横向展示、随滚轮速度加速与缓冲、悬停倾斜、固定阅读、分类、全部工具、操作说明及飞离/返回衔接。本轮改版、下载包和验收记录纳入本次仓库保存，版本与范围见 [GitHub 保存说明](docs/github-about-refresh-handoff.md)。网站尚未部署。
 
-此前罗森接入阶段的候选为 **lawson-fullpage-step7-882322e9045fcdba**，当时提供 LAWSON / COURTYARD 双作品入口。[该阶段逐项对照](docs/lawson-fullpage/step-7-parity.md) · [该阶段验收](docs/lawson-fullpage/step-7-verification.md) · [该阶段交付](docs/lawson-fullpage/step-7-handoff.md)。此前仓库保存见 [GitHub 保存说明](docs/github-lawson-handoff.md)；封存报告保留验收当时的事实。
+[最新运行指南](docs/about-refresh/run-guide.md) · [维护说明](docs/about-refresh/maintenance.md) · [第十四步验收](docs/about-refresh/step-14-verification.md) · [本轮交接](docs/about-refresh/step-14-handoff.md) · [完整验收附件与恢复方法](docs/about-refresh/evidence/README.md)
 
-此前庭院七步增强的验收候选为 **garden-enhancement-step7-487410d10d8ad600**。该阶段三浏览器、十分钟持续运行、20轮反复操作、独立解压与源码重建均通过。[庭院快速上手](docs/garden-enhancement/quickstart.md) · [维护与作品替换](docs/garden-enhancement/maintenance.md) · [该阶段验收](docs/garden-enhancement/step-7-verification.md)。
+姓名张辰翰，化名 sakan（萨坎），现于枫叶互动制作 AI 动画，曾在游族网络。关于我不列场景为正式项目，也不展示奖项。AI 影像区仍明确标记「网页设计样片 / 非个人实际项目」；真实影片、职责与联系方式可在后续提供后替换。
 
-姓名张辰翰，化名sakan（萨坎），现于枫叶互动制作AI动画，此前在游族网络。真实个人AI影片、分镜/职责及联系方式仍待提供；第二柱明确标记网页设计样片，第三柱展示罗森交互网页、瓶中海洋沙盒、庭院习作与注明版本的早期片段。
+Coding 区按 **LAWSON → BOTTLE OCEAN → COURTYARD** 展示，默认罗森。前两项使用大尺寸独立网页，保留原网页功能，支持档案、独立打开与返回阅读；庭院复用主站场景。原资源位于 `public/experiments/lawson/` 和 `public/experiments/bottle-ocean/`，运行无需访问 GitHub 或私有仓库。
 
-通过HTTP预览站点目录即可进入庭院。`?tour=prototype`兼容旧链接，`?tour=reference`进入旧参考作品集。`debug=1`仅供明确工程检查。此前庭院版本的源码、启动工具、测试、文档、原始验收记录及源码/成品ZIP已随仓库保存；该阶段约432MB的完整验收ZIP通过Git LFS保存在仓库原路径，获取方式与SHA256见[此前GitHub保存说明](docs/github-enhancement-handoff.md)。当前瓶中海洋集成及成品/源码包随本次提交保存，历史封存不改写；具体范围见[本次保存说明](docs/github-bottle-ocean-handoff.md)。网站尚未部署上线。
+## 使用最新版
 
-## 环境
+- [成品 ZIP](release/about-refresh-step14-6341623c81b6b265-r3-site.zip)：完整解压，安装 Node.js 后，Windows 双击 `START-PREVIEW.cmd`。无需安装 npm 依赖。
+- [源码 ZIP](release/about-refresh-step14-6341623c81b6b265-r3-source.zip)：包含当前源码、锁文件、启动工具、维护说明与本轮可复用验收脚本；不含 Git 历史、历史证据及嵌套压缩包。
+- [文件及版本清单](release/about-refresh-step14-6341623c81b6b265-r3-manifest.json) · [SHA256SUMS](release/about-refresh-step14-6341623c81b6b265-r3-SHA256SUMS)
 
-已验证 Node.js **24.22.1**、npm **11.9.0**。`.nvmrc` 记录实际使用的 Node.js 版本。
+网站通过 **HTTP** 运行，不能直接双击 HTML。`127.0.0.1` / `localhost` 只能在启动服务的电脑访问；本地预览不等于公网发布。若要让别人使用网址访问，需要另行部署静态站点。
 
-依赖版本：Three.js **0.187.0**、Vite **8.3.5**、TypeScript **7.0.2**、`@types/three` **0.187.0**。完整依赖由 `package-lock.json` 锁定。
+## 开发环境与启动
 
-浏览器需要支持 WebGL 2。没有后端、数据库、外部图片服务或 API 密钥要求。应用运行不请求 CDN。
+已验证 Node.js **24.22.1**、npm **11.9.0**；`.nvmrc` 记录 Node 版本。最低 Node **22.12**、npm **10**。依赖锁定为 Three.js **0.187.0**、Vite **8.3.5**、TypeScript **7.0.2**、`@types/three` **0.187.0**。
 
-## 启动
+Windows 开发可双击 `START-DEV.cmd`。PowerShell 请使用：
 
-Windows只看成品：完整解压下方成品ZIP，已安装Node后双击其中的`START-PREVIEW.cmd`。修改仓库源码可双击根目录`START-DEV.cmd`；PowerShell手动运行请使用`npm.cmd ci`和`npm.cmd run dev`。
+```powershell
+npm.cmd ci
+npm.cmd run dev
+```
 
-macOS/Linux在仓库根目录执行：
+macOS / Linux：
 
 ```bash
 npm ci
 npm run dev
 ```
 
-开发服务器默认使用 5173 端口。此云任务中的仓库路径为 `/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island`。使用现有隔离任务和 checkout，无需创建 Git worktree。
-
-云环境可使用工作区内缓存，避免写入受保护的用户目录：
-
-```bash
-npm ci --cache /workspace/.cache/npm
-```
-
-复装依赖前先停止自己启动的开发 / 预览进程，安装完成后重新启动，避免旧进程引用失效的 Vite 依赖预构建缓存。
-
-## 类型检查与生产构建
+开发默认端口 5173。云环境可用 `npm ci --cache /workspace/.cache/npm`，无需写入受保护的用户目录。重装依赖前关闭自己启动的开发进程，安装后重新启动。
 
 ```bash
 npm run typecheck
 npm run build
-npm run preview
+node scripts/preview-site.mjs --dir dist --open
 ```
 
-`build` 会先运行严格类型检查，再生成 `dist/`。`preview` 默认使用 4173 端口；它用于检查产物，不是面向公网的生产服务器。可用 `-- --port 4173 --strictPort` 固定端口。
+`build` 先做严格类型检查，再生成 `dist/`。预览脚本只监听本机，显示实际地址；支持 `--port 0` 自动选端口、`--base /portfolio/` 验证子路径、`--strict-port` 禁止占用时换端口。生产部署使用 `dist/` 内容；`npm run preview` 只是本地构建预览。
 
-Vite 将 Three.js 的核心与 WebGL 渲染模块分包，应用逻辑单独输出；没有提高告警阈值或禁用检查。
+浏览器需支持 WebGL 2。没有后端、数据库、密钥或 CDN 依赖。应用默认进入当前庭院；`?tour=prototype` 兼容旧链接，`?tour=reference` 进入旧参考稿，`debug=1` 仅用于工程检查。
 
-需要复验实际 gzip 传输时，在构建后运行：
+## 维护与验证
 
-```bash
-node scripts/serve-dist.mjs dist 4174
-```
+- 关于我与工具卡正文：`src/tour/about-refresh/content.ts`，图标：`src/assets/tool-marks/`。
+- 工具卡控制器：`src/tour/about-refresh/`；布局衔接：`src/tour/createReadingLayout.ts`。
+- 影像与交互作品资料：`src/tour/filmContent.ts`、`projectContent.ts`、`experimentContent.ts`。
+- 本轮完整路线、原网页与持续运行脚本：`tests/about-refresh-final/`。运行参数与证据索引见[验收说明](docs/about-refresh/step-14-verification.md)。
 
-此工具只监听本机，入口使用 `no-cache`，哈希资源使用长期缓存；重新构建后须重启。它用于本地产物验证。网站可直接将 `dist/` 的内容作为静态站点根目录，配置详情见 [交付说明](docs/garden-enhancement/delivery.md)。
+本轮完整路线以真实时钟、实际输入验证。前十三步的细项记录保留于 `docs/about-refresh/`，第十三步的 161 项适配结果作为未变源码的既有依据，不重复计为第十四步新增通过。设备仿真、系统偏好、浏览器引擎和真机实测分别记录；没有宣称实体 iOS / Android、VoiceOver / TalkBack 或硬件 FPS 已通过。
 
-## 当前交付文件
+## 历史归档
 
-当前三作品候选为 **bottle-ocean-step7-3b31ab385ebfc4cb**。启动方法见[本轮运行指南](docs/beach-bottle-boat/step-7-run-guide.md)，逐项功能、最终验收及包摘要见[对照表](docs/beach-bottle-boat/step-7-parity.md)、[验收](docs/beach-bottle-boat/step-7-verification.md)、[交付清单](docs/beach-bottle-boat/step-7-handoff.md)。源码交付包只包含运行和重建所需文件，完整历史证据及最终报告留在工作区/后续仓库保存中，未随包复制。
+旧包保留原字节与原版本身份，不代表当前关于我改版。
 
-- [当前成品包，约 6.63 MiB](release/bottle-ocean-step7-3b31ab385ebfc4cb-site.zip)：上轮实际验收的三作品静态站点，完整解压后用 Node 预览。
-- [当前源码包，约 6.70 MiB](release/bottle-ocean-step7-3b31ab385ebfc4cb-source.zip)：已在全新中文/空格目录独立安装与构建。
-- [当前包摘要与验证索引](release/bottle-ocean-step7-3b31ab385ebfc4cb-manifest.json)：相对仓库路径、大小、SHA256 与验收依据。
-- [当前 SHA256SUMS](release/bottle-ocean-step7-3b31ab385ebfc4cb-SHA256SUMS)：核对两个下载包。
+- **bottle-ocean-step7-3b31ab385ebfc4cb**：此前三作品接入。[运行](docs/beach-bottle-boat/step-7-run-guide.md) · [验收](docs/beach-bottle-boat/step-7-verification.md) · [GitHub 保存说明](docs/github-bottle-ocean-handoff.md)。
+- **lawson-fullpage-step7-882322e9045fcdba**：此前双作品接入。[功能对照](docs/lawson-fullpage/step-7-parity.md) · [验收](docs/lawson-fullpage/step-7-verification.md) · [保存说明](docs/github-lawson-handoff.md)。
+- **garden-enhancement-step7-487410d10d8ad600**：[快速上手](docs/garden-enhancement/quickstart.md) · [验收](docs/garden-enhancement/step-7-verification.md) · [保存说明](docs/github-enhancement-handoff.md)。约 432 MB 的完整验收 ZIP 使用 Git LFS，获取方式与 SHA256 见该保存说明。
 
-两个 ZIP 保持原验收字节，没有重新封包；包内说明和封存报告中的“未上传”描述其生成时状态，后续 GitHub 保存由本次提交及独立说明记录。成品运行不需要 npm 开发依赖，源码首次安装依赖需要网络；两者均需通过 HTTP 使用。
-
-下列压缩包是此前庭院增强阶段的归档，保留其原版本身份：
-
-- [成品包，约1.5MB](release/garden-enhancement-step7-487410d10d8ad600-site.zip)：完整静态网页与Windows预览入口。
-- [源码包，约2MB](release/garden-enhancement-step7-487410d10d8ad600-source.zip)：可独立安装、修改和严格构建。
-- [版本及SHA256清单](release/garden-enhancement-step7-487410d10d8ad600-manifest.json)：候选身份与独立解压结果。
-- [完整验收附件，约432MB](release/garden-enhancement-step7-487410d10d8ad600-evidence.zip)：通过Git LFS保存，克隆完整记录需要Git LFS；获取方法见[保存说明](docs/github-enhancement-handoff.md)。原始验收记录也保留在`docs/evidence/garden-enhancement-step-*/`。
-
-成品通过HTTP预览，不能直接双击HTML代替。成品本地启动只需要Node，无需安装npm依赖；开发源码首次安装依赖可能需要网络。下载后的文件已在独立中文/空格目录核验。详见[交付说明](docs/garden-enhancement/delivery.md)。
-
-旧`scroll-garden-step12-*`、`portfolio-*`与`courtyard-*`归档及其原始验收说明保持，分别代表此前版本。[初次GitHub交接记录](docs/github-handoff.md)作为历史保留。
-
-## 维护与历史
-
-当前庭院数据：`src/tour/aboutContent.ts`、`filmContent.ts`、`experimentContent.ts`；旧参考稿数据：`src/content/portfolio.ts`。路线与阅读/渲染边界见[维护说明](docs/garden-enhancement/maintenance.md)。
-
-[阶段目录](docs/scroll-garden/README.md)保存逐步标准与实现记录。早期[场景交付](docs/step-9-handoff.md)、[参考作品集设计](docs/portfolio-design.md)及旧courtyard/portfolio归档代表各自版本，不冒充最新滚动庭院。
-
-Linux Chromium/Firefox/GTK WebKit及设备/文字模拟的通过范围见验收。真实iOS/Android、系统浏览器栏/刘海与大字、VoiceOver/TalkBack、物理触控板/APZ及硬件FPS仍待复核；没有把模拟结果写成真机通过。
+旧 `scroll-garden-step12-*`、`portfolio-*`、`courtyard-*` 及各自报告继续保留。[阶段目录](docs/scroll-garden/README.md)与[初次 GitHub 交接](docs/github-handoff.md)记录当时状态；其中的上传/未上传描述仅适用于各自生成时点。

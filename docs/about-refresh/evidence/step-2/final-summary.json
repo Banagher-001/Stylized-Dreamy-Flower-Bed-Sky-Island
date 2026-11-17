@@ -1,0 +1,85 @@
+{
+  "completedAtShanghai": "2026-11-14T21:23:37.035556+08:00",
+  "complete": true,
+  "stage": 2,
+  "scope": "Isolated static layout; production website unchanged",
+  "html": {
+    "path": "docs/about-refresh/step-2-layout-preview.html",
+    "bytes": 126643,
+    "sha256": "d671fe8de12aeed9fd722ab745c748b3dd053e0c703e0b2379f2778f5591255d"
+  },
+  "adoptedRun": "final-matrix",
+  "checks": 42,
+  "engine": "chromium",
+  "version": "155.0.8059.79",
+  "standards": [
+    {
+      "id": "S2-01",
+      "status": "通过（静态范围）",
+      "evidence": "第一步四文件摘要、content.json 与 HTML 内嵌数据"
+    },
+    {
+      "id": "S2-02",
+      "status": "通过（静态范围）",
+      "evidence": "A1/A2/A3 默认与展开截图，人工查看"
+    },
+    {
+      "id": "S2-03",
+      "status": "通过（静态范围）",
+      "evidence": "原背景摘要、局部浅底/羽化阅读区、人工查看"
+    },
+    {
+      "id": "S2-04",
+      "status": "通过（静态范围）",
+      "evidence": "三屏尺寸矩阵、desktop-identity-expanded"
+    },
+    {
+      "id": "S2-05",
+      "status": "通过（静态范围）",
+      "evidence": "desktop-experience-expanded、phone-experience-expanded"
+    },
+    {
+      "id": "S2-06",
+      "status": "通过（静态范围）",
+      "evidence": "desktop-A3、phone-A3、narrow-A3"
+    },
+    {
+      "id": "S2-07",
+      "status": "通过（静态范围）",
+      "evidence": "desktop-detail、desktop-edge-reading；仅静态边界，真实 3D 后续复测"
+    },
+    {
+      "id": "S2-08",
+      "status": "通过（静态范围）",
+      "evidence": "desktop-long-name、desktop-all-tools、narrow-all-tools、review-controls"
+    },
+    {
+      "id": "S2-09",
+      "status": "通过（静态范围）",
+      "evidence": "9 档默认矩阵、large-text-A1/A2/A3、reduced-motion"
+    },
+    {
+      "id": "S2-10",
+      "status": "通过（静态范围）",
+      "evidence": "每项实际几何；正文 >=16px，控件 >=44px，内容边界与原生控件检查"
+    },
+    {
+      "id": "S2-11",
+      "status": "通过（静态范围）",
+      "evidence": "同一最终 HTML 摘要、42 项报告、截图、构建与输入记录"
+    },
+    {
+      "id": "S2-12",
+      "status": "通过（静态范围）",
+      "evidence": "第一步 4 文件、97 生产输入、Git 已跟踪/暂存差异与允许文件范围"
+    }
+  ],
+  "step1FilesVerified": 4,
+  "productionInputsVerified": 97,
+  "trackedFilesUnchanged": true,
+  "committed": false,
+  "pushed": false,
+  "deployed": false,
+  "real3DImplemented": false,
+  "physicalDeviceTested": false
+}

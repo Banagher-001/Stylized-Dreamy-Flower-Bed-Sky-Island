@@ -1,4 +1,4 @@
-/** First-pillar scroll coordinates; biography content lives in aboutContent.ts. */
+/** First-pillar scroll coordinates; public About copy lives in about-refresh/content.ts. */
 export const readingStations = [
   { id: 'A1', start: 1.3, end: 2.1, y: 2.75, label: '上部', stop: 1.74 },
   { id: 'A2', start: 2.1, end: 2.9, y: 1.8, label: '中部', stop: 2.54 },

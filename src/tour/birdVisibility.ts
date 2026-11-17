@@ -8,7 +8,7 @@ import type { BirdRect, BirdView } from '../scene/createBirds';
  */
 export function createBirdVisibility(app: HTMLElement, host: HTMLElement, wake: () => void) {
   const fixed = [...app.querySelectorAll<HTMLElement>('.tour-header,.tour-footer,.tour-stops')];
-  const dynamic = [...app.querySelectorAll<HTMLElement>('.tour-heading,.pillar-reading,.film-reading,.experiment-reading')];
+  const dynamic = [...app.querySelectorAll<HTMLElement>('.tour-heading,.about-pillar-reader,.film-reading,.experiment-reading')];
   const live = app.querySelector<HTMLElement>('.tour-project-live-space');
   const main = app.querySelector<HTMLElement>('main')!;
   const title = app.querySelector('#tour-title')!;
@@ -35,7 +35,7 @@ export function createBirdVisibility(app: HTMLElement, host: HTMLElement, wake: 
   const translateY = (e: HTMLElement) => Number(e.style.transform.match(/translateY\(([-\d.]+)px\)/)?.[1] ?? 0);
   function rectangle(r: typeof records[number]) {
     const e = r.element;
-    const station = e.classList.contains('pillar-reading') ? host.dataset.readingStation : e.classList.contains('film-reading') ? host.dataset.filmStation : host.dataset.experimentStation;
+    const station = e.classList.contains('about-pillar-reader') ? host.dataset.readingStation : e.classList.contains('film-reading') ? host.dataset.filmStation : host.dataset.experimentStation;
     const signature = r.heading ? `${e.dataset.kind}/${title.textContent}` : `${station}/${e.style.width}/${e.style.getPropertyValue('--film-media-height')}`;
     const left = parseFloat(e.style.left), top = parseFloat(e.style.top);
     if (r.generation !== generation || r.signature !== signature) {

@@ -1,0 +1,90 @@
+[
+  {
+    "command": [
+      "verify-component-lifecycle.py",
+      "accepted-component-lifecycle-final"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-adaptation.py",
+      "accepted-input-measurement",
+      "--only",
+      "gesture-defers-capacity-probes",
+      "font-change-takes-priority-over-gesture"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-guidance.py",
+      "accepted-guidance-main",
+      "--main"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-details-regression.py",
+      "accepted-detail-main",
+      "--main"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-departure-regression.py",
+      "accepted-departure-main",
+      "--main"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-wheel-main.py",
+      "accepted-wheel",
+      "--only",
+      "real-wheel-speed-direction-tail",
+      "title-wheel-remains-page",
+      "filters-wheel-remains-page",
+      "controls-wheel-remains-page",
+      "continue-wheel-remains-page",
+      "narrow-native-page",
+      "large-font-native-page",
+      "wide-stable-manual-opt-in",
+      "entrance-wheel-remains-page",
+      "horizontal-native-first-event",
+      "fitting-category-remains-page",
+      "first-card-first-native-click",
+      "last-card-first-native-click",
+      "partial-card-first-native-click",
+      "scene-clock-independent"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-regressions.py",
+      "accepted-existing"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-projection.py",
+      "accepted-projection"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-wheel-components.py",
+      "accepted-cycle",
+      "--only",
+      "real-wheel-two-full-directions",
+      "real-wheel-five-card-directions"
+    ],
+    "exitCode": 0
+  }
+]

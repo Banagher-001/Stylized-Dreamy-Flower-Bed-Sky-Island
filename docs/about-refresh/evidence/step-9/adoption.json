@@ -1,0 +1,149 @@
+{
+  "total": 88,
+  "allPassed": true,
+  "groups": [
+    {
+      "run": "verified-components",
+      "checks": 27,
+      "ids": [
+        "hover-holds-and-resumes-choice",
+        "paused-choice-survives-hover",
+        "four-corners-and-edges",
+        "partial-first-card-safe-reading",
+        "last-card-safe-reading",
+        "edge-card-front-occlusion",
+        "hover-first-native-detail-click",
+        "hover-last-native-detail-click",
+        "click-during-lift",
+        "pointer-press-freezes-pose",
+        "stationary-pointer-does-not-intercept",
+        "fast-sweep-one-active-card",
+        "first-wheel-interrupts-hover",
+        "horizontal-native-handoff",
+        "scrolling-defers-hover",
+        "pointer-to-keyboard-reading",
+        "keyboard-reading-enter",
+        "keyboard-escape-keeps-focus",
+        "category-clears-reading",
+        "catalog-clears-reading",
+        "resize-clears-reading",
+        "hidden-clears-reading",
+        "reduce-clears-reading",
+        "snapshot-clears-ephemeral-reading",
+        "dispose-clears-reading-clock",
+        "native-hover-does-not-enable-track",
+        "shadow-behind-front-pixel-check"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "verified-main",
+      "checks": 29,
+      "ids": [
+        "hover-holds-and-resumes-choice",
+        "paused-choice-survives-hover",
+        "four-corners-and-edges",
+        "partial-first-card-safe-reading",
+        "last-card-safe-reading",
+        "edge-card-front-occlusion",
+        "hover-first-native-detail-click",
+        "hover-last-native-detail-click",
+        "click-during-lift",
+        "pointer-press-freezes-pose",
+        "stationary-pointer-does-not-intercept",
+        "fast-sweep-one-active-card",
+        "first-wheel-interrupts-hover",
+        "horizontal-native-handoff",
+        "scrolling-defers-hover",
+        "pointer-to-keyboard-reading",
+        "keyboard-reading-enter",
+        "keyboard-escape-keeps-focus",
+        "category-clears-reading",
+        "catalog-clears-reading",
+        "resize-clears-reading",
+        "hidden-clears-reading",
+        "reduce-clears-reading",
+        "hover-stops-main-guide",
+        "outside-row-scrolls-page",
+        "continue-film-and-return",
+        "actual-hover-demonstration",
+        "phone-stable-reading",
+        "reduced-stable-reading"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "verified-wheel",
+      "checks": 15,
+      "ids": [
+        "real-wheel-speed-direction-tail",
+        "title-wheel-remains-page",
+        "filters-wheel-remains-page",
+        "controls-wheel-remains-page",
+        "continue-wheel-remains-page",
+        "narrow-native-page",
+        "large-font-native-page",
+        "wide-stable-manual-opt-in",
+        "entrance-wheel-remains-page",
+        "horizontal-native-first-event",
+        "fitting-category-remains-page",
+        "first-card-first-native-click",
+        "last-card-first-native-click",
+        "partial-card-first-native-click",
+        "scene-clock-independent"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "verified-cycle",
+      "checks": 2,
+      "ids": [
+        "real-wheel-two-full-directions",
+        "real-wheel-five-card-directions"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "verified-regressions",
+      "checks": 7,
+      "ids": [
+        "modal-resize-to-phone",
+        "native-scroll-navigation",
+        "film-open-return",
+        "lawson-open-interact-return",
+        "bottle-open-interact-return",
+        "environment-play-pause-resume",
+        "automatic-A1-A2-A3"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "verified-projection",
+      "checks": 8,
+      "ids": [
+        "desktop-front",
+        "large-front",
+        "phone-front",
+        "narrow-front",
+        "first-detail",
+        "last-detail",
+        "narrow-detail",
+        "large-text-detail"
+      ],
+      "finalSourcesMatch": true
+    }
+  ],
+  "developmentRunsRetained": true,
+  "excludedDevelopmentRuns": [
+    "components-1",
+    "depth-probe",
+    "depth-corners",
+    "depth-fixed",
+    "accepted-components"
+  ],
+  "notes": [
+    "早期 24 项基础悬停检查和初始深度探针保留作开发记录，不计最终验收。",
+    "depth-corners 揭示边缘牌反向倾斜时被邻卡遮挡；修正共同轨道深度补偿后，最终版本四角命中全部通过。",
+    "accepted-components 为修复指针阅读转键盘阅读前版本的 26 项通过记录；最终 verified-components 重新验证 27 项，不重复计数。"
+  ]
+}

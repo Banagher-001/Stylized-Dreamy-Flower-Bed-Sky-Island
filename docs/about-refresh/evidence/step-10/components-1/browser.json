@@ -1,0 +1,213 @@
+{
+  "startedAtShanghai": "2026-11-16T23:55:33.025998+08:00",
+  "checks": [
+    {
+      "id": "all-22-full-paragraphs",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "all-22-full-paragraphs-data.json"
+    },
+    {
+      "id": "preview-closes-and-resumes",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "preview-closes-and-resumes-data.json"
+    },
+    {
+      "id": "paused-preview-stays-paused",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "paused-preview-stays-paused-data.json"
+    },
+    {
+      "id": "one-click-pin-no-reopening",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "one-click-pin-no-reopening-data.json"
+    },
+    {
+      "id": "click-during-width-transition",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "click-during-width-transition-data.json"
+    },
+    {
+      "id": "direct-click-pins-full-detail",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "direct-click-pins-full-detail-data.json"
+    },
+    {
+      "id": "resume-closes-before-moving",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "resume-closes-before-moving-data.json"
+    },
+    {
+      "id": "pinned-adjacent-navigation",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "pinned-adjacent-navigation-data.json"
+    },
+    {
+      "id": "partial-edge-full-text-and-hit-grid",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "partial-edge-full-text-and-hit-grid-data.json"
+    },
+    {
+      "id": "last-card-full-text-and-pin",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "last-card-full-text-and-pin-data.json"
+    },
+    {
+      "id": "first-wheel-closes-preview",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "first-wheel-closes-preview-data.json"
+    },
+    {
+      "id": "horizontal-first-event",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "horizontal-first-event-data.json"
+    },
+    {
+      "id": "category-clears-pinned-detail",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "category-clears-pinned-detail-data.json"
+    },
+    {
+      "id": "catalog-restores-fixed-reading",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "catalog-restores-fixed-reading-data.json"
+    },
+    {
+      "id": "keyboard-preview-pin-escape",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "keyboard-preview-pin-escape-data.json"
+    },
+    {
+      "id": "resize-keeps-fixed-content",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "resize-keeps-fixed-content-data.json"
+    },
+    {
+      "id": "hidden-clears-preview",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "hidden-clears-preview-data.json"
+    },
+    {
+      "id": "reduced-motion-keeps-full-content",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "reduced-motion-keeps-full-content-data.json"
+    },
+    {
+      "id": "snapshot-restores-pin",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "snapshot-restores-pin-data.json"
+    },
+    {
+      "id": "snapshot-discards-preview",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "snapshot-discards-preview-data.json"
+    },
+    {
+      "id": "dispose-pinned-reading",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "失败",
+      "error": "Page.evaluate: TypeError: Cannot read properties of null (reading '0')\n    at card (eval at evaluate (:311:30), <anonymous>:1:737)\n    at Array.map (<anonymous>)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:1377)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-10/verify-details.py\", line 54, in case\n    setup(p,program,paused);data=fn(p);last=read(p);assert not errors,errors;assert not last['duplicates'] and last['overflow']<=1,last\n                                            ^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-10/verify-details.py\", line 31, in read\n    def read(p):return p.evaluate(READ)\n                       ^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 9385, in evaluate\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 472, in evaluate\n    return await self._main_frame.evaluate(expression, arg)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 345, in evaluate\n    await self._channel.send(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.evaluate: TypeError: Cannot read properties of null (reading '0')\n    at card (eval at evaluate (:311:30), <anonymous>:1:737)\n    at Array.map (<anonymous>)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:1377)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n"
+    },
+    {
+      "id": "native-click-full-detail",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "通过",
+      "data": "native-click-full-detail-data.json"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "clockModified": false,
+  "physicalDevice": false,
+  "main": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "serverClosed": true,
+  "finishedAtShanghai": "2026-11-16T23:57:16.751332+08:00"
+}

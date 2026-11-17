@@ -1,0 +1,20 @@
+.about-refresh .ar-guidance-bar { display:flex; align-items:center; justify-content:flex-end; gap:.75rem; flex:1; min-width:0; }
+.about-refresh .ar-current-hint { flex:1; min-width:0; text-align:right; }
+.about-refresh .ar-tool-help-trigger { flex:none; font-size:.875rem; padding-inline:.65rem; }
+.about-refresh .ar-tool-help-panel { position:relative; z-index:8; margin-top:.6rem; padding:1rem; border:1px solid #a9bd98; border-radius:6px; background:linear-gradient(145deg,#fffdef,#f1f3df); box-shadow:0 8px 22px #34523824; color:#244c40; font-size:1rem; line-height:1.55; overflow-wrap:anywhere; }
+.about-refresh[data-layout="immersive"] .ar-tool-help-panel { position:absolute; }
+.about-refresh .ar-tool-help-panel[data-presentation="popover"] { position:absolute; margin:0; overflow-y:auto; overscroll-behavior:contain; scrollbar-width:thin; scrollbar-color:#a4ba8d transparent; }
+.about-refresh .ar-tool-help-header { display:flex; align-items:center; justify-content:space-between; gap:.5rem; margin-bottom:.7rem; }
+.about-refresh .ar-tool-help-panel[data-presentation="popover"] .ar-tool-help-header { position:sticky; top:-1rem; z-index:1; background:#fafbec; padding-block:.25rem; }
+.about-refresh .ar-tool-help-scroll-hint { font-size:.875rem; color:#526b4e; margin-top:.2rem; }
+.about-refresh .ar-tool-help-title { font-size:1.125rem; font-weight:600; }
+.about-refresh .ar-tool-help-close { flex:none; width:2.75rem; height:2.75rem; min-width:44px; min-height:44px; padding:0; font-size:1.5rem; line-height:1; }
+.about-refresh .ar-tool-help-item { margin-bottom:.65rem; }
+.about-refresh .ar-tool-help-item :is(dt,dd) { display:inline; }
+.about-refresh .ar-tool-help-item dt { font-weight:600; }
+.about-refresh .ar-tool-help-note { padding-top:.65rem; border-top:1px solid #ced9bc; font-size:.875rem; color:#526b4e; }
+.about-refresh .ar-catalog-instruction { flex-basis:100%; font-size:.875rem; color:#526b4e; }
+.about-refresh .ar-announcement { position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+@media(max-width:700px) { .about-refresh .ar-guidance-bar { width:100%; } .about-refresh .ar-current-hint { text-align:left; } }
+.about-refresh[data-large-text="true"] .ar-guidance-bar { width:100%; flex-wrap:wrap; justify-content:space-between; }
+.about-refresh[data-large-text="true"] .ar-current-hint { text-align:left; flex:1 1 12rem; }

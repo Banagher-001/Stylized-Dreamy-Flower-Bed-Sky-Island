@@ -1,0 +1,9 @@
+.about-refresh .ar-tool-slot:has(> .ar-stone-card[data-detail-wide="true"]) { height: 18.75rem; min-height: 0; }
+.about-refresh .ar-tool-slot .ar-tool-card.ar-stone-card[data-detail-wide="true"] { width: var(--ar-detail-width); min-height: 18.75rem; --ar-card-min-height: 18.75rem; z-index: auto; }
+.about-refresh .ar-tools-browser[data-track-mode="native"] .ar-tool-slot .ar-tool-card.ar-stone-card[data-detail-wide="true"] { z-index: 2; }
+.about-refresh .ar-stone-card[data-detail-wide="true"] .ar-card-footer { display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between; gap: 8px; }
+.about-refresh .ar-stone-card[data-detail-wide="true"] .ar-detail-toggle { flex: 0 0 auto; }
+.about-refresh .ar-stone-card[data-detail-wide="true"] .ar-card-tags { flex: 1 1 auto; min-width: 0; justify-content: flex-end; flex-wrap: wrap; }
+.about-refresh .ar-stone-card[data-detail-wide="true"] .ar-card-detail { opacity: var(--ar-detail-reveal,1); transform: translateY(calc(4px * (1 - var(--ar-detail-reveal,1)))); }
+.about-refresh .ar-stone-card[data-detail-state="preview"] .ar-card-front-sigil,
+.about-refresh .ar-stone-card[data-detail-state="pinned"] .ar-card-front-sigil { opacity: .04; }

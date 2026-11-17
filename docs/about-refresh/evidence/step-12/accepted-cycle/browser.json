@@ -1,0 +1,25 @@
+{
+  "startedAtShanghai": "2026-11-17T14:13:44.449390+08:00",
+  "checks": [
+    {
+      "id": "real-wheel-two-full-directions",
+      "status": "通过",
+      "data": "real-wheel-two-full-directions-data.json"
+    },
+    {
+      "id": "real-wheel-five-card-directions",
+      "status": "失败",
+      "error": "{'id': 'after-effects', 'old': {'id': 'after-effects', 'instance': 'ar-card-24', 'x': 1298.2408447265625, 'right': 1538.2540283203125, 'leftPaint': 1285.0279541015625, 'rightPaint': 1560.6982421875}, 'new': {'id': 'after-effects', 'instance': 'ar-card-24', 'x': 6.769421100616455, 'right': 244.5487790107727, 'leftPaint': -14.1590576171875, 'rightPaint': 263.0455551147461}, 'rail': {'left': 256, 'right': 1184}}",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-12/verify-wheel-components.py\", line 41, in case\n    setup(p,paused);data=fn(p);assert not events,events;save(run/(name+'-data.json'),data);p.screenshot(path=str(run/(name+'.png')));entry.update(status='通过',data=name+'-data.json')\n                         ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-12/verify-wheel-components.py\", line 136, in <lambda>\n    case('real-wheel-two-full-directions',cycle);case('real-wheel-five-card-directions',lambda p:cycle(p,'G6'))\n                                                                                                 ^^^^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-12/verify-wheel-components.py\", line 128, in cycle\n    assert before and after,{'id':c['id'],'old':old,'new':c,'rail':rail}\n           ^^^^^^^^^^^^^^^^\nAssertionError: {'id': 'after-effects', 'old': {'id': 'after-effects', 'instance': 'ar-card-24', 'x': 1298.2408447265625, 'right': 1538.2540283203125, 'leftPaint': 1285.0279541015625, 'rightPaint': 1560.6982421875}, 'new': {'id': 'after-effects', 'instance': 'ar-card-24', 'x': 6.769421100616455, 'right': 244.5487790107727, 'leftPaint': -14.1590576171875, 'rightPaint': 263.0455551147461}, 'rail': {'left': 256, 'right': 1184}}\n"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "clockModified": false,
+  "standaloneActualComponents": true,
+  "physicalDevice": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "serverClosed": true,
+  "finishedAtShanghai": "2026-11-17T14:14:28.845107+08:00"
+}

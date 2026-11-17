@@ -1,0 +1,224 @@
+{
+  "startedAtShanghai": "2026-11-16T10:05:41.476022+08:00",
+  "complete": true,
+  "checks": [
+    {
+      "id": "four-card-geometry",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "失败",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 44, in case\n    action(p);p.wait_for_timeout(80);assert not errors,errors\n    ^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 53, in geometry\n    enter(p);flying=snap(p);assert flying['foreground']==1 and all(not c['inSlot'] and c['inert'] for c in flying['cards'])\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "id": "large-four-card-geometry",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "status": "失败",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 44, in case\n    action(p);p.wait_for_timeout(80);assert not errors,errors\n    ^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 53, in geometry\n    enter(p);flying=snap(p);assert flying['foreground']==1 and all(not c['inSlot'] and c['inert'] for c in flying['cards'])\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "id": "return-does-not-replay",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "return-does-not-replay-data.json",
+      "screenshot": "return-does-not-replay.png"
+    },
+    {
+      "id": "capacity-probes-do-not-trigger",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "capacity-probes-do-not-trigger-data.json",
+      "screenshot": "capacity-probes-do-not-trigger.png"
+    },
+    {
+      "id": "category-first-click",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "失败",
+      "error": "{'entrance': 'cancelled', 'entranceReady': 'true', 'entrancePlays': '1', 'entranceFramePending': 'false', 'activeId': 'substance-painter', 'mode': 'cards', 'category': 'G5', 'cardCount': '3', 'entranceReason': 'focus', 'entranceStartedAt': '1082.8', 'entranceDuration': '1450', 'entranceIds': 'midjourney,comfyui,kling,blender', 'entranceProgress': '0.09200000000000007', 'entranceFinishedAt': '1229.699999999255'}",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 44, in case\n    action(p);p.wait_for_timeout(80);assert not errors,errors\n    ^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 74, in category\n    b=invariant(p)['browser'];assert b['category']=='G5' and b['activeId']=='substance-painter' and b['entranceReason']=='interaction',b\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'entrance': 'cancelled', 'entranceReady': 'true', 'entrancePlays': '1', 'entranceFramePending': 'false', 'activeId': 'substance-painter', 'mode': 'cards', 'category': 'G5', 'cardCount': '3', 'entranceReason': 'focus', 'entranceStartedAt': '1082.8', 'entranceDuration': '1450', 'entranceIds': 'midjourney,comfyui,kling,blender', 'entranceProgress': '0.09200000000000007', 'entranceFinishedAt': '1229.699999999255'}\n"
+    },
+    {
+      "id": "next-native-enter",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "next-native-enter-data.json",
+      "screenshot": "next-native-enter.png"
+    },
+    {
+      "id": "overview-first-click-escape",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "失败",
+      "error": "[\"Cannot read properties of null (reading 'getBoundingClientRect')\"]",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 44, in case\n    action(p);p.wait_for_timeout(80);assert not errors,errors\n                                            ^^^^^^^^^^\nAssertionError: [\"Cannot read properties of null (reading 'getBoundingClientRect')\"]\n"
+    },
+    {
+      "id": "scroll-away-cancel",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "scroll-away-cancel-data.json",
+      "screenshot": "scroll-away-cancel.png"
+    },
+    {
+      "id": "continue-first-click",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "continue-first-click-data.json",
+      "screenshot": "continue-first-click.png"
+    },
+    {
+      "id": "resize-during-flight",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "resize-during-flight-data.json",
+      "screenshot": "resize-during-flight.png"
+    },
+    {
+      "id": "reading-mode-during-flight",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "reading-mode-during-flight-data.json",
+      "screenshot": "reading-mode-during-flight.png"
+    },
+    {
+      "id": "phone-static",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "失败",
+      "error": "Page.wait_for_function: Timeout 10000ms exceeded.",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 44, in case\n    action(p);p.wait_for_timeout(80);assert not errors,errors\n    ^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 95, in static\n    p.locator('.tour-reading-flow [data-flow-anchor=A3]').scroll_into_view_if_needed();settled(p);m=invariant(p);assert m['browser']['entrancePlays']=='0' and m['browser']['entranceReason']=='static-reading',m['browser']\n                                                                                       ^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 24, in settled\n    def settled(p):p.wait_for_function('[\"ready\",\"cancelled\"].includes(document.querySelector(\".ar-tools-browser\").dataset.entrance)',timeout=10000);p.wait_for_timeout(80)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 12761, in wait_for_function\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 1151, in wait_for_function\n    return await self._main_frame.wait_for_function(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 940, in wait_for_function\n    await self._channel.send(\"waitForFunction\", self._timeout, params)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 10000ms exceeded.\n"
+    },
+    {
+      "id": "narrow-static",
+      "viewport": [
+        320,
+        740
+      ],
+      "status": "失败",
+      "error": "Page.wait_for_function: Timeout 10000ms exceeded.",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 44, in case\n    action(p);p.wait_for_timeout(80);assert not errors,errors\n    ^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 95, in static\n    p.locator('.tour-reading-flow [data-flow-anchor=A3]').scroll_into_view_if_needed();settled(p);m=invariant(p);assert m['browser']['entrancePlays']=='0' and m['browser']['entranceReason']=='static-reading',m['browser']\n                                                                                       ^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 24, in settled\n    def settled(p):p.wait_for_function('[\"ready\",\"cancelled\"].includes(document.querySelector(\".ar-tools-browser\").dataset.entrance)',timeout=10000);p.wait_for_timeout(80)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 12761, in wait_for_function\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 1151, in wait_for_function\n    return await self._main_frame.wait_for_function(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 940, in wait_for_function\n    await self._channel.send(\"waitForFunction\", self._timeout, params)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 10000ms exceeded.\n"
+    },
+    {
+      "id": "laptop-static",
+      "viewport": [
+        1366,
+        768
+      ],
+      "status": "失败",
+      "error": "Page.wait_for_function: Timeout 10000ms exceeded.",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 44, in case\n    action(p);p.wait_for_timeout(80);assert not errors,errors\n    ^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 95, in static\n    p.locator('.tour-reading-flow [data-flow-anchor=A3]').scroll_into_view_if_needed();settled(p);m=invariant(p);assert m['browser']['entrancePlays']=='0' and m['browser']['entranceReason']=='static-reading',m['browser']\n                                                                                       ^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 24, in settled\n    def settled(p):p.wait_for_function('[\"ready\",\"cancelled\"].includes(document.querySelector(\".ar-tools-browser\").dataset.entrance)',timeout=10000);p.wait_for_timeout(80)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 12761, in wait_for_function\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 1151, in wait_for_function\n    return await self._main_frame.wait_for_function(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 940, in wait_for_function\n    await self._channel.send(\"waitForFunction\", self._timeout, params)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 10000ms exceeded.\n"
+    },
+    {
+      "id": "large-font-static",
+      "viewport": [
+        800,
+        600
+      ],
+      "status": "失败",
+      "error": "Page.wait_for_function: Timeout 10000ms exceeded.",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 44, in case\n    action(p);p.wait_for_timeout(80);assert not errors,errors\n    ^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 95, in static\n    p.locator('.tour-reading-flow [data-flow-anchor=A3]').scroll_into_view_if_needed();settled(p);m=invariant(p);assert m['browser']['entrancePlays']=='0' and m['browser']['entranceReason']=='static-reading',m['browser']\n                                                                                       ^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 24, in settled\n    def settled(p):p.wait_for_function('[\"ready\",\"cancelled\"].includes(document.querySelector(\".ar-tools-browser\").dataset.entrance)',timeout=10000);p.wait_for_timeout(80)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 12761, in wait_for_function\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 1151, in wait_for_function\n    return await self._main_frame.wait_for_function(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 940, in wait_for_function\n    await self._channel.send(\"waitForFunction\", self._timeout, params)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 10000ms exceeded.\n"
+    },
+    {
+      "id": "reduced-static",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "失败",
+      "error": "Page.wait_for_function: Timeout 10000ms exceeded.",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 44, in case\n    action(p);p.wait_for_timeout(80);assert not errors,errors\n    ^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 95, in static\n    p.locator('.tour-reading-flow [data-flow-anchor=A3]').scroll_into_view_if_needed();settled(p);m=invariant(p);assert m['browser']['entrancePlays']=='0' and m['browser']['entranceReason']=='static-reading',m['browser']\n                                                                                       ^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 24, in settled\n    def settled(p):p.wait_for_function('[\"ready\",\"cancelled\"].includes(document.querySelector(\".ar-tools-browser\").dataset.entrance)',timeout=10000);p.wait_for_timeout(80)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 12761, in wait_for_function\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 1151, in wait_for_function\n    return await self._main_frame.wait_for_function(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 940, in wait_for_function\n    await self._channel.send(\"waitForFunction\", self._timeout, params)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 10000ms exceeded.\n"
+    },
+    {
+      "id": "simulated-page-hidden",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "simulated-page-hidden-data.json",
+      "screenshot": "simulated-page-hidden.png"
+    },
+    {
+      "id": "reduced-change-during-flight",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "reduced-change-during-flight-data.json",
+      "screenshot": "reduced-change-during-flight.png"
+    },
+    {
+      "id": "prepare-leave-preserves-first-flight",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "prepare-leave-preserves-first-flight-data.json",
+      "screenshot": "prepare-leave-preserves-first-flight.png"
+    },
+    {
+      "id": "resource-readiness-fallback",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "resource-readiness-fallback-data.json",
+      "screenshot": "resource-readiness-fallback.png"
+    },
+    {
+      "id": "automatic-guide-waits-for-settlement",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "失败",
+      "error": "{'renderState': 'ready', 'fountainStyle': 'refined', 'fountainResources': '{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}', 'orbStyle': 'lively', 'orbResources': '{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.0464079999999998,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"flow\":\"curved-rest-sphere-v2\",\"vertices\":117,\"triangles\":168,\"restAttributeBytes\":1404,\"dropCapacity\":32,\"rippleCapacity\":8}', 'cloudShadows': '{\"enabled\":true,\"active\":1,\"time\":2,\"drift\":0.4399999999999977,\"repeatSeconds\":145.45454545454547,\"failures\":[],\"materials\":[{\"name\":\"courtyard-ground\",\"surface\":\"ground\",\"strength\":0.18},{\"name\":\"courtyard-pool-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-refined-surface\",\"surface\":\"water\",\"strength\":0.075},{\"name\":\"courtyard-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-jet\",\"surface\":\"water\",\"strength\":0.045},{\"name\":\"courtyard-living-orb\",\"surface\":\"water\",\"strength\":0.05},{\"name\":\"courtyard-foliage\",\"surface\":\"foliage\",\"strength\":0.13},{\"name\":\"courtyard-flower\",\"surface\":\"flower\",\"strength\":0.1},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0,\"extraDrawCalls\":0}', 'magicStatus': 'ready', 'magicResources': '{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}', 'filmMagicStatus': 'ready', 'filmMagicResources': '{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}', 'filmAvailability': '{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}', 'experimentMagicStatus': 'ready', 'experimentMagicResources': '{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}', 'birdResources': '{\"birds\":3,\"newGeometries\":1,\"newTextures\":0,\"maximumColorDrawCalls\":1,\"extraPasses\":0,\"castsShadows\":false,\"trianglesPerBird\":60}', 'overlayState': 'closed', 'stage': 'A3', 'chapter': 'about', 'displayH': '3.3400000', 'targetH': '3.3400000', 'cameraState': 'settled', 'cameraPosition': '[1.4519422,5.05,5.7544077]', 'cameraTarget': '[0.2519422,0.85,-3.2455923]', 'viewHeight': '4.8000000', 'aspect': '1.8158890', 'readingStation': 'A3', 'readingPhase': 'read', 'readingOpacity': '1.0000000', 'readingTitleOpacity': '1.0000000', 'filmStation': '', 'filmPhase': 'off', 'filmPresentation': '{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}', 'experimentStation': '', 'experimentPhase': 'off', 'experimentPresentation': '{\"frame\":0,\"title\":0,\"body\":0,\"offset\":8}', 'motionState': 'paused', 'visibility': 'visible', 'magicFrame': '{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}', 'filmMagicFrame': '{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}', 'experimentMagicFrame': '{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}', 'sceneTime': '2.000000', 'rendererStats': '{\"geometries\":55,\"textures\":4,\"programs\":13,\"calls\":53,\"triangles\":7729,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":793,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":211,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}', 'guideState': 'moving', 'guidePhase': 'moving', 'guideStation': 'A3', 'guideTargetH': '3.34', 'guideReadSeconds': '0', 'guideReadyAt': '', 'guideDeadline': '', 'guideReason': ''}",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 44, in case\n    action(p);p.wait_for_timeout(80);assert not errors,errors\n    ^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-6/verify-entrance.py\", line 108, in guide_gate\n    d=p.locator('#tour-host').evaluate('(e)=>({...e.dataset})');assert d['guideStation']=='A3' and d['guidePhase']=='arriving' and not d['guideDeadline'],d\n                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'renderState': 'ready', 'fountainStyle': 'refined', 'fountainResources': '{\"bindings\":[{\"object\":\"fountain-base\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-rim-wall\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-0\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-1\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-2\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-3\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-4\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-5\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-6\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-coping-7\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-foot\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-pedestal-cap\",\"material\":\"courtyard-pool-stone\"},{\"object\":\"fountain-water\",\"material\":\"courtyard-water-refined-surface\"}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0}', 'orbStyle': 'lively', 'orbResources': '{\"radius\":0.26,\"centerY\":1.37,\"amplitude\":0.03,\"period\":6,\"envelope\":1.0464079999999998,\"replacedGeometries\":2,\"addedGeometries\":0,\"addedTextures\":0,\"addedPasses\":0,\"flow\":\"curved-rest-sphere-v2\",\"vertices\":117,\"triangles\":168,\"restAttributeBytes\":1404,\"dropCapacity\":32,\"rippleCapacity\":8}', 'cloudShadows': '{\"enabled\":true,\"active\":1,\"time\":2,\"drift\":0.4399999999999977,\"repeatSeconds\":145.45454545454547,\"failures\":[],\"materials\":[{\"name\":\"courtyard-ground\",\"surface\":\"ground\",\"strength\":0.18},{\"name\":\"courtyard-pool-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-refined-surface\",\"surface\":\"water\",\"strength\":0.075},{\"name\":\"courtyard-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"courtyard-water-jet\",\"surface\":\"water\",\"strength\":0.045},{\"name\":\"courtyard-living-orb\",\"surface\":\"water\",\"strength\":0.05},{\"name\":\"courtyard-foliage\",\"surface\":\"foliage\",\"strength\":0.13},{\"name\":\"courtyard-flower\",\"surface\":\"flower\",\"strength\":0.1},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-stone\",\"surface\":\"stone\",\"strength\":0.14},{\"name\":\"reading-pillar-joint\",\"surface\":\"stone\",\"strength\":0.14}],\"newGeometries\":0,\"newTextures\":0,\"extraPasses\":0,\"extraDrawCalls\":0}', 'magicStatus': 'ready', 'magicResources': '{\"anchors\":[{\"station\":\"A1\",\"stone\":\"columnUpperLeft-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A2\",\"stone\":\"columnUpperLeft-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"A3\",\"stone\":\"columnUpperLeft-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnUpperLeft-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnUpperLeft-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnUpperLeft-block-3\",\"material\":\"reading-pillar-stone\"}]}', 'filmMagicStatus': 'ready', 'filmMagicResources': '{\"anchors\":[{\"station\":\"B1\",\"stone\":\"columnRight-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B2\",\"stone\":\"columnRight-block-2\",\"local\":[0.04000001430511474,0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B3\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"B4\",\"stone\":\"columnRight-block-1\",\"local\":[0.04000001430511474,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnRight-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnRight-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnRight-block-3\",\"material\":\"reading-pillar-stone\"}]}', 'filmAvailability': '{\"presentation\":\"design-sample\",\"realFilm\":\"not-supplied\",\"productionFrames\":\"not-supplied\",\"responsibilities\":\"not-supplied\",\"realProjectIndex\":\"not-supplied\"}', 'experimentMagicStatus': 'ready', 'experimentMagicResources': '{\"anchors\":[{\"station\":\"C1\",\"stone\":\"columnLower-block-3\",\"local\":[0.04000001430511474,0.024980001449584954,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.34498000144958496,-0.38999998569488525],[0.36000001430511475,0.34498000144958496,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C2\",\"stone\":\"columnLower-block-2\",\"local\":[0.04000001430511474,-0.05801000475883483,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.37801000475883484,-0.38999998569488525],[0.36000001430511475,0.37801000475883484,0.38999998569488525]],\"size\":0.54,\"offset\":0.008},{\"station\":\"C3\",\"stone\":\"columnLower-block-1\",\"local\":[0.03999999809265109,-0.032319985628128045,0.39799998569488526],\"faceBounds\":[[-0.36000001430511475,-0.35231998562812805,-0.38999998569488525],[0.36000001430511475,0.35231998562812805,0.38999998569488525]],\"size\":0.54,\"offset\":0.008}],\"pool\":24,\"geometries\":2,\"textures\":1,\"programFamilies\":1,\"bindings\":[{\"object\":\"columnLower-block-0\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-0\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-1\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-1\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-2\",\"material\":\"reading-pillar-stone\"},{\"object\":\"columnLower-joint-2\",\"material\":\"reading-pillar-joint\"},{\"object\":\"columnLower-block-3\",\"material\":\"reading-pillar-stone\"}]}', 'birdResources': '{\"birds\":3,\"newGeometries\":1,\"newTextures\":0,\"maximumColorDrawCalls\":1,\"extraPasses\":0,\"castsShadows\":false,\"trianglesPerBird\":60}', 'overlayState': 'closed', 'stage': 'A3', 'chapter': 'about', 'displayH': '3.3400000', 'targetH': '3.3400000', 'cameraState': 'settled', 'cameraPosition': '[1.4519422,5.05,5.7544077]', 'cameraTarget': '[0.2519422,0.85,-3.2455923]', 'viewHeight': '4.8000000', 'aspect': '1.8158890', 'readingStation': 'A3', 'readingPhase': 'read', 'readingOpacity': '1.0000000', 'readingTitleOpacity': '1.0000000', 'filmStation': '', 'filmPhase': 'off', 'filmPresentation': '{\"frame\":0,\"media\":0,\"title\":0,\"body\":0,\"offset\":8}', 'experimentStation': '', 'experimentPhase': 'off', 'experimentPresentation': '{\"frame\":0,\"title\":0,\"body\":0,\"offset\":8}', 'motionState': 'paused', 'visibility': 'visible', 'magicFrame': '{\"trace\":1,\"glyph\":1,\"title\":1,\"body\":1,\"veil\":1,\"dust\":1,\"burst\":0,\"disperse\":0,\"titleY\":0,\"bodyY\":0,\"dustCapacity\":24,\"dustVisible\":8,\"time\":2,\"lod\":1}', 'filmMagicFrame': '{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}', 'experimentMagicFrame': '{\"trace\":0,\"glyph\":0,\"title\":0,\"body\":0,\"veil\":0,\"dust\":0,\"burst\":0,\"disperse\":0,\"titleY\":6,\"bodyY\":8,\"dustCapacity\":24,\"dustVisible\":0,\"time\":2,\"lod\":1}', 'sceneTime': '2.000000', 'rendererStats': '{\"geometries\":55,\"textures\":4,\"programs\":13,\"calls\":53,\"triangles\":7729,\"mode\":\"pixel\",\"outputWidth\":1440,\"outputHeight\":793,\"pixel\":{\"sampleWidth\":384,\"sampleHeight\":211,\"designResolution\":384,\"finish\":\"clean\",\"storage\":\"linear-half-float\",\"minFilter\":\"nearest\",\"magFilter\":\"nearest\",\"mipmaps\":false,\"levels\":0,\"dither\":0,\"allocations\":1}}', 'guideState': 'moving', 'guidePhase': 'moving', 'guideStation': 'A3', 'guideTargetH': '3.34', 'guideReadSeconds': '0', 'guideReadyAt': '', 'guideDeadline': '', 'guideReason': ''}\n"
+    }
+  ],
+  "errors": [
+    "Cannot read properties of null (reading 'getBoundingClientRect')"
+  ],
+  "physicalDevice": false,
+  "clockModified": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "finishedAtShanghai": "2026-11-16T10:07:30.470834+08:00"
+}

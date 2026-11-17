@@ -6,7 +6,7 @@ import { sampleTour, tourTotalH, waterHold } from './route';
 export interface GuideStop { id: string; h: number; label: string; seconds: number; travel: number; }
 /** Latest Step4 reading minima supersede Step1's historical timing suggestions. */
 const timing: Record<string, [string, number, number]> = {
-  A1: ['关于我 · 身份', 10, 8], A2: ['关于我 · 经历', 14, 4], A3: ['关于我 · 创作', 14, 4],
+  A1: ['关于我 · 身份', 10, 8], A2: ['关于我 · 经历', 14, 4], A3: ['关于我 · 工具与方法', 14, 4],
   B1: ['AI影像 · 展映', 12, 7], B2: ['AI影像 · 切片', 10, 5], B3: ['AI影像 · 探索', 10, 4.5], B4: ['AI影像 · 余韵', 8, 4],
   C1: ['交互实验 · 想法', 10, 7], C2: ['交互实验 · 交互作品', 12, 4.5], C3: ['交互实验 · 继续', 12, 4],
 };

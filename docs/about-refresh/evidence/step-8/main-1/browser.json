@@ -1,0 +1,22 @@
+{
+  "startedAtShanghai": "2026-11-16T16:40:19.188801+08:00",
+  "checks": [
+    {
+      "id": "real-wheel-speed-direction-tail",
+      "status": "失败",
+      "viewport": [
+        1440,
+        900
+      ],
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-main.py\", line 39, in case\n    p.goto(s['origin']+'/?waterTime=2',wait_until='domcontentloaded');ready(p);data=fn(p);end=read(p);assert not events,events;assert end['overflow']<=1 and not end['duplicates'],end\n                                                                                    ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-main.py\", line 50, in primary\n    wheel(p,160,9,25);p.screenshot(path=str(run/'accelerating.png'));c=read(p);assert float(c['d']['trackSpeed'])>300\n                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "clockModified": false,
+  "physicalDevice": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "finishedAtShanghai": "2026-11-16T16:40:27.462090+08:00"
+}

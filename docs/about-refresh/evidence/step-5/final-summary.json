@@ -1,0 +1,71 @@
+{
+  "completedAtShanghai": "2026-11-15T19:38:30.190286+08:00",
+  "status": "第五步完成",
+  "scope": "Step 5 static 3D card appearance, local marks, review page and regression evidence; no flight/auto-track/wheel-model/hover/push/deploy",
+  "suites": {
+    "accepted-cards": {
+      "report": "accepted-cards/browser.json",
+      "passed": 61,
+      "failed": 0,
+      "browserClosed": true
+    },
+    "accepted-components": {
+      "report": "accepted-components/browser.json",
+      "passed": 49,
+      "failed": 0,
+      "browserClosed": true
+    },
+    "main-final": {
+      "report": "main-final/browser.json",
+      "passed": 44,
+      "failed": 0,
+      "browserClosed": true
+    },
+    "projection-final": {
+      "report": "projection-final/browser.json",
+      "passed": 8,
+      "failed": 0,
+      "browserClosed": true
+    },
+    "accepted-regressions": {
+      "report": "accepted-regressions/browser.json",
+      "passed": 7,
+      "failed": 0,
+      "browserClosed": true
+    }
+  },
+  "totalPassedChecks": 169,
+  "build": {
+    "command": "npm run build",
+    "includes": "npm run typecheck && vite build",
+    "exitCode": 0,
+    "output": "build-final-2.txt"
+  },
+  "sourceMatchesFinalEvidence": true,
+  "review": {
+    "path": "docs/about-refresh/step-5-card-preview.html",
+    "bytes": 66099,
+    "sha256": "77828531e9271ce6fb0a7a0d906b916cd00af978b95ec685322108a0148d28a9"
+  },
+  "component": {
+    "path": "docs/about-refresh/evidence/step-5/component-preview.html",
+    "bytes": 163100,
+    "sha256": "f1fa9177c4b03fb418bb563454f6d7874f85e89c717e667c5d4a19980240231b"
+  },
+  "historicalArtifactsUnchanged": 1163,
+  "servicesCleanup": {
+    "servicesStopped": 2,
+    "portClosed": true,
+    "otherServicesStopped": false
+  },
+  "notImplemented": [
+    "flight-in",
+    "automatic-track",
+    "wheel-velocity-inertia",
+    "pointer-follow-hover",
+    "flight-out"
+  ],
+  "committed": false,
+  "pushed": false,
+  "published": false
+}

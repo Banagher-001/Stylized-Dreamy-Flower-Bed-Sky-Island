@@ -1,0 +1,149 @@
+[
+  {
+    "command": [
+      "verify-adaptation.py",
+      "accepted5-adaptation-main",
+      "--only",
+      "initial-reduced-motion",
+      "graphics-unavailable-reading",
+      "viewport-320x740",
+      "viewport-390x844",
+      "viewport-430x932",
+      "viewport-844x390",
+      "viewport-768x1024",
+      "viewport-1024x768",
+      "viewport-1280x720",
+      "viewport-1440x900",
+      "viewport-1920x1080",
+      "viewport-1179x900",
+      "viewport-1180x900",
+      "viewport-1181x900",
+      "pinned-mode-roundtrip",
+      "pinned-font-200-roundtrip",
+      "pinned-phone-orientation",
+      "native-touch-horizontal-and-page",
+      "hybrid-first-tap",
+      "hybrid-first-swipe",
+      "hybrid-first-cancel",
+      "hybrid-return-to-mouse",
+      "graphics-loss-and-recovery",
+      "same-mode-resize-keeps-automatic",
+      "reduced-motion-does-not-restart-automatic",
+      "reduced-motion-roundtrip",
+      "background-clears-inertia",
+      "continuous-resize-keeps-pin",
+      "font-ready-keeps-reading",
+      "keyboard-and-targets"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-adaptation.py",
+      "accepted5-input-measurement",
+      "--only",
+      "gesture-defers-capacity-probes",
+      "font-change-takes-priority-over-gesture"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-adaptation.py",
+      "accepted5-adaptation-firefox",
+      "--engine",
+      "firefox",
+      "--only",
+      "viewport-1440x900",
+      "viewport-390x844",
+      "pinned-mode-roundtrip",
+      "reduced-motion-roundtrip",
+      "keyboard-and-targets"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-browser-zoom.py",
+      "accepted5-browser-zoom-final"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-guidance.py",
+      "accepted5-guidance-main",
+      "--main"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-details-regression.py",
+      "accepted5-detail-main",
+      "--main"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-departure-regression.py",
+      "accepted5-departure-main",
+      "--main"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-wheel-main.py",
+      "accepted5-wheel",
+      "--only",
+      "real-wheel-speed-direction-tail",
+      "title-wheel-remains-page",
+      "filters-wheel-remains-page",
+      "controls-wheel-remains-page",
+      "continue-wheel-remains-page",
+      "narrow-native-page",
+      "large-font-native-page",
+      "wide-stable-manual-opt-in",
+      "entrance-wheel-remains-page",
+      "horizontal-native-first-event",
+      "fitting-category-remains-page",
+      "first-card-first-native-click",
+      "last-card-first-native-click",
+      "partial-card-first-native-click",
+      "scene-clock-independent"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-regressions.py",
+      "accepted5-existing"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-projection.py",
+      "accepted5-projection"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "verify-wheel-components.py",
+      "accepted5-cycle",
+      "--only",
+      "real-wheel-two-full-directions",
+      "real-wheel-five-card-directions"
+    ],
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "convert-video.py"
+    ],
+    "exitCode": 0
+  }
+]

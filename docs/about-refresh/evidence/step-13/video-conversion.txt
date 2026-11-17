@@ -1,0 +1,56 @@
+ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 14 (Debian 14.2.0-19)
+  configuration: --prefix=/usr --extra-version=0+deb13u1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --disable-libmfx --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libglslang --enable-libgme --enable-libgsm --enable-libharfbuzz --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-openal --enable-opencl --enable-opengl --disable-sndio --enable-libvpl --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-ladspa --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-libjack --enable-libpulse --enable-librabbitmq --enable-librist --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libx264 --enable-libzmq --enable-libzvbi --enable-lv2 --enable-sdl2 --enable-libplacebo --enable-librav1e --enable-pocketsphinx --enable-librsvg --enable-libjxl --enable-shared
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.101 / 61. 19.101
+  libavformat    61.  7.103 / 61.  7.103
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  5.100 / 10.  5.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+Input #0, matroska,webm, from '/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-13/accepted5-adaptation-main/video/page@3e61cbe40b9a537a53abb9696d388c7e.webm':
+  Metadata:
+    ENCODER         : Lavf61.1.100
+  Duration: 00:00:06.08, start: 0.000000, bitrate: 990 kb/s
+  Stream #0:0(eng): Video: vp8, yuv420p(progressive), 1440x900, SAR 1:1 DAR 8:5, 25 fps, 25 tbr, 1k tbn (default)
+      Metadata:
+        ENCODER         : Lavc61.3.100 libvpx
+        DURATION        : 00:00:06.080000000
+Stream mapping:
+  Stream #0:0 -> #0:0 (vp8 (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 0x56339deee1c0] using SAR=1/1
+[libx264 @ 0x56339deee1c0] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
+[libx264 @ 0x56339deee1c0] profile High, level 4.0, 4:2:0, 8-bit
+[libx264 @ 0x56339deee1c0] 264 - core 164 r3108 31e19f9 - H.264/MPEG-4 AVC codec - Copyleft 2003-2023 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-13/step-13-adaptation.mp4':
+  Metadata:
+    encoder         : Lavf61.7.103
+  Stream #0:0(eng): Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1440x900 [SAR 1:1 DAR 8:5], q=2-31, 25 fps, 12800 tbn (default)
+      Metadata:
+        DURATION        : 00:00:06.080000000
+        encoder         : Lavc61.19.101 libx264
+      Side data:
+        cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=   18 fps=0.0 q=25.0 size=       0KiB time=00:00:00.64 bitrate=   0.6kbits/s speed=1.27x    frame=   53 fps= 53 q=25.0 size=     512KiB time=00:00:02.04 bitrate=2056.2kbits/s speed=2.03x    frame=   92 fps= 61 q=25.0 size=     768KiB time=00:00:03.60 bitrate=1747.7kbits/s speed=2.39x    frame=  128 fps= 64 q=25.0 size=     768KiB time=00:00:05.04 bitrate=1248.4kbits/s speed=2.51x    [mp4 @ 0x56339def3700] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0x56339def3600] video:1007KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.249016%
+frame=  152 fps= 69 q=-1.0 Lsize=    1010KiB time=00:00:06.00 bitrate=1379.0kbits/s speed=2.72x    
+[libx264 @ 0x56339deee1c0] frame I:3     Avg QP:10.33  size: 24631
+[libx264 @ 0x56339deee1c0] frame P:59    Avg QP:15.59  size: 13080
+[libx264 @ 0x56339deee1c0] frame B:90    Avg QP:17.38  size:  2059
+[libx264 @ 0x56339deee1c0] consecutive B-frames: 15.1% 11.8% 17.8% 55.3%
+[libx264 @ 0x56339deee1c0] mb I  I16..4: 79.7% 11.3%  9.0%
+[libx264 @ 0x56339deee1c0] mb P  I16..4:  8.1%  5.0%  1.8%  P16..4: 15.6%  2.1%  1.5%  0.0%  0.0%    skip:65.8%
+[libx264 @ 0x56339deee1c0] mb B  I16..4:  0.9%  0.5%  0.1%  B16..8:  9.8%  0.6%  0.1%  direct: 2.9%  skip:85.2%  L0:42.6% L1:55.7% BI: 1.7%
+[libx264 @ 0x56339deee1c0] 8x8 transform intra:28.6% inter:36.1%
+[libx264 @ 0x56339deee1c0] coded y,uvDC,uvAC intra: 14.1% 22.8% 16.6% inter: 3.2% 6.7% 1.9%
+[libx264 @ 0x56339deee1c0] i16 v,h,dc,p: 61% 28% 10%  1%
+[libx264 @ 0x56339deee1c0] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 24% 19% 54%  1%  0%  0%  0%  1%  1%
+[libx264 @ 0x56339deee1c0] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 36% 32% 18%  2%  2%  2%  2%  3%  3%
+[libx264 @ 0x56339deee1c0] i8c dc,h,v,p: 60% 27% 12%  1%
+[libx264 @ 0x56339deee1c0] Weighted P-Frames: Y:1.7% UV:0.0%
+[libx264 @ 0x56339deee1c0] ref P L0: 79.5%  6.9%  9.6%  4.0%
+[libx264 @ 0x56339deee1c0] ref B L0: 83.7% 14.3%  2.0%
+[libx264 @ 0x56339deee1c0] ref B L1: 95.5%  4.5%
+[libx264 @ 0x56339deee1c0] kb/s:1356.54

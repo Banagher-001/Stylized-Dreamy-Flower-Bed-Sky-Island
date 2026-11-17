@@ -1,0 +1,36 @@
+{
+  "startedAtShanghai": "2026-11-16T16:37:44.861868+08:00",
+  "checks": [
+    {
+      "id": "buttons-categories-overview-clear-motion",
+      "status": "通过",
+      "data": "buttons-categories-overview-clear-motion-data.json"
+    },
+    {
+      "id": "snapshot-direction-not-velocity",
+      "status": "失败",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-components.py\", line 41, in case\n    setup(p,paused);data=fn(p);assert not events,events;save(run/(name+'-data.json'),data);p.screenshot(path=str(run/(name+'.png')));entry.update(status='通过',data=name+'-data.json')\n                         ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-components.py\", line 90, in snapshot\n    wheel(p,-160,4,25);p.evaluate('()=>{window.__saved=__aboutRefreshPreview.view.captureState();window.__oldRoot=__aboutRefreshPreview.view.toolsElement;__aboutRefreshPreview.remount(__saved)}');p.wait_for_timeout(100);p.evaluate(PRESENT);p.wait_for_timeout(250);a=read(p);old=p.evaluate('({...__oldRoot.dataset})');assert a['position']['direction']==-1 and a['d']['trackFramePending']=='false' and a['d']['trackSpeed']=='0.0000';assert old['trackState']=='disposed' and old['trackFramePending']=='false'\n                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "id": "reduced-motion-clears-inertia",
+      "status": "失败",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-components.py\", line 41, in case\n    setup(p,paused);data=fn(p);assert not events,events;save(run/(name+'-data.json'),data);p.screenshot(path=str(run/(name+'.png')));entry.update(status='通过',data=name+'-data.json')\n                         ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-components.py\", line 99, in reduce\n    wheel(p,160,4,25);p.emulate_media(reduced_motion='reduce');p.wait_for_timeout(400);a=read(p);assert a['d']['trackMode']=='native' and a['d']['trackFramePending']=='false';return a\n                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "id": "real-wheel-two-full-directions",
+      "status": "通过",
+      "data": "real-wheel-two-full-directions-data.json"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "clockModified": false,
+  "standaloneActualComponents": true,
+  "physicalDevice": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "serverClosed": true,
+  "finishedAtShanghai": "2026-11-16T16:38:27.146806+08:00"
+}

@@ -1,0 +1,204 @@
+{
+  "startedAtShanghai": "2026-11-16T16:46:32.080146+08:00",
+  "checks": [
+    {
+      "id": "real-wheel-speed-direction-tail",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "real-wheel-speed-direction-tail-data.json",
+      "video": "video/page@a1aec5c7dd4cbd5cae8877ef5644b5f5.webm"
+    },
+    {
+      "id": "title-wheel-remains-page",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "title-wheel-remains-page-data.json"
+    },
+    {
+      "id": "filters-wheel-remains-page",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "filters-wheel-remains-page-data.json"
+    },
+    {
+      "id": "controls-wheel-remains-page",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "controls-wheel-remains-page-data.json"
+    },
+    {
+      "id": "continue-wheel-remains-page",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "continue-wheel-remains-page-data.json"
+    },
+    {
+      "id": "pointer-outside-page-return",
+      "status": "失败",
+      "viewport": [
+        1440,
+        900
+      ],
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-main.py\", line 39, in case\n    p.goto(s['origin']+'/?waterTime=2',wait_until='domcontentloaded');ready(p);data=fn(p);end=read(p);assert not events,events;assert end['overflow']<=1 and not end['duplicates'],end\n                                                                                    ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-main.py\", line 62, in exit_region\n    auto(p);wheel(p,160,5,25);a=read(p);p.mouse.move(50,500);p.mouse.wheel(0,160);p.wait_for_timeout(650);b=read(p);assert b['y']>=a['y']+140 and b['d']['trackFramePending']=='false' and b['d']['trackSpeed']=='0.0000';go(p);p.wait_for_timeout(1200);c=read(p);assert c['d']['trackEnabled']=='true' and abs(float(c['d']['trackSpeed'])-28)<.1;return {'inside':a,'outside':b,'returned':c}\n                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "id": "phone-native-page",
+      "status": "通过",
+      "viewport": [
+        390,
+        844
+      ],
+      "data": "phone-native-page-data.json"
+    },
+    {
+      "id": "narrow-native-page",
+      "status": "通过",
+      "viewport": [
+        320,
+        740
+      ],
+      "data": "narrow-native-page-data.json"
+    },
+    {
+      "id": "large-font-native-page",
+      "status": "通过",
+      "viewport": [
+        800,
+        600
+      ],
+      "data": "large-font-native-page-data.json"
+    },
+    {
+      "id": "reduced-native-page",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "reduced-native-page-data.json"
+    },
+    {
+      "id": "wide-stable-manual-opt-in",
+      "status": "失败",
+      "viewport": [
+        1366,
+        900
+      ],
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-main.py\", line 39, in case\n    p.goto(s['origin']+'/?waterTime=2',wait_until='domcontentloaded');ready(p);data=fn(p);end=read(p);assert not events,events;assert end['overflow']<=1 and not end['duplicates'],end\n                                                                                    ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-main.py\", line 67, in stable\n    assert read(p)['mode']=='stable';go(p);a=read(p);assert a['d']['trackMode']=='native';over(p);p.mouse.wheel(0,100);p.wait_for_timeout(350);b=read(p);assert b['y']>a['y']+70\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "id": "entrance-wheel-remains-page",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "entrance-wheel-remains-page-data.json"
+    },
+    {
+      "id": "horizontal-native-first-event",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "horizontal-native-first-event-data.json"
+    },
+    {
+      "id": "fitting-category-remains-page",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "fitting-category-remains-page-data.json"
+    },
+    {
+      "id": "overview-native-reading",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "overview-native-reading-data.json"
+    },
+    {
+      "id": "first-card-first-native-click",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "first-card-first-native-click-data.json"
+    },
+    {
+      "id": "last-card-first-native-click",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "last-card-first-native-click-data.json"
+    },
+    {
+      "id": "partial-card-first-native-click",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "partial-card-first-native-click-data.json"
+    },
+    {
+      "id": "keyboard-focus-enter",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "keyboard-focus-enter-data.json"
+    },
+    {
+      "id": "wheel-stops-guide-retains-card-choice",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "wheel-stops-guide-retains-card-choice-data.json"
+    },
+    {
+      "id": "scene-clock-independent",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "data": "scene-clock-independent-data.json"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "clockModified": false,
+  "physicalDevice": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "finishedAtShanghai": "2026-11-16T16:48:04.924748+08:00"
+}

@@ -10,7 +10,7 @@ export function createReaderFlow(panel: HTMLElement) {
         saved = new Map(nodes.map(node => [node, attributes.map(name => node.getAttribute(name))]));
         panel.dataset.readingLayout = 'flow';
         panel.setAttribute('aria-hidden', 'false');
-        for (const article of panel.querySelectorAll<HTMLElement>('article')) {
+        for (const article of panel.querySelectorAll<HTMLElement>('[data-reading-station],[data-film-station],[data-experiment-station]')) {
           article.hidden = false;article.inert = false;article.setAttribute('aria-hidden', 'false');
         }
         for (const node of panel.querySelectorAll<HTMLElement>('h2,[class$="-eyebrow"],[class$="-body"],[data-reading-ink],[data-film-ink],[data-experiment-ink],.film-media')) node.removeAttribute('aria-hidden');

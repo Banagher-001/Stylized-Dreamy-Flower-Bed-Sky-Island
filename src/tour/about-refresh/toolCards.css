@@ -1,0 +1,67 @@
+.about-refresh .ar-tools-browser { position: relative; }
+.about-refresh .ar-card-foreground { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: visible; }
+.about-refresh .ar-card-foreground > .ar-stone-card { pointer-events: auto; }
+.about-refresh .ar-tool-card.ar-stone-card {
+  --ar-card-depth: 6px; --ar-card-cut: 6px; --ar-card-min-height: 18.75rem;
+  --ar-card-pitch: 0deg; --ar-card-yaw: 0deg; --ar-card-roll: 0deg; --ar-card-read-scale: 1; --ar-card-lift: 0px; --ar-card-read-x: 0px; --ar-card-read-z: 0px; --ar-card-read-amount: 0;
+  --ar-card-x: 0px; --ar-card-y: 0px; --ar-card-z: 0px;
+  display: block; min-height: var(--ar-card-min-height); padding: 0; border: 0; border-radius: 0;
+  background: transparent; box-shadow: none; perspective: 1100px; perspective-origin: 50% 50%;
+}
+.about-refresh .ar-stone-card[data-expanded="true"] { --ar-card-min-height: 21.5625rem; }
+.about-refresh .ar-stone-card :is(.ar-card-position,.ar-card-reading,.ar-card-orientation,.ar-card-entity) { transform-style: preserve-3d; width: 100%; }
+.about-refresh .ar-stone-card .ar-card-position { transform: translate3d(var(--ar-card-x),var(--ar-card-y),var(--ar-card-z)); }
+.about-refresh .ar-stone-card .ar-card-reading { transform: translate3d(var(--ar-card-read-x),var(--ar-card-lift),var(--ar-card-read-z)) scale3d(var(--ar-card-read-scale),var(--ar-card-read-scale),var(--ar-card-read-scale)); }
+.about-refresh .ar-stone-card .ar-card-orientation { transform: rotateZ(var(--ar-card-roll)) rotateY(var(--ar-card-yaw)) rotateX(var(--ar-card-pitch)); }
+.about-refresh .ar-stone-card .ar-card-entity { position: relative; }
+.about-refresh .ar-stone-card .ar-card-face {
+  backface-visibility: hidden;
+  clip-path: polygon(0 var(--ar-card-cut),var(--ar-card-cut) 0,calc(100% - var(--ar-card-cut)) 0,100% var(--ar-card-cut),100% calc(100% - var(--ar-card-cut)),calc(100% - var(--ar-card-cut)) 100%,var(--ar-card-cut) 100%,0 calc(100% - var(--ar-card-cut)));
+}
+.about-refresh .ar-stone-card .ar-card-front {
+  position: relative; display: flex; flex-direction: column; gap: .5rem; min-height: var(--ar-card-min-height);
+  padding: .875rem; transform: translateZ(0);
+  background-color: #f6f1df;
+  background-image: radial-gradient(ellipse at 12% 5%,#fffdf1c9,transparent 68%),linear-gradient(135deg,#fffbed88,#f1ecd77a 66%,#e4e8d37a);
+  box-shadow: inset 2px 2px 0 #fffff266,inset -2px -2px 0 #879a7020;
+}
+.about-refresh .ar-stone-card .ar-card-front::before {
+  content: ""; position: absolute; inset: 6px; pointer-events: none;
+  background: radial-gradient(circle at 15% 12%,#7d986c33 0 1px,transparent 1.5px) 0 0/29px 37px,radial-gradient(circle at 72% 65%,#d1d7b733 0 2px,transparent 2.5px) 0 0/47px 43px;
+  opacity: .28;
+}
+.about-refresh .ar-stone-card .ar-card-front > :not(.ar-card-rim,.ar-card-front-sigil) { position: relative; }
+.about-refresh .ar-stone-card .ar-card-front-sigil { position: absolute; top: 45%; right: 10px; width: 90px; height: 90px; color: var(--ar-card-accent); opacity: .14; pointer-events: none; }
+.about-refresh .ar-stone-card[data-expanded="true"] .ar-card-front-sigil { opacity: .04; }
+.about-refresh .ar-stone-card .ar-card-classification { color: #526b4e; font-size: .875rem; line-height: 1.35; letter-spacing: .03em; }
+.about-refresh .ar-stone-card .ar-card-classification::before { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 .45rem .15rem 0; background: var(--ar-card-accent); transform: rotate(45deg); }
+.about-refresh .ar-stone-card .ar-card-heading { grid-template-columns: 3.25rem minmax(0,1fr); gap: .55rem; }
+.about-refresh .ar-stone-card .ar-card-emblem {
+  display: grid; place-items: center; width: 3.25rem; height: 3.25rem;
+  background: linear-gradient(135deg,#f9fae8,#dce7cb); border: 1px solid #b8c7a0;
+  clip-path: polygon(5px 0,calc(100% - 5px) 0,100% 5px,100% calc(100% - 5px),calc(100% - 5px) 100%,5px 100%,0 calc(100% - 5px),0 5px);
+  box-shadow: inset 1px 1px #fffff5,inset -1px -1px #93a98266;
+}
+.about-refresh .ar-stone-card .ar-tool-mark { display: block; width: 2.5rem; height: 2.5rem; object-fit: contain; opacity: .92; }
+.about-refresh .ar-stone-card .ar-card-name { font-size: 1.125rem; line-height: 1.4; color: #244c40; }
+.about-refresh .ar-stone-card .ar-card-use { color: #4b654a; }
+.about-refresh .ar-stone-card .ar-card-footer { padding-top: .5rem; gap: .4rem; }
+.about-refresh .ar-stone-card .ar-card-tags li { background: #e4e9d3; border-bottom: 1px solid #bccba444; }
+.about-refresh .ar-stone-card .ar-detail-toggle { background: #f9fbe8; border-color: #afc197; }
+.about-refresh .ar-stone-card .ar-card-rim { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.about-refresh .ar-stone-card .ar-card-back {
+  position: absolute; inset: 0; transform: rotateY(180deg) translateZ(var(--ar-card-depth));
+  display: grid; place-items: center; color: var(--ar-card-accent);
+  background: radial-gradient(ellipse at 20% 10%,#f8f5df,transparent 80%),linear-gradient(135deg,#e5e9ce,#c5d3af);
+  box-shadow: inset 0 0 0 2px #8da27a, inset 0 0 0 4px #f5f3d4;
+}
+.about-refresh .ar-stone-card .ar-card-engraving { width: 82%; height: 90%; max-height: 420px; }
+.about-refresh .ar-stone-card .ar-card-side { position: absolute; left: 0; top: 0; transform-origin: 0 0; backface-visibility: hidden; pointer-events: none; background-image: linear-gradient(#ffffff22,#49634422); }
+.about-refresh .ar-stone-card[data-geometry-ready="false"] .ar-card-side { visibility: hidden; }
+.about-refresh .ar-stone-card .ar-card-shadow { position: absolute; inset: calc(5px + 9px * var(--ar-card-read-amount)); background: #34523820; border-radius: 4px; filter: blur(calc(7px + .2px * var(--ar-card-read-amount))); transform: translate3d(3px,calc(7px + 2px * var(--ar-card-read-amount)),calc(-1 * var(--ar-card-depth) - 3px)) scale(.97); backface-visibility: hidden; pointer-events: none; }
+.about-refresh .ar-catalog-grid .ar-stone-card { --ar-card-min-height: 0px; --ar-card-pitch: 0deg; --ar-card-yaw: 0deg; }
+.about-refresh .ar-catalog-grid .ar-stone-card .ar-card-front { padding: 1rem; }
+.about-refresh[data-large-text="true"] .ar-tool-slot .ar-stone-card[data-expanded="true"] { width: 100%; --ar-card-min-height: 18.75rem; min-height: var(--ar-card-min-height); }
+@media(max-width:700px) {
+  .about-refresh .ar-tool-slot .ar-stone-card[data-expanded="true"] { --ar-card-min-height: 18.75rem; }
+}

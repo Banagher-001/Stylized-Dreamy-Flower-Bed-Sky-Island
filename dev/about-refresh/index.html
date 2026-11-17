@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="data:," />
+    <title>sakan · 关于我静态组件预览</title>
+  </head>
+  <body class="about-refresh-preview-page">
+    <header class="ar-preview-bar">
+      <h1>关于我 · 静态浏览</h1>
+      <nav aria-label="选择预览屏幕">
+        <button type="button" data-preview-station="A1">身份 A1</button>
+        <button type="button" data-preview-station="A2">经历 A2</button>
+        <button type="button" data-preview-station="A3">工具 A3</button>
+      </nav>
+      <button type="button" data-preview-large aria-pressed="false">大字 200%</button>
+    </header>
+    <main id="about-refresh-preview"></main>
+    <footer class="ar-preview-footer">
+      <span data-preview-layout>正在准备</span>
+      <span>独立组件预览 · 石质卡牌实体 · 飞行动效后续制作</span>
+    </footer>
+    <script type="module" src="/src/tour/about-refresh/preview.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+body.ar-card-review-page { margin: 0; background: #e9efdc; color: #244c40; font: 1rem/1.55 "Segoe UI","Microsoft YaHei",sans-serif; }
+.ar-card-review-page .ar-card-review-header { padding: 2rem max(24px,calc((100vw - 1100px)/2)); background: linear-gradient(135deg,#f9fae9,#dfeacf); border-bottom: 1px solid #bdcea3; }
+.ar-card-review-page .ar-card-review-header h1 { margin: .4rem 0 .6rem; font: 400 2.4rem/1.3 Georgia,"Songti SC",serif; }
+.ar-card-review-page .ar-card-review-header p { margin: 0; }
+.ar-card-review-page #card-review { max-width: 1100px; margin: 0 auto; padding: 24px; }
+.ar-card-review-page .ar-review-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.ar-card-review-page .ar-review-controls label { display: grid; gap: 4px; }
+.ar-card-review-page .ar-review-controls select { min-height: 44px; max-width: 100%; background: #fffced; border: 1px solid #aec49a; border-radius: 4px; padding: 8px; font: inherit; color: inherit; }
+.ar-card-review-page .ar-review-theatre { display: grid; place-items: center; min-height: 450px; margin-top: 20px; padding: 55px 20px; border: 1px solid #bfcea9; border-radius: 6px; background: radial-gradient(ellipse at 50% 35%,#f9fbe7,#e1e9cf); }
+.ar-card-review-page .ar-review-specimen-slot { display: grid; place-items: center; }
+.ar-card-review-page .ar-review-metrics { padding: 14px 0; border-bottom: 1px solid #bfcea9; font-size: .875rem; }
+.ar-card-review-page .ar-review-description { margin-top: 12px; }
+.ar-card-review-page .ar-review-gallery-title { margin: 2rem 0 1rem; font: 400 1.65rem/1.4 Georgia,"Songti SC",serif; }
+.ar-card-review-page .ar-review-gallery { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,14.5rem),1fr)); gap: 24px; padding: 24px 10px 40px; }
+.ar-card-review-page .ar-review-gallery .ar-stone-card { width: 14.5rem; max-width: 100%; justify-self: center; }
+@media(max-width:700px) { .ar-card-review-page #card-review { padding: 16px; } .ar-card-review-page .ar-review-controls label { width: 100%; } .ar-card-review-page .ar-review-theatre { padding-inline: 4px; } }

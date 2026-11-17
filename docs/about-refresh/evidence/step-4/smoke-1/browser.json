@@ -1,0 +1,81 @@
+{
+  "startedAtShanghai": "2026-11-15T16:13:41.847469+08:00",
+  "origin": "http://127.0.0.1:46591",
+  "checks": [
+    {
+      "id": "desktop-A1",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "measurement": "desktop-A1-measurement.json",
+      "screenshot": "desktop-A1.png",
+      "mode": "immersive"
+    },
+    {
+      "id": "desktop-A2",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "measurement": "desktop-A2-measurement.json",
+      "screenshot": "desktop-A2.png",
+      "mode": "immersive"
+    },
+    {
+      "id": "desktop-A3",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "measurement": "desktop-A3-measurement.json",
+      "screenshot": "desktop-A3.png",
+      "mode": "immersive"
+    },
+    {
+      "id": "overview-return",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "measurement": "overview-return-measurement.json",
+      "screenshot": "overview-return.png",
+      "mode": "immersive"
+    },
+    {
+      "id": "stable-phone",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "失败",
+      "error": "['A3', 'opening', 'A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'water', 'ending']",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-4/verify-main.py\", line 51, in case\n    if not unavailable:invariants(p);assert len(report['events'])==start,report['events'][start:]\n                       ^^^^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-4/verify-main.py\", line 26, in invariants\n    assert m['anchors']==['opening','A1','A2','A3','B1','B2','B3','B4','C1','C2','C3','water','ending'],m['anchors'];assert m['toolAnchors']==0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ['A3', 'opening', 'A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'water', 'ending']\n"
+    },
+    {
+      "id": "reading-mode-roundtrip",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "失败",
+      "error": "['A3', 'opening', 'A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'water', 'ending']",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-4/verify-main.py\", line 51, in case\n    if not unavailable:invariants(p);assert len(report['events'])==start,report['events'][start:]\n                       ^^^^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-4/verify-main.py\", line 26, in invariants\n    assert m['anchors']==['opening','A1','A2','A3','B1','B2','B3','B4','C1','C2','C3','water','ending'],m['anchors'];assert m['toolAnchors']==0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ['A3', 'opening', 'A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'water', 'ending']\n"
+    }
+  ],
+  "events": [],
+  "externalAttempts": [],
+  "physicalDevice": false,
+  "clockModified": false,
+  "complete": false,
+  "version": "155.0.8059.79",
+  "cleanup": {
+    "browserClosed": true,
+    "sharedServicesStopped": false
+  },
+  "finishedAtShanghai": "2026-11-15T16:13:56.709729+08:00"
+}

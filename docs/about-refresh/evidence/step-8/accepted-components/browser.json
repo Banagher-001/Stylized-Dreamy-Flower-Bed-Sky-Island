@@ -1,0 +1,115 @@
+{
+  "startedAtShanghai": "2026-11-16T16:42:51.369033+08:00",
+  "checks": [
+    {
+      "id": "gentle-notch-manual-tail",
+      "status": "通过",
+      "data": "gentle-notch-manual-tail-data.json"
+    },
+    {
+      "id": "slow-fast-intensity",
+      "status": "通过",
+      "data": "slow-fast-intensity-data.json"
+    },
+    {
+      "id": "extreme-input-speed-cap",
+      "status": "通过",
+      "data": "extreme-input-speed-cap-data.json"
+    },
+    {
+      "id": "reverse-brakes-smoothly",
+      "status": "通过",
+      "data": "reverse-brakes-smoothly-data.json"
+    },
+    {
+      "id": "automatic-reverse-tail-base",
+      "status": "通过",
+      "data": "automatic-reverse-tail-base-data.json"
+    },
+    {
+      "id": "pause-hard-stop-resume-base",
+      "status": "通过",
+      "data": "pause-hard-stop-resume-base-data.json"
+    },
+    {
+      "id": "pointer-leave-short-tail",
+      "status": "通过",
+      "data": "pointer-leave-short-tail-data.json"
+    },
+    {
+      "id": "horizontal-first-native-delta",
+      "status": "通过",
+      "data": "horizontal-first-native-delta-data.json"
+    },
+    {
+      "id": "reverse-seam-native-current-card",
+      "status": "通过",
+      "data": "reverse-seam-native-current-card-data.json"
+    },
+    {
+      "id": "gesture-axis-ownership",
+      "status": "通过",
+      "data": "gesture-axis-ownership-data.json"
+    },
+    {
+      "id": "line-page-zero-normalization",
+      "status": "通过",
+      "data": "line-page-zero-normalization-data.json"
+    },
+    {
+      "id": "ctrl-wheel-native-zoom",
+      "status": "通过",
+      "data": "ctrl-wheel-native-zoom-data.json"
+    },
+    {
+      "id": "buttons-categories-overview-clear-motion",
+      "status": "通过",
+      "data": "buttons-categories-overview-clear-motion-data.json"
+    },
+    {
+      "id": "snapshot-direction-not-velocity",
+      "status": "通过",
+      "data": "snapshot-direction-not-velocity-data.json"
+    },
+    {
+      "id": "leave-return-no-old-inertia",
+      "status": "通过",
+      "data": "leave-return-no-old-inertia-data.json"
+    },
+    {
+      "id": "hidden-no-old-inertia",
+      "status": "通过",
+      "data": "hidden-no-old-inertia-data.json"
+    },
+    {
+      "id": "resize-paused-clears-inertia",
+      "status": "通过",
+      "data": "resize-paused-clears-inertia-data.json"
+    },
+    {
+      "id": "reduced-motion-clears-inertia",
+      "status": "通过",
+      "data": "reduced-motion-clears-inertia-data.json"
+    },
+    {
+      "id": "real-wheel-two-full-directions",
+      "status": "通过",
+      "data": "real-wheel-two-full-directions-data.json"
+    },
+    {
+      "id": "real-wheel-five-card-directions",
+      "status": "失败",
+      "error": "({'photoshop', 'illustrator', 'after-effects', 'premiere-pro', 'jianying'}, 0)",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-components.py\", line 41, in case\n    setup(p,paused);data=fn(p);assert not events,events;save(run/(name+'-data.json'),data);p.screenshot(path=str(run/(name+'.png')));entry.update(status='通过',data=name+'-data.json')\n                         ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-components.py\", line 136, in <lambda>\n    case('real-wheel-two-full-directions',cycle);case('real-wheel-five-card-directions',lambda p:cycle(p,'G6'))\n                                                                                                 ^^^^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-8/verify-wheel-components.py\", line 130, in cycle\n    assert len(seen)==len(ids) and len(wraps)>=2*len(ids)-4,(seen,len(wraps));assert float(read(p)['d']['trackLeadIn'])==0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ({'photoshop', 'illustrator', 'after-effects', 'premiere-pro', 'jianying'}, 0)\n"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "clockModified": false,
+  "standaloneActualComponents": true,
+  "physicalDevice": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "serverClosed": true,
+  "finishedAtShanghai": "2026-11-16T16:44:42.698507+08:00"
+}

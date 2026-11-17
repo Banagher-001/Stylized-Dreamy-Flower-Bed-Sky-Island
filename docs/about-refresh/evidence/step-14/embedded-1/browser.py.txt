@@ -1,0 +1,259 @@
+"""Final visitor routes against a real production server, without debug clocks."""
+from support import Run, save
+import json
+
+r = Run()
+
+def profiles(page, expand=False):
+    rows = []
+    r.go(page, 'A1')
+    text = page.locator('.ar-screen[data-reading-station=A1]').inner_text()
+    assert all(word in text for word in ['sakan', '张辰翰', 'AIGC', '枫叶互动', '游族网络']), text
+    if expand:
+        details = page.locator('[data-about-details=identity]')
+        r.activate(details.locator('summary'))
+        assert details.evaluate('e=>e.open') and '战锤' in details.inner_text()
+        r.activate(details.locator('summary'))
+    rows.append(r.state(page))
+    r.go(page, 'A2')
+    text = page.locator('.ar-screen[data-reading-station=A2]').inner_text()
+    assert all(word in text for word in ['枫叶互动', '游族网络', '869', '概念与分镜', '剪辑合成'])
+    if expand:
+        details = page.locator('[data-about-details=experience]')
+        r.activate(details.locator('summary'))
+        assert details.evaluate('e=>e.open')
+        assert '辽宁师范大学' in details.inner_text() and '2023' in details.inner_text() and '2027' in details.inner_text()
+        assert '荣誉' not in details.inner_text()
+        r.activate(details.locator('summary'))
+    rows.append(r.state(page))
+    return rows
+
+def images(page):
+    rows = []
+    for station in ['B1', 'B2', 'B3']:
+        r.go(page, station)
+        assert '网页设计样片' in page.locator('.film-reading').inner_text()
+        button = page.locator(f'[data-film-station={station}] .film-image-button').first
+        r.activate(button)
+        page.wait_for_function('document.querySelector(".film-dialog").dataset.state==="ready"', timeout=30000)
+        rows.append(page.locator('.film-dialog img').evaluate('e=>({src:e.currentSrc,w:e.naturalWidth,h:e.naturalHeight,loaded:e.complete})'))
+        assert rows[-1]['loaded'] and rows[-1]['w'] > 100
+        r.activate(page.locator('.film-dialog-close'))
+        page.wait_for_function('!document.querySelector(".film-dialog").open&&!document.querySelector(".film-dialog-viewport img")')
+        assert not page.locator('.film-dialog-viewport img').count()
+    r.go(page, 'B4')
+    return rows
+
+def projects(page, identifiers=('lawson', 'bottle-ocean', 'courtyard')):
+    rows = []
+    for identifier in identifiers:
+        before = r.state(page)
+        frame = r.open_project(page, identifier)
+        if identifier == 'lawson':
+            frame.locator('[data-cam=front]').click()
+            frame.wait_for_function('__LAWSON__.state.cameraMode==="front"')
+            native = frame.evaluate('__LAWSON__.api.getState()')
+        elif identifier == 'bottle-ocean':
+            paused = frame.evaluate('__bottleOcean.state.paused')
+            r.activate(frame.locator('[data-action=pause]'))
+            native = frame.evaluate('({...__bottleOcean.state})')
+            assert native['paused'] is not paused
+        else:
+            assert not page.locator('iframe').count()
+            for mode in ['native', 'pixel']:
+                page.locator(f'[data-project-mode={mode}]').click()
+                page.wait_for_function('v=>document.querySelector("#tour-host canvas").dataset.renderMode===v', arg=mode)
+            native = r.state(page)['host']
+        r.checkpoint(page, identifier)
+        r.close_project(page)
+        after = r.state(page)
+        assert after['frames'] == 0 and after['canvas'] == before['canvas']
+        assert not after['dialogs']
+        rows.append({'id': identifier, 'native': native, 'returned': after})
+    return rows
+
+def desktop(page):
+    start = r.checkpoint(page, 'opening')
+    assert start['mode'] == 'immersive' and float(start['host']['displayH']) < .01
+    first_time = float(start['host']['sceneTime'])
+    page.wait_for_timeout(500)
+    assert float(r.state(page)['host']['sceneTime']) > first_time
+    page.locator('#tour-guide').click()
+    page.wait_for_function('document.querySelector("#tour-guide").getAttribute("aria-pressed")==="true"')
+    page.mouse.move(24, 300)
+    page.mouse.wheel(0, 160)
+    page.wait_for_function('document.querySelector("#tour-guide").getAttribute("aria-pressed")==="false"')
+    intro = profiles(page)
+    r.go(page, 'A3')
+    page.wait_for_function('Number(document.querySelector(".ar-tools-browser").dataset.entrancePlays)===1')
+    entrance = r.checkpoint(page, 'entry')
+    assert entrance['tools']['entranceIds'] == 'midjourney,comfyui,kling,blender'
+    page.wait_for_function('document.querySelector(".ar-tools-browser").dataset.trackState==="running"')
+    page.wait_for_timeout(850)
+    initial = r.state(page)
+    assert len(initial['cards']) == 22 and initial['tools']['trackEnabled'] == 'true'
+    rail = page.locator('.ar-tool-rail').bounding_box()
+    page.mouse.move(rail['x'] + rail['width'] / 2, rail['y'] + rail['height'] / 2)
+    for _ in range(4):
+        page.mouse.wheel(0, 35)
+        page.wait_for_timeout(140)
+    slow = abs(float(r.state(page)['tools']['trackSpeed']))
+    for _ in range(7):
+        page.mouse.wheel(0, 160)
+        page.wait_for_timeout(25)
+    fast = abs(float(r.state(page)['tools']['trackSpeed']))
+    assert fast > slow and fast <= 560.01, (slow, fast)
+    page.mouse.move(24, 300)
+    page.wait_for_timeout(1300)
+    page.locator('[data-action=auto]').click()
+    for category, count in [('G1', 3), ('G2', 2), ('G3', 2), ('G4', 6), ('G5', 3), ('G6', 5), ('G7', 1), ('all', 22)]:
+        page.locator(f'[data-category={category}]').click()
+        assert len(r.state(page)['cards']) == count
+    card = page.locator('.ar-tool-card[data-tool-id=comfyui]')
+    card.locator('button').click()
+    page.wait_for_timeout(450)
+    assert r.state(page)['tools']['readingId'] == 'comfyui'
+    page.locator('[data-action=help]').click()
+    page.keyboard.press('Escape')
+    assert r.state(page)['tools']['detailMode'] == 'pinned'
+    page.locator('[data-action=all]').click()
+    assert page.locator('.ar-catalog .ar-tool-card').count() == 22
+    page.keyboard.press('Escape')
+    page.wait_for_function('!document.querySelector(".ar-overview-dialog").open')
+    assert r.state(page)['tools']['readingId'] == 'comfyui'
+    card.locator('button').click()
+    page.wait_for_timeout(400)
+    r.go(page, 3.56)
+    page.wait_for_function('document.querySelector(".ar-tools-browser").dataset.departure==="departed"')
+    departure = r.checkpoint(page, 'departure')
+    r.go(page, 'B1')
+    film = images(page)
+    r.go(page, 'C1')
+    works = projects(page)
+    r.go(page, 'C3')
+    r.go(page, 'water')
+    r.go(page, 'ending')
+    ending = r.checkpoint(page, 'ending')
+    page.locator('[data-tour-replay=films]').click()
+    page.wait_for_function('Math.abs(Number(document.querySelector("#tour-host").dataset.displayH)-4.95)<.006')
+    r.go(page, 'ending')
+    page.locator('[data-tour-replay=overview]').click()
+    page.wait_for_function('Number(document.querySelector("#tour-host").dataset.displayH)<.006')
+    return {'opening': start, 'profiles': intro, 'entry': entrance, 'wheelPeaks': [slow, fast], 'departure': departure, 'films': film, 'projects': works, 'ending': ending, 'returned': r.state(page)}
+
+def fast_route(page):
+    r.stable(page)
+    facts = profiles(page, True)
+    r.go(page, 'A3')
+    page.locator('.ar-category-select select').is_visible()
+    if page.locator('.ar-category-select').is_visible():
+        page.locator('.ar-category-select select').select_option('G5')
+    else:
+        page.locator('[data-category=G5]').click()
+    page.locator('.ar-tool-card[data-tool-id=substance-painter] button').click()
+    saved = r.state(page)
+    image = images(page)
+    works = projects(page, ('bottle-ocean',))
+    r.go(page, 'A3')
+    returned = r.state(page)
+    assert returned['tools']['category'] == 'G5' and returned['tools']['readingId'] == 'substance-painter'
+    assert not next(v for v in returned['cards'] if v['id'] == 'substance-painter')['detailHidden']
+    return {'profiles': facts, 'saved': saved, 'film': image, 'project': works, 'returned': returned}
+
+def mobile(page):
+    assert r.state(page)['mode'] == 'stable'
+    facts = profiles(page, True)
+    r.go(page, 'A3')
+    page.locator('.ar-tool-card[data-tool-id=midjourney] button').tap()
+    assert r.state(page)['tools']['readingId'] == 'midjourney'
+    page.locator('[data-action=help]').tap()
+    assert page.locator('.ar-tool-help-panel').get_attribute('data-presentation') == 'inline'
+    assert '左右滑动' in page.locator('.ar-tool-help-panel').inner_text()
+    r.checkpoint(page, 'touch-help')
+    page.locator('[data-action=help-close]').tap()
+    page.set_viewport_size({'width': 844, 'height': 390})
+    page.wait_for_timeout(650)
+    assert r.state(page)['tools']['readingId'] == 'midjourney'
+    page.set_viewport_size({'width': 390, 'height': 844})
+    page.wait_for_timeout(650)
+    page.locator('[data-action=all]').tap()
+    assert page.locator('.ar-catalog .ar-tool-card').count() == 22
+    page.locator('.ar-all-tools [data-action=return]').first.tap()
+    films = images(page)
+    works = projects(page, ('bottle-ocean',))
+    r.go(page, 'ending')
+    page.locator('.tour-flow-ending [data-flow-go=B1]').tap()
+    page.wait_for_function('document.querySelector("main").dataset.flowAnchor==="B1"')
+    return {'profiles': facts, 'films': films, 'works': works, 'returned': r.state(page)}
+
+def keyboard(page):
+    def tab_to(selector, limit=100):
+        for i in range(limit):
+            if page.evaluate('s=>document.activeElement?.matches(s)', selector):
+                return i
+            page.keyboard.press('Tab')
+        raise AssertionError('Keyboard target not reached: ' + selector)
+    tabs = []
+    page.keyboard.press('Tab')
+    assert page.locator('.tour-skip').evaluate('e=>e===document.activeElement')
+    page.keyboard.press('Enter')
+    page.wait_for_function('document.querySelector("main").dataset.readingMode==="stable"')
+    tabs.append(tab_to('[data-about-details=identity] summary'))
+    page.keyboard.press('Enter')
+    assert page.locator('[data-about-details=identity]').evaluate('e=>e.open')
+    tabs.append(tab_to('[data-about-details=experience] summary'))
+    page.keyboard.press('Enter')
+    assert '辽宁师范大学' in page.locator('[data-about-details=experience]').inner_text()
+    tabs.append(tab_to('.ar-tool-card[data-tool-id=midjourney] button'))
+    page.keyboard.press('Enter')
+    tabs.append(tab_to('[data-action=help]'))
+    page.keyboard.press('Enter')
+    page.keyboard.press('Escape')
+    assert r.state(page)['tools']['detailMode'] == 'pinned'
+    page.keyboard.press('Escape')
+    assert r.state(page)['tools']['detailMode'] == 'summary'
+    tabs.append(tab_to('[data-action=continue]'))
+    page.keyboard.press('Enter')
+    tabs.append(tab_to('[data-film-station=B1] .film-image-button'))
+    page.keyboard.press('Enter')
+    page.wait_for_function('document.querySelector(".film-dialog").dataset.state==="ready"')
+    page.keyboard.press('Escape')
+    tabs.append(tab_to('[data-project-select=lawson]'))
+    page.keyboard.press('ArrowRight')
+    assert page.locator('[data-project-select=bottle-ocean]').evaluate('e=>e===document.activeElement&&e.getAttribute("aria-selected")==="true"')
+    tabs.append(tab_to('[data-project-tab=live]'))
+    page.keyboard.press('Enter')
+    page.wait_for_selector('iframe', state='attached')
+    assert page.locator('.tour-project-close').evaluate('e=>e===document.activeElement')
+    page.keyboard.press('Escape')
+    page.wait_for_function('!document.querySelector(".tour-project-dialog").open')
+    assert not r.state(page)['focus']['hidden']
+    return {'nativeTabSteps': tabs, 'state': r.state(page)}
+
+def reduced(page):
+    assert r.state(page)['mode'] == 'stable'
+    facts = profiles(page, True)
+    r.go(page, 'A3')
+    page.locator('.ar-tool-card[data-tool-id=midjourney] button').click()
+    m = r.state(page)
+    assert m['tools']['entrancePlays'] == '0' and m['tools']['detailMode'] == 'pinned'
+    for key in ['trackFramePending', 'hoverFramePending', 'departureFramePending', 'entranceFramePending']:
+        assert m['tools'][key] == 'false'
+    films = images(page)
+    r.go(page, 'C2')
+    page.locator('[data-project-select=bottle-ocean]').click()
+    page.locator('[data-project-tab=archive]').click()
+    assert '海浪' in page.locator('.tour-project-archive').inner_text()
+    r.close_project(page)
+    return {'profiles': facts, 'toolReading': m, 'films': films, 'returned': r.state(page)}
+
+try:
+    r.case('desktop-complete-journey', desktop, video=True)
+    r.case('fast-review-preserves-reading', fast_route)
+    if r.args.engine == 'chromium':
+        r.case('mobile-complete-journey', mobile, size=(390, 844), touch=True)
+    r.case('keyboard-complete-route', keyboard)
+    r.case('reduced-motion-complete-reading', reduced, reduced=True)
+finally:
+    good = r.finish()
+raise SystemExit(0 if good else 1)

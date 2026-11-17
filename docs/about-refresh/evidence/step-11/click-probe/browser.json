@@ -1,0 +1,24 @@
+{
+  "startedAtShanghai": "2026-11-17T10:43:35.318109+08:00",
+  "checks": [
+    {
+      "id": "return-first-moving-card-click",
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": "失败",
+      "error": "[{'type': 'pointerdown', 'action': None, 'card': 'midjourney', 'tag': 'DIV', 'x': 331.1854248046875, 'y': 656.2196044921875}, {'type': 'pointerup', 'action': None, 'card': 'midjourney', 'tag': 'DIV', 'x': 331.1854248046875, 'y': 656.2196044921875}, {'type': 'click', 'action': None, 'card': 'midjourney', 'tag': 'DIV', 'x': 331, 'y': 656}]",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-11/verify-departure.py\", line 55, in case\n    setup(p,paused,program,fixed_world);data=fn(p);assert not errors,errors\n                                             ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-11/verify-departure.py\", line 122, in firstcard\n    b=p.locator(f'.ar-tool-card[data-tool-id={id}] button').bounding_box();p.mouse.move(b['x']+b['width']/2,b['y']+b['height']/2);p.mouse.down();a=read(p);assert a['d']['departurePressed']=='true';p.wait_for_timeout(110);held=read(p);assert card(a,id)['flight']==card(held,id)['flight'];p.mouse.up();p.wait_for_timeout(700);m=read(p);trace=p.evaluate('__clickTrace');save(run/'moving-click-trace.json',{'id':id,'events':trace,'down':a,'held':held,'after':m});assert m['d']['departure']=='idle' and m['d']['detailMode']=='pinned' and m['d']['readingId']==id,trace;return {'clicked':id,'events':trace,'down':a,'held':held,'after':m}\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: [{'type': 'pointerdown', 'action': None, 'card': 'midjourney', 'tag': 'DIV', 'x': 331.1854248046875, 'y': 656.2196044921875}, {'type': 'pointerup', 'action': None, 'card': 'midjourney', 'tag': 'DIV', 'x': 331.1854248046875, 'y': 656.2196044921875}, {'type': 'click', 'action': None, 'card': 'midjourney', 'tag': 'DIV', 'x': 331, 'y': 656}]\n"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "clockModified": false,
+  "physicalDevice": false,
+  "main": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "serverClosed": true,
+  "finishedAtShanghai": "2026-11-17T10:43:40.244411+08:00"
+}

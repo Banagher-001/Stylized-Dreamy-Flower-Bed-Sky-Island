@@ -1,0 +1,38 @@
+[
+  {
+    "command": [
+      "verify-adaptation.py",
+      "accepted-adaptation-main"
+    ],
+    "exitCode": 1
+  },
+  {
+    "command": [
+      "verify-component-lifecycle.py",
+      "accepted-component-lifecycle"
+    ],
+    "exitCode": 1
+  },
+  {
+    "command": [
+      "verify-adaptation.py",
+      "accepted-adaptation-firefox",
+      "--engine",
+      "firefox",
+      "--only",
+      "viewport-1440x900",
+      "viewport-390x844",
+      "pinned-mode-roundtrip",
+      "reduced-motion-roundtrip",
+      "keyboard-and-targets"
+    ],
+    "exitCode": 1
+  },
+  {
+    "command": [
+      "verify-browser-zoom.py",
+      "accepted-browser-zoom"
+    ],
+    "exitCode": 0
+  }
+]

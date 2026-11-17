@@ -1,0 +1,255 @@
+{
+  "total": 133,
+  "allPassed": true,
+  "groups": [
+    {
+      "run": "components-2",
+      "checks": 20,
+      "ids": [
+        "forward-visible-entities",
+        "reverse-visible-entities",
+        "midflight-continuous-return",
+        "auto-choice-and-phase",
+        "pinned-wide-preserves-full-text",
+        "temporary-preview-not-saved",
+        "current-filter-and-edge-cards",
+        "two-card-native-flight",
+        "last-card-wide-flight",
+        "row-wheel-never-departs",
+        "return-first-control-click",
+        "return-first-moving-card-click",
+        "return-first-all-tools-click",
+        "resize-interrupts-fixed-flight",
+        "hidden-cleans-flight",
+        "reduced-cleans-flight",
+        "font-change-cleans-flight",
+        "snapshot-discards-flight-restores-pin",
+        "dispose-during-flight",
+        "boundary-reversal-no-stale-callbacks"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    },
+    {
+      "run": "main-1",
+      "checks": 24,
+      "ids": [
+        "forward-visible-entities",
+        "reverse-visible-entities",
+        "midflight-continuous-return",
+        "auto-choice-and-phase",
+        "pinned-wide-preserves-full-text",
+        "temporary-preview-not-saved",
+        "current-filter-and-edge-cards",
+        "two-card-native-flight",
+        "last-card-wide-flight",
+        "row-wheel-never-departs",
+        "return-first-control-click",
+        "return-first-moving-card-click",
+        "return-first-all-tools-click",
+        "resize-interrupts-fixed-flight",
+        "hidden-cleans-flight",
+        "reduced-cleans-flight",
+        "font-change-cleans-flight",
+        "paused-world-independent-flight",
+        "guide-remains-active-on-departure",
+        "continue-navigation-preserves-reading",
+        "actual-departure-demonstration",
+        "phone-native-reading",
+        "narrow-native-reading",
+        "large-native-reading"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": true
+    },
+    {
+      "run": "main-native-selector",
+      "checks": 1,
+      "ids": [
+        "stable-wide-keeps-native-reading"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    },
+    {
+      "run": "interaction-components",
+      "checks": 3,
+      "ids": [
+        "return-hover-pauses-and-resumes",
+        "return-pointer-cancel-cleans-lease",
+        "return-keyboard-focus-and-enter"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    },
+    {
+      "run": "interaction-main",
+      "checks": 3,
+      "ids": [
+        "return-hover-pauses-and-resumes",
+        "return-pointer-cancel-cleans-lease",
+        "return-keyboard-focus-and-enter"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    },
+    {
+      "run": "regression-detail-components",
+      "checks": 23,
+      "ids": [
+        "all-22-full-paragraphs",
+        "preview-closes-and-resumes",
+        "paused-preview-stays-paused",
+        "one-click-pin-no-reopening",
+        "click-during-width-transition",
+        "direct-click-pins-full-detail",
+        "resume-closes-before-moving",
+        "pinned-adjacent-navigation",
+        "partial-edge-full-text-and-hit-grid",
+        "last-card-full-text-and-pin",
+        "first-wheel-closes-preview",
+        "horizontal-first-event",
+        "category-clears-pinned-detail",
+        "catalog-restores-fixed-reading",
+        "keyboard-preview-pin-escape",
+        "resize-keeps-fixed-content",
+        "hidden-clears-preview",
+        "reduced-motion-keeps-full-content",
+        "snapshot-restores-pin",
+        "snapshot-discards-preview",
+        "dispose-pinned-reading",
+        "native-click-full-detail",
+        "native-pin-resume-handoff"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    },
+    {
+      "run": "regression-detail-main",
+      "checks": 26,
+      "ids": [
+        "all-22-full-paragraphs",
+        "preview-closes-and-resumes",
+        "paused-preview-stays-paused",
+        "one-click-pin-no-reopening",
+        "click-during-width-transition",
+        "direct-click-pins-full-detail",
+        "resume-closes-before-moving",
+        "pinned-adjacent-navigation",
+        "partial-edge-full-text-and-hit-grid",
+        "last-card-full-text-and-pin",
+        "first-wheel-closes-preview",
+        "horizontal-first-event",
+        "category-clears-pinned-detail",
+        "catalog-restores-fixed-reading",
+        "keyboard-preview-pin-escape",
+        "resize-keeps-fixed-content",
+        "hidden-clears-preview",
+        "reduced-motion-keeps-full-content",
+        "fixed-reading-wheel-scrolls-page",
+        "fixed-reading-chapter-return",
+        "preview-stops-main-guide",
+        "actual-detail-demonstration",
+        "phone-one-tap-full-detail",
+        "narrow-one-tap-full-detail",
+        "large-text-full-detail",
+        "reduced-stable-full-detail"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    },
+    {
+      "run": "regression-shadow",
+      "checks": 1,
+      "ids": [
+        "shadow-behind-front-pixel-check"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    },
+    {
+      "run": "regression-wheel",
+      "checks": 15,
+      "ids": [
+        "real-wheel-speed-direction-tail",
+        "title-wheel-remains-page",
+        "filters-wheel-remains-page",
+        "controls-wheel-remains-page",
+        "continue-wheel-remains-page",
+        "narrow-native-page",
+        "large-font-native-page",
+        "wide-stable-manual-opt-in",
+        "entrance-wheel-remains-page",
+        "horizontal-native-first-event",
+        "fitting-category-remains-page",
+        "first-card-first-native-click",
+        "last-card-first-native-click",
+        "partial-card-first-native-click",
+        "scene-clock-independent"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    },
+    {
+      "run": "regression-cycle",
+      "checks": 2,
+      "ids": [
+        "real-wheel-two-full-directions",
+        "real-wheel-five-card-directions"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    },
+    {
+      "run": "regression-existing",
+      "checks": 7,
+      "ids": [
+        "modal-resize-to-phone",
+        "native-scroll-navigation",
+        "film-open-return",
+        "lawson-open-interact-return",
+        "bottle-open-interact-return",
+        "environment-play-pause-resume",
+        "automatic-A1-A2-A3"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    },
+    {
+      "run": "regression-projection",
+      "checks": 8,
+      "ids": [
+        "desktop-front",
+        "large-front",
+        "phone-front",
+        "narrow-front",
+        "first-detail",
+        "last-detail",
+        "narrow-detail",
+        "large-text-detail"
+      ],
+      "finalSourcesMatch": true,
+      "partialRun": false
+    }
+  ],
+  "excludedDevelopmentRuns": [
+    "inspection-1",
+    "components-1",
+    "click-probe",
+    "click-fixed"
+  ],
+  "excludedChecks": [
+    {
+      "run": "main-1",
+      "id": "stable-wide-keeps-native-reading",
+      "reason": "测试选择器同时匹配 main 的当前锚点和实际 A3 章节；未计入最终通过数。",
+      "replacementRun": "main-native-selector"
+    }
+  ],
+  "notes": [
+    "components-1 和 click-probe 记录返回按钮继续移动、实际点击落到相邻牌面的情况。增加有意移入暂停后，测试按先移入、再对准停稳按钮的真实操作验证唯一一次原生点击。",
+    "components-2 的 20 项通过与 main-1 中 24 项通过均为最终 build-4；主站唯一未通过项为选择器冲突，限定真实阅读流后单独复验通过。没有重复计数或混用旧版运行。",
+    "interaction-components/main 各补充 3 项鼠标暂停继续、指针取消和键盘检查。",
+    "先前 82 项详情、滚轮、循环、阴影、作品与投影回归全部在 build-4 重新执行通过。"
+  ]
+}

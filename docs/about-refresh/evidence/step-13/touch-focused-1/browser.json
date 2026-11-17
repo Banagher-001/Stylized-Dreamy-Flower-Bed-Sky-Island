@@ -1,0 +1,69 @@
+{
+  "startedAtShanghai": "2026-11-17T14:54:13.749819+08:00",
+  "checks": [
+    {
+      "id": "native-touch-horizontal-and-page",
+      "status": "通过",
+      "viewport": [
+        390,
+        844
+      ],
+      "touchEmulation": true,
+      "data": "native-touch-horizontal-and-page-data.json",
+      "events": []
+    },
+    {
+      "id": "hybrid-first-tap",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "touchEmulation": false,
+      "data": "hybrid-first-tap-data.json",
+      "events": []
+    },
+    {
+      "id": "hybrid-first-swipe",
+      "status": "失败",
+      "viewport": [
+        1440,
+        900
+      ],
+      "touchEmulation": false,
+      "error": "(0, 53)",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-13/verify-adaptation.py\", line 33, in case\n    setup(p);data=fn(p);m=read(p);assert not errors,errors;assert m['overflow']<=1 and m['instances']==1,m\n                  ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-13/verify-adaptation.py\", line 106, in <lambda>\n    for kind in ['tap','swipe','cancel']:case('hybrid-first-'+kind,lambda p,k=kind:hybrid(p,k))\n                                                                                   ^^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-13/verify-adaptation.py\", line 79, in hybrid\n    touch(c,p,'touchEnd',0,0);p.wait_for_timeout(650);end=read(p);assert end['d']['trackMode']=='native' and end['d']['detailMode']=='summary';assert end['railX']>a['railX']+70,(a['railX'],end['railX']);assert abs(end['y']-a['y'])<3\n                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: (0, 53)\n",
+      "events": []
+    },
+    {
+      "id": "hybrid-first-cancel",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "touchEmulation": false,
+      "data": "hybrid-first-cancel-data.json",
+      "events": []
+    },
+    {
+      "id": "hybrid-return-to-mouse",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "touchEmulation": false,
+      "data": "hybrid-return-to-mouse-data.json",
+      "events": []
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "engine": "chromium",
+  "physicalDevice": false,
+  "clockModified": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "finishedAtShanghai": "2026-11-17T14:54:39.325823+08:00"
+}

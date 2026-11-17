@@ -1,0 +1,122 @@
+{
+  "adopted": [
+    {
+      "run": "accepted-components",
+      "checks": 19,
+      "ids": [
+        "gentle-notch-manual-tail",
+        "slow-fast-intensity",
+        "extreme-input-speed-cap",
+        "reverse-brakes-smoothly",
+        "automatic-reverse-tail-base",
+        "pause-hard-stop-resume-base",
+        "pointer-leave-short-tail",
+        "horizontal-first-native-delta",
+        "reverse-seam-native-current-card",
+        "gesture-axis-ownership",
+        "line-page-zero-normalization",
+        "ctrl-wheel-native-zoom",
+        "buttons-categories-overview-clear-motion",
+        "snapshot-direction-not-velocity",
+        "leave-return-no-old-inertia",
+        "hidden-no-old-inertia",
+        "resize-paused-clears-inertia",
+        "reduced-motion-clears-inertia",
+        "real-wheel-two-full-directions"
+      ],
+      "excludedEarlierAssertions": [
+        "real-wheel-five-card-directions"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted-five",
+      "checks": 1,
+      "ids": [
+        "real-wheel-five-card-directions"
+      ],
+      "excludedEarlierAssertions": [],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted-main",
+      "checks": 19,
+      "ids": [
+        "real-wheel-speed-direction-tail",
+        "title-wheel-remains-page",
+        "filters-wheel-remains-page",
+        "controls-wheel-remains-page",
+        "continue-wheel-remains-page",
+        "phone-native-page",
+        "narrow-native-page",
+        "large-font-native-page",
+        "reduced-native-page",
+        "entrance-wheel-remains-page",
+        "horizontal-native-first-event",
+        "fitting-category-remains-page",
+        "overview-native-reading",
+        "first-card-first-native-click",
+        "last-card-first-native-click",
+        "partial-card-first-native-click",
+        "keyboard-focus-enter",
+        "wheel-stops-guide-retains-card-choice",
+        "scene-clock-independent"
+      ],
+      "excludedEarlierAssertions": [
+        "pointer-outside-page-return",
+        "wide-stable-manual-opt-in"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted-main-followup",
+      "checks": 2,
+      "ids": [
+        "pointer-outside-page-return",
+        "wide-stable-manual-opt-in"
+      ],
+      "excludedEarlierAssertions": [],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted-regressions",
+      "checks": 7,
+      "ids": [
+        "modal-resize-to-phone",
+        "native-scroll-navigation",
+        "film-open-return",
+        "lawson-open-interact-return",
+        "bottle-open-interact-return",
+        "environment-play-pause-resume",
+        "automatic-A1-A2-A3"
+      ],
+      "excludedEarlierAssertions": [],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted-projection",
+      "checks": 8,
+      "ids": [
+        "desktop-front",
+        "large-front",
+        "phone-front",
+        "narrow-front",
+        "first-detail",
+        "last-detail",
+        "narrow-detail",
+        "large-text-detail"
+      ],
+      "excludedEarlierAssertions": [],
+      "finalSourcesMatch": true
+    }
+  ],
+  "total": 56,
+  "allPassed": true,
+  "originalFailedAttemptsPreserved": true,
+  "notes": [
+    "accepted-components 的五张分类测试沿用了 22 张测试的大于 2000 px 换位阈值，未识别 1280 px 周期；accepted-five 用实际周期的一半识别后通过，产品源码未变。",
+    "accepted-main 最初把移出横排等同于关闭自动展示，并假设 1366 px 必然稳定阅读；补验按既定规则区分移出横排/离开 A3，并主动切换稳定模式。其他通过用例不重复计数。",
+    "早期组件、快照、缩小动态及离屏预算的修正已纳入最终源码，初期失败日志保留但不计验收。",
+    "组件初始测试误将 Playwright 默认 null 参数当作默认 true；取消后阻塞的测试只终止已验证的本次测试后代，见 cancelled-test-cleanup.json。"
+  ]
+}

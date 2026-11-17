@@ -1,0 +1,294 @@
+{
+  "total": 161,
+  "allPassed": true,
+  "build": "build-5",
+  "groups": [
+    {
+      "run": "accepted5-adaptation-main",
+      "checks": 30,
+      "ids": [
+        "initial-reduced-motion",
+        "graphics-unavailable-reading",
+        "viewport-320x740",
+        "viewport-390x844",
+        "viewport-430x932",
+        "viewport-844x390",
+        "viewport-768x1024",
+        "viewport-1024x768",
+        "viewport-1280x720",
+        "viewport-1440x900",
+        "viewport-1920x1080",
+        "viewport-1179x900",
+        "viewport-1180x900",
+        "viewport-1181x900",
+        "pinned-mode-roundtrip",
+        "pinned-font-200-roundtrip",
+        "pinned-phone-orientation",
+        "native-touch-horizontal-and-page",
+        "hybrid-first-tap",
+        "hybrid-first-swipe",
+        "hybrid-first-cancel",
+        "hybrid-return-to-mouse",
+        "graphics-loss-and-recovery",
+        "same-mode-resize-keeps-automatic",
+        "reduced-motion-does-not-restart-automatic",
+        "reduced-motion-roundtrip",
+        "background-clears-inertia",
+        "continuous-resize-keeps-pin",
+        "font-ready-keeps-reading",
+        "keyboard-and-targets"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-first-mouse-main",
+      "checks": 1,
+      "ids": [
+        "first-mouse-hover-main-integration"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-input-measurement",
+      "checks": 2,
+      "ids": [
+        "gesture-defers-capacity-probes",
+        "font-change-takes-priority-over-gesture"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-component-lifecycle-final",
+      "checks": 4,
+      "ids": [
+        "dispose-during-touch-button",
+        "restore-during-touch-button",
+        "remount-does-not-multiply-input",
+        "first-mouse-hover-after-touch-swipe"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-adaptation-firefox",
+      "checks": 5,
+      "ids": [
+        "viewport-390x844",
+        "viewport-1440x900",
+        "pinned-mode-roundtrip",
+        "reduced-motion-roundtrip",
+        "keyboard-and-targets"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-browser-zoom-final",
+      "checks": 1,
+      "ids": [
+        "real-browser-zoom-200-roundtrip"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-guidance-main",
+      "checks": 32,
+      "ids": [
+        "hybrid-touch-instructions-follow-last-input",
+        "native-horizontal-handoff-updates-instructions",
+        "first-help-click-interrupts-return",
+        "hybrid-touch-return-caption",
+        "automatic-help-holds-and-restores",
+        "paused-help-stays-paused",
+        "preview-and-help-holds-combine",
+        "fixed-reading-escape-priority",
+        "outside-category-first-click",
+        "outside-auto-first-click",
+        "outside-card-first-click",
+        "keyboard-open-tab-escape-preserves-choice",
+        "panel-wheel-stays-in-help",
+        "panel-pagedown-stays-in-help",
+        "fitting-category-accurate-instructions",
+        "all-tools-copy-and-fixed-return",
+        "hover-no-caption-or-help-dom-churn",
+        "departure-and-return-captions",
+        "resize-closes-help-preserves-pin",
+        "reduced-closes-help-preserves-pin",
+        "font-closes-help-preserves-pin",
+        "hidden-closes-help-preserves-pin",
+        "help-stops-guide-only",
+        "entrance-first-help-interrupts-once",
+        "continue-closes-help-preserves-pin",
+        "identity-experience-native-details",
+        "wide-stable-inline-help",
+        "phone-touch-inline-help",
+        "narrow-touch-inline-help",
+        "large-text-inline-help",
+        "large-desktop-popup",
+        "actual-guidance-demonstration"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-detail-main",
+      "checks": 26,
+      "ids": [
+        "all-22-full-paragraphs",
+        "preview-closes-and-resumes",
+        "paused-preview-stays-paused",
+        "one-click-pin-no-reopening",
+        "click-during-width-transition",
+        "direct-click-pins-full-detail",
+        "resume-closes-before-moving",
+        "pinned-adjacent-navigation",
+        "partial-edge-full-text-and-hit-grid",
+        "last-card-full-text-and-pin",
+        "first-wheel-closes-preview",
+        "horizontal-first-event",
+        "category-clears-pinned-detail",
+        "catalog-restores-fixed-reading",
+        "keyboard-preview-pin-escape",
+        "resize-keeps-fixed-content",
+        "hidden-clears-preview",
+        "reduced-motion-keeps-full-content",
+        "fixed-reading-wheel-scrolls-page",
+        "fixed-reading-chapter-return",
+        "preview-stops-main-guide",
+        "actual-detail-demonstration",
+        "phone-one-tap-full-detail",
+        "narrow-one-tap-full-detail",
+        "large-text-full-detail",
+        "reduced-stable-full-detail"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-departure-main",
+      "checks": 28,
+      "ids": [
+        "return-hover-pauses-and-resumes",
+        "return-pointer-cancel-cleans-lease",
+        "return-keyboard-focus-and-enter",
+        "forward-visible-entities",
+        "reverse-visible-entities",
+        "midflight-continuous-return",
+        "auto-choice-and-phase",
+        "pinned-wide-preserves-full-text",
+        "temporary-preview-not-saved",
+        "current-filter-and-edge-cards",
+        "two-card-native-flight",
+        "last-card-wide-flight",
+        "row-wheel-never-departs",
+        "return-first-control-click",
+        "return-first-moving-card-click",
+        "return-first-all-tools-click",
+        "resize-interrupts-fixed-flight",
+        "hidden-cleans-flight",
+        "reduced-cleans-flight",
+        "font-change-cleans-flight",
+        "paused-world-independent-flight",
+        "guide-remains-active-on-departure",
+        "continue-navigation-preserves-reading",
+        "actual-departure-demonstration",
+        "stable-wide-keeps-native-reading",
+        "phone-native-reading",
+        "narrow-native-reading",
+        "large-native-reading"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-wheel",
+      "checks": 15,
+      "ids": [
+        "real-wheel-speed-direction-tail",
+        "title-wheel-remains-page",
+        "filters-wheel-remains-page",
+        "controls-wheel-remains-page",
+        "continue-wheel-remains-page",
+        "narrow-native-page",
+        "large-font-native-page",
+        "wide-stable-manual-opt-in",
+        "entrance-wheel-remains-page",
+        "horizontal-native-first-event",
+        "fitting-category-remains-page",
+        "first-card-first-native-click",
+        "last-card-first-native-click",
+        "partial-card-first-native-click",
+        "scene-clock-independent"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-existing",
+      "checks": 7,
+      "ids": [
+        "modal-resize-to-phone",
+        "native-scroll-navigation",
+        "film-open-return",
+        "lawson-open-interact-return",
+        "bottle-open-interact-return",
+        "environment-play-pause-resume",
+        "automatic-A1-A2-A3"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-projection",
+      "checks": 8,
+      "ids": [
+        "desktop-front",
+        "large-front",
+        "phone-front",
+        "narrow-front",
+        "first-detail",
+        "last-detail",
+        "narrow-detail",
+        "large-text-detail"
+      ],
+      "finalSourcesMatch": true
+    },
+    {
+      "run": "accepted5-cycle",
+      "checks": 2,
+      "ids": [
+        "real-wheel-two-full-directions",
+        "real-wheel-five-card-directions"
+      ],
+      "finalSourcesMatch": true
+    }
+  ],
+  "excludedDevelopmentRecords": [
+    "inspection-baseline.json",
+    "inspection-touch-fix.json",
+    "touch-focused-1",
+    "touch-focused-2",
+    "adaptation-main-1",
+    "adaptation-firefox-1",
+    "browser-zoom-1",
+    "accepted-component-lifecycle",
+    "accepted-browser-zoom",
+    "inspect-first-mouse",
+    "accepted-adaptation-main",
+    "accepted-input-measurement",
+    "accepted-component-lifecycle-final",
+    "accepted-adaptation-firefox",
+    "accepted-browser-zoom-final",
+    "accepted-guidance-main",
+    "accepted-detail-main",
+    "accepted-departure-main",
+    "accepted-wheel",
+    "accepted-existing",
+    "accepted-projection",
+    "accepted-cycle"
+  ],
+  "notes": [
+    "最终结果仅采纳 build-5 上的 161 项。中间构建、定位重跑和脚本失败不累计。",
+    "build-4 的 159 项通过后补查发现，触摸滑动后首个鼠标移动在悬停判断之后才更新输入方式；build-5 将识别移至捕获阶段，新增第一次停留回归，并重新执行全部最终检查。",
+    "修改前首次触摸导致按钮移位，固定阅读落空；修复后按住期间四边最大位移见 metrics，原生点击固定成功。",
+    "touch-focused-1 定位到测量中断原生拖动，事件顺序见 drag-diagnosis.json；最终同时验证拖动中不测量、结束后补测、字号变化优先适配。",
+    "图形连接恢复后，屏幕外画布按可见性等待首帧；旧测试等待立即 ready 不符合该约定。实际修复结束未清理的超时/提示，并验证 restored、超过原超时后提示仍隐藏、可见后 ready。",
+    "Firefox 容量不足时正确保留稳定阅读；最终往返测试在扩大实际空间后才操作沉浸入口，不降低安全边界。",
+    "重复挂载测试改与干净实例回调次数比较：一次前后导航兼有显式操作和固定阅读回调，不能硬编码为一次。",
+    "真实缩放通过 X11 浏览器快捷键执行，视口宽度减半且 DPR 翻倍；另以窗口截图和命中检查复核。",
+    "组件内部的计时、浏览器模拟和物理设备范围如验收记录所述；未冒充真机或 Safari 验收。"
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "completedAtShanghai": "2026-11-17T17:38:35.013804+08:00",
+  "candidateId": "about-refresh-step14-6341623c81b6b265",
+  "deliveryId": "about-refresh-step14-6341623c81b6b265-r3",
+  "runtimeInputDigest": "6341623c81b6b2652a300afb89752918c61c89334193b30cfdcee651bf057746",
+  "checks": [
+    {
+      "id": "desktop-complete-journey",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/journeys-2/browser.json",
+      "recordSHA256": "d3d520b07c08be464fc798220a00063d07229eb31cd5472b20d7ce4db6f86221",
+      "status": "通过"
+    },
+    {
+      "id": "fast-review-preserves-reading",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/journeys-2/browser.json",
+      "recordSHA256": "d3d520b07c08be464fc798220a00063d07229eb31cd5472b20d7ce4db6f86221",
+      "status": "通过"
+    },
+    {
+      "id": "mobile-complete-journey",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/journeys-2/browser.json",
+      "recordSHA256": "d3d520b07c08be464fc798220a00063d07229eb31cd5472b20d7ce4db6f86221",
+      "status": "通过"
+    },
+    {
+      "id": "reduced-motion-complete-reading",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/journeys-2/browser.json",
+      "recordSHA256": "d3d520b07c08be464fc798220a00063d07229eb31cd5472b20d7ce4db6f86221",
+      "status": "通过"
+    },
+    {
+      "id": "keyboard-complete-route",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/keyboard-4/browser.json",
+      "recordSHA256": "1f0b91971d7bcb81d0add571e3ca913fc8550cf57926faf950e632cccd4d641b",
+      "status": "通过"
+    },
+    {
+      "id": "original-pages-isolation-and-downloads",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/embedded-1/browser.json",
+      "recordSHA256": "4b8bca7e8f8eb5e42c6e121cb15078702141f4d9ad98c9bf212405f16f6dc0e3",
+      "status": "通过"
+    },
+    {
+      "id": "fast-review-preserves-reading",
+      "engine": "firefox",
+      "record": "docs/about-refresh/evidence/step-14/firefox-1/browser.json",
+      "recordSHA256": "29c086b2bf46bb0de97f584641c7af1a043020ec2e14d8a5e297f08a739f6312",
+      "status": "通过"
+    },
+    {
+      "id": "keyboard-complete-route",
+      "engine": "firefox",
+      "record": "docs/about-refresh/evidence/step-14/firefox-1/browser.json",
+      "recordSHA256": "29c086b2bf46bb0de97f584641c7af1a043020ec2e14d8a5e297f08a739f6312",
+      "status": "通过"
+    },
+    {
+      "id": "reduced-motion-complete-reading",
+      "engine": "firefox",
+      "record": "docs/about-refresh/evidence/step-14/firefox-1/browser.json",
+      "recordSHA256": "29c086b2bf46bb0de97f584641c7af1a043020ec2e14d8a5e297f08a739f6312",
+      "status": "通过"
+    },
+    {
+      "id": "portable-site-root",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/package-final-r3/portable-site-root/browser.json",
+      "recordSHA256": "4f5165279ef5e14a2bf73d266ea64b5e6127104218f5dfd8743924fbaf45a270",
+      "status": "通过"
+    },
+    {
+      "id": "portable-site-prefix",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/package-final-r3/portable-site-prefix/browser.json",
+      "recordSHA256": "29f87be3ef98b808c6ac84c9375623945f2ea1b6496b54a2da390a38a5a815f3",
+      "status": "通过"
+    },
+    {
+      "id": "portable-source-root",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/package-final-r3/portable-source-root/browser.json",
+      "recordSHA256": "a75d0defc28bc98e86f1ae83593dd7d02e9de2eb6107d62b080257f87499b2bb",
+      "status": "通过"
+    },
+    {
+      "id": "portable-source-prefix",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/package-final-r3/portable-source-prefix/browser.json",
+      "recordSHA256": "79ed0313ca1892e8a466364bc3ec4f60da1e9ab83402d54c8953cc2046d5616b",
+      "status": "通过"
+    },
+    {
+      "id": "ten-minute-real-clock-stability-reviewed",
+      "engine": "chromium",
+      "record": "docs/about-refresh/evidence/step-14/stability-review/browser.json",
+      "recordSHA256": "2734e1beb969271451949645ea9e1fd45869dd710cb3ac6e7d27d46ddface0fc",
+      "status": "通过"
+    }
+  ],
+  "adoptedChecks": 14,
+  "complete": true,
+  "step13ReferencedChecks": 161,
+  "step13RecountedAsNew": false,
+  "unchangedRuntimeFiles": 197,
+  "productionFiles": 69,
+  "actualTenMinuteWallSeconds": 600.398,
+  "stabilitySamples": 21,
+  "stabilityVerificationMethod": "Full real-clock raw samples reviewed with recorded program distance plus a real browser card-position check; original erroneous native-scroll assertion remains failed in its raw record",
+  "committed": false,
+  "pushed": false,
+  "deployed": false,
+  "intermediateFailuresRetained": true,
+  "finalPackages": {
+    "site": {
+      "path": "release/about-refresh-step14-6341623c81b6b265-r3-site.zip",
+      "bytes": 7007746,
+      "sha256": "54c90206c8148268f17ff2c78e36d3db81d2376d970137b695aff9ff29f6a358"
+    },
+    "source": {
+      "path": "release/about-refresh-step14-6341623c81b6b265-r3-source.zip",
+      "bytes": 7148040,
+      "sha256": "6fd62b13fb21caa8dbc83495559fb5b8971b47b987105cd6a926c792c6f11d48"
+    }
+  },
+  "cleanup": {
+    "ownedProcessesStopped": 14,
+    "allOwnedPortsClosed": true,
+    "otherServicesStopped": false
+  }
+}

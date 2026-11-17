@@ -1,0 +1,9 @@
+.about-refresh .ar-stone-card .ar-card-flight {
+  width: 100%; transform-style: preserve-3d;
+  transform: translate3d(var(--ar-card-flight-x,0px),var(--ar-card-flight-y,0px),var(--ar-card-flight-z,0px)) rotateZ(var(--ar-card-flight-roll,0deg)) rotateY(var(--ar-card-flight-yaw,0deg)) rotateX(var(--ar-card-flight-pitch,0deg));
+}
+/* Keep the existing perspective chain. Only chrome follows the host's ink fade. */
+.about-pillar-reader:not([data-reading-layout="flow"]) .ar-tools-browser[data-departure-owned="true"] { opacity: 1; }
+.about-pillar-reader:not([data-reading-layout="flow"]) .ar-tools-browser[data-departure-owned="true"] > :is(.ar-filter-bar,.ar-tool-controls) { opacity: var(--ar-body-opacity,0); }
+.about-refresh .ar-tools-browser[data-departure="departed"] .ar-tool-rail { visibility: hidden; }
+.about-refresh .ar-tools-browser[data-departure-owned="true"] .ar-tool-rail { scroll-snap-type: none; }

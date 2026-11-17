@@ -1,0 +1,24 @@
+[
+  {
+    "command": [
+      "verify-adaptation.py",
+      "adaptation-main-1"
+    ],
+    "exitCode": 1
+  },
+  {
+    "command": [
+      "verify-adaptation.py",
+      "adaptation-firefox-1",
+      "--engine",
+      "firefox",
+      "--only",
+      "viewport-1440x900",
+      "viewport-390x844",
+      "pinned-mode-roundtrip",
+      "reduced-motion-roundtrip",
+      "keyboard-and-targets"
+    ],
+    "exitCode": 1
+  }
+]

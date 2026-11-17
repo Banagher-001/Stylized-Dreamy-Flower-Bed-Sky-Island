@@ -1,0 +1,37 @@
+{
+  "reviewedAtShanghai": "2026-11-16T12:29:58.249966+08:00",
+  "method": "Final screenshots manually inspected with view_image; natural-speed recording, DOM identity checks and native pointer tests supplement visual checks.",
+  "files": [
+    {
+      "path": "verified-motion/running.png",
+      "finding": "缓慢展示中保留石质材质，中央清晰，两侧浅弧形后退；操作带可见。",
+      "sha256": "14733a57d3817c8ce7da3c4d6c967e56e60c32a7e5c9ed310cd851645aa4754f"
+    },
+    {
+      "path": "verified-motion/paused.png",
+      "finding": "暂停按钮和提示切为继续阅读，牌面停在原处。",
+      "sha256": "8d1b9c755e34150de6b354b3761d02b8d49a62d849e39e1f170e0a5f63ad9729"
+    },
+    {
+      "path": "verified-motion/resumed.png",
+      "finding": "原进度继续，弧度保持，基础速度逐渐恢复。",
+      "sha256": "84d3ead76a74e83992d4a8c104fc58b736a1c2b3892ff33f16eddc6dd782fb06"
+    },
+    {
+      "path": "verified-cycle/before-seam.png",
+      "finding": "真实速度完整一轮后的首尾相邻画面。",
+      "sha256": "e43dec1f2b88a7380b5a794e9e67f3430b7f832c7a408914949ccb2a68043ca5"
+    },
+    {
+      "path": "verified-cycle/after-seam.png",
+      "finding": "首尾交接之后继续移动，卡距和阅读区域保持。",
+      "sha256": "f3ffaad60a8e6b9e9001ccf7a6333f409ce04effaf40858025ef8614a7fcd9f6"
+    },
+    {
+      "path": "verified-main/phone-A3.png",
+      "finding": "手机保留原生横滑、按钮、分类和完整详情入口。",
+      "sha256": "495775d72dad67dc041bbc3ef66b147fc2ed371489fc3fb0ee267c3371345f5c"
+    }
+  ],
+  "limits": "Linux Chromium and emulated viewports, not physical-phone or Safari/Firefox coverage."
+}

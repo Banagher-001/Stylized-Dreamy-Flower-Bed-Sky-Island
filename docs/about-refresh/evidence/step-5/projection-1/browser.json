@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "id": "desktop-front",
+      "status": "通过",
+      "measurement": "desktop-front-measurement.json"
+    },
+    {
+      "id": "large-front",
+      "status": "通过",
+      "measurement": "large-front-measurement.json"
+    },
+    {
+      "id": "phone-front",
+      "status": "通过",
+      "measurement": "phone-front-measurement.json"
+    },
+    {
+      "id": "narrow-front",
+      "status": "通过",
+      "measurement": "narrow-front-measurement.json"
+    },
+    {
+      "id": "first-detail",
+      "status": "通过",
+      "measurement": "first-detail-measurement.json"
+    },
+    {
+      "id": "last-detail",
+      "status": "通过",
+      "measurement": "last-detail-measurement.json"
+    },
+    {
+      "id": "narrow-detail",
+      "status": "通过",
+      "measurement": "narrow-detail-measurement.json"
+    },
+    {
+      "id": "large-text-detail",
+      "status": "失败",
+      "error": "('midjourney', {'left': 6.8125, 'right': 689.203125, 'top': 107.390625, 'bottom': 819.390625}, {'x': 16, 'y': 75.390625, 'width': 768, 'height': 762, 'top': 75.390625, 'right': 784, 'bottom': 837.390625, 'left': 16})",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-5/verify-projection.py\", line 25, in case\n    b=c['paint'];r=m['rail'];assert b['left']>=r['left']-.6 and b['right']<=r['right']+.6 and b['top']>=r['top']-.6 and b['bottom']<=r['bottom']+.6,(c['id'],b,r)\n                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('midjourney', {'left': 6.8125, 'right': 689.203125, 'top': 107.390625, 'bottom': 819.390625}, {'x': 16, 'y': 75.390625, 'width': 768, 'height': 762, 'top': 75.390625, 'right': 784, 'bottom': 837.390625, 'left': 16})\n"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "browserClosed": true
+}

@@ -1,0 +1,27 @@
+body.about-refresh-preview-page {
+  margin: 0;
+  min-width: 0;
+  color: #244c40;
+  background: linear-gradient(#e3edb72b,#f1f5e6d9),url('../../assets/courtyard-orb-cover.webp') center / cover fixed;
+  font: 1rem/1.5 "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+.about-refresh-preview-page .ar-preview-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; padding: .7rem 1.25rem;
+  background: #f8fbeaee; border-bottom: 1px solid #bed0a8;
+}
+.about-refresh-preview-page .ar-preview-bar h1 { font-size: .875rem; font-weight: 400; margin: 0 1rem 0 0; }
+.about-refresh-preview-page .ar-preview-bar nav { display: flex; flex-wrap: wrap; gap: .3rem; }
+.about-refresh-preview-page .ar-preview-bar button {
+  min-height: 44px; font: inherit; line-height: 1.4; cursor: pointer; padding: .45rem .65rem;
+  border: 1px solid #b6c99f; border-radius: 4px; background: #fcfdec; color: inherit;
+}
+.about-refresh-preview-page .ar-preview-bar button[aria-pressed="true"] { background: #2a5341; color: #fffce8; }
+.about-refresh-preview-page .ar-preview-bar button:focus-visible { outline: 3px solid #326f73; outline-offset: 3px; }
+.about-refresh-preview-page .ar-preview-footer {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; padding: .5rem 1.25rem;
+  background: #f0f5e0eF; font-size: .875rem;
+}
+@media (max-width: 700px) {
+  .about-refresh-preview-page .ar-preview-bar { padding: .6rem 1rem; }
+  .about-refresh-preview-page .ar-preview-bar h1 { width: 100%; }
+}

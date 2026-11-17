@@ -1,0 +1,62 @@
+{
+  "startedAtShanghai": "2026-11-16T11:23:31.109721+08:00",
+  "complete": true,
+  "checks": [
+    {
+      "id": "all-tools-exact-return",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "all-tools-exact-return-data.json",
+      "screenshot": "all-tools-exact-return.png"
+    },
+    {
+      "id": "detail-native-handoff",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "失败",
+      "error": "Locator.click: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\".ar-tool-card[data-tool-id=comfyui] button\")\n    - locator resolved to <button type=\"button\" data-action=\"detail\" aria-expanded=\"false\" data-tool-id=\"comfyui\" aria-label=\"展开 ComfyUI 的详情\" class=\"ar-button ar-detail-toggle\" aria-controls=\"ar-tools-1-rail-comfyui-detail\">展开详情</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not stable\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not stable\n    - retrying click action\n      - waiting 100ms\n    37 × waiting for element to be visible, enabled and stable\n       - element is not stable\n     - retrying click action\n       - waiting 500ms\n",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-7/verify-track.py\", line 41, in case\n    before=snap(p);data=fn(p) or {};p.wait_for_timeout(60);after=clean(p);assert not ev,ev\n                        ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-7/verify-track.py\", line 78, in detail\n    auto(p);p.wait_for_timeout(1200);p.locator('.ar-tool-card[data-tool-id=comfyui] button').click();p.wait_for_timeout(100);a=snap(p)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 17876, in click\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_locator.py\", line 165, in click\n    return await self._frame._click(self._selector, strict=True, **params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 593, in _click\n    await self._channel.send(\"click\", self._timeout, locals_to_params(locals()))\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Locator.click: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\".ar-tool-card[data-tool-id=comfyui] button\")\n    - locator resolved to <button type=\"button\" data-action=\"detail\" aria-expanded=\"false\" data-tool-id=\"comfyui\" aria-label=\"展开 ComfyUI 的详情\" class=\"ar-button ar-detail-toggle\" aria-controls=\"ar-tools-1-rail-comfyui-detail\">展开详情</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not stable\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not stable\n    - retrying click action\n      - waiting 100ms\n    37 × waiting for element to be visible, enabled and stable\n       - element is not stable\n     - retrying click action\n       - waiting 500ms\n\n"
+    },
+    {
+      "id": "horizontal-native-first-gesture",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "失败",
+      "error": "({'entrance': 'ready', 'entranceReady': 'true', 'entrancePlays': '1', 'entranceFramePending': 'false', 'trackState': 'running', 'trackMode': 'program', 'trackFramePending': 'true', 'trackEnabled': 'true', 'activeId': 'midjourney', 'mode': 'cards', 'category': 'all', 'cardCount': '22', 'trackReason': 'automatic', 'entranceReason': 'completed', 'entranceStartedAt': '888.8', 'entranceDuration': '1450', 'entranceIds': 'midjourney,comfyui,kling,blender', 'entranceProgress': '1', 'entranceFinishedAt': '2361.300000000745', 'trackOffset': '23.8206', 'trackDistance': '23.8206', 'trackCycles': '0', 'trackPeriod': '5632', 'trackBaseSpeed': '28'}, {'box': [173, 284.0625, 1101, 632.0625, 928, 348], 'scrollLeft': 26})",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-7/verify-track.py\", line 41, in case\n    before=snap(p);data=fn(p) or {};p.wait_for_timeout(60);after=clean(p);assert not ev,ev\n                        ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-7/verify-track.py\", line 95, in horizontal\n    assert b['root']['trackMode']=='native' and b['root']['trackEnabled']=='false';assert b['rail']['scrollLeft']>float(a['root']['trackOffset'])+100,(a['root'],b['rail']);return {'before':a,'after':b}\n                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ({'entrance': 'ready', 'entranceReady': 'true', 'entrancePlays': '1', 'entranceFramePending': 'false', 'trackState': 'running', 'trackMode': 'program', 'trackFramePending': 'true', 'trackEnabled': 'true', 'activeId': 'midjourney', 'mode': 'cards', 'category': 'all', 'cardCount': '22', 'trackReason': 'automatic', 'entranceReason': 'completed', 'entranceStartedAt': '888.8', 'entranceDuration': '1450', 'entranceIds': 'midjourney,comfyui,kling,blender', 'entranceProgress': '1', 'entranceFinishedAt': '2361.300000000745', 'trackOffset': '23.8206', 'trackDistance': '23.8206', 'trackCycles': '0', 'trackPeriod': '5632', 'trackBaseSpeed': '28'}, {'box': [173, 284.0625, 1101, 632.0625, 928, 348], 'scrollLeft': 26})\n"
+    },
+    {
+      "id": "resize-anchor-ratio",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "resize-anchor-ratio-data.json",
+      "screenshot": "resize-anchor-ratio.png"
+    },
+    {
+      "id": "wide-stable-opt-in",
+      "viewport": [
+        1366,
+        900
+      ],
+      "status": "失败",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-7/verify-track.py\", line 41, in case\n    before=snap(p);data=fn(p) or {};p.wait_for_timeout(60);after=clean(p);assert not ev,ev\n                        ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-7/verify-track.py\", line 121, in stable_opt_in\n    go(p);p.wait_for_function('document.querySelector(\".ar-tools-browser\").dataset.entranceReady===\"true\"');p.locator('[data-action=auto]').scroll_into_view_if_needed();p.locator('[data-action=auto]').click();p.wait_for_function('document.querySelector(\".ar-tools-browser\").dataset.trackMode===\"program\"');p.wait_for_timeout(1100);assert float(snap(p)['root']['trackDistance'])>0;pause(p)\n                                                                                                                                                                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ],
+  "events": [],
+  "clockModified": false,
+  "physicalDevice": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "finishedAtShanghai": "2026-11-16T11:24:14.644991+08:00"
+}

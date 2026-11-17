@@ -1,0 +1,11 @@
+from pathlib import Path
+import os,json
+from playwright.sync_api import sync_playwright
+B=Path(__file__).parent;run=B/'pointer-diagnosis';run.mkdir(exist_ok=False);s=json.loads((B/'services-started.json').read_text());os.environ.update(s['browserEnvironment'])
+with sync_playwright() as play:
+ browser=play.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--use-gl=angle','--use-angle=gl','--ignore-gpu-blocklist']);ctx=browser.new_context(viewport={'width':1440,'height':900});p=ctx.new_page()
+ p.goto(s['origin']+'/?waterTime=2');p.wait_for_function('document.querySelector("main")?.dataset.layoutReady==="true"',timeout=90000);p.evaluate('scrollTo({top:3.34/12.3*(document.documentElement.scrollHeight-innerHeight),behavior:"instant"})');p.wait_for_function('document.querySelector(".ar-tools-browser").dataset.entranceReady==="true"');p.wait_for_timeout(1200);p.locator('[data-action=auto]').click()
+ p.evaluate('''()=>{window.__events=[];for(const type of ['pointerdown','pointerup','click','focusin','focusout'])document.addEventListener(type,e=>{const read=()=>({type,time:performance.now(),target:e.target.tagName,action:e.target.dataset?.action,tool:e.target.closest?.('.ar-tool-card')?.dataset.toolId,focus:document.activeElement?.dataset.action,focusedTool:document.activeElement?.closest('.ar-tool-card')?.dataset.toolId,state:{...document.querySelector('.ar-tools-browser').dataset},expanded:[...document.querySelectorAll('.ar-tool-card[data-expanded=true]')].map(c=>c.dataset.toolId)});__events.push(read());if(type==='click')queueMicrotask(()=>__events.push({...read(),after:true}))},true)}''')
+ before=p.locator('.ar-tool-card[data-tool-id=midjourney] button').evaluate('e=>({rect:e.getBoundingClientRect().toJSON(),point:(()=>{const r=e.getBoundingClientRect();const q=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return [q.tagName,q.dataset.action,q.closest(".ar-tool-card")?.dataset.toolId]})()})')
+ p.locator('.ar-tool-card[data-tool-id=midjourney] button').click();p.wait_for_timeout(750);events=p.evaluate('__events');p.screenshot(path=str(run/'after.png'));(run/'report.json').write_text(json.dumps({'before':before,'events':events},ensure_ascii=False,indent=2)+'\n');ctx.close();browser.close()
+print(json.dumps({'before':before,'events':events},ensure_ascii=False))

@@ -1,0 +1,272 @@
+{
+  "startedAtShanghai": "2026-11-16T11:58:36.598051+08:00",
+  "complete": true,
+  "checks": [
+    {
+      "id": "entrance-hold-start",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "entrance-hold-start-data.json",
+      "screenshot": "entrance-hold-start.png"
+    },
+    {
+      "id": "measured-base-speed",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "measured-base-speed-data.json",
+      "screenshot": "measured-base-speed.png"
+    },
+    {
+      "id": "pause-native-enter-resume",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "pause-native-enter-resume-data.json",
+      "screenshot": "pause-native-enter-resume.png"
+    },
+    {
+      "id": "rapid-toggle-last-choice",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "rapid-toggle-last-choice-data.json",
+      "screenshot": "rapid-toggle-last-choice.png"
+    },
+    {
+      "id": "manual-first-last-wrap",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "manual-first-last-wrap-data.json",
+      "screenshot": "manual-first-last-wrap.png"
+    },
+    {
+      "id": "all-tools-exact-return",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "all-tools-exact-return-data.json",
+      "screenshot": "all-tools-exact-return.png"
+    },
+    {
+      "id": "detail-native-handoff",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "detail-native-handoff-data.json",
+      "screenshot": "detail-native-handoff.png"
+    },
+    {
+      "id": "seven-categories",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "seven-categories-data.json",
+      "screenshot": "seven-categories.png"
+    },
+    {
+      "id": "horizontal-native-first-gesture",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "horizontal-native-first-gesture-data.json",
+      "screenshot": "horizontal-native-first-gesture.png"
+    },
+    {
+      "id": "vertical-wheel-still-navigates",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "失败",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-7/verify-track.py\", line 41, in case\n    before=snap(p);data=fn(p) or {};p.wait_for_timeout(60);after=clean(p);assert not ev,ev\n                        ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-7/verify-track.py\", line 101, in vertical\n    auto(p);a=p.evaluate('scrollY');p.mouse.move(650,480);p.mouse.wheel(0,850);p.wait_for_timeout(650);b=snap(p);assert p.evaluate('scrollY')>a+300\n                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "id": "leave-return-resumes",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "leave-return-resumes-data.json",
+      "screenshot": "leave-return-resumes.png"
+    },
+    {
+      "id": "manual-pause-survives-return",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "manual-pause-survives-return-data.json",
+      "screenshot": "manual-pause-survives-return.png"
+    },
+    {
+      "id": "resize-anchor-ratio",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "resize-anchor-ratio-data.json",
+      "screenshot": "resize-anchor-ratio.png"
+    },
+    {
+      "id": "resize-to-phone",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "resize-to-phone-data.json",
+      "screenshot": "resize-to-phone.png"
+    },
+    {
+      "id": "switch-stable-stays-manual",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "switch-stable-stays-manual-data.json",
+      "screenshot": "switch-stable-stays-manual.png"
+    },
+    {
+      "id": "phone-native",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "通过",
+      "data": "phone-native-data.json",
+      "screenshot": "phone-native.png"
+    },
+    {
+      "id": "narrow-native",
+      "viewport": [
+        320,
+        740
+      ],
+      "status": "通过",
+      "data": "narrow-native-data.json",
+      "screenshot": "narrow-native.png"
+    },
+    {
+      "id": "large-font-native",
+      "viewport": [
+        800,
+        600
+      ],
+      "status": "通过",
+      "data": "large-font-native-data.json",
+      "screenshot": "large-font-native.png"
+    },
+    {
+      "id": "reduced-native",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "reduced-native-data.json",
+      "screenshot": "reduced-native.png"
+    },
+    {
+      "id": "wide-stable-opt-in",
+      "viewport": [
+        1366,
+        900
+      ],
+      "status": "通过",
+      "data": "wide-stable-opt-in-data.json",
+      "screenshot": "wide-stable-opt-in.png"
+    },
+    {
+      "id": "simulated-hidden-no-catchup",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "simulated-hidden-no-catchup-data.json",
+      "screenshot": "simulated-hidden-no-catchup.png"
+    },
+    {
+      "id": "reduced-change-stops",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "reduced-change-stops-data.json",
+      "screenshot": "reduced-change-stops.png"
+    },
+    {
+      "id": "keyboard-focus-freezes",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "keyboard-focus-freezes-data.json",
+      "screenshot": "keyboard-focus-freezes.png"
+    },
+    {
+      "id": "pointer-enter-keeps-base-speed",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "pointer-enter-keeps-base-speed-data.json",
+      "screenshot": "pointer-enter-keeps-base-speed.png"
+    },
+    {
+      "id": "environment-independent",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "environment-independent-data.json",
+      "screenshot": "environment-independent.png"
+    },
+    {
+      "id": "guide-independent",
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "通过",
+      "data": "guide-independent-data.json",
+      "screenshot": "guide-independent.png"
+    }
+  ],
+  "events": [],
+  "clockModified": false,
+  "physicalDevice": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "finishedAtShanghai": "2026-11-16T12:02:32.530895+08:00"
+}

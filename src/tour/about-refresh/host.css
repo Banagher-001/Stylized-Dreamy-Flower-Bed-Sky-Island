@@ -1,0 +1,20 @@
+.about-pillar-reader { position: fixed; z-index: 2; width: 480px; visibility: hidden; }
+.about-pillar-reader .ar-screen { padding: 0; min-height: 0; }
+.about-pillar-reader .ar-reading-card { margin: 0 !important; justify-self: stretch !important; }
+.about-pillar-reader:not([data-reading-layout="flow"]) .ar-reading-card > :not(.ar-title,.ar-eyebrow),
+.about-pillar-reader:not([data-reading-layout="flow"]) :is(.ar-tools-browser,.ar-tools-introduction,.ar-continue-slot) { opacity: var(--ar-body-opacity,0); }
+.about-pillar-reader:not([data-reading-layout="flow"]) :is(.ar-title,.ar-eyebrow) { opacity: var(--ar-title-opacity,0); }
+.about-pillar-reader:not([data-reading-layout="flow"]) .ar-tool-rail { padding-block: var(--ar-hover-padding,24px); }
+.tour-prototype[data-about-station="A3"][data-reading-mode="immersive"] .tour-heading { visibility: hidden !important; pointer-events: none; }
+.about-pillar-reader[data-reading-layout="flow"] { position: relative; inset: auto !important; width: 100% !important; visibility: visible !important; pointer-events: auto; background: linear-gradient(155deg,#edf3dd,#f6f7e9); border-radius: 6px; }
+.about-pillar-reader[data-reading-layout="flow"] .ar-screen { padding: 24px 0; scroll-margin-top: 120px; }
+.about-pillar-reader[data-reading-layout="flow"] .ar-reading-card { max-width: 860px; }
+.about-pillar-reader[data-reading-layout="flow"] .ar-tools-content { margin-inline: 0; }
+html.tour-about-open { overflow: hidden; }
+.ar-overview-dialog { border: 1px solid #9bb68e; border-radius: 8px; padding: 0; width: min(1120px,calc(100vw - 32px)); max-width: none; height: min(860px,calc(100dvh - 32px)); max-height: calc(100dvh - 32px); background: #f0f4de; color: #244c40; overscroll-behavior: contain; }
+.ar-overview-dialog::backdrop { background: #153c2f77; }
+.ar-overview-shell { padding: clamp(16px,3vw,32px); }
+.ar-overview-shell .ar-all-header { position: sticky; top: 0; z-index: 3; background: #fafceb; }
+.ar-overview-shell .ar-catalog-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+@media(max-width:700px) { .ar-overview-shell .ar-catalog-grid { grid-template-columns: 1fr; } }
+.ar-overview-shell[data-large-text="true"] .ar-catalog-grid { grid-template-columns: 1fr; }

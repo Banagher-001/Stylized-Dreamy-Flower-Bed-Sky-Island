@@ -1,0 +1,49 @@
+{
+  "startedAtShanghai": "2026-11-15T16:22:45.071755+08:00",
+  "checks": [
+    {
+      "id": "modal-resize-to-phone",
+      "status": "通过",
+      "data": "modal-resize-to-phone-data.json",
+      "screenshot": "modal-resize-to-phone.png"
+    },
+    {
+      "id": "native-scroll-navigation",
+      "status": "通过",
+      "data": "native-scroll-navigation-data.json",
+      "screenshot": "native-scroll-navigation.png"
+    },
+    {
+      "id": "film-open-return",
+      "status": "通过",
+      "data": "film-open-return-data.json",
+      "screenshot": "film-open-return.png"
+    },
+    {
+      "id": "lawson-open-interact-return",
+      "status": "通过",
+      "data": "lawson-open-interact-return-data.json",
+      "screenshot": "lawson-open-interact-return.png"
+    },
+    {
+      "id": "bottle-open-interact-return",
+      "status": "失败",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-4/verify-regressions.py\", line 19, in case\n    p.goto(origin+('/?waterTime=2' if fixed else '/?birds=inspect'),wait_until='domcontentloaded');ready(p);data=fn(p);assert len(report['events'])==begin,report['events'][begin:]\n                                                                                                                 ^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-4/verify-regressions.py\", line 76, in <lambda>\n    case('bottle-open-interact-return',lambda p:embedded(p,'bottle-ocean'))\n                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-4/verify-regressions.py\", line 58, in embedded\n    assert frame.evaluate('__bottleOcean.renderer.info.render.triangles')>1000\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "id": "environment-play-pause-resume",
+      "status": "通过",
+      "data": "environment-play-pause-resume-data.json",
+      "screenshot": "environment-play-pause-resume.png"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "physicalDevice": false,
+  "version": "155.0.8059.79",
+  "cleanup": {
+    "browserClosed": true,
+    "sharedServicesStopped": false
+  }
+}

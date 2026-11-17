@@ -1,0 +1,28 @@
+{
+  "checks": [
+    {
+      "id": "dispose-during-touch-button",
+      "status": "通过",
+      "data": "dispose-during-touch-button-data.json"
+    },
+    {
+      "id": "restore-during-touch-button",
+      "status": "通过",
+      "data": "restore-during-touch-button-data.json"
+    },
+    {
+      "id": "remount-does-not-multiply-input",
+      "status": "失败",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-13/verify-component-lifecycle.py\", line 26, in <module>\n    q.evaluate(PRESENT);q.wait_for_timeout(400);a=q.evaluate('__aboutRefreshPreview.interactions');q.locator('[data-action=next]').click();q.wait_for_timeout(450);data=q.evaluate('({interactions:__aboutRefreshPreview.interactions,nodes:document.querySelectorAll(\".ar-tools-browser\").length,cards:document.querySelectorAll(\".ar-tool-rail .ar-tool-card\").length,d:{...__aboutRefreshPreview.view.toolsElement.dataset},old:__oldRoots.map(e=>({connected:e.isConnected,d:{...e.dataset}}))})');assert data['interactions']==a+1 and data['nodes']==1 and data['cards']==22;assert data['d']['readingId']=='kling';assert all(not v['connected'] and v['d']['trackState']=='disposed' and v['d']['hoverFramePending']=='false' for v in data['old'])\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ],
+  "events": [],
+  "complete": false,
+  "standaloneActualComponents": true,
+  "clockModified": false,
+  "physicalDevice": false,
+  "version": "155.0.8059.79",
+  "browserClosed": true,
+  "serverClosed": true
+}

@@ -1,0 +1,176 @@
+{
+  "startedAtShanghai": "2026-11-14T21:04:48.761126+08:00",
+  "suite": "smoke",
+  "engine": "chromium",
+  "htmlSHA256": "93d05b53aaf3e8f505c51c5437b6e5ddbc9868de1180a941c7fb4f55e5aa7e41",
+  "checks": [
+    {
+      "id": "wide-identity",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "page": "A1",
+      "view": "normal",
+      "expanded": false,
+      "measurement": "wide-identity-measurement.json",
+      "layout": "immersive"
+    },
+    {
+      "id": "wide-experience",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "page": "A2",
+      "view": "normal",
+      "expanded": false,
+      "measurement": "wide-experience-measurement.json",
+      "layout": "immersive"
+    },
+    {
+      "id": "wide-experience-expanded",
+      "status": "待修正",
+      "viewport": [
+        1440,
+        900
+      ],
+      "page": "A2",
+      "view": "normal",
+      "error": "('expected spacious immersive', 'flow', '完整内容需要稳定阅读')",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-2/review.py\", line 150, in <module>\n    assert m['layout']=='immersive',('expected spacious immersive',m['layout'],m['reason'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('expected spacious immersive', 'flow', '完整内容需要稳定阅读')\n"
+    },
+    {
+      "id": "wide-tools",
+      "status": "通过",
+      "viewport": [
+        1440,
+        900
+      ],
+      "page": "A3",
+      "view": "normal",
+      "expanded": false,
+      "measurement": "wide-tools-measurement.json",
+      "layout": "immersive"
+    },
+    {
+      "id": "wide-tools-detail",
+      "status": "待修正",
+      "viewport": [
+        1440,
+        900
+      ],
+      "page": "A3",
+      "view": "detail",
+      "error": "('card text clipped', [('comfyui', True, [])])",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-2/review.py\", line 146, in <module>\n    assert not[c for c in m['cards']if c['intrinsicOverflow']or c['textOverflow']],('card text clipped',[(c['id'],c['intrinsicOverflow'],c['textOverflow'])for c in m['cards']if c['intrinsicOverflow']or c['textOverflow']])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('card text clipped', [('comfyui', True, [])])\n"
+    },
+    {
+      "id": "wide-long-name",
+      "status": "待修正",
+      "viewport": [
+        1440,
+        900
+      ],
+      "page": "A3",
+      "view": "long",
+      "error": "('card text clipped', [('substance-painter', True, [])])",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-2/review.py\", line 146, in <module>\n    assert not[c for c in m['cards']if c['intrinsicOverflow']or c['textOverflow']],('card text clipped',[(c['id'],c['intrinsicOverflow'],c['textOverflow'])for c in m['cards']if c['intrinsicOverflow']or c['textOverflow']])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('card text clipped', [('substance-painter', True, [])])\n"
+    },
+    {
+      "id": "wide-edge-reading",
+      "status": "待修正",
+      "viewport": [
+        1440,
+        900
+      ],
+      "page": "A3",
+      "view": "edge",
+      "error": "('card text clipped', [('blender', True, [])])",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-2/review.py\", line 146, in <module>\n    assert not[c for c in m['cards']if c['intrinsicOverflow']or c['textOverflow']],('card text clipped',[(c['id'],c['intrinsicOverflow'],c['textOverflow'])for c in m['cards']if c['intrinsicOverflow']or c['textOverflow']])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('card text clipped', [('blender', True, [])])\n"
+    },
+    {
+      "id": "phone-tools",
+      "status": "通过",
+      "viewport": [
+        390,
+        844
+      ],
+      "page": "A3",
+      "view": "normal",
+      "expanded": false,
+      "measurement": "phone-tools-measurement.json",
+      "layout": "flow"
+    },
+    {
+      "id": "narrow-tools-detail",
+      "status": "待修正",
+      "viewport": [
+        320,
+        740
+      ],
+      "page": "A3",
+      "view": "detail",
+      "error": "('card text clipped', [('comfyui', True, [])])",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/Stylized-Dreamy-Flower-Bed-Sky-Island/docs/about-refresh/evidence/step-2/review.py\", line 146, in <module>\n    assert not[c for c in m['cards']if c['intrinsicOverflow']or c['textOverflow']],('card text clipped',[(c['id'],c['intrinsicOverflow'],c['textOverflow'])for c in m['cards']if c['intrinsicOverflow']or c['textOverflow']])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('card text clipped', [('comfyui', True, [])])\n"
+    }
+  ],
+  "requests": [
+    {
+      "path": "/step-2-layout-preview.html",
+      "method": "GET"
+    },
+    {
+      "path": "/step-2-layout-preview.html",
+      "method": "GET"
+    },
+    {
+      "path": "/step-2-layout-preview.html",
+      "method": "GET"
+    },
+    {
+      "path": "/step-2-layout-preview.html",
+      "method": "GET"
+    },
+    {
+      "path": "/step-2-layout-preview.html",
+      "method": "GET"
+    },
+    {
+      "path": "/step-2-layout-preview.html",
+      "method": "GET"
+    },
+    {
+      "path": "/step-2-layout-preview.html",
+      "method": "GET"
+    },
+    {
+      "path": "/step-2-layout-preview.html",
+      "method": "GET"
+    },
+    {
+      "path": "/step-2-layout-preview.html",
+      "method": "GET"
+    }
+  ],
+  "events": [],
+  "externalAttempts": [],
+  "productionAppStarted": false,
+  "physicalDevice": false,
+  "originalTimingModified": false,
+  "server": {
+    "origin": "http://127.0.0.1:36463",
+    "pid": 185895,
+    "servesOnlyIsolatedHTML": true
+  },
+  "version": "155.0.8059.79",
+  "finishedAtShanghai": "2026-11-14T21:05:00.095736+08:00",
+  "cleanup": {
+    "serverClosed": true,
+    "browserClosed": true,
+    "otherServicesStopped": false
+  },
+  "complete": false
+}

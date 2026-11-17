@@ -1,0 +1,16 @@
+{
+  "runtimeChanged": false,
+  "originalFailureRetained": "accepted-cycle",
+  "reason": "The old assertion required both sampled endpoints to be fully offscreen; an 83 ms delayed frame integrated 43 px and naturally exposed 7 px of shadow on the incoming side.",
+  "originalFramesReevaluated": [
+    {
+      "frameIndex": 91,
+      "previousSampleGapMs": 83.30000000000018,
+      "integrationTravelPx": 43.142799999999966,
+      "incomingPaintPx": 7.045555114746094,
+      "frontStillFullyClipped": true,
+      "outgoingFullyClipped": true
+    }
+  ],
+  "replacementRule": "All ten real faces plus 3-sigma shadow. Outgoing paint must be fully clipped; an incoming sampled entry cannot penetrate further than measured physical travel plus 1 px. Same instances, coverage, gaps, speeds, directions and full loops remain asserted."
+}

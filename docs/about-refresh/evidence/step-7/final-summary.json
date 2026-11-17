@@ -1,0 +1,110 @@
+{
+  "completedAtShanghai": "2026-11-16T12:29:58.249966+08:00",
+  "status": "第七步完成",
+  "suites": {
+    "delivery-components": {
+      "passed": 49,
+      "report": "delivery-components/browser.json"
+    },
+    "delivery-state": {
+      "passed": 5,
+      "report": "delivery-state/browser.json"
+    },
+    "verified-hit": {
+      "passed": 2,
+      "report": "verified-hit/browser.json"
+    },
+    "verified-regressions": {
+      "passed": 7,
+      "report": "verified-regressions/browser.json"
+    },
+    "verified-projection": {
+      "passed": 8,
+      "report": "verified-projection/browser.json"
+    },
+    "verified-main": {
+      "passed": 44,
+      "report": "verified-main/adoption.json"
+    },
+    "verified-track": {
+      "passed": 26,
+      "report": "verified-track/browser.json",
+      "adoptedIDs": [
+        "entrance-hold-start",
+        "pause-native-enter-resume",
+        "rapid-toggle-last-choice",
+        "manual-first-last-wrap",
+        "all-tools-exact-return",
+        "detail-native-handoff",
+        "partial-card-first-click",
+        "seven-categories",
+        "horizontal-native-first-gesture",
+        "vertical-wheel-still-navigates",
+        "leave-return-resumes",
+        "manual-pause-survives-return",
+        "resize-anchor-ratio",
+        "resize-to-phone",
+        "switch-stable-stays-manual",
+        "phone-native",
+        "narrow-native",
+        "large-font-native",
+        "reduced-native",
+        "wide-stable-opt-in",
+        "simulated-hidden-no-catchup",
+        "reduced-change-stops",
+        "keyboard-focus-freezes",
+        "pointer-enter-keeps-base-speed",
+        "environment-independent",
+        "guide-independent"
+      ]
+    },
+    "verified-timing": {
+      "passed": 1,
+      "report": "verified-timing/browser.json",
+      "adoptedIDs": [
+        "measured-base-speed"
+      ],
+      "corroborativeIDs": [
+        "leave-return-resumes"
+      ],
+      "measuredPXPerSecond": 27.999999999999996
+    },
+    "verified-cycle": {
+      "passed": 1,
+      "report": "verified-cycle/browser.json",
+      "seen": 22,
+      "recycles": 22,
+      "seconds": 206.827
+    }
+  },
+  "totalPassedChecks": 143,
+  "measuredPXPerSecond": 27.999999999999996,
+  "naturalCycleSeconds": 206.827,
+  "seenTools": 22,
+  "offscreenRecycles": 22,
+  "allAdoptedSourcesMatch": true,
+  "historicalArtifactsUnchanged": 2353,
+  "video": {
+    "path": "docs/about-refresh/evidence/step-7/step-7-display.mp4",
+    "bytes": 1350462,
+    "sha256": "3d03d9f8577121df7cf6ab28a8fea386f3c6a27a55eb7202e986e3c406ff210d"
+  },
+  "seamVideo": {
+    "path": "docs/about-refresh/evidence/step-7/step-7-seam.mp4",
+    "bytes": 1579293,
+    "sha256": "316fd9fb5139fc42d7ca93c4e879079ec06147a9f585666a10c963888267c986"
+  },
+  "servicesCleanup": {
+    "servicesStopped": 2,
+    "portClosed": true,
+    "otherServicesStopped": false
+  },
+  "committed": false,
+  "pushed": false,
+  "published": false,
+  "notImplemented": [
+    "wheel-velocity-inertia",
+    "pointer-follow-hover",
+    "flight-out"
+  ]
+}

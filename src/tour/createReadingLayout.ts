@@ -43,7 +43,7 @@ export function createReadingLayout(app: HTMLElement, host: HTMLElement, panels:
   // display:contents in immersive mode preserves the original fixed coordinates.
   surface.querySelector('.tour-cover-slot')!.append(host);
   for (const [i, chapter] of [...surface.querySelectorAll('.tour-flow-chapter')].entries()) chapter.append(panels[i]!);
-  for (const panel of panels) for (const article of panel.querySelectorAll<HTMLElement>('article')) {
+  for (const panel of panels) for (const article of panel.querySelectorAll<HTMLElement>('[data-reading-station],[data-film-station],[data-experiment-station]')) {
     article.dataset.flowAnchor = article.dataset.readingStation ?? article.dataset.filmStation ?? article.dataset.experimentStation!;
   }
   main.append(surface, footer);
@@ -61,6 +61,8 @@ export function createReadingLayout(app: HTMLElement, host: HTMLElement, panels:
   let savedImmersive: ReadingPosition | undefined, entryAnchor = '', flowMoved = false;
   let cached: ReadingPosition | undefined, pending: string | undefined;
   let timer: number | undefined, frame: number | undefined, lastKey = '';
+  let toolTouching = false, toolScrolling = false, deferredMeasure = false, forcePending = false;
+  let toolScrollTimer: number | undefined, lastGeometry = '';
   const fontSize = () => probe.getBoundingClientRect().height;
   const viewportProbe = app.querySelector<HTMLElement>('.tour-viewport-probe')!;
   const stableHeight = () => viewportProbe.getBoundingClientRect().height;
@@ -158,17 +160,34 @@ export function createReadingLayout(app: HTMLElement, host: HTMLElement, panels:
   function key() {
     return JSON.stringify([innerWidth, app.querySelector('.tour-viewport-probe')!.getBoundingClientRect().height, fontSize(), ...panels.map(p => p.textContent)]);
   }
+  const geometryKey = () => JSON.stringify([innerWidth, stableHeight(), fontSize()]);
+  // Capacity probes temporarily hide the real stations. Doing that during a
+  // native gesture detaches its browser scroll chain, even if scrollLeft survives.
+  // Content-only probes wait for input to settle; a new viewport/font size still
+  // takes priority so orientation and accessibility changes remain responsive.
+  const measurementHeld = () => document.hidden || (toolTouching || toolScrolling) && geometryKey() === lastGeometry;
+  function settleToolScroll() {
+    if (toolScrollTimer !== undefined) clearTimeout(toolScrollTimer);
+    toolScrollTimer = window.setTimeout(() => {
+      toolScrollTimer = undefined;
+      if (toolTouching) return;
+      toolScrolling = false;
+      if (deferredMeasure) schedule();
+    }, 160);
+  }
   function schedule(force = false) {
-    if (disposed) return;clearTimeout(timer);
+    if (disposed) return;forcePending ||= force;clearTimeout(timer);
     timer = window.setTimeout(() => {
       if (disposed || bridge.overlay()) return;
-      const next = key();if (!force && next === lastKey) return;
+      if (measurementHeld()) { deferredMeasure = true;return; }
+      const next = key();if (!forcePending && next === lastKey) { deferredMeasure = false;return; }
       // One deferred batch; the second frame confirms a stable viewport/font.
       frame = requestAnimationFrame(() => { frame = undefined;if (disposed) return;
-        if (key() !== next) { schedule(force);return; }
+        if (measurementHeld()) { deferredMeasure = true;return; }
+        if (key() !== next) { schedule();return; }
         document.documentElement.classList.toggle('tour-large-text', fontSize() > 24);
         const previous = cached;
-        lastKey = next;measuring = true;capacity = bridge.measure();measuring = false;
+        lastKey = next;lastGeometry = geometryKey();forcePending = deferredMeasure = false;measuring = true;capacity = bridge.measure();measuring = false;
         main.dataset.readingCapacity = JSON.stringify(capacity);main.dataset.layoutReady = 'true';
         availability();
         if (!stable && !capacity.fits) change(true, 'capacity');
@@ -195,6 +214,22 @@ export function createReadingLayout(app: HTMLElement, host: HTMLElement, panels:
   };
   skip.addEventListener('click', skipToContent, options);surface.querySelector('.tour-flow-start')!.addEventListener('click', skipToContent, options);
   const observer = new IntersectionObserver(visibility);observer.observe(host);
+  const onToolRail = (target: EventTarget | null) => target instanceof Element && !!target.closest('.ar-tool-rail');
+  document.addEventListener('touchstart', event => { if (onToolRail(event.target)) toolTouching = true; }, { ...options, capture: true, passive: true });
+  const endTouch = (event: TouchEvent) => { if (toolTouching && event.touches.length === 0) { toolTouching = false;settleToolScroll(); } };
+  document.addEventListener('touchend', endTouch, { ...options, passive: true });
+  document.addEventListener('touchcancel', endTouch, { ...options, passive: true });
+  document.addEventListener('wheel', event => {
+    if (onToolRail(event.target) && !event.ctrlKey && !event.metaKey && !event.altKey) { toolScrolling = true;settleToolScroll(); }
+  }, { ...options, capture: true, passive: true });
+  document.addEventListener('scroll', event => {
+    if (event.target instanceof HTMLElement && event.target.matches('.ar-tool-rail') && event.target.dataset.trackMode !== 'program') { toolScrolling = true;settleToolScroll(); }
+  }, { ...options, capture: true, passive: true });
+  document.addEventListener('visibilitychange', () => {
+    if (toolScrollTimer !== undefined) clearTimeout(toolScrollTimer);toolScrollTimer = undefined;
+    toolTouching = toolScrolling = false;
+    if (!document.hidden && deferredMeasure) schedule();
+  }, options);
   const fontObserver = new ResizeObserver(() => schedule());fontObserver.observe(probe);
   fontObserver.observe(viewportProbe);
   const contentObserver = new MutationObserver(() => schedule());
@@ -207,6 +242,7 @@ export function createReadingLayout(app: HTMLElement, host: HTMLElement, panels:
     get stable() { return stable; },
     get coverVisible() { return coverVisible; },
     capture,
+    contentChanged() { schedule(true); },
     start() { if (bridge.unavailable()) change(true, 'unavailable');else if (media.matches) change(true, 'reduced-motion');void document.fonts.ready.then(() => { if (!disposed) schedule(true); }); },
     scroll() { updateProgress(); },
     navigate(h: number) { if (!stable) return false;go(fromH(h));return true; },
@@ -233,6 +269,7 @@ export function createReadingLayout(app: HTMLElement, host: HTMLElement, panels:
     },
     dispose() {
       disposed = true;clearTimeout(timer);if (frame !== undefined) cancelAnimationFrame(frame);
+      if (toolScrollTimer !== undefined) clearTimeout(toolScrollTimer);
       listeners.abort();observer.disconnect();fontObserver.disconnect();contentObserver.disconnect();
       document.documentElement.classList.remove('tour-stable-reading', 'tour-large-text');
     },

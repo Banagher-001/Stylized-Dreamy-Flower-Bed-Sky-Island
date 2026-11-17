@@ -63,7 +63,7 @@ export const tourPoses: Record<PoseKey, TourPose> = {
   O: { position: [...sceneConfig.camera.position], target: [...sceneConfig.camera.target], viewHeight: sceneConfig.camera.viewHeight, screenX: 0.5 },
   A: { position: [-1.14, 6.95, 6.1], target: [-2.34, 2.75, -2.9], viewHeight: 3.6, screenX: 0.34 },
   A2: { position: [-1.14, 6, 6.1], target: [-2.34, 1.8, -2.9], viewHeight: 3.6, screenX: 0.34 },
-  A3: { position: [-1.14, 5.05, 6.1], target: [-2.34, 0.85, -2.9], viewHeight: 3.6, screenX: 0.34 },
+  A3: { position: [-1.14, 5.05, 6.1], target: [-2.34, 0.85, -2.9], viewHeight: 4.8, screenX: 0.20 },
   B: { position: [5.61, 7, 8], target: [4.41, 2.8, -1], viewHeight: 3.8, screenX: 0.28 },
   B2: { position: [5.61, 6.35, 8], target: [4.41, 2.15, -1], viewHeight: 3.8, screenX: 0.28 },
   B3: { position: [5.61, 5.7, 8], target: [4.41, 1.5, -1], viewHeight: 3.8, screenX: 0.28 },
@@ -116,12 +116,15 @@ export function sampleTour(value: number): TourSample {
   const stage = tourStages.find((s) => h < s.end) ?? tourStages[tourStages.length - 1]!;
   const base = { h, stage: stage.id };
   if (h < 0.5 || h >= 11.8) return { ...base, chapter: 'overview', title: h < 0.5 ? '让想象，动起来。' : 'sakan · 张辰翰', note: 'AI动画 · 视觉创作 · 交互实验', pose: copy(tourPoses.O), hold: true };
-  if (h < 1.3) return { ...base, chapter: 'about', title: '走近，关于我的故事', note: '沿石柱向下，阅读身份、经历与创作。', pose: travel('T01', (h - 0.5) / 0.8), hold: false };
+  if (h < 1.3) return { ...base, chapter: 'about', title: '走近，关于我的故事', note: '沿石柱向下，阅读身份、经历与工具。', pose: travel('T01', (h - 0.5) / 0.8), hold: false };
   if (h < 3.7) {
     const pose = copy(tourPoses.A);
     const height = firstPillarHeight(h);
     pose.position[1] += height - pose.target[1];
     pose.target[1] = height;
+    const wide = smoother(clamp((h - 2.74) / .28, 0, 1));
+    pose.viewHeight += (tourPoses.A3.viewHeight - tourPoses.A.viewHeight) * wide;
+    pose.screenX += (tourPoses.A3.screenX - tourPoses.A.screenX) * wide;
     return { ...base, chapter: 'about', title: '01 / 关于我', note: '沿柱阅读 · 上、中、下三段随滚动交接。', pose, hold: !(h > 1.94 && h < 2.22 || h > 2.74 && h < 3.02), column: 'columnUpperLeft', reading: samplePillarReading(h) };
   }
   if (h < 4.4) return { ...base, chapter: 'films', title: '关于我 / AI影像', note: '01 ↔ 02 · 移步，继续看见创作。', pose: travel('T12', (h - 3.7) / 0.7), hold: false };
