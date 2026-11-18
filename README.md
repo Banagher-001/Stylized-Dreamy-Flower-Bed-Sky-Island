@@ -48,6 +48,35 @@ node scripts/preview-site.mjs --dir dist --open
 
 浏览器需支持 WebGL 2。没有后端、数据库、密钥或 CDN 依赖。应用默认进入当前庭院；`?tour=prototype` 兼容旧链接，`?tour=reference` 进入旧参考稿，`debug=1` 仅用于工程检查。
 
+### 启动失败时的备用方案
+
+**备用一：直接预览成品（推荐）。** 如果 `npm.cmd ci` 或开发启动失败，下载上方的[成品 ZIP](release/about-refresh-step14-6341623c81b6b265-r3-site.zip)，完整解压。在能看到 `SITE-PACKAGE.txt` 和 `scripts` 文件夹的目录中，右键选择「在终端中打开」，执行：
+
+```powershell
+node scripts/preview-site.mjs --port 0
+```
+
+此方式只需要 Node.js，无需安装 npm 依赖或重新构建。`--port 0` 自动选择空闲端口；将终端打印的完整 `http://127.0.0.1:实际端口/` 地址复制到浏览器，保留终端窗口。按 `Ctrl+C` 停止。不要直接双击 HTML。
+
+**备用二：源码构建后预览。** 如果依赖已经安装成功，但开发服务器启动失败，可在包含 `package.json` 的源码根目录执行：
+
+```powershell
+npm.cmd run build
+node scripts/preview-site.mjs --dir dist --port 0
+```
+
+先确认构建成功，再打开终端显示的地址。此方式展示构建结果，修改源码后需重新构建；若构建也失败，使用备用一。
+
+**备用三：直接启动开发工具。** 如果依赖已安装、需要继续修改网页，但 `npm.cmd run dev` 无法启动，可绕过 npm 启动命令，换一个端口：
+
+```powershell
+node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5174
+```
+
+始终打开终端实际打印的地址。提示找不到 `node_modules/vite` 时，需要先成功安装依赖，或使用备用一。macOS / Linux 将以上 `npm.cmd` 换成 `npm`，`node` 命令相同。
+
+双击无反应、Node 未识别、PowerShell 脚本限制、依赖下载失败等情况，见[完整备用启动与排障说明](docs/startup-fallback.md)。
+
 ## 维护与验证
 
 - 关于我与工具卡正文：`src/tour/about-refresh/content.ts`，图标：`src/assets/tool-marks/`。
