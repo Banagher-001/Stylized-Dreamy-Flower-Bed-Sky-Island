@@ -2,19 +2,17 @@
 
 三柱滚动作品集：从清新的像素庭院出发，用滚轮沿石柱阅读个人介绍、AI 影像和 Coding 作品。水球流纹、移动云影、三只飞鸟与可随时接管的自动导览保留。小屏、短横屏、放大文字或减少动态时，使用同一份正文的稳定阅读。
 
-本轮「关于我」十四步改版候选为 **about-refresh-step14-6341623c81b6b265**。身份、经历和制作流程已接入；第三屏包含 22 张真实工具卡、首批四卡的三维入场、自动横向展示、随滚轮速度加速与缓冲、悬停倾斜、固定阅读、分类、全部工具、操作说明及飞离/返回衔接。本轮改版、下载包和验收记录纳入本次仓库保存，版本与范围见 [GitHub 保存说明](docs/github-about-refresh-handoff.md)。网站尚未部署。
+当前成品版本为 **experiment-inline-step7-4901f6d5c2824013**，包含工具卡飞入、滚轮横移与阅读详情，以及两个作品的站内切换。生产构建和第七步的 24 项浏览器检查已通过。
 
-[最新运行指南](docs/about-refresh/run-guide.md) · [维护说明](docs/about-refresh/maintenance.md) · [第十四步验收](docs/about-refresh/step-14-verification.md) · [本轮交接](docs/about-refresh/step-14-handoff.md) · [完整验收附件与恢复方法](docs/about-refresh/evidence/README.md)
+[整站验收](docs/experiment-inline/step-7-acceptance.md) · [原网页功能对照](docs/experiment-inline/step-6-parity.md) · [工具卡改版验收](docs/card-refinement/step-7-acceptance.md) · [备用启动与排障](docs/startup-fallback.md)
 
 姓名张辰翰，化名 sakan（萨坎），现于枫叶互动制作 AI 动画，曾在游族网络。关于我不列场景为正式项目，也不展示奖项。AI 影像区仍明确标记「网页设计样片 / 非个人实际项目」；真实影片、职责与联系方式可在后续提供后替换。
 
-Coding 区按 **LAWSON → BOTTLE OCEAN → COURTYARD** 展示，默认罗森。前两项使用大尺寸独立网页，保留原网页功能，支持档案、独立打开与返回阅读；庭院复用主站场景。原资源位于 `public/experiments/lawson/` 和 `public/experiments/bottle-ocean/`，运行无需访问 GitHub 或私有仓库。
+当前源码的「交互实验」窗口展示 **罗森便利店**和**瓶中海洋**。进入作品窗口后自动载入罗森，用上方标签可原位切换，窗下可展开对应档案。水潭章节可进入庭院现场。两个原网页从 `public/experiments/lawson/` 和 `public/experiments/bottle-ocean/` 同源加载，运行无需访问 GitHub 或私有仓库。
 
-## 使用最新版
+## 下载当前成品
 
-- [成品 ZIP](release/about-refresh-step14-6341623c81b6b265-r3-site.zip)：完整解压，安装 Node.js 后，Windows 双击 `START-PREVIEW.cmd`。无需安装 npm 依赖。
-- [源码 ZIP](release/about-refresh-step14-6341623c81b6b265-r3-source.zip)：包含当前源码、锁文件、启动工具、维护说明与本轮可复用验收脚本；不含 Git 历史、历史证据及嵌套压缩包。
-- [文件及版本清单](release/about-refresh-step14-6341623c81b6b265-r3-manifest.json) · [SHA256SUMS](release/about-refresh-step14-6341623c81b6b265-r3-SHA256SUMS)
+完整解压成品包，安装 Node.js 后在 Windows 双击 `START-PREVIEW.cmd`。也可以在解压目录运行 `node scripts/preview-site.mjs --open`。[当前成品 ZIP](release/experiment-inline-step7-4901f6d5c2824013-site.zip) · [SHA-256 校验值](release/experiment-inline-step7-4901f6d5c2824013-SHA256SUMS)
 
 网站通过 **HTTP** 运行，不能直接双击 HTML。`127.0.0.1` / `localhost` 只能在启动服务的电脑访问；本地预览不等于公网发布。若要让别人使用网址访问，需要另行部署静态站点。
 
@@ -50,7 +48,7 @@ node scripts/preview-site.mjs --dir dist --open
 
 ### 启动失败时的备用方案
 
-**备用一：直接预览成品（推荐）。** 如果 `npm.cmd ci` 或开发启动失败，下载上方的[成品 ZIP](release/about-refresh-step14-6341623c81b6b265-r3-site.zip)，完整解压。在能看到 `SITE-PACKAGE.txt` 和 `scripts` 文件夹的目录中，右键选择「在终端中打开」，执行：
+**备用一：直接预览成品（推荐）。** 如果 `npm.cmd ci` 或开发启动失败，下载上方的[成品 ZIP](release/experiment-inline-step7-4901f6d5c2824013-site.zip)，完整解压。在能看到 `SITE-PACKAGE.txt` 和 `scripts` 文件夹的目录中，右键选择「在终端中打开」，执行：
 
 ```powershell
 node scripts/preview-site.mjs --port 0
@@ -82,14 +80,15 @@ node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5174
 - 关于我与工具卡正文：`src/tour/about-refresh/content.ts`，图标：`src/assets/tool-marks/`。
 - 工具卡控制器：`src/tour/about-refresh/`；布局衔接：`src/tour/createReadingLayout.ts`。
 - 影像与交互作品资料：`src/tour/filmContent.ts`、`projectContent.ts`、`experimentContent.ts`。
-- 本轮完整路线、原网页与持续运行脚本：`tests/about-refresh-final/`。运行参数与证据索引见[验收说明](docs/about-refresh/step-14-verification.md)。
+- 主站浏览与原网页测试位于 `tests/about-refresh-final/` 和 `tests/experiment-inline-step-7/`。[第七步验收记录](docs/experiment-inline/evidence/step-7/acceptance.json)
 
-本轮完整路线以真实时钟、实际输入验证。前十三步的细项记录保留于 `docs/about-refresh/`，第十三步的 161 项适配结果作为未变源码的既有依据，不重复计为第十四步新增通过。设备仿真、系统偏好、浏览器引擎和真机实测分别记录；没有宣称实体 iOS / Android、VoiceOver / TalkBack 或硬件 FPS 已通过。
+第七步从生产构建和独立解压目录验证了操作流程。竖屏和短横屏使用 Chromium 触屏模拟。[构建清单](docs/experiment-inline/evidence/step-7/build.json) · [成品包校验](docs/experiment-inline/evidence/step-7/package-verification.json)
 
 ## 历史归档
 
-旧包保留原字节与原版本身份，不代表当前关于我改版。
+以下记录对应各阶段的历史构建。
 
+- **about-refresh-step14-6341623c81b6b265** 的关于我改版。[运行指南](docs/about-refresh/run-guide.md) · [维护说明](docs/about-refresh/maintenance.md) · [第十四步验收](docs/about-refresh/step-14-verification.md) · [当时的成品](release/about-refresh-step14-6341623c81b6b265-r3-site.zip) · [当时的源码包](release/about-refresh-step14-6341623c81b6b265-r3-source.zip) · [保存说明](docs/github-about-refresh-handoff.md)
 - **bottle-ocean-step7-3b31ab385ebfc4cb**：此前三作品接入。[运行](docs/beach-bottle-boat/step-7-run-guide.md) · [验收](docs/beach-bottle-boat/step-7-verification.md) · [GitHub 保存说明](docs/github-bottle-ocean-handoff.md)。
 - **lawson-fullpage-step7-882322e9045fcdba**：此前双作品接入。[功能对照](docs/lawson-fullpage/step-7-parity.md) · [验收](docs/lawson-fullpage/step-7-verification.md) · [保存说明](docs/github-lawson-handoff.md)。
 - **garden-enhancement-step7-487410d10d8ad600**：[快速上手](docs/garden-enhancement/quickstart.md) · [验收](docs/garden-enhancement/step-7-verification.md) · [保存说明](docs/github-enhancement-handoff.md)。约 432 MB 的完整验收 ZIP 使用 Git LFS，获取方式与 SHA256 见该保存说明。

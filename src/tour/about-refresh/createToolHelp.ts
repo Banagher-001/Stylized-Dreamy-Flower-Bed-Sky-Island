@@ -20,22 +20,37 @@ export function createToolHelp(options: {
   const header=element('div','ar-tool-help-header');header.append(headingGroup,closeButton);
   const list=element('dl','ar-tool-help-list'),note=element('p','ar-tool-help-note');panel.append(header,list,note);
   let open=false,disposed=false,signature='',openedLayout='';
-  function popup() {return root.closest<HTMLElement>('.about-refresh')?.dataset.layout==='immersive' && innerWidth>=1180 && parseFloat(getComputedStyle(root).fontSize)<=24;}
+  function canAnchor() {
+    const host = root.closest<HTMLElement>('.about-refresh');
+    return host?.dataset.layout === 'immersive' && host.dataset.largeText !== 'true' && innerWidth >= 1180 &&
+      parseFloat(getComputedStyle(root).fontSize) <= 24;
+  }
+  function popover() { return panel.dataset.presentation === 'popover'; }
   function layoutKey() {const h=root.closest<HTMLElement>('.about-refresh');return [innerWidth,innerHeight,getComputedStyle(root).fontSize,h?.dataset.layout,h?.dataset.largeText].join('|');}
   function place() {
-    scrollHint.hidden=true;
-    panel.dataset.presentation=popup()?'popover':'inline';
-    if(!popup()) {panel.removeAttribute('style');return;}
-    const box=root.getBoundingClientRect(),r=rail.getBoundingClientRect(),c=controls.getBoundingClientRect(),t=trigger.getBoundingClientRect();
-    const headerBottom=document.querySelector('.tour-header')?.getBoundingClientRect().bottom??0;
-    const footerTop=document.querySelector('.tour-footer')?.getBoundingClientRect().top??innerHeight;
-    const top=Math.max(16,headerBottom+12,r.top+8),bottom=Math.min(innerHeight-16,footerTop-12,c.top-8,r.bottom-8);
-    const width=Math.min(360,box.width,innerWidth-32);
-    panel.style.width=`${width}px`;panel.style.maxHeight=`${Math.max(120,bottom-top)}px`;
-    const left=clamp(t.right-width,Math.max(16,box.left),Math.min(innerWidth-16,box.right)-width);
-    const y=clamp(t.top-panel.getBoundingClientRect().height-12,top,Math.max(top,bottom-panel.getBoundingClientRect().height));
-    panel.style.left=`${left-box.left}px`;panel.style.top=`${y-box.top}px`;
-    scrollHint.hidden=panel.scrollHeight<=panel.clientHeight+1;
+    scrollHint.hidden = true;
+    if (canAnchor()) {
+      const box = root.getBoundingClientRect(), row = rail.getBoundingClientRect();
+      const bar = controls.getBoundingClientRect(), anchor = trigger.getBoundingClientRect();
+      const headerBottom = document.querySelector('.tour-header')?.getBoundingClientRect().bottom ?? 0;
+      const footerTop = document.querySelector('.tour-footer')?.getBoundingClientRect().top ?? innerHeight;
+      const top = Math.max(16, headerBottom + 12, row.top + 8);
+      const bottom = Math.min(innerHeight - 16, footerTop - 12, bar.top - 8, row.bottom - 8);
+      const left = Math.max(16, box.left), right = Math.min(innerWidth - 16, box.right);
+      const width = Math.min(360, right - left), height = bottom - top;
+      if (width >= 240 && height >= 144) {
+        panel.dataset.presentation = 'popover';
+        panel.style.width = `${width}px`;
+        panel.style.maxHeight = `${height}px`;
+        panel.style.left = `${clamp(anchor.right - width, left, right - width) - box.left}px`;
+        const panelHeight = panel.getBoundingClientRect().height;
+        panel.style.top = `${clamp(anchor.top - panelHeight - 12, top, bottom - panelHeight) - box.top}px`;
+        scrollHint.hidden = panel.scrollHeight <= panel.clientHeight + 1;
+        return;
+      }
+    }
+    panel.dataset.presentation = 'inline';
+    panel.removeAttribute('style');
   }
   function close(reason='close',restoreFocus=false) {
     if(!open)return;
@@ -45,25 +60,37 @@ export function createToolHelp(options: {
   }
   function show(keyboard=false) {
     if(disposed || open)return;
-    open=true;panel.dataset.presentation=popup()?'popover':'inline';panel.hidden=false;trigger.textContent=toolHelpCopy.collapse;trigger.setAttribute('aria-expanded','true');root.dataset.helpOpen='true';
-    options.changed(true,'open');openedLayout=layoutKey();place();
-    if(keyboard){heading.focus({preventScroll:true});if(!popup())heading.scrollIntoView({block:'nearest',behavior:'instant'});}
+    open=true;panel.hidden=false;trigger.textContent=toolHelpCopy.collapse;trigger.setAttribute('aria-expanded','true');root.dataset.helpOpen='true';
+    openedLayout = layoutKey();place();options.changed(true,'open');
+    if (keyboard && open) {
+      heading.focus({ preventScroll: true });
+      if (!popover()) heading.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+    }
   }
   trigger.addEventListener('click',e=>{if(open)close('toggle',true);else show(e.detail===0);},abort);
   closeButton.addEventListener('click',()=>close('close',true),abort);
-  document.addEventListener('pointerdown',e=>{if(open&&popup()&&!panel.contains(e.target as Node)&&!trigger.contains(e.target as Node))close('outside');},{...abort,capture:true});
-  panel.addEventListener('focusout',e=>{if(open&&popup()&&e.relatedTarget&&!panel.contains(e.relatedTarget as Node)&&!trigger.contains(e.relatedTarget as Node))close('focus-left');},abort);
-  window.addEventListener('resize',()=>close('resize'),abort);
+  document.addEventListener('pointerdown',e=>{if(open&&popover()&&!panel.contains(e.target as Node)&&!trigger.contains(e.target as Node))close('outside');},{...abort,capture:true});
+  panel.addEventListener('focusout',e=>{if(open&&popover()&&e.relatedTarget&&!panel.contains(e.relatedTarget as Node)&&!trigger.contains(e.relatedTarget as Node))close('focus-left');},abort);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)close('hidden');},abort);
-  const observer=new ResizeObserver(()=>{if(open&&openedLayout!==layoutKey())close('layout');});observer.observe(root);observer.observe(controls);
+  function layoutChanged() {
+    if (!open) return;
+    const key = layoutKey();
+    if (openedLayout !== key) close('layout', panel.contains(document.activeElement));
+  }
+  window.addEventListener('resize', layoutChanged, abort);
+  const observer = new ResizeObserver(() => {
+    layoutChanged();
+    if (open && canAnchor()) place();
+  });
+  observer.observe(root);observer.observe(controls);
   root.dataset.helpOpen='false';
   return {
-    trigger,panel,get open(){return open;},get popover(){return popup();},
+    trigger,panel,get open(){return open;},get popover(){return popover();},
     contains(target: EventTarget|null){return target instanceof Node&&(trigger.contains(target)||panel.contains(target));},
     close,
     update(model: ToolGuidance) {
       if(disposed)return;
-      if(open&&openedLayout&&openedLayout!==layoutKey()){close('layout');return;}
+      layoutChanged();
       const next=JSON.stringify([model.rows,model.note]);
       if(next!==signature){
         signature=next;list.replaceChildren(...model.rows.map(row=>{const item=element('div','ar-tool-help-item');item.append(element('dt','',`${row.title}：`),element('dd','',row.text));return item;}));

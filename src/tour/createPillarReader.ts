@@ -190,6 +190,7 @@ export function createPillarReader(app: HTMLElement, host: HTMLElement, inscript
     get station() { return view.station; },
     get entranceReady() { return view.toolsEntranceReady; },
     restoreStation(id: AboutStationId) { view.setStation(id,true); },
+    cancelToolsDeparture(reason: string) { view.cancelToolsDeparture(reason); },
     readingText() {
       const section = view.stations.find(node=>node.dataset.aboutStation===view.station)!;
       if (view.station !== 'A3') return section.innerText;

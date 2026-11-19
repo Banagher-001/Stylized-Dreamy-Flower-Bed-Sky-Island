@@ -15,6 +15,7 @@ export function createBottleOceanExperience(options: EmbeddedPageOptions) {
   return createEmbeddedPageExperience(options, {
     title: '瓶中海洋 · 完整交互网页',
     canvasSelector: 'canvas#gl',
+    scrollContainer: '.panel-scroll',
     readyEvent: 'bottle-ocean-ready',
     inspect(doc, win, canvas) {
       const source = win as BottleWindow, api = source.__bottleOcean;

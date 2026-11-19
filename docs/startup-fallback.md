@@ -4,7 +4,7 @@
 
 ## 只想先查看网页：使用成品包
 
-1. 下载[当前成品 ZIP](../release/about-refresh-step14-6341623c81b6b265-r3-site.zip)。在 GitHub 的文件页面可点击「Download raw／下载原始文件」。
+1. 下载[当前成品 ZIP](../release/experiment-inline-step7-4901f6d5c2824013-site.zip)。在 GitHub 的文件页面可点击「Download raw／下载原始文件」。
 2. 完整解压，进入同时包含 `index.html`、`SITE-PACKAGE.txt`、`assets`、`experiments` 和 `scripts` 的文件夹。不要在 ZIP 压缩包内部运行，也不要只取出 HTML。
 3. Windows 在该文件夹空白处右键，选择「在终端中打开」，执行：
 
@@ -15,7 +15,7 @@ node scripts/preview-site.mjs --port 0
 4. 将终端显示的完整地址复制到浏览器。端口由系统自动选择，每次可能不同；不要固定打开旧的 `5173` 或 `4173`。
 5. 保留终端；按 `Ctrl+C` 停止服务。
 
-此方式需要 Node.js 22.12 或更高版本，推荐安装 Node.js 24 LTS。它不需要执行 npm 安装或构建，保留成品中的庭院、工具卡和三个 Coding 作品。
+此方式需要 Node.js 22.12 或更高版本，推荐安装 Node.js 24 LTS。成品已构建好，包含庭院、工具卡和「交互实验」中的罗森便利店与瓶中海洋。
 
 双击 `START-PREVIEW.cmd` 没有反应或浏览器没有自动弹出时，也使用上述手动命令。打开终端运行能保留报错；浏览器未自动打开时，手动复制地址即可。
 

@@ -15,7 +15,7 @@ html.tour-document { overflow-anchor: none; }
 .pillar-reading-body, .film-caption, .film-provenance, .film-picture figcaption, .film-epilogue, .experiment-body { font-size: 1.125rem; }
 .pillar-reading h2, .film-reading h2, .experiment-reading h2 { font-size: 1.6875rem; }
 .pillar-reading [data-reading-layout="identity"] h2 { font-size: 2.5rem; }
-.about-note, .about-cue, .experiment-entry-actions button { font-size: 1rem; }
+.about-note, .about-cue { font-size: 1rem; }
 
 /* The same inscription articles unfold into a continuous stone manuscript. */
 .tour-stable-reading { background: #182c27; scroll-padding-top: 110px; }
@@ -58,9 +58,8 @@ html.tour-document { overflow-anchor: none; }
 .tour-stable-reading .film-slices .film-picture:first-child .film-image-button { aspect-ratio: 2; }
 .tour-stable-reading .film-diptych { align-items: start; }
 .tour-stable-reading .film-picture figcaption { white-space: normal; }
-.tour-stable-reading .experiment-project-summary { grid-template-columns: minmax(160px, .9fr) 1.1fr; align-items: center; gap: 24px; }
-.tour-stable-reading .experiment-cover { height: auto; aspect-ratio: 1.8; }
-.tour-stable-reading .experiment-entry-actions { flex-wrap: wrap; gap: 12px; }
+.tour-stable-reading .experiment-reading[data-reading-layout="flow"] .experiment-project-window { padding: 12px clamp(10px, 2vw, 16px); }
+.tour-stable-reading .experiment-reading[data-reading-layout="flow"] .experiment-project-window .experiment-body { max-width: none; gap: 10px; margin-top: 10px; }
 .tour-stable-reading .experiment-process { flex-wrap: wrap; gap: 16px; }
 .tour-stable-reading .about-experience li, .tour-stable-reading .about-practice li { grid-template-columns: minmax(76px, auto) minmax(0, 1fr); }
 .tour-stable-reading .tour-flow-water, .tour-stable-reading .tour-flow-ending { margin-top: 64px; padding: 32px 0; border-top: 1px solid #637a6c; }
@@ -112,7 +111,6 @@ html.tour-project-open .tour-prototype .tour-reading-flow *:not(.tour-stage):not
   .tour-stable-reading .tour-reading-flow { padding-top: 32px; }
   .tour-stable-reading :is(.film-reading,.experiment-reading)[data-reading-layout="flow"] article { padding: 24px 16px; }
   .tour-stable-reading :is(.film-reading,.experiment-reading)[data-reading-layout="flow"] :is(.pillar-reading-body,.experiment-body,.film-body) { font-size: 1rem; }
-  .tour-stable-reading .experiment-project-summary { grid-template-columns: 1fr; }
   .tour-stable-reading .film-diptych { grid-template-columns: 1fr; gap: 24px; }
   .tour-stable-reading .about-experience li { grid-template-columns: 1fr; }
   .tour-stable-reading .about-company, .tour-stable-reading .about-duty { grid-column: 1; }

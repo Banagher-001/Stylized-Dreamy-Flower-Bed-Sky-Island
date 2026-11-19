@@ -232,7 +232,13 @@ export function createReadingLayout(app: HTMLElement, host: HTMLElement, panels:
   }, options);
   const fontObserver = new ResizeObserver(() => schedule());fontObserver.observe(probe);
   fontObserver.observe(viewportProbe);
-  const contentObserver = new MutationObserver(() => schedule());
+  const contentObserver = new MutationObserver(mutations => {
+    // State messages, frames and archive contents do not affect immersive capacity.
+    if (mutations.some(({ target }) => {
+      const element = target instanceof Element ? target : target.parentElement;
+      return !element?.closest('.experiment-window-stage, .experiment-archive-content');
+    })) schedule();
+  });
   for (const panel of panels) contentObserver.observe(panel, { childList: true, characterData: true, subtree: true });
   document.fonts.addEventListener('loadingdone', () => schedule(true), options);
   const reducedChanged = () => { if (media.matches) change(true, 'reduced-motion');schedule(true); };
@@ -245,6 +251,7 @@ export function createReadingLayout(app: HTMLElement, host: HTMLElement, panels:
     contentChanged() { schedule(true); },
     start() { if (bridge.unavailable()) change(true, 'unavailable');else if (media.matches) change(true, 'reduced-motion');void document.fonts.ready.then(() => { if (!disposed) schedule(true); }); },
     scroll() { updateProgress(); },
+    refreshProgress() { updateProgress(true); },
     navigate(h: number) { if (!stable) return false;go(fromH(h));return true; },
     unavailable() { change(true, 'unavailable');availability();schedule(true); },
     available() {

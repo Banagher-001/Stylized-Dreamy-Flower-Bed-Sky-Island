@@ -45,10 +45,9 @@ def session(page):
             action_index += 1
             if action_index in [3,9]:
                 identifier = 'lawson' if action_index == 3 else 'bottle-ocean'
-                frame = r.open_project(page, identifier)
+                frame = r.open_scene(page, identifier)
                 if identifier == 'lawson': frame.locator('[data-cam=front]').click()
                 else: frame.locator('[data-action=pause]').click()
-                r.close_project(page)
                 restore()
                 action = 'embedded-open-close-'+identifier
             elif action_index == 5:

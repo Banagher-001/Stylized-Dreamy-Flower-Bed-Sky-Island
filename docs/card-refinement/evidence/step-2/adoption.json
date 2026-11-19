@@ -1,0 +1,87 @@
+{
+  "adoptedAtShanghai": "2026-11-18T14:32:57.933491+08:00",
+  "step": 2,
+  "complete": true,
+  "candidateId": "card-refinement-step2-e000401dbd3d7074",
+  "runtimeInputDigest": "e000401dbd3d70744d65fab2568ded738c3dcf1556cab654a79b14091e3416b6",
+  "baseline": "baseline.json",
+  "build": "build.json",
+  "integrity": "integrity.json",
+  "finalBrowserReport": "final-checks/browser.json",
+  "finalBrowserChecks": [
+    {
+      "id": "visible-four-card-entrance",
+      "status": "通过"
+    },
+    {
+      "id": "unseen-fast-pass-can-retry",
+      "status": "通过"
+    },
+    {
+      "id": "font-change-cleans-flight",
+      "status": "通过"
+    },
+    {
+      "id": "font-readiness-fallback",
+      "status": "通过"
+    },
+    {
+      "id": "step1-region-does-not-follow-flight",
+      "status": "通过"
+    },
+    {
+      "id": "all-tools-interrupt-first-click",
+      "status": "通过"
+    },
+    {
+      "id": "category-interrupt-first-click",
+      "status": "通过"
+    },
+    {
+      "id": "pause-interrupt-retains-choice",
+      "status": "通过"
+    },
+    {
+      "id": "wheel-only-shortens-entrance",
+      "status": "通过"
+    },
+    {
+      "id": "resize-cleans-flight",
+      "status": "通过"
+    },
+    {
+      "id": "initial-reduced-motion",
+      "status": "通过"
+    },
+    {
+      "id": "reduced-during-flight",
+      "status": "通过"
+    },
+    {
+      "id": "continue-interrupt-first-click",
+      "status": "通过"
+    }
+  ],
+  "nativeBackgroundReport": "final-native-background/result.json",
+  "finalCandidateChecksPassed": 14,
+  "separateEarlierRegionRegression": {
+    "report": "region-regression/browser.json",
+    "checksPassed": 3,
+    "countsAsFinalCandidate": false,
+    "note": "Before completed-progress diagnostic fix; region modules unchanged. Final candidate has its own region-invariance check."
+  },
+  "video": {
+    "original": "final-checks/video/page@5e266c7a4bdbb249c7ee9a760ad627ba.webm",
+    "originalSha256": "8ac44fb26b3129182016f6f9c372244ec3902dce37e7c5e2fcf2381958cc5879",
+    "mp4": "step-2-entrance-final.mp4",
+    "mp4Sha256": "2d72c6920f1fd018bc5ba9d3e20c6ffcb406f87935c515a5fc6c47c7eeabd31d",
+    "durationSeconds": 8.44,
+    "speedAdjusted": false
+  },
+  "cleanup": "services-cleanup.json",
+  "gitCommitCreated": false,
+  "githubPushed": false,
+  "published": false,
+  "historicalPackagesRegenerated": false,
+  "nextStep": 3
+}

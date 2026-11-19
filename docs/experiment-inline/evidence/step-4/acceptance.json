@@ -1,0 +1,953 @@
+{
+  "candidateId": "experiment-inline-step4-a6026e8b37970aa1",
+  "buildPassed": true,
+  "checksPassed": 21,
+  "changedRuntimeFiles": [
+    "src/tour/createEmbeddedPageExperience.ts",
+    "src/tour/createExperimentReader.ts",
+    "src/tour/createExperimentScene.ts"
+  ],
+  "originalSceneFiles": {
+    "count": 49,
+    "verifiedAgainstCandidate": "experiment-inline-step3-d871aaeb97be116b",
+    "allHashesMatchSourceAndDist": true
+  },
+  "nativeBrowserRetest": {
+    "initialTrigger": "The first harness required immersive mode. The native window used stable reading.",
+    "resolved": "The harness now enters through the actual reading mode. Both native-tab checks passed on the same build."
+  },
+  "browserRuns": [
+    {
+      "suite": "scene-lifecycle",
+      "startedAtShanghai": "2026-11-19T14:21:21.028294+08:00",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "origin": "http://127.0.0.1:36395/",
+      "checks": [
+        {
+          "id": "out-of-order-scene-responses",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:36395/experiments/lawson/index.html",
+              "type": "document",
+              "error": "net::ERR_ABORTED",
+              "detachedScene": true
+            },
+            {
+              "url": "http://127.0.0.1:36395/experiments/bottle-ocean/index.html",
+              "type": "document",
+              "error": "net::ERR_ABORTED",
+              "detachedScene": true
+            }
+          ],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "mountEvents": [
+              {
+                "action": "attach",
+                "path": "/experiments/lawson/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/lawson/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/lawson/index.html",
+                "count": 1
+              }
+            ],
+            "lateResponses": [
+              [
+                "bottle-ocean",
+                "late response released"
+              ],
+              [
+                "lawson",
+                "late response released"
+              ]
+            ],
+            "parent": {
+              "url": "http://127.0.0.1:36395/",
+              "history": 2,
+              "y": 9045,
+              "h": "10.0500000",
+              "camera": "[3.9967769,1.8,4.9517631]",
+              "bounds": [
+                38,
+                166,
+                1198,
+                559
+              ],
+              "viewport": [
+                1440,
+                900
+              ],
+              "dialogs": 0
+            },
+            "focusedFinalTab": true
+          }
+        },
+        {
+          "id": "one-frame-last-selection",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "selectionSequence": [
+              "bottle-ocean",
+              "lawson",
+              "bottle-ocean"
+            ],
+            "entryRequests": [
+              "http://127.0.0.1:36395/experiments/lawson/index.html",
+              "http://127.0.0.1:36395/experiments/bottle-ocean/index.html"
+            ],
+            "mountEvents": [
+              {
+                "action": "attach",
+                "path": "/experiments/lawson/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/lawson/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "desktop-selection-repeat-return",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "initial": {
+              "url": "http://127.0.0.1:36395/",
+              "history": 2,
+              "y": 9045,
+              "h": "10.0500000",
+              "camera": "[3.9967769,1.8,4.9517631]",
+              "bounds": [
+                38,
+                166,
+                1198,
+                559
+              ],
+              "viewport": [
+                1440,
+                900
+              ],
+              "dialogs": 0
+            },
+            "switched": {
+              "url": "http://127.0.0.1:36395/",
+              "history": 2,
+              "y": 9045,
+              "h": "10.0500000",
+              "camera": "[3.9967769,1.8,4.9517631]",
+              "bounds": [
+                38,
+                166,
+                1198,
+                559
+              ],
+              "viewport": [
+                1440,
+                900
+              ],
+              "dialogs": 0
+            },
+            "nativeDimensions": [
+              1198,
+              559
+            ],
+            "sameFrameOnRepeat": true,
+            "returnedSelection": "bottle-ocean",
+            "mountEvents": [
+              {
+                "action": "attach",
+                "path": "/experiments/lawson/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/lawson/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 1
+              }
+            ],
+            "waveHeight": {
+              "beforeRepeat": 100,
+              "afterRepeat": 100,
+              "afterReentry": 35
+            },
+            "selectedAfterReload": "lawson"
+          }
+        },
+        {
+          "id": "phone-selection-repeat-return",
+          "status": "通过",
+          "viewport": [
+            390,
+            844
+          ],
+          "touchEmulation": true,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "initial": {
+              "url": "http://127.0.0.1:36395/",
+              "history": 2,
+              "y": 5288,
+              "h": "0.0000000",
+              "camera": "[0,0.45,0]",
+              "bounds": [
+                27,
+                219.828125,
+                337,
+                472.625
+              ],
+              "viewport": [
+                390,
+                844
+              ],
+              "dialogs": 0
+            },
+            "switched": {
+              "url": "http://127.0.0.1:36395/",
+              "history": 2,
+              "y": 5288,
+              "h": "0.0000000",
+              "camera": "[0,0.45,0]",
+              "bounds": [
+                27,
+                219.828125,
+                337,
+                472.625
+              ],
+              "viewport": [
+                390,
+                844
+              ],
+              "dialogs": 0
+            },
+            "nativeDimensions": [
+              337,
+              473
+            ],
+            "sameFrameOnRepeat": true,
+            "returnedSelection": "bottle-ocean",
+            "mountEvents": [
+              {
+                "action": "attach",
+                "path": "/experiments/lawson/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/lawson/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "landscape-selection-repeat-return",
+          "status": "通过",
+          "viewport": [
+            844,
+            390
+          ],
+          "touchEmulation": true,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "initial": {
+              "url": "http://127.0.0.1:36395/",
+              "history": 2,
+              "y": 6479,
+              "h": "0.0000000",
+              "camera": "[0,0.45,0]",
+              "bounds": [
+                33,
+                167.625,
+                779,
+                380
+              ],
+              "viewport": [
+                844,
+                390
+              ],
+              "dialogs": 0
+            },
+            "switched": {
+              "url": "http://127.0.0.1:36395/",
+              "history": 2,
+              "y": 6479,
+              "h": "0.0000000",
+              "camera": "[0,0.45,0]",
+              "bounds": [
+                33,
+                167.625,
+                779,
+                380
+              ],
+              "viewport": [
+                844,
+                390
+              ],
+              "dialogs": 0
+            },
+            "nativeDimensions": [
+              779,
+              380
+            ],
+            "sameFrameOnRepeat": true,
+            "returnedSelection": "bottle-ocean",
+            "mountEvents": [
+              {
+                "action": "attach",
+                "path": "/experiments/lawson/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/lawson/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "resize-and-reading-mode-keeps-scene",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "initial": {
+              "url": "http://127.0.0.1:36395/",
+              "history": 2,
+              "y": 9045,
+              "h": "10.0500000",
+              "camera": "[3.9967769,1.8,4.9517631]",
+              "bounds": [
+                38,
+                166,
+                1198,
+                559
+              ],
+              "viewport": [
+                1440,
+                900
+              ],
+              "dialogs": 0
+            },
+            "resized": {
+              "url": "http://127.0.0.1:36395/",
+              "history": 2,
+              "y": 9538,
+              "h": "10.0503213",
+              "camera": "[4.0801958,1.8,4.9406406]",
+              "bounds": [
+                103,
+                166,
+                1280,
+                608
+              ],
+              "viewport": [
+                1652,
+                949
+              ],
+              "dialogs": 0
+            },
+            "sameFrameAcrossModes": true,
+            "mountEvents": [
+              {
+                "action": "attach",
+                "path": "/experiments/lawson/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/lawson/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "switch-directly-from-error",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "mountEvents": [
+              {
+                "action": "attach",
+                "path": "/experiments/lawson/index.html",
+                "count": 1
+              },
+              {
+                "action": "remove",
+                "path": "/experiments/lawson/index.html",
+                "count": 0
+              },
+              {
+                "action": "attach",
+                "path": "/experiments/bottle-ocean/index.html",
+                "count": 1
+              }
+            ],
+            "parent": {
+              "url": "http://127.0.0.1:36395/",
+              "history": 2,
+              "y": 9045,
+              "h": "10.0500000",
+              "camera": "[3.9967769,1.8,4.9517631]",
+              "bounds": [
+                38,
+                166,
+                1198,
+                559
+              ],
+              "viewport": [
+                1440,
+                900
+              ],
+              "dialogs": 0
+            }
+          }
+        }
+      ],
+      "complete": true,
+      "physicalDevice": false,
+      "clockModified": false,
+      "candidateId": "experiment-inline-step4-a6026e8b37970aa1",
+      "runtimeInputDigest": "a6026e8b37970aa163488c4cfaf22f669319312a209001fdce2239f2ef7b593d",
+      "browserClosed": true,
+      "finishedAtShanghai": "2026-11-19T14:22:39.956959+08:00"
+    },
+    {
+      "suite": "native-tab-visibility",
+      "candidateId": "experiment-inline-step4-a6026e8b37970aa1",
+      "runtimeInputDigest": "a6026e8b37970aa163488c4cfaf22f669319312a209001fdce2239f2ef7b593d",
+      "startedAtShanghai": "2026-11-19T14:25:57.872581+08:00",
+      "origin": "http://127.0.0.1:39657/",
+      "nativeBrowser": true,
+      "clockModified": false,
+      "visibilityOverridden": false,
+      "complete": true,
+      "checks": [
+        {
+          "id": "foreground-only-slow-clock",
+          "status": "通过",
+          "measurements": {
+            "sameFrameAfterReturn": true,
+            "backgroundState": "loading",
+            "visibleWaitingMs": 12174,
+            "backgroundMs": 13230,
+            "timeline": [
+              {
+                "kind": "scene",
+                "time": 1527,
+                "scene": "loading",
+                "visibility": "visible"
+              },
+              {
+                "kind": "visibility",
+                "time": 3444.199999988079,
+                "scene": "loading",
+                "visibility": "hidden"
+              },
+              {
+                "kind": "visibility",
+                "time": 16674,
+                "scene": "loading",
+                "visibility": "visible"
+              },
+              {
+                "kind": "scene",
+                "time": 26931.099999964237,
+                "scene": "slow",
+                "visibility": "visible"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ready-frame-background-return",
+          "status": "通过",
+          "measurements": {
+            "sameFrameAfterReturn": true,
+            "waveHeight": 100,
+            "originalPauseKept": true,
+            "entryRequests": [
+              "http://127.0.0.1:39657/experiments/bottle-ocean/index.html"
+            ],
+            "canResumeUsingOriginalControl": true
+          }
+        }
+      ],
+      "version": "155.0.8059.79",
+      "sameNativeWindow": true,
+      "readingMode": "stable",
+      "browserClosed": true,
+      "finishedAtShanghai": "2026-11-19T14:26:41.715199+08:00"
+    },
+    {
+      "suite": "inline-window-regression",
+      "startedAtShanghai": "2026-11-19T14:24:48.076126+08:00",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "origin": "http://127.0.0.1:39715/",
+      "checks": [
+        {
+          "id": "desktop-inline-playback",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "window": {
+              "x": 38,
+              "y": 166,
+              "width": 1198,
+              "height": 559
+            },
+            "nativeDimensions": [
+              [
+                1198,
+                559
+              ],
+              [
+                1198,
+                559
+              ]
+            ],
+            "lawsonProjection": [
+              [
+                675,
+                326
+              ],
+              [
+                624,
+                296
+              ]
+            ],
+            "bottleWave": [
+              35,
+              100
+            ],
+            "unchangedParent": [
+              "http://127.0.0.1:39715/",
+              9045,
+              "10.0500000",
+              "[3.9967769,1.8,4.9517631]"
+            ],
+            "releasedAtC3": true
+          }
+        },
+        {
+          "id": "phone-inline-playback",
+          "status": "通过",
+          "viewport": [
+            390,
+            844
+          ],
+          "touchEmulation": true,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "nativeDimensions": [
+              [
+                337,
+                473
+              ],
+              [
+                337,
+                473
+              ]
+            ],
+            "touchControls": [
+              "#panel-collapse",
+              "#panel-toggle"
+            ],
+            "samePageArchive": true
+          }
+        },
+        {
+          "id": "landscape-inline-playback",
+          "status": "通过",
+          "viewport": [
+            844,
+            390
+          ],
+          "touchEmulation": true,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "nativeDimensions": [
+              [
+                779,
+                380
+              ],
+              [
+                779,
+                380
+              ]
+            ],
+            "touchControls": [
+              "#panel-collapse",
+              "#panel-toggle"
+            ],
+            "samePageArchive": true
+          }
+        },
+        {
+          "id": "inline-error-retry",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "entryAttempts": [
+              "http://127.0.0.1:39715/experiments/lawson/index.html",
+              "http://127.0.0.1:39715/experiments/lawson/index.html"
+            ],
+            "window": {
+              "x": 38,
+              "y": 166,
+              "width": 1198,
+              "height": 559
+            },
+            "unchangedParent": [
+              "http://127.0.0.1:39715/",
+              9045,
+              "10.0500000",
+              "[3.9967769,1.8,4.9517631]"
+            ],
+            "recovered": true
+          }
+        },
+        {
+          "id": "inline-slow-switch",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:39715/experiments/lawson/index.html",
+              "type": "document",
+              "error": "net::ERR_ABORTED",
+              "detachedScene": true
+            }
+          ],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "oldResponse": "released after detach",
+            "selected": "http://127.0.0.1:39715/experiments/bottle-ocean/index.html",
+            "unchangedParent": [
+              "http://127.0.0.1:39715/",
+              9045,
+              "10.0500000",
+              "[3.9967769,1.8,4.9517631]"
+            ],
+            "fallbackThresholdSeconds": 12
+          }
+        },
+        {
+          "id": "guide-waits-for-scene",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "whileLoading": "arriving",
+            "whenReady": "reading",
+            "readSeconds": "12"
+          }
+        }
+      ],
+      "complete": true,
+      "physicalDevice": false,
+      "clockModified": false,
+      "candidateId": "experiment-inline-step4-a6026e8b37970aa1",
+      "runtimeInputDigest": "a6026e8b37970aa163488c4cfaf22f669319312a209001fdce2239f2ef7b593d",
+      "browserClosed": true,
+      "finishedAtShanghai": "2026-11-19T14:26:05.173653+08:00"
+    },
+    {
+      "suite": "original-controls-regression",
+      "startedAtShanghai": "2026-11-19T14:26:05.681985+08:00",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "origin": "http://127.0.0.1:39715/",
+      "checks": [
+        {
+          "id": "original-pages-isolation-and-downloads",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": []
+        }
+      ],
+      "complete": true,
+      "physicalDevice": false,
+      "clockModified": false,
+      "candidateId": "experiment-inline-step4-a6026e8b37970aa1",
+      "runtimeInputDigest": "a6026e8b37970aa163488c4cfaf22f669319312a209001fdce2239f2ef7b593d",
+      "browserClosed": true,
+      "finishedAtShanghai": "2026-11-19T14:26:43.398830+08:00"
+    },
+    {
+      "suite": "portfolio-journeys",
+      "startedAtShanghai": "2026-11-19T14:26:43.909120+08:00",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "origin": "http://127.0.0.1:39715/",
+      "checks": [
+        {
+          "id": "desktop-complete-journey",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:39715/experiments/lawson/assets/models/lawson_scene.glb",
+              "type": "fetch",
+              "error": "net::ERR_ABORTED",
+              "detachedScene": true
+            }
+          ],
+          "httpFailures": [],
+          "externalAttempts": []
+        },
+        {
+          "id": "fast-review-preserves-reading",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:39715/experiments/lawson/assets/models/car_B.glb",
+              "type": "fetch",
+              "error": "net::ERR_ABORTED",
+              "detachedScene": true
+            }
+          ],
+          "httpFailures": [],
+          "externalAttempts": []
+        },
+        {
+          "id": "mobile-complete-journey",
+          "status": "通过",
+          "viewport": [
+            390,
+            844
+          ],
+          "touchEmulation": true,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": []
+        },
+        {
+          "id": "keyboard-complete-route",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:39715/experiments/lawson/index.html",
+              "type": "document",
+              "error": "net::ERR_ABORTED",
+              "detachedScene": true
+            }
+          ],
+          "httpFailures": [],
+          "externalAttempts": []
+        },
+        {
+          "id": "reduced-motion-complete-reading",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:39715/experiments/lawson/assets/models/car_C.glb",
+              "type": "fetch",
+              "error": "net::ERR_ABORTED",
+              "detachedScene": true
+            }
+          ],
+          "httpFailures": [],
+          "externalAttempts": []
+        }
+      ],
+      "complete": true,
+      "physicalDevice": false,
+      "clockModified": false,
+      "candidateId": "experiment-inline-step4-a6026e8b37970aa1",
+      "runtimeInputDigest": "a6026e8b37970aa163488c4cfaf22f669319312a209001fdce2239f2ef7b593d",
+      "browserClosed": true,
+      "finishedAtShanghai": "2026-11-19T14:27:51.638852+08:00"
+    }
+  ]
+}

@@ -3,12 +3,16 @@ import { button, clamp, element } from './dom';
 import { createToolCard } from './createToolCard';
 import { createCardEntrance } from './createCardEntrance';
 import { createCardTrack } from './createCardTrack';
+import { createCardInteractionRegion } from './cardInteractionRegion';
+import type { CardRegionBounds } from './cardInteractionRegion';
+import { createCardRegionDebug } from './createCardRegionDebug';
 import { createCardHover } from './createCardHover';
 import { createCardDeparture } from './createCardDeparture';
 import { createToolHelp } from './createToolHelp';
 import { toolGuidance, toolHelpCopy } from './toolGuidance';
 import type { ToolInput } from './toolGuidance';
 import { createWheelGesture, normalizeCardWheel } from './cardWheelInput';
+import type { WheelAxis } from './cardWheelInput';
 import type { ToolCardView } from './createToolCard';
 import type { AboutViewOptions, CardDepartureContext, CardEntranceContext, CardTrackContext, CardsSnapshot, CategoryFilter, ToolBrowserSnapshot, ToolCard, TrackPosition } from './types';
 
@@ -84,26 +88,64 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
   const announcement = element('span','ar-announcement');announcement.setAttribute('role','status');announcement.setAttribute('aria-live','polite');
   controls.append(actions,guidanceBar);
   root.append(filters, rail, foreground, allPanel, controls,announcement);
-  const entrance = createCardEntrance({ root, rail, foreground, views: cardViews, changed: () => { syncTrack();options.onEntranceChange?.(); } });
+  const entrance = createCardEntrance({ root, rail, foreground, views: cardViews,
+    changed: () => { syncTrack();applyLandingWheel();options.onEntranceChange?.(); } });
 
   let disposed = false;
   let departure: ReturnType<typeof createCardDeparture> | undefined;
   let help: ReturnType<typeof createToolHelp> | undefined;
   let uiReady=false,updatingControls=false,controlsDirty=false,readingHold=false,helpHold=false,lastLeaveHint='';
   const fine=matchMedia('(hover:hover) and (pointer:fine)'),reduced=matchMedia('(prefers-reduced-motion:reduce)');
-  let input: ToolInput=fine.matches?'mouse':'touch';
-  let touchButton: { pointerId: number; x: number; y: number } | undefined;
-  let touchRelease: number | undefined;
+  let lastInput: ToolInput | undefined;
+  const currentInput = (): ToolInput => lastInput ?? (fine.matches ? 'mouse' : 'touch');
+  let cardPress: { pointerId: number; button: HTMLButtonElement | null; touch: boolean; x: number; y: number } | undefined;
+  let pressRelease: number | undefined;
+  let keyboardFocus: HTMLElement | undefined;
+  let changingCards = false;
   let restoreFrame: number | undefined;
   let mode: 'cards' | 'all' = 'cards';
   let railWidth = 0;
+  let cardOverflow = false, measuredSlot: HTMLElement | undefined;
   let cardsState: CardsSnapshot = {
     category: 'all', activeId: 'midjourney', expandedId: null,
     position: { anchorId: 'midjourney', offsetRatio: 0, scrollLeft: 0, viewportWidth: 0 },
   };
   const changed = () => { if (!disposed) options.onLayoutChange?.(); };
   const wheelGesture = createWheelGesture();
-  const interact = () => { if (!disposed) { help?.close('interaction');departure?.cancel('interaction');wheelGesture.clear();hover.cancel('interaction');track.pause('interaction');entrance.cancel('interaction');options.onInteraction?.(); } };
+  let wheelBounds: CardRegionBounds | null = null;
+  let landingWheel: { axis: WheelAxis; amount: number; slot: HTMLElement } | undefined;
+
+  function clearWheelInput() {
+    landingWheel = undefined;
+    wheelBounds = null;
+    wheelGesture.clear();
+    track.cancelWheel();
+  }
+  function releaseWheelInput() {
+    landingWheel = undefined;
+    wheelBounds = null;
+    wheelGesture.clear();
+    track.releaseWheel();
+  }
+  function syncReadingHold() {
+    if (!disposed) track.holdReading(readingHold || helpHold || !!cardPress || !!keyboardFocus || changingCards || mode === 'all');
+  }
+  function withCardsHeld(action: () => void) {
+    const previous = changingCards;
+    changingCards = true;
+    syncReadingHold();
+    try { action(); }
+    finally { changingCards = previous;syncReadingHold(); }
+  }
+  function interact(reason: 'interaction' | 'category' = 'interaction') {
+    if (disposed) return;
+    clearWheelInput();
+    help?.close(reason);
+    departure?.cancel(reason);
+    hover.cancel(reason);
+    entrance.cancel(reason);
+    options.onInteraction?.();
+  }
   const visibleCards = () => getTrackCards(cardsState.category);
   const slots = () => [...rail.querySelectorAll<HTMLElement>('.ar-tool-slot')];
   const leadingPadding = () => parseFloat(getComputedStyle(rail).paddingLeft) || 0;
@@ -114,8 +156,13 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
     cursor(id, position) { cardsState = { ...cardsState, activeId: id, position };updateControls(); },
     changed: updateControls,
   });
+  const interactionRegion = createCardInteractionRegion({ root, rail, filters, controls,
+    state: () => ({ mode, category: cardsState.category, automatic: track.enabled,
+      reading: root.dataset.detailMode === 'pinned' ? 'pinned' : root.dataset.detailMode === 'preview' ? 'preview' : 'summary',
+      entrance: root.dataset.entrance ?? 'waiting', departure: root.dataset.departure ?? 'idle' }),
+  });
   const hover = createCardHover({ root, rail, views: cardViews,
-    hold: held => {readingHold=held;track.holdReading(readingHold||helpHold);}, interaction: () => options.onInteraction?.(), changed: updateControls,
+    hold: held => {readingHold=held;syncReadingHold();}, interaction: () => options.onInteraction?.(), changed: updateControls,
     pinnedChanged(id) { if (!disposed) { cardsState = { ...cardsState, expandedId: id, activeId: id ?? cardsState.activeId };updateControls(); } },
     nativePinned() {
       track.native('detail-reading');
@@ -128,7 +175,10 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
   });
   departure = createCardDeparture({root,rail,views:cardViews,ready:() => entrance.ready,capture:captureState,
     changed:updateControls,
-    freeze() { wheelGesture.clear();track.suspendForDeparture(true);hover.suspendForDeparture(true); },
+    freeze() {
+      track.suspendForDeparture(true);
+      releaseCardPress();clearKeyboardFocus();clearWheelInput();hover.suspendForDeparture(true);
+    },
     release(returned) {
       track.suspendForDeparture(false);
       hover.present({...trackContext,active:trackContext.active && mode === 'cards',allowed:trackContext.allowed && mode === 'cards'},entrance.ready);
@@ -136,8 +186,8 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
     },
   });
   help=createToolHelp({prefix,root,rail,controls,changed(open) {
-    helpHold=open;track.holdReading(readingHold||helpHold);
-    if(open){departure?.cancel('help');entrance.cancel('help');wheelGesture.clear();options.onInteraction?.();}
+    helpHold=open;syncReadingHold();
+    if(open){clearWheelInput();departure?.cancel('help');entrance.cancel('help');options.onInteraction?.();}
     updateControls();if(!help?.popover)changed();
   }});
   guidanceBar.append(help.trigger);root.append(help.panel);uiReady=true;
@@ -145,7 +195,7 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
     if (departure?.owns) return;
     const context = { ...trackContext, active: trackContext.active && mode === 'cards',
       allowed: trackContext.allowed && mode === 'cards' };
-    if (!context.active || !context.allowed) wheelGesture.clear();
+    if (!context.active && root.closest('.about-refresh')?.getAttribute('data-layout') === 'immersive') releaseWheelInput();
     track.present(context, entrance.ready, root.dataset.entranceReason ?? '');
     hover.present(context, entrance.ready);
   }
@@ -190,32 +240,54 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
     root.dataset.category = cardsState.category;
     root.dataset.cardCount = String(mode === 'all' ? aboutRefreshContent.cards.length : cards.length);
     for (const slot of slots()) {const active=String(slot.dataset.cardId===cardsState.activeId);if(slot.dataset.active!==active)slot.dataset.active=active;}
-    autoplay.hidden = mode !== 'cards' || !track.available;
+    const autoAvailable = mode === 'cards' && track.available;
+    autoplay.hidden = !autoAvailable;
     text(autoplay,labels[track.enabled ? 'pause-auto' : 'resume-auto']!);attr(autoplay,'aria-pressed',String(track.enabled));
-    const host=root.closest<HTMLElement>('.about-refresh');
-    const model=toolGuidance({input,help:help?.open??false,entrance:root.dataset.entrance??'',departure:root.dataset.departure??'',returnPaused:root.dataset.departurePointerPaused==='true',
-      pinned:cardsState.expandedId!==null,preview:['entering','reading','pressed'].includes(root.dataset.hoverState??''),automatic:track.enabled,running:root.dataset.trackState==='running',program:track.active,
-      hover:hover.available,
-      overflow:track.active||rail.scrollWidth>rail.clientWidth+1,autoAvailable:track.available,immersive:host?.dataset.layout==='immersive'});
+    const input = currentInput();
+    const model = toolGuidance({ input, help: help?.open ?? false, entrance: root.dataset.entrance ?? '',
+      departure: root.dataset.departure ?? '', returnPaused: root.dataset.departurePointerPaused === 'true',
+      pinned: cardsState.expandedId !== null, preview: root.dataset.detailMode === 'preview',
+      userPaused: track.userPaused, activity: track.activity, hover: hover.available,
+      overflow: mode === 'cards' && cardOverflow, autoAvailable, autoEnabled: track.enabled, reduced: reduced.matches });
     text(primaryHint,model.hint);if(root.dataset.guidanceState!==model.state)root.dataset.guidanceState=model.state;
     if(root.dataset.toolInput!==input)root.dataset.toolInput=input;
     if(model.leave!==lastLeaveHint){lastLeaveHint=model.leave;options.onToolLeaveHint?.(model.leave);}
     help?.update(model);
   }
-  function setInput(next:ToolInput,deferTouch=false){
-    if(!deferTouch)hover.setTouchInput(next==='touch');
-    if(input!==next){input=next;updateControls();}
+  function setInput(next: ToolInput, deferDetail = false) {
+    const previous = currentInput();
+    lastInput = next;
+    if (next !== 'keyboard' && keyboardFocus) clearKeyboardFocus();
+    if (next !== 'touch') track.setTouchInput(false);
+    if (!deferDetail) hover.setTouchInput(next === 'touch');
+    if (previous !== next) updateControls();
   }
-  function releaseTouchButton() {
-    if(touchRelease!==undefined)clearTimeout(touchRelease);touchRelease=undefined;
-    if(!touchButton)return;
-    touchButton=undefined;
-    if(input!=='touch')return;
-    hover.setTouchInput(true);track.native('touch');updateControls();
+  function clearKeyboardFocus() {
+    if (!keyboardFocus) return;
+    keyboardFocus = undefined;
+    if (!cardPress) hover.blur();
+    syncReadingHold();
+  }
+  function releaseCardPress() {
+    if (pressRelease !== undefined) clearTimeout(pressRelease);
+    pressRelease = undefined;
+    if (!cardPress) return;
+    const pressed = cardPress;
+    if (pressed.touch && pressed.button && currentInput() === 'touch') {
+      // A tap can move a previously mouse-driven rail only after its click.
+      track.setTouchInput(true);
+      hover.setTouchInput(true);
+      updateControls();
+    } else if (currentInput() === 'mouse') hover.setTouchInput(false);
+    hover.releasePress();
+    cardPress = undefined;
+    delete root.dataset.detailPressed;
+    departure?.holdPress(false);
+    syncReadingHold();
   }
 
   function restorePosition(position: TrackPosition, focus?: HTMLElement) {
-    if (restoreFrame !== undefined) cancelAnimationFrame(restoreFrame);
+    cancelPositionRestore();
     restoreFrame = requestAnimationFrame(() => {
       restoreFrame = undefined;
       if (disposed || departure?.owns || mode !== 'cards' || !rail.clientWidth) return;
@@ -227,6 +299,10 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
       focus?.focus({ preventScroll: true });
     });
   }
+  function cancelPositionRestore() {
+    if (restoreFrame !== undefined) cancelAnimationFrame(restoreFrame);
+    restoreFrame = undefined;
+  }
   function applyNativePosition(position: TrackPosition) {
     const anchor = slots().find(slot => slot.dataset.cardId === position.anchorId);
     const destination = anchor ? anchor.offsetLeft - leadingPadding() + position.offsetRatio * anchor.offsetWidth : position.scrollLeft;
@@ -234,7 +310,13 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
   }
 
   function clearCardViews(rememberTrack = false) {
-    releaseTouchButton();
+    if (measuredSlot) observer.unobserve(measuredSlot);
+    measuredSlot = undefined;
+    cardOverflow = false;
+    clearWheelInput();
+    cancelPositionRestore();
+    releaseCardPress();
+    clearKeyboardFocus();
     departure?.cancel('content-changed');
     hover.cancel('content-changed');
     entrance.cancel('content-changed');
@@ -258,6 +340,9 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
       slot.append(createCard(card, false));
       rail.append(slot);
     }
+    measuredSlot = rail.querySelector<HTMLElement>('.ar-tool-slot') ?? undefined;
+    if (measuredSlot) observer.observe(measuredSlot);
+    cardOverflow = interactionRegion.measureHorizontal().overflow;
     select.value = cardsState.category;
     for (const choice of desktopFilters.querySelectorAll<HTMLButtonElement>('button')) {
       choice.setAttribute('aria-pressed', String(choice.dataset.category === cardsState.category));
@@ -268,50 +353,54 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
 
   function selectCategory(value: string) {
     if (!categories.some(category => category.id === value)) return;
-    hover.clearPin(false);interact();
-    const category = value as CategoryFilter;
-    const first = getTrackCards(category)[0]!;
-    cardsState = {
-      category, activeId: first.id, expandedId: null,
-      position: { anchorId: first.id, offsetRatio: 0, scrollLeft: 0, viewportWidth: rail.clientWidth },
-    };
-    renderRail();
-    restorePosition(cardsState.position);
-    syncTrack();
-    text(announcement,`${categories.find(item=>item.id===category)!.name}，${getTrackCards(category).length} 张工具卡。`);
-    changed();
+    withCardsHeld(() => {
+      hover.clearPin(false);interact('category');
+      const category = value as CategoryFilter;
+      const first = getTrackCards(category)[0]!;
+      cardsState = {
+        category, activeId: first.id, expandedId: null,
+        position: { anchorId: first.id, offsetRatio: 0, scrollLeft: 0, viewportWidth: rail.clientWidth },
+      };
+      renderRail();
+      applyNativePosition(cardsState.position);
+      syncTrack();
+      text(announcement,`${categories.find(item=>item.id===category)!.name}，${getTrackCards(category).length} 张工具卡。`);
+      changed();
+    });
   }
 
   function move(direction: -1 | 1) {
     const source = cardsState.expandedId ?? (root.dataset.readingId || cardsState.activeId);
     const keepPinned = cardsState.expandedId !== null;
-    if (keepPinned) hover.clearPin(false);
-    interact();
-    if (track.active) {
-      const id = track.step(direction, source);
-      if (keepPinned && id) hover.pin(id);
-      updateControls();return;
-    }
-    track.native('native-step');
-    const cards = visibleCards();
-    const index = Math.max(0, cards.findIndex(card => card.id === source));
-    const target = cards[clamp(index + direction, 0, cards.length - 1)]!;
-    cardsState = { ...cardsState, activeId: target.id };
-    const slot = slots().find(node => node.dataset.cardId === target.id)!;
-    rail.scrollTo({ left: clamp(slot.offsetLeft - leadingPadding(), 0, rail.scrollWidth - rail.clientWidth), behavior: 'instant' });
-    cardsState = { ...cardsState, position: capturePosition() };
-    if (keepPinned) hover.pin(target.id);
-    updateControls();
+    withCardsHeld(() => {
+      if (keepPinned) hover.clearPin(false);
+      interact();
+      if (track.active) {
+        const id = track.step(direction, source);
+        if (keepPinned && id) hover.pin(id);
+        updateControls();return;
+      }
+      track.native('native-step');
+      const cards = visibleCards();
+      const index = Math.max(0, cards.findIndex(card => card.id === source));
+      const target = cards[clamp(index + direction, 0, cards.length - 1)]!;
+      cardsState = { ...cardsState, activeId: target.id };
+      const slot = slots().find(node => node.dataset.cardId === target.id)!;
+      rail.scrollTo({ left: clamp(slot.offsetLeft - leadingPadding(), 0, rail.scrollWidth - rail.clientWidth), behavior: 'instant' });
+      cardsState = { ...cardsState, position: capturePosition() };
+      if (keepPinned) hover.pin(target.id);
+      updateControls();
+    });
   }
 
   function toggleDetail(id: string) {
     if (!getCard(id) || !visibleCards().some(item => item.id === id)) return;
-    wheelGesture.clear();track.pause('detail');entrance.cancel('detail');options.onInteraction?.();
+    clearWheelInput();entrance.cancel('detail');options.onInteraction?.();
     cardsState = { ...cardsState, position: capturePosition() };
     if (cardsState.expandedId === id) hover.clearPin(true);else hover.pin(id);
     updateControls();syncTrack();
     // Native/mobile layouts may grow vertically; the full paragraph remains in flow.
-    if (cardViews.get(id)?.element.dataset.detailWide !== 'true') {
+    if (cardsState.expandedId === id && !track.active && cardViews.get(id)?.element.dataset.detailWide !== 'true') {
       const slot = slots().find(node => node.dataset.cardId === id)!;
       const box = slot.getBoundingClientRect(), bounds = rail.getBoundingClientRect();
       if (box.left < bounds.left + 12 || box.right > bounds.right - 12) rail.scrollTo({ left: clamp(slot.offsetLeft - leadingPadding(), 0, rail.scrollWidth - rail.clientWidth), behavior: 'instant' });
@@ -320,40 +409,44 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
   }
 
   function showAllTools(interaction = true) {
-    help?.close('all-tools');
-    if (interaction) interact();
-    cardsState = { ...cardsState, position: capturePosition() };
-    mode = 'all';
-    clearCardViews(true);
-    filters.hidden = true;rail.hidden = true;controls.hidden = true;allPanel.hidden = false;
-    rail.replaceChildren();
-    catalog.replaceChildren();
-    for (const category of aboutRefreshContent.categories) {
-      const section = element('section', 'ar-catalog-group');
-      const title = element('h4', '', category.name);
-      title.id = `${prefix}-group-${category.id}`;
-      section.setAttribute('aria-labelledby', title.id);
-      const grid = element('div', 'ar-catalog-grid');
-      for (const id of category.cardIds) grid.append(createCard(getCard(id)!, true));
-      section.append(title, grid);catalog.append(section);
-    }
-    updateControls();
-    changed();
-    if (interaction) options.onToolModeChange?.('all');
-    allHeading.focus({ preventScroll: true });
-    syncTrack();
+    withCardsHeld(() => {
+      help?.close('all-tools');
+      if (interaction) interact();
+      cardsState = { ...cardsState, position: capturePosition() };
+      mode = 'all';
+      clearCardViews(true);
+      filters.hidden = true;rail.hidden = true;controls.hidden = true;allPanel.hidden = false;
+      rail.replaceChildren();
+      catalog.replaceChildren();
+      for (const category of aboutRefreshContent.categories) {
+        const section = element('section', 'ar-catalog-group');
+        const title = element('h4', '', category.name);
+        title.id = `${prefix}-group-${category.id}`;
+        section.setAttribute('aria-labelledby', title.id);
+        const grid = element('div', 'ar-catalog-grid');
+        for (const id of category.cardIds) grid.append(createCard(getCard(id)!, true));
+        section.append(title, grid);catalog.append(section);
+      }
+      updateControls();
+      changed();
+      if (interaction) options.onToolModeChange?.('all');
+      allHeading.focus({ preventScroll: true });
+      syncTrack();
+    });
   }
 
   function returnToCards(focus = true, interaction = true) {
-    if (interaction) interact();
-    mode = 'cards';
-    filters.hidden = false;rail.hidden = false;controls.hidden = false;allPanel.hidden = true;
-    catalog.replaceChildren();
-    renderRail(true);
-    restorePosition(cardsState.position, focus ? showAll : undefined);
-    changed();
-    if (interaction) options.onToolModeChange?.('cards');
-    syncTrack();
+    withCardsHeld(() => {
+      if (interaction) interact();
+      mode = 'cards';
+      filters.hidden = false;rail.hidden = false;controls.hidden = false;allPanel.hidden = true;
+      catalog.replaceChildren();
+      renderRail(true);
+      restorePosition(cardsState.position, focus ? showAll : undefined);
+      changed();
+      if (interaction) options.onToolModeChange?.('cards');
+      syncTrack();
+    });
   }
 
   root.addEventListener('click', event => {
@@ -366,107 +459,122 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
     switch (target.dataset.action) {
       case 'previous': move(-1);break;
       case 'next': move(1);break;
-      case 'detail': toggleDetail(target.dataset.toolId!);releaseTouchButton();break;
+      case 'detail':
+        withCardsHeld(() => {
+          toggleDetail(target.dataset.toolId!);
+          releaseCardPress();
+        });
+        break;
       case 'all': showAllTools();break;
       case 'return': returnToCards();break;
       case 'auto': {
         const play = !track.enabled;
-        wheelGesture.clear();entrance.cancel('interaction');options.onInteraction?.();
+        clearWheelInput();entrance.cancel('interaction');options.onInteraction?.();
         if (play) {
           if (cardsState.expandedId) hover.clearPin(true);else hover.cancel('automatic');
           track.play();
-        } else { hover.cancel('user-pause');track.pause('user-pause'); }
+        } else track.pause();
         updateControls();break;
       }
     }
   }, events);
   root.addEventListener('keydown', event => {
-    if(!event.ctrlKey&&!event.metaKey&&!event.altKey&&['Tab','Enter',' ','Escape'].includes(event.key))setInput('keyboard');
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+    if (['Tab','Enter',' ','Escape'].includes(event.key)) {
+      setInput('keyboard');
+      if (!cardPress && event.target instanceof HTMLElement && rail.contains(event.target)) {
+        keyboardFocus = event.target;
+        syncReadingHold();
+        clearWheelInput();
+      }
+    }
     if(event.key==='Escape'&&help?.open){help.close('escape',true);event.preventDefault();event.stopPropagation();return;}
     if(help?.contains(event.target)){
       if(event.key==='Escape'){departure?.cancel('keyboard');if(hover.escape())event.preventDefault();}
       return;
     }
     departure?.cancel('keyboard');
-    if ((event.target as Element).closest('[data-action="auto"]')) return;
-    if (event.key === 'Escape' && hover.escape()) event.preventDefault();
-    wheelGesture.clear();track.pause('keyboard');entrance.cancel('keyboard');
+    if (event.key === 'Escape' && hover.escape()) {
+      clearWheelInput();
+      event.preventDefault();
+    }
   }, { ...events, capture: true });
   root.addEventListener('focusin', event => {
-    if((event.target as Element).matches(':focus-visible'))setInput('keyboard');
-    if(help?.contains(event.target))return;
+    const node = event.target;
+    if (!(node instanceof HTMLElement) || cardPress || changingCards || help?.contains(node)) return;
+    if (!node.matches(':focus-visible')) return;
+    setInput('keyboard');
     if (!departure?.pointerHeld) departure?.cancel('focus');
-    if ((event.target as Element).closest('[data-action="auto"]')) return;
-    wheelGesture.clear();track.pause('focus');entrance.cancel('focus');
-    const card = (event.target as Element).closest<HTMLElement>('.ar-tool-card');
-    if (card) {
-      if (track.active) { if (!cardsState.expandedId && (event.target as Element).matches(':focus-visible')) track.focus(card.dataset.toolId!); }
-      else track.native('native-focus');
-      if ((event.target as Element).matches(':focus-visible')) hover.focus(card.dataset.toolId!);
+    if (!rail.contains(node)) return;
+    keyboardFocus = node;
+    syncReadingHold();
+    clearWheelInput();entrance.cancel('focus');
+    const card = node.closest<HTMLElement>('.ar-tool-card');
+    if (!card || cardsState.expandedId) return;
+    const id = card.dataset.toolId!;
+    if (track.active) track.focus(id);
+    hover.focus(id);
+  }, events);
+  root.addEventListener('pointerdown', event => {
+    if (!event.isPrimary || event.button !== 0 || !(event.target instanceof Element)) return;
+    releaseCardPress();
+    const touch = event.pointerType !== 'mouse';
+    const nextInput = touch ? 'touch' : 'mouse';
+    if (!rail.contains(event.target)) {
+      if (root.dataset.departure === 'returning') departure?.cancel('pointer');
+      // A control tap changes the guidance without moving any pressed button.
+      setInput(nextInput, touch);
+      return;
     }
-  }, events);
-  root.addEventListener('pointerdown',event=>{
-    releaseTouchButton();
-    const touch=event.pointerType!=='mouse';
-    // Keep the actual button under the finger until its native click. Detaching
-    // the perspective track on pointerdown moves a hovered button before touchup.
-    if(touch && rail.contains(event.target as Node) && (event.target as Element).closest('button'))touchButton={pointerId:event.pointerId,x:event.clientX,y:event.clientY};
-    setInput(touch?'touch':'mouse',!!touchButton);
-  },{...events,capture:true});
-  root.addEventListener('pointermove',event=>{
-    if(touchButton?.pointerId===event.pointerId && Math.hypot(event.clientX-touchButton.x,event.clientY-touchButton.y)>8)releaseTouchButton();
-  },{...events,capture:true});
-  root.addEventListener('pointercancel',releaseTouchButton,events);
-  window.addEventListener('pointerup',event=>{
-    if(touchButton?.pointerId===event.pointerId)touchRelease=window.setTimeout(releaseTouchButton,350);
-  },events);
-  // Recognize the returning mouse before the rail evaluates this same move.
-  root.addEventListener('pointermove',event=>{if(event.pointerType==='mouse'&&!event.buttons&&(event.movementX||event.movementY))setInput('mouse');},{...events,capture:true});
-  fine.addEventListener('change',()=>{if(input!=='keyboard')setInput(fine.matches?'mouse':'touch');updateControls();},events);
-  reduced.addEventListener('change',()=>updateControls(),events);
-  root.addEventListener('focusout', event => {
-    const card = (event.target as Element).closest('.ar-tool-card');
-    if (card && (!event.relatedTarget || !card.contains(event.relatedTarget as Node))) hover.blur();
-  }, events);
-  select.addEventListener('change', () => selectCategory(select.value), events);
-  rail.addEventListener('pointerdown', event => {
-    wheelGesture.clear();
-    if (event.pointerType !== 'mouse' && !touchButton) track.native('touch');
-    track.pause('pointer');
-    if (!(event.target as Element).closest('button')) { entrance.cancel('pointer');options.onInteraction?.(); }
-  }, events);
-  rail.addEventListener('wheel', event => {
-    // Modified wheel belongs to browser zoom; unavailable layouts/reading panels
-    // retain native page scrolling. Only this row can own program wheel input.
-    if (disposed || mode !== 'cards' || event.ctrlKey || event.metaKey || event.altKey || !event.cancelable || event.defaultPrevented) return;
-    setInput('mouse');help?.close('wheel');
-    departure?.cancel('wheel');
-    const bounds = rail.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) return;
-    if (cardsState.expandedId) return;
-    hover.wheel();
-    const delta = normalizeCardWheel(event, parseFloat(getComputedStyle(rail).lineHeight) || 20, rail.clientWidth);
-    if (!delta.x && !delta.y) return;
-    const axis = wheelGesture.take(delta.x, delta.y, performance.now());
-    if (axis === 'horizontal') {
-      const handingOff = track.active;
-      track.native('horizontal-gesture');entrance.cancel('interaction');options.onInteraction?.();
-      // Chromium chooses the scroll chain before dispatch. Transfer this first
-      // event exactly once; subsequent events keep native browser momentum.
-      if (handingOff) {
-        event.preventDefault();
-        rail.scrollBy({ left: delta.x, behavior: 'instant' });
-      }
-    } else if (track.wheelAvailable && track.wheel(delta.y)) {
-      event.preventDefault();
-      // A wheel gesture interrupts the main guide without changing the card
-      // autoplay choice. Explicit buttons/pointer focus still pause immediately.
+
+    const button = event.target.closest<HTMLButtonElement>('button[data-action="detail"]');
+    cardPress = { pointerId: event.pointerId, button, touch, x: event.clientX, y: event.clientY };
+    root.dataset.detailPressed = button?.dataset.toolId ?? 'rail';
+    if (root.dataset.departure === 'returning') {
+      if (event.target.closest('.ar-tool-card')) departure?.holdPress(true);
+      else departure?.cancel('pointer');
+    }
+    syncReadingHold();
+    hover.press();
+    // Keep a real detail button in place through pointerup and native click.
+    if (touch && !button) track.setTouchInput(true);
+    setInput(nextInput, !!button);
+    cancelPositionRestore();
+    clearWheelInput();
+    if (!button) {
+      entrance.cancel('pointer');
       options.onInteraction?.();
     }
-  }, { ...events, passive: false });
-  rail.addEventListener('pointerleave', () => { wheelGesture.clear();track.releaseWheel(); }, events);
-  window.addEventListener('resize', () => {releaseTouchButton();wheelGesture.clear();}, events);
-  document.addEventListener('visibilitychange', () => {releaseTouchButton();wheelGesture.clear();}, events);
+  }, { ...events, capture: true });
+  window.addEventListener('pointermove', event => {
+    if (cardPress?.pointerId !== event.pointerId || !cardPress.button) return;
+    const moved = Math.hypot(event.clientX - cardPress.x, event.clientY - cardPress.y) > 8;
+    if (moved && (cardPress.touch || !(event.target instanceof Node && cardPress.button.contains(event.target)))) releaseCardPress();
+  }, { ...events, passive: true });
+  window.addEventListener('pointercancel', event => {
+    if (cardPress?.pointerId === event.pointerId) releaseCardPress();
+  }, events);
+  window.addEventListener('pointerup', event => {
+    if (cardPress?.pointerId !== event.pointerId) return;
+    if (!cardPress.button || !(event.target instanceof Node && cardPress.button.contains(event.target))) releaseCardPress();
+    else pressRelease = window.setTimeout(releaseCardPress, cardPress.touch ? 350 : 150);
+  }, events);
+  window.addEventListener('blur', () => { releaseCardPress();clearKeyboardFocus(); }, events);
+  // Recognize the returning mouse before the rail evaluates this same move.
+  root.addEventListener('pointermove',event=>{if(event.pointerType==='mouse'&&!event.buttons&&(event.movementX||event.movementY))setInput('mouse');},{...events,capture:true});
+  fine.addEventListener('change', updateControls, events);
+  reduced.addEventListener('change', () => {
+    clearWheelInput();
+    updateControls();
+  }, events);
+  root.addEventListener('focusout', event => {
+    if (event.target === keyboardFocus) clearKeyboardFocus();
+  }, events);
+  select.addEventListener('change', () => selectCategory(select.value), events);
+  window.addEventListener('resize', () => { releaseCardPress();clearKeyboardFocus();clearWheelInput(); }, events);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { releaseCardPress();clearKeyboardFocus();clearWheelInput(); }
+  }, events);
   rail.addEventListener('scroll', () => {
     if (disposed || mode !== 'cards' || !rail.clientWidth) return;
     if (track.active) { if (rail.scrollLeft) rail.scrollLeft = 0;return; }
@@ -480,13 +588,83 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
     updateControls();
   }, { ...events, passive: true });
   const observer = new ResizeObserver(() => {
-    if (disposed || mode !== 'cards' || !rail.clientWidth || railWidth === rail.clientWidth) return;
-    railWidth = rail.clientWidth;
+    if (disposed || mode !== 'cards' || !rail.clientWidth) return;
+    const previousOverflow = cardOverflow;
+    const size = interactionRegion.measureHorizontal();
+    cardOverflow = size.overflow;
+    if (railWidth === size.viewportWidth) {
+      if (previousOverflow !== cardOverflow) updateControls();
+      return;
+    }
+    railWidth = size.viewportWidth;
+    clearWheelInput();
     restorePosition(cardsState.position);
+    updateControls();
     changed();
   });
   observer.observe(rail);
   renderRail();
+
+  function applyLandingWheel() {
+    if (!landingWheel || !entrance.ready) return;
+    const input = landingWheel;
+    landingWheel = undefined;
+    if (root.dataset.entranceReason !== 'wheel' || !rail.contains(input.slot)) return;
+    const region = interactionRegion.inspect();
+    if (!region.active || !region.overflow || region.owner === 'overlay') return;
+    track.wheel(input.amount, input.axis, region.contentWidth - region.viewportWidth);
+  }
+
+  root.addEventListener('wheel', event => {
+    if (disposed || !event.cancelable || event.defaultPrevented) return;
+    const region = interactionRegion.inspect(event);
+    const leaving = departure?.owns && region.departure !== 'returning';
+    if (region.owner !== 'cards' || (track.active && !trackContext.active) || leaving) {
+      releaseWheelInput();
+      return;
+    }
+    const limit = region.contentWidth - region.viewportWidth;
+    const delta = normalizeCardWheel(event, parseFloat(getComputedStyle(rail).lineHeight) || 20, region.viewportWidth);
+    if (Math.max(Math.abs(delta.x), Math.abs(delta.y)) < .1) return;
+    const now = performance.now();
+    const axis = wheelGesture.take(delta.x, delta.y, now);
+    if (!axis) return;
+    const amount = axis === 'horizontal' ? delta.x : delta.y;
+    // A finite row keeps valid input even when clamped at its first or last card.
+    // A gesture with a locked axis also owns the samples on its ignored axis.
+    event.preventDefault();
+    if (Math.abs(amount) < .1 || cardPress) return;
+
+    wheelBounds = region.visibleBounds;
+    cancelPositionRestore();
+    departure?.cancel('wheel');
+    setInput('mouse');
+    help?.close('wheel');
+    if (region.action === 'collapse-pinned-and-scroll') hover.clearPin();
+    hover.wheel({ x: event.clientX, y: event.clientY });
+    options.onInteraction?.();
+
+    if (region.entrance === 'playing' || region.entrance === 'preparing') {
+      const slot = slots()[0];
+      if (!slot) return;
+      const previous = landingWheel?.axis === axis && Math.sign(landingWheel.amount) === Math.sign(amount) ? landingWheel.amount : 0;
+      landingWheel = { axis, slot, amount: clamp(previous + amount, -region.viewportWidth, region.viewportWidth) };
+      if (region.entrance === 'playing') entrance.shorten('wheel');
+      else entrance.cancel('wheel');
+      return;
+    }
+    track.wheel(amount, axis, limit, now);
+  }, { ...events, passive: false });
+  root.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'mouse' || !wheelBounds) return;
+    const { left, right, top, bottom } = wheelBounds;
+    if (event.clientX < left || event.clientX >= right || event.clientY < top || event.clientY >= bottom) releaseWheelInput();
+  }, { ...events, passive: true });
+  root.addEventListener('pointerleave', releaseWheelInput, events);
+
+  // Optional read-only overlay uses the same live geometry as wheel ownership.
+  const regionDebug = new URLSearchParams(location.search).get('debug') === '1'
+    ? createCardRegionDebug(root, interactionRegion) : undefined;
 
   return {
     root, captureState,
@@ -498,32 +676,41 @@ export function createToolBrowser(options: AboutViewOptions = {}) {
     presentEntrance(context: CardEntranceContext) {
       entrance.present({ ...context, enabled: context.enabled && mode === 'cards' && cardsState.category === 'all' && cardsState.activeId === 'midjourney' && cardsState.expandedId === null });
     },
-    presentTrack(context: CardTrackContext) { const different=JSON.stringify(context)!==JSON.stringify(trackContext);if(!context.active||!context.allowed)releaseTouchButton();trackContext = context;if(help?.open&&!help.popover&&!context.active)help.close('left-section');syncTrack();if(different)updateControls(); },
+    presentTrack(context: CardTrackContext) {
+      const different = JSON.stringify(context) !== JSON.stringify(trackContext);
+      if (trackContext.active && !context.active) { releaseCardPress();clearKeyboardFocus(); }
+      trackContext = context;
+      if (help?.open && !help.popover && !context.active) help.close('left-section');
+      syncTrack();if (different) updateControls();
+    },
     closeOverview() { if (!disposed && mode === 'all') returnToCards(); },
     restoreState(snapshot: ToolBrowserSnapshot) {
       if (disposed) return;
-      releaseTouchButton();
-      help?.close('state-restored');
-      departure?.cancel('state-restored');
-      wheelGesture.clear();hover.cancel('state-restored');entrance.cancel('state-restored');
-      const category = categories.some(item => item.id === snapshot.cards.category) ? snapshot.cards.category : 'all';
-      const cards = getTrackCards(category);
-      cardsState = structuredClone({ ...snapshot.cards, category,
-        activeId: cards.some(card => card.id === snapshot.cards.activeId) ? snapshot.cards.activeId : cards[0]!.id,
-        expandedId: cards.some(card => card.id === snapshot.cards.expandedId) ? snapshot.cards.expandedId : null });
-      if (snapshot.mode === 'all') { mode = 'all';showAllTools(false); } else returnToCards(false, false);
-      if (snapshot.track) track.restore({ ...snapshot.track, enabled: snapshot.cards.expandedId ? false : snapshot.track.enabled }, visibleCards().map(card => card.id));else track.pause('state-restored');
-      hover.restorePinned(cardsState.expandedId);
-      syncTrack();
+      withCardsHeld(() => {
+        releaseCardPress();clearKeyboardFocus();
+        help?.close('state-restored');
+        departure?.cancel('state-restored');
+        clearWheelInput();hover.cancel('state-restored');entrance.cancel('state-restored');
+        const category = categories.some(item => item.id === snapshot.cards.category) ? snapshot.cards.category : 'all';
+        const cards = getTrackCards(category);
+        cardsState = structuredClone({ ...snapshot.cards, category,
+          activeId: cards.some(card => card.id === snapshot.cards.activeId) ? snapshot.cards.activeId : cards[0]!.id,
+          expandedId: cards.some(card => card.id === snapshot.cards.expandedId) ? snapshot.cards.expandedId : null });
+        if (snapshot.mode === 'all') { mode = 'all';showAllTools(false); } else returnToCards(false, false);
+        if (snapshot.track) track.restore(snapshot.track, visibleCards().map(card => card.id));
+        hover.restorePinned(cardsState.expandedId);
+        syncTrack();
+      });
     },
     refresh() { if (!disposed && !departure?.owns && mode === 'cards') restorePosition(cardsState.position); },
     dispose() {
       if (disposed) return;
-      releaseTouchButton();
+      regionDebug?.dispose();
+      releaseCardPress();clearKeyboardFocus();
       help?.dispose();
       departure?.dispose();
       disposed = true;hover.dispose();track.dispose();entrance.dispose();listeners.abort();observer.disconnect();clearCardViews();
-      if (restoreFrame !== undefined) cancelAnimationFrame(restoreFrame);
+      cancelPositionRestore();
       root.remove();
     },
   };

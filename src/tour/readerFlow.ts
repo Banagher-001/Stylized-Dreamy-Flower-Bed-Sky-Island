@@ -4,7 +4,7 @@ export function createReaderFlow(panel: HTMLElement) {
   let saved: Map<HTMLElement, (string | null)[]> | undefined;
   return {
     get active() { return !!saved; },
-    set(enabled: boolean, unavailable = false) {
+    set(enabled: boolean) {
       if (enabled && !saved) {
         const nodes = [panel, ...panel.querySelectorAll<HTMLElement>('*')];
         saved = new Map(nodes.map(node => [node, attributes.map(name => node.getAttribute(name))]));
@@ -20,10 +20,6 @@ export function createReaderFlow(panel: HTMLElement) {
           const value = values[i]!;if (value === null) node.removeAttribute(name);else node.setAttribute(name, value);
         });
         saved = undefined;delete panel.dataset.readingLayout;
-      }
-      if (enabled) for (const button of panel.querySelectorAll<HTMLButtonElement>('[data-project-tab="live"]')) {
-        button.disabled = unavailable;
-        if (unavailable) button.title = '图形场景暂不可用，可查看项目档案。';else button.removeAttribute('title');
       }
     },
   };

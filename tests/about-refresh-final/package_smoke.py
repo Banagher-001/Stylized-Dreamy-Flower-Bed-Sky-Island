@@ -21,8 +21,8 @@ def journey(page):
     page.wait_for_function('!document.querySelector(".film-dialog").open&&!document.querySelector(".film-dialog-viewport img")')
     rows=[]
     for identifier in ['lawson','bottle-ocean']:
-        frame=r.open_project(page,identifier)
-        assert page.locator('.tour-project-header [data-project-independent]').get_attribute('href')==r.origin+'experiments/'+identifier+'/index.html'
+        frame=r.open_scene(page,identifier)
+        assert frame.url==r.origin+'experiments/'+identifier+'/index.html'
         if identifier=='lawson':
             frame.locator('#btn-help').click()
             assert frame.locator('#help').is_visible()
@@ -40,7 +40,8 @@ def journey(page):
             native={'controls':frame.locator('button,input').count(),'ready':frame.evaluate('__bottleOcean.ready'),'download':{'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),'PNG':list(struct.unpack('>II',raw[16:24]))}}
             assert native['controls']==34
         r.checkpoint(page,identifier)
-        r.close_project(page)
+        r.go(page,'water')
+        page.wait_for_function('!document.querySelector(".experiment-window-stage iframe")')
         assert not page.locator('iframe').count()
         rows.append({'id':identifier,'native':native})
     r.go(page,'ending')

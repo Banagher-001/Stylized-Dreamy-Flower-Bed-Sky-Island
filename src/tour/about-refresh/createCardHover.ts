@@ -24,9 +24,11 @@ export function createCardHover(options: {
   const fine = matchMedia('(hover:hover) and (pointer:fine)'), reduced = matchMedia('(prefers-reduced-motion:reduce)');
   let context: CardTrackContext = { active: false, allowed: false, automatic: false, top: 0, bottom: 0 };
   let ready = false, disposed = false, active: Reading | undefined;
-  let candidate: { id: string; point: Point } | undefined, queued: { id: string; point: Point } | undefined;
+  let candidate: { id: string; hold: boolean } | undefined, queued: string | undefined;
   let pointer: Point | undefined, lastPointer: Point | undefined, lastInput = -Infinity;
-  let timer: number | undefined, leaveTimer: number | undefined, pressTimer: number | undefined, focusTimer: number | undefined, frame: number | undefined, lastFrame = 0;
+  let afterWheel: Point | undefined;
+  let timer: number | undefined, leaveTimer: number | undefined, focusTimer: number | undefined, frame: number | undefined, lastFrame = 0;
+  let pressedAt = 0;
   let state = 'idle', wantedPin: string | null = null, suppressed = '', blockedPin = '';
   let pinRefresh: number | undefined;
   let departureHeld = false, departureStarted = 0;
@@ -37,6 +39,8 @@ export function createCardHover(options: {
     root.dataset.hoverSource = active?.pinned ? 'pinned' : active?.keyboard ? 'keyboard' : active ? 'pointer' : '';
     root.dataset.detailMode = wantedPin ? 'pinned' : active && !active.leaving ? 'preview' : 'summary';
     root.dataset.readingId = wantedPin ?? active?.id ?? '';
+    const pinned = wantedPin && views.get(wantedPin)?.element;
+    options.hold(!!(active || candidate?.hold || (pinned && rail.contains(pinned))));
     options.changed();
   }
   function wideEnvironment() {
@@ -47,6 +51,7 @@ export function createCardHover(options: {
     if (departureHeld) return;
     const view = wantedPin ? views.get(wantedPin) : undefined;
     if (!view || !rail.contains(view.element) || active?.pinned) return;
+    options.hold(true);
     const wide = wideEnvironment() && blockedPin !== pinKey();
     const previousWide = view.element.dataset.detailWide, previousState = view.element.dataset.detailState;
     if (previousWide === String(wide) && previousState === 'pinned') return;
@@ -71,15 +76,15 @@ export function createCardHover(options: {
     if (frame !== undefined) cancelAnimationFrame(frame);frame = undefined;lastFrame = 0;root.dataset.hoverFramePending = 'false';
   }
   function clearLeave() { if (leaveTimer !== undefined) clearTimeout(leaveTimer);leaveTimer = undefined; }
-  function finish() {
+  function finish(transfer = false) {
     stopFrame();
     if (active) { active.view.setReading();active.view.setDetail('summary');delete active.view.element.dataset.reading; }
-    active = undefined;renderIdlePin();options.hold(false);publish(disposed ? 'disposed' : 'idle');
+    active = undefined;pressedAt = 0;renderIdlePin();
+    if (!transfer) publish(disposed ? 'disposed' : 'idle');
   }
   function cancel(reason: string) {
     if (departureHeld) return;
     clearCandidate();clearLeave();
-    if (pressTimer !== undefined) clearTimeout(pressTimer);pressTimer = undefined;
     if (focusTimer !== undefined) clearTimeout(focusTimer);focusTimer = undefined;
     queued = undefined;finish();root.dataset.hoverReason = reason;
   }
@@ -96,7 +101,8 @@ export function createCardHover(options: {
   function leave() {
     if (departureHeld) return;
     clearCandidate();clearLeave();
-    if (!active || active.leaving || active.pressed || active.pinned) return;
+    if (!active) { publish('idle');return; }
+    if (active.leaving || active.pressed || active.pinned) return;
     active.leaving = true;active.started = performance.now();active.from = { ...active.pose };active.fromWidth = active.width;active.fromReveal = active.reveal;publish('leaving');schedule();
   }
   function deferLeave() {
@@ -170,17 +176,19 @@ export function createCardHover(options: {
     suppressed = '';blockedPin = '';
     if (wantedPin && wantedPin !== id) { const old = wantedPin;wantedPin = null;cancel('pin-switch');views.get(old)?.setDetail('summary'); }
     wantedPin = id;options.pinnedChanged(id);
-    if (active?.id === id && !active.leaving) {
+    if (active?.id === id) {
+      active.from = { ...active.pose };active.fromWidth = active.width;active.fromReveal = active.reveal;
+      active.started = performance.now();active.leaving = false;pressedAt = 0;
       active.pinned = true;active.keyboard = true;active.pressed = false;active.goal.pitch = 0;active.goal.yaw = 0;
       options.hold(true);active.view.setDetail('pinned', active.width, active.reveal);publish('entering');schedule();return;
     }
     cancel('pin');
     if (!begin(id, true, true)) renderIdlePin();
   }
-  function arm(id: string, point: Point) {
+  function arm(id: string, hold = false) {
     clearCandidate();
     if (!eligible() || !quiet() || wantedPin || id === suppressed) { if (!active) publish('idle');return; }
-    candidate = { id, point };root.dataset.hoverPending = 'true';publish('pending');
+    candidate = { id, hold };root.dataset.hoverPending = 'true';publish('pending');
     timer = window.setTimeout(() => {
       timer = undefined;const next = candidate;
       if (!next || !pointer || cardAt(pointer) !== next.id) { clearCandidate();if (!active) publish('idle');return; }
@@ -194,19 +202,20 @@ export function createCardHover(options: {
     if (a.pressed) { stopFrame();return; }
     const dt = lastFrame ? Math.min((now - lastFrame) / 1000, .1) : .016;lastFrame = now;
     const elapsed = now - a.started;
-    const t = smooth(clamp((elapsed - (a.leaving ? 60 : 0)) / (a.leaving ? 240 : 260), 0, 1));
+    const transferring = !a.leaving && a.pinned && a.from.amount > 0;
+    const t = smooth(clamp((elapsed - (a.leaving ? 60 : 0)) / (a.leaving ? 240 : transferring ? 160 : 260), 0, 1));
     if (a.leaving) {
       a.reveal = a.fromReveal * (1 - smooth(clamp(elapsed / 100, 0, 1)));
       a.width = mix(a.fromWidth, a.baseWidth, smooth(clamp((elapsed - 100) / 200, 0, 1)));
       const from = a.from;
       a.pose = { amount: from.amount * (1 - t), x: from.x * (1 - t), y: from.y * (1 - t), z: from.z * (1 - t), scale: mix(from.scale, 1, t), pitch: from.pitch * (1 - t), yaw: from.yaw * (1 - t) };
     } else {
-      a.width = mix(a.baseWidth, a.goal.width, smooth(clamp(elapsed / 220, 0, 1)));
-      a.reveal = smooth(clamp((elapsed - 210) / 140, 0, 1));
+      a.width = mix(a.fromWidth, a.goal.width, smooth(clamp(elapsed / (transferring ? 160 : 220), 0, 1)));
+      a.reveal = mix(a.fromReveal, 1, smooth(clamp((elapsed - (transferring ? 0 : 210)) / 140, 0, 1)));
       const px = !a.keyboard && pointer ? clamp((pointer.x - a.reference.x) / a.reference.width * 2 - 1, -1, 1) : 0;
       const py = !a.keyboard && pointer ? clamp((pointer.y - a.reference.y) / a.reference.height * 2 - 1, -1, 1) : 0;
       const response = 1 - Math.exp(-dt / .07);
-      a.pose = { amount: t, x: a.goal.x * t, y: a.goal.y * t, z: a.goal.z * t, scale: mix(1, a.goal.scale, t),
+      a.pose = { amount: mix(a.from.amount, 1, t), x: mix(a.from.x, a.goal.x, t), y: mix(a.from.y, a.goal.y, t), z: mix(a.from.z, a.goal.z, t), scale: mix(a.from.scale, a.goal.scale, t),
         pitch: mix(a.pose.pitch, -py * a.goal.pitch * t, response), yaw: mix(a.pose.yaw, px * a.goal.yaw * t, response) };
       if (t === 1 && a.reveal === 1 && Math.abs(a.pose.pitch + py * a.goal.pitch) < .015 && Math.abs(a.pose.yaw - px * a.goal.yaw) < .015) {
         a.pose.pitch = -py * a.goal.pitch;a.pose.yaw = px * a.goal.yaw;
@@ -215,18 +224,26 @@ export function createCardHover(options: {
     }
     a.view.setDetail(a.leaving && a.reveal === 0 ? 'summary' : a.pinned ? 'pinned' : 'preview', a.width, a.reveal);a.view.setReading(a.pose);
     if (a.leaving && t === 1) {
-      const next = queued;queued = undefined;finish();
-      if (next && pointer && cardAt(pointer) === next.id) arm(next.id, pointer);
+      const next = queued;queued = undefined;finish(true);
+      // Transfer the hold directly across the two cards. The next hit is
+      // checked on the geometry after the outgoing detail has folded.
+      if (next && pointer && cardAt(pointer) === next) arm(next, true);
+      else publish('idle');
       return;
     }
     schedule();
   }
   function move(event: PointerEvent) {
-    if (departureHeld) return;
+    if (departureHeld || active?.pressed) return;
     if (event.pointerType !== 'mouse' || event.buttons) return;
     const next = { x: event.clientX, y: event.clientY }, moved = !lastPointer || Math.hypot(next.x - lastPointer.x, next.y - lastPointer.y) >= 1.5;
     pointer = next;
-    if (!moved) return;lastPointer = next;
+    if (afterWheel) {
+      if (!quiet()) { afterWheel = next;return; }
+      if (Math.hypot(next.x - afterWheel.x, next.y - afterWheel.y) < 2) return;
+      afterWheel = undefined;
+    } else if (!moved) return;
+    lastPointer = next;
     if (!eligible()) { cancel('unavailable');return; }
     const id = cardAt(next);
     if (suppressed && id !== suppressed) suppressed = '';
@@ -234,36 +251,25 @@ export function createCardHover(options: {
     if (active?.keyboard && document.activeElement && active.view.element.contains(document.activeElement)) return;
     if (active) {
       if (id === active.id && !active.leaving) { clearLeave();schedule();return; }
-      if (id && id !== active.id) { queued = { id, point: next };leave();return; }
+      if (id && id !== active.id) { queued = id;leave();return; }
       const b = active.view.element.querySelector<HTMLElement>('.ar-card-front')!.getBoundingClientRect();
       if (!active.leaving && next.x >= b.left - 8 && next.x <= b.right + 8 && next.y >= b.top - 8 && next.y <= b.bottom + 8) { clearLeave();schedule(); }
       else deferLeave();
       return;
     }
     if (!id) { clearCandidate();publish('idle');return; }
-    if (candidate?.id === id) { candidate.point = next;return; }
-    arm(id, next);
+    if (candidate?.id === id) return;
+    arm(id, candidate?.hold);
   }
   rail.addEventListener('pointermove', move, abort);
-  rail.addEventListener('pointerleave', () => { pointer = undefined;lastPointer = undefined;queued = undefined;suppressed = '';clearCandidate();deferLeave(); }, abort);
-  rail.addEventListener('pointerdown', event => {
-    if (departureHeld) return;
-    clearCandidate();clearLeave();queued = undefined;
-    if (active && active.view.element.contains(event.target as Node)) {
-      active.pressed = true;stopFrame();publish('pressed');
-    } else cancel('pointerdown');
-  }, { ...abort, capture: true });
-  window.addEventListener('pointerup', () => {
-    if (!active?.pressed) return;
-    // Keep the real button under the pointer through the native click dispatch.
-    const id = active.id;
-    pressTimer = window.setTimeout(() => { pressTimer = undefined;if (active?.id === id && active.pressed) { active.pressed = false;if (active.pinned) { publish('reading');schedule(); } else leave(); } }, 0);
+  rail.addEventListener('pointerleave', () => {
+    pointer = undefined;lastPointer = undefined;queued = undefined;suppressed = '';clearCandidate();
+    if (active) deferLeave();else publish('idle');
   }, abort);
-  rail.addEventListener('pointercancel', () => cancel('pointercancel'), abort);
   rail.addEventListener('scroll', () => {
-    if (root.dataset.trackMode === 'program') return;
+    if (root.dataset.trackMode === 'program' || afterWheel || active?.pressed) return;
     lastInput = performance.now();
-    const focused = document.activeElement instanceof HTMLElement && document.activeElement.matches(':focus-visible') ? document.activeElement.closest<HTMLElement>('.ar-tool-card')?.dataset.toolId : undefined;
+    const focused = root.dataset.toolInput === 'keyboard' && document.activeElement instanceof HTMLElement && document.activeElement.matches(':focus-visible') ? document.activeElement.closest<HTMLElement>('.ar-tool-card')?.dataset.toolId : undefined;
     cancel('native-scroll');
     if (focused) focusTimer = window.setTimeout(() => { focusTimer = undefined;if (views.get(focused)?.element.contains(document.activeElement)) begin(focused, true); }, 180);
   }, { ...abort, passive: true });
@@ -282,7 +288,7 @@ export function createCardHover(options: {
     setTouchInput(next: boolean) {
       if (disposed || next === touchInput) return;
       touchInput = next;blockedPin = '';
-      if (next) { pointer = undefined;lastPointer = undefined;cancel('touch-input'); }
+      if (next) { pointer = undefined;lastPointer = undefined;afterWheel = undefined;cancel('touch-input'); }
       else restorePin();
     },
     suspendForDeparture(held: boolean, returned = false) {
@@ -290,8 +296,8 @@ export function createCardHover(options: {
       departureHeld = held;root.dataset.hoverDepartureHeld = String(held);
       if (held) {
         departureStarted = performance.now();clearCandidate();clearLeave();stopFrame();queued = undefined;pointer = undefined;lastPointer = undefined;
-        for (const id of [pressTimer,focusTimer,pinRefresh]) if (id !== undefined) clearTimeout(id);
-        pressTimer = focusTimer = pinRefresh = undefined;
+        for (const id of [focusTimer,pinRefresh]) if (id !== undefined) clearTimeout(id);
+        focusTimer = pinRefresh = undefined;
       } else if (returned && active) {
         active.started += performance.now() - departureStarted;active.pressed = false;
         if (active.pinned) { publish('entering');schedule(); }
@@ -305,7 +311,24 @@ export function createCardHover(options: {
       if ((!next.active || !next.allowed || !entryReady || reduced.matches || !fine.matches) && (active || candidate || frame !== undefined)) cancel('presentation-changed');
       restorePin();
     },
-    wheel() { lastInput = performance.now();lastPointer = pointer ? { ...pointer } : undefined;cancel('wheel'); },
+    press() {
+      if (departureHeld) return;
+      clearCandidate();clearLeave();queued = undefined;
+      if (active) {
+        pressedAt = performance.now();active.pressed = true;stopFrame();publish('pressed');
+      } else publish('idle');
+    },
+    releasePress() {
+      if (!active?.pressed) return;
+      active.pressed = false;
+      active.started += performance.now() - pressedAt;
+      pressedAt = 0;
+      if (!pointer && !active.pinned && !active.keyboard) leave();
+      else { publish(active.leaving ? 'leaving' : 'entering');schedule(); }
+    },
+    wheel(point: Point) {
+      lastInput = performance.now();afterWheel = point;lastPointer = point;cancel('wheel');
+    },
     cancel, pin, clearPin,
     restorePinned(id: string | null) {
       if (wantedPin !== id) { const old = wantedPin;wantedPin = null;cancel('restore-pin');if (old) views.get(old)?.setDetail('summary');wantedPin = id; }

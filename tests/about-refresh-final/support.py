@@ -4,7 +4,8 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from urllib.parse import urlsplit
 import argparse, hashlib, json, os, shutil, traceback
-from playwright.sync_api import sync_playwright
+from time import monotonic
+from playwright.sync_api import Error, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[2]
 STOPS = {'opening': 0, 'A1': 1.74, 'A2': 2.54, 'A3': 3.34,
@@ -81,6 +82,8 @@ class Run:
             opts.update(record_video_dir=str(self.out / 'video'), record_video_size=opts['viewport'])
         ctx = self.browser.new_context(**opts)
         errors, failed, http, external, warnings = [], [], [], [], []
+        cancelled_scenes, detached_frames = [], {}
+        scene_roots = tuple(self.origin + f'experiments/{identifier}/' for identifier in ('lawson', 'bottle-ocean'))
         allowed = urlsplit(self.origin).netloc
         def route(req):
             if req.request.url.startswith(('http:', 'https:')) and urlsplit(req.request.url).netloc != allowed:
@@ -94,14 +97,29 @@ class Run:
         page.set_default_timeout(25000)
         page.on('pageerror', lambda e: errors.append(str(e)))
         page.on('console', lambda m: errors.append(m.text) if m.type == 'error' else warnings.append(m.text) if m.type == 'warning' else None)
-        page.on('requestfailed', lambda req: failed.append({'url': req.url, 'type': req.resource_type, 'error': req.failure}))
+        def record_failure(request):
+            failure = {'url': request.url, 'type': request.resource_type, 'error': request.failure}
+            failed.append(failure)
+            if request.failure == 'net::ERR_ABORTED' and request.url.startswith(scene_roots):
+                try:
+                    frame = request.frame
+                    if frame != page.main_frame:
+                        cancelled_scenes.append((failure, frame, monotonic()))
+                except Error:
+                    pass
+        page.on('requestfailed', record_failure)
+        page.on('framedetached', lambda frame: detached_frames.__setitem__(frame, monotonic()))
         page.on('response', lambda response: http.append({'url': response.url, 'status': response.status}) if response.status >= 400 else None)
         entry = {'id': name, 'status': '失败', 'viewport': list(size), 'touchEmulation': touch}
         try:
             page.goto(self.origin, wait_until='domcontentloaded')
             page.wait_for_function('document.querySelector("main")?.dataset.layoutReady==="true"&&document.querySelector("#tour-host")?.dataset.renderState==="ready"', timeout=90000)
             data = fn(page)
-            unexpected = [v for v in failed if not (v['error'] == 'net::ERR_ABORTED' and v['type'] in ['image', 'media', 'document'])]
+            # Leaving or switching a scene cancels any unfinished requests in that browsing context.
+            for failure, frame, failed_at in cancelled_scenes:
+                if frame in detached_frames and abs(detached_frames[frame] - failed_at) <= 2:
+                    failure['detachedScene'] = True
+            unexpected = [v for v in failed if not (v['error'] == 'net::ERR_ABORTED' and (v['type'] in ['image', 'media', 'document'] or v.get('detachedScene')))]
             assert not errors and not unexpected and not http and not external, (errors, unexpected, http, external)
             state = self.state(page)
             assert state['overflow'] <= 1 and not state['focus']['hidden'], state
@@ -158,13 +176,39 @@ class Run:
             page.wait_for_function('h=>Math.abs(Number(document.querySelector("#tour-host").dataset.displayH)-h)<.006&&document.querySelector("#tour-host").dataset.cameraState==="settled"', arg=target, timeout=30000)
             page.wait_for_timeout(120)
 
+    def wait_scene(self, page, identifier):
+        stage = page.locator('.experiment-window-stage')
+        frame = stage.locator(f'iframe[src$="/experiments/{identifier}/index.html"]')
+        frame.wait_for(state='visible', timeout=120000)
+        assert stage.get_attribute('data-scene-state') == 'ready'
+        assert stage.locator('iframe').count() == 1
+        return frame.element_handle().content_frame()
+
+    def open_scene(self, page, identifier):
+        self.go(page, 'C2')
+        tab = page.locator(f'[data-project-select="{identifier}"]')
+        if tab.get_attribute('aria-selected') != 'true':
+            self.activate(tab)
+        if self.state(page)['mode'] == 'stable':
+            page.locator('.experiment-window-stage').scroll_into_view_if_needed()
+        return self.wait_scene(page, identifier)
+
     def open_project(self, page, identifier, tab='live'):
+        if identifier == 'courtyard':
+            self.stable(page)
+            self.go(page, 'water')
+            self.activate(page.locator('[data-flow-live]'))
+            page.wait_for_function('''() => {const d=document.querySelector('.tour-project-dialog');
+              return d.open && d.dataset.projectId==='courtyard'}''')
+            if tab == 'archive':
+                self.activate(page.locator('#project-tab-archive'))
+            return None
         self.go(page, 'C2')
         self.activate(page.locator(f'[data-project-select="{identifier}"]'))
         page.wait_for_function('document.querySelector(".experiment-reading").dataset.coverState==="ready"')
         self.activate(page.locator(f'[data-project-tab="{tab}"]'))
         page.wait_for_function('document.querySelector(".tour-project-dialog").open')
-        if identifier == 'courtyard' or tab == 'archive':
+        if tab == 'archive':
             return None
         page.wait_for_selector('iframe', state='attached')
         frame = page.locator('iframe').element_handle().content_frame()

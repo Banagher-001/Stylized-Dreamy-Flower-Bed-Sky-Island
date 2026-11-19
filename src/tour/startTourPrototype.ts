@@ -28,9 +28,6 @@ import { filmAvailability } from './filmContent';
 import { experimentStations } from './experimentReading';
 import { createExperimentReader } from './createExperimentReader';
 import { createProjectViewer } from './createProjectViewer';
-import { createLawsonExperience } from './createLawsonExperience';
-import { createBottleOceanExperience } from './createBottleOceanExperience';
-import { resolveProjectEntry } from './projectContent';
 import { chapterLabels, createTourPresentation } from './presentation';
 import { createReadingLayout } from './createReadingLayout';
 import type { ReadingCapacity, ReadingPosition } from './createReadingLayout';
@@ -100,8 +97,6 @@ let filmMagic: ReturnType<typeof createPillarMagic>;
 let experimentMagic: ReturnType<typeof createPillarMagic>;
 let mediaViewer: ReturnType<typeof createMediaViewer>;
 let projectViewer: ReturnType<typeof createProjectViewer>;
-let lawsonExperience: ReturnType<typeof createLawsonExperience> | undefined;
-let bottleOceanExperience: ReturnType<typeof createBottleOceanExperience> | undefined;
 const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id), {
   interaction() { guide?.stop('已交还阅读操作，可从当前位置继续导览。'); },
   layoutChanged() { queueMicrotask(() => { if (!disposed) readingLayout?.contentChanged(); }); },
@@ -114,7 +109,12 @@ const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id), {
   },
 });
 const filmReader = createFilmReader(app, host, (id) => filmMagic?.getAnchor(id), (media, trigger) => mediaViewer.open(media, trigger));
-const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), (id, tab, trigger) => projectViewer.open(id, tab, trigger), () => { guide?.stop('已切换作品，可从当前位置继续导览。');readingLayout?.resize(); });
+const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), {
+  projectChanged() { guide?.stop('已切换作品，可从当前位置继续导览。');readingLayout?.resize(); },
+  sceneInput() { if (guide?.active) guide.stop('已交还场景操作，可从当前位置继续导览。'); },
+  // Opening the archive changes the current block's height as part of reading.
+  archiveLayoutChanged() { readingLayout?.refreshProgress(); },
+});
 const world = createScene(resolveEnvironmentOptions(query), query.get('pool') === 'legacy' ? 'legacy' : 'refined', query.get('orb') === 'legacy' ? 'legacy' : 'lively', query.get('clouds') !== 'off', query.get('birds') !== 'off');
 host.dataset.fountainStyle = world.fountainStyle;
 host.dataset.fountainResources = JSON.stringify(world.fountainMetadata ?? null);
@@ -205,12 +205,14 @@ function beginOverlay(owner: 'media' | 'project' | 'about') {
   document.documentElement.classList.toggle('tour-project-open', owner === 'project');
   host.dataset.overlayState = 'open';
   presentation.setCovered(true);
+  experimentReader.setCovered(true);
 }
 function closeOverlay(owner: 'media' | 'project' | 'about') {
   if (overlayOwner !== owner) return;
   overlayOwner = undefined;mediaOpen = false;delete host.dataset.projectId;
   document.documentElement.classList.remove('tour-media-open', 'tour-project-open');host.dataset.projectView = 'closed';host.dataset.overlayState = 'closed';
   presentation.setCovered(false);
+  experimentReader.setCovered(false);
   if (disposed) return;
   displayH = targetH = mediaProgress;
   if (overlayPosition) { readingLayout?.restore(overlayPosition);overlayPosition = undefined; }
@@ -230,39 +232,12 @@ function syncProject() {
   host.dataset.projectId = current?.id ?? '';animation.resetTimestamp();
   if (!failed) applyCamera();syncAnimation(animation.state);
 }
-function syncEmbeddedExperience() {
-  const current = activeProject();
-  const lawson = current?.id === 'lawson' && current.tab === 'live';
-  const bottle = current?.id === 'bottle-ocean' && current.tab === 'live';
-  if (!lawson) lawsonExperience?.unmount();
-  if (!bottle) bottleOceanExperience?.unmount();
-  if (lawson) lawsonExperience?.mount();
-  else if (bottle) bottleOceanExperience?.mount();
-}
 projectViewer = createProjectViewer(app, {
-  open() { mediaViewer.close();beginOverlay('project');syncProject();syncEmbeddedExperience(); },
-  change() { syncEmbeddedExperience();syncProject(); },
-  close() { lawsonExperience?.unmount();bottleOceanExperience?.unmount();closeOverlay('project'); },
+  open() { mediaViewer.close();beginOverlay('project');syncProject(); },
+  change: syncProject,
+  close() { closeOverlay('project'); },
   mode: setMode,
   motion() { animation.toggle(); },
-  retry() {
-    const current = activeProject();
-    if (current?.tab !== 'live') return;
-    if (current.id === 'lawson') lawsonExperience?.retry();
-    else if (current.id === 'bottle-ocean') bottleOceanExperience?.retry();
-  },
-});
-lawsonExperience = createLawsonExperience({
-  container: projectViewer.embeddedMount,
-  entry: resolveProjectEntry('lawson')!,
-  wanted: () => !disposed && activeProject()?.id === 'lawson' && activeProject()?.tab === 'live',
-  status: (state, message) => projectViewer.setEmbeddedStatus('lawson', state, message),
-});
-bottleOceanExperience = createBottleOceanExperience({
-  container: projectViewer.embeddedMount,
-  entry: resolveProjectEntry('bottle-ocean')!,
-  wanted: () => !disposed && activeProject()?.id === 'bottle-ocean' && activeProject()?.tab === 'live',
-  status: (state, message) => projectViewer.setEmbeddedStatus('bottle-ocean', state, message),
 });
 
 function experiencePose() {
@@ -439,12 +414,16 @@ function restoreReadingH(h: number, y?: number) {
   if (!failed) { applyCamera();syncLoop();if (!animation.state.hidden && !offscreen()) view?.renderOnce(); }
 }
 function flowReaders(enabled: boolean, measuring = false) {
-  reader.setFlow(enabled, measuring);filmReader.setFlow(enabled);experimentReader.setFlow(enabled, failed || contextLost);
+  reader.setFlow(enabled, measuring);filmReader.setFlow(enabled);experimentReader.setFlow(enabled, measuring);
 }
 function measureReadingCapacity(): ReadingCapacity {
   if (failed || contextLost) return { fits: false, margin: 0, stations: [] };
   const main = app!.querySelector<HTMLElement>('main')!, wasStable = !!readingLayout?.stable;
   const beforeY = scrollY, rows: ReadingCapacity['stations'] = [];
+  const activeElement = document.activeElement;
+  const projectFocus = activeElement instanceof HTMLElement && experimentReader.element.contains(activeElement) ? activeElement : undefined;
+  const sceneDocument = projectFocus instanceof HTMLIFrameElement ? projectFocus.contentDocument : null;
+  const sceneControl = sceneDocument?.activeElement as HTMLElement | null | undefined;
   const aboutStation = reader.station;
   const aboutPresentation = main.dataset.aboutStation ?? '';
   const current = sampleTour(displayH), camera = world.camera.clone();
@@ -480,8 +459,15 @@ function measureReadingCapacity(): ReadingCapacity {
     main.dataset.aboutStation = aboutPresentation;
     main.dataset.readingMode = wasStable ? 'stable' : 'immersive';document.documentElement.classList.toggle('tour-stable-reading', wasStable);
     if (wasStable) { flowReaders(true, true);app!.querySelector<HTMLElement>('.tour-heading')!.setAttribute('aria-hidden', 'true'); }
-    else { presentation.update(current, animation.state.reducedMotion, !cameraMoving(), scrollRange - beforeY <= 1);flowReaders(false, true);reader.update(current.reading, world.camera, animation.state.reducedMotion, true);filmReader.update(current.filmReading, world.camera, animation.state.reducedMotion);experimentReader.update(current.experimentReading, world.camera, animation.state.reducedMotion); }
+    else { presentation.update(current, animation.state.reducedMotion, !cameraMoving(), scrollRange - beforeY <= 1);flowReaders(false, true);reader.update(current.reading, world.camera, animation.state.reducedMotion, true);filmReader.update(current.filmReading, world.camera, animation.state.reducedMotion);experimentReader.update(current.experimentReading, world.camera, animation.state.reducedMotion, true); }
     if (Math.abs(scrollY - beforeY) > .5) scrollTo({ top: beforeY, behavior: 'instant' });
+    // Measuring other stations briefly hides this one, which can blur its active control.
+    if (projectFocus?.getClientRects().length && !projectFocus.closest('[hidden],[inert],:disabled')
+      && getComputedStyle(projectFocus).visibility === 'visible') {
+      const insideCurrentScene = projectFocus instanceof HTMLIFrameElement && projectFocus.contentDocument === sceneDocument;
+      const control = insideCurrentScene && sceneControl?.isConnected && sceneControl !== sceneDocument?.body ? sceneControl : projectFocus;
+      if (document.activeElement !== projectFocus || control.ownerDocument.activeElement !== control) control.focus({ preventScroll: true });
+    }
   }
 }
 readingLayout = createReadingLayout(app, host, [reader.element, filmReader.element, experimentReader.element], {
@@ -489,14 +475,14 @@ readingLayout = createReadingLayout(app, host, [reader.element, filmReader.eleme
   unavailable: () => failed || contextLost, overlay: () => !!overlayOwner,
   refresh() { resizeLayout();if (!failed) applyCamera();animation.resetTimestamp();syncAnimation(animation.state); },
   visible() { animation.resetTimestamp();syncAnimation(animation.state); },
-  live: trigger => projectViewer.open('courtyard', 'live', trigger),
+  live: trigger => projectViewer.open(trigger),
 });
 
 resizeLayout();
 window.scrollTo({ top: 0, behavior: 'instant' });
 try {
   view = createRenderer(host, mode, (aspect) => { lastAspect = aspect;world.setAspect(aspect);applyCamera(); }, resolveVisualOptions(query), rendererState);
-  view.canvas.setAttribute('aria-label', '滚动庭院：第一柱介绍，第二柱AI影像设计样片，第三柱交互实验与罗森、庭院体验，随后回到水潭。');
+  view.canvas.setAttribute('aria-label', '滚动庭院：第一柱介绍，第二柱AI影像设计样片，第三柱交互实验包含罗森便利店和瓶中海洋，随后回到水潭。');
   view.start(world.scene, world.camera, update);
   syncAnimation(animation.state);
 } catch (error) {
@@ -538,6 +524,11 @@ function guideReady(stop: GuideStop) {
     : JSON.parse(stop.id.startsWith('B') ? host.dataset.filmPresentation! : host.dataset.experimentPresentation!) as { body: number; title: number; media?: number };
   if (frame.body < .999 || frame.title < .999 || 'media' in frame && frame.media! < .999) return unread;
   if (stop.id === 'A3' && !reader.entranceReady) return unread;
+  if (stop.id === 'C2') {
+    const scene = article.querySelector<HTMLElement>('.experiment-window-stage')?.dataset.sceneState;
+    if (!scene || scene === 'prepared' || scene === 'loading') return unread;
+    return { ready: true, text: article.innerText };
+  }
   // Local decorative marks already have finite entrance preparation/fallback.
   // Tool names remain readable even if a mark fails; do not wait indefinitely.
   const images = stop.id === 'A3' ? [] : [...article.querySelectorAll<HTMLImageElement>('img')];
@@ -633,10 +624,12 @@ const guideLayoutObserver = new MutationObserver(records => {
   const meaningful = records.some(r => r.oldValue !== (r.target as Element).getAttribute(r.attributeName!));
   if (!meaningful || disposed) return;
   if (records.some(r => r.attributeName === 'data-reading-capacity' && r.oldValue !== null && r.oldValue !== main.dataset.readingCapacity)) guide?.stop('阅读布局已更新，可从当前位置继续导览。');
+  if (records.some(r => r.attributeName === 'data-scene-state')) guide?.poke();
   guide?.refresh();
 });
 guideLayoutObserver.observe(main, { attributes: true, attributeOldValue: true, attributeFilter: ['data-reading-mode', 'data-reading-capacity', 'data-layout-ready', 'data-immersive-available'] });
 guideLayoutObserver.observe(host, { attributes: true, attributeOldValue: true, attributeFilter: ['data-render-state'] });
+guideLayoutObserver.observe(experimentReader.element.querySelector('.experiment-window-stage')!, { attributes: true, attributeOldValue: true, attributeFilter: ['data-scene-state'] });
 let guideViewportScale = window.visualViewport?.scale ?? 1;
 window.visualViewport?.addEventListener('resize', () => {
   const scale = window.visualViewport!.scale;
@@ -650,6 +643,8 @@ function navigate(h: number) {
   if (readingLayout?.navigate(h)) return;
   if (failed || contextLost) return;
   navigationH = Math.max(0, Math.min(tourTotalH, h));
+  const toolsStation = readingStations[2];
+  if (navigationH < toolsStation.start || navigationH >= toolsStation.end) reader.cancelToolsDeparture('navigation');
   status.textContent = '';
   const range = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
   window.scrollTo({ top: navigationH / tourTotalH * range, behavior: 'instant' });
@@ -699,7 +694,6 @@ projectViewer.element.addEventListener('scroll', queueExperienceLayout, { passiv
 function dispose() {
   if (disposed) return;
   disposed = true;
-  lawsonExperience?.dispose();bottleOceanExperience?.dispose();
   listenerController.abort();
   guide?.dispose();guideLayoutObserver.disconnect();
   if (restoreFrame !== undefined) cancelAnimationFrame(restoreFrame);

@@ -1,6 +1,8 @@
-/* Clip the composed stage outside its preserve-3d chain, leaving controls live. */
+/* The visual flight window is wider than the unchanged input region. */
 .about-refresh .ar-card-foreground[data-flight-window="true"] { inset: auto; overflow: hidden; pointer-events: none; }
 .about-refresh .ar-flight-stage { position: absolute; inset: 0; perspective: 1100px; perspective-origin: 50% 50%; transform-style: preserve-3d; pointer-events: none; }
 .about-refresh .ar-flight-stage > .ar-stone-card { position: absolute; margin: 0; perspective: none; transform-style: preserve-3d; pointer-events: none; }
 .about-refresh .ar-tools-browser[data-entrance="preparing"] .ar-tool-slot[data-entry-card="true"] > .ar-stone-card { visibility: hidden; }
 .about-refresh .ar-tools-browser[data-entrance="playing"] .ar-tool-rail { scroll-snap-type: none; }
+.about-refresh .ar-entry-sigil { position: absolute; width: 48px; height: 48px; margin: -24px; display: grid; place-items: center; color: #dcecc0; font: 38px/1 Georgia,serif; text-shadow: 0 0 12px #edf5c9; opacity: var(--ar-sigil-opacity,0); pointer-events: none; }
+.about-refresh .ar-flight-stage .ar-card-front::after { content: ""; position: absolute; inset: 1px; border: 2px solid #c3dfad; box-shadow: inset 0 0 10px #dcecc066; clip-path: polygon(0 6px,6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px)); opacity: var(--ar-entry-glow,0); pointer-events: none; }

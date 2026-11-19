@@ -1,0 +1,453 @@
+{
+  "candidateId": "experiment-inline-step3-d871aaeb97be116b",
+  "buildPassed": true,
+  "checksPassed": 13,
+  "originalSceneFiles": {
+    "count": 49,
+    "verifiedAgainstCandidate": "experiment-inline-step2-1e25d2677b25f8cd",
+    "allHashesMatchSourceAndDist": true
+  },
+  "browserRuns": [
+    {
+      "suite": "inline-window",
+      "startedAtShanghai": "2026-11-19T13:51:44.108422+08:00",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "origin": "http://127.0.0.1:33811/",
+      "checks": [
+        {
+          "id": "desktop-inline-playback",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "window": {
+              "x": 38,
+              "y": 166,
+              "width": 1198,
+              "height": 559
+            },
+            "nativeDimensions": [
+              [
+                1198,
+                559
+              ],
+              [
+                1198,
+                559
+              ]
+            ],
+            "lawsonProjection": [
+              [
+                675,
+                326
+              ],
+              [
+                624,
+                296
+              ]
+            ],
+            "bottleWave": [
+              35,
+              100
+            ],
+            "unchangedParent": [
+              "http://127.0.0.1:33811/",
+              9045,
+              "10.0500000",
+              "[3.9967769,1.8,4.9517631]"
+            ],
+            "releasedAtC3": true
+          }
+        },
+        {
+          "id": "phone-inline-playback",
+          "status": "通过",
+          "viewport": [
+            390,
+            844
+          ],
+          "touchEmulation": true,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "nativeDimensions": [
+              [
+                337,
+                473
+              ],
+              [
+                337,
+                473
+              ]
+            ],
+            "touchControls": [
+              "#panel-collapse",
+              "#panel-toggle"
+            ],
+            "samePageArchive": true
+          }
+        },
+        {
+          "id": "landscape-inline-playback",
+          "status": "通过",
+          "viewport": [
+            844,
+            390
+          ],
+          "touchEmulation": true,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "nativeDimensions": [
+              [
+                779,
+                380
+              ],
+              [
+                779,
+                380
+              ]
+            ],
+            "touchControls": [
+              "#panel-collapse",
+              "#panel-toggle"
+            ],
+            "samePageArchive": true
+          }
+        },
+        {
+          "id": "inline-error-retry",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "entryAttempts": [
+              "http://127.0.0.1:33811/experiments/lawson/index.html",
+              "http://127.0.0.1:33811/experiments/lawson/index.html"
+            ],
+            "window": {
+              "x": 38,
+              "y": 166,
+              "width": 1198,
+              "height": 559
+            },
+            "unchangedParent": [
+              "http://127.0.0.1:33811/",
+              9045,
+              "10.0500000",
+              "[3.9967769,1.8,4.9517631]"
+            ],
+            "recovered": true
+          }
+        },
+        {
+          "id": "inline-slow-switch",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:33811/experiments/lawson/index.html",
+              "type": "document",
+              "error": "net::ERR_ABORTED"
+            }
+          ],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "oldResponse": "released after detach",
+            "selected": "http://127.0.0.1:33811/experiments/bottle-ocean/index.html",
+            "unchangedParent": [
+              "http://127.0.0.1:33811/",
+              9045,
+              "10.0500000",
+              "[3.9967769,1.8,4.9517631]"
+            ],
+            "fallbackThresholdSeconds": 12
+          }
+        },
+        {
+          "id": "guide-waits-for-scene",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "whileLoading": "arriving",
+            "whenReady": "reading",
+            "readSeconds": "12"
+          }
+        }
+      ],
+      "complete": true,
+      "physicalDevice": false,
+      "clockModified": false,
+      "candidateId": "experiment-inline-step3-d871aaeb97be116b",
+      "runtimeInputDigest": "d871aaeb97be116b1dee1db35d0e5d8a9d8d1fe897fa9bd5269a09d7923d1cd6",
+      "browserClosed": true,
+      "finishedAtShanghai": "2026-11-19T13:53:03.455753+08:00"
+    },
+    {
+      "suite": "original-controls",
+      "startedAtShanghai": "2026-11-19T13:53:03.984313+08:00",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "origin": "http://127.0.0.1:33811/",
+      "checks": [
+        {
+          "id": "original-pages-isolation-and-downloads",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "iframeBounds": {
+              "x": 38,
+              "y": 166,
+              "width": 1198,
+              "height": 559
+            },
+            "actualPlacement": {
+              "point": {
+                "x": 295.9611753609563,
+                "y": 398.0547253721166,
+                "point": [
+                  -2.9961446027086995,
+                  0.3420867118705928,
+                  2.002267880759593
+                ]
+              },
+              "props": [
+                "rock"
+              ]
+            },
+            "simulationPaused": [
+              2.8499,
+              2.8499
+            ],
+            "nativeDownload": {
+              "name": "bottle-ocean-2026-11-19T05-53-28.png",
+              "file": "bottle-native-export.png",
+              "bytes": 192044,
+              "sha256": "72cff8339d70c8fd2713306c58959839f2ca3417374aa1b886318d4b97f76374",
+              "size": [
+                1198,
+                559
+              ]
+            },
+            "courtyardArchivePlayback": {
+              "t": 0.016136,
+              "duration": 12,
+              "controls": true
+            }
+          }
+        }
+      ],
+      "complete": true,
+      "physicalDevice": false,
+      "clockModified": false,
+      "candidateId": "experiment-inline-step3-d871aaeb97be116b",
+      "runtimeInputDigest": "d871aaeb97be116b1dee1db35d0e5d8a9d8d1fe897fa9bd5269a09d7923d1cd6",
+      "browserClosed": true,
+      "finishedAtShanghai": "2026-11-19T13:53:34.763571+08:00"
+    },
+    {
+      "suite": "portfolio-journeys",
+      "startedAtShanghai": "2026-11-19T13:55:50.072028+08:00",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "origin": "http://127.0.0.1:37223/",
+      "checks": [
+        {
+          "id": "desktop-complete-journey",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:37223/experiments/lawson/assets/models/car_A.glb",
+              "type": "fetch",
+              "error": "net::ERR_ABORTED",
+              "detachedScene": true
+            }
+          ],
+          "httpFailures": [],
+          "externalAttempts": []
+        },
+        {
+          "id": "fast-review-preserves-reading",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": []
+        },
+        {
+          "id": "mobile-complete-journey",
+          "status": "通过",
+          "viewport": [
+            390,
+            844
+          ],
+          "touchEmulation": true,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": []
+        },
+        {
+          "id": "keyboard-complete-route",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": []
+        },
+        {
+          "id": "reduced-motion-complete-reading",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:37223/experiments/lawson/assets/models/car_B.glb",
+              "type": "fetch",
+              "error": "net::ERR_ABORTED",
+              "detachedScene": true
+            }
+          ],
+          "httpFailures": [],
+          "externalAttempts": []
+        }
+      ],
+      "complete": true,
+      "physicalDevice": false,
+      "clockModified": false,
+      "candidateId": "experiment-inline-step3-d871aaeb97be116b",
+      "runtimeInputDigest": "d871aaeb97be116b1dee1db35d0e5d8a9d8d1fe897fa9bd5269a09d7923d1cd6",
+      "browserClosed": true,
+      "finishedAtShanghai": "2026-11-19T13:56:57.534081+08:00"
+    },
+    {
+      "suite": "subpath",
+      "startedAtShanghai": "2026-11-19T13:53:52.284051+08:00",
+      "engine": "chromium",
+      "version": "155.0.8059.79",
+      "origin": "http://127.0.0.1:43025/sakan/",
+      "checks": [
+        {
+          "id": "desktop-inline-playback",
+          "status": "通过",
+          "viewport": [
+            1440,
+            900
+          ],
+          "touchEmulation": false,
+          "errors": [],
+          "requestFailures": [],
+          "httpFailures": [],
+          "externalAttempts": [],
+          "measurements": {
+            "window": {
+              "x": 38,
+              "y": 166,
+              "width": 1198,
+              "height": 559
+            },
+            "nativeDimensions": [
+              [
+                1198,
+                559
+              ],
+              [
+                1198,
+                559
+              ]
+            ],
+            "lawsonProjection": [
+              [
+                675,
+                326
+              ],
+              [
+                624,
+                296
+              ]
+            ],
+            "bottleWave": [
+              35,
+              100
+            ],
+            "unchangedParent": [
+              "http://127.0.0.1:43025/sakan/",
+              9045,
+              "10.0500000",
+              "[3.9967769,1.8,4.9517631]"
+            ],
+            "releasedAtC3": true
+          }
+        }
+      ],
+      "complete": true,
+      "physicalDevice": false,
+      "clockModified": false,
+      "candidateId": "experiment-inline-step3-d871aaeb97be116b",
+      "runtimeInputDigest": "d871aaeb97be116b1dee1db35d0e5d8a9d8d1fe897fa9bd5269a09d7923d1cd6",
+      "browserClosed": true,
+      "finishedAtShanghai": "2026-11-19T13:54:19.908564+08:00"
+    }
+  ]
+}

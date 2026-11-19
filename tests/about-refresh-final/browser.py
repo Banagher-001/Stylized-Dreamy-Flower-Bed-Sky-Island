@@ -44,28 +44,23 @@ def images(page):
     r.go(page, 'B4')
     return rows
 
-def projects(page, identifiers=('lawson', 'bottle-ocean', 'courtyard')):
+def projects(page, identifiers=('lawson', 'bottle-ocean')):
     rows = []
     for identifier in identifiers:
         before = r.state(page)
-        frame = r.open_project(page, identifier)
+        frame = r.open_scene(page, identifier)
         if identifier == 'lawson':
             frame.locator('[data-cam=front]').click()
             frame.wait_for_function('__LAWSON__.state.cameraMode==="front"')
             native = frame.evaluate('__LAWSON__.api.getState()')
-        elif identifier == 'bottle-ocean':
+        else:
             paused = frame.evaluate('__bottleOcean.state.paused')
             r.activate(frame.locator('[data-action=pause]'))
             native = frame.evaluate('({...__bottleOcean.state})')
             assert native['paused'] is not paused
-        else:
-            assert not page.locator('iframe').count()
-            for mode in ['native', 'pixel']:
-                page.locator(f'[data-project-mode={mode}]').click()
-                page.wait_for_function('v=>document.querySelector("#tour-host canvas").dataset.renderMode===v', arg=mode)
-            native = r.state(page)['host']
         r.checkpoint(page, identifier)
-        r.close_project(page)
+        r.go(page, 'water')
+        page.wait_for_function('!document.querySelector(".experiment-window-stage iframe")')
         after = r.state(page)
         assert after['frames'] == 0 and after['canvas'] == before['canvas']
         assert not after['dialogs']
@@ -223,12 +218,15 @@ def keyboard(page):
     tabs.append(tab_to('[data-project-select=lawson]'))
     page.keyboard.press('ArrowRight')
     page.wait_for_function('document.activeElement?.matches("[data-project-select=bottle-ocean]")&&document.activeElement.getAttribute("aria-selected")==="true"')
-    tabs.append(tab_to('[data-project-tab=live]'))
+    page.locator('.experiment-window-stage').scroll_into_view_if_needed()
+    r.wait_scene(page, 'bottle-ocean')
+    tabs.append(tab_to('.experiment-window-stage iframe'))
+    tabs.append(tab_to('.experiment-project-archive summary'))
     page.keyboard.press('Enter')
-    page.wait_for_selector('iframe', state='attached')
-    assert page.locator('.tour-project-close').evaluate('e=>e===document.activeElement')
+    page.locator('.experiment-archive-features').wait_for()
     page.keyboard.press('Escape')
-    page.wait_for_function('!document.querySelector(".tour-project-dialog").open')
+    assert not page.locator('.experiment-project-archive').evaluate('e=>e.open')
+    assert not r.state(page)['dialogs']
     assert not r.state(page)['focus']['hidden']
     return {'nativeTabSteps': tabs, 'state': r.state(page)}
 
@@ -244,9 +242,11 @@ def reduced(page):
     films = images(page)
     r.go(page, 'C2')
     page.locator('[data-project-select=bottle-ocean]').click()
-    page.locator('[data-project-tab=archive]').click()
-    assert '海浪' in page.locator('.tour-project-archive').inner_text()
-    r.close_project(page)
+    archive = page.locator('.experiment-project-archive')
+    archive.locator('summary').click()
+    archive.locator('.experiment-archive-features').wait_for()
+    assert '海浪' in archive.inner_text() and not r.state(page)['dialogs']
+    archive.locator('summary').click()
     return {'profiles': facts, 'toolReading': m, 'films': films, 'returned': r.state(page)}
 
 try:
