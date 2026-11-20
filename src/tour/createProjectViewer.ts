@@ -11,7 +11,7 @@ interface ProjectLifecycle {
 }
 
 /** The water stop opens the garden's existing canvas and its media archive. */
-export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecycle) {
+export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecycle, sceneLabel = '庭院全景：三根深色石柱与小花围绕蓝白水潭') {
   const dialog = document.createElement('dialog');dialog.className = 'tour-project-dialog';dialog.setAttribute('aria-labelledby', 'project-title');
   dialog.dataset.projectId = 'courtyard';dialog.dataset.experienceKind = 'host-scene';
   dialog.innerHTML = `<div class="tour-project-shell">
@@ -24,7 +24,7 @@ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecyc
       <div class="tour-project-header-actions"><button type="button" class="tour-project-close" aria-label="关闭项目，返回阅读" autofocus><span>返回阅读</span><span aria-hidden="true">×</span></button></div>
     </header>
     <section id="tour-project-live" class="tour-project-live" role="tabpanel" aria-labelledby="project-tab-live">
-      <div class="tour-project-live-space" role="img" aria-label="庭院全景：三根深色石柱与小花围绕蓝白水潭"><p class="tour-project-scene-status" role="status" hidden></p></div>
+      <div class="tour-project-live-space" role="img"><p class="tour-project-scene-status" role="status" hidden></p></div>
       <div class="tour-project-live-controls"><p>停一会儿，看风经过。</p><div><div role="group" aria-label="体验画面模式"><button type="button" data-project-mode="native">正常画面</button><button type="button" data-project-mode="pixel">像素画面</button></div><button type="button" class="tour-project-motion">播放动效</button></div></div>
     </section>
     <section id="tour-project-archive" class="tour-project-archive" role="tabpanel" aria-labelledby="project-tab-archive" tabindex="0" hidden></section>
@@ -33,6 +33,7 @@ export function createProjectViewer(root: HTMLElement, lifecycle: ProjectLifecyc
   const listeners = new AbortController(), options = { signal: listeners.signal };
   const tabs = [...dialog.querySelectorAll<HTMLButtonElement>('[data-project-view]')], closeButton = dialog.querySelector<HTMLButtonElement>('.tour-project-close')!;
   const live = dialog.querySelector<HTMLElement>('#tour-project-live')!, archive = dialog.querySelector<HTMLElement>('#tour-project-archive')!, liveSpace = dialog.querySelector<HTMLElement>('.tour-project-live-space')!;
+  liveSpace.setAttribute('aria-label', sceneLabel);
   const shell = dialog.querySelector<HTMLElement>('.tour-project-shell')!;
   const modeButtons = [...dialog.querySelectorAll<HTMLButtonElement>('[data-project-mode]')], motion = dialog.querySelector<HTMLButtonElement>('.tour-project-motion')!, sceneStatus = dialog.querySelector<HTMLElement>('.tour-project-scene-status')!;
   let selected: ProjectTab = 'live', engaged = false, disposed = false;

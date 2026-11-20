@@ -3,15 +3,15 @@ import { orbConfig } from '../config/orb';
 
 const tau = Math.PI * 2;
 const flow = orbConfig.flow;
-const phase = (time: number, period: number) => ((time % period) + period) % period / period * tau;
+export const samplePeriodicPhase = (time: number, period: number) => ((time % period) + period) % period / period * tau;
 
 /** Each periodic component is reduced separately, before conversion to GPU float.
  * x/y = cos/sin of the slow turn; z/w = the two wave phases, in radians.
  * Only trigonometric functions consume wrapped phases, so every wrap is continuous.
  */
 export function sampleOrbPhases(time: number, out = new Vector4()) {
-  const turn = phase(time, flow.turnPeriod);
-  return out.set(Math.cos(turn), Math.sin(turn), phase(time, flow.mainPeriod), phase(time, flow.detailPeriod));
+  const turn = samplePeriodicPhase(time, flow.turnPeriod);
+  return out.set(Math.cos(turn), Math.sin(turn), samplePeriodicPhase(time, flow.mainPeriod), samplePeriodicPhase(time, flow.detailPeriod));
 }
 
 /** Continuous 3-D field on the rest sphere: no longitude seam or polar UV pinch. */

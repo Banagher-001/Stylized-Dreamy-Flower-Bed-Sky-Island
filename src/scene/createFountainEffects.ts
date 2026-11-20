@@ -47,8 +47,8 @@ export function sampleDrop(drop: DropParameters, age: number, out: Vector3) {
 }
 
 export function createFountainEffects(state: WaterState, orbStyle: OrbStyle = 'legacy') {
-  if (orbStyle === 'lively') {
-    try { return createLivelyFountainEffects(state, createDropParameters()); }
+  if (orbStyle !== 'legacy') {
+    try { return createLivelyFountainEffects(state, createDropParameters(), orbStyle); }
     catch (error) { console.warn('Orb detail unavailable; original water effects retained.', error); }
   }
   const root = new Group();

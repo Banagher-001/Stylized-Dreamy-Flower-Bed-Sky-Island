@@ -1,5 +1,34 @@
 /** Prototype-only orb. The approved legacy jet/water configuration is untouched. */
-export type OrbStyle = 'legacy' | 'lively';
+export type ParticleOrbStyle = 'particles' | 'particle-wave' | 'particle-flow' | 'particle-drops';
+export type OrbStyle = 'legacy' | 'lively' | ParticleOrbStyle;
+
+export const particleOrbWave = {
+  primary: { amplitude: .032, period: 4, direction: [2.5, 2, -1.55] },
+  secondary: { amplitude: .008, period: 2.6, direction: [-3.1, 1.2, 4.4] },
+  stemFade: [-.84, -.48],
+  interiorFollow: .25,
+} as const;
+
+export const particleOrbFlow = {
+  // A small circle in orb space, calibrated against the water stop's diagonal.
+  axis: [.766434, -.575767, .284730],
+  front: [.330778, .733779, .593426],
+  offset: -.306825,
+  frontTime: 3.5,
+  crestWidth: [.056, .167],
+  backWeight: .30,
+  colors: { crest: '#E2F5FB', shade: '#4C8BAE' },
+} as const;
+
+export const particleOrbDrops = {
+  clearance: .02,
+  // Two release directions on the lower arc reached by the surface flow.
+  beads: [
+    { direction: [-.82, -.26, .51], phase: .36, formationTime: .16, radius: .024, speed: .84, vy: -.06, strength: 1.6 },
+    { direction: [-.74, -.25, .62], phase: .88, formationTime: .14, radius: .019, speed: .81, vy: -.06, strength: 1.12 },
+  ],
+} as const;
+
 export const orbConfig = {
   radius: .26,
   centerY: 1.37,

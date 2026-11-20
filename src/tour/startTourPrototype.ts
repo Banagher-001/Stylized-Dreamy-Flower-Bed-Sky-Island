@@ -9,6 +9,7 @@ import { pagePalette } from '../config/palette';
 import { renderConfig } from '../config/scene';
 import type { RenderMode } from '../config/scene';
 import { waterConfig } from '../config/water';
+import type { OrbStyle } from '../config/orb';
 import { resolveVisualOptions } from '../config/visual';
 import { resolveEnvironmentOptions } from '../config/environment';
 import { createScene } from '../scene/createScene';
@@ -115,7 +116,15 @@ const experimentReader = createExperimentReader(app, host, (id) => experimentMag
   // Opening the archive changes the current block's height as part of reading.
   archiveLayoutChanged() { readingLayout?.refreshProgress(); },
 });
-const world = createScene(resolveEnvironmentOptions(query), query.get('pool') === 'legacy' ? 'legacy' : 'refined', query.get('orb') === 'legacy' ? 'legacy' : 'lively', query.get('clouds') !== 'off', query.get('birds') !== 'off');
+const requestedOrb = query.get('orb');
+let orbStyle: OrbStyle = 'particle-drops';
+if (requestedOrb === 'legacy' || requestedOrb === 'lively') orbStyle = requestedOrb;
+if (requestedOrb === 'particles') {
+  orbStyle = 'particles';
+  if (query.get('orbMotion') === 'wave') orbStyle = query.get('orbFlow') === 'on' ? 'particle-flow' : 'particle-wave';
+  if (orbStyle === 'particle-flow' && query.get('orbDrops') === 'on') orbStyle = 'particle-drops';
+}
+const world = createScene(resolveEnvironmentOptions(query), query.get('pool') === 'legacy' ? 'legacy' : 'refined', orbStyle, query.get('clouds') !== 'off', query.get('birds') !== 'off');
 host.dataset.fountainStyle = world.fountainStyle;
 host.dataset.fountainResources = JSON.stringify(world.fountainMetadata ?? null);
 host.dataset.orbStyle = world.orbStyle;
@@ -232,18 +241,20 @@ function syncProject() {
   host.dataset.projectId = current?.id ?? '';animation.resetTimestamp();
   if (!failed) applyCamera();syncAnimation(animation.state);
 }
+const particleWaterView = world.orbStyle === 'particle-flow' || world.orbStyle === 'particle-drops';
 projectViewer = createProjectViewer(app, {
   open() { mediaViewer.close();beginOverlay('project');syncProject(); },
   change: syncProject,
   close() { closeOverlay('project'); },
   mode: setMode,
   motion() { animation.toggle(); },
-});
+}, particleWaterView ? '水潭近景，起伏的青蓝水球悬在石台上方' : undefined);
 
 function experiencePose() {
   const area = projectViewer.liveBounds, bounds = host.getBoundingClientRect();
-  if (area.width < 1 || area.height < 1) return resolveTourPose(tourPoses.O, lastAspect);
-  const pose = resolveTourPose(tourPoses.O, area.width / area.height);
+  const scenePose = particleWaterView ? tourPoses.W : tourPoses.O;
+  if (area.width < 1 || area.height < 1) return resolveTourPose(scenePose, lastAspect);
+  const pose = resolveTourPose(scenePose, area.width / area.height);
   pose.viewHeight *= bounds.height / area.height;
   const eye = new Vector3(...pose.position), target = new Vector3(...pose.target);
   const direction = eye.clone().sub(target).normalize();

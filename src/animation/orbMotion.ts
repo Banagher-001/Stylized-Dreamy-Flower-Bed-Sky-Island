@@ -25,6 +25,19 @@ export interface OrbFlight {
   duration: number; impactX: number; impactZ: number;
 }
 export const createOrbFlight = (): OrbFlight => ({ birthTime: NaN, x: 0, y: 0, z: 0, vx: 0, vy: 0, vz: 0, duration: 0, impactX: 0, impactZ: 0 });
+
+export function orbFlightTime(fall: number, vy: number) {
+  const gravity = waterConfig.drops.gravity;
+  return (vy + Math.sqrt(vy * vy + 2 * gravity * fall)) / gravity;
+}
+
+export function finishOrbFlight(flight: OrbFlight, radius: number) {
+  flight.duration = orbFlightTime(flight.y - layoutConfig.fountain.waterHeight - radius, flight.vy);
+  flight.impactX = flight.x + flight.vx * flight.duration;
+  flight.impactZ = flight.z + flight.vz * flight.duration;
+  return flight;
+}
+
 const scratch = createOrbPose();
 const surfacePhases = new Vector4(), surfaceNormal = new Vector3();
 /** All fields derive from the birth instant; scratch carries no simulation history. */
@@ -44,10 +57,7 @@ export function sampleOrbFlight(drop: DropParameters, birthTime: number, out = c
   out.z = nz * radius * pose.sz + surfaceNormal.z * margin;
   out.vx = drop.vx;out.vz = drop.vz;
   out.vy = drop.vy + config.floatAmplitude * omega * Math.cos(birthTime * omega);
-  const fall = out.y - layoutConfig.fountain.waterHeight - drop.radius;
-  out.duration = (out.vy + Math.sqrt(out.vy * out.vy + 2 * waterConfig.drops.gravity * fall)) / waterConfig.drops.gravity;
-  out.impactX = out.x + out.vx * out.duration;out.impactZ = out.z + out.vz * out.duration;
-  return out;
+  return finishOrbFlight(out, drop.radius);
 }
 export function sampleOrbDrop(flight: OrbFlight, age: number, out: Vector3) {
   return out.set(flight.x + flight.vx * age, flight.y + flight.vy * age - .5 * waterConfig.drops.gravity * age * age, flight.z + flight.vz * age);

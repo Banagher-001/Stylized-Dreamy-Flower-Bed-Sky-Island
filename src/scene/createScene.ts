@@ -126,7 +126,7 @@ export function createScene(options: Partial<EnvironmentOptions> = {}, fountainS
     waterState,
     fountainStyle: fountainAppearance ? 'refined' : fountainStyle === 'refined' ? 'fallback' : 'legacy',
     fountainMetadata: fountainAppearance?.metadata,
-    orbStyle: fountainEffects.root.userData.orbStyle ?? (orbStyle === 'lively' ? 'fallback' : 'legacy'),
+    orbStyle: fountainEffects.root.userData.orbStyle ?? (orbStyle === 'legacy' ? 'legacy' : 'fallback'),
     orbMetadata: fountainEffects.root.userData.orbMetadata,
     environmentState,
     cloudShadows,
