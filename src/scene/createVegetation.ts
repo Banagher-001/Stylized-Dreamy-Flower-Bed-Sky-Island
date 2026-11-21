@@ -8,6 +8,7 @@ import { createVegetationMaterial } from '../materials/createVegetationMaterial'
 import { environmentConfig } from '../config/environment';
 import { plantWindPhase } from '../animation/environmentMotion';
 import type { EnvironmentState } from '../animation/environmentMotion';
+import { isPathPositionClear, pathPointToWorld } from './pathLayout';
 
 interface Plant {
   x: number;
@@ -20,8 +21,9 @@ interface Plant {
   gap: boolean;
 }
 
-/** Conservative footprint clearance includes the plant's maximum horizontal extent. */
-export function isPlantPositionClear(x: number, z: number, radius: number, margin = 0.035) {
+const plantMargin = 0.035;
+
+function isCourtyardPositionClear(x: number, z: number, radius: number, margin: number) {
   const f = layoutConfig.fountain;
   const c = Math.cos(f.rotationY), s = Math.sin(f.rotationY);
   const dx = x - f.position[0], dz = z - f.position[2];
@@ -45,16 +47,20 @@ export function isPlantPositionClear(x: number, z: number, radius: number, margi
   }
   const wall = layoutConfig.wall;
   if (inRectangle(x, z, wall.position[0], wall.position[2], wall.length + wall.endSize, Math.max(wall.baseDepth, wall.endSize), wall.rotationY)) return false;
-  const p = layoutConfig.path;
-  for (let row = 0; row < p.rows; row++) for (let col = 0; col < p.columns; col++) {
-    const ox = (col - (p.columns - 1) / 2) * p.stepX;
-    const oz = (row - (p.rows - 1) / 2) * p.stepZ;
-    if (inRectangle(x, z,
-      p.position[0] + Math.cos(p.rotationY) * ox + Math.sin(p.rotationY) * oz,
-      p.position[2] - Math.sin(p.rotationY) * ox + Math.cos(p.rotationY) * oz,
-      p.slabWidth, p.slabDepth, p.rotationY)) return false;
-  }
   return true;
+}
+
+/** Conservative clearance includes the plant's maximum horizontal extent. */
+export function isPlantPositionClear(x: number, z: number, radius: number, margin = plantMargin) {
+  return isCourtyardPositionClear(x, z, radius, margin) && isPathPositionClear(x, z, radius + margin);
+}
+
+function isScatterPositionClear(x: number, z: number, radius: number) {
+  const reserve = config.ground.pavingReserve;
+  const clearance = radius + plantMargin;
+  const inReserve = x > reserve.x[0] - clearance && x < reserve.x[1] + clearance
+    && z > reserve.z[0] - clearance && z < reserve.z[1] + clearance;
+  return !inReserve && isCourtyardPositionClear(x, z, radius, plantMargin);
 }
 
 export function createVegetation(camera: OrthographicCamera, environment?: EnvironmentState) {
@@ -86,7 +92,7 @@ export function createVegetation(camera: OrthographicCamera, environment?: Envir
         x = cluster.center[0] + Math.cos(angle) * r;
         z = cluster.center[1] + Math.sin(angle) * r;
       } else { x = lerp(-7.5, 7.4); z = lerp(-8.7, 8.4); }
-      if (!visible(x, z) || !isPlantPositionClear(x, z, config.grass.clearance) || (quiet(x, z) && random() < 0.9)) continue;
+      if (!visible(x, z) || !isScatterPositionClear(x, z, config.grass.clearance) || (quiet(x, z) && random() < 0.9)) continue;
       grass.push({ x, z, height: lerp(config.grass.minHeight, config.grass.maxHeight), diameter: 0, rotation: random() * Math.PI * 2, color: random(), radius: config.grass.clearance, gap: false });
     }
     for (let attempt = 0; flowers.length < config.flowers.count && attempt < config.flowers.count * 120; attempt++) {
@@ -95,27 +101,28 @@ export function createVegetation(camera: OrthographicCamera, environment?: Envir
       const x = cluster.center[0] + Math.cos(angle) * r, z = cluster.center[1] + Math.sin(angle) * r;
       const diameter = lerp(config.flowers.minDiameter, config.flowers.maxDiameter);
       const radius = diameter * 0.55 + 0.01;
-      if (!visible(x, z) || quiet(x, z) || !isPlantPositionClear(x, z, radius)) continue;
+      if (!visible(x, z) || quiet(x, z) || !isScatterPositionClear(x, z, radius)) continue;
       if (flowers.some(p => Math.hypot(p.x - x, p.z - z) < (p.radius + radius) * 0.85)) continue;
       flowers.push({ x, z, height: lerp(config.flowers.minHeight, config.flowers.maxHeight), diameter, rotation: random() * Math.PI * 2, color: random(), radius, gap: false });
     }
     if (grass.length !== config.grass.count || flowers.length !== config.flowers.count) throw new Error('Vegetation regions cannot fit the requested counts.');
 
-    const p = layoutConfig.path;
-    const gaps: [number, number][] = [];
-    for (let row = 0; row < p.rows; row++) for (let col = 0; col < p.columns - 1; col++) {
-      gaps.push([(col - (p.columns - 2) / 2) * p.stepX, (row - (p.rows - 1) / 2) * p.stepZ]);
-    }
-    for (let col = 0; col < p.columns; col++) gaps.push([(col - (p.columns - 1) / 2) * p.stepX, 0]);
-    gaps.push([-p.stepX, 0], [p.stepX, 0]);
-    for (const [gx, gz] of gaps.slice(0, config.grass.gapCount)) {
-      const x = p.position[0] + Math.cos(p.rotationY) * gx + Math.sin(p.rotationY) * gz + lerp(-0.006, 0.006);
-      const z = p.position[2] - Math.sin(p.rotationY) * gx + Math.cos(p.rotationY) * gz + lerp(-0.006, 0.006);
-      if (!isPlantPositionClear(x, z, 0.023, 0.008)) throw new Error('Paving gap vegetation intersects stone.');
-      grass.push({ x, z, height: lerp(config.grass.gapMinHeight, config.grass.gapMaxHeight), diameter: 0, rotation: random() * Math.PI * 2, color: random(), radius: 0.023, gap: true });
+    const gapRadius = 0.023;
+    const gapMargin = 0.037;
+    for (const { center, height } of config.grass.pavingTufts) {
+      const [x, z] = pathPointToWorld(center[0], center[1]);
+      if (isPlantPositionClear(x, z, gapRadius, gapMargin)) {
+        grass.push({
+          x, z, height, diameter: 0,
+          rotation: random() * Math.PI * 2, color: random(), radius: gapRadius, gap: true,
+        });
+      }
     }
   }
 
+  const clearsPaving = (plant: Plant) => isPathPositionClear(plant.x, plant.z, plant.radius + plantMargin);
+  const groundGrass = grass.filter(plant => plant.gap || clearsPaving(plant));
+  const flowerStems = flowers.filter(clearsPaving);
   const geometries: BufferGeometry[] = [];
   const materials: Material[] = [];
   const batches: InstancedMesh[] = [];
@@ -165,13 +172,13 @@ export function createVegetation(camera: OrthographicCamera, environment?: Envir
       batches.push(mesh);
       root.add(mesh);
     }
-    batch('grass-clusters', grassGeometry, green, grass, 'grass');
-    batch('flower-stems', stemGeometry, green, flowers, 'stem');
-    batch('flowers-four-petal', flowerFour, pink, flowers.filter((_, i) => i % 2 === 0), 'flower');
-    batch('flowers-five-petal', flowerFive, pink, flowers.filter((_, i) => i % 2 === 1), 'flower');
+    batch('grass-clusters', grassGeometry, green, groundGrass, 'grass');
+    batch('flower-stems', stemGeometry, green, flowerStems, 'stem');
+    batch('flowers-four-petal', flowerFour, pink, flowers.filter((plant, i) => i % 2 === 0 && clearsPaving(plant)), 'flower');
+    batch('flowers-five-petal', flowerFive, pink, flowers.filter((plant, i) => i % 2 === 1 && clearsPaving(plant)), 'flower');
   }
   root.userData.seed = config.seed;
-  root.userData.counts = { grass: grass.length, flowers: flowers.length, batches: batches.length };
+  root.userData.counts = { grass: groundGrass.length, flowers: flowerStems.length, batches: batches.length };
   let disposed = false;
   return {
     root,

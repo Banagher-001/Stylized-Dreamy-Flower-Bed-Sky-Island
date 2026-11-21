@@ -1,0 +1,900 @@
+{
+  "baselineGitRevision": "5bc54483e2407abb47a41828415b2c3a929ceeca",
+  "baselineRuntimeInputDigest": "99634b67a4c3f8f74621003288a96af43914af86752ef6d516f8e77ca51450cc",
+  "candidateRuntimeInputDigest": "c80a16421a6c9a8c5ef7c5960a88352136d6580498c0812bf0c48098e8b2b141",
+  "build": {
+    "command": "npm run build",
+    "includesTypecheck": true,
+    "status": "passed"
+  },
+  "browser": {
+    "version": "155.0.8059.79",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "routes": [
+      {
+        "urlQuery": "",
+        "stations": [
+          "S00",
+          "T3W",
+          "S00"
+        ],
+        "renderModeSwitches": [
+          "pixel",
+          "native",
+          "pixel"
+        ],
+        "sceneTimeAdvanced": true,
+        "events": {
+          "errors": [],
+          "http": [],
+          "foreign": []
+        }
+      },
+      {
+        "urlQuery": "?petals=on&waterTime=3.5",
+        "stations": [
+          "S00",
+          "T3W",
+          "S00"
+        ],
+        "renderModeSwitches": [
+          "pixel",
+          "native",
+          "pixel"
+        ],
+        "sceneTimeAdvanced": false,
+        "events": {
+          "errors": [],
+          "http": [],
+          "foreign": []
+        }
+      }
+    ]
+  },
+  "frames": {
+    "overview": {
+      "camera": {
+        "position": [
+          4.5,
+          23,
+          16
+        ],
+        "quaternion": [
+          -0.4467051998309621,
+          0.12197211750802466,
+          0.061622499735560506,
+          0.8841832018993179
+        ],
+        "target": [
+          0,
+          0.45,
+          0
+        ],
+        "viewHeight": 11.3,
+        "horizontalRange": [
+          -10.259773013871374,
+          10.259773013871374
+        ],
+        "verticalRange": [
+          -5.65,
+          5.65
+        ],
+        "worldRight": [
+          0.962651,
+          0,
+          -0.270746
+        ],
+        "worldUp": [
+          -0.217942,
+          0.593314,
+          -0.774906
+        ]
+      },
+      "viewport": [
+        1440,
+        900
+      ],
+      "dpr": 1,
+      "canvasRect": [
+        0,
+        0,
+        1440,
+        793
+      ],
+      "pixelSample": [
+        384,
+        211
+      ],
+      "time": 3.5,
+      "stage": "S00",
+      "light": {
+        "worldPosition": [
+          8.5,
+          11,
+          -1
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "intensity": 1
+      },
+      "screenshot": "overview.png",
+      "sha256": "15a7db0ac2dd7f31fc469e6fa13cca3c51fe129948e93654995d4dbe7a698cd9",
+      "baselineSha256": "25a43337986309172522ca179d1ab721f75b1f3269b15c7819940803d94ff247",
+      "changedImageBoundsCSS": [
+        945,
+        515,
+        1159,
+        624
+      ]
+    },
+    "pathCloseup": {
+      "camera": {
+        "position": [
+          9.83,
+          22.595,
+          17.38
+        ],
+        "quaternion": [
+          -0.4467051998309621,
+          0.12197211750802466,
+          0.061622499735560506,
+          0.8841832018993179
+        ],
+        "target": [
+          5.33,
+          0.045,
+          1.38
+        ],
+        "viewHeight": 3.7,
+        "horizontalRange": [
+          -3.359394703656999,
+          3.359394703656999
+        ],
+        "verticalRange": [
+          -1.85,
+          1.85
+        ],
+        "worldRight": [
+          0.962651,
+          0,
+          -0.270746
+        ],
+        "worldUp": [
+          -0.217942,
+          0.593314,
+          -0.774906
+        ]
+      },
+      "viewport": [
+        1440,
+        900
+      ],
+      "dpr": 1,
+      "canvasRect": [
+        0,
+        0,
+        1440,
+        793
+      ],
+      "pixelSample": [
+        384,
+        211
+      ],
+      "time": 3.5,
+      "stage": "S00",
+      "light": {
+        "worldPosition": [
+          8.5,
+          11,
+          -1
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "intensity": 1
+      },
+      "screenshot": "path-closeup.png",
+      "sha256": "36c4542227fd570b109c0ac9400eff91b14794b96249e1ece79950ba208c174f",
+      "baselineSha256": "2673ccefcf85fe1de374bb792d990f2ff95b414a1c62964fceacb89f9fef0515",
+      "changedImageBoundsCSS": [
+        382,
+        233,
+        1046,
+        564
+      ]
+    }
+  },
+  "placement": {
+    "pathOriginWorldXYZ": [
+      5.33,
+      0,
+      1.38
+    ],
+    "samePoseAndOutlineAsStep1": true,
+    "method": "Convex hull of top-face vertices from the running production build",
+    "worldBoundsXZ": {
+      "x": [
+        3.87062,
+        6.798278
+      ],
+      "z": [
+        0.832211,
+        1.922237
+      ]
+    },
+    "minimumSlabGap": 0.070025,
+    "numberOfSlabPairsChecked": 28,
+    "keyGaps": {
+      "D–E": {
+        "measuredWorldGap": 0.070025,
+        "projectedTopFaceSamplePixels": {
+          "overview": 1.3,
+          "pathCloseup": 3.971
+        }
+      },
+      "F–G": {
+        "measuredWorldGap": 0.123748,
+        "projectedTopFaceSamplePixels": {
+          "overview": 1.921,
+          "pathCloseup": 5.865
+        }
+      },
+      "B–C": {
+        "measuredWorldGap": 0.212741,
+        "projectedTopFaceSamplePixels": {
+          "overview": 3.759,
+          "pathCloseup": 11.48
+        }
+      }
+    },
+    "nearestToOtherObjects": {
+      "fountain-base": 1.469004,
+      "columnUpperLeft-base": 6.804116,
+      "columnRight-base": 1.292211,
+      "columnLower-base": 2.821208
+    },
+    "slabs": [
+      {
+        "id": "A",
+        "role": "左端小石",
+        "mesh": "pathRight-slab-A",
+        "localCenterXZ": [
+          -1.055,
+          -0.355
+        ],
+        "worldCenterXYZ": [
+          4.275,
+          0.045,
+          1.025
+        ],
+        "width": 0.34,
+        "depth": 0.33,
+        "rotationYDegrees": 12,
+        "cuts": {
+          "order": "-X/-Z, +X/-Z, +X/+Z, -X/+Z",
+          "lengths": [
+            0.073,
+            0.019,
+            0.053,
+            0.025
+          ]
+        },
+        "worldOutlineXZ": [
+          [
+            4.089587,
+            0.970355
+          ],
+          [
+            4.145814,
+            0.883773
+          ],
+          [
+            4.388395,
+            0.832211
+          ],
+          [
+            4.41093,
+            0.846845
+          ],
+          [
+            4.464571,
+            1.099208
+          ],
+          [
+            4.423749,
+            1.162069
+          ],
+          [
+            4.167474,
+            1.216542
+          ],
+          [
+            4.137823,
+            1.197286
+          ]
+        ],
+        "worldBounds": {
+          "x": [
+            4.089587,
+            4.464571
+          ],
+          "y": [
+            -0.0,
+            0.09
+          ],
+          "z": [
+            0.832211,
+            1.216542
+          ]
+        },
+        "sourceClosedSolid": true
+      },
+      {
+        "id": "B",
+        "role": "左端宽石",
+        "mesh": "pathRight-slab-B",
+        "localCenterXZ": [
+          -1.111,
+          0.205
+        ],
+        "worldCenterXYZ": [
+          4.219,
+          0.045,
+          1.585
+        ],
+        "width": 0.66,
+        "depth": 0.44,
+        "rotationYDegrees": -7,
+        "cuts": {
+          "order": "-X/-Z, +X/-Z, +X/+Z, -X/+Z",
+          "lengths": [
+            0.025,
+            0.064,
+            0.036,
+            0.049
+          ]
+        },
+        "worldOutlineXZ": [
+          [
+            3.87062,
+            1.714509
+          ],
+          [
+            3.915224,
+            1.351237
+          ],
+          [
+            3.943085,
+            1.32947
+          ],
+          [
+            4.509829,
+            1.399057
+          ],
+          [
+            4.565552,
+            1.47038
+          ],
+          [
+            4.524116,
+            1.807845
+          ],
+          [
+            4.483997,
+            1.83919
+          ],
+          [
+            3.913283,
+            1.769115
+          ]
+        ],
+        "worldBounds": {
+          "x": [
+            3.87062,
+            4.565552
+          ],
+          "y": [
+            -0.0,
+            0.09
+          ],
+          "z": [
+            1.32947,
+            1.83919
+          ]
+        },
+        "sourceClosedSolid": true
+      },
+      {
+        "id": "C",
+        "role": "退后中石",
+        "mesh": "pathRight-slab-C",
+        "localCenterXZ": [
+          -0.465,
+          -0.275
+        ],
+        "worldCenterXYZ": [
+          4.865,
+          0.045,
+          1.105
+        ],
+        "width": 0.45,
+        "depth": 0.33,
+        "rotationYDegrees": -9,
+        "cuts": {
+          "order": "-X/-Z, +X/-Z, +X/+Z, -X/+Z",
+          "lengths": [
+            0.058,
+            0.021,
+            0.047,
+            0.032
+          ]
+        },
+        "worldOutlineXZ": [
+          [
+            4.648564,
+            1.237777
+          ],
+          [
+            4.621964,
+            1.201165
+          ],
+          [
+            4.659509,
+            0.96412
+          ],
+          [
+            4.725868,
+            0.915907
+          ],
+          [
+            5.0923,
+            0.973944
+          ],
+          [
+            5.109756,
+            0.997971
+          ],
+          [
+            5.068771,
+            1.256745
+          ],
+          [
+            5.014997,
+            1.295814
+          ]
+        ],
+        "worldBounds": {
+          "x": [
+            4.621964,
+            5.109756
+          ],
+          "y": [
+            -0.0,
+            0.09
+          ],
+          "z": [
+            0.915907,
+            1.295814
+          ]
+        },
+        "sourceClosedSolid": true
+      },
+      {
+        "id": "D",
+        "role": "错前宽石",
+        "mesh": "pathRight-slab-D",
+        "localCenterXZ": [
+          -0.381,
+          0.305
+        ],
+        "worldCenterXYZ": [
+          4.949,
+          0.045,
+          1.685
+        ],
+        "width": 0.59,
+        "depth": 0.43,
+        "rotationYDegrees": 6,
+        "cuts": {
+          "order": "-X/-Z, +X/-Z, +X/+Z, -X/+Z",
+          "lengths": [
+            0.033,
+            0.055,
+            0.023,
+            0.071
+          ]
+        },
+        "worldOutlineXZ": [
+          [
+            4.636592,
+            1.534833
+          ],
+          [
+            4.665962,
+            1.498564
+          ],
+          [
+            5.165212,
+            1.446091
+          ],
+          [
+            5.225659,
+            1.495041
+          ],
+          [
+            5.262453,
+            1.845112
+          ],
+          [
+            5.241984,
+            1.87039
+          ],
+          [
+            4.748701,
+            1.922237
+          ],
+          [
+            4.670668,
+            1.859047
+          ]
+        ],
+        "worldBounds": {
+          "x": [
+            4.636592,
+            5.262453
+          ],
+          "y": [
+            -0.0,
+            0.09
+          ],
+          "z": [
+            1.446091,
+            1.922237
+          ]
+        },
+        "sourceClosedSolid": true
+      },
+      {
+        "id": "E",
+        "role": "中段细长石",
+        "mesh": "pathRight-slab-E",
+        "localCenterXZ": [
+          0.207,
+          -0.014
+        ],
+        "worldCenterXYZ": [
+          5.537,
+          0.045,
+          1.366
+        ],
+        "width": 0.31,
+        "depth": 0.69,
+        "rotationYDegrees": -16,
+        "cuts": {
+          "order": "-X/-Z, +X/-Z, +X/+Z, -X/+Z",
+          "lengths": [
+            0.028,
+            0.068,
+            0.015,
+            0.053
+          ]
+        },
+        "worldOutlineXZ": [
+          [
+            5.307518,
+            1.603965
+          ],
+          [
+            5.475381,
+            1.018556
+          ],
+          [
+            5.510015,
+            0.999359
+          ],
+          [
+            5.715725,
+            1.058345
+          ],
+          [
+            5.762347,
+            1.142454
+          ],
+          [
+            5.595035,
+            1.72594
+          ],
+          [
+            5.576482,
+            1.736225
+          ],
+          [
+            5.343856,
+            1.66952
+          ]
+        ],
+        "worldBounds": {
+          "x": [
+            5.307518,
+            5.762347
+          ],
+          "y": [
+            -0.0,
+            0.09
+          ],
+          "z": [
+            0.999359,
+            1.736225
+          ]
+        },
+        "sourceClosedSolid": true
+      },
+      {
+        "id": "F",
+        "role": "右上矮宽石",
+        "mesh": "pathRight-slab-F",
+        "localCenterXZ": [
+          0.765,
+          -0.259
+        ],
+        "worldCenterXYZ": [
+          6.095,
+          0.045,
+          1.121
+        ],
+        "width": 0.51,
+        "depth": 0.32,
+        "rotationYDegrees": 10,
+        "cuts": {
+          "order": "-X/-Z, +X/-Z, +X/+Z, -X/+Z",
+          "lengths": [
+            0.066,
+            0.022,
+            0.055,
+            0.031
+          ]
+        },
+        "worldOutlineXZ": [
+          [
+            5.827551,
+            1.072708
+          ],
+          [
+            5.881088,
+            0.99625
+          ],
+          [
+            6.296676,
+            0.922971
+          ],
+          [
+            6.322163,
+            0.940816
+          ],
+          [
+            6.364359,
+            1.180125
+          ],
+          [
+            6.319745,
+            1.24384
+          ],
+          [
+            5.902187,
+            1.317466
+          ],
+          [
+            5.866275,
+            1.29232
+          ]
+        ],
+        "worldBounds": {
+          "x": [
+            5.827551,
+            6.364359
+          ],
+          "y": [
+            -0.0,
+            0.09
+          ],
+          "z": [
+            0.922971,
+            1.317466
+          ]
+        },
+        "sourceClosedSolid": true
+      },
+      {
+        "id": "G",
+        "role": "右下宽石",
+        "mesh": "pathRight-slab-G",
+        "localCenterXZ": [
+          0.659,
+          0.279
+        ],
+        "worldCenterXYZ": [
+          5.989,
+          0.045,
+          1.659
+        ],
+        "width": 0.53,
+        "depth": 0.4,
+        "rotationYDegrees": -9,
+        "cuts": {
+          "order": "-X/-Z, +X/-Z, +X/+Z, -X/+Z",
+          "lengths": [
+            0.019,
+            0.059,
+            0.041,
+            0.072
+          ]
+        },
+        "worldOutlineXZ": [
+          [
+            5.767089,
+            1.826346
+          ],
+          [
+            5.707239,
+            1.743969
+          ],
+          [
+            5.755577,
+            1.438773
+          ],
+          [
+            5.777316,
+            1.422979
+          ],
+          [
+            6.223751,
+            1.493688
+          ],
+          [
+            6.272795,
+            1.561191
+          ],
+          [
+            6.225864,
+            1.857498
+          ],
+          [
+            6.178955,
+            1.891579
+          ]
+        ],
+        "worldBounds": {
+          "x": [
+            5.707239,
+            6.272795
+          ],
+          "y": [
+            -0.0,
+            0.09
+          ],
+          "z": [
+            1.422979,
+            1.891579
+          ]
+        },
+        "sourceClosedSolid": true
+      },
+      {
+        "id": "H",
+        "role": "右端收束石",
+        "mesh": "pathRight-slab-H",
+        "localCenterXZ": [
+          1.237,
+          0.17
+        ],
+        "worldCenterXYZ": [
+          6.567,
+          0.045,
+          1.55
+        ],
+        "width": 0.43,
+        "depth": 0.41,
+        "rotationYDegrees": 8,
+        "cuts": {
+          "order": "-X/-Z, +X/-Z, +X/+Z, -X/+Z",
+          "lengths": [
+            0.053,
+            0.028,
+            0.073,
+            0.021
+          ]
+        },
+        "worldOutlineXZ": [
+          [
+            6.3797,
+            1.762132
+          ],
+          [
+            6.332938,
+            1.429401
+          ],
+          [
+            6.378046,
+            1.369541
+          ],
+          [
+            6.72365,
+            1.32097
+          ],
+          [
+            6.755274,
+            1.3448
+          ],
+          [
+            6.798278,
+            1.650793
+          ],
+          [
+            6.736149,
+            1.733242
+          ],
+          [
+            6.403418,
+            1.780005
+          ]
+        ],
+        "worldBounds": {
+          "x": [
+            6.332938,
+            6.798278
+          ],
+          "y": [
+            -0.0,
+            0.09
+          ],
+          "z": [
+            1.32097,
+            1.780005
+          ]
+        },
+        "sourceClosedSolid": true
+      }
+    ]
+  },
+  "vegetation": {
+    "regularGrassCount": 240,
+    "flowerCount": 144,
+    "originalRegularPlantPositionsAndAttributesPreserved": true,
+    "retainedGapPlants": [
+      {
+        "rootWorldXZ": [
+          5.327553,
+          1.068646
+        ],
+        "edgeClearance": 0.128295
+      },
+      {
+        "rootWorldXZ": [
+          4.954618,
+          1.381139
+        ],
+        "edgeClearance": 0.086609
+      },
+      {
+        "rootWorldXZ": [
+          4.584925,
+          1.384656
+        ],
+        "edgeClearance": 0.068043
+      },
+      {
+        "rootWorldXZ": [
+          6.064412,
+          1.376043
+        ],
+        "edgeClearance": 0.085857
+      }
+    ],
+    "minimumEdgeDistanceBeyondPlantRadius": 0.045043
+  }
+}

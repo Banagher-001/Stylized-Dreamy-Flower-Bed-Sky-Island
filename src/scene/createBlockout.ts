@@ -8,12 +8,15 @@ import {
 } from 'three';
 import type { BufferGeometry } from 'three';
 import { layoutConfig } from '../config/layout';
+import { pavingMoss } from '../config/pavingMoss';
 import { stoneConfig } from '../config/stone';
+import { createPavingMossGeometry } from '../geometry/createPavingMossGeometry';
 import { applyStoneTint, createStoneBlockGeometry, createStonePrismGeometry } from '../geometry/createStoneBlockGeometry';
 import type { StoneGeometryOptions } from '../geometry/createStoneBlockGeometry';
 import { createStoneMaterial } from '../materials/createStoneMaterial';
 import { createWaterMaterial } from '../materials/createWaterMaterial';
 import type { WaterState } from '../materials/createWaterMaterial';
+import { pathStones } from './pathLayout';
 
 /** Approved composition with shared, deterministic low-poly stone details. */
 export function createBlockout(waterState?: WaterState) {
@@ -27,6 +30,9 @@ export function createBlockout(waterState?: WaterState) {
 
   const blockGeometries = new Map<string, BufferGeometry>();
   const stoneMaterial = createStoneMaterial();
+  const mossMaterial = createStoneMaterial({ top: '#FFFFFF', side: '#E5EBDC', shade: '#88A29A' });
+  mossMaterial.name = 'courtyard-paving-moss';
+  mossMaterial.vertexColors = true;
   const waterMaterial = createWaterMaterial(waterState);
 
   function box(parent: Group, name: string, width: number, height: number, depth: number, bottom: number, x = 0, z = 0, options: Partial<StoneGeometryOptions> = {}) {
@@ -232,24 +238,35 @@ export function createBlockout(waterState?: WaterState) {
   path.name = 'pathRight';
   path.position.set(...p.position);
   path.rotation.y = p.rotationY;
-  for (let row = 0; row < p.rows; row++) {
-    for (let col = 0; col < p.columns; col++) {
-      box(
-        path,
-        `pathRight-slab-${row}-${col}`,
-        p.slabWidth, p.slabHeight, p.slabDepth, 0,
-        (col - (p.columns - 1) / 2) * p.stepX,
-        (row - (p.rows - 1) / 2) * p.stepZ,
-        {
-          bevel: stoneConfig.path.bevel,
-          cornerCut: stoneConfig.path.cornerCut,
-          seed: 11 + (row * p.columns + col) % 3 * 18,
-          chipSize: stoneConfig.path.chippedSlabs.some(index => index === row * p.columns + col) ? stoneConfig.path.chipSize : 0,
-          chipCorner: (row * p.columns + col) % 4,
-        },
-      );
+  pathStones.forEach((stone, index) => {
+    const { outline, profile } = stone;
+    const { exposedHeight: top, embeddedDepth, bevel, chipVertex, chipSize } = profile;
+    const bottom = -embeddedDepth;
+    const geometry = own(createStonePrismGeometry(outline, top - bottom, {
+      bevel,
+      cornerCut: 0,
+      seed: 11 + 9 * index,
+      // The prism builder reverses the XZ outline to wind its top face.
+      chipCorner: outline.length - 1 - chipVertex,
+      chipSize,
+    }));
+    const slab = new Mesh(geometry, stoneMaterial);
+    slab.name = `pathRight-slab-${stone.id}`;
+    slab.position.set(stone.center[0], (top + bottom) / 2, stone.center[1]);
+    slab.rotation.y = stone.rotationY;
+    slab.castShadow = true;
+    slab.receiveShadow = true;
+    path.add(slab);
+    const mossPatch = pavingMoss[stone.id];
+    const mossGeometry = mossPatch && createPavingMossGeometry(geometry, mossPatch);
+    if (mossGeometry) {
+      const moss = new Mesh(own(mossGeometry), mossMaterial);
+      moss.name = `pathRight-moss-${stone.id}`;
+      moss.castShadow = true;
+      moss.receiveShadow = true;
+      slab.add(moss);
     }
-  }
+  });
   root.add(path);
 
   let disposed = false;
@@ -262,6 +279,7 @@ export function createBlockout(waterState?: WaterState) {
       root.clear();
       for (const geometry of geometries) geometry.dispose();
       stoneMaterial.dispose();
+      mossMaterial.dispose();
       waterMaterial.dispose();
     },
   };

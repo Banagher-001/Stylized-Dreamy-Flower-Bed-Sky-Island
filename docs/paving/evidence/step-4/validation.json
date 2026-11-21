@@ -1,0 +1,338 @@
+{
+  "baselineRuntimeInputDigest": "b6e333b507aa5367dbc2bbdaf0f89d4c1cbfbe0f2336501c3fe7b745ad7d05e8",
+  "candidateRuntimeInputDigest": "69df4ddb5402fde8d92b5d3a86832689bd1198f636326b7eceb1c43beaf67709",
+  "pilot": {
+    "stone": "A",
+    "runtimeInputDigest": "a3abf4be62d14b52be00c04ccef7a802703f158b48cc482302b5310b0437bfb7",
+    "photosReviewed": [
+      "overview",
+      "pathCloseup"
+    ]
+  },
+  "build": {
+    "command": "npm run build",
+    "includesTypeCheck": true,
+    "status": "passed"
+  },
+  "browser": {
+    "version": "155.0.8059.79",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "routes": [
+      {
+        "urlQuery": "",
+        "stations": [
+          "S00",
+          "T3W",
+          "S00"
+        ],
+        "renderModeSwitches": [
+          "pixel",
+          "native",
+          "pixel"
+        ],
+        "sceneTimeAdvanced": true,
+        "events": {
+          "errors": [],
+          "http": [],
+          "foreign": []
+        }
+      },
+      {
+        "urlQuery": "?petals=on&waterTime=3.5",
+        "stations": [
+          "S00",
+          "T3W",
+          "S00"
+        ],
+        "renderModeSwitches": [
+          "pixel",
+          "native",
+          "pixel"
+        ],
+        "sceneTimeAdvanced": false,
+        "events": {
+          "errors": [],
+          "http": [],
+          "foreign": []
+        }
+      }
+    ]
+  },
+  "screenshots": {
+    "overview": {
+      "screenshot": "overview.png",
+      "sha256": "145ff033a234ed8b1a797204eb0bb64ba7a31da75617fed918d514c07b1d3a3d",
+      "camera": {
+        "position": [
+          4.5,
+          23,
+          16
+        ],
+        "quaternion": [
+          -0.4467051998309621,
+          0.12197211750802466,
+          0.061622499735560506,
+          0.8841832018993179
+        ],
+        "target": [
+          0,
+          0.45,
+          0
+        ],
+        "viewHeight": 11.3,
+        "horizontalRange": [
+          -10.259773013871374,
+          10.259773013871374
+        ],
+        "verticalRange": [
+          -5.65,
+          5.65
+        ],
+        "worldRight": [
+          0.962651,
+          0,
+          -0.270746
+        ],
+        "worldUp": [
+          -0.217942,
+          0.593314,
+          -0.774906
+        ]
+      },
+      "viewport": [
+        1440,
+        900
+      ],
+      "dpr": 1,
+      "canvasRect": [
+        0,
+        0,
+        1440,
+        793
+      ],
+      "time": 3.5,
+      "renderMode": "pixel",
+      "pixelSample": [
+        384,
+        211
+      ],
+      "changedAreaCSS": [
+        975,
+        526,
+        1084,
+        568
+      ],
+      "baselineSha256": "e7fdb26ea2e5244b1eedfd96947335f68905a35fd76830055883ccacc5ebfc56",
+      "mossVisibleSamplePixels": {
+        "A": {
+          "total": 3,
+          "largestConnectedRegion": 3,
+          "medianSRGB": [
+            143,
+            166,
+            95
+          ]
+        },
+        "E": {
+          "total": 4,
+          "largestConnectedRegion": 4,
+          "medianSRGB": [
+            136,
+            162,
+            91
+          ]
+        }
+      }
+    },
+    "pathCloseup": {
+      "screenshot": "path-closeup.png",
+      "sha256": "937eef6df21bea58cb1ead50c6c0af5ff2543ac29aa0ab3ada5ce3a481251bbb",
+      "camera": {
+        "position": [
+          9.83,
+          22.595,
+          17.38
+        ],
+        "quaternion": [
+          -0.4467051998309621,
+          0.12197211750802466,
+          0.061622499735560506,
+          0.8841832018993179
+        ],
+        "target": [
+          5.33,
+          0.045,
+          1.38
+        ],
+        "viewHeight": 3.7,
+        "horizontalRange": [
+          -3.359394703656999,
+          3.359394703656999
+        ],
+        "verticalRange": [
+          -1.85,
+          1.85
+        ],
+        "worldRight": [
+          0.962651,
+          0,
+          -0.270746
+        ],
+        "worldUp": [
+          -0.217942,
+          0.593314,
+          -0.774906
+        ]
+      },
+      "viewport": [
+        1440,
+        900
+      ],
+      "dpr": 1,
+      "canvasRect": [
+        0,
+        0,
+        1440,
+        793
+      ],
+      "time": 3.5,
+      "renderMode": "pixel",
+      "pixelSample": [
+        384,
+        211
+      ],
+      "changedAreaCSS": [
+        484,
+        259,
+        810,
+        383
+      ],
+      "baselineSha256": "3d592338f74e2050006e39ddb7d2166e5de65f60a917f116c967398557ea4cb3",
+      "mossVisibleSamplePixels": {
+        "A": {
+          "total": 21,
+          "largestConnectedRegion": 21,
+          "medianSRGB": [
+            135,
+            161,
+            91
+          ]
+        },
+        "E": {
+          "total": 26,
+          "largestConnectedRegion": 26,
+          "medianSRGB": [
+            136,
+            161,
+            91
+          ]
+        }
+      }
+    }
+  },
+  "nativeCloseupVerified": true,
+  "meshChecks": {
+    "matchesStoneAndPlantGeometryFromStep3": true,
+    "topFaceSupportChecked": true,
+    "sampleSlabs": {
+      "A": {
+        "stone": "pathRight-slab-A",
+        "localAnchorXYZ": [
+          -0.09,
+          0.0495,
+          -0.09
+        ],
+        "topFacetNormal": [
+          0,
+          1,
+          0
+        ],
+        "worldAnchorXYZ": [
+          4.168255,
+          0.085,
+          0.955679
+        ],
+        "footprintLocalSizeXZ": [
+          0.129,
+          0.084
+        ],
+        "rimRiseRange": [
+          0.003,
+          0.0065
+        ],
+        "peakRise": 0.016,
+        "embeddedDepth": 0.002,
+        "minimumInsetFromStoneTopEdge": 0.005342,
+        "closedLobes": 3,
+        "triangles": 112,
+        "nearestOtherSlab": "B",
+        "nearestOtherSlabDistance": 0.355184,
+        "distanceToSlabD": null,
+        "renderedMeshName": "pathRight-moss-A"
+      },
+      "E": {
+        "stone": "pathRight-slab-E",
+        "localAnchorXYZ": [
+          0.054,
+          0.051,
+          -0.26
+        ],
+        "topFacetNormal": [
+          0,
+          1,
+          0
+        ],
+        "worldAnchorXYZ": [
+          5.660574,
+          0.088,
+          1.130956
+        ],
+        "footprintLocalSizeXZ": [
+          0.087,
+          0.175
+        ],
+        "rimRiseRange": [
+          0.003,
+          0.0065
+        ],
+        "peakRise": 0.015,
+        "embeddedDepth": 0.002,
+        "minimumInsetFromStoneTopEdge": 0.010065,
+        "closedLobes": 3,
+        "triangles": 128,
+        "nearestOtherSlab": "F",
+        "nearestOtherSlabDistance": 0.13626,
+        "distanceToSlabD": 0.470129,
+        "renderedMeshName": "pathRight-moss-E"
+      }
+    },
+    "keyGrassGaps": {
+      "D–E": {
+        "groundLevelGap": 0.070025,
+        "topGapXZ": 0.093848,
+        "topGapInOverviewSamples": 1.761
+      },
+      "F–G": {
+        "groundLevelGap": 0.123748,
+        "topGapXZ": 0.144391,
+        "topGapInOverviewSamples": 2.095
+      },
+      "B–C": {
+        "groundLevelGap": 0.212742,
+        "topGapXZ": 0.237265,
+        "topGapInOverviewSamples": 4.099
+      }
+    }
+  },
+  "material": {
+    "name": "courtyard-paving-moss",
+    "sharedMaterials": 1,
+    "vertexColorsSRGB": {
+      "base": "#7C9955",
+      "light": "#9AAE65",
+      "edge": "#5C7746"
+    },
+    "colorMaps": 0,
+    "sceneCloudReceiver": true
+  }
+}

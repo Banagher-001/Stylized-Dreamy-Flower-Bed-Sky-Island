@@ -12,16 +12,23 @@ export const vegetationConfig = {
     detailDensity: 0.16,
     quietCenter: [0, -5.4] as const,
     quietRadius: [1.8, 1.25] as const,
+    // The seeded scatter reserves the original paving area. The final plants
+    // are checked against the current stones after scattering.
+    pavingReserve: { x: [3.905, 6.755], z: [0.805, 1.955] },
   },
   grass: {
     count: 240,
-    gapCount: 12,
+    // Path-local XZ roots with blade heights measured from each root.
+    pavingTufts: [
+      { center: [-0.773, -0.078], height: 0.076 },       // B–C opening
+      { center: [-0.745075, 0.004656], height: 0.064 },  // B–C–D junction
+      { center: [-0.375382, 0.001139], height: 0.070 },  // C–D opening
+      { center: [-0.002447, -0.311354], height: 0.061 }, // Behind C–E
+      { center: [0.734412, -0.003957], height: 0.068 },  // F–G diagonal gap
+    ],
     minHeight: 0.065,
     maxHeight: 0.14,
     clearance: 0.06,
-    // Paving is 0.09 high; only a short tip should emerge above it.
-    gapMinHeight: 0.105,
-    gapMaxHeight: 0.13,
     gapWidthScale: 0.6,
   },
   flowers: {

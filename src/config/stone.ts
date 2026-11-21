@@ -18,5 +18,4 @@ export const stoneConfig = {
   },
   fountain: { copingHeight: 0.14, jointWidth: 0.032, bevel: 0.024, chippedSegments: [1, 5], chipSize: 0.1 },
   wall: { bodyBlocks: 3, capBlocks: 2 },
-  path: { bevel: 0.014, cornerCut: 0.045, chippedSlabs: [1, 4, 6], chipSize: 0.065 },
 } as const;

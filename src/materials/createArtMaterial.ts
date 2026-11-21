@@ -169,6 +169,9 @@ export function createArtMaterial(surface: ArtSurface, environment?: Environment
         vec3 shadedStone = mix(coolFace, litStone, 0.12 * fillAmount);
         outgoingLight = mix(shadedStone, litStone, getShadowMask());
         outgoingLight *= 1.0 + vArtStoneTint * uArtStoneVariation;
+        #ifdef USE_COLOR
+          outgoingLight *= diffuseColor.rgb;
+        #endif
       `,
       water: /* glsl */`
         outgoingLight = mix(uArtWaterShade, uArtWater, getShadowMask());

@@ -2,9 +2,9 @@
 
 从清新的像素庭院出发，用滚轮沿三根石柱阅读个人介绍、AI 影像和 Coding 作品。中央的 708 粒子水球会起伏，水纹沿球面流动，水珠落入池面时推开涟漪。庭院还有移动云影、三只飞鸟与可随时接管的自动导览。小屏、短横屏、放大文字或减少动态时，使用同一份正文的稳定阅读。
 
-当前成品版本为 **particle-orb-step7-99634b67a4c3f8f7**。普通首页直接显示完整的粒子水球。窄屏从「水潭」进入庭院现场可看近景，`?orb=lively` 可以回看改版前的水球。
+当前成品版本为 **sakan-paving-final-bbc12628**。庭院右侧有八块错落的踏石、四处实体青苔和五簇缝间短草。普通首页直接显示粒子水球，窄屏从「水潭」可进入庭院现场，`?orb=lively` 可以回看改版前的水球。
 
-[当前成品验收](docs/particle-orb/step-7-final-acceptance.md) · [原网页功能对照](docs/experiment-inline/step-6-parity.md) · [工具卡改版验收](docs/card-refinement/step-7-acceptance.md) · [备用启动与排障](docs/startup-fallback.md)
+[当前成品验收](docs/paving/step-6-final-acceptance.md) · [踏石改造前后对照](docs/paving/evidence/step-6/before-after.png) · [原网页功能对照](docs/experiment-inline/step-6-parity.md) · [工具卡改版验收](docs/card-refinement/step-7-acceptance.md) · [备用启动与排障](docs/startup-fallback.md)
 
 姓名张辰翰，化名 sakan（萨坎），现于枫叶互动制作 AI 动画，曾在游族网络。关于我不列场景为正式项目，也不展示奖项。AI 影像区仍明确标记「网页设计样片 / 非个人实际项目」；真实影片、职责与联系方式可在后续提供后替换。
 
@@ -12,7 +12,7 @@
 
 ## 下载当前成品
 
-完整解压成品包，安装 Node.js 后在 Windows 双击 `START-PREVIEW.cmd`。也可以在解压目录运行 `node scripts/preview-site.mjs --open`。[当前成品 ZIP](release/particle-orb-step7-99634b67a4c3f8f7-site.zip) · [SHA-256 校验值](release/particle-orb-step7-99634b67a4c3f8f7-SHA256SUMS)
+完整解压成品包，安装 Node.js 后在 Windows 双击 `START-PREVIEW.cmd`。也可以在解压目录运行 `node scripts/preview-site.mjs --open`。 [当前成品 ZIP](release/sakan-paving-final-bbc12628.zip) · [SHA-256 校验值](release/sakan-paving-final-bbc12628-SHA256SUMS)
 
 网站通过 **HTTP** 运行，不能直接双击 HTML。`127.0.0.1` / `localhost` 只能在启动服务的电脑访问；本地预览不等于公网发布。若要让别人使用网址访问，需要另行部署静态站点。
 
@@ -82,12 +82,13 @@ node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5174
 - 影像与交互作品资料：`src/tour/filmContent.ts`、`projectContent.ts`、`experimentContent.ts`。
 - 主站浏览与原网页测试位于 `tests/about-refresh-final/` 和 `tests/experiment-inline-step-7/`。[第七步验收记录](docs/experiment-inline/evidence/step-7/acceptance.json)
 
-粒子水球版从生产构建和独立解压目录验证了操作流程。窄屏采用 Chromium 触屏模拟。[构建清单](docs/particle-orb/evidence/step-7/build.json) · [验收与成品校验](docs/particle-orb/evidence/step-7/validation.json)
+踏石改造版从独立解压目录验证了滚轮运镜、画面切换和环境播放。窄屏采用 Chromium 触屏模拟。 [验收与成品校验](docs/paving/evidence/step-6/validation.json)
 
 ## 历史归档
 
 以下记录对应各阶段的历史构建。
 
+- **particle-orb-step7-99634b67a4c3f8f7** 的粒子水球版。 [当时的验收](docs/particle-orb/step-7-final-acceptance.md) · [历史成品](release/particle-orb-step7-99634b67a4c3f8f7-site.zip)
 - **experiment-inline-step7-4901f6d5c2824013** 的两作品原位浏览版。[当时的整站验收](docs/experiment-inline/step-7-acceptance.md) · [历史成品](release/experiment-inline-step7-4901f6d5c2824013-site.zip)
 - **about-refresh-step14-6341623c81b6b265** 的关于我改版。[运行指南](docs/about-refresh/run-guide.md) · [维护说明](docs/about-refresh/maintenance.md) · [第十四步验收](docs/about-refresh/step-14-verification.md) · [当时的成品](release/about-refresh-step14-6341623c81b6b265-r3-site.zip) · [当时的源码包](release/about-refresh-step14-6341623c81b6b265-r3-source.zip) · [保存说明](docs/github-about-refresh-handoff.md)
 - **bottle-ocean-step7-3b31ab385ebfc4cb**：此前三作品接入。[运行](docs/beach-bottle-boat/step-7-run-guide.md) · [验收](docs/beach-bottle-boat/step-7-verification.md) · [GitHub 保存说明](docs/github-bottle-ocean-handoff.md)。
