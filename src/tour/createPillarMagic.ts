@@ -1,4 +1,4 @@
-import { Box3, BufferAttribute, BufferGeometry, CanvasTexture, Color, LinearFilter, Mesh, PlaneGeometry, Points, Raycaster, ShaderMaterial, Vector3 } from 'three';
+import { Box3, BufferAttribute, BufferGeometry, CanvasTexture, Color, LinearFilter, Mesh, PlaneGeometry, Points, Raycaster, ShaderMaterial, Triangle, Vector3 } from 'three';
 import type { OrthographicCamera, Scene } from 'three';
 import type { RenderMode } from '../config/scene';
 import { readingStations } from './reading';
@@ -40,6 +40,46 @@ const fragment = `
   }`;
 const clamp = (x: number, a: number, b: number) => Math.max(a, Math.min(b, x));
 
+/** Fit the complete inscription to the stone's real, camera-facing plane. */
+function fitInscription(stone: Mesh, hit: Vector3) {
+  const positions = stone.geometry.getAttribute('position');
+  const normals = stone.geometry.getAttribute('normal');
+  const face = new Box3();
+  const triangles: Triangle[] = [];
+  for (let i = 0; i < positions.count; i += 3) {
+    if (normals.getZ(i) < .999) continue;
+    const a = new Vector3().fromBufferAttribute(positions, i);
+    const b = new Vector3().fromBufferAttribute(positions, i + 1);
+    const c = new Vector3().fromBufferAttribute(positions, i + 2);
+    triangles.push(new Triangle(a, b, c));
+    face.expandByPoint(a).expandByPoint(b).expandByPoint(c);
+  }
+  if (face.isEmpty()) return undefined;
+  const preferred = stone.worldToLocal(hit.clone());
+  const center = face.getCenter(new Vector3());
+  const point = new Vector3();
+  const weights = new Vector3();
+  function onFace(x: number, y: number) {
+    point.set(x, y, face.max.z);
+    return triangles.some(triangle => triangle.getBarycoord(point, weights) !== null
+      && Math.min(weights.x, weights.y, weights.z) >= -1e-7);
+  }
+
+  const { faceMargin: margin, sigilSize, surfaceOffset } = magicStyle;
+  const fullSize = Math.min(sigilSize, face.max.x - face.min.x - 2 * margin, face.max.y - face.min.y - 2 * margin);
+  for (let size = fullSize; size > 0; size -= .025) {
+    const radius = size / 2 + margin;
+    const x = clamp(preferred.x, face.min.x + radius, face.max.x - radius);
+    const y = clamp(preferred.y, face.min.y + radius, face.max.y - radius);
+    for (const [cx, cy] of [[x, y], [center.x, y], [x, center.y], [center.x, center.y]] as const) {
+      if (onFace(cx - radius, cy - radius) && onFace(cx + radius, cy - radius) &&
+          onFace(cx - radius, cy + radius) && onFace(cx + radius, cy + radius)) {
+        return { local: new Vector3(cx, cy, face.max.z + surfaceOffset), face, size };
+      }
+    }
+  }
+}
+
 /** World-attached inscriptions and one bounded point pool, owned by the prototype. */
 export function createPillarMagic(scene: Scene, chapter?: { column: string; number: string; stations: readonly { id: string }[]; poses: readonly TourPose[] }) {
   scene.updateMatrixWorld(true);
@@ -67,29 +107,27 @@ export function createPillarMagic(scene: Scene, chapter?: { column: string; numb
   const sigils: { mesh: Mesh<PlaneGeometry, ShaderMaterial>; anchor: Vector3; metadata: { station: string; stone: string; local: number[]; faceBounds: number[][]; size: number; offset: number } }[] = [];
   const ray = new Raycaster();
   const materials: ShaderMaterial[] = [];
+  const column = chapter?.column ?? 'columnUpperLeft';
+  const candidates: Mesh[] = [];
+  scene.getObjectByName(`${column}-shaft`)?.traverse(object => {
+    if (object instanceof Mesh && object.name.startsWith(`${column}-block-`)) candidates.push(object);
+  });
   try {
     for (const [i, station] of (chapter?.stations ?? readingStations).entries()) {
       const base = chapter ? chapter.poses[i]! : tourPoses[i === 0 ? 'A' : i === 1 ? 'A2' : 'A3'];
       const eye = new Vector3(...base.position), target = new Vector3(...base.target);
       ray.set(eye, target.clone().sub(eye).normalize());
-      const candidates: Mesh[] = [];
-      if (chapter) scene.getObjectByName(`${chapter.column}-shaft`)?.traverse((o) => { if (o instanceof Mesh && o.name.startsWith(`${chapter.column}-block-`)) candidates.push(o); });
-      const stone = chapter ? ray.intersectObjects(candidates, false)[0]?.object : scene.getObjectByName(`columnUpperLeft-block-${3 - i}`);
-      if (!(stone instanceof Mesh)) throw new Error('Missing inscription surface.');
-      stone.updateMatrixWorld(true);
-      const hit = ray.intersectObject(stone, false)[0];
-      if (!hit) throw new Error('Inscription ray misses stone.');
-      const local = stone.worldToLocal(hit.point.clone());
-      const box = new Box3().setFromBufferAttribute(stone.geometry.getAttribute('position') as BufferAttribute);
-      const margin = magicStyle.faceMargin + magicStyle.sigilSize / 2;
-      local.x = clamp(local.x, box.min.x + margin, box.max.x - margin);
-      local.y = clamp(local.y, box.min.y + margin, box.max.y - margin);
-      local.z = box.max.z + magicStyle.surfaceOffset;
+      const hit = ray.intersectObjects(candidates, false)[0];
+      if (!hit || !(hit.object instanceof Mesh)) throw new Error(`Missing inscription surface for ${station.id}.`);
+      const stone = hit.object;
+      const fit = fitInscription(stone, hit.point);
+      if (!fit) throw new Error(`Inscription does not fit ${stone.name}.`);
+      const { local, face, size } = fit;
       const material = new ShaderMaterial({ vertexShader: vertex, fragmentShader: fragment, transparent: true, depthTest: true, depthWrite: false, toneMapped: false, uniforms: uniforms(Math.min(i, 2), 0) });
       material.name = 'pillar-sigil-ink';materials.push(material);
-      const mesh = new Mesh(geometry, material);mesh.name = `pillar-sigil-${station.id}`;mesh.position.copy(local);mesh.castShadow = false;mesh.receiveShadow = false;stone.add(mesh);mesh.updateMatrixWorld(true);
+      const mesh = new Mesh(geometry, material);mesh.name = `pillar-sigil-${station.id}`;mesh.position.copy(local);mesh.scale.setScalar(size / magicStyle.sigilSize);mesh.castShadow = false;mesh.receiveShadow = false;stone.add(mesh);mesh.updateMatrixWorld(true);
       const anchor = mesh.localToWorld(new Vector3(0, (0.5 - 52 / 128) * magicStyle.sigilSize, 0));
-      const metadata = { station: station.id, stone: stone.name, local: local.toArray(), faceBounds: [box.min.toArray(), box.max.toArray()], size: magicStyle.sigilSize, offset: magicStyle.surfaceOffset };
+      const metadata = { station: station.id, stone: stone.name, local: local.toArray(), faceBounds: [face.min.toArray(), face.max.toArray()], size, offset: magicStyle.surfaceOffset };
       mesh.userData.inscription = metadata;sigils.push({ mesh, anchor, metadata });
     }
   } catch (error) {
@@ -115,7 +153,8 @@ export function createPillarMagic(scene: Scene, chapter?: { column: string; numb
     update(reading: MagicReadingFrame | undefined, camera: OrthographicCamera, time: number, reducedMotion: boolean, mode: RenderMode) {
       if (disposed) return;
       const state = sampleMagic(reading, reducedMotion);
-      const size = magicStyle.sigilSize / (camera.right - camera.left) * window.innerWidth;
+      const active = sigils.find((item) => item.metadata.station === reading?.station.id);
+      const size = (active?.metadata.size ?? magicStyle.sigilSize) / (camera.right - camera.left) * window.innerWidth;
       const lod = clamp((size - 16) / 12, 0, 1);
       for (const item of sigils) {
         const active = item.metadata.station === reading?.station.id;
@@ -124,13 +163,15 @@ export function createPillarMagic(scene: Scene, chapter?: { column: string; numb
         item.mesh.material.uniforms.uTrace!.value = active ? state.trace : 0;
         item.mesh.material.uniforms.uLod!.value = active ? lod * state.glyph : 0;
       }
-      const active = sigils.find((item) => item.metadata.station === reading?.station.id);
       const mobile = window.innerWidth <= 1000;
       const steady = mobile ? magicStyle.mobileReadCount : magicStyle.readCount;
       const pool = Math.min(capacity, mobile ? magicStyle.mobilePool : magicStyle.pool);
       dustGeometry.setDrawRange(0, pool);
       dust.visible = !!active && state.dust > .000001 && !reducedMotion;
-      if (active) { active.mesh.getWorldPosition(dust.position);active.mesh.getWorldQuaternion(dust.quaternion); }
+      if (active) {
+        active.mesh.getWorldPosition(dust.position);active.mesh.getWorldQuaternion(dust.quaternion);
+        dust.scale.setScalar(active.metadata.size / magicStyle.sigilSize);
+      }
       const uniforms = dustMaterial.uniforms;
       uniforms.uTime!.value = time;uniforms.uCount!.value = steady + (pool - steady) * state.burst;uniforms.uOpacity!.value = state.dust * .72;uniforms.uDisperse!.value = state.disperse;
       uniforms.uPointSize!.value = mode === 'pixel' ? 1.1 : 1.8 * Math.min(devicePixelRatio, 2);

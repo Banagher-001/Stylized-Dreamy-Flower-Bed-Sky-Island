@@ -4,7 +4,7 @@
 
 ## 只想先查看网页：使用成品包
 
-1. 下载当前成品包。在 GitHub 的文件页面可点击「Download raw／下载原始文件」。 [成品 ZIP](../release/sakan-paving-final-bbc12628.zip)
+1. 下载当前成品包。在 GitHub 的文件页面可点击「Download raw／下载原始文件」。 [成品 ZIP](../release/sakan-pool-final-8cbfe430.zip)
 2. 完整解压，进入同时包含 `index.html`、`SITE-PACKAGE.txt`、`assets`、`experiments` 和 `scripts` 的文件夹。不要在 ZIP 压缩包内部运行，也不要只取出 HTML。
 3. Windows 在该文件夹空白处右键，选择「在终端中打开」，执行：
 
@@ -63,4 +63,4 @@ npm.cmd run dev
 
 第一条只为本次安装指定镜像，不修改全局 npm 配置。安装成功后再执行第二条；如果仍失败，保留完整报错，使用成品预览方案。
 
-本地 `localhost` 或 `127.0.0.1` 地址供当前电脑预览。 [当前版本验收与校验值](paving/step-6-final-acceptance.md)
+本地 `localhost` 或 `127.0.0.1` 地址供当前电脑预览。 [当前版本验收](pool-detail/05-pool-acceptance.md) · [SHA-256 校验值](../release/sakan-pool-final-8cbfe430-SHA256SUMS)

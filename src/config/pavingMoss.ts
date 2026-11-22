@@ -1,7 +1,8 @@
 export type MossPoint = readonly [x: number, z: number];
+export type MossFace = 'top' | 'front' | 'right';
 
 interface MossLobe {
-  /** Outline and peak offsets in the stone's XZ plane. */
+  /** Outline and peak offsets along the surface of the stone. */
   outline: readonly MossPoint[];
   peak: MossPoint;
   rise: number;

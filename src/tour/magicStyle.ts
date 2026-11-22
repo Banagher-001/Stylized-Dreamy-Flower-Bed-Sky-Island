@@ -2,8 +2,7 @@ export interface MagicReadingFrame { station: { id: string }; progress: number; 
 
 /** Local to the reading prototype; the courtyard palette and lighting stay intact. */
 export const magicStyle = {
-  stone: { top: '#A4B398', side: '#405B55', shade: '#263E3A' },
-  joint: { top: '#354B41', side: '#253D35', shade: '#1B302D' },
+  joint: { top: '#536977', side: '#455D68', shade: '#2F4652' },
   ink: '#EDF4E6', title: '#FFF1CD', cool: '#C4DFDB', gold: '#DCCB9D', lilac: '#CDBFE4', etch: '#657B6C',
   veil: '#223B33', sigilSize: 0.54, surfaceOffset: 0.008, faceMargin: 0.05,
   pool: 24, mobilePool: 12, readCount: 8, mobileReadCount: 4,

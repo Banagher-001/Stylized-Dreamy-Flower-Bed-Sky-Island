@@ -7,6 +7,7 @@ export interface StoneGeometryOptions {
   bevel: number;
   cornerCut: number;
   seed: number;
+  tintStrength?: number;
   chipSize?: number;
   chipCorner?: number;
 }
@@ -61,12 +62,12 @@ function clip(faces: Polygon[], normal: Vector3, distance: number): Polygon[] {
 }
 
 /** Scalar tint is intentionally subtle; the shared art shader applies its strength. */
-export function applyStoneTint(geometry: BufferGeometry, seed: number): BufferGeometry {
+export function applyStoneTint(geometry: BufferGeometry, seed: number, strength = 1): BufferGeometry {
   const positions = geometry.getAttribute('position');
   const base = Math.sin(seed * 12.9898 + 0.73) * 0.65;
   const tint = new Float32Array(positions.count);
   for (let i = 0; i < positions.count; i++) {
-    tint[i] = base + Math.sin(positions.getX(i) * 1.6 + positions.getZ(i) * 2.3 + seed) * 0.25;
+    tint[i] = (base + Math.sin(positions.getX(i) * 1.6 + positions.getZ(i) * 2.3 + seed) * 0.25) * strength;
   }
   geometry.setAttribute('stoneTint', new Float32BufferAttribute(tint, 1));
   return geometry;
@@ -140,7 +141,7 @@ export function createStonePrismGeometry(outline: readonly Point2[], height: num
   const geometry = new BufferGeometry();
   geometry.setAttribute('position', new Float32BufferAttribute(vertices, 3));
   geometry.setAttribute('normal', new Float32BufferAttribute(normals, 3));
-  applyStoneTint(geometry, options.seed);
+  applyStoneTint(geometry, options.seed, options.tintStrength);
   geometry.computeBoundingBox();
   geometry.computeBoundingSphere();
   geometry.userData.stoneSolid = true;

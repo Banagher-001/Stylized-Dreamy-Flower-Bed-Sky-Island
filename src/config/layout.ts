@@ -19,13 +19,6 @@ export const layoutConfig = {
   columnShape: {
     baseWidth: 1.04,
     baseDepth: 1.08,
-    baseHeight: 0.18,
-    shaftWidth: 0.72,
-    shaftDepth: 0.78,
-    shaftHeight: 3.05,
-    capWidth: 1.02,
-    capDepth: 1.04,
-    capHeight: 0.24,
   },
   columns: [
     { name: 'columnUpperLeft', position: [-2.34, 0, -2.9] as const, rotationY: 0 },

@@ -1,6 +1,6 @@
-import { BufferGeometry, Color, Float32BufferAttribute, Ray, Vector3 } from 'three';
+import { BufferGeometry, Color, Float32BufferAttribute, Matrix4, Ray, Vector3 } from 'three';
 import { pavingMossColors } from '../config/pavingMoss';
-import type { MossPatch, MossPoint } from '../config/pavingMoss';
+import type { MossFace, MossPatch, MossPoint } from '../config/pavingMoss';
 import { applyStoneTint } from './createStoneBlockGeometry';
 
 const baseColor = new Color(pavingMossColors.base);
@@ -9,27 +9,35 @@ const edgeColor = new Color(pavingMossColors.edge);
 const embed = 0.002;
 
 /** Build closed moss lobes from the actual stone surface in its local coordinates. */
-export function createPavingMossGeometry(stone: BufferGeometry, patch: MossPatch) {
+export function createPavingMossGeometry(stone: BufferGeometry, patch: MossPatch, face: MossFace = 'top', probeStart?: number) {
   const stonePositions = stone.getAttribute('position');
   const stoneNormals = stone.getAttribute('normal');
   const [anchorX, anchorZ] = patch.anchor;
-  const ray = new Ray(new Vector3(), new Vector3(0, -1, 0));
+  const surfaceFrame = new Matrix4();
+  if (face === 'front') surfaceFrame.makeRotationX(Math.PI / 2);
+  if (face === 'right') surfaceFrame.makeRotationZ(-Math.PI / 2);
+  const direction = new Vector3(0, -1, 0).transformDirection(surfaceFrame);
+  const depthAxis = face === 'front' ? 'z' : face === 'right' ? 'x' : 'y';
+  const rayStart = probeStart ?? ((stone.boundingBox?.max[depthAxis] ?? 0) + 1);
+  const ray = new Ray(new Vector3(), direction);
   const a = new Vector3(), b = new Vector3(), c = new Vector3(), hit = new Vector3();
 
   function support([x, z]: MossPoint) {
-    ray.origin.set(anchorX + x, (stone.boundingBox?.max.y ?? 0) + 1, anchorZ + z);
+    ray.origin.set(anchorX + x, rayStart, anchorZ + z).applyMatrix4(surfaceFrame);
     let point: Vector3 | undefined;
-    let face = 0;
+    let triangleIndex = 0;
+    let nearest = Infinity;
     for (let i = 0; i < stonePositions.count; i += 3) {
       a.fromBufferAttribute(stonePositions, i);
       b.fromBufferAttribute(stonePositions, i + 1);
       c.fromBufferAttribute(stonePositions, i + 2);
-      if (ray.intersectTriangle(a, b, c, true, hit) && (!point || hit.y > point.y)) {
+      if (ray.intersectTriangle(a, b, c, true, hit) && hit.distanceToSquared(ray.origin) < nearest) {
+        nearest = hit.distanceToSquared(ray.origin);
         (point ??= new Vector3()).copy(hit);
-        face = i;
+        triangleIndex = i;
       }
     }
-    return point ? { point, normal: new Vector3().fromBufferAttribute(stoneNormals, face) } : undefined;
+    return point ? { point, normal: new Vector3().fromBufferAttribute(stoneNormals, triangleIndex) } : undefined;
   }
 
   const positions: number[] = [];
