@@ -109,7 +109,7 @@ const reader = createPillarReader(app, host, (id) => magic?.getAnchor(id), {
     animation.resetTimestamp();syncAnimation(animation.state);
   },
 });
-const filmReader = createFilmReader(app, host, (id) => filmMagic?.getAnchor(id), (media, trigger) => mediaViewer.open(media, trigger));
+const filmReader = createFilmReader(app, host, (id) => filmMagic?.getAnchor(id), (media, trigger) => mediaViewer.open(media, trigger), () => guide?.poke());
 const experimentReader = createExperimentReader(app, host, (id) => experimentMagic?.getAnchor(id), {
   projectChanged() { guide?.stop('已切换作品，可从当前位置继续导览。');readingLayout?.resize(); },
   sceneInput() { if (guide?.active) guide.stop('已交还场景操作，可从当前位置继续导览。'); },
@@ -214,6 +214,7 @@ function beginOverlay(owner: 'media' | 'project' | 'about') {
   document.documentElement.classList.toggle('tour-project-open', owner === 'project');
   host.dataset.overlayState = 'open';
   presentation.setCovered(true);
+  filmReader.setCovered(true);
   experimentReader.setCovered(true);
 }
 function closeOverlay(owner: 'media' | 'project' | 'about') {
@@ -221,6 +222,7 @@ function closeOverlay(owner: 'media' | 'project' | 'about') {
   overlayOwner = undefined;mediaOpen = false;delete host.dataset.projectId;
   document.documentElement.classList.remove('tour-media-open', 'tour-project-open');host.dataset.projectView = 'closed';host.dataset.overlayState = 'closed';
   presentation.setCovered(false);
+  filmReader.setCovered(false);
   experimentReader.setCovered(false);
   if (disposed) return;
   displayH = targetH = mediaProgress;
@@ -425,15 +427,15 @@ function restoreReadingH(h: number, y?: number) {
   if (!failed) { applyCamera();syncLoop();if (!animation.state.hidden && !offscreen()) view?.renderOnce(); }
 }
 function flowReaders(enabled: boolean, measuring = false) {
-  reader.setFlow(enabled, measuring);filmReader.setFlow(enabled);experimentReader.setFlow(enabled, measuring);
+  reader.setFlow(enabled, measuring);filmReader.setFlow(enabled, measuring);experimentReader.setFlow(enabled, measuring);
 }
 function measureReadingCapacity(): ReadingCapacity {
   if (failed || contextLost) return { fits: false, margin: 0, stations: [] };
   const main = app!.querySelector<HTMLElement>('main')!, wasStable = !!readingLayout?.stable;
   const beforeY = scrollY, rows: ReadingCapacity['stations'] = [];
   const activeElement = document.activeElement;
-  const projectFocus = activeElement instanceof HTMLElement && experimentReader.element.contains(activeElement) ? activeElement : undefined;
-  const sceneDocument = projectFocus instanceof HTMLIFrameElement ? projectFocus.contentDocument : null;
+  const readerFocus = activeElement instanceof HTMLElement && (experimentReader.element.contains(activeElement) || filmReader.element.contains(activeElement)) ? activeElement : undefined;
+  const sceneDocument = readerFocus instanceof HTMLIFrameElement ? readerFocus.contentDocument : null;
   const sceneControl = sceneDocument?.activeElement as HTMLElement | null | undefined;
   const aboutStation = reader.station;
   const aboutPresentation = main.dataset.aboutStation ?? '';
@@ -473,11 +475,11 @@ function measureReadingCapacity(): ReadingCapacity {
     else { presentation.update(current, animation.state.reducedMotion, !cameraMoving(), scrollRange - beforeY <= 1);flowReaders(false, true);reader.update(current.reading, world.camera, animation.state.reducedMotion, true);filmReader.update(current.filmReading, world.camera, animation.state.reducedMotion);experimentReader.update(current.experimentReading, world.camera, animation.state.reducedMotion, true); }
     if (Math.abs(scrollY - beforeY) > .5) scrollTo({ top: beforeY, behavior: 'instant' });
     // Measuring other stations briefly hides this one, which can blur its active control.
-    if (projectFocus?.getClientRects().length && !projectFocus.closest('[hidden],[inert],:disabled')
-      && getComputedStyle(projectFocus).visibility === 'visible') {
-      const insideCurrentScene = projectFocus instanceof HTMLIFrameElement && projectFocus.contentDocument === sceneDocument;
-      const control = insideCurrentScene && sceneControl?.isConnected && sceneControl !== sceneDocument?.body ? sceneControl : projectFocus;
-      if (document.activeElement !== projectFocus || control.ownerDocument.activeElement !== control) control.focus({ preventScroll: true });
+    if (readerFocus?.getClientRects().length && !readerFocus.closest('[hidden],[inert],:disabled')
+      && getComputedStyle(readerFocus).visibility === 'visible') {
+      const insideCurrentScene = readerFocus instanceof HTMLIFrameElement && readerFocus.contentDocument === sceneDocument;
+      const control = insideCurrentScene && sceneControl?.isConnected && sceneControl !== sceneDocument?.body ? sceneControl : readerFocus;
+      if (document.activeElement !== readerFocus || control.ownerDocument.activeElement !== control) control.focus({ preventScroll: true });
     }
   }
 }
@@ -535,6 +537,7 @@ function guideReady(stop: GuideStop) {
     : JSON.parse(stop.id.startsWith('B') ? host.dataset.filmPresentation! : host.dataset.experimentPresentation!) as { body: number; title: number; media?: number };
   if (frame.body < .999 || frame.title < .999 || 'media' in frame && frame.media! < .999) return unread;
   if (stop.id === 'A3' && !reader.entranceReady) return unread;
+  if (stop.id === 'B2' && !filmReader.galleryReady) return unread;
   if (stop.id === 'C2') {
     const scene = article.querySelector<HTMLElement>('.experiment-window-stage')?.dataset.sceneState;
     if (!scene || scene === 'prepared' || scene === 'loading') return unread;
@@ -542,7 +545,7 @@ function guideReady(stop: GuideStop) {
   }
   // Local decorative marks already have finite entrance preparation/fallback.
   // Tool names remain readable even if a mark fails; do not wait indefinitely.
-  const images = stop.id === 'A3' ? [] : [...article.querySelectorAll<HTMLImageElement>('img')];
+  const images = stop.id === 'A3' ? [] : stop.id === 'B2' ? [filmReader.galleryImage] : [...article.querySelectorAll<HTMLImageElement>('img')];
   for (const image of images) {
     if (!image.currentSrc || !image.complete) return unread;
     // Existing error placeholders remain usable; successful images must decode.

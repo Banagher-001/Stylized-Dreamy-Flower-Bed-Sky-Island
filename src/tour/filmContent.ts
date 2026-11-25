@@ -13,6 +13,12 @@ export interface ExhibitionWork {
 export const sampleLabel = '网页设计样片 / 非个人实际项目';
 export function workLabel(work: ExhibitionWork) { return work.provenance === 'design-sample' ? sampleLabel : '个人作品'; }
 
+export interface FilmSliceItem {
+  work: ExhibitionWork;
+  framedViews?: boolean;
+  originalSrc?: string;
+}
+
 /** Existing website-design concepts; no personal film or production credit supplied. */
 export const filmWorks: readonly ExhibitionWork[] = [
   {
@@ -23,6 +29,10 @@ export const filmWorks: readonly ExhibitionWork[] = [
     id: 'liquid-form', title: '流动标本', summary: '在金属与玻璃之间，观察悬浮的形态。', provenance: 'design-sample',
     image: { src: formImage, width: 1122, height: 1402, alt: '淡紫背景上，半透明玻璃与金属组成悬浮环结，下方为浅绿基座' },
   },
+];
+
+export const filmSliceWorks: readonly [FilmSliceItem, ...FilmSliceItem[]] = [
+  { work: filmWorks[0]!, framedViews: true },
 ];
 
 export const filmAvailability = {

@@ -233,10 +233,10 @@ export function createReadingLayout(app: HTMLElement, host: HTMLElement, panels:
   const fontObserver = new ResizeObserver(() => schedule());fontObserver.observe(probe);
   fontObserver.observe(viewportProbe);
   const contentObserver = new MutationObserver(mutations => {
-    // State messages, frames and archive contents do not affect immersive capacity.
+    // Scene and gallery state updates stay in their measured layout slots.
     if (mutations.some(({ target }) => {
       const element = target instanceof Element ? target : target.parentElement;
-      return !element?.closest('.experiment-window-stage, .experiment-archive-content');
+      return !element?.closest('.experiment-window-stage, .experiment-archive-content, .film-slice-media, .film-slice-count, .film-slice-meta, .film-slice-navigation');
     })) schedule();
   });
   for (const panel of panels) contentObserver.observe(panel, { childList: true, characterData: true, subtree: true });
